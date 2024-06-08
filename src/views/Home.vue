@@ -1,5 +1,5 @@
 <template>
-  <component v-for="sectionName in orderedSections" :is="componentMap[sectionName]" :data="data[sectionName]" />
+  <component v-for="sectionName in orderedSections" :is="componentMap[sectionName]" :ciao="data[sectionName]" />
 </template>
 
 <script setup>
