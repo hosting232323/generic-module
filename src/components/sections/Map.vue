@@ -1,24 +1,21 @@
 <template>
   <v-container>
-    <v-card elevation="20">
-      <v-container>
-        <h3 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Puoi venirci a conoscere qui'"/>
-        <div ref="mapContainer" style="width: 100%; height: 400px;" />
-        <div ref="popupContainer" class="ol-popup">
-          <v-icon icon="mdi-window-close" class="popup-close-btn" @click="closePopup"/>
-          <div ref="popupContent" class="d-flex flex-column align-start" >
-            <v-img :src="info.logo" width="80" height="auto" object-fit style="margin-bottom: 10px;"/>
-            <p style="font-size: 14px; font-weight: bold;" class="mb-1">{{ info.name }}</p>
-            <p style="font-size: 13px;" class="mb-1">{{ content.address }}</p>
-            <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.primaryColor }">
-              <v-icon icon="mdi-directions" :color="info.primaryColor" style="font-size: 16px;" class="mr-1"/>
-              Navigazione
-            </a>
-          </div>
-          <div class="ol-popup-arrow"></div>
+    <v-container>
+      <div ref="mapContainer" style="width: 100%; height: 400px;" />
+      <div ref="popupContainer" class="ol-popup">
+        <v-icon icon="mdi-window-close" class="popup-close-btn" @click="closePopup"/>
+        <div ref="popupContent" class="d-flex flex-column align-start" >
+          <v-img src="/logo.png" width="80" height="auto" object-fit style="margin-bottom: 10px;"/>
+          <p style="font-size: 14px; font-weight: bold;" class="mb-1">{{ info.name }}</p>
+          <p style="font-size: 13px;" class="mb-1" v-html="content.address"></p>
+          <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.primaryColor }">
+            <v-icon icon="mdi-directions" :color="info.primaryColor" style="font-size: 16px;" class="mr-1"/>
+            Navigazione
+          </a>
         </div>
-      </v-container>
-    </v-card>
+        <div class="ol-popup-arrow"></div>
+      </div>
+    </v-container>
   </v-container>
 </template>
 
@@ -61,7 +58,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKEND}/colorize-image?color=%23${info.primaryColor.substring(1)}`
+      src: 'image.png'
     })
   });
 
@@ -96,7 +93,7 @@ onMounted(async () => {
       duration: 250
     },
     positioning: 'bottom-center',
-    offset: [0, -235]
+    offset: [0, -275]
   });
 
   map.addOverlay(overlay);
@@ -139,7 +136,6 @@ function closePopup() {
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 14px;
-  text-align: center;
   user-select: none;
   z-index: 1000;
 }

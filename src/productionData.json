@@ -1,263 +1,104 @@
 {
-  "addOn": [
-    "Chatty",
-    "Menu"
-  ],
+  "info": {
+    "name": "Di Carne Show Room",
+    "logoMode": "logo",
+    "iva": "01245630726",
+    "primaryColor": "#2b4982",
+    "secondaryColor": "#FFFFFF",
+    "socialBubbles": [
+      {
+        "icon": "mdi-instagram",
+        "url": "https://www.instagram.com/dicarne_showroom"
+      }
+    ]
+  },
   "components": [
     {
+      "type": "gallery",
       "content": {
-        "button": "Vai al menu!",
-        "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
-        "orientationDesktop": "right",
-        "orientationMobile": "top",
-        "subtitle": "Tradizione e creatività in ogni fetta",
-        "title": "Esplora il nostro menu",
-        "url": "/menu"
-      },
-      "type": "dualSection"
+        "images": [
+          "gallery1.jpg",
+          "gallery2.png",
+          "gallery3.jpg"
+        ],
+        "type": "automatic"
+      }
     },
     {
-      "content": [
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
-      ],
-      "type": "gallery"
-    },
-    {
-      "content": [
-        {
-          "description": "Crea la tua pizza scegliendo gli ingredienti che preferisci. Da gustare calda e appena sfornata.",
-          "name": "Pizza Personalizzata"
-        },
-        {
-          "description": "Scopri una selezione dei nostri migliori piatti con il menu degustazione che include antipasti, pizze speciali e dolci fatti in casa.",
-          "name": "Menu Degustazione"
-        },
-        {
-          "description": "Organizza una festa o un evento speciale con il nostro servizio di pizza party a domicilio. Scegli le pizze da gustare comodamente a casa tua.",
-          "name": "Pizza Party a Domicilio"
-        }
-      ],
-      "menu": "Servizi",
-      "type": "services"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": [
-        {
-          "description": "Le nostre pizze vengono cotte in un forno a legna che garantisce una cottura perfetta e conferisce quel caratteristico sapore affumicato.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png",
-          "name": "Forno a Legna"
-        },
-        {
-          "description": "Il nostro staff è ben addestrato a garantire un servizio rapido e cordiale, creando un'atmosfera accogliente per i nostri clienti.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png",
-          "name": "Servizio Veloce e Accogliente"
-        }
-      ],
-      "menu": "Vantaggi",
-      "type": "advantages"
+      "type": "whoWeAre",
+      "menu": "Chi siamo"
     },
     {
       "type": "line"
     },
     {
       "content": {
-        "Address": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy",
-        "Phone": "+39 080 964 8969"
+        "brands": [
+          "/brand/Guess.jpg",
+          "/brand/Save the Duck.jpg",
+          "/brand/Guess Jeans.jpg",
+          "/brand/Deha.jpg",
+          "/brand/Guess Original.jpg",
+          "/brand/Ganesh Camiceria.jpg",
+          "/brand/Freaky Nation.jpeg"
+        ]
       },
+      "menu": "Brandlist",
+      "type": "brandlist"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "dualSection",
+      "menu": "Valori",
+      "content": {
+          "title": "Mission e Vision",
+          "description": "La nostra missione è costruire rapporti duraturi e di reciproca soddisfazione, tra il cliente e l’aziende mandante.<br>Consci della strada percorsa, siamo certi di poter affrontare le sfide che ci sottoporrà il futuro, sapendoci adattare alle richieste e alle innovazioni del mercato.",
+          "image": "/gallery/gallery1.png"
+        }
+    },
+    {
+      "type": "dualSection",
+      "content": {
+          "orientationDesktop": "left",
+          "orientationMobile": "bottom",
+          "title": "Capillarità e Presenza",
+          "description": "Il nostro patrimonio principale è rappresentato dalla possibilità di accesso presso il 95% dei punti vendita della nostra zona di riferimento, da quelli più rappresentativi, a quelli più commerciali.",
+          "image": "/dualSection/sud-italia.png"
+        }
+    },
+    {
+      "type": "dualSection",
+      "content": {
+          "title": "Impegno per la <span style='color: green'>Sostenibilità</span>",
+          "description": "Collaboriamo con marchi e fornitori etici, promuovendo materiali eco-friendly e processi produttivi responsabili.<br>Ci impegniamo a ridurre l'impatto ambientale e garantire trasparenza, offrendo prodotti di qualità che rispettano il pianeta.",
+          "image": "/dualSection/sostenibilita.png"
+        }
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "contacts",
       "menu": "Contatti",
-      "type": "contacts"
+      "content": {
+        "Address": "S.S. 100 Km.18 c/o \"il Baricentro\"<br>Lotto 5 Modulo n° 14-15<br>70010 Casamassima BA",
+        "Mail": "<b>Vendite</b><br>davidedicarne@gmail.com<br><b>Segreteria</b><br>marcello.dicarne@gmail.com",
+        "Phone": "+39 080 697 0900"
+      }
     },
     {
+      "type": "map",
       "content": {
         "title": "Puoi venirci a conoscere qui",
-        "address": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy",
+        "address": "S.S. 100 Km.18 c/o \"il Baricentro\"<br>Lotto 5 Modulo n° 14-15<br>70010 Casamassima BA",
         "coordinates": [
-          "16.5978131",
-          "41.2051935"
+          16.917119,
+          40.979592
         ],
-        "zoom": 10
-      },
-      "type": "map"
+        "zoom": 14
+      }
     }
-  ],
-  "info": {
-    "chattyId": "10",
-    "name": "Pizzeria - Molfetta",
-    "primaryColor": "#F26C4F",
-    "secondaryColor": "#FFD166"
-  },
-  "menu": [
-  {
-    "name": "Antipasti",
-    "icon": "mdi-food",
-    "image": "/menu/antipasti.jpg",
-    "items": [
-      {
-        "name": "Bruschette al Pomodoro",
-        "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Tagliere di Salumi",
-        "description": "Selezione di salumi italiani, accompagnati da focaccia",
-        "price": 12,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Mozzarella in Carrozza",
-        "description": "Mozzarella fritta con crosta dorata di pane",
-        "price": 7,
-        "allergens": ["glutine", "uova", "lattosio"]
-      },
-      {
-        "name": "Frittura Mista",
-        "description": "Verdure pastellate croccanti con salsa yogurt",
-        "price": 9,
-        "allergens": ["glutine", "uova", "lattosio"]
-      }
-    ]
-  },
-  {
-    "name": "Pizze classiche",
-    "icon": "mdi-pizza",
-    "image": "/menu/pizze_classiche.jpg",
-    "items": [
-      {
-        "name": "Margherita",
-        "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-        "image": "/menu/pizza_margherita.png",
-        "price": 7,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Marinara",
-        "description": "Pomodoro, aglio fresco, origano e olio EVO",
-        "image": "/menu/pizza_marinara.png",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Diavola",
-        "description": "Mozzarella, salame piccante, pomodoro",
-        "image": "/menu/pizza_diavola.png",
-        "price": 8,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Capricciosa",
-        "description": "Mozzarella, prosciutto, funghi, carciofi e olive",
-        "image": "/menu/pizza_capricciosa.png",
-        "price": 9,
-        "allergens": ["glutine", "lattosio"]
-      }
-    ]
-  },
-  {
-    "name": "Pizze Gourmet",
-    "icon": "mdi-star",
-    "image": "/menu/pizze_gourmet.jpg",
-    "items": [
-      {
-        "name": "Tartufo e Porcini",
-        "description": "Mozzarella, crema al tartufo nero, funghi porcini",
-        "price": 15,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Bufala e Pachino",
-        "description": "Mozzarella di bufala DOP, pomodorini Pachino, olio EVO",
-        "price": 13,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Speck e Brie",
-        "description": "Base bianca, speck dell'Alto Adige, brie fuso",
-        "price": 14,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Mortadella e Pistacchio",
-        "description": "Cremosa al pistacchio, mortadella IGP e granella di pistacchi",
-        "price": 16,
-        "allergens": ["glutine", "lattosio", "frutta_a_guscio"]
-      }
-    ]
-  },
-  {
-    "name": "Beverage",
-    "icon": "mdi-cup-water",
-    "image": "/menu/bevande.jpg",
-    "items": [
-      {
-        "name": "Acqua Naturale",
-        "description": "Bottiglia da 50cl",
-        "price": 1.5,
-        "allergens": []
-      },
-      {
-        "name": "Acqua Frizzante",
-        "description": "Bottiglia da 50cl",
-        "price": 1.5,
-        "allergens": []
-      },
-      {
-        "name": "Coca Cola",
-        "description": "Lattina da 33cl",
-        "price": 2.5,
-        "allergens": []
-      },
-      {
-        "name": "Fanta",
-        "description": "Lattina da 33cl",
-        "price": 2.5,
-        "allergens": []
-      },
-      {
-        "name": "Tè al Limone",
-        "description": "Bottiglietta fredda da 50cl",
-        "price": 3,
-        "allergens": []
-      }
-    ]
-  },
-  {
-    "name": "Birre artigianali",
-    "icon": "mdi-beer",
-    "image": "/menu/birre.jpg",
-    "items": [
-      {
-        "name": "IPA Artigianale",
-        "description": "India Pale Ale luppolata e agrumata, 6.5%",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Stout Nera",
-        "description": "Birra scura con note di caffè, 7%",
-        "price": 6.5,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Weiss",
-        "description": "Birra di frumento, dolce e leggermente fruttata",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Blonde Ale",
-        "description": "Birra chiara, leggera e rinfrescante",
-        "price": 5.5,
-        "allergens": ["glutine"]
-      }
-    ]
-  }
-]
-  
+  ]
 }

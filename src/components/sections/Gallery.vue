@@ -4,7 +4,8 @@
       <v-img :src="resolveImg(slide)" cover />
     </v-carousel-item>
   </v-carousel>
-  <v-carousel v-if="content.type === 'automatic'" :id="id" style="height: 96vh;" @click="resetTimer" v-model="selected" hide-delimiters>
+  <v-carousel v-if="content.type === 'automatic'" :id="id" :height="isMobile ? '100vh' : '96vh'" @click="resetTimer" v-model="selected" hide-delimiters>
+    <h1 class="logo" :style="{ fontSize: isMobile ? '20px' : '50px' }">DICARNESHOWROOM</h1>
     <v-carousel-item v-for="img in content.images" :src="resolveImg(img)" cover />
     <template #prev></template>
     <template #next></template>
@@ -97,5 +98,13 @@ onUnmounted(() => {
   border-radius: 50%;
   background-color: white;
   cursor: pointer;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  color: white;
 }
 </style>

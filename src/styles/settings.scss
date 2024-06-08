@@ -5,3 +5,31 @@ html {
 .margin_top__default {
   margin-top: 25px;
 }
+
+.v-card--variant-elevated {
+  box-shadow: none;
+}
+
+@font-face {
+  font-family: 'OpenSauceSans';
+  src: url('/woff2/OpenSauceSans-Regular.woff2') format('woff2'),
+       url('/woff/OpenSauceSans-Regular.woff') format('woff');
+  font-weight: 200;
+  font-style: oblique;
+}
+
+body {
+  font-family: 'OpenSauceSans';
+}
+
+.v-window__left, .v-window__right {
+  display: none !important;
+}
+
+.black{
+  color: black;
+}
+
+.desktop-menu {
+  padding-right: 20px;
+}
