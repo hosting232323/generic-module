@@ -12,6 +12,7 @@
   import Contacts from '@/components/Contacts';
   import Advantages from '@/components/Advantages';
   import DualSection from '@/components/DualSection';
+  import Line from '@/components/Line';
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
@@ -22,7 +23,8 @@
     'services': Services,
     'advantages': Advantages,
     'contacts': Contacts,
-    'dualSection': DualSection
+    'dualSection': DualSection,
+    'line': Line
   };
 
   const sections = data.value.components;
