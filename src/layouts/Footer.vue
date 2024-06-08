@@ -1,12 +1,23 @@
 <template>
   <v-footer elevation="2" :color="data.info.primaryColor">
-    <v-row no-gutters>
-      <v-col class="text-center mt-4" cols="12">
-        {{ new Date().getFullYear() }} —
-        <strong>{{ data.info.name }}</strong>
-        <div v-if="data.iva">P. IVA {{ data.iva }}</div>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row>
+        <v-col cols="6">
+          {{ new Date().getFullYear() }} —
+          <strong>{{ data.info.name }}</strong>
+          <div v-if="data.info.iva">P. IVA {{ data.info.iva }}</div>
+        </v-col>
+        <v-col cols="6" class="text-right">
+          <a href="/privacy-policy" class="footer-link" target="_blank">Privacy Policy</a>
+          <div>
+            Powered by 
+            <a href="https://site-web.replit.app" class="fast-site-link" target="_blank">
+              Fast-Site<v-icon right>mdi-web</v-icon>
+            </a>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-footer>
 </template>
 
@@ -17,3 +28,32 @@
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
 </script>
+
+<style scoped>
+  .footer-link {
+    margin-right: 20px;
+    color: #42b983;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+  }
+
+  .fast-site-link {
+    color: #42b983;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .fast-site-link:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+  }
+</style>
