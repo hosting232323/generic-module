@@ -68,8 +68,8 @@
     ) {
       http.postRequest('send-mail', {
         email: mail,
-        subject: `Qualcuno ho usato il form del sito ${data.value.name}`,
-        body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
+        subject: `Hey Vanni!! Qualcuno ho usato il form del sito ${data.name}`,
+        body: 'Ciao Bro, sono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
           `Nominativo: ${name.value}\n` +
           `Mail: ${email.value}\n\n` +
           `Testo:\n${body.value}`
