@@ -2,7 +2,7 @@
   <v-container>
     <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri vantaggi'"/>
     <v-card v-for="(advantage, index) in content.advantages" :key="index" class="margin_top__default" elevation="20" :class="{ 'carousel--mobile': isMobile }">
-      <div :class="['img-wrapper', { 'mobile-height': isMobile }]">
+      <div :class="['img-wrapper', { 'mobile-height': isMobile }]" v-if="advantage.image">
         <v-carousel v-if="Array.isArray(advantage.image)" show-arrows hide-delimiters :height="isMobile ? '400px' : '600px'">
           <v-carousel-item v-for="(img, imgIndex) in advantage.image" :key="imgIndex">
             <img :src="resolveImg(img)" class="img"/>

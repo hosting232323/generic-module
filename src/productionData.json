@@ -1,419 +1,112 @@
 {
-  "addOn": [
-    "Chatty",
-    "Menu",
-    "Shop",
-    "Booking"
-  ],
   "info": {
-    "chattyId": "10",
-    "name": "Pizzeria - Molfetta",
-    "primaryColor": "#F26C4F",
-    "secondaryColor": "#FFD166"
-  },
-  "store": {
-    "userId": 5,
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
-    ]
+    "menuHomeLink": false,
+    "name": "Colasanto Luigi",
+	  "iva": "05089680721",	
+    "primaryColor": "#D33F49",
+    "secondaryColor": "#F2E8C4"
   },
   "components": [
     {
+      "type": "gallery",
       "content": {
+        "type": "automatic",
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
-        ],
-        "type": "automatic"
-      },
-      "type": "gallery"
-    },
-    {
-      "content": {
-        "button": "Vai al menu!",
-        "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
-        "orientationDesktop": "right",
-        "orientationMobile": "top",
-        "subtitle": "Tradizione e creatività in ogni fetta",
-        "title": "Esplora il nostro menu",
-        "url": "/menu"
-      },
-      "type": "dualSection"
-    },
-    {
-      "content": {
-        "title": "Consulenza personalizzata",
-        "orientationTitle": "left",
-        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
-        "orientationDescription": "left"
-      },
-      "type": "text"
-    },
-    {
-      "content": {
-        "reviews": [
-          {
-            "descrizione":"Servizio impeccabile. Consigliatissimo!",
-            "stars": 5,
-            "name":"Anna"
-          },
-          {
-            "descrizione":"Esperienza molto positiva! Il team si è mostrato disponibile e competente in ogni fase del progetto. Grazie a loro sono riuscita a realizzare esattamente ciò che avevo in mente.",
-            "stars": 4,
-            "name":"Luca"
-          },
-          {
-            "descrizione":"Collaborare con questo team è stato entusiasmante sin dall'inizio. Hanno ascoltato con attenzione ogni mia esigenza e hanno trasformato le mie idee in soluzioni concrete e ben strutturate. La loro professionalità e l’attenzione ai dettagli hanno davvero fatto la differenza. Non potrei essere più soddisfatto del risultato finale.",
-            "stars": 3,
-            "name":"Chiara"
-          }
-        ],
-        "title": "Consulenza",
-        "orientationTitle": "left",
-        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
-        "orientationDescription": "left"
-      },
-      "type": "reviews"
-    },
-    {
-      "content": {
-        "title": "I servizi",
-        "services": [
-          {
-            "description": "Crea la tua pizza scegliendo gli ingredienti che preferisci. Da gustare calda e appena sfornata.",
-            "name": "Pizza Personalizzata"
-          },
-          {
-            "description": "Scopri una selezione dei nostri migliori piatti con il menu degustazione che include antipasti, pizze speciali e dolci fatti in casa.",
-            "name": "Menu Degustazione"
-          },
-          {
-            "description": "Organizza una festa o un evento speciale con il nostro servizio di pizza party a domicilio. Scegli le pizze da gustare comodamente a casa tua.",
-            "name": "Pizza Party a Domicilio"
-          }
+          "gallery1.jpeg",
+          "gallery2.jpeg",
+          "gallery3.jpeg"
         ]
-      },
-      "menu": "Servizi",
-      "type": "services"
+      }
+    },
+    {
+      "type": "iconText"
     },
     {
       "type": "line"
     },
     {
+      "type": "services",
+      "menu": "servizi",
+      "content": {
+        "services": [
+          {
+            "description": "Desideri goderti la qualità e il gusto dei nostri prodotti senza muoverti da casa? Con il nostro servizio di consegna a domicilio, puoi farlo facilmente! Scegli i tuoi tagli preferiti di carne bovina, suina, di agnello, polli, tacchini, salumi e formaggi stagionati direttamente dal comfort del tuo divano e lascia il resto a noi. Il nostro team dedicato si impegna a garantire che i tuoi prodotti arrivino freschi e pronti da gustare, senza alcuna complicazione. Sperimenta la comodità della consegna a domicilio e assicurati di avere sempre a portata di mano i migliori sapori della nostra macelleria.",
+            "name": "Consegna a Domicilio: Il Gusto Arriva Direttamente a Casa Tua"
+          },
+          {
+            "description": "Aiuto nella selezione di tagli speciali di carne e consigli sulla preparazione per risultati culinari eccellenti.",
+            "name": "Assistenza nella Scelta e Preparazione di Tagli Speciali"
+          }
+        ]
+      }
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "advantages",
+      "menu": "Vantaggi",
       "content": {
         "advantages": [
           {
-            "description": "Le nostre pizze vengono cotte in un forno a legna che garantisce una cottura perfetta e conferisce quel caratteristico sapore affumicato.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png",
-            "name": "Forno a Legna"
+            "description": "La nostra macelleria è molto più di un semplice punto vendita: è il risultato di una lunga storia di passione e dedizione familiare che ha inizio nel lontano 1960, quando mio padre aprì le porte per la prima volta.<br>Da allora, generazione dopo generazione, ci siamo impegnati a offrire solo il meglio della carne e dei salumi ai nostri clienti.<br>Dopo aver trascorso oltre 50 anni all'interno di queste mura, ho personalmente sperimentato ogni aspetto della macelleria, facendo la gavetta e apprendendo i segreti del mestiere con amore e dedizione.<br>Ogni pezzo di carne che trovi nei nostri scaffali porta con sé la nostra storia, la nostra esperienza e il nostro impegno per la qualità.<br><i>Grazie per averci scelto e per essere parte della nostra storia.</i>",
+            "image": "/advantages2.jpg",
+            "name": "Tradizione e Qualità dal 1960"
           },
           {
-            "description": "Il nostro staff è ben addestrato a garantire un servizio rapido e cordiale, creando un'atmosfera accogliente per i nostri clienti.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png",
-            "name": "Servizio Veloce e Accogliente"
+            "description": "Scopri la versatilità e la freschezza del nostro pollo e dei suoi tagli prelibati.<br>Dai succosi petti alle gustose cosce, dalle ali croccanti ai saporiti preparati, il nostro pollo è sempre una scelta vincente per ogni occasione culinaria.<br>Preparato con cura e attenzione, il nostro pollo garantisce una deliziosa esperienza di gusto ogni volta.<br>Approfitta ora del nostro servizio a domicilio e porta a casa la freschezza e la qualità del nostro pollo direttamente sulla tua tavola.",
+            "name": "Il Pollo: Un'Esperienza di Gusto Unici"
+          },
+          {
+            "description": "La nostra carne suina è un'ode al gusto e alla tradizione culinaria, offrendo una vasta gamma di tagli e preparati che soddisferanno ogni desiderio gastronomico.<br>Dai succulenti arrosti alle gustose salsicce, dalle tenere costolette alle aromatiche lonze, ogni pezzo di carne suina porta con sé un sapore unico e irresistibile.<br>Oltre ai tagli classici, offriamo una varietà di preparati artigianali, come salsicce fresche e stagionate, salumi tradizionali e specialità regionali, per portare a casa un pezzo di autentica tradizione culinaria.<br>Scopri la nostra selezione di carne suina e delizia il tuo palato con il meglio che la nostra macelleria ha da offrire.",
+            "image": "https://3.bp.blogspot.com/-50kFgy5HmMw/VDaeUxGG1WI/AAAAAAAAADs/936efZS6Nro/s1600/tagli%2Bsuino.jpg",
+            "name": "Delizie suine: Esplora il Mondo di Gusto della Nostra Carne Suina"
+          },
+          {
+            "description": "La nostra selezione di carne bovina è il fiore all'occhiello della nostra macelleria, rappresentando un'esperienza culinaria senza paragoni.<br>Proveniente da vitelli da latte di prima scelta, la nostra carne bovina è sinonimo di tenerezza, gusto e qualità superiore.<br>Dai pregiati tagli di filetto alle succulente bistecche di controfiletto, dalle gustose costine alle tenerissime scaloppine, ogni pezzo di carne bovina è selezionato e preparato con cura per garantire una soddisfazione culinaria senza precedenti.<br>Approfitta ora della nostra vasta selezione di tagli e preparati di carne bovina e scopri il vero significato di eccellenza gastronomica.",
+            "name": "Eccellenza Bovina: Gusto e Qualità Unici"
           }
         ]
-      },
-      "menu": "Vantaggi",
-      "type": "advantages"
+      }
     },
     {
       "type": "line"
     },
     {
-      "content": {
-        "Address": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy",
-        "Phone": "+39 080 964 8969"
-      },
+      "type": "contacts",
       "menu": "Contatti",
-      "type": "contacts"
+      "content": {
+        "contacts": [
+          {
+            "icon": "mdi-map-marker",
+            "title": "Piazza Principe di Napoli, 7<br>Molfetta 70056 BA"
+          },
+          {
+            "icon": "mdi-email",
+            "title": "macelleriacolasanto@libero.it"
+          },
+          {
+            "icon": "mdi-phone",
+            "title": "+39 080 397 4062"
+          },
+          {
+            "icon": "mdi-whatsapp",
+            "title": "+39 338 842 3405"
+          }
+        ]
+      }
     },
     {
+      "type": "map",
       "content": {
         "title": "Puoi venirci a conoscere qui",
-        "address": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy",
+        "address": "Piazza Principe di Napoli 7, Molfetta BA",
         "coordinates": [
-          "16.5978131",
-          "41.2051935"
+          16.598575,
+		      41.200482
         ],
-        "zoom": 10
-      },
-      "type": "map"
-    }
-  ],
-  "calendar": [
-    {
-      "id": 1,
-      "name": "Prenota un tavolo",
-      "type": "Weekly",
-      "enrichment": {
-        "slot": [
-          {
-            "start_time": "10:00",
-            "end_time": "11:00"
-          },
-          {
-            "start_time": "11:00",
-            "end_time": "12:00"
-          },
-          {
-            "start_time": "12:00",
-            "end_time": "13:00"
-          }
-        ]
-      },
-      "info": [
-        {
-          "start_time": "10:00",
-          "end_time": "23:00",
-          "start_day": "Tuesday"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Prenota un tavolo",
-      "type": "Weekly",
-      "enrichment": {
-        "slot": [
-          {
-            "start_time": "10:00",
-            "end_time": "11:00"
-          },
-          {
-            "start_time": "11:00",
-            "end_time": "12:00"
-          },
-          {
-            "start_time": "12:00",
-            "end_time": "13:00"
-          }
-        ]
-      },
-      "info": [
-        {
-          "start_time": "10:00",
-          "end_time": "23:00",
-          "start_day": "Wednesday"
-        }
-      ]
-    }
-  ],
-  "menu": [
-    {
-      "name": "Antipasti",
-      "icon": "mdi-food",
-      "image": "/menu/antipasti.jpg",
-      "items": [
-        {
-          "name": "Bruschette al Pomodoro",
-          "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Tagliere di Salumi",
-          "description": "Selezione di salumi italiani, accompagnati da focaccia",
-          "price": 12,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Mozzarella in Carrozza",
-          "description": "Mozzarella fritta con crosta dorata di pane",
-          "price": 7,
-          "allergens": [
-            "glutine",
-            "uova",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Frittura Mista",
-          "description": "Verdure pastellate croccanti con salsa yogurt",
-          "price": 9,
-          "allergens": [
-            "glutine",
-            "uova",
-            "lattosio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Pizze classiche",
-      "icon": "mdi-pizza",
-      "image": "/menu/pizze_classiche.jpg",
-      "items": [
-        {
-          "name": "Margherita",
-          "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-          "image": "/menu/pizza_margherita.png",
-          "price": 7,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Marinara",
-          "description": "Pomodoro, aglio fresco, origano e olio EVO",
-          "image": "/menu/pizza_marinara.png",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Diavola",
-          "description": "Mozzarella, salame piccante, pomodoro",
-          "image": "/menu/pizza_diavola.png",
-          "price": 8,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Capricciosa",
-          "description": "Mozzarella, prosciutto, funghi, carciofi e olive",
-          "image": "/menu/pizza_capricciosa.png",
-          "price": 9,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Pizze Gourmet",
-      "icon": "mdi-star",
-      "image": "/menu/pizze_gourmet.jpg",
-      "items": [
-        {
-          "name": "Tartufo e Porcini",
-          "description": "Mozzarella, crema al tartufo nero, funghi porcini",
-          "price": 15,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Bufala e Pachino",
-          "description": "Mozzarella di bufala DOP, pomodorini Pachino, olio EVO",
-          "price": 13,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Speck e Brie",
-          "description": "Base bianca, speck dell'Alto Adige, brie fuso",
-          "price": 14,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Mortadella e Pistacchio",
-          "description": "Cremosa al pistacchio, mortadella IGP e granella di pistacchi",
-          "price": 16,
-          "allergens": [
-            "glutine",
-            "lattosio",
-            "frutta_a_guscio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Beverage",
-      "icon": "mdi-cup-water",
-      "image": "/menu/bevande.jpg",
-      "items": [
-        {
-          "name": "Acqua Naturale",
-          "description": "Bottiglia da 50cl",
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": "Acqua Frizzante",
-          "description": "Bottiglia da 50cl",
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": "Coca Cola",
-          "description": "Lattina da 33cl",
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": "Fanta",
-          "description": "Lattina da 33cl",
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": "Tè al Limone",
-          "description": "Bottiglietta fredda da 50cl",
-          "price": 3,
-          "allergens": []
-        }
-      ]
-    },
-    {
-      "name": "Birre artigianali",
-      "icon": "mdi-beer",
-      "image": "/menu/birre.jpg",
-      "items": [
-        {
-          "name": "IPA Artigianale",
-          "description": "India Pale Ale luppolata e agrumata, 6.5%",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Stout Nera",
-          "description": "Birra scura con note di caffè, 7%",
-          "price": 6.5,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Weiss",
-          "description": "Birra di frumento, dolce e leggermente fruttata",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Blonde Ale",
-          "description": "Birra chiara, leggera e rinfrescante",
-          "price": 5.5,
-          "allergens": [
-            "glutine"
-          ]
-        }
-      ]
+        "zoom": 15
+      }
     }
   ]
 }
