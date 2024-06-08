@@ -61,7 +61,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKEND}/colorize-image?color=%23${info.primaryColor.substring(1)}`
+      src: 'image.png'
     })
   });
 
@@ -96,7 +96,7 @@ onMounted(async () => {
       duration: 250
     },
     positioning: 'bottom-center',
-    offset: [0, -235]
+    offset: [0, -155]
   });
 
   map.addOverlay(overlay);
