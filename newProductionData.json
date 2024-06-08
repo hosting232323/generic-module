@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Sito vetrina",
+    "primaryColor": "#3F51B5",
+    "secondaryColor": "#E5BE01"
+  },
+  "components": [
+    {
+      "type": "dualSection",
+      "content": {
+        "orientation": "right",
+        "title": "Lorem ipsum dolor sit.",
+        "subtitle": "Lorem, ipsum dolor.",
+        "descripti on": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
+        "button": "Cliccami",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png"
+      }
+    },
+    {
+      "type": "gallery",
+      "content": [
+        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
+        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
+      ]
+    },
+    {
+      "type": "advantages",
+      "content": [
+        {
+          "description": "Creiamo siti web su misura per ogni cliente, tenendo conto delle loro esigenze specifiche e del loro brand.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages0.png",
+          "name": "Personalizzazione dei Siti Web"
+        },
+        {
+          "description": "Seguiamo metodologie agili per garantire un processo di sviluppo efficiente e flessibile, rispondendo prontamente alle necessità dei clienti.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages1.png",
+          "name": "Pianificazione e Sviluppo Agili"
+        },
+        {
+          "description": "Realizziamo siti web con design responsive per una fruizione ottimale su tutti i dispositivi, assicurando un'esperienza utente positiva.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages2.png",
+          "name": "Design Responsivo e User-Friendly"
+        },
+        {
+          "description": "Poniamo una grande attenzione alla sicurezza dei siti web che sviluppiamo, garantendo protezione dai rischi informatici e una performance affidabile.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
+          "name": "Sicurezza e Affidabilità"
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "content": {
+        "Address": "Indirizzo",
+        "Phone": "Telefono"
+      }
+    },
+    {
+      "type": "map",
+      "content": {
+        "coordinates": [
+          16.874,
+          41.128
+        ],
+        "zoom": 15
+      }
+    },
+    {
+      "type": "services",
+      "content": [
+        {
+          "description": "Realizzazione di un sito web personalizzato per mostrare i tuoi progetti e portfolio in modo professionale e accattivante.",
+          "name": "Sito Web Portafoglio"
+        },
+        {
+          "description": "Creazione di un negozio online su misura per le tue esigenze, con design unico e funzionalità avanzate di vendita online.",
+          "name": "E-commerce su Misura"
+        },
+        {
+          "description": "Miglioramento della visibilità del tuo sito web sui motori di ricerca attraverso strategie di ottimizzazione SEO personalizzate.",
+          "name": "Ottimizzazione SEO"
+        },
+        {
+          "description": "Adattamento del tuo sito web per una perfetta visualizzazione su tutti i dispositivi, garantendo un'esperienza utente ottimale.",
+          "name": "Sito Web Responsive"
+        },
+        {
+          "description": "Implementazione di un chatbot sul tuo sito web per automatizzare l'assistenza clienti e migliorare l'interazione con i visitatori.",
+          "name": "Integrazione di Chatbot"
+        }
+      ]
+    }
+  ]
+}
