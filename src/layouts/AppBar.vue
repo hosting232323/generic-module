@@ -1,43 +1,10 @@
 <template class="app-bar">
-  <v-navigation-drawer v-model="drawer" location="bottom" temporary touchless>
-    <v-list>
-      <v-list-item v-for="item in items" :key="item.path">
-        <div @click="link(item)">
-          {{ item.title }}
-        </div>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
-  
-  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-    <v-app-bar-title>
-      <div class="d-flex align-center">
-        <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
-      </div>
-    </v-app-bar-title>
-    <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
-    <Language v-if="multilingualActive" />
-  </v-app-bar>
-
-  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
-    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
-    <v-app-bar-title>
-      <div class="d-flex align-center">
-        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
-      </div>
-    </v-app-bar-title>
-
+  <v-app-bar v-if="!isMobile" :elevation="2" :color="data.info.primaryColor">
     <div class="desktop-menu d-flex justify-center align-center" >
-      <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
+      <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)" style="font-size: 12px;">
         {{ item.title }}
       </v-btn>
-      <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
-      <Language v-if="multilingualActive" />
     </div>
-
   </v-app-bar>
 </template>
 
@@ -112,9 +79,12 @@ const getCartQuantity = computed(() => {
 });
 </script>
 
-<style scoped>
+<style>
 .app-logo {
   height: 40px;
   max-width: 150px;
+}
+.v-toolbar__content {
+  justify-content: center !important;
 }
 </style>

@@ -1,12 +1,6 @@
 <template>
   <v-container>
-    <v-slide-group show-arrows>
-      <template #prev>
-          <v-icon>mdi-chevron-left</v-icon>
-      </template>
-      <template #next>
-          <v-icon>mdi-chevron-right</v-icon>
-      </template>
+    <v-slide-group :show-arrows="!isMobile">
       <v-slide-group-item v-for="(brand, index) in content.brands" :key="index">
         <v-card
           :height="isMobile ? 150 : 300"

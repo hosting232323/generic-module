@@ -5,6 +5,7 @@
     :id="getAncor(section.menu) ? getAncor(section.menu).toLowerCase() : null"
     :content="section.content"
     :info="info"
+    v-slide-in
   />
 </template>
 
@@ -24,6 +25,7 @@ import Contacts from '@/components/sections/Contacts';
 import BrandList from '@/components/sections/BrandList';
 import Advantages from '@/components/sections/Advantages';
 import DualSection from '@/components/sections/DualSection';
+import WhoWeAre from '@/components/sections/WhoWeAre';
 
 const { getAncor } = useLanguageStore();
 const dataStore = useDataStore();
@@ -36,6 +38,7 @@ const componentMap = {
   gallery: Gallery,
   services: Services,
   contacts: Contacts,
+	whoWeAre: WhoWeAre,
   brandlist: BrandList,
   advantages: Advantages,
   dualSection: DualSection
@@ -55,7 +58,7 @@ const sections = computed(() => {
 
 
 useHead({
-  title: 'FastSite',
+  title: 'Di Carne Show Room',
   meta: [
     { name: 'FastSite', content: 'This is the home page' }
   ]

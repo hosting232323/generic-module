@@ -1,74 +1,32 @@
 <template>
   <v-container>
-    <v-card elevation="20">
-      <v-container>
-        <h2 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri contatti'"/>
-        <v-list>
-          <v-list-item height="20" v-for="contact in content.contacts" :key="contact">
-            <template v-slot:prepend>
-              <v-icon :icon="contact.icon" :color="info.primaryColor" />
-            </template>
-            <v-list-item-title class="contact__text">
-              <a :href="contact.url" target="_blank" style="text-decoration: none; color: inherit;" v-html="getText(contact.title)"/>
-            </v-list-item-title>
-          </v-list-item>
-        </v-list><br>
-        <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
-        <br><b v-html="getText(content.subtitle) || 'Contattaci direttamente con questo form'"/>
-        <br><br>
-        <v-form fast-fail @submit.prevent="sendMail">
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="name" :rules="validation.requiredRules" variant="outlined" label="Name" />
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="email" :rules="validation.emailRules" variant="outlined" label="Email" />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" md="12">
-              <v-textarea label="Body" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
-            </v-col>
-          </v-row><br>
-          <v-btn block text="Send" type="submit" :color="info.primaryColor" />
-        </v-form>
-      </v-container>
-    </v-card>
+    <h1 :style="{ color: info.primaryColor }">
+      I nostri contatti
+    </h1>
+    <v-list>
+      <v-list-item height="20" v-for="contact_type in getContactTypes(content)" style="height: auto;" >
+        <template v-slot:prepend>
+          <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="info.primaryColor" />
+        </template>
+        <v-list-item-title v-html="content[contact_type]" class="contact__text" />
+      </v-list-item>
+    </v-list><br>
+    <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
   </v-container>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import http from '@/utils/http';
-import validation from '@/utils/validation';
-import { useLanguageStore } from '@/stores/language';
+  const { content, info } = defineProps(['content', 'info']);
 
-const mail = import.meta.env.VITE_FORM_MAIL;
-const { content, info } = defineProps(['content', 'info']);
-const { getText } = useLanguageStore();
+  const CONTACT_ICON_MAP = {
+    Phone: 'mdi-phone',
+    Address: 'mdi-map-marker',
+    Mail: 'mdi-email'
+  };
 
-const name = ref('');
-const body = ref('');
-const email = ref('');
-
-const sendMail = () => {
-  if (
-    !validation.validateInput(email.value, validation.emailRules) &&
-    !validation.validateInput(name.value, validation.requiredRules) &&
-    !validation.validateInput(body.value, validation.requiredRules)
-  ) {
-    http.postRequest('send-email', {
-      email: mail,
-      subject: `Qualcuno ho usato il form del sito ${info.name}`,
-      body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
-        `Nominativo: ${name.value}\n` +
-        `Mail: ${email.value}\n\n` +
-        `Testo:\n${body.value}`
-    }, function () {
-      alert("Mail inviata\nTi ringraziamo per il contatto");
-    });
-  }
-};
+  const getContactTypes = (contacts) => {
+    return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
+  };
 </script>
 
 <style scoped>
