@@ -1,110 +1,115 @@
 {
-  "addOn": [
-    "Chatty",
-    "VirtualTour"
-  ],
+  "info": {
+    "menuHomeLink": false,
+    "name": "La Dimora dell'Angelo",
+    "primaryColor": "#072A1B",
+    "secondaryColor": "#FFFFFF"
+  },
   "components": [
+    
     {
+      "type": "gallery",
       "content": [
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png"
-      ],
-      "menu": "Galleria",
-      "type": "gallery"
+        "/gallery/gallery1.jpg",
+        "/gallery/gallery2.jpeg",
+        "/gallery/gallery3.jpeg",
+        "/gallery/gallery4.jpeg",
+        "/gallery/gallery5.jpeg",
+        "/gallery/gallery6.jpeg"
+      ]
     },
     {
-      "content": [
-        {
-          "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-          "name": "Design Personalizzato"
-        },
-        {
-          "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-          "name": "SEO Ottimizzato"
-        },
-        {
-          "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-          "name": "Responsive Design"
-        },
-        {
-          "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
-          "name": "Velocità di Caricamento Ottimale"
-        }
-      ],
-      "menu": "Vantaggi",
-      "type": "advantages"
+      "type": "whoAmI",
+      "menu": "Chi Sono"
     },
     {
       "type": "line"
     },
     {
-      "content": [
-        {
-          "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-          "name": "Sito Web Vetrina"
-        },
-        {
-          "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-          "name": "Sito Web E-commerce"
-        },
-        {
-          "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-          "name": "Ottimizzazione SEO"
-        },
-        {
-          "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-          "name": "Gestione Contenuti"
-        },
-        {
-          "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-          "name": "Sviluppo Web Personalizzato"
-        }
-      ],
+      "type": "services",
       "menu": "Servizi",
-      "type": "services"
+      "content": [
+        {
+          "name": "Connessione WiFi Gratuita",
+          "description": "Resta connesso con il mondo esterno grazie alla nostra connessione WiFi gratuita, disponibile in tutta la struttura.<br>Che tu stia pianificando le tue giornate di avventura o condividendo i momenti più preziosi con i tuoi cari, sarai sempre a un clic di distanza dalla connessione."
+        },
+        {
+          "name": "Camere Familiari",
+          "description": "Abbiamo pensato a tutto per garantire un soggiorno confortevole per te e la tua famiglia.<br>Le nostre camere spaziose e non fumatori sono ideali per chi desidera trascorrere momenti preziosi in un ambiente sicuro e accogliente, lontano dal caos della città."
+        },
+        {
+          "name": "Aria Condizionata e Parcheggio",
+          "description": "Goditi il massimo comfort durante il tuo soggiorno grazie all'aria condizionata e al parcheggio pubblico nelle vicinanze, al primo arrivo sarà nostra premura assicurarti un parcheggio pubblico diretto<br>Concediti il lusso di un riposo tranquillo e ristoratore dopo una giornata piena di avventure."
+        },
+        {
+          "name": "Struttura Rinnovata",
+          "description": "Entra in un mondo di modernità e stile con la nostra struttura recentemente rinnovata.<br>Ogni angolo è stato progettato per offrirti il massimo comfort e l'eleganza senza tempo, per un soggiorno indimenticabile che rimarrà nel tuo cuore per sempre."
+        },
+        {
+          "name": "Politiche Flessibili",
+          "description": "Prenota con tranquillità grazie alle nostre politiche flessibili per cancellazioni e pagamenti.<br>Siamo qui per rendere il tuo viaggio senza stress e senza preoccupazioni, offrendoti la flessibilità di modificare i tuoi piani in qualsiasi momento."
+        },
+        {
+          "name": "Politiche per Bambini, Fumatori e Animali",
+          "description": "Accogliamo con piacere ospiti di età superiore ai 15 anni, garantendo un ambiente sicuro e accogliente per tutti.<br>Le nostre camere sono riservate esclusivamente a non fumatori, garantendo un'atmosfera pulita e salutare per te e i tuoi cari.<br>Purtroppo, gli animali non sono ammessi, ma ti assicuriamo che il nostro staff farà di tutto per rendere il tuo soggiorno il più confortevole possibile."
+        }
+      ]
     },
     {
       "type": "line"
     },
     {
-      "content": {
-        "button": "Cliccami!",
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-        "orientation": "right",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
-      },
-      "menu": "Sezione doppia",
-      "type": "dualSection"
+      "type": "advantages",
+      "menu": "Vantaggi",
+      "content": [
+        {
+          "name": "Scopri Molfetta",
+          "description": "Esplora il pittoresco porto e il centro storico unico di Molfetta, una gemma nel cuore della Puglia, delizia il palato con la cucina locale e goditi il clima perfetto.<br>Vicina a Trani e altre mete turistiche, Molfetta è il punto di partenza ideale per le tue avventure pugliesi.<br>Ti aspettiamo! ❤️",
+          "image": "/advantage5.png"
+        },
+        {
+          "name": "Esperienza Locale Autentica",
+          "description": "Immergiti nell'atmosfera vibrante della nostra comunità locale, con consigli esclusivi su cosa fare e vedere direttamente dagli abitanti del posto.<br>Vivrai un'esperienza unica e indimenticabile che ti farà sentire parte integrante della nostra cultura.",
+          "image": "/advantage1.jpeg"
+        },
+        {
+          "name": "Design Unico e Atmosfera Accogliente",
+          "description": "Entra in un mondo di eleganza e comfort, dove ogni dettaglio è stato curato con amore e attenzione per offrirti un'atmosfera avvolgente e raffinata.<br>Sentiti come a casa, ma con un tocco di lusso in più.",
+          "image": "/advantage2.jpg"
+        },
+        {
+          "name": "Offerte Esclusive e Pacchetti Personalizzati",
+          "description": "Regalati momenti preziosi con le nostre offerte esclusive e i pacchetti su misura, pensati per rendere il tuo soggiorno indimenticabile.<br>Dalle esperienze gastronomiche alle avventure culturali, c'è qualcosa di speciale per tutti.",
+          "image": "/advantage3.jpeg"
+        },
+        {
+          "name": "Comodità e Spazio",
+          "description": "Goditi il lusso dello spazio in un ambiente accogliente e climatizzato, dove il comfort è la nostra priorità.<br>Con la connessione WiFi gratuita, sarai sempre connesso con il mondo esterno, anche quando sei immerso nel tuo rifugio privato.",
+          "image": "/advantage4.jpeg"
+        }
+      ]
     },
     {
-      "content": {
-        "Email": "giovanni.colasanto@fastsite.it",
-        "Phone": "+39 347 876 8340"
-      },
+      "type": "line"
+    },
+    {
+      "type": "contacts",
       "menu": "Contatti",
-      "type": "contacts"
+      "content": {
+        "Address": "Via Amedeo, 66<br>70056 Molfetta BA Italy",
+        "Phone": "+39 351 328 5798",
+        "Email": "ladimoradellangelo@gmail.com"
+      }
     },
     {
+      "type": "map",
       "content": {
         "coordinates": [
-          16.882818,
-          41.09665
+          16.599849,
+          41.199464
         ],
-        "zoom": 9
-      },
-      "type": "map"
+        "zoom": 15
+      }
     }
-  ],
-  "info": {
-    "name": "FastSite",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C"
-  }
+  ]
 }

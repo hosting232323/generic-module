@@ -51,7 +51,10 @@
 
   const CONTACT_ICON_MAP = {
     Phone: 'mdi-phone',
-    Address: 'mdi-map-marker'
+    Address: 'mdi-map-marker',
+    Email: 'mdi-email',
+    Airbnb: 'mdi-web',
+    Website : 'mdi-web'
   };
 
   const getContactTypes = (contacts) => {
