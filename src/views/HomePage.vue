@@ -4,6 +4,7 @@
     v-for="(section, index) in sections"
     :id="section.type"
     :key="index"
+    v-slide-in
     :content="section.content"
     :info="info"
   />
@@ -32,18 +33,27 @@ import AdvantagesBusiness from '@/components/sections/advantages/AdvantagesBusin
 import AdvantagesCreative from '@/components/sections/advantages/AdvantagesCreative';
 import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcommerce';
 
+import WhoWeAreCustom from '@/components/customs/WhoWeAre';
+import MapViewerCustom from '@/components/customs/MapViewer';
+import BrandListCustom from '@/components/customs/BrandList';
+import DualSectionCustom from '@/components/customs/DualSection';
+import GallerySectionCustom from '@/components/customs/GallerySection';
+import ServicesSectionCustom from '@/components/customs/ServicesSection';
+import ContactsSectionCustom from '@/components/customs/ContactsSection';
+
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
 const componentMap = {
-  map: MapViewer,
+  map: MapViewerCustom,
   text: BaseText,
   line: LineDivider,
+  whoWeAre: WhoWeAreCustom,
   reviews: ReviewsSection,
-  gallery: GallerySection,
-  services: ServicesSection,
-  contacts: ContactsSection,
-  brandlist: BrandList,
+  gallery: GallerySectionCustom,
+  services: ServicesSectionCustom,
+  contacts: ContactsSectionCustom,
+  brandlist: BrandListCustom,
   advantages: {
     default: AdvantagesDefault,
     business: AdvantagesBusiness,
@@ -52,7 +62,7 @@ const componentMap = {
   },
   shopSummary: ShopSummary,
   blogSummary: BlogSummary,
-  dualSection: DualSection
+  dualSection: DualSectionCustom
 };
 
 const getComponent = (type, variant) => {
@@ -75,13 +85,6 @@ const sections = computed(() => {
     }
     return true;
   });
-});
-
-useHead({
-  title: 'FastSite',
-  meta: [
-    { name: 'FastSite', content: 'This is the home page' }
-  ]
 });
 
 const preloadedSections = ref([]);
@@ -135,5 +138,46 @@ onMounted(() => {
     preloadAboveFold(data.value.components);
     lazyLoadImages();
   }
+});
+
+useHead({
+  title: 'Di Carne Show Room',
+
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Di Carne Show Room è un punto di riferimento per la moda a Casamassima (Bari). Selezioniamo brand come Save the Duck, Trussardi, Seventy, Deha e altri marchi internazionali.'
+    },
+    {
+      name: 'keywords',
+      content:
+        'Di Carne Show Room, moda Puglia, showroom abbigliamento, Casamassima moda, Bari showroom, Save the Duck, Trussardi, Seventy 1970, Deha, Mauna Kea, fashion showroom, abbigliamento uomo donna'
+    },
+    { name: 'author', content: 'Di Carne Show Room' },
+    { name: 'robots', content: 'index, follow' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    { name: 'theme-color', content: '#2b4982' },
+
+    { property: 'og:title', content: 'Di Carne Show Room | Moda e Brand Selezionati in Puglia' },
+    {
+      property: 'og:description',
+      content:
+        'Showroom moda a Casamassima (Bari) con brand internazionali selezionati.'
+    },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://dicarneshowroom.it' },
+    { property: 'og:image', content: 'https://dicarneshowroom.it/logo.png' },
+    { property: 'og:locale', content: 'it_IT' },
+    { property: 'og:site_name', content: 'Di Carne Show Room' },
+
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Di Carne Show Room' },
+    {
+      name: 'twitter:description',
+      content: 'Showroom moda a Casamassima (Bari) con brand selezionati.'
+    },
+    { name: 'twitter:image', content: 'https://dicarneshowroom.it/logo.png' }
+  ]
 });
 </script>

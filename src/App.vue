@@ -1,4 +1,4 @@
-<template>
+<template style="font-family: OpenSauceSans;">
   <router-view />
 </template>
 
