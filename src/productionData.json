@@ -1,4 +1,17 @@
 {
+  "gallery": [
+    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
+    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
+  ],
+  "dualSection" : {
+    "orientation": "right",
+    "title": "Lorem ipsum dolor sit.",
+    "subtitle": "Lorem, ipsum dolor.",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
+    "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
+    "button": "Cliccami",
+    "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png"
+  },
   "advantages": [
     {
       "description": "Creiamo siti web su misura per ogni cliente, tenendo conto delle loro esigenze specifiche e del loro brand.",
@@ -25,13 +38,7 @@
     "Address": "Indirizzo",
     "Phone": "Telefono"
   },
-  "gallery": [
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
-  ],
-  "name": "Sito vetrina",
-  "primaryColor": "#3F51B5",
-  "secondaryColor": "#E5BE01",
+  
   "map": {
     "coordinates": [
       16.874,
@@ -60,5 +67,8 @@
       "description": "Implementazione di un chatbot sul tuo sito web per automatizzare l'assistenza clienti e migliorare l'interazione con i visitatori.",
       "name": "Integrazione di Chatbot"
     }
-  ]
+  ],
+  "name": "Sito vetrina",
+  "primaryColor": "#3F51B5",
+  "secondaryColor": "#E5BE01"
 }
