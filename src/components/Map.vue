@@ -1,11 +1,6 @@
 <template>
-  <v-container>
-    <v-card elevation="20" title="Puoi venirci a conoscere qui">
-      <v-container>
-        <div ref="mapContainer" style="width: 100%; height: 400px;" />
-      </v-container>
-    </v-card>
-  </v-container>
+  <br><b>Puoi venire a conoscerci qui</b><br><br>
+  <div ref="mapContainer" style="width: 100%; height: 400px;" />
 </template>
 
 <script setup>

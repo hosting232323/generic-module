@@ -1,64 +1,66 @@
 {
   "advantages": [
     {
-      "description": "Creiamo siti web su misura per ogni cliente, tenendo conto delle loro esigenze specifiche e del loro brand.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages0.png",
-      "name": "Personalizzazione dei Siti Web"
+      "description": "Offriamo una vasta gamma di marchi di alta moda e design unici, attirando clienti alla ricerca di esclusività e qualità.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Agenziadirappresentanzadicapidabbigliamentoeaccessoriadvantages0.png",
+      "name": "Selezione Curata di Marchi Esclusivi"
     },
     {
-      "description": "Seguiamo metodologie agili per garantire un processo di sviluppo efficiente e flessibile, rispondendo prontamente alle necessità dei clienti.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages1.png",
-      "name": "Pianificazione e Sviluppo Agili"
+      "description": "Sosteniamo designer emergenti offrendo loro una piattaforma per esporre le loro creazioni, attrarre clienti interessati alla moda innovativa.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Agenziadirappresentanzadicapidabbigliamentoeaccessoriadvantages1.png",
+      "name": "Collaborazioni con Fashion Designer Emergenti"
     },
     {
-      "description": "Realizziamo siti web con design responsive per una fruizione ottimale su tutti i dispositivi, assicurando un'esperienza utente positiva.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages2.png",
-      "name": "Design Responsivo e User-Friendly"
+      "description": "Forniamo un'esperienza di shopping personalizzata, dove i clienti possono ricevere consigli e suggerimenti per scegliere capi che si adattano al loro stile e alle loro esigenze.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Agenziadirappresentanzadicapidabbigliamentoeaccessoriadvantages2.png",
+      "name": "Servizio di Personal Shopping Personalizzato"
     },
     {
-      "description": "Poniamo una grande attenzione alla sicurezza dei siti web che sviluppiamo, garantendo protezione dai rischi informatici e una performance affidabile.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
-      "name": "Sicurezza e Affidabilità"
+      "description": "Organizziamo eventi esclusivi, sfilate di moda e presentazioni di nuove collezioni che attirano l'attenzione dei media e degli appassionati di moda.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Agenziadirappresentanzadicapidabbigliamentoeaccessoriadvantages3.png",
+      "name": "Eventi Esclusivi e Sfilate di Moda"
     }
   ],
   "contacts": {
-    "Address": "Indirizzo",
-    "Phone": "Telefono"
+    "Phone": "+39 080 697 0910",
+    "Address": "S.S. 100 Km.18 c/o \"il Baricentro\"<br>Lotto 5 Modulo n° 14-15<br>70010 Casamassima BA",
+    "Mail": "<b>Vendite:</b> davidedicarne@gmail.com<br><b>Segreteria:</b> marcello.dicarne@gmail.com"
   },
-  "gallery": [
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
-  ],
-  "name": "Sito vetrina",
-  "primaryColor": "#3F51B5",
-  "secondaryColor": "#E5BE01",
   "map": {
     "coordinates": [
-      16.874,
-      41.128
+      16.917119,
+      40.979592
     ],
-    "zoom": 15
+    "zoom": 14
   },
+  "gallery": [
+    "/gallery1.jpg",
+    "/gallery2.png",
+    "/gallery3.jpg"
+  ],
+  "name": "Di Carne Show Room",
+  "primaryColor": "#2b4982",
+  "secondaryColor": "#00000",
   "services": [
     {
-      "description": "Realizzazione di un sito web personalizzato per mostrare i tuoi progetti e portfolio in modo professionale e accattivante.",
-      "name": "Sito Web Portafoglio"
+      "description": "Offriamo servizi di rappresentazione per designer emergenti nel settore dell'abbigliamento e degli accessori. Aiutiamo a promuovere e far crescere il marchio sul mercato.",
+      "name": "Rappresentazione di Designer Emergenti"
     },
     {
-      "description": "Creazione di un negozio online su misura per le tue esigenze, con design unico e funzionalità avanzate di vendita online.",
-      "name": "E-commerce su Misura"
+      "description": "Creiamo e gestiamo showroom dedicati alla presentazione dei capi d'abbigliamento e accessori dei nostri clienti. Organizziamo eventi di esposizione per intercettare buyer e giornalisti.",
+      "name": "Gestione degli Showroom"
     },
     {
-      "description": "Miglioramento della visibilità del tuo sito web sui motori di ricerca attraverso strategie di ottimizzazione SEO personalizzate.",
-      "name": "Ottimizzazione SEO"
+      "description": "Supportiamo i designer nel processo di sviluppo e coordinamento delle collezioni, garantendo coerenza stilistica e aderenza alle tendenze di mercato.",
+      "name": "Sviluppo e Coordinamento delle Collezioni"
     },
     {
-      "description": "Adattamento del tuo sito web per una perfetta visualizzazione su tutti i dispositivi, garantendo un'esperienza utente ottimale.",
-      "name": "Sito Web Responsive"
+      "description": "Organizziamo eventi di lancio e presentazione per le nuove collezioni, gestendo l'aspetto logistico e comunicativo per massimizzare la visibilità del marchio.",
+      "name": "Pianificazione di Eventi di Lancio"
     },
     {
-      "description": "Implementazione di un chatbot sul tuo sito web per automatizzare l'assistenza clienti e migliorare l'interazione con i visitatori.",
-      "name": "Integrazione di Chatbot"
+      "description": "Curiamo i rapporti con i buyer e i rivenditori al dettaglio per garantire una distribuzione efficace dei prodotti. Negoziamo condizioni contrattuali vantaggiose per i nostri clienti.",
+      "name": "Gestione dei Rapporti con Buyer e Retailer"
     }
   ]
 }
