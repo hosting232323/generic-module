@@ -8,10 +8,10 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <v-app-bar :elevation="2" :color="data.primaryColor">
+  <v-app-bar :elevation="2" :color="data.info.primaryColor">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <v-app-bar-title><b>
-      {{ data.name }}
+      {{ data.info.name }}
     </b></v-app-bar-title>
     <div v-if="!isMobile" class="desktop-menu" v-for="item in items">
       <v-btn v-if="data[item.path]" variant="text" @click="link(item.path)">

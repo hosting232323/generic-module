@@ -1,9 +1,9 @@
 <template>
-  <v-footer elevation="2" :color="data.primaryColor">
+  <v-footer elevation="2" :color="data.info.primaryColor">
     <v-row no-gutters>
       <v-col class="text-center mt-4" cols="12">
         {{ new Date().getFullYear() }} —
-        <strong>{{ data.name }}</strong>
+        <strong>{{ data.info.name }}</strong>
         <div v-if="data.iva">P. IVA {{ data.iva }}</div>
       </v-col>
     </v-row>

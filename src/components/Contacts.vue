@@ -3,14 +3,14 @@
     <v-card elevation="20" title="I nostri contatti">
       <v-container>
         <v-list>
-          <v-list-item height="20" v-for="contact_type in getContactTypes(data.contacts)">
+          <v-list-item height="20" v-for="contact_type in getContactTypes(content)">
             <template v-slot:prepend>
-              <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="data.primaryColor" />
+              <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="info.primaryColor" />
             </template>
-            <v-list-item-title v-html="data.contacts[contact_type]" />
+            <v-list-item-title v-html="content[contact_type]" />
           </v-list-item>
         </v-list><br>
-        <hr :style="{ height: '5px', backgroundColor: data.primaryColor }" />
+        <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
         <br><b>
           Contattaci direttamente con questo form
         </b><br><br>
@@ -28,7 +28,7 @@
               <v-textarea label="Testo" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
             </v-col>
           </v-row><br>
-          <v-btn block text="Invia" type="submit" :color="data.primaryColor" />
+          <v-btn block text="Invia" type="submit" :color="info.primaryColor" />
         </v-form>
       </v-container>
     </v-card>
@@ -40,11 +40,7 @@
   import http from '@/utils/http';
   import validation from '@/utils/validation';
 
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+  const { content, info } = defineProps(['content', 'info']);
 
   const name = ref('');
   const body = ref('');
@@ -54,6 +50,7 @@
     Phone: 'mdi-phone',
     Address: 'mdi-map-marker'
   };
+
   const getContactTypes = (contacts) => {
     return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
   };
@@ -68,7 +65,7 @@
     ) {
       http.postRequest('send-mail', {
         email: mail,
-        subject: `Hey Vanni!! Qualcuno ho usato il form del sito ${data.name}`,
+        subject: `Hey Vanni!! Qualcuno ho usato il form del sito ${data.info.name}`,
         body: 'Ciao Bro, sono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
           `Nominativo: ${name.value}\n` +
           `Mail: ${email.value}\n\n` +

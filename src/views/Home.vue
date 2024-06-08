@@ -1,5 +1,5 @@
 <template>
-  <component v-for="sectionName in orderedSections" :is="componentMap[sectionName]" :ciao="data[sectionName]" />
+  <component v-for="section in sections" :is="componentMap[section.type]" :content="section.content" :info="info" />
 </template>
 
 <script setup>
@@ -25,6 +25,6 @@
     'dualSection': DualSection
   };
 
-  const orderedSections = Object.keys(data.value);
-
+  const sections = data.value.components;
+  const info = data.value.info;
 </script>
