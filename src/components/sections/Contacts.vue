@@ -3,7 +3,7 @@
     <v-card elevation="20" title="I nostri contatti">
       <v-container>
         <v-list>
-          <v-list-item height="20" v-for="contact_type in getContactTypes(content)">
+          <v-list-item height="20" v-for="contact_type in getContactTypes(content)" style="height: auto;">
             <template v-slot:prepend>
               <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="info.primaryColor" />
             </template>
@@ -49,7 +49,9 @@
 
   const CONTACT_ICON_MAP = {
     Phone: 'mdi-phone',
-    Address: 'mdi-map-marker'
+    Address: 'mdi-map-marker',
+    Mail: 'mdi-email',
+    Whatsapp: 'mdi-whatsapp'
   };
 
   const getContactTypes = (contacts) => {

@@ -28,23 +28,11 @@
   let map;
 
   onMounted(() => {
-    const iconFeature = new Feature({
-      geometry: new Point(fromLonLat(content.coordinates))
-    });
-
-    const iconStyle = new Style({
-      image: new Icon({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKED}/colorize-image?color=%23${info.primaryColor.substring(1)}`
-      })
-    });
-
-    iconFeature.setStyle(iconStyle);
-
     const vectorSource = new VectorSource({
-      features: [iconFeature]
+      features: [
+        getMarker(content.coordinates1),
+        getMarker(content.coordinates2)
+      ]
     });
 
     const vectorLayer = new VectorLayer({
@@ -60,10 +48,27 @@
         vectorLayer
       ],
       view: new View({
-        center: fromLonLat(content.coordinates),
+        center: fromLonLat(content.coordinates1),
         zoom: content.zoom
       })
     });
   });
-</script>
 
+  const getMarker = (coordinates) => {
+    const iconFeature = new Feature({
+      geometry: new Point(fromLonLat(coordinates))
+    });
+
+    const iconStyle = new Style({
+      image: new Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKED}/colorize-image?color=%23${info.primaryColor.substring(1)}`
+      })
+    });
+
+    iconFeature.setStyle(iconStyle);
+    return iconFeature;
+  };
+</script>
