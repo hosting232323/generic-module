@@ -51,7 +51,9 @@
 
   const CONTACT_ICON_MAP = {
     Phone: 'mdi-phone',
-    Address: 'mdi-map-marker'
+    Address: 'mdi-map-marker',
+    Mail: 'mdi-email',
+    Whatsapp: 'mdi-whatsapp'
   };
 
   const getContactTypes = (contacts) => {

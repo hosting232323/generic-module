@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 :style="{ color: info.primaryColor }">
-      I nostri servizi
+      Le nostre proposte per buffet di qualsiasi ricorrenza
     </h1>
     <v-expansion-panels multiple>
       <v-expansion-panel elevation="20" v-for="service in content" class="margin_top__default">

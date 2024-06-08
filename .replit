@@ -1,5 +1,4 @@
-run = "vite --host 0.0.0.0"
-entrypoint = "src/App.vue"
+run = "npm run dev"
 
 hidden = [".config", "tsconfig.json", "tsconfig.node.json", ".gitignore"]
 modules = ["nodejs-20:v8-20230920-bd784b9"]
@@ -32,9 +31,9 @@ pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
 start = "typescript-language-server --stdio"
 
 [deployment]
-deploymentTarget = "cloudrun"
-build = ["npm", "run", "build"]
-run = ["sh", "-c", "npm run serve"]
+deploymentTarget = "static"
+publicDir = "dist"
+build = ["sh", "-c", "npm run build"]
 
 [unitTest]
 language = "nodejs"

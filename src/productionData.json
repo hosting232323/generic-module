@@ -1,110 +1,101 @@
 {
-  "addOn": [
-    "Chatty",
-    "VirtualTour"
-  ],
+  "info": {
+    "menuHomeLink": false,
+    "name": "Il Forno",
+	  "iva": "06973470724",	
+    "primaryColor": "#B76E79",
+    "secondaryColor": "#FFE4E1"
+  },
   "components": [
     {
+      "type": "gallery",
       "content": [
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png"
-      ],
-      "menu": "Galleria",
-      "type": "gallery"
+        "/gallery1.jpeg",
+        "/gallery2.jpeg",
+		    "/gallery3.jpeg"
+      ]
     },
     {
+      "type": "services",
+      "menu": "servizi",
       "content": [
         {
-          "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-          "name": "Design Personalizzato"
+          "description": "Prezzo: € 50,00. Contenuto:<br>- 10 sandwich<br>- 15 cornetti<br>- 10 panzerottini<br>- 10 panini arabi<br>- 10 tramezzini<br>- 10 rustici<br>- 2 focacce",
+          "name": "Menu per 10 persone"
+        },
+            {
+          "description": "Prezzo: € 80,00. Contenuto:<br>- 15 sandwich<br>- 20 cornetti<br>- 15 panzerottini<br>- 15 panini arabi<br>- 15 tramezzini<br>- 15 rustici<br>- 2 focacce",
+          "name": "Menu per 15 persone"
         },
         {
-          "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-          "name": "SEO Ottimizzato"
+          "description": "Prezzo: € 95,00. Contenuto:<br>- 20 sandwich<br>- 20 cornetti<br>- 20 panzerottini<br>- 20 panini arabi<br>- 20 tramezzini<br>- 20 rustici<br>- 2 focacce",
+          "name": "Menu per 20 persone"
         },
         {
-          "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-          "name": "Responsive Design"
+          "description": "Prezzo: € 125,00. Contenuto:<br>- 25 sandwich<br>- 25 cornetti<br>- 25 panzerottini<br>- 25 panini arabi<br>- 25 tramezzini<br>- 25 rustici<br>- 2 focacce<br>- 3 francesine",
+          "name": "Menu per 25 persone"
         },
         {
-          "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
-          "name": "Velocità di Caricamento Ottimale"
+          "description": "Prezzo: € 165,00. Contenuto:<br>- 30 sandwich<br>- 30 cornetti<br>- 30 panzerottini<br>- 30 panini arabi<br>- 30 tramezzini<br>- 30 rustici<br>- 2 focacce<br>- 3 francesine",
+          "name": "Menu per 30 persone"
+        },
+        {
+          "description": "Prezzo: € 3,50. Contenuto:<br>- 1 sandwich<br>- 1 panzerottino<br>- 1 foccaccina<br>- 1 wurstel in camicia piccolo<br>- 1 crocchetta",
+          "name": "Menu Bambini"
         }
-      ],
+      ]
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "advantages",
       "menu": "Vantaggi",
-      "type": "advantages"
-    },
-    {
-      "type": "line"
-    },
-    {
       "content": [
         {
-          "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-          "name": "Sito Web Vetrina"
+          "description": "Il Forno offre un servizio di buffet per qualsiasi ricorrenza, con diverse opzioni per gruppi di 10, 15, 20, 25 e 30 persone.<br>I buffet includono una varietà di panini, cornetti, focacce, panzerottini, tramezzini, rustici e focaccine farcite.<br>I prezzi variano a seconda del numero di persone e del menu scelto. Le prenotazioni possono essere effettuate anche 24 ore prima dell'evento.<br>Le farciture vanno indicate al momento della prenotazione.",
+          "image": "/advantage1.jpeg",
+          "name": "Buffet per Ogni Ricorrenza"
         },
         {
-          "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-          "name": "Sito Web E-commerce"
+          "description": "I buffet includono una varietà di panini, cornetti, focacce, panzerottini, tramezzini, rustici e focaccine farcite.<br>Il Forno è un'ottima scelta per chi cerca un servizio di buffet di qualità per qualsiasi ricorrenza.<br>Con una vasta gamma di menu tra cui scegliere e un personale attento, Il Forno è sicuro di soddisfare le vostre esigenze.",
+          "image": "/advantage2.jpeg",
+          "name": "Ampia Scelta di Prodotti"
         },
         {
-          "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-          "name": "Ottimizzazione SEO"
+          "description": "I prezzi variano a seconda del numero di persone e del menu scelto. Le prenotazioni possono essere effettuate anche 24 ore prima dell'evento.<br>Per ordinare un buffet, è sufficiente contattare Il Forno telefonicamente o via e-mail.<br>Il personale sarà lieto di aiutarvi a scegliere il menu più adatto alle vostre esigenze e di prendere la vostra prenotazione.",
+          "image": "/advantage3.jpeg",
+          "name": "Flessibilità e Prenotazioni Facili"
         },
         {
-          "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-          "name": "Gestione Contenuti"
-        },
-        {
-          "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-          "name": "Sviluppo Web Personalizzato"
+          "description": "Le farciture vanno indicate al momento della prenotazione. Il Forno utilizza solo ingredienti freschi e di alta qualità.<br>Utilizziamo solo ingredienti freschi e di alta qualità. I buffet sono preparati con cura e attenzione ai dettagli.<br>Il personale è cortese e professionale. Il Forno è in grado di soddisfare qualsiasi richiesta speciale.",
+          "image": "/advantage4.jpeg",
+          "name": "Ingredienti Freschi e Personalizzazione"
         }
-      ],
-      "menu": "Servizi",
-      "type": "services"
+      ]
     },
     {
       "type": "line"
     },
     {
-      "content": {
-        "button": "Cliccami!",
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-        "orientation": "right",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
-      },
-      "menu": "Sezione doppia",
-      "type": "dualSection"
-    },
-    {
-      "content": {
-        "Email": "giovanni.colasanto@fastsite.it",
-        "Phone": "+39 347 876 8340"
-      },
+      "type": "contacts",
       "menu": "Contatti",
-      "type": "contacts"
+      "content": {
+        "Address": "Via Freemantle, 42<br>70056 Molfetta BA Italy",
+        "Mail": "ilfornomolfetta@gmail.com",
+        "Phone": "+39 080 338 1987",
+        "Whatsapp": "+39 344 172 8463"
+      }
     },
     {
+      "type": "map",
       "content": {
         "coordinates": [
-          16.882818,
-          41.09665
+          16.585143,
+		      41.190984
         ],
-        "zoom": 9
-      },
-      "type": "map"
+        "zoom": 16
+      }
     }
-  ],
-  "info": {
-    "name": "FastSite",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C"
-  }
+  ]
 }
