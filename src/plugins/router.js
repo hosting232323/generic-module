@@ -5,11 +5,13 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/Default.vue'),
     children: [
+      /*
       {
         path: '/:id',
         name: 'Demo Home',
         component: () => import('@/views/Home.vue')
       },
+      */
       {
         path: '/',
         name: 'Production Home',

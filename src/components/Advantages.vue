@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 :style="{ color: data.primaryColor }">
-      I nostri vantaggi
+      Le nostre specialità
     </h1>
     <v-card elevation="20" v-for="advantage in data.advantages" class="margin_top__default">
       <v-img :src="advantage.image" style="max-height: 600px;" cover />

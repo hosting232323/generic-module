@@ -47,7 +47,7 @@
       path: 'services'
     },
     {
-      title: 'Vantaggi',
+      title: 'Prodotti',
       path: 'advantages'
     },
     {

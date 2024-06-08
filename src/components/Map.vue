@@ -32,23 +32,11 @@
   let map;
 
   onMounted(() => {
-    const iconFeature = new Feature({
-      geometry: new Point(fromLonLat(data.value.map.coordinates))
-    });
-
-    const iconStyle = new Style({
-      image: new Icon({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKED}/colorize-image?color=%23${data.value.primaryColor.substring(1)}`
-      })
-    });
-
-    iconFeature.setStyle(iconStyle);
-
     const vectorSource = new VectorSource({
-      features: [iconFeature]
+      features: [
+        getMarker(data.value.map.coordinates1),
+        getMarker(data.value.map.coordinates2)
+      ]
     });
 
     const vectorLayer = new VectorLayer({
@@ -64,9 +52,27 @@
         vectorLayer
       ],
       view: new View({
-        center: fromLonLat(data.value.map.coordinates),
+        center: fromLonLat(data.value.map.coordinates1),
         zoom: data.value.map.zoom
       })
     });
   });
+
+  const getMarker = (coordinates) => {
+    const iconFeature = new Feature({
+      geometry: new Point(fromLonLat(coordinates))
+    });
+
+    const iconStyle = new Style({
+      image: new Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKED}/colorize-image?color=%23${data.value.primaryColor.substring(1)}`
+      })
+    });
+
+    iconFeature.setStyle(iconStyle);
+    return iconFeature;
+  };
 </script>

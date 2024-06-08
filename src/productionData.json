@@ -1,64 +1,68 @@
 {
   "advantages": [
     {
-      "description": "Creiamo siti web su misura per ogni cliente, tenendo conto delle loro esigenze specifiche e del loro brand.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages0.png",
-      "name": "Personalizzazione dei Siti Web"
+      "image": "/advantage1.jpeg",
+      "name": "Taralli autoprodotti, croccanti e saporiti, con un assortimento di gusti irresistibili"
     },
     {
-      "description": "Seguiamo metodologie agili per garantire un processo di sviluppo efficiente e flessibile, rispondendo prontamente alle necessità dei clienti.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages1.png",
-      "name": "Pianificazione e Sviluppo Agili"
+      "image": "/advantage2.jpg",
+      "name": "Taralli con il taglio, bolliti ai cereali, al latte, senza semi, ma anche croccantelle e frise"
     },
     {
-      "description": "Realizziamo siti web con design responsive per una fruizione ottimale su tutti i dispositivi, assicurando un'esperienza utente positiva.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages2.png",
-      "name": "Design Responsivo e User-Friendly"
+      "image": "/advantage3.jpeg",
+      "name": "Un buffet ricco di finger food deliziosi, con un assortimento di antipasti di mare freschi e saporiti"
     },
     {
-      "description": "Poniamo una grande attenzione alla sicurezza dei siti web che sviluppiamo, garantendo protezione dai rischi informatici e una performance affidabile.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
-      "name": "Sicurezza e Affidabilità"
+      "image": "/advantage4.jpeg",
+      "name": "Un buffet straordinario con finger food irresistibili, sandwich golosi, decorazioni floreali eleganti e una varietà di cibo per tutti i gusti"
+    },
+    {
+      "image": "/advantage5.jpeg",
+      "name": "Dolci paradisiaci, pasticcini soffici con panna e frutta fresca, dolcetti al rum aromatici, cannoli croccanti, zeppole morbide e babà al rum squisiti"
+    },
+    {
+      "image": "/advantage6.jpeg",
+      "name": "Mini sandwich gourmet, buns colorati e accattivanti, e una selezione di frutti di mare freschissimi"
+    },
+    {
+      "image": "/advantage7.jpeg",
+      "name": "Panettoni irresistibili con glassa al cioccolato fondente e al pistacchio cremoso"
     }
   ],
   "contacts": {
-    "Address": "Indirizzo",
-    "Phone": "Telefono"
+    "Phone": "+39 080 397 5181",
+    "Whatsapp": "+39 347 598 8859",
+    "Mail": "panificio.mulinobianco@gmail.com",
+    "Address": "<b>Panificio Mulino Bianco</b><br>Via Corrado Giaquinto 46-48<br><b>La Via del Gusto</b><br>Via Corrado Giaquinto 50<br>70056 Molfetta BA"
   },
   "gallery": [
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
+    "/gallery1.jpeg",
+    "/gallery2.jpeg",
+    "/gallery3.jpeg",
+    "/gallery4.jpeg",
+    "/gallery5.jpeg"
   ],
-  "name": "Sito vetrina",
-  "primaryColor": "#3F51B5",
-  "secondaryColor": "#E5BE01",
+  "iva": "07427840728",
+  "name": "Panificio Mulino Bianco - La Via del Gusto",
+  "primaryColor": "#893168",
+  "secondaryColor": "#FFFDD0",
   "map": {
-    "coordinates": [
-      16.874,
-      41.128
-    ],
-    "zoom": 15
+    "coordinates1": [16.599416, 41.199094],
+    "coordinates2": [16.599662, 41.199019],
+    "zoom": 18
   },
   "services": [
     {
-      "description": "Realizzazione di un sito web personalizzato per mostrare i tuoi progetti e portfolio in modo professionale e accattivante.",
-      "name": "Sito Web Portafoglio"
+      "description": "Benvenuti al Panificio Mulino Bianco, il nostro panificio storico che rappresenta un'ode alla tradizione e alla qualità artigianale. Qui, ci impegniamo a creare prodotti da forno eccezionali utilizzando solo ingredienti di prima qualità e ricette tramandate da generazioni. Ogni pane, ogni biscotto e ogni dolce che esce dal nostro forno racconta la nostra storia di passione per la panificazione.",
+      "name": "Panificio Mulino Bianco: Un Legame con la Tradizione e la Qualità"
     },
     {
-      "description": "Creazione di un negozio online su misura per le tue esigenze, con design unico e funzionalità avanzate di vendita online.",
-      "name": "E-commerce su Misura"
+      "description": "Entra nella Via del Gusto, la nostra pasticceria dove la creatività culinaria si unisce alla maestria artigianale. Qui, ti aspettano delizie dolci fatte con amore e cura. Dai classici alle creazioni uniche, ogni dolce è una celebrazione del buon gusto e dell'arte della pasticceria. Scopri un mondo di sapori indimenticabili nella nostra accogliente pasticceria.",
+      "name": "La Via del Gusto: Dove la Creatività e il Gusto si Incontrano"
     },
     {
-      "description": "Miglioramento della visibilità del tuo sito web sui motori di ricerca attraverso strategie di ottimizzazione SEO personalizzate.",
-      "name": "Ottimizzazione SEO"
-    },
-    {
-      "description": "Adattamento del tuo sito web per una perfetta visualizzazione su tutti i dispositivi, garantendo un'esperienza utente ottimale.",
-      "name": "Sito Web Responsive"
-    },
-    {
-      "description": "Implementazione di un chatbot sul tuo sito web per automatizzare l'assistenza clienti e migliorare l'interazione con i visitatori.",
-      "name": "Integrazione di Chatbot"
+      "description": "Vieni a scoprire il divertimento di fare panzerotti 'on the road' con noi! La nostra esperienza 'Panzerotti Live on the Road' ti offre la possibilità di gustare panzerotti appena fatti direttamente dal nostro food truck. Scegli gli ingredienti, assisti alla preparazione e assapora questo classico italiano in tutta la sua freschezza. Segui il nostro food truck per un'esperienza culinaria unica e gustosa!",
+      "name": "Panzerotti on the Road"
     }
   ]
 }
