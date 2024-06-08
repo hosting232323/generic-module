@@ -10,6 +10,7 @@
           <v-list-item
             v-for="contact in content.contacts"
             :key="contact"
+            height="20"
           >
             <template #prepend>
               <v-icon

@@ -113,7 +113,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: '/map.png'
+      src: 'image.png'
     })
   });
 
