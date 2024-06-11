@@ -1,5 +1,7 @@
 <template>
-    <br><hr :style="{ height: '5px', backgroundColor: info.primaryColor }" /><br>
+  <v-container>
+    <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
+  </v-container>
 </template>
 
 <script setup>
