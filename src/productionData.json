@@ -64,5 +64,13 @@
       "description": "Vieni a scoprire il divertimento di fare panzerotti 'on the road' con noi! La nostra esperienza 'Panzerotti Live on the Road' ti offre la possibilità di gustare panzerotti appena fatti direttamente dal nostro food truck. Scegli gli ingredienti, assisti alla preparazione e assapora questo classico italiano in tutta la sua freschezza. Segui il nostro food truck per un'esperienza culinaria unica e gustosa!",
       "name": "Panzerotti on the Road"
     }
-  ]
+  ],
+  "meta":
+  { 
+    "url": "panificio-mulinobianco.it",
+    "description": "panificio storico",
+    "name": "Panificio Mulino Bianco - La Via del Gusto",
+    "region" : "IT-BA",
+    "placename" : "Bari"
+  }
 }

@@ -1,17 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
     path: '/',
     component: () => import('@/layouts/Default.vue'),
     children: [
-      /*
-      {
-        path: '/:id',
-        name: 'Demo Home',
-        component: () => import('@/views/Home.vue')
-      },
-      */
       {
         path: '/',
         name: 'Production Home',
@@ -22,7 +15,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
   scrollBehavior(to, savedPosition) {
     if (to.hash) {

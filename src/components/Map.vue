@@ -28,7 +28,7 @@
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
 
-  let mapContainer = ref(null);
+  const mapContainer = ref(null);
   let map;
 
   onMounted(() => {
