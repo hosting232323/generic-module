@@ -1,46 +1,81 @@
 {
-  "contacts": {
-    "Phone": "+39 080 697 0900",
-    "Address": "S.S. 100 Km.18 c/o \"il Baricentro\"<br>Lotto 5 Modulo n° 14-15<br>70010 Casamassima BA",
-    "Mail": "<b>Vendite</b><br>davidedicarne@gmail.com<br><b>Segreteria</b><br>marcello.dicarne@gmail.com"
+  "info": {
+    "menuHomeLink": false,
+    "name": "Di Carne Show Room",
+    "iva": "01245630726",
+    "primaryColor": "#2b4982",
+    "secondaryColor": "#FFFFFF"
   },
-  "map": {
-    "coordinates": [
-      16.917119,
-      40.979592
-    ],
-    "zoom": 14
-  },
-  "gallery": [
-    "/gallery1.png",
-    "/gallery2.png",
-    "/gallery3.png"
-  ],
-  "iva": "01245630726",
-  "name": "Di Carne Show Room",
-  "primaryColor": "#2b4982",
-  "secondaryColor": "#00000",
-  "dualSection1" : {
-    "orientation": "right",
-    "title": "Mission e vision",
-    "description": "La nostra missione è costruire rapporti duraturi e di reciproca soddisfazione, tra il cliente e l’aziende mandante.<br>Consci della strada percorsa, siamo certi di poter affrontare le sfide che ci sottoporrà il futuro, sapendoci adattare alle richieste e alle innovazioni del merca",
-    "image": "/gallery/gallery1.png"
-  },
-  "dualSection2" : {
-    "orientation": "right",
-    "title": "Capillarità e Presenza",
-    "description": "Il nostro patrimonio principale è rappresentato dalla possibilità di accesso presso il 95% dei punti vendita della nostra zona di riferimento, da quelli più rappresentativi, a quelli più commerciali.",
-    "image": "/dualSection/sud-italia.png"
-  },
-  "dualSection3" : {
-    "orientation": "right",
-    "description": "Collaboriamo con marchi e fornitori etici, promuovendo materiali eco-friendly e processi produttivi responsabili.<br>Ci impegniamo a ridurre l'impatto ambientale e garantire trasparenza, offrendo prodotti di qualità che rispettano il pianeta.",
-    "image": "/dualSection/sostenibilita.png"
-  },
-  "dualSection4" : {
-    "orientation": "left",
-    "title": "Capillarità e Presenza",
-    "description": "Il nostro patrimonio principale è rappresentato dalla possibilità di accesso presso il 95% dei punti vendita della nostra zona di riferimento, da quelli più rappresentativi, a quelli più commerciali.",
-    "image": "/dualSection/sud-italia.png"
-  }
+  "components": [
+    {
+      "type": "gallery",
+      "content": [
+        "gallery1.png",
+        "gallery2.png",
+        "gallery3.png"
+      ]
+    },
+    {
+      "type": "whoWeAre",
+      "menu": "whoweare"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "brandList",
+      "menu": "brandlist"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "dualSection",
+      "menu": "advantages",
+      "content": {
+          "title": "Mission e Vision",
+          "description": "La nostra missione è costruire rapporti duraturi e di reciproca soddisfazione, tra il cliente e l’aziende mandante.<br>Consci della strada percorsa, siamo certi di poter affrontare le sfide che ci sottoporrà il futuro, sapendoci adattare alle richieste e alle innovazioni del mercato.",
+          "image": "/gallery/gallery1.png"
+        }
+    },
+    {
+      "type": "dualSection",
+      "content": {
+          "orientationDesktop": "left",
+          "title": "Capillarità e Presenza",
+          "description": "Il nostro patrimonio principale è rappresentato dalla possibilità di accesso presso il 95% dei punti vendita della nostra zona di riferimento, da quelli più rappresentativi, a quelli più commerciali.",
+          "image": "/dualSection/sud-italia.png"
+        }
+    },
+    {
+      "type": "dualSection",
+      "content": {
+          "title": "Impegno per la <span style='color: green'>Sostenibilità</span>",
+          "description": "Collaboriamo con marchi e fornitori etici, promuovendo materiali eco-friendly e processi produttivi responsabili.<br>Ci impegniamo a ridurre l'impatto ambientale e garantire trasparenza, offrendo prodotti di qualità che rispettano il pianeta.",
+          "image": "/dualSection/sostenibilita.png"
+        }
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "contacts",
+      "menu": "contacts",
+      "content": {
+        "Address": "S.S. 100 Km.18 c/o \"il Baricentro\"<br>Lotto 5 Modulo n° 14-15<br>70010 Casamassima BA",
+        "Mail": "<b>Vendite</b><br>davidedicarne@gmail.com<br><b>Segreteria</b><br>marcello.dicarne@gmail.com",
+        "Phone": "+39 080 697 0900"
+      }
+    },
+    {
+      "type": "map",
+      "content": {
+        "coordinates": [
+          16.917119,
+          40.979592
+        ],
+        "zoom": 14
+      }
+    }
+  ]
 }
