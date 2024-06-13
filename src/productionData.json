@@ -1,64 +1,69 @@
 {
   "advantages": [
     {
-      "description": "Creiamo siti web su misura per ogni cliente, tenendo conto delle loro esigenze specifiche e del loro brand.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages0.png",
-      "name": "Personalizzazione dei Siti Web"
+      "description": "Progettiamo viaggi su misura per offrire esperienze uniche e indimenticabili ai nostri clienti.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/AgenziaViaggiadvantages0.png",
+      "name": "Esperienza Unica di Viaggio"
     },
     {
-      "description": "Seguiamo metodologie agili per garantire un processo di sviluppo efficiente e flessibile, rispondendo prontamente alle necessità dei clienti.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages1.png",
-      "name": "Pianificazione e Sviluppo Agili"
+      "description": "Forniamo supporto costante ai nostri clienti durante i loro viaggi, garantendo tranquillità e sicurezza.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/AgenziaViaggiadvantages1.png",
+      "name": "Assistenza 24/7"
     },
     {
-      "description": "Realizziamo siti web con design responsive per una fruizione ottimale su tutti i dispositivi, assicurando un'esperienza utente positiva.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages2.png",
-      "name": "Design Responsivo e User-Friendly"
+      "description": "Abbiamo partnership esclusive con hotel, compagnie aeree e servizi turistici per offrire vantaggi e tariffe speciali ai nostri clienti.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/AgenziaViaggiadvantages2.png",
+      "name": "Partnership Esclusive"
     },
     {
-      "description": "Poniamo una grande attenzione alla sicurezza dei siti web che sviluppiamo, garantendo protezione dai rischi informatici e una performance affidabile.",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
-      "name": "Sicurezza e Affidabilità"
+      "description": "Ogni viaggio è personalizzato in base ai desideri e alle esigenze del cliente, offrendo un servizio altamente personalizzato.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/AgenziaViaggiadvantages3.png",
+      "name": "Personalizzazione dei Viaggi"
+    },
+    {
+      "description": "Il nostro team ha una vasta conoscenza delle destinazioni offerte e fornisce consigli esperti per una vacanza perfetta.",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/AgenziaViaggiadvantages4.png",
+      "name": "Conoscenza Approfondita delle Destinazioni"
     }
   ],
   "contacts": {
-    "Address": "Indirizzo",
-    "Phone": "Telefono"
+    "Address": "indirizzo",
+    "Phone": "telefono"
   },
   "gallery": [
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
-    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
+    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/AgenziaViaggigallery0.png",
+    "https://fastsitepictures.s3.eu-north-1.amazonaws.com/AgenziaViaggigallery1.png"
   ],
-  "name": "Sito vetrina",
-  "primaryColor": "#3F51B5",
-  "secondaryColor": "#E5BE01",
   "map": {
     "coordinates": [
-      16.874,
-      41.128
+      16,
+      41
     ],
-    "zoom": 15
+    "zoom": 10
   },
+  "name": "Agenzia Viaggi",
+  "primaryColor": "#4A90E2",
+  "secondaryColor": "#F9E559",
   "services": [
     {
-      "description": "Realizzazione di un sito web personalizzato per mostrare i tuoi progetti e portfolio in modo professionale e accattivante.",
-      "name": "Sito Web Portafoglio"
+      "description": "Creazione di pacchetti vacanza su misura in base alle esigenze e al budget del cliente. Include prenotazioni di voli, hotel, trasporti e attività.",
+      "name": "Pacchetto Vacanza Personalizzato"
     },
     {
-      "description": "Creazione di un negozio online su misura per le tue esigenze, con design unico e funzionalità avanzate di vendita online.",
-      "name": "E-commerce su Misura"
+      "description": "Esplora le principali città con tour guidati per scoprire la storia, la cultura e le attrazioni locali. Guida professionale inclusa.",
+      "name": "Tour Guidati in Città"
     },
     {
-      "description": "Miglioramento della visibilità del tuo sito web sui motori di ricerca attraverso strategie di ottimizzazione SEO personalizzate.",
-      "name": "Ottimizzazione SEO"
+      "description": "Esperienza romantica per la luna di miele con pacchetti personalizzati in destinazioni esotiche. Suite di lusso, cene romantiche e attività speciali incluse.",
+      "name": "Pacchetto Luna di Miele Esclusivo"
     },
     {
-      "description": "Adattamento del tuo sito web per una perfetta visualizzazione su tutti i dispositivi, garantendo un'esperienza utente ottimale.",
-      "name": "Sito Web Responsive"
+      "description": "Esperienza di crociera di lusso con servizio VIP, cabine eleganti, ristoranti gourmet e attività di intrattenimento esclusive. Destinazioni esotiche disponibili.",
+      "name": "Crociere di Lusso con Servizio VIP"
     },
     {
-      "description": "Implementazione di un chatbot sul tuo sito web per automatizzare l'assistenza clienti e migliorare l'interazione con i visitatori.",
-      "name": "Integrazione di Chatbot"
+      "description": "Servizio di assistenza 24 ore su 24 durante il viaggio per risolvere qualsiasi problema o emergenza che possa sorgere. Supporto continuo per una vacanza senza preoccupazioni.",
+      "name": "Assistenza 24/7 durante il Viaggio"
     }
   ]
 }
