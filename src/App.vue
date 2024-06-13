@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-  import { useMetaTags } from '@/plugins/useMetaTags';
+  import { useMetaTags } from '@/plugins/metaTags';
 
   useMetaTags();
 </script>

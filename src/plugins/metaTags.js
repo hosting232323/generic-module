@@ -1,5 +1,5 @@
-import { useDataStore } from '@/stores/data';
 import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
 import { createMetaManager } from 'vue-meta';
 
 const metaManager = createMetaManager();
