@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <default-UpArrow />
     <default-bar />
     <default-view />
     <default-footer />
@@ -7,6 +8,7 @@
 </template>
 
 <script setup>
+  import DefaultUpArrow from './UpArrow.vue';
   import DefaultView from './View.vue';
   import DefaultBar from './AppBar.vue';
   import DefaultFooter from './Footer.vue';
