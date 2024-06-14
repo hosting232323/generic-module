@@ -7,6 +7,7 @@
   "components": [
     {
       "type": "gallery",
+      "menu": "Galleria",
       "content": [
         "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
         "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
@@ -29,6 +30,7 @@
     },
     {
       "type": "advantages",
+      "menu": "Vantaggi",
       "content": [
         {
           "description": "Creiamo siti web su misura per ogni cliente, tenendo conto delle loro esigenze specifiche e del loro brand.",
@@ -54,6 +56,7 @@
     },
     {
       "type": "services",
+      "menu": "servizi",
       "content": [
         {
           "description": "Realizzazione di un sito web personalizzato per mostrare i tuoi progetti e portfolio in modo professionale e accattivante.",

@@ -1,5 +1,5 @@
 <template>
-  <component v-for="section in sections" :is="componentMap[section.type]" :content="section.content" :info="info" />
+  <component v-for="section in sections" :is="componentMap[section.type]" :id="section.menu ? section.menu.toLowerCase() : null" :content="section.content" :info="info" />
 </template>
 
 <script setup>
@@ -29,4 +29,5 @@
 
   const sections = data.value.components;
   const info = data.value.info;
+
 </script>
