@@ -1,4 +1,7 @@
 {
+  "addOn": [
+    "chatty"
+  ],
   "info": {
     "name": "Sito vetrina",
     "primaryColor": "#3F51B5",
