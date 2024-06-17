@@ -51,13 +51,13 @@
 
   const items = computed(() => {
     let menuItems = [];
-    if (data.value.addOn && data.value.addOn.includes('virtualTour'))
+    if (data.value.addOn && data.value.addOn.includes('VirtualTour'))
       menuItems.push({
         title: 'Virtual Tour',
         path: 'https://test-virtual-tour.replit.app/',
         type: 'externalLink'
       });
-    if (data.value.addOn && data.value.addOn.includes('blog'))
+    if (data.value.addOn && data.value.addOn.includes('Blog'))
       menuItems.push({
         title: 'Blog',
         path: 'blog',

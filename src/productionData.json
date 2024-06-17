@@ -1,7 +1,7 @@
 {
   "addOn": [
-    "blog",
-    "Chatty"
+    "Chatty",
+    "VirtualTour"
   ],
   "info": {
     "chattyId": 4,
