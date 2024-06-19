@@ -9,24 +9,18 @@ export default metaManager;
 export function useMetaTags() {
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
+  
 
-  const description = `Discover ${data.value.meta.name}. We offer a range of professional services tailored to meet your needs. Located at ${data.value.contacts.Address}.`;
-  const branchName = data.value.meta.name.toLowerCase().replace(/\s+/g, '-');
-  const url = `https://${data.value.meta.url}/${branchName}`;
-  const image = data.value.gallery.length > 0 ? data.value.gallery[0] : '/images/default.jpg';
-  const region = data.value.meta.region;
-  const placename = data.value.meta.placename;
-
+  console.log(data.value);
   return {
     title: `${data.value.meta.name}`,
     meta: [
-      { name: 'description', content: description },
-      { property: 'og:title', content: `${data.value.meta.name}` },
-      { property: 'og:description', content: description },
-      { property: 'og:url', content: url },
-      { property: 'og:image', content: image },
-      { name: 'geo.region', content: region },
-      { name: 'geo.placename', content: placename }
+      { property: 'og:title', content: data.value.meta.name},
+      { property: 'og:description', content: data.value.meta.description},
+      { property: 'og:url', content: data.value.meta.url},
+      { property: 'og:image', content: data.value.meta.url+data.value.gallery[0]},
+      { name: 'geo.region', content: data.value.meta.region},
+      { name: 'geo.placename', content:  data.value.meta.placename}
     ]
   };
 };
