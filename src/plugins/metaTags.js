@@ -11,7 +11,6 @@ export function useMetaTags() {
   const { data } = storeToRefs(dataStore);
   
 
-  console.log(data.value);
   return {
     title: `${data.value.meta.name}`,
     meta: [
