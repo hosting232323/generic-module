@@ -61,7 +61,7 @@ const posts = ref([]);
 const fetchPosts = () => {
   http.getRequest('blog/post', {}, (data) => {
     posts.value = data;
-  });
+  }, 'GET', true);
 };
 
 const addOrUpdatePost = () => {

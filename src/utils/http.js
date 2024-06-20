@@ -1,5 +1,3 @@
-import { h } from "vue";
-
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -25,20 +23,15 @@ const postRequest = (endpoint, body, func, method = 'POST', genericBackend = fal
 };
 
 
-const getRequest = (endpoint, params, func, method = 'GET', genericBackend = false) => { let headers = {'Content-Type': 'application/json'};
+const getRequest = (endpoint, params, func, method = 'GET', genericBackend = false) => {
+  let headers = {'Content-Type': 'application/json'};
+  let url = undefined;
   if (genericBackend){
-     headers['Authorization'] = apiKey
-     headers['Content-Type']= 'application/json'
-
-     const url = new URL(`${hostnameGenericBackend}${endpoint}`); 
+    headers['Authorization'] = apiKey;
+    url = new URL(`${hostnameGenericBackend}${endpoint}`); 
   } 
   else
-     headers['Content-Type']= 'application/json'
-     const url = new URL(`${hostnameFastSite}${endpoint}`);
-
-
-
-
+    url = new URL(`${hostnameFastSite}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   
   console.log(fetch(url, {
