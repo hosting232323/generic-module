@@ -1,5 +1,7 @@
+import { h } from "vue";
+
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
-const hostnameSellerDashboard = import.meta.env.VITE_HOSTNAME_FASTSITE;
+const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 
@@ -23,11 +25,23 @@ const postRequest = (endpoint, body, func, method = 'POST', genericBackend = fal
 };
 
 
-const getRequest = (endpoint, params, func, method = 'GET') => {
-  const url = new URL(`${hostnameSellerDashboard}${endpoint}`);
-  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+const getRequest = (endpoint, params, func, method = 'GET', genericBackend = false) => { let headers = {'Content-Type': 'application/json'};
+  if (genericBackend){
+     headers['Authorization'] = apiKey
+     headers['Content-Type']= 'application/json'
 
-  fetch(url, {
+     const url = new URL(`${hostnameGenericBackend}${endpoint}`); 
+  } 
+  else
+     headers['Content-Type']= 'application/json'
+     const url = new URL(`${hostnameFastSite}${endpoint}`);
+
+
+
+
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+  
+  console.log(fetch(url, {
     method: method,
     headers: {'Content-Type': 'application/json'}
   }).then(response => {
@@ -38,7 +52,7 @@ const getRequest = (endpoint, params, func, method = 'GET') => {
     func(data);
   }).catch(error => {
     console.error('Errore nella richiesta:', error);
-  });
+  }));
 };
 
 
