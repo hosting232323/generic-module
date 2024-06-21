@@ -1,9 +1,8 @@
 <template class="app-bar">
   <v-app-bar v-if="!isMobile" :elevation="2" :color="data.primaryColor">
     <v-spacer />
-    <v-btn variant="text" class="desktop-menu" href="/#services" text="Servizi" />
+    <v-btn variant="text" class="desktop-menu" href="/#services" text="Valori" />
     <v-btn variant="text" class="desktop-menu" href="/#brandlist" text="Brandlist" />
-    <v-btn variant="text" class="desktop-menu" href="/#advantages" text="Vantaggi" />
     <v-btn variant="text" class="desktop-menu" href="/#contacts" text="Contatti" />
     <v-spacer />
   </v-app-bar>

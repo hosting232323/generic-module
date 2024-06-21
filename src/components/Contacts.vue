@@ -1,19 +1,18 @@
 <template>
   <v-container>
-    <v-card elevation="20" title="I nostri contatti">
-      <v-container>
-        <v-list>
-          <v-list-item height="20" v-for="contact_type in getContactTypes(data.contacts)" style="height: auto;">
-            <template v-slot:prepend>
-              <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="data.primaryColor" />
-            </template>
-            <v-list-item-title v-html="data.contacts[contact_type]" />
-          </v-list-item>
-        </v-list><br>
-        <hr :style="{ height: '5px', backgroundColor: data.primaryColor }" />
-        <Map v-if="data.map" />
-      </v-container>
-    </v-card>
+    <h1 :style="{ color: data.primaryColor }">
+      I nostri contatti
+    </h1>
+    <v-list>
+      <v-list-item height="20" v-for="contact_type in getContactTypes(data.contacts)" style="height: auto;">
+        <template v-slot:prepend>
+          <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="data.primaryColor" />
+        </template>
+        <v-list-item-title v-html="data.contacts[contact_type]" class="contact__text" />
+      </v-list-item>
+    </v-list><br>
+    <hr :style="{ height: '5px', backgroundColor: data.primaryColor }" />
+    <Map v-if="data.map" />
   </v-container>
 </template>
 
@@ -38,7 +37,6 @@
 
 <style scoped>
   .contact__text {
-    margin-left: 10px;
-    float: left;
+    white-space: normal;
   }
 </style>

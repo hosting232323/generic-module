@@ -1,5 +1,5 @@
 <template>
-  <br><b>Puoi venire a conoscerci qui</b><br><br>
+  <br>
   <div ref="mapContainer" style="width: 100%; height: 400px;" />
 </template>
 

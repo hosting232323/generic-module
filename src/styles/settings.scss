@@ -5,3 +5,15 @@
 .v-card--variant-elevated {
   box-shadow: none;
 }
+
+@font-face {
+  font-family: 'Tomorrow';
+  src: url('/Tomorrow-Regular.woff2') format('woff2'),
+       url('/Tomorrow-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Tomorrow';
+}

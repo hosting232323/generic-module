@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-slide-group>
+      <!-- Loop infinito -->
       <v-slide-group-item v-for="brand in brands">
         <v-card :height="isMobile ? 150 : 300" :width="isMobile ? 150 : 300" class="brand_item">
           <v-img :src="brand" />
@@ -12,6 +13,8 @@
 
 <script setup>
   import mobile from '@/utils/mobile';
+  import { storeToRefs } from 'pinia';
+  import { useDataStore } from '@/stores/data';
 
   const isMobile = mobile.setupMobileUtils();
 
@@ -24,6 +27,9 @@
     '/Ganesh Camiceria.jpg',
     '/Freaky Nation.jpeg'
   ];
+
+  const dataStore = useDataStore();
+  const { data } = storeToRefs(dataStore);
 </script>
 
 <style scoped>
