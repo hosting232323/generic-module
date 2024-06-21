@@ -42,18 +42,17 @@ const router = useRouter();
 const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
-    http.postRequest('login', {
+    http.postRequestGenericBE('login', {
       email: mail.value,
       password: pass.value
     }, function (data) {
       if (data.status == 'ok') {
         localStorage.setItem('token', data.token);
-        localStorage.setItem('role', data.role);
         router.push('/blog');
       } else {
         message.value = data.error;
       }
-    }, 'POST', true);
+    }, 'POST',true);
   }
 };
 </script>

@@ -49,55 +49,71 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import http from '@/utils/http';
+import router from '../plugins/router';
 
 const currentPost = ref({
-  id: null,
-  title: '',
-  content: ''
+   title: '',
+  content: '',
+  topics: [],
+  files: []
 });
 
 const posts = ref([]);
 
 const fetchPosts = () => {
-  http.getRequest('blog/post', {}, (data) => {
+  console.log('Fetching posts...');
+  http.getRequestGenericBE('blog/post', {}, (data) => {
+    console.log('Posts fetched:', data);
     posts.value = data;
-  }, 'GET', true);
+  }, 'GET', router);
 };
 
 const addOrUpdatePost = () => {
+  console.log('Adding or updating post:', currentPost.value);
   if (currentPost.value.title && currentPost.value.content) {
-    const endpoint = currentPost.value.id ? `blog/post/${currentPost.value.id}` : '/blog/post';
+    const endpoint = currentPost.value.id ? `blog/post/${currentPost.value.id}` : 'blog/post';
     const method = currentPost.value.id ? 'PATCH' : 'POST';
-    http.postRequest(endpoint, currentPost.value, () => {
+    console.log(`Endpoint: ${endpoint}, Method: ${method}`);
+    http.postRequestGenericBE(endpoint, currentPost.value, () => {
+      console.log('Post added/updated successfully');
       fetchPosts();
       resetCurrentPost();
-    }, method, true);  // Assuming the genericBackend flag is required
+    }, method, router);  // Assuming the genericBackend flag is required
+  } else {
+    console.log('Title or content is missing');
   }
 };
 
 const editPost = (post) => {
+  console.log('Editing post:', post);
   currentPost.value = { ...post };
 };
 
 const cancelEdit = () => {
+  console.log('Cancelling edit');
   resetCurrentPost();
 };
 
 const deletePost = (id) => {
-  http.postRequest(`blog/post`, { id }, () => {
+  console.log('Deleting post with ID:', id);
+  http.postRequestGenericBE(`blog/post`, { id }, () => {
+    console.log('Post deleted successfully');
     fetchPosts();
-  }, 'DELETE', true);  // Assuming the genericBackend flag is required
+  }, 'DELETE', router);  // Assuming the genericBackend flag is required
 };
 
 const resetCurrentPost = () => {
+  console.log('Resetting current post');
   currentPost.value = {
-    id: null,
-    title: '',
-    content: ''
+     title: '',
+    content: '',
+    topics: [],
+    files: []
   };
 };
 
 onMounted(() => {
+  console.log('Component mounted');
   fetchPosts();
 });
 </script>
