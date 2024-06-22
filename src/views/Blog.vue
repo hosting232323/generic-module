@@ -54,6 +54,8 @@ import router from '../plugins/router';
 const currentPost = ref({
    title: '',
   content: '',
+  subtitle: '',
+  enrichment: '',
   topics: [],
   files: []
 });
@@ -65,7 +67,7 @@ const fetchPosts = () => {
   http.getRequestGenericBE('blog/post', {}, (data) => {
     console.log('Posts fetched:', data);
     posts.value = data;
-  }, 'GET', router);
+  }, router);
 };
 
 const addOrUpdatePost = () => {

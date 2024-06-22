@@ -42,7 +42,7 @@
 
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
-import router from '../plugins/router';
+  import router from '../plugins/router';
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
