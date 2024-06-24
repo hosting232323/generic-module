@@ -31,9 +31,19 @@
 
 <script setup>
 import { computed } from 'vue';
+import mobile from '@/utils/mobile';
 
+const isMobile = mobile.setupMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 
-const defaultOrientation = 'right';
-const isLeftAligned = computed(() => (content.orientation || defaultOrientation) === 'left');
+const defaultDesktopOrientation = 'right';
+const defaultMobileOrientation = 'bottom';
+
+const isLeftDesktopAligned = computed(() => (content.orientationDesktop || defaultDesktopOrientation) === 'left');
+const isLeftMobileAligned = computed(() => (content.orientationMobile || defaultMobileOrientation) === 'top');
+
+const isLeftAligned = computed(() => {
+  if (isMobile.value) return isLeftMobileAligned.value;
+   else return isLeftDesktopAligned.value;
+});
 </script>

@@ -20,7 +20,34 @@
     {
       "type": "dualSection",
       "content": {
-        "orientation": "right",
+        "orientationDesktop": "right",
+        "orientationMobile": "top",
+        "title": "Lorem ipsum dolor sit.",
+        "subtitle": "Lorem, ipsum dolor.",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
+        "button": "Cliccami",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png"
+      }
+    },
+    {
+      "type": "dualSection",
+      "content": {
+        "orientationDesktop": "left",
+        "orientationMobile": "top",
+        "title": "Lorem ipsum dolor sit.",
+        "subtitle": "Lorem, ipsum dolor.",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
+        "button": "Cliccami",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png"
+      }
+    },
+    {
+      "type": "dualSection",
+      "content": {
+        "orientationDesktop": "right",
+        "orientationMobile": "top",
         "title": "Lorem ipsum dolor sit.",
         "subtitle": "Lorem, ipsum dolor.",
         "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
@@ -80,18 +107,6 @@
           "name": "Integrazione di Chatbot"
         }
       ]
-    },
-    {
-      "type": "dualSection",
-      "content": {
-        "orientation": "right",
-        "title": "Lorem ipsum dolor sit.",
-        "subtitle": "Lorem, ipsum dolor.",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages2.png",
-        "button": "Cliccami",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages2.png"
-      }
     },
     {
       "type": "map",
