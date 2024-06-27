@@ -1,34 +1,14 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
-const hostnameSellerDashboard = import.meta.env.VITE_HOSTNAME_FASTSITE;
+const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 
-const postRequest = (endpoint, body, func, method = 'POST', genericBackend = false) => {
-  let headers = {'Content-Type': 'application/json'};
-  if (genericBackend)
-    headers['Authorization'] = apiKey
-  fetch(`${hostnameGenericBackend}${endpoint}`, {
-    method: method,
-    headers: headers,
-    body: JSON.stringify(body)
-  }).then(response => {
-    if (!response.ok)
-      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-    return response.json();
-  }).then(data => {
-    func(data);
-  }).catch(error => {
-    console.error('Errore nella richiesta:', error);
-  });
-};
-
-
-const getRequest = (endpoint, params, func, method = 'GET') => {
-  const url = new URL(`${hostnameSellerDashboard}${endpoint}`);
+const getRequest = (endpoint, params, func) => {
+  const url = new URL(`${hostnameFastSite}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-
-  fetch(url, {
-    method: method,
+  
+  console.log(fetch(url, {
+    method: 'GET',
     headers: {'Content-Type': 'application/json'}
   }).then(response => {
     if (!response.ok)
@@ -38,11 +18,92 @@ const getRequest = (endpoint, params, func, method = 'GET') => {
     func(data);
   }).catch(error => {
     console.error('Errore nella richiesta:', error);
+  }));
+};
+
+
+
+const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = undefined) => {
+  fetch(`${hostnameGenericBackend}${endpoint}`, {
+    method: method,
+    headers: createHeader(),
+    body: JSON.stringify(body)
+  }).then(response => {
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    sessionHandler(data, func, router);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
+  });
+};
+
+const postRequestFileGenericBE = (endpoint, file, func, method = 'POST',router = undefined) => {
+  const formData = new FormData();
+  formData.append('file', file);
+
+  fetch(`${hostnameGenericBackend}${endpoint}`, {
+    method: method,
+    headers: createHeader(true),
+    body: formData
+  }).then(response => {
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    sessionHandler(data, func, router);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
   });
 };
 
 
-export default {
-  postRequest,
-  getRequest
+const getRequestGenericBE = (endpoint, params, func, router = undefined) => {
+  const url = new URL(`${hostnameGenericBackend}${endpoint}`);
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+  fetch(url, {
+    method: 'GET',
+    headers: createHeader()
+  }).then(response => {
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    sessionHandler(data, func, router);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
+  });
 };
+
+
+const createHeader = (file = false) => {
+  let headers = {};
+  if (file)
+    headers['Accept'] = '*/*';
+  else
+    headers['Content-Type'] = 'application/json';
+ 
+  headers['Authorization'] = apiKey;
+  headers['Token'] = localStorage.getItem('token');
+  console.log(headers);
+  
+  return headers;
+};
+
+
+const sessionHandler = (data, func, router) => {
+  if (data.status == 'session') {
+    alert('Sessione scaduta');
+    router.push('/');
+  } else
+    func(data);
+};
+export default {
+  getRequest,
+  postRequestGenericBE,
+  postRequestFileGenericBE,
+  getRequestGenericBE
+};
+
