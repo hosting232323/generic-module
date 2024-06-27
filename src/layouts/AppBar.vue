@@ -71,7 +71,7 @@
         title: section.menu,
         path: section.menu.toLowerCase(),
         type: 'ancor'
-      }));
+      })));
     return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
   });
 </script>
