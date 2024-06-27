@@ -1,20 +1,20 @@
 <template class="app-bar">
   <v-navigation-drawer v-model="drawer" location="bottom" temporary>
     <v-list>
-      <v-list-item v-for="item in items">
-        <div v-if="data[item.path]" @click="link(item.path)">
+      <v-list-item v-for="item in items" :key="item.path">
+        <div @click="link(item)">
           {{ item.title }}
         </div>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <v-app-bar :elevation="2" :color="data.primaryColor">
+  <v-app-bar :elevation="2" :color="info.primaryColor">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <v-app-bar-title><b>
-      {{ data.name }}
+      {{ info.name }}
     </b></v-app-bar-title>
-    <div v-if="!isMobile" class="desktop-menu" v-for="item in items">
-      <v-btn v-if="data[item.path]" variant="text" @click="link(item.path)">
+    <div v-if="!isMobile" class="desktop-menu">
+      <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
     </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
   import mobile from '@/utils/mobile';
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
@@ -35,26 +35,32 @@
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
+  const info = data.value.info;
+  const content = data.value.components;
 
-  const link = (path) => {
-    const userId = route.params.id ? `/${route.params.id}` : '';
-    router.value.push(`${userId}/#${path}`);
+
+  const link = (item) => {
+    if (item.type == 'ancor') {
+      const userId = route.params.id ? `/${route.params.id}` : '';
+      router.value.push(`${userId}/#${item.path}`);
+    } else if (item.type == 'externalLink')
+      window.open(item.path, '_blank');
+    else if (item.type == 'internalLink'){
+      router.value.push(item.path);
+      window.location.reload();
+    }
   }
 
-  const items = ref([
-    {
-      title: 'Servizi',
-      path: 'services'
-    },
-    {
-      title: 'Vantaggi',
-      path: 'advantages'
-    },
-    {
-      title: 'Contatti',
-      path: 'contacts'
-    }
-  ]);
+  const items = computed(() => {
+    const menuItems = content
+      .filter(section => section.menu)
+      .map(section => ({
+        title: section.menu,
+        path: section.menu.toLowerCase(),
+        type: 'ancor'
+      }));
+    return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
+  });
 </script>
 
 <style scoped>
