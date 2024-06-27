@@ -42,7 +42,7 @@
   const link = (item) => {
     if (item.type == 'ancor') {
       const userId = route.params.id ? `/${route.params.id}` : '';
-      router.value.push(`${userId}/#${item.path}`);
+      router.value.push(`${userId}/${item.path}`);
     } else if (item.type == 'externalLink')
       window.open(item.path, '_blank');
     else if (item.type == 'internalLink'){
