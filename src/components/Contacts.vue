@@ -63,7 +63,7 @@
       !validation.validateInput(name.value, validation.requiredRules) &&
       !validation.validateInput(body.value, validation.requiredRules)
     ) {
-      http.postRequest('send-mail', {
+      http.postRequestGenericBE('send-mail', {
         email: mail,
         subject: `Qualcuno ho usato il form del sito ${info.name}`,
         body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
@@ -72,7 +72,7 @@
           `Testo:\n${body.value}`
       }, function () {
         alert("Mail inviata\nTi ringraziamo per il contatto");
-      }, 'POST', true);
+      }, 'POST', router);
     }
   };
 </script>
