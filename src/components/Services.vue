@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <h1 :style="{ color: data.primaryColor }">
+    <h1 :style="{ color: info.primaryColor }">
       I nostri servizi
     </h1>
     <v-expansion-panels multiple>
-      <v-expansion-panel elevation="20" v-for="service in data.services" class="margin_top__default">
+      <v-expansion-panel elevation="20" v-for="service in content" class="margin_top__default">
         <v-expansion-panel-title>
           <b>{{ service.name }}</b>
         </v-expansion-panel-title>
@@ -17,9 +17,5 @@
 </template>
 
 <script setup>
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+  const { content, info } = defineProps(['content', 'info']);
 </script>

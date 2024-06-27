@@ -22,18 +22,14 @@
   import VectorLayer from 'ol/layer/Vector';
   import VectorSource from 'ol/source/Vector';
 
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+  const { content, info } = defineProps(['content', 'info']);
 
   let mapContainer = ref(null);
   let map;
 
   onMounted(() => {
     const iconFeature = new Feature({
-      geometry: new Point(fromLonLat(data.value.map.coordinates))
+      geometry: new Point(fromLonLat(content.coordinates))
     });
 
     const iconStyle = new Style({
@@ -41,7 +37,7 @@
         anchor: [0.5, 46],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
-        src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKED}/colorize-image?color=%23${data.value.primaryColor.substring(1)}`
+        src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKED}/colorize-image?color=%23${info.primaryColor.substring(1)}`
       })
     });
 
@@ -64,9 +60,10 @@
         vectorLayer
       ],
       view: new View({
-        center: fromLonLat(data.value.map.coordinates),
-        zoom: data.value.map.zoom
+        center: fromLonLat(content.coordinates),
+        zoom: content.zoom
       })
     });
   });
 </script>
+
