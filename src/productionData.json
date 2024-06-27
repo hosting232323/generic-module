@@ -1,4 +1,8 @@
 {
+  "addOn": [
+    "Chatty",
+    "VirtualTour"
+  ],
   "info": {
     "menuHomeLink": false,
     "name": "Sito vetrina",
