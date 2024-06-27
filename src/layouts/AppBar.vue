@@ -52,7 +52,20 @@
   }
 
   const items = computed(() => {
-    const menuItems = content
+    let menuItems = [];
+    if (data.value.addOn && data.value.addOn.includes('VirtualTour'))
+      menuItems.push({
+        title: 'Virtual Tour',
+        path: 'https://test-virtual-tour.replit.app/',
+        type: 'externalLink'
+      });
+    if (data.value.addOn && data.value.addOn.includes('Blog'))
+      menuItems.push({
+        title: 'Blog',
+        path: 'blog',
+        type: 'internalLink'
+      });
+    menuItems = menuItems.concat(content
       .filter(section => section.menu)
       .map(section => ({
         title: section.menu,
