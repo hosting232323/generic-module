@@ -16,29 +16,30 @@
               <v-btn v-if="currentPost.id" color="secondary" @click="cancelEdit">Cancel</v-btn>
             </v-form>
             <v-divider class="my-4"></v-divider>
-            <v-list>
-              <v-list-item-group>
-                <v-list-item v-for="(post, index) in posts" :key="post.id">
-                  <v-list-item-content>
-                    <v-list-item-title>{{ post.title }}</v-list-item-title>
-                    <v-list-item-subtitle>{{ post.content }}</v-list-item-subtitle>
+            <v-row>
+              <v-col v-for="post in posts" :key="post.id" cols="12" md="6">
+                <v-card class="mb-4">
+                  <v-card-title>{{ post.title }}</v-card-title>
+                  <v-card-text>{{ post.content }}</v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
                     <v-menu>
                       <template v-slot:activator="{ props }">
-                        <v-btn icon="mdi-dots-vertical" variant="outlined" v-bind="props" />
+                        <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
                       </template>
                       <v-list>
                         <v-list-item @click="editPost(post)">
-                          <v-btn icon="mdi-pencil" variant="text">Edit</v-btn>
+                          <v-list-item-title>Edit</v-list-item-title>
                         </v-list-item>
                         <v-list-item @click="deletePost(post.id)">
-                          <v-btn icon="mdi-delete" variant="text" color="red">Delete</v-btn>
+                          <v-list-item-title class="red--text">Delete</v-list-item-title>
                         </v-list-item>
                       </v-list>
                     </v-menu>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -46,13 +47,18 @@
   </v-container>
 </template>
 
+
+
+
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import http from '@/utils/http';
 import router from '../plugins/router';
 
 const currentPost = ref({
-   title: '',
+  id: null,
+  title: '',
   content: '',
   subtitle: '',
   enrichment: '',
@@ -64,9 +70,9 @@ const posts = ref([]);
 
 const fetchPosts = () => {
   console.log('Fetching posts...');
-  http.getRequestGenericBE('blog/post', {}, (data) => {
+  http.getRequestGenericBE('blog/post', [], (data) => {
     console.log('Posts fetched:', data);
-    posts.value = data;
+    posts.value = data.posts || data || []; // Adjust according to the actual data structure
   }, router);
 };
 
@@ -97,10 +103,12 @@ const cancelEdit = () => {
 };
 
 const deletePost = (id) => {
+  currentPost.value.id = id;
   console.log('Deleting post with ID:', id);
-  http.postRequestGenericBE(`blog/post`, { id }, () => {
+  http.postRequestGenericBE(`blog/post`, currentPost.value, () => {
     console.log('Post deleted successfully');
     fetchPosts();
+    resetCurrentPost();
   }, 'DELETE', router);  // Assuming the genericBackend flag is required
 };
 
