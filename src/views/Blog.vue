@@ -73,16 +73,15 @@ const fetchPosts = () => {
   http.getRequestGenericBE('blog/post', [], (data) => {
     console.log('Posts fetched:', data);
     posts.value = data.posts || data || []; // Adjust according to the actual data structure
-  }, router);
+  },'GET', router);
 };
 
 const addOrUpdatePost = () => {
   console.log('Adding or updating post:', currentPost.value);
   if (currentPost.value.title && currentPost.value.content) {
-    const endpoint = currentPost.value.id ? `blog/post/${currentPost.value.id}` : 'blog/post';
     const method = currentPost.value.id ? 'PATCH' : 'POST';
-    console.log(`Endpoint: ${endpoint}, Method: ${method}`);
-    http.postRequestGenericBE(endpoint, currentPost.value, () => {
+    console.log('Method:', method);
+    http.postRequestGenericBE('blog/post', currentPost.value, () => {
       console.log('Post added/updated successfully');
       fetchPosts();
       resetCurrentPost();
@@ -103,9 +102,9 @@ const cancelEdit = () => {
 };
 
 const deletePost = (id) => {
-  currentPost.value.id = id;
-  console.log('Deleting post with ID:', id);
-  http.postRequestGenericBE(`blog/post`, currentPost.value, () => {
+  http.getRequestGenericBE('blog/post', {
+    id: id
+  }, () => {
     console.log('Post deleted successfully');
     fetchPosts();
     resetCurrentPost();

@@ -59,12 +59,12 @@ const postRequestFileGenericBE = (endpoint, file, func, method = 'POST',router =
 };
 
 
-const getRequestGenericBE = (endpoint, params, func, router = undefined) => {
+const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefined) => {
   const url = new URL(`${hostnameGenericBackend}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
   fetch(url, {
-    method: 'GET',
+    method: method,
     headers: createHeader()
   }).then(response => {
     if (!response.ok)
