@@ -47,10 +47,6 @@
   </v-container>
 </template>
 
-
-
-
-
 <script setup>
 import { ref, onMounted } from 'vue';
 import http from '@/utils/http';
@@ -69,35 +65,26 @@ const currentPost = ref({
 const posts = ref([]);
 
 const fetchPosts = () => {
-  console.log('Fetching posts...');
   http.getRequestGenericBE('blog/post', [], (data) => {
-    console.log('Posts fetched:', data);
-    posts.value = data.posts || data || []; // Adjust according to the actual data structure
+    posts.value = data.posts || data || [];
   },'GET', router);
 };
 
 const addOrUpdatePost = () => {
-  console.log('Adding or updating post:', currentPost.value);
   if (currentPost.value.title && currentPost.value.content) {
     const method = currentPost.value.id ? 'PATCH' : 'POST';
-    console.log('Method:', method);
     http.postRequestGenericBE('blog/post', currentPost.value, () => {
-      console.log('Post added/updated successfully');
       fetchPosts();
       resetCurrentPost();
-    }, method, router);  // Assuming the genericBackend flag is required
-  } else {
-    console.log('Title or content is missing');
+    }, method, router);
   }
 };
 
 const editPost = (post) => {
-  console.log('Editing post:', post);
   currentPost.value = { ...post };
 };
 
 const cancelEdit = () => {
-  console.log('Cancelling edit');
   resetCurrentPost();
 };
 
@@ -105,16 +92,14 @@ const deletePost = (id) => {
   http.getRequestGenericBE('blog/post', {
     id: id
   }, () => {
-    console.log('Post deleted successfully');
     fetchPosts();
     resetCurrentPost();
-  }, 'DELETE', router);  // Assuming the genericBackend flag is required
+  }, 'DELETE', router);
 };
 
 const resetCurrentPost = () => {
-  console.log('Resetting current post');
   currentPost.value = {
-     title: '',
+    title: '',
     content: '',
     topics: [],
     files: []
@@ -122,7 +107,6 @@ const resetCurrentPost = () => {
 };
 
 onMounted(() => {
-  console.log('Component mounted');
   fetchPosts();
 });
 </script>

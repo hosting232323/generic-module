@@ -7,7 +7,7 @@ const getRequest = (endpoint, params, func) => {
   const url = new URL(`${hostnameFastSite}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   
-  console.log(fetch(url, {
+  fetch(url, {
     method: 'GET',
     headers: {'Content-Type': 'application/json'}
   }).then(response => {
@@ -18,7 +18,7 @@ const getRequest = (endpoint, params, func) => {
     func(data);
   }).catch(error => {
     console.error('Errore nella richiesta:', error);
-  }));
+  });
 };
 
 
@@ -84,11 +84,8 @@ const createHeader = (file = false) => {
     headers['Accept'] = '*/*';
   else
     headers['Content-Type'] = 'application/json';
- 
   headers['Authorization'] = apiKey;
   headers['Token'] = localStorage.getItem('token');
-  console.log(headers);
-  
   return headers;
 };
 
