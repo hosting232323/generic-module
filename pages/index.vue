@@ -16,6 +16,8 @@
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
+  const { initData } = dataStore;
+  initData();
 
   const componentMap = {
     'map': Map,
