@@ -16,29 +16,30 @@
               <v-btn v-if="currentPost.id" color="secondary" @click="cancelEdit">Cancel</v-btn>
             </v-form>
             <v-divider class="my-4"></v-divider>
-            <v-list>
-              <v-list-item-group>
-                <v-list-item v-for="(post, index) in posts" :key="post.id">
-                  <v-list-item-content>
-                    <v-list-item-title>{{ post.title }}</v-list-item-title>
-                    <v-list-item-subtitle>{{ post.content }}</v-list-item-subtitle>
+            <v-row>
+              <v-col v-for="post in posts" :key="post.id" cols="12" md="6">
+                <v-card class="mb-4">
+                  <v-card-title>{{ post.title }}</v-card-title>
+                  <v-card-text>{{ post.content }}</v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
                     <v-menu>
                       <template v-slot:activator="{ props }">
-                        <v-btn icon="mdi-dots-vertical" variant="outlined" v-bind="props" />
+                        <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
                       </template>
                       <v-list>
                         <v-list-item @click="editPost(post)">
-                          <v-btn icon="mdi-pencil" variant="text">Edit</v-btn>
+                          <v-list-item-title>Edit</v-list-item-title>
                         </v-list-item>
                         <v-list-item @click="deletePost(post.id)">
-                          <v-btn icon="mdi-delete" variant="text" color="red">Delete</v-btn>
+                          <v-list-item-title class="red--text">Delete</v-list-item-title>
                         </v-list-item>
                       </v-list>
                     </v-menu>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -52,7 +53,8 @@ import http from '@/utils/http';
 import router from '../plugins/router';
 
 const currentPost = ref({
-   title: '',
+  id: null,
+  title: '',
   content: '',
   subtitle: '',
   enrichment: '',
@@ -63,51 +65,41 @@ const currentPost = ref({
 const posts = ref([]);
 
 const fetchPosts = () => {
-  console.log('Fetching posts...');
-  http.getRequestGenericBE('blog/post', {}, (data) => {
-    console.log('Posts fetched:', data);
-    posts.value = data;
-  }, router);
+  http.getRequestGenericBE('blog/post', [], (data) => {
+    posts.value = data.posts || data || [];
+  },'GET', router);
 };
 
 const addOrUpdatePost = () => {
-  console.log('Adding or updating post:', currentPost.value);
   if (currentPost.value.title && currentPost.value.content) {
-    const endpoint = currentPost.value.id ? `blog/post/${currentPost.value.id}` : 'blog/post';
     const method = currentPost.value.id ? 'PATCH' : 'POST';
-    console.log(`Endpoint: ${endpoint}, Method: ${method}`);
-    http.postRequestGenericBE(endpoint, currentPost.value, () => {
-      console.log('Post added/updated successfully');
+    http.postRequestGenericBE('blog/post', currentPost.value, () => {
       fetchPosts();
       resetCurrentPost();
-    }, method, router);  // Assuming the genericBackend flag is required
-  } else {
-    console.log('Title or content is missing');
+    }, method, router);
   }
 };
 
 const editPost = (post) => {
-  console.log('Editing post:', post);
   currentPost.value = { ...post };
 };
 
 const cancelEdit = () => {
-  console.log('Cancelling edit');
   resetCurrentPost();
 };
 
 const deletePost = (id) => {
-  console.log('Deleting post with ID:', id);
-  http.postRequestGenericBE(`blog/post`, { id }, () => {
-    console.log('Post deleted successfully');
+  http.getRequestGenericBE('blog/post', {
+    id: id
+  }, () => {
     fetchPosts();
-  }, 'DELETE', router);  // Assuming the genericBackend flag is required
+    resetCurrentPost();
+  }, 'DELETE', router);
 };
 
 const resetCurrentPost = () => {
-  console.log('Resetting current post');
   currentPost.value = {
-     title: '',
+    title: '',
     content: '',
     topics: [],
     files: []
@@ -115,7 +107,6 @@ const resetCurrentPost = () => {
 };
 
 onMounted(() => {
-  console.log('Component mounted');
   fetchPosts();
 });
 </script>

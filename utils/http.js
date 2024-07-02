@@ -7,7 +7,7 @@ const getRequest = (endpoint, params, func) => {
   const url = new URL(`${hostnameFastSite}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   
-  console.log(fetch(url, {
+  fetch(url, {
     method: 'GET',
     headers: {'Content-Type': 'application/json'}
   }).then(response => {
@@ -18,15 +18,14 @@ const getRequest = (endpoint, params, func) => {
     func(data);
   }).catch(error => {
     console.error('Errore nella richiesta:', error);
-  }));
+  });
 };
-
 
 
 const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = undefined) => {
   fetch(`${hostnameGenericBackend}${endpoint}`, {
     method: method,
-    headers: createHeader(),
+    headers: createGenericBeHeader(),
     body: JSON.stringify(body)
   }).then(response => {
     if (!response.ok)
@@ -45,7 +44,7 @@ const postRequestFileGenericBE = (endpoint, file, func, method = 'POST',router =
 
   fetch(`${hostnameGenericBackend}${endpoint}`, {
     method: method,
-    headers: createHeader(true),
+    headers: createGenericBeHeader(true),
     body: formData
   }).then(response => {
     if (!response.ok)
@@ -59,13 +58,13 @@ const postRequestFileGenericBE = (endpoint, file, func, method = 'POST',router =
 };
 
 
-const getRequestGenericBE = (endpoint, params, func, router = undefined) => {
+const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefined) => {
   const url = new URL(`${hostnameGenericBackend}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
   fetch(url, {
-    method: 'GET',
-    headers: createHeader()
+    method: method,
+    headers: createGenericBeHeader()
   }).then(response => {
     if (!response.ok)
       throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
@@ -78,17 +77,14 @@ const getRequestGenericBE = (endpoint, params, func, router = undefined) => {
 };
 
 
-const createHeader = (file = false) => {
+const createGenericBeHeader = (file = false) => {
   let headers = {};
   if (file)
     headers['Accept'] = '*/*';
   else
     headers['Content-Type'] = 'application/json';
- 
   headers['Authorization'] = apiKey;
   headers['Token'] = localStorage.getItem('token');
-  console.log(headers);
-  
   return headers;
 };
 
@@ -100,10 +96,11 @@ const sessionHandler = (data, func, router) => {
   } else
     func(data);
 };
+
+
 export default {
   getRequest,
   postRequestGenericBE,
   postRequestFileGenericBE,
   getRequestGenericBE
 };
-
