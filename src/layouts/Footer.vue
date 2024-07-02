@@ -8,11 +8,12 @@
           <div v-if="data.info.iva">P. IVA {{ data.info.iva }}</div>
         </v-col>
         <v-col cols="6" class="text-right">
-          <a href="/privacy-policy" class="footer-link" target="_blank">Privacy Policy</a>
+          <a href="/public/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>
           <div>
             Powered by 
-            <a href="https://site-web.replit.app" class="fast-site-link" target="_blank">
-              Fast-Site<v-icon right>mdi-web</v-icon>
+            <a href="https://fastsite.it" class="fast-site-link" target="_blank">
+              Fast-Site
+              <v-icon right>mdi-web</v-icon>
             </a>
           </div>
         </v-col>
@@ -22,38 +23,38 @@
 </template>
 
 <script setup>
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
 
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
 </script>
 
 <style scoped>
-  .footer-link {
-    margin-right: 20px;
-    color: #42b983;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
+.footer-link {
+  margin-right: 20px;
+  color: #42b983;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-  .footer-link:hover {
-    color: #2c3e50;
-    text-decoration: underline;
-  }
+.footer-link:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
 
-  .fast-site-link {
-    color: #42b983;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-  }
+.fast-site-link {
+  color: #42b983;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
 
-  .fast-site-link:hover {
-    color: #2c3e50;
-    text-decoration: underline;
-  }
+.fast-site-link:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
 </style>
