@@ -1,4 +1,4 @@
-run = "vite --host 0.0.0.0"
+run = "npm run dev"
 entrypoint = "src/App.vue"
 
 hidden = [".config", "tsconfig.json", "tsconfig.node.json", ".gitignore"]
@@ -33,7 +33,7 @@ start = "typescript-language-server --stdio"
 
 [deployment]
 deploymentTarget = "static"
-build = ["npm", "run", "build"]
+build = ["npm", "run", "generate"]
 publicDir = "dist"
 
 [unitTest]

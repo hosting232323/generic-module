@@ -6,13 +6,13 @@
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
   
-  import Map from '@/components/Map';
-  import Gallery from '@/components/Gallery';
-  import Services from '@/components/Services';
-  import Contacts from '@/components/Contacts';
-  import Advantages from '@/components/Advantages';
-  import DualSection from '@/components/DualSection';
-  import Line from '@/components/Line';
+  import Map from '@/components/sectionsMap';
+  import Gallery from '@/components/sectionsGallery';
+  import Services from '@/components/sectionsServices';
+  import Contacts from '@/components/sectionsContacts';
+  import Advantages from '@/components/sectionsAdvantages';
+  import DualSection from '@/components/sectionsDualSection';
+  import Line from '@/components/sectionsLine';
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
@@ -29,5 +29,4 @@
 
   const sections = data.value.components;
   const info = data.value.info;
-
 </script>

@@ -21,7 +21,7 @@ const topButton = ref(null);
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: 'smooth'
   });
 };
 const handleScroll = () => {
