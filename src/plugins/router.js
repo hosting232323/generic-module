@@ -3,27 +3,33 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/Default.vue'),
+    component: () => import('@/layouts/ProductionLayout'),
     children: [
-      {
-        path: '/:id',
-        name: 'Demo Home',
-        component: () => import('@/views/Home.vue')
-      },
       {
         path: '/',
         name: 'Production Home',
-        component: () => import('@/views/Home.vue')
+        component: () => import('@/views/Home')
       },
       {
-        path: 'login',
+        path: '/login',
         name: 'Login',
-        component: () => import('@/views/Login.vue')
+        component: () => import('@/views/Login')
       },
       {
-        path: 'blog',
+        path: '/blog',
         name: 'Blog',
-        component: () => import('@/views/Blog.vue')
+        component: () => import('@/views/Blog')
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('@/layouts/DemoLayout'),
+    children: [
+      {
+        path: '/demo/:id',
+        name: 'Demo Home',
+        component: () => import('@/views/Home')
       }
     ]
   }

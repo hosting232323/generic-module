@@ -8,7 +8,7 @@ export const useDataStore = defineStore('data', {
     data: {}
   }),
   actions: {
-    initData(id) {
+    initData(id = undefined) {
       if (id)
         http.getRequest(`get-data/${id}`, {}, this.updateData);
       else
