@@ -32,9 +32,9 @@ pattern = "**/{*.js,*.jsx,*.ts,*.tsx}"
 start = "typescript-language-server --stdio"
 
 [deployment]
-deploymentTarget = "static"
+deploymentTarget = "cloudrun"
 build = ["npm", "run", "build"]
-publicDir = "dist"
+run = ["sh", "-c", "npm run serve"]
 
 [unitTest]
 language = "nodejs"
