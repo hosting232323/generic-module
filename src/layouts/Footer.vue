@@ -23,11 +23,11 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useDataStore } from '@/stores/data';
+  import { storeToRefs } from 'pinia';
+  import { useDataStore } from '@/stores/data';
 
-const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
+  const dataStore = useDataStore();
+  const { data } = storeToRefs(dataStore);
 </script>
 
 <style scoped>
