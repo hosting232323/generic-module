@@ -4,6 +4,7 @@
 
 <script setup>
   import { storeToRefs } from 'pinia';
+  import { useHead } from '@vueuse/head';
   import { useDataStore } from '@/stores/data';
   
   import Map from '@/components/Map';
@@ -30,4 +31,10 @@
   const sections = data.value.components;
   const info = data.value.info;
 
+  useHead({
+    title: 'Home Page',
+    meta: [
+      { name: 'Fast Site', content: 'This is the home page' }
+    ]
+  });
 </script>
