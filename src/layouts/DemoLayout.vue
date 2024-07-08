@@ -1,23 +1,32 @@
 <template>
   <v-app>
-    <UpArrow />
-    <AppBar />
-    <View />
-    <Footer />
+    <template v-if="ready">
+      <UpArrow />
+      <AppBar />
+      <View />
+      <Footer />
+    </template>
+    <template v-else>
+      <Loading />
+    </template>
   </v-app>
 </template>
 
 <script setup>
-  import UpArrow from './UpArrow.vue';
-  import View from './View.vue';
-  import AppBar from './AppBar.vue';
-  import Footer from './Footer.vue';
+  import View from './View';
+  import AppBar from './AppBar';
+  import Footer from './Footer';
+  import UpArrow from './UpArrow';
+  import Loading from './Loading';
 
+  import { storeToRefs } from 'pinia';
   import { useRoute } from 'vue-router';
   import { useDataStore } from '@/stores/data';
 
   const dataStore = useDataStore();
   const { initData } = dataStore;
+  const { ready } = storeToRefs(dataStore);
   const route = useRoute();
+
   initData(route.params.id);
 </script>
