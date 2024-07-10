@@ -43,12 +43,10 @@
     if (item.type == 'ancor') {
       const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
       router.value.push(`${pathUrl}/#${item.path}`);
-    } else if (item.type == 'externalLink') {
+    } else if (item.type == 'externalLink')
       window.open(item.path, '_blank');
-    } else if (item.type == 'internalLink'){
+    else if (item.type == 'internalLink')
       router.value.push(item.path);
-      // Remove the window.location.reload() call
-    }
   }
 
   const items = computed(() => {
