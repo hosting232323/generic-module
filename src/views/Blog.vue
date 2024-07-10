@@ -1,118 +1,44 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-card>
-          <v-card-title>
-            <v-toolbar flat>
-              <v-toolbar-title>My Blog</v-toolbar-title>
-            </v-toolbar>
-          </v-card-title>
-          <v-card-text>
-            <v-form @submit.prevent="addOrUpdatePost">
-              <v-text-field v-model="currentPost.title" label="Title" required></v-text-field>
-              <v-textarea v-model="currentPost.content" label="Content" required></v-textarea>
-              <v-btn type="submit" color="primary">{{ currentPost.id ? 'Update Post' : 'Add Post' }}</v-btn>
-              <v-btn v-if="currentPost.id" color="secondary" @click="cancelEdit">Cancel</v-btn>
-            </v-form>
-            <v-divider class="my-4"></v-divider>
-            <v-row>
-              <v-col v-for="post in posts" :key="post.id" cols="12" md="6">
-                <v-card class="mb-4">
-                  <v-card-title>{{ post.title }}</v-card-title>
-                  <v-card-text>{{ post.content }}</v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-menu>
-                      <template v-slot:activator="{ props }">
-                        <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
-                      </template>
-                      <v-list>
-                        <v-list-item @click="editPost(post)">
-                          <v-list-item-title>Edit</v-list-item-title>
-                        </v-list-item>
-                        <v-list-item @click="deletePost(post.id)">
-                          <v-list-item-title class="red--text">Delete</v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
-                  </v-card-actions>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-</template>
-
-<script setup>
-import { ref, onMounted } from 'vue';
-import http from '@/utils/http';
-import router from '../plugins/router';
-
-const currentPost = ref({
-  id: null,
-  title: '',
-  content: '',
-  subtitle: '',
-  enrichment: '',
-  topics: [],
-  files: []
-});
-
-const posts = ref([]);
-
-const fetchPosts = () => {
-  http.getRequestGenericBE('blog/post', [], (data) => {
-    posts.value = data.posts || data || [];
-  },'GET', router);
-};
-
-const addOrUpdatePost = () => {
-  if (currentPost.value.title && currentPost.value.content) {
-    const method = currentPost.value.id ? 'PATCH' : 'POST';
-    http.postRequestGenericBE('blog/post', currentPost.value, () => {
-      fetchPosts();
-      resetCurrentPost();
-    }, method, router);
+    <div class="welcome-blog">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+      <ul>
+        <li v-for="post in recentPosts" :key="post.id">
+          {{ post.title }}
+        </li>
+      </ul>
+    </div>
+  </template>
+  
+  <script setup>
+  import { ref } from 'vue'
+  
+  const title = ref('Welcome to My Blog')
+  const description = ref('Here you\'ll find my thoughts on various topics.')
+  const recentPosts = ref([
+    { id: 1, title: 'My First Blog Post' },
+    { id: 2, title: 'Reflections on Vue.js' },
+    { id: 3, title: 'The Joy of Coding' }
+  ])
+  </script>
+  
+  <style scoped>
+  .welcome-blog {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
   }
-};
-
-const editPost = (post) => {
-  currentPost.value = { ...post };
-};
-
-const cancelEdit = () => {
-  resetCurrentPost();
-};
-
-const deletePost = (id) => {
-  http.getRequestGenericBE('blog/post', {
-    id: id
-  }, () => {
-    fetchPosts();
-    resetCurrentPost();
-  }, 'DELETE', router);
-};
-
-const resetCurrentPost = () => {
-  currentPost.value = {
-    title: '',
-    content: '',
-    topics: [],
-    files: []
-  };
-};
-
-onMounted(() => {
-  fetchPosts();
-});
-</script>
-
-<style scoped>
-.v-container {
-  margin-top: 20px;
-}
-</style>
+  
+  h1 {
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  </style>

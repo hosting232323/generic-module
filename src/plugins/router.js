@@ -16,10 +16,15 @@ const routes = [
         component: () => import('@/views/Login')
       },
       {
-        path: '/blog',
-        name: 'Blog',
-        component: () => import('@/views/Blog')
-      }
+        path: '/blogadmin',
+        name: 'Blogadmin',
+        component: () => import('@/views/Blogadmin')
+      },
+      {
+        path : '/blog',
+        name : 'Blog',
+        component : () => import('@/views/Blog')
+      },
     ]
   },
   {
