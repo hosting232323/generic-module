@@ -41,14 +41,12 @@
 
   const link = (item) => {
     if (item.type == 'ancor') {
-      const userId = route.params.id ? `/${route.params.id}` : '';
-      router.value.push(`${userId}/${item.path}`);
+      const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
+      router.value.push(`${pathUrl}/#${item.path}`);
     } else if (item.type == 'externalLink')
       window.open(item.path, '_blank');
-    else if (item.type == 'internalLink'){
+    else if (item.type == 'internalLink')
       router.value.push(item.path);
-      window.location.reload();
-    }
   }
 
   const items = computed(() => {
@@ -62,7 +60,7 @@
     if (data.value.addOn && data.value.addOn.includes('Blog'))
       menuItems.push({
         title: 'Blog',
-        path: 'blog',
+        path: '/blog',
         type: 'internalLink'
       });
     menuItems = menuItems.concat(content
