@@ -8,7 +8,7 @@
           <div v-if="data.info.iva">P. IVA {{ data.info.iva }}</div>
         </v-col>
         <v-col cols="6" class="text-right">
-          <a href="/public/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>
+          <a href="/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>
           <div>
             Powered by 
             <a href="https://fastsite.it" class="fast-site-link" target="_blank">
