@@ -4,12 +4,78 @@
     "VirtualTour"
   ],
   "info": {
+    "chattyId": 10,
     "menuHomeLink": false,
     "name": "Sito vetrina",
     "primaryColor": "#3F51B5",
     "secondaryColor": "#E5BE01"
   },
   "components": [
+    {
+      "type": "siteViewer",
+      "content": [
+        {
+          "name": "Il Forno Molfetta",
+          "logo": "https://ilfornomolfetta.it/logo.png",
+          "url": "ilfornomolfetta.it"
+        },
+        {
+          "name": "Panetteria Dolce Forno",
+          "logo": "",
+          "url": "dolceforno.it"
+        },
+        {
+          "name": "Macelleria La Tagliata",
+          "logo": "",
+          "url": "latagliata.it"
+        },
+        {
+          "name": "Intimo Sottile",
+          "logo": "",
+          "url": "intimosottile.it"
+        },
+        {
+          "name": "Costruzioni Moderne",
+          "logo": "",
+          "url": "costruzionimoderne.it"
+        },
+        {
+          "name": "Ferramenta Tuttofare",
+          "logo": "",
+          "url": "tuttofare.it"
+        },
+        {
+          "name": "Libreria Il Sapere",
+          "logo": "",
+          "url": "ilsapere.it"
+        },
+        {
+          "name": "Gelateria Fresco Gusto",
+          "logo": "",
+          "url": "frescogusto.it"
+        },
+        {
+          "name": "Costruzioni Moderne",
+          "logo": "",
+          "url": "costruzionimoderne.it"
+        },
+        {
+          "name": "Ferramenta Tuttofare",
+          "logo": "",
+          "url": "tuttofare.it"
+        },
+        {
+          "name": "Libreria Il Sapere",
+          "logo": "",
+          "url": "ilsapere.it"
+        },
+        {
+          "name": "Gelateria Fresco Gusto",
+          "logo": "",
+          "url": "frescogusto.it"
+        }
+      ]
+    },
     {
       "type": "gallery",
       "menu": "Galleria",
