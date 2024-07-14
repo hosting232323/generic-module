@@ -3,197 +3,108 @@
     "Chatty",
     "VirtualTour"
   ],
-  "info": {
-    "chattyId": 10,
-    "menuHomeLink": false,
-    "name": "Sito vetrina",
-    "primaryColor": "#3F51B5",
-    "secondaryColor": "#E5BE01"
-  },
   "components": [
     {
-      "type": "siteViewer",
       "content": [
-        {
-          "name": "Il Forno Molfetta",
-          "logo": "https://ilfornomolfetta.it/logo.png",
-          "url": "ilfornomolfetta.it"
-        },
-        {
-          "name": "Panetteria Dolce Forno",
-          "logo": "",
-          "url": "dolceforno.it"
-        },
-        {
-          "name": "Macelleria La Tagliata",
-          "logo": "",
-          "url": "latagliata.it"
-        },
-        {
-          "name": "Intimo Sottile",
-          "logo": "",
-          "url": "intimosottile.it"
-        },
-        {
-          "name": "Costruzioni Moderne",
-          "logo": "",
-          "url": "costruzionimoderne.it"
-        },
-        {
-          "name": "Ferramenta Tuttofare",
-          "logo": "",
-          "url": "tuttofare.it"
-        },
-        {
-          "name": "Libreria Il Sapere",
-          "logo": "",
-          "url": "ilsapere.it"
-        },
-        {
-          "name": "Gelateria Fresco Gusto",
-          "logo": "",
-          "url": "frescogusto.it"
-        },
-        {
-          "name": "Costruzioni Moderne",
-          "logo": "",
-          "url": "costruzionimoderne.it"
-        },
-        {
-          "name": "Ferramenta Tuttofare",
-          "logo": "",
-          "url": "tuttofare.it"
-        },
-        {
-          "name": "Libreria Il Sapere",
-          "logo": "",
-          "url": "ilsapere.it"
-        },
-        {
-          "name": "Gelateria Fresco Gusto",
-          "logo": "",
-          "url": "frescogusto.it"
-        }
-      ]
+        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
+        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png"
+      ],
+      "menu": "Galleria",
+      "type": "gallery"
     },
     {
-      "type": "gallery",
-      "menu": "Galleria",
       "content": [
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourcegallery0.png"
-      ]
+        {
+          "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+          "name": "Design Personalizzato"
+        },
+        {
+          "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
+          "name": "SEO Ottimizzato"
+        },
+        {
+          "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
+          "name": "Responsive Design"
+        },
+        {
+          "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
+          "name": "Velocità di Caricamento Ottimale"
+        }
+      ],
+      "menu": "Vantaggi",
+      "type": "advantages"
     },
     {
       "type": "line"
     },
     {
-      "type": "dualSection",
-      "content": {
-        "orientationDesktop": "right",
-        "orientationMobile": "top",
-        "title": "Lorem ipsum dolor sit.",
-        "subtitle": "Lorem, ipsum dolor.",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
-        "button": "Cliccami",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png"
-      }
-    },
-    {
-      "type": "dualSection",
-      "content": {
-        "orientationDesktop": "left",
-        "orientationMobile": "top",
-        "title": "Lorem ipsum dolor sit.",
-        "subtitle": "Lorem, ipsum dolor.",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
-        "button": "Cliccami",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png"
-      }
-    },
-    {
-      "type": "dualSection",
-      "content": {
-        "orientationDesktop": "right",
-        "orientationMobile": "top",
-        "title": "Lorem ipsum dolor sit.",
-        "subtitle": "Lorem, ipsum dolor.",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, reiciendis! Perspiciatis suscipit veritatis sapiente aut fugit. Culpa voluptates optio quibusdam! Repudiandae aliquid vitae asperiores, recusandae atque ad sint fuga sed quia dolores? Asperiores accusamus quasi, facilis aliquam autem ipsum explicabo libero adipisci earum dolores provident hic magnam rerum illo temporibus impedit nam deleniti sit, quibusdam minus iste tempore, quis cum quia. Tempora neque, inventore quae voluptatibus ab explicabo aut quasi?",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
-        "button": "Cliccami",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisoftwareopensourceadvantages1.png"
-      }
-    },
-    {
-      "type": "advantages",
-      "menu": "Vantaggi",
       "content": [
         {
-          "description": "Creiamo siti web su misura per ogni cliente, tenendo conto delle loro esigenze specifiche e del loro brand.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages0.png",
-          "name": "Personalizzazione dei Siti Web"
+          "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
+          "name": "Sito Web Vetrina"
         },
         {
-          "description": "Seguiamo metodologie agili per garantire un processo di sviluppo efficiente e flessibile, rispondendo prontamente alle necessità dei clienti.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages1.png",
-          "name": "Pianificazione e Sviluppo Agili"
+          "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
+          "name": "Sito Web E-commerce"
         },
         {
-          "description": "Realizziamo siti web con design responsive per una fruizione ottimale su tutti i dispositivi, assicurando un'esperienza utente positiva.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages2.png",
-          "name": "Design Responsivo e User-Friendly"
-        },
-        {
-          "description": "Poniamo una grande attenzione alla sicurezza dei siti web che sviluppiamo, garantendo protezione dai rischi informatici e una performance affidabile.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoresoftwarespecializzatoinsitiwebadvantages3.png",
-          "name": "Sicurezza e Affidabilità"
-        }
-      ]
-    },
-    {
-      "type": "services",
-      "menu": "servizi",
-      "content": [
-        {
-          "description": "Realizzazione di un sito web personalizzato per mostrare i tuoi progetti e portfolio in modo professionale e accattivante.",
-          "name": "Sito Web Portafoglio"
-        },
-        {
-          "description": "Creazione di un negozio online su misura per le tue esigenze, con design unico e funzionalità avanzate di vendita online.",
-          "name": "E-commerce su Misura"
-        },
-        {
-          "description": "Miglioramento della visibilità del tuo sito web sui motori di ricerca attraverso strategie di ottimizzazione SEO personalizzate.",
+          "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
           "name": "Ottimizzazione SEO"
         },
         {
-          "description": "Adattamento del tuo sito web per una perfetta visualizzazione su tutti i dispositivi, garantendo un'esperienza utente ottimale.",
-          "name": "Sito Web Responsive"
+          "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
+          "name": "Gestione Contenuti"
         },
         {
-          "description": "Implementazione di un chatbot sul tuo sito web per automatizzare l'assistenza clienti e migliorare l'interazione con i visitatori.",
-          "name": "Integrazione di Chatbot"
+          "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
+          "name": "Sviluppo Web Personalizzato"
         }
-      ]
+      ],
+      "menu": "Servizi",
+      "type": "services"
     },
     {
-      "type": "map",
+      "type": "line"
+    },
+    {
+      "content": {
+        "button": "Cliccami!",
+        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
+        "orientation": "right",
+        "subtitle": "Da siti statici a piattaforme complesse",
+        "title": "Servizi di Sviluppo Web",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
+      },
+      "menu": "Sezione doppia",
+      "type": "dualSection"
+    },
+    {
+      "content": {
+        "Email": "giovanni.colasanto@fastsite.it",
+        "Phone": "+39 347 876 8340"
+      },
+      "menu": "Contatti",
+      "type": "contacts"
+    },
+    {
       "content": {
         "coordinates": [
-          16.874,
-          41.128
+          16.882818,
+          41.09665
         ],
-        "zoom": 15
-      }
-    },
-    {
-      "type": "contacts",
-      "content": {
-        "Address": "Indirizzo",
-        "Phone": "Telefono"
-      }
+        "zoom": 9
+      },
+      "type": "map"
     }
-  ]
+  ],
+  "info": {
+    "name": "FastSite",
+    "primaryColor": "#2F4F4F",
+    "secondaryColor": "#D2B48C"
+  }
 }
