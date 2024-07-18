@@ -1,193 +1,20 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col cols="12">
-        <v-card>
-          <v-card-title>
-            <v-toolbar flat>
-              <v-toolbar-title>My Blog</v-toolbar-title>
-            </v-toolbar>
-          </v-card-title>
-          <v-card-text>
-            <v-form @submit.prevent="addOrUpdatePost">
-              <v-text-field v-model="currentPost.title" label="Title" required></v-text-field>
-              <v-textarea v-model="currentPost.content" label="Content" required></v-textarea>
-              <v-expansion-panels>
-                <v-expansion-panel title="Images">
-                  <v-expansion-panel-text>
-                    <v-file-input accept="image/png" label="Upload PNG Image" v-model="image" @change="uploadImage" />
-                    <v-card title="Uploaded Images" v-if="currentPost.files && currentPost.files.length > 0">
-                      <v-card-text>
-                        <v-slide-group show-arrows>
-                          <v-slide-group-item v-for="(image, index) in currentPost.files" :key="index">
-                            <v-card elevation="5">
-                              <v-img :src="image" width="200" height="200" />
-                              <v-card-actions>
-                                <v-spacer />
-                                <v-btn icon="mdi-content-copy" @click="copyLink(image)" />
-                                <v-btn icon="mdi-delete" @click="deleteImage(index)" />
-                              </v-card-actions>
-                            </v-card>
-                          </v-slide-group-item>
-                        </v-slide-group>
-                      </v-card-text>
-                    </v-card>
-                  </v-expansion-panel-text>
-                </v-expansion-panel>
-              </v-expansion-panels>
-              <v-btn type="submit" color="primary" class="mt-4">{{ currentPost.id ? 'Update Post' : 'Add Post' }}</v-btn>
-              <v-btn v-if="currentPost.id" color="secondary" @click="cancelEdit" class="mt-4 ml-2">Cancel</v-btn>
-            </v-form>
-            <v-divider class="my-4"></v-divider>
-            <v-row>
-              <v-col v-for="post in posts" :key="post.id" cols="12" md="6">
-                <v-card class="mb-4">
-                  <v-card-title>{{ post.title }}</v-card-title>
-                  <v-card-text>{{ post.content }}</v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-menu>
-                      <template v-slot:activator="{ props }">
-                        <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
-                      </template>
-                      <v-list>
-                        <v-list-item @click="editPost(post)">
-                          <v-list-item-title>Edit</v-list-item-title>
-                        </v-list-item>
-                        <v-list-item @click="deletePost(post.id)">
-                          <v-list-item-title class="red--text">Delete</v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
-                  </v-card-actions>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
+    <h1>Gestione del Blog</h1><br>
+    <Form />
+    <v-divider class="my-4" />
+    <List />
   </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import http from '@/utils/http';
-import { useRouter } from 'vue-router';
-import { v4 as uuidv4 } from 'uuid'; // Import UUID library
+  import Form from '@/components/blogManagement/Form';
+  import List from '@/components/blogManagement/List';
 
-const router = useRouter();
+  import { usePostStore } from '@/stores/posts';
 
-const currentPost = ref({
-  id: null,
-  title: '',
-  content: '',
-  subtitle: '',
-  enrichment: '',
-  topics: [],
-  files: [] // Initialize files as an empty array
-});
+  const postStore = usePostStore();
+  const { initData } = postStore;
 
-const posts = ref([]);
-const image = ref(null);
-
-const fetchPosts = () => {
-  http.getRequestGenericBE('blog/post', {}, (data) => {
-    posts.value = data.posts || data || [];
-  }, 'GET', router);
-};
-
-const addOrUpdatePost = () => {
-  if (currentPost.value.title && currentPost.value.content) {
-    const method = currentPost.value.id ? 'PATCH' : 'POST';
-    http.postRequestGenericBE('blog/post', currentPost.value, () => {
-      fetchPosts();
-      resetCurrentPost();
-    }, method, router);
-  }
-};
-
-const editPost = (post) => {
-  currentPost.value = { ...post };
-};
-
-const cancelEdit = () => {
-  resetCurrentPost();
-};
-
-const deletePost = (id) => {
-  http.getRequestGenericBE('blog/post', { id: id }, () => {
-    fetchPosts();
-    resetCurrentPost();
-  }, 'DELETE', router);
-};
-
-const resetCurrentPost = () => {
-  currentPost.value = {
-    id: null,
-    title: '',
-    content: '',
-    subtitle: '',
-    enrichment: '',
-    topics: [],
-    files: []
-  };
-};
-
-const uploadImage = (event) => {
-  const selectedFile = event.target.files[0];
-  if (!selectedFile) {
-    return;
-  }
-
-  const bucketName = 'fastsitepictures';
-  const uniqueFilename = uuidv4();
-
-  // Extract the file extension from the original file name
-  const fileExtension = selectedFile.name.split('.').pop();
-  
-  // Generate a unique filename with the original filename and extension
-  const uniqueFilenameWithExtension = `${uniqueFilename}.${fileExtension}`;
-  
-  // Log the name of the uploaded image with extension
-  console.log('Uploaded Image Name with Extension:', uniqueFilenameWithExtension);
-  var url='https://'+bucketName+'.s3.eu-north-1.amazonaws.com/'+uniqueFilenameWithExtension;
-
-  http.postRequestFileGenericBE(`upload-file/${bucketName}/${uniqueFilenameWithExtension}`, selectedFile, (data) => {
-    if (data.status === 'ok') {
-      currentPost.value.files.push(url);
-    } else {
-      console.error('File upload failed:', data.error);
-    }
-  }, 'POST', router);
-};
-
-const copyLink = (link) => {
-  var textarea = document.createElement('textarea');
-  textarea.value = link;
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand('copy');
-  document.body.removeChild(textarea);
-};
-
-const deleteImage = (index) => {
-  const image = currentPost.value.files[index];
-  const bucketName = 'fastsitepictures';
-  const key = image.split('/').pop();
-
-  http.getRequestGenericBE(`delete-file/${bucketName}/${key}`, {}, () => {
-    currentPost.value.files.splice(index, 1);
-  }, 'DELETE', router);
-};
-
-onMounted(() => {
-  fetchPosts();
-});
+  initData();
 </script>
-
-<style scoped>
-.v-container {
-  margin-top: 20px;
-}
-</style>

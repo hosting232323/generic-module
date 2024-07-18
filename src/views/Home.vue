@@ -7,14 +7,14 @@
   import { useHead } from '@vueuse/head';
   import { useDataStore } from '@/stores/data';
   
-  import Map from '@/components/Map';
-  import Gallery from '@/components/Gallery';
-  import Services from '@/components/Services';
-  import Contacts from '@/components/Contacts';
-  import Advantages from '@/components/Advantages';
-  import DualSection from '@/components/DualSection';
-  import Line from '@/components/Line';
-  import SiteViewer from '@/components/SiteViewer';
+  import Map from '@/components/sections/Map';
+  import Gallery from '@/components/sections/Gallery';
+  import Services from '@/components/sections/Services';
+  import Contacts from '@/components/sections/Contacts';
+  import Advantages from '@/components/sections/Advantages';
+  import DualSection from '@/components/sections/DualSection';
+  import Line from '@/components/sections/Line';
+  import SiteViewer from '@/components/sections/SiteViewer';
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);

@@ -9,7 +9,7 @@ export const useDataStore = defineStore('data', {
     ready: false
   }),
   actions: {
-    async initData(id = undefined) {
+    initData(id = undefined) {
       if (id)
         http.getRequest(`get-data/${id}`, {}, this.updateData);
       else
