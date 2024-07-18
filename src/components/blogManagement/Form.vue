@@ -7,6 +7,7 @@
       <v-form @submit.prevent="addOrUpdatePost">
         <v-text-field v-model="currentPost.title" label="Titolo" required />
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
+        <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="name" required />
         <v-expansion-panels>
           <v-expansion-panel title="Immagini">
             <v-expansion-panel-text>
@@ -52,13 +53,13 @@
   const { data } = storeToRefs(dataStore);
 
   const postStore = usePostStore();
-  const { initData, resetCurrentPost } = postStore;
-  const { currentPost } = storeToRefs(postStore);
+  const { initPosts, resetCurrentPost } = postStore;
+  const { currentPost, topics } = storeToRefs(postStore);
 
   const addOrUpdatePost = () => {
     if (currentPost.value.title && currentPost.value.content)
       http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
-        initData();
+        initPosts();
         resetCurrentPost();
       }, currentPost.value.id ? 'PATCH' : 'POST', router);
   };

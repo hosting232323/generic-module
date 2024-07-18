@@ -25,14 +25,14 @@
   import { usePostStore } from '@/stores/posts';
 
   const postStore = usePostStore();
-  const { initData, resetCurrentPost, editCurrentPost } = postStore;
+  const { initPosts, resetCurrentPost, editCurrentPost } = postStore;
   const { posts, currentPost } = storeToRefs(postStore);
 
   const deletePost = (id) => {
     http.getRequestGenericBE('blog/post', {
       id: id
     }, function (data) {
-      initData();
+      initPosts();
       if (currentPost.id && currentPost.id === id)
         resetCurrentPost();
     }, 'DELETE', router);
