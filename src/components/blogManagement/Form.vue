@@ -52,13 +52,14 @@
   const { data } = storeToRefs(dataStore);
 
   const postStore = usePostStore();
-  const { initPosts, resetCurrentPost } = postStore;
-  const { currentPost, topics } = storeToRefs(postStore);
+  const { initPosts, resetCurrentPost, initEnrichmentTypes} = postStore;
+  const { currentPost, topics, enrichmentTypes} = storeToRefs(postStore);
 
   const addOrUpdatePost = () => {
     if (currentPost.value.title && currentPost.value.content)
       http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
         initPosts();
+        initEnrichmentTypes();
         resetCurrentPost();
       }, currentPost.value.id ? 'PATCH' : 'POST', router);
   };
