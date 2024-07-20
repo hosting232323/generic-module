@@ -44,6 +44,7 @@
   import { useRouter } from 'vue-router';
   import { useDataStore } from '@/stores/data';
   import { usePostStore } from '@/stores/posts';
+  import { useLoader } from '@/stores/loader';
   import { ref } from 'vue';
 
   const router = useRouter();
@@ -54,15 +55,17 @@
   const { initPosts, resetCurrentPost } = postStore;
   const { currentPost, topics, enrichmentTypes } = storeToRefs(postStore);
 
-  const loading = ref(false);
+  const loaderStore = useLoader();
+  const loading = storeToRefs(loaderStore).loading;
+  const { updateLoader } = loaderStore;
 
   const addOrUpdatePost = () => {
     if (currentPost.value.title && currentPost.value.content){
-      loading.value = true;
+      updateLoader(true);
       http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
         initPosts();
         resetCurrentPost();
-        loading.value = false;
+        updateLoader(false);
       }, currentPost.value.id ? 'PATCH' : 'POST', router);
     }
   };
@@ -71,7 +74,7 @@
     const selectedFile = event.target.files[0];
     if (!selectedFile)  return;
 
-    loading.value = true;
+    updateLoader(true);
 
     const bucketName = 'fastsitepictures';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
@@ -80,7 +83,7 @@
         currentPost.value.files.push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
       else
         console.error('File upload failed:', data.error);
-      loading.value = false;
+      updateLoader(false);
     }, 'POST', router);
   };
 

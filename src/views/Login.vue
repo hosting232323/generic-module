@@ -33,16 +33,21 @@ import { ref } from 'vue';
 import http from '@/utils/http';
 // Correctly import postRequest
 import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
+import { useLoader } from '@/stores/loader';
 
 const mail = ref('');
 const pass = ref('');
 const message = ref('');
 const router = useRouter();
-const loading = ref(false);
+
+const loaderStore = useLoader();
+const loading = storeToRefs(loaderStore).loading;
+const { updateLoader } = loaderStore;
 
 const login = () => {
   if (mail.value && pass.value) {
-    loading.value = true;
+    updateLoader(true);
     message.value = '';
     http.postRequestGenericBE('login', {
       email: mail.value,
@@ -53,7 +58,7 @@ const login = () => {
         router.push('/blog-admin');
       } else 
         message.value = data.error;
-      loading.value = false;
+      updateLoader(false);
     }, 'POST',true);
   }
 };
