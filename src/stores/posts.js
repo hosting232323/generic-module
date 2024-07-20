@@ -16,7 +16,15 @@ export const usePostStore = defineStore('posts', {
     posts: [],
     topics: [],
     enrichmentTypes: [],
-    currentPost: emptyPost
+    currentPost: {
+      id: null,
+      title: '',
+      content: '',
+      subtitle: '',
+      enrichment: '',
+      topics: [],
+      files: []
+    }
   }),
   actions: {
     initPosts() {
