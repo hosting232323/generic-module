@@ -22,8 +22,10 @@
 <script setup>
   import http from '@/utils/http';
   import { storeToRefs } from 'pinia';
+  import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
 
+  const router = useRouter();
   const postStore = usePostStore();
   const { initPosts, resetCurrentPost, editCurrentPost } = postStore;
   const { posts, currentPost } = storeToRefs(postStore);

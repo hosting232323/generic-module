@@ -7,7 +7,7 @@
       <v-form @submit.prevent="addOrUpdatePost">
         <v-text-field v-model="currentPost.title" label="Titolo" required />
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
-        <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="name" required />
+        <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="id" multiple required />
         <v-expansion-panels>
           <v-expansion-panel title="Immagini">
             <v-expansion-panel-text>
@@ -48,7 +48,6 @@
   import { usePostStore } from '@/stores/posts';
 
   const router = useRouter();
-
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
 
