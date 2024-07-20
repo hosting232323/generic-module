@@ -14,7 +14,7 @@
           </v-row>
           <v-row>
             <v-col cols="12" md="12">
-              <v-btn text="Login" block variant="outlined" type="submit" />
+              <v-btn text="Login" block variant="outlined" type="submit" :loading="loading" />
             </v-col>
           </v-row>
           <v-row v-if="message">
@@ -38,9 +38,11 @@ const mail = ref('');
 const pass = ref('');
 const message = ref('');
 const router = useRouter();
+const loading = ref(false);
 
 const login = () => {
   if (mail.value && pass.value) {
+    loading.value = true;
     message.value = '';
     http.postRequestGenericBE('login', {
       email: mail.value,
@@ -49,9 +51,9 @@ const login = () => {
       if (data.status == 'ok') {
         localStorage.setItem('token', data.token);
         router.push('/blog-admin');
-      } else {
+      } else 
         message.value = data.error;
-      }
+      loading.value = false;
     }, 'POST',true);
   }
 };

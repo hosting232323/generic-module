@@ -30,9 +30,7 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
-        <v-btn type="submit" :color="data.info.primaryColor" class="mt-4">
-          {{ currentPost.id ? 'Modifica Post' : 'Crea Post' }}
-        </v-btn>
+        <v-btn type="submit" :text="currentPost.id ? 'Modifica Post' : 'Crea Post'" :loading="loading" :color="data.info.primaryColor" class="mt-4" />
         <v-btn v-if="currentPost.id" :color="data.info.primaryColor" @click="resetCurrentPost" class="mt-4 ml-2" text="Cancella" />
       </v-form>
     </v-card-text>
@@ -46,6 +44,7 @@
   import { useRouter } from 'vue-router';
   import { useDataStore } from '@/stores/data';
   import { usePostStore } from '@/stores/posts';
+  import { ref } from 'vue';
 
   const router = useRouter();
   const dataStore = useDataStore();
@@ -55,17 +54,24 @@
   const { initPosts, resetCurrentPost } = postStore;
   const { currentPost, topics, enrichmentTypes } = storeToRefs(postStore);
 
+  const loading = ref(false);
+
   const addOrUpdatePost = () => {
-    if (currentPost.value.title && currentPost.value.content)
+    if (currentPost.value.title && currentPost.value.content){
+      loading.value = true;
       http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
         initPosts();
         resetCurrentPost();
+        loading.value = false;
       }, currentPost.value.id ? 'PATCH' : 'POST', router);
+    }
   };
 
   const uploadImage = (event) => {
     const selectedFile = event.target.files[0];
     if (!selectedFile)  return;
+
+    loading.value = true;
 
     const bucketName = 'fastsitepictures';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
@@ -74,6 +80,7 @@
         currentPost.value.files.push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
       else
         console.error('File upload failed:', data.error);
+      loading.value = false;
     }, 'POST', router);
   };
 
