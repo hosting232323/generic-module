@@ -32,10 +32,8 @@
 
 <style scoped>
 .footer-link {
-  margin-right: 20px;
   color: #42b983;
   font-weight: bold;
-  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -47,10 +45,7 @@
 .fast-site-link {
   color: #42b983;
   font-weight: bold;
-  text-decoration: none;
   transition: color 0.3s ease;
-  display: inline-flex;
-  align-items: center;
 }
 
 .fast-site-link:hover {
