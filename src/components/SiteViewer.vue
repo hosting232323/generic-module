@@ -8,8 +8,8 @@
       <v-card-text>
         <v-container class="scrollable-container">
           <v-row>
-            <v-col v-for="site in content" :key="site.name" cols="12" md="6">
-              <v-card class="site-card" :style="{ borderColor: info.primaryColor }" elevation="2">
+            <v-col v-for="site in sortedSites" :key="site.name" cols="12" md="6">
+              <v-card v-if="!isMobile" class="site-card" :style="{ borderColor: info.primaryColor }" elevation="2">
                 <v-card-title class="d-flex align-center justify-space-between py-2">
                   <span class="site-name text-body-2">{{ site.name }}</span>
                   <div class="d-flex align-center">
@@ -22,6 +22,14 @@
                   </div>
                 </v-card-title>
               </v-card>
+              <v-card v-else class="site-card d-flex align-center" :style="{ borderColor: info.primaryColor }" elevation="2" :href="'https://' + site.url" target="_blank">
+                <v-card-title class="d-flex align-center py-2">
+                  <v-avatar size="40" class="mr-2">
+                    <v-img :src="site.logo ? site.logo : 'src/assets/defaultLogo.png'"></v-img>
+                  </v-avatar>
+                  <span class="site-name text-body-2">{{ site.name }}</span>
+                </v-card-title>
+              </v-card>
             </v-col>
           </v-row>
         </v-container>
@@ -31,7 +39,27 @@
 </template>
 
 <script setup>
-  const { content, info } = defineProps(['content', 'info']);
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+
+const { content, info } = defineProps(['content', 'info']);
+const isMobile = ref(false);
+
+const sortedSites = computed(() => {
+  return [...content].sort((a, b) => a.name.localeCompare(b.name));
+});
+
+const handleResize = () => {
+  isMobile.value = window.innerWidth <= 768;
+};
+
+onMounted(() => {
+  handleResize();
+  window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
 </script>
 
 <style scoped>
@@ -44,7 +72,7 @@
 }
 
 .scrollable-container {
-  max-height: 400px;
+  max-height: 420px;
   overflow-y: auto;
 }
 
