@@ -67,7 +67,7 @@
     const selectedFile = event.target.files[0];
     if (!selectedFile)  return;
 
-    const bucketName = 'fastsitepictures';
+    const bucketName = 'fastsiteblog';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
       if (data.status === 'ok')
