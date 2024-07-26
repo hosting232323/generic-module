@@ -8,6 +8,7 @@
         <v-text-field v-model="currentPost.title" label="Titolo" required />
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
         <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="id" multiple required />
+        <Enrichments />
         <v-expansion-panels>
           <v-expansion-panel title="Immagini">
             <v-expansion-panel-text>
@@ -47,13 +48,15 @@
   import { useDataStore } from '@/stores/data';
   import { usePostStore } from '@/stores/posts';
 
+  import Enrichments from '@/components/blogManagement/Enrichments';
+
   const router = useRouter();
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
 
   const postStore = usePostStore();
   const { initPosts, resetCurrentPost } = postStore;
-  const { currentPost, topics, enrichmentTypes } = storeToRefs(postStore);
+  const { currentPost, topics } = storeToRefs(postStore);
 
   const addOrUpdatePost = () => {
     if (currentPost.value.title && currentPost.value.content)
