@@ -14,8 +14,9 @@
   import { usePostStore } from '@/stores/posts';
 
   const postStore = usePostStore();
-  const { initPosts, initTopics } = postStore;
+  const { initPosts, initTopics, initEnrichments } = postStore;
 
   initPosts();
   initTopics();
+  initEnrichments();
 </script>

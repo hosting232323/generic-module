@@ -20,14 +20,14 @@
   const { data } = storeToRefs(dataStore);
 
   const componentMap = {
-    'map': Map,
-    'gallery': Gallery,
-    'services': Services,
-    'advantages': Advantages,
-    'contacts': Contacts,
-    'dualSection': DualSection,
-    'line': Line,
-    'siteViewer': SiteViewer
+    map: Map,
+    gallery: Gallery,
+    services: Services,
+    advantages: Advantages,
+    contacts: Contacts,
+    dualSection: DualSection,
+    line: Line,
+    siteViewer: SiteViewer
   };
 
   const sections = data.value.components;

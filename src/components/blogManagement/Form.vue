@@ -8,6 +8,7 @@
         <v-text-field v-model="currentPost.title" label="Titolo" required />
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
         <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="id" multiple required />
+        <Enrichments />
         <v-expansion-panels>
           <v-expansion-panel title="Immagini">
             <v-expansion-panel-text>
@@ -47,6 +48,8 @@
   import { useDataStore } from '@/stores/data';
   import { usePostStore } from '@/stores/posts';
 
+  import Enrichments from '@/components/blogManagement/Enrichments';
+
   const router = useRouter();
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
@@ -67,7 +70,7 @@
     const selectedFile = event.target.files[0];
     if (!selectedFile)  return;
 
-    const bucketName = 'fastsiteblog';
+    const bucketName = 'blogfast';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
       if (data.status === 'ok')
