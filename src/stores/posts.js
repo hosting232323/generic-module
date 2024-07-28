@@ -15,11 +15,23 @@ export const usePostStore = defineStore('posts', {
   state: () => ({
     posts: [],
     topics: [],
-    currentPost: emptyPost
+    enrichments: [],
+    currentPost: {
+      id: null,
+      title: '',
+      content: '',
+      subtitle: '',
+      enrichment: '',
+      topics: [],
+      files: []
+    }
   }),
   actions: {
     initPosts() {
       http.getRequestGenericBE('blog/post', {}, this.updatePosts);
+    },
+    initEnrichments() {
+      http.getRequestGenericBE('get-enrichment-types', {}, this.updateEnrichments)
     },
     initTopics() {
       http.getRequestGenericBE('blog/topic', {}, this.updateTopics);
@@ -29,6 +41,9 @@ export const usePostStore = defineStore('posts', {
     },
     updateTopics(data) {
       this.topics = data.topics || [];
+    },
+    updateEnrichments(data){
+      this.enrichments = data.enrichment_types || [];
     },
     resetCurrentPost() {
       this.currentPost = emptyPost;
