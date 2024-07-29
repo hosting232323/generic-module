@@ -4,7 +4,7 @@
       I nostri contatti
     </h1>
     <v-list>
-      <v-list-item height="20" v-for="contact_type in getContactTypes(data.contacts)" style="height: auto;">
+      <v-list-item height="20" v-for="contact_type in getContactTypes(data.contacts)" style="height: auto;" >
         <template v-slot:prepend>
           <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="data.primaryColor" />
         </template>

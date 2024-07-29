@@ -1,6 +1,6 @@
 <template>
   <br>
-  <div ref="mapContainer" style="width: 100%; height: 400px;" />
+  <div ref="mapContainer" style="width: 100%; height: 400px;"  />
 </template>
 
 <script setup>

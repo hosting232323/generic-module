@@ -1,6 +1,9 @@
 <template>
   <v-main :style="{ backgroundColor: data.secondaryColor }">
     <router-view />
+    <a href="https://www.instagram.com/dicarne_showroom/">
+      <v-btn icon="mdi-instagram" :color="data.primaryColor" class="fixed-btn" size="x-large" />
+    </a>
   </v-main>
 </template>
 
@@ -11,3 +14,11 @@
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
 </script>
+
+<style scoped>
+  .fixed-btn {
+    position: fixed;
+    bottom: 64px;
+    right: 16px;
+  }
+</style>

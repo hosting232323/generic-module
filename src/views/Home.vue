@@ -1,23 +1,21 @@
 <template>
-  <!--
-    Sistemare seconda immagine
-    Caricamento brandlist
-    Scorrimento automatico gallery
-    Titolo sito sospeso sopra la gallery
-    Floating button per instagram
-    Logo sul sito
-    Scrivere Puglia Basilicata
-  -->
   <Gallery v-if="data.gallery" />
-  <Services id="services" />
-  <v-container v-if="data.contacts">
+  <Services id="whoweare" v-slide-in />
+  <v-container v-if="data.contacts" v-slide-in>
     <hr :style="{ backgroundColor: data.primaryColor, height: '5px' }" />
   </v-container>
-  <Brandlist id="brandlist" />
-  <v-container v-if="data.contacts">
+  <Brandlist id="brandlist" v-slide-in />
+  <v-container v-if="data.contacts" v-slide-in>
     <hr :style="{ backgroundColor: data.primaryColor, height: '5px' }" />
   </v-container>
-  <Contacts id="contacts" v-if="data.contacts" />
+  <DualSection1 id="advantages" v-slide-in />
+  <DualSection2 v-if="isMobile" v-slide-in />
+  <DualSection4 v-else v-slide-in />
+  <DualSection3 v-slide-in />
+  <v-container v-if="data.contacts" v-slide-in>
+    <hr :style="{ backgroundColor: data.primaryColor, height: '5px' }" />
+  </v-container>
+  <Contacts id="contacts" v-if="data.contacts" v-slide-in />
 </template>
 
 <script setup>
@@ -25,9 +23,16 @@
   import Services from '@/components/Services';
   import Contacts from '@/components/Contacts';
   import Brandlist from '@/components/Brandlist';
+  import DualSection1 from '@/components/DualSection1';
+  import DualSection2 from '@/components/DualSection2';
+  import DualSection3 from '@/components/DualSection3';
+  import DualSection4 from '@/components/DualSection4';
 
+  import mobile from '@/utils/mobile';
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
+
+  const isMobile = mobile.setupMobileUtils();
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);

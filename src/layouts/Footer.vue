@@ -3,7 +3,7 @@
     <v-row no-gutters>
       <v-col class="text-center mt-4" cols="12">
         {{ new Date().getFullYear() }} —
-        <strong>{{ data.name }}</strong>
+        <strong>Di Carne Antonio</strong>
         <div v-if="data.iva">P. IVA {{ data.iva }}</div>
       </v-col>
     </v-row>

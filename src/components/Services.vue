@@ -1,40 +1,30 @@
 <template>
-  <v-container :style="{ color: data.primaryColor }">
-    <center>
-    <h2>
-      Rapporto con i Clienti
-    </h2>
+  <v-container :style="{ color: data.primaryColor }" >
+    <br>
+    <div v-if="!isMobile"><h1>
+      Chi siamo
+    </h1><br></div>
     <p class="black_text">
-      Il nostro successo si basa su rapporti di fiducia e trasparenza con i clienti, dimostrando dedizione e impegno costante.
+      Operiamo nel sistema moda da circa, <b>quarant’anni</b>, con un team fortemente motivato e convinto che questo lavoro vada svolto, oggi più che mai, con rinnovato <b>entusiasmo</b>, <b>metodo</b> e <b>professionalità</b>.
     </p><br>
-    <h2>
-      Professionalità e Affidabilità
-    </h2>
     <p class="black_text">
-      Il nostro team offre un servizio d'eccellenza, mantenendo elevati standard di qualità e supporto costante.
+      Il nostro percorso, ci permette di vantare decennali esperienze di collaborazione con marchi rinomati, quali Trussardi, Iceberg, Mabitex, Versace, ecc. e la storia continua con <b>marchi tra i più prestigiosi</b> sul mercato.
     </p><br>
-    <h2>
-      Storia Quarantennale
-    </h2>
     <p class="black_text">
-      Con oltre quarant'anni di esperienza, abbiamo costruito una solida reputazione, sviluppando rapporti duraturi con clienti e partner.
+      La nostra agenzia è al momento composta da <b>cinque venditori e un addetto all’ufficio</b> commerciale / amministrativo e dispone di una <b>show-room di circa millecento metri quadrati</b>, disposti su due superfici e suddiviso in ambienti <b>dedicabili alle singole linee</b>.
     </p><br>
-    <h2>
-      Impegno per la <span class="green_text">Sostenibilità</span>
-    </h2>
-    <p class="black_text">
-      Collaboriamo con marchi e fornitori etici, promuovendo materiali <span class="green_text">eco-friendly</span> e processi produttivi responsabili.
-    </p>
-  </center>
   </v-container>
 </template>
 
 <script setup>
+  import mobile from '@/utils/mobile';
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
+
+  const isMobile = mobile.setupMobileUtils();
 </script>
 
 <style scoped>

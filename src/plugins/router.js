@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
@@ -20,14 +20,31 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
-  scrollBehavior(to, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
+    const appBarHeight = 60;
+
+    const scrollWithOffset = (el) => {
+      const element = document.querySelector(el);
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - appBarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    };
+
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      };
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          scrollWithOffset(to.hash);
+          resolve();
+        }, 0);
+      });
     } else if (savedPosition)
       return savedPosition;
     else
