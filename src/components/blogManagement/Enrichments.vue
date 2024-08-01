@@ -7,13 +7,15 @@
   import { usePostStore } from '@/stores/posts';
 
   import String from '@/components/blogManagement/EnrichmentInputs/String';
-  import Integer from '@/components/blogManagement/EnrichmentInputs/Integer';
+  import NettiPost from '@/components/blogManagement/EnrichmentInputs/NettiPost';
+  import NettiResearch from '@/components/blogManagement/EnrichmentInputs/NettiResearch';
 
   const postStore = usePostStore();
   const { enrichments } = storeToRefs(postStore);
 
   const inputMap = {
     string: String,
-    integer: Integer
+    'netti post': NettiPost,
+    'netti research': NettiResearch
   };
 </script>

@@ -6,7 +6,7 @@ const emptyPost = {
   title: '',
   content: '',
   subtitle: '',
-  enrichment: '',
+  enrichment: {},
   topics: [],
   files: []
 };
@@ -21,7 +21,7 @@ export const usePostStore = defineStore('posts', {
       title: '',
       content: '',
       subtitle: '',
-      enrichment: '',
+      enrichment: {},
       topics: [],
       files: []
     }

@@ -9,28 +9,7 @@
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
         <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="id" multiple required />
         <Enrichments />
-        <v-expansion-panels>
-          <v-expansion-panel title="Immagini">
-            <v-expansion-panel-text>
-              <v-file-input accept="image/*" label="Carica qui la tua immagine" @change="uploadImage" />
-              <v-card title="Immagini caricate" v-if="currentPost.files && currentPost.files.length > 0">
-                <v-card-text>
-                  <v-slide-group show-arrows>
-                    <v-slide-group-item v-for="(image, index) in currentPost.files">
-                      <v-card elevation="5">
-                        <v-img :src="image" width="200" height="200" />
-                        <v-card-actions>
-                          <v-spacer />
-                          <v-btn icon="mdi-delete" @click="deleteImage(index)" />
-                        </v-card-actions>
-                      </v-card>
-                    </v-slide-group-item>
-                  </v-slide-group>
-                </v-card-text>
-              </v-card>
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
+        <Images />
         <v-btn type="submit" :color="data.info.primaryColor" class="mt-4">
           {{ currentPost.id ? 'Modifica Post' : 'Crea Post' }}
         </v-btn>
@@ -42,12 +21,12 @@
 
 <script setup>
   import http from '@/utils/http';
-  import { v4 as uuidv4 } from 'uuid';
   import { storeToRefs } from 'pinia';
   import { useRouter } from 'vue-router';
   import { useDataStore } from '@/stores/data';
   import { usePostStore } from '@/stores/posts';
 
+  import Images from '@/components/blogManagement/Images';
   import Enrichments from '@/components/blogManagement/Enrichments';
 
   const router = useRouter();
@@ -64,23 +43,5 @@
         initPosts();
         resetCurrentPost();
       }, currentPost.value.id ? 'PATCH' : 'POST', router);
-  };
-
-  const uploadImage = (event) => {
-    const selectedFile = event.target.files[0];
-    if (!selectedFile)  return;
-
-    const bucketName = 'blogfast';
-    const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
-    http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
-      if (data.status === 'ok')
-        currentPost.value.files.push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
-      else
-        console.error('File upload failed:', data.error);
-    }, 'POST', router);
-  };
-
-  const deleteImage = (index) => {
-    currentPost.value.files.splice(index, 1);
   };
 </script>
