@@ -13,30 +13,49 @@
       "type": "gallery"
     },
     {
-      "content": [
-        {
-          "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-          "name": "Design Personalizzato"
-        },
-        {
-          "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-          "name": "SEO Ottimizzato"
-        },
-        {
-          "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-          "name": "Responsive Design"
-        },
-        {
-          "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
-          "name": "Velocità di Caricamento Ottimale"
-        }
-      ],
+      "content": {
+        "description": "Da zero a online in un attimo: scopri il nostro servizio di creazione siti semplice e low-cost!",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+        "orientationDesktop": "right",
+        "subtitle": "Il trinomio perfetto per la tua attività",
+        "title": "Facile,veloce ed economico",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
+      },
       "menu": "Vantaggi",
-      "type": "advantages"
+      "type": "dualSection"
+    },
+    {
+      "content": {
+        "description": "Grazie alla nostra tecnologia avanzata e all'uso dell'intelligenza artificiale, il tuo sito web sarà pronto in tempo record. In pochi minuti, potrai vedere la tua visione trasformarsi in una realtà digitale, con un design professionale e funzionalità all'avanguardia. Dimentica lunghe attese e processi complessi: con FastSite, la creazione del tuo sito è semplice, rapida ed efficiente.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+        "orientationDesktop": "left",
+        "subtitle": "Siti web pronti in pochi minuti, non giorni!",
+        "title": "Velocità Senza Eguali",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
+      },
+      "type": "dualSection"
+    },
+    {
+      "content": {
+        "description":  "Offriamo pacchetti accessibili senza compromettere la qualità del tuo sito. Con FastSite ottieni un design elegante, funzionalità avanzate e performance ottimali a un prezzo competitivo. La nostra missione è rendere la creazione di siti web di alta qualità alla portata di tutti, senza compromessi.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+        "orientationDesktop": "right",
+        "subtitle": "Alta qualità a un prezzo che ti sorprenderà.",
+        "title": "Prezzo Competitivo",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
+      },
+      "type": "dualSection"
+    },
+    {
+      "content": {
+        "description":  "I nostri siti web, ottimizzati per ogni dispositivo, offrono un'esperienza utente fluida e coinvolgente, sia su desktop che su mobile. Con FastSite, il tuo sito sarà pronto per essere pubblicato in tempi record, garantendo performance eccezionali e un design accattivante che cattura l'attenzione del tuo pubblico.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+        "orientationDesktop": "left",
+        "subtitle": "Più che FastSite, FlashSite!",
+        "title": "Dalla tua visione alla realtà in pochi clic.",
+        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
+      },
+      "type": "dualSection"
     },
     {
       "type": "line"
@@ -44,23 +63,54 @@
     {
       "content": [
         {
-          "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
+          "name": "Il Forno Molfetta",
+          "logo": "https://ilfornomolfetta.it/logo.png",
+          "url": "ilfornomolfetta.it"
+        },
+        {
+          "name": "Colasanto Luigi",
+          "logo": "https://colasantoluigi.it/logo.png",
+          "url": "colasantoluigi.it"
+        },
+        {
+          "name": "Panificio Mulino Bianco",
+          "logo": "https://panificio-mulinobianco.it/logo.png",
+          "url": "panificio-mulinobianco.it"
+        },
+        {
+          "name": "La dimora dell'angelo",
+          "logo": "https://ladimoradellangelo.it/logo.png",
+          "url": "ladimoradellangelo.it"
+        },
+        {
+          "name": "Di Carne Showroom",
+          "logo": "https://dicarneshowroom.it/logo.png",
+          "url": "dicarneshowroom.it"
+        }
+      ],
+      "menu": "Siti Attivi",
+      "type": "siteViewer"
+    },
+    {
+      "content": [
+        {
+          "description": "Crea una piattaforma di vetrina su misura per mostrare i tuoi servizi e prodotti in modo attraente e professionale. I nostri sviluppatori creano il tuo sito web in modo che possa arricchire i tuoi servizi con un design accattivante e contenuti coinvolgenti. Progetto perfetto per aziende che vogliono lasciare un'impronta duratura e far crescere il loro business attraverso un'esperienza online unica.",
           "name": "Sito Web Vetrina"
         },
         {
-          "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
+          "description": "Costruisci un sito web e-commerce con funzionalità avanzate di shopping online, sicurezza del pagamento e un catalogo prodotti. Offriamo soluzioni scalabili che ti permetteranno di gestire facilmente l'inventario, gli ordini e le spedizioni in modo che tu possa offrire ai tuoi clienti un'esperienza di shopping senza intoppi. Cresci con la tua attività grazie a un negozio online che trasforma i visitatori in clienti.",
           "name": "Sito Web E-commerce"
         },
         {
-          "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
+          "description": "Un'analisi completa con l'ottimizzazione del sito web per i motori di ricerca con l'obiettivo di ottenere massima visibilità online e traffico organico. Integriamo le ultime strategie on-page e off-page SEO per garantire che il tuo sito sia ben posizionato nei risultati di ricerca. Con la nostra strategia di ottimizzazione del sito web, il tuo sito sarà esposto a un pubblico più vasto e targettizzato, portando a un'espansione delle opportunità di business.",
           "name": "Ottimizzazione SEO"
         },
         {
-          "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
+          "description": "Revisione regolare e strategica del contenuto del sito, immagini, testi e prodotti per garantire che l'esperienza totale dell'utente sia fresca e coinvolgente. Attraverso il nostro servizio di gestione dei contenuti, il tuo sito web sarà sempre coinvolgente e accattivante, mostrando agli utenti le nuove funzionalità e aggiornamenti della tua azienda.",
           "name": "Gestione Contenuti"
         },
         {
-          "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
+          "description": "Creazione di soluzioni web innovative e su misura in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale. Che tu abbia bisogno di funzionalità personalizzate, integrazioni avanzate o un design esclusivo, il nostro team di sviluppatori è pronto a trasformare le tue idee in realtà. Realizziamo siti web che non solo soddisfano le tue esigenze attuali, ma che possono crescere insieme alla tua attività.",
           "name": "Sviluppo Web Personalizzato"
         }
       ],
@@ -69,19 +119,6 @@
     },
     {
       "type": "line"
-    },
-    {
-      "content": {
-        "button": "Cliccami!",
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-        "orientation": "right",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
-      },
-      "menu": "Sezione doppia",
-      "type": "dualSection"
     },
     {
       "content": {
@@ -104,7 +141,7 @@
   ],
   "info": {
     "name": "FastSite",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C"
+    "primaryColor": "#f34455",
+    "secondaryColor": "#f7f4ef"
   }
 }

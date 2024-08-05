@@ -32,7 +32,7 @@
 
 <style scoped>
 .footer-link {
-  color: #42b983;
+  color: #f7f4ef;
   font-weight: bold;
   transition: color 0.3s ease;
 }
@@ -43,7 +43,7 @@
 }
 
 .fast-site-link {
-  color: #42b983;
+  color: #f7f4ef;
   font-weight: bold;
   transition: color 0.3s ease;
 }
