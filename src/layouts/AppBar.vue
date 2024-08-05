@@ -10,6 +10,8 @@
   </v-navigation-drawer>
   <v-app-bar :elevation="2" :color="info.primaryColor">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
+    <!-- Add Logo Here -->
+    <img src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo" />
     <v-app-bar-title><b>
       {{ info.name }}
     </b></v-app-bar-title>
@@ -73,7 +75,6 @@
     return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
   });
 </script>
-
 <style scoped>
   .desktop-menu {
     padding-right: 20px;
@@ -86,5 +87,10 @@
   }
   .router-link:hover {
     text-decoration: underline;
+  }
+  /* Styling for the logo */
+  .app-bar-logo {
+    height: 40px; /* Adjust the height as needed */
+    margin-right: 16px; /* Space between logo and title */
   }
 </style>

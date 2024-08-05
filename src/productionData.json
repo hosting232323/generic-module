@@ -96,22 +96,6 @@
         {
           "description": "Crea una piattaforma di vetrina su misura per mostrare i tuoi servizi e prodotti in modo attraente e professionale. I nostri sviluppatori creano il tuo sito web in modo che possa arricchire i tuoi servizi con un design accattivante e contenuti coinvolgenti. Progetto perfetto per aziende che vogliono lasciare un'impronta duratura e far crescere il loro business attraverso un'esperienza online unica.",
           "name": "Sito Web Vetrina"
-        },
-        {
-          "description": "Costruisci un sito web e-commerce con funzionalità avanzate di shopping online, sicurezza del pagamento e un catalogo prodotti. Offriamo soluzioni scalabili che ti permetteranno di gestire facilmente l'inventario, gli ordini e le spedizioni in modo che tu possa offrire ai tuoi clienti un'esperienza di shopping senza intoppi. Cresci con la tua attività grazie a un negozio online che trasforma i visitatori in clienti.",
-          "name": "Sito Web E-commerce"
-        },
-        {
-          "description": "Un'analisi completa con l'ottimizzazione del sito web per i motori di ricerca con l'obiettivo di ottenere massima visibilità online e traffico organico. Integriamo le ultime strategie on-page e off-page SEO per garantire che il tuo sito sia ben posizionato nei risultati di ricerca. Con la nostra strategia di ottimizzazione del sito web, il tuo sito sarà esposto a un pubblico più vasto e targettizzato, portando a un'espansione delle opportunità di business.",
-          "name": "Ottimizzazione SEO"
-        },
-        {
-          "description": "Revisione regolare e strategica del contenuto del sito, immagini, testi e prodotti per garantire che l'esperienza totale dell'utente sia fresca e coinvolgente. Attraverso il nostro servizio di gestione dei contenuti, il tuo sito web sarà sempre coinvolgente e accattivante, mostrando agli utenti le nuove funzionalità e aggiornamenti della tua azienda.",
-          "name": "Gestione Contenuti"
-        },
-        {
-          "description": "Creazione di soluzioni web innovative e su misura in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale. Che tu abbia bisogno di funzionalità personalizzate, integrazioni avanzate o un design esclusivo, il nostro team di sviluppatori è pronto a trasformare le tue idee in realtà. Realizziamo siti web che non solo soddisfano le tue esigenze attuali, ma che possono crescere insieme alla tua attività.",
-          "name": "Sviluppo Web Personalizzato"
         }
       ],
       "menu": "Servizi",
@@ -141,7 +125,7 @@
   ],
   "info": {
     "name": "FastSite",
-    "primaryColor": "#f34455",
-    "secondaryColor": "#f7f4ef"
+    "primaryColor": "#f7f4ef",
+    "secondaryColor": "#f34455"
   }
 }
