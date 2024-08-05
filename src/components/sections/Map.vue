@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card elevation="20" title="Puoi venirci a conoscere qui">
+    <v-card elevation="20" title="Dove Siamo">
       <v-container>
         <div ref="mapContainer" style="width: 100%; height: 400px;" />
       </v-container>

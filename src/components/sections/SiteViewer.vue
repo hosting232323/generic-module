@@ -3,7 +3,7 @@
     <v-card elevation="4" height="500">
       <v-card-title class="title-card">
         <v-icon class="mr-2">mdi-web</v-icon>
-        Siti Attivi
+        Chi ci ha già scelto
       </v-card-title>
       <v-card-text>
         <v-container class="scrollable-container">
