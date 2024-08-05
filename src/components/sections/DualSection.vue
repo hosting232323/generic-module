@@ -2,10 +2,10 @@
     <v-container>
       <v-row align="center">
         <v-col v-if="isLeftAligned" cols="12" md="6">
-          <v-img :src="content.image" cover></v-img>
+          <v-img :src="content.image" cover class="bento-img"></v-img>
         </v-col>
         <v-col cols="12" md="6">
-          <v-sheet :color="info.secondaryColor">
+          <v-sheet :color="info.secondaryColor" class="bento-sheet">
             <!-- Use TypeWriter for Title -->
             <TypeWriter 
               v-if="content.title" 
@@ -30,28 +30,41 @@
           </v-sheet>
         </v-col>
         <v-col v-if="!isLeftAligned" cols="12" md="6">
-          <v-img :src="content.image" cover></v-img>
+          <v-img :src="content.image" cover class="bento-img"></v-img>
         </v-col>
       </v-row>
     </v-container>
   </template>
   
-
-<script setup>
-import { computed } from 'vue';
-import mobile from '@/utils/mobile';
-import TypeWriter from '@/components/AnimatedTitle.vue'
-const isMobile = mobile.setupMobileUtils();
-const { content, info } = defineProps(['content', 'info']);
-
-const defaultDesktopOrientation = 'right';
-const defaultMobileOrientation = 'bottom';
-
-const isLeftDesktopAligned = computed(() => (content.orientationDesktop || defaultDesktopOrientation) === 'left');
-const isLeftMobileAligned = computed(() => (content.orientationMobile || defaultMobileOrientation) === 'top');
-
-const isLeftAligned = computed(() => {
-  if (isMobile.value) return isLeftMobileAligned.value;
-   else return isLeftDesktopAligned.value;
-});
-</script>
+  <script setup>
+  import { computed } from 'vue';
+  import mobile from '@/utils/mobile';
+  import TypeWriter from '@/components/AnimatedTitle.vue'
+  
+  const isMobile = mobile.setupMobileUtils();
+  const { content, info } = defineProps(['content', 'info']);
+  
+  const defaultDesktopOrientation = 'right';
+  const defaultMobileOrientation = 'bottom';
+  
+  const isLeftDesktopAligned = computed(() => (content.orientationDesktop || defaultDesktopOrientation) === 'left');
+  const isLeftMobileAligned = computed(() => (content.orientationMobile || defaultMobileOrientation) === 'top');
+  
+  const isLeftAligned = computed(() => {
+    if (isMobile.value) return isLeftMobileAligned.value;
+     else return isLeftDesktopAligned.value;
+  });
+  </script>
+  
+  <style scoped>
+  .bento-img {
+    border-radius: 15px; /* Adjust the radius to your preference */
+    overflow: hidden; /* Ensure the image content stays within the rounded corners */
+  }
+  
+  .bento-sheet {
+    border-radius: 15px; /* Match the radius with images for consistency */
+    padding: 16px; /* Optional: Add padding if needed */
+  }
+  </style>
+  
