@@ -40,7 +40,7 @@ const { data } = storeToRefs(dataStore);
 
 <style scoped>
 .bento-footer {
-  border-radius: 10px 10px 0 0; /* Rounded top corners for the footer */
+  border-radius: 3px; /* Rounded top corners for the footer */
   padding: 16px; /* Padding to give some space inside the footer */
 }
 
