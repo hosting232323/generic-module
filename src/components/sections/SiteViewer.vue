@@ -1,95 +1,111 @@
 <template>
-  <v-container>
-    <v-card elevation="4" height="500">
+  <v-container class="transparent-container">
+    <v-card elevation="0" class="transparent-card">
       <v-card-title class="title-card">
         <v-icon class="mr-2">mdi-web</v-icon>
         Chi ci ha già scelto
       </v-card-title>
       <v-card-text>
-        <v-container class="scrollable-container">
-          <v-row>
-            <v-col v-for="site in content" :key="site.name" cols="12" md="6">
-              <v-card v-if="!isMobile" class="site-card" :style="{ borderColor: info.primaryColor }" elevation="2">
-                <v-card-title class="d-flex align-center justify-space-between py-2">
-                  <span class="site-name text-body-2">{{ site.name }}</span>
-                  <div class="d-flex align-center">
-                    <v-btn small color="#f34455" :href="'https://' + site.url" target="_blank" class="ml-2">
-                      Visita
-                    </v-btn>
-                    <v-avatar size="40" class="ml-2">
-                      <v-img :src="site.logo ? site.logo : 'src/assets/defaultLogo.png'"></v-img>
-                    </v-avatar>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card v-else class="site-card d-flex align-center" :style="{ borderColor: info.primaryColor }" elevation="2" :href="'https://' + site.url" target="_blank">
-                <v-card-title class="d-flex align-center py-2">
-                  <v-avatar size="40" class="mr-2">
-                    <v-img :src="site.logo ? site.logo : 'src/assets/defaultLogo.png'"></v-img>
-                  </v-avatar>
-                  <span class="site-name text-body-2">{{ site.name }}</span>
-                </v-card-title>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
+        <div class="scrollable-container">
+          <div class="url-list">
+            <div v-for="(site, index) in visibleContent" :key="index" class="url-item" :class="{ 'center-item': index === 1 }">
+              <a :href="'https://' + site.url" target="_blank" class="url-link">
+                {{ site.name }}
+              </a>
+            </div>
+          </div>
+        </div>
       </v-card-text>
     </v-card>
   </v-container>
 </template>
 
 <script setup>
-  import mobile from '@/utils/mobile';
+import { ref, onMounted, onUnmounted } from 'vue';
 
-  const isMobile = mobile.setupMobileUtils();
-  const { content, info } = defineProps(['content', 'info']);
+const { content } = defineProps(['content']);
+const visibleContent = ref([]);
+
+let scrollInterval = null;
+
+const startScrolling = () => {
+  let index = 0;
+  visibleContent.value = content.slice(index, index + 3);
+
+  scrollInterval = setInterval(() => {
+    index = (index + 1) % content.length;
+    if (index + 3 <= content.length) {
+      visibleContent.value = content.slice(index, index + 3);
+    } else {
+      visibleContent.value = content.slice(index).concat(content.slice(0, (index + 3) % content.length));
+    }
+  }, 1000); // Increased the speed of the scrolling
+};
+
+onMounted(() => {
+  startScrolling();
+});
+
+onUnmounted(() => {
+  clearInterval(scrollInterval);
+});
 </script>
 
 <style scoped>
+.transparent-container {
+  background: transparent;
+}
+
+.transparent-card {
+  background: transparent;
+  box-shadow: none; /* Remove the shadow */
+}
+
 .title-card {
   font-weight: bold;
-  color: #f34455;
-  background-color: #f7f4ef;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
   padding: 16px;
-  border-bottom: 2px solid #f34455;
+  border-bottom: none; /* Remove the bottom border */
 }
 
 .scrollable-container {
-  max-height: 400px;
-  overflow-y: auto;
+  max-height: 200px; /* Adjust height as needed */
+  overflow: hidden;
 }
 
-.scrollable-container::-webkit-scrollbar {
-  width: 12px;
+.url-list {
+  animation: scroll 3s linear infinite; /* Increased speed of scrolling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.scrollable-container::-webkit-scrollbar-thumb {
-  background-color: #f34455;
-  border-radius: 10px;
-  border: 3px solid #e3f2fd;
-}
-
-.scrollable-container::-webkit-scrollbar-track {
-  background-color: #f7f4ef;
-  border-radius: 10px;
-}
-
-.site-card {
-  border: 2px solid;
-  border-radius: 8px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.site-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.v-avatar {
-  border: 2px solid #eee;
-}
-
-.site-name {
+.url-item {
   font-weight: bold;
+  margin: 8px 0;
+  color: #f34455;
+  transition: transform 0.5s, font-size 0.5s;
+}
+
+.url-item.center-item {
+  transform: scale(1.5);
+  font-size: 1.5em;
+  color: white;
+}
+
+.url-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(100%); /* Start from the bottom */
+  }
+  100% {
+    transform: translateY(-100%); /* Move to the top */
+  }
 }
 </style>

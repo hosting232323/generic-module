@@ -1,85 +1,81 @@
+<!-- ContactPanel.vue -->
 <template>
-  <v-container>
-    <v-card elevation="20" title="I nostri contatti">
-      <v-container>
-        <v-list>
-          <v-list-item height="20" v-for="contact_type in getContactTypes(content)">
-            <template v-slot:prepend>
-              <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="info.primaryColor" />
-            </template>
-            <v-list-item-title v-html="content[contact_type]" />
-          </v-list-item>
-        </v-list><br>
-        <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
-        <br><b>
-          Contattaci direttamente con questo form
-        </b><br><br>
-        <v-form fast-fail @submit.prevent="sendMail">
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="name" :rules="validation.requiredRules" variant="outlined" label="Nominativo" />
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="email" :rules="validation.emailRules" variant="outlined" label="Email" />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" md="12">
-              <v-textarea label="Testo" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
-            </v-col>
-          </v-row><br>
-          <v-btn block text="Invia" type="submit" :color="info.primaryColor" />
-        </v-form>
-      </v-container>
-    </v-card>
-  </v-container>
+  <v-card class="contact-panel" color="black" elevation="8">
+    <v-card-title class="text-h4 font-weight-bold text-center white--text mb-6">
+      INIZIA ORA
+    </v-card-title>
+    
+    <v-row justify="center" class="ma-0">
+      <v-col cols="4" v-for="(action, index) in actions" :key="index" class="text-center">
+        <v-btn
+          icon
+          x-large
+          color="white"
+          @click="handleAction(action.type)"
+        >
+          <v-icon size="48">{{ action.icon }}</v-icon>
+        </v-btn>
+        <div class="white--text mt-2">{{ action.label }}</div>
+      </v-col>
+    </v-row>
+
+    <!-- Dialog per la chiamata su desktop -->
+    <v-dialog v-model="showCallDialog" max-width="300">
+      <v-card>
+        <v-card-title class="headline">+39 347 876 8340</v-card-title>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="showCallDialog = false">Chiudi</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-card>
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import validation from '@/utils/validation';
+import { ref } from 'vue';
 
-  const { content, info } = defineProps(['content', 'info']);
+const actions = ref([
+  { type: 'phone', icon: 'mdi-phone', label: 'Chiama' },
+  { type: 'whatsapp', icon: 'mdi-whatsapp', label: 'WhatsApp' },
+  { type: 'email', icon: 'mdi-email', label: 'Email' }
+]);
 
-  const name = ref('');
-  const body = ref('');
-  const email = ref('');
+const showCallDialog = ref(false);
 
-  const CONTACT_ICON_MAP = {
-    Phone: 'mdi-phone',
-    Address: 'mdi-map-marker'
-  };
-
-  const getContactTypes = (contacts) => {
-    return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
-  };
-
-  const mail = import.meta.env.VITE_FORM_MAIL;
-
-  const sendMail = () => {
-    if (
-      !validation.validateInput(email.value, validation.emailRules) &&
-      !validation.validateInput(name.value, validation.requiredRules) &&
-      !validation.validateInput(body.value, validation.requiredRules)
-    ) {
-      http.postRequestGenericBE('send-mail', {
-        email: mail,
-        subject: `Qualcuno ho usato il form del sito ${info.name}`,
-        body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
-          `Nominativo: ${name.value}\n` +
-          `Mail: ${email.value}\n\n` +
-          `Testo:\n${body.value}`
-      }, function () {
-        alert("Mail inviata\nTi ringraziamo per il contatto");
-      }, 'POST', router);
-    }
-  };
+const handleAction = (type) => {
+  switch (type) {
+    case 'phone':
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // Dispositivo mobile: avvia la chiamata
+        window.location.href = 'tel:+393478768340';
+      } else {
+        // Desktop: mostra il dialog con il numero
+        showCallDialog.value = true;
+      }
+      break;
+    case 'whatsapp':
+      window.open('https://wa.me/393478768340', '_blank');
+      break;
+    case 'email':
+      window.location.href = 'mailto:giovanni.colasanto@fastsite.it';
+      break;
+  }
+};
 </script>
 
 <style scoped>
-  .contact__text {
-    margin-left: 10px;
-    float: left;
-  }
+.contact-panel {
+  max-width: 500px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.v-btn {
+  transition: transform 0.2s;
+}
+
+.v-btn:hover {
+  transform: scale(1.1);
+}
 </style>

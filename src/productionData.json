@@ -103,6 +103,9 @@
       "type": "contacts"
     },
     {
+      "type": "line"
+    },
+    {
       "content": {
         "coordinates": [
           16.882818,
