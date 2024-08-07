@@ -1,33 +1,35 @@
-<!-- ContactPanel.vue -->
 <template>
-    <v-card-title class="text-h4 font-weight-bold text-center mb-6">
+  <v-card-title class="text-h5 text-center mb-6 fixed-height">
+    <div class="typewriter-wrapper">
       <TypeWriter 
-        :texts="['Contattaci Ora']" 
+        :texts="['Scopri la nostra offerta...']" 
         :typing-speed="80" 
         :erasing-speed="80" 
         :new-text-delay="1500"
+        class="text-subtitle-1 font-weight-black shifted-typewriter"
       />
-    </v-card-title>
-    <v-row justify="center" class="ma-0">
-      <v-col cols="4" v-for="(action, index) in actions" :key="index" class="text-center">
-        <v-btn
-          icon
-          x-large
-          :color="action.color"
-          @click="handleAction(action.type)"
-        >
-          <v-icon size="48">{{ action.icon }}</v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
-    <v-snackbar
-      v-model="showCopiedMessage"
-      :timeout="2000"
-      color="success"
-      text
-    >
-      Numero copiato
-    </v-snackbar>
+    </div>
+  </v-card-title>
+  <v-row justify="center" class="ma-0">
+    <v-col cols="4" v-for="(action, index) in actions" :key="index" class="text-center">
+      <v-btn
+        icon
+        x-large
+        :color="action.color"
+        @click="handleAction(action.type)"
+      >
+        <v-icon size="48">{{ action.icon }}</v-icon>
+      </v-btn>
+    </v-col>
+  </v-row>
+  <v-snackbar
+    v-model="showCopiedMessage"
+    :timeout="2000"
+    color="success"
+    text
+  >
+    Numero copiato
+  </v-snackbar>
 </template>
 
 <script setup>
@@ -72,6 +74,22 @@ const handleAction = (type) => {
 </script>
 
 <style scoped>
+.fixed-height {
+  min-height: 50px; /* Adjust the height as necessary */
+}
+
+.typewriter-wrapper {
+  min-height: 50px; /* Adjust the height as necessary */
+  display: flex;
+  justify-content: flex-start; /* Align to the left */
+  padding-left:  12%; /* Adjust padding to shift the text */
+  text-align: left;
+}
+
+.shifted-typewriter {
+  display: inline-block; /* Ensure the typewriter is inline for better centering */
+}
+
 .contact-panel {
   width: 100%;
   padding: 2rem;
@@ -82,6 +100,7 @@ const handleAction = (type) => {
 .v-btn {
   transition: transform 0.2s;
   margin: 0 10px;
+  margin-bottom: 5rem; 
 }
 
 .v-btn:hover {
@@ -90,6 +109,6 @@ const handleAction = (type) => {
 
 /* Set text color for better visibility */
 .v-card-title, .v-col div {
-  color: white; /* Assuming the primaryColor is dark. Adjust if needed. */
+  color: white;
 }
 </style>
