@@ -1,5 +1,5 @@
 <template>
-  <v-footer elevation="2" :color="data.info.primaryColor" class="bento-footer">
+  <v-footer elevation="1" :color="data.info.primaryColor" class="bento-footer">
     <v-container>
       <v-row class="footer-row">
         <!-- Left Side of Footer (with Logo) -->

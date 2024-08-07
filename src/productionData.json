@@ -9,7 +9,6 @@
         "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
         "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png"
       ],
-      "menu": "Galleria",
       "type": "gallery"
     },
     {
@@ -58,6 +57,24 @@
       "type": "dualSection"
     },
     {
+      "content": {
+        "Email": "giovanni.colasanto@fastsite.it",
+        "Phone": "+39 347 876 8340"
+      },
+      "menu": "Contatti",
+      "type": "contacts"
+    },
+    {
+      "content": {
+        "coordinates": [
+          16.882818,
+          41.09665
+        ],
+        "zoom": 9
+      },
+      "type": "map"
+    },
+    {
       "content": [
         {
           "name": "Il Forno Molfetta",
@@ -87,35 +104,12 @@
       ],
       "menu": "Siti Attivi",
       "type": "siteViewer"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": {
-        "Email": "giovanni.colasanto@fastsite.it",
-        "Phone": "+39 347 876 8340"
-      },
-      "menu": "Contatti",
-      "type": "contacts"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": {
-        "coordinates": [
-          16.882818,
-          41.09665
-        ],
-        "zoom": 9
-      },
-      "type": "map"
     }
   ],
   "info": {
     "name": "FastSite",
     "primaryColor": "#f7f4ef",
-    "secondaryColor": "#f34455"
+    "secondaryColor": "#f34455",
+    "iva": "IT12345678901"
   }
 }

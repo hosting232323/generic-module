@@ -16,6 +16,16 @@
           </div>
         </div>
       </v-card-text>
+      <v-card-actions class="footer-links">
+        <a href="/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>
+        <div class="powered-by">
+          <span>Powered by</span>
+          <a href="https://fastsite.it" class="fast-site-link" target="_blank">
+            &nbsp&nbspFast-Site&nbsp
+            <v-icon right>mdi-web</v-icon>
+          </a>
+        </div>
+      </v-card-actions>
     </v-card>
   </v-container>
 </template>
@@ -65,7 +75,6 @@ onUnmounted(() => {
   font-weight: bold;
   color: white;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
   padding: 16px;
   border-bottom: none; /* Remove the bottom border */
 }
@@ -98,6 +107,38 @@ onUnmounted(() => {
 .url-link {
   text-decoration: none;
   color: inherit;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  color: white;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.powered-by {
+  display: flex;
+  align-items: center;
+}
+
+.fast-site-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.fast-site-link:hover {
+  text-decoration: underline;
 }
 
 @keyframes scroll {
