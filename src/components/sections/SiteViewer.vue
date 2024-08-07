@@ -1,152 +1,91 @@
 <template>
-  <v-container class="transparent-container">
-    <v-card elevation="0" class="transparent-card">
-      <v-card-title class="title-card">
-        <v-icon class="mr-2">mdi-web</v-icon>
-        Chi ci ha già scelto
-      </v-card-title>
-      <v-card-text>
-        <div class="scrollable-container">
-          <div class="url-list">
-            <div v-for="(site, index) in visibleContent" :key="index" class="url-item" :class="{ 'center-item': index === 1 }">
-              <a :href="'https://' + site.url" target="_blank" class="url-link">
-                {{ site.name }}
-              </a>
-            </div>
-          </div>
-        </div>
-      </v-card-text>
-      <v-card-actions class="footer-links">
-        <a href="/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>
-        <div class="powered-by">
-          <span>Powered by</span>
-          <a href="https://fastsite.it" class="fast-site-link" target="_blank">
-            &nbsp&nbspFast-Site&nbsp
-            <v-icon right>mdi-web</v-icon>
-          </a>
-        </div>
-      </v-card-actions>
-    </v-card>
-  </v-container>
+  <div ref="scrollContainer" @scroll="handleScroll" class="scroll-container">
+    <div class="image-grid">
+      <div v-for="(image, index) in displayedImages" :key="index" class="image-item">
+        <v-img :src="image" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
-const { content } = defineProps(['content']);
-const visibleContent = ref([]);
+// Dynamically import images from the directory
+const imageModules = import.meta.glob('/src/assets/images/*.{jpg,jpeg,png,gif}');
 
-let scrollInterval = null;
+const allImages = ref([]);
+const displayedImages = ref([]);
+const scrollContainer = ref(null);
 
-const startScrolling = () => {
-  let index = 0;
-  visibleContent.value = content.slice(index, index + 3);
+const imagesPerRow = 3;
+const imageHeight = 200; // Adjust based on image aspect ratio and padding
 
-  scrollInterval = setInterval(() => {
-    index = (index + 1) % content.length;
-    if (index + 3 <= content.length) {
-      visibleContent.value = content.slice(index, index + 3);
-    } else {
-      visibleContent.value = content.slice(index).concat(content.slice(0, (index + 3) % content.length));
-    }
-  }, 1000); // Increased the speed of the scrolling
+// Load all images
+const loadImages = async () => {
+  const imagePromises = Object.values(imageModules).map(module => module().then(mod => mod.default));
+  allImages.value = await Promise.all(imagePromises);
+
+  // Initialize display of images
+  updateDisplayedImages();
 };
 
-onMounted(() => {
-  startScrolling();
-});
+// Update displayed images to create an infinite scroll effect
+const updateDisplayedImages = () => {
+  const viewportHeight = window.innerHeight;
+  const rowsCount = Math.ceil(viewportHeight / imageHeight);
+  
+  const repeatCount = Math.ceil((rowsCount * imagesPerRow) / allImages.value.length);
+  displayedImages.value = [];
 
-onUnmounted(() => {
-  clearInterval(scrollInterval);
+  for (let i = 0; i < repeatCount; i++) {
+    displayedImages.value.push(...allImages.value);
+  }
+};
+
+// Handle scroll event to simulate infinite scrolling
+const handleScroll = () => {
+  const container = scrollContainer.value;
+  
+  // Check if user is near the bottom of the container
+  if (container.scrollTop + container.clientHeight >= container.scrollHeight - 100) {
+    // Append more images if scrolling close to the bottom
+    updateDisplayedImages();
+  }
+
+  // Adjust scroll position to simulate infinite scrolling
+  const maxScrollTop = container.scrollHeight - container.clientHeight;
+  if (container.scrollTop > maxScrollTop - 10) {
+    container.scrollTop = 0;
+  }
+};
+
+onMounted(async () => {
+  await loadImages();
+  if (scrollContainer.value) {
+    scrollContainer.value.addEventListener('scroll', handleScroll);
+  }
 });
 </script>
 
 <style scoped>
-.transparent-container {
-  background: transparent;
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.transparent-card {
-  background: transparent;
-  box-shadow: none; /* Remove the shadow */
-}
-
-.title-card {
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  padding: 16px;
-  border-bottom: none; /* Remove the bottom border */
-}
-
-.scrollable-container {
-  max-height: 200px; /* Adjust height as needed */
-  overflow: hidden;
-}
-
-.url-list {
-  animation: scroll 3s linear infinite; /* Increased speed of scrolling */
+.image-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
 }
 
-.url-item {
-  font-weight: bold;
-  margin: 8px 0;
-  color: #f34455;
-  transition: transform 0.5s, font-size 0.5s;
-}
-
-.url-item.center-item {
-  transform: scale(1.5);
-  font-size: 1.5em;
-  color: white;
-}
-
-.url-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  color: white;
-}
-
-.footer-link {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-}
-
-.powered-by {
-  display: flex;
-  align-items: center;
-}
-
-.fast-site-link {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
-.fast-site-link:hover {
-  text-decoration: underline;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateY(100%); /* Start from the bottom */
-  }
-  100% {
-    transform: translateY(-100%); /* Move to the top */
-  }
+.image-item {
+  width: calc(33.33% - 10px); /* Adjust for 3 images per row with gaps */
+  box-sizing: border-box;
+  height: 200px; /* Adjust based on image aspect ratio */
 }
 </style>

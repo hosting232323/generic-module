@@ -12,14 +12,6 @@
   </template>
   
   <script setup>
-  import { ref, onMounted, watch } from 'vue';
-  import Map from '@/components/sections/Map';
-  import Gallery from '@/components/sections/Gallery';
-  import Services from '@/components/sections/Services';
-  import Contacts from '@/components/sections/Contacts';
-  import Advantages from '@/components/sections/Advantages';
-  import DualSection from '@/components/sections/DualSection';
-  import Line from '@/components/sections/Line';
   import SiteViewer from '@/components/sections/SiteViewer';
   
   const props = defineProps({
