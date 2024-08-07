@@ -51,12 +51,10 @@ useHead({
 </script>
 
 <style scoped>
-
-
 .grainy-gradient {
-  background: radial-gradient(ellipse at top left, primaryColor, transparent 70%),
-              radial-gradient(ellipse at bottom right, secondaryColor, transparent 70%),
-              linear-gradient(to bottom right, secondaryColor, var(--secondaryColor));
+  background: radial-gradient(ellipse at top left, var(--secondaryColor), transparent 70%),
+              radial-gradient(ellipse at bottom right, var(--secondaryColor), transparent 70%),
+              linear-gradient(to bottom right, var(--primaryColor), var(--secondaryColor));
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -69,9 +67,22 @@ useHead({
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('@/assets/texture.jpg'); /* Adjust the path as necessary */
+  background: radial-gradient(circle, rgba(0,0,0,0.1) 1%, rgba(0,0,0,0) 2%);
+  background-size: 3px 3px;
   opacity: 0.3; /* Adjust opacity for the desired effect */
-  mix-blend-mode: overlay; /* Adjust blend mode if needed */
+  pointer-events: none;
+}
+
+.grainy-gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.05) 1%, rgba(0,0,0,0) 2%);
+  background-size: 3px 3px;
+  opacity: 0.3; /* Adjust opacity for the desired effect */
   pointer-events: none;
 }
 </style>

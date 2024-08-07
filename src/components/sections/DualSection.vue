@@ -5,7 +5,6 @@
           <v-img :src="content.image" cover class="bento-img"></v-img>
         </v-col>
         <v-col cols="12" md="6">
-          <v-sheet :color="info.secondaryColor" class="bento-sheet">
             <!-- Use TypeWriter for Title -->
             <TypeWriter 
               v-if="content.title" 
@@ -23,11 +22,9 @@
                 v-html="content.button" 
                 class="text-none"
                 variant="flat"
-                :color="info.primaryColor"
                 :style="{ marginTop: '7px' }">
               </v-btn>
             </a>
-          </v-sheet>
         </v-col>
         <v-col v-if="!isLeftAligned" cols="12" md="6">
           <v-img :src="content.image" cover class="bento-img"></v-img>

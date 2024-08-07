@@ -9,7 +9,7 @@
     </v-list>
   </v-navigation-drawer>
   
-  <v-app-bar :elevation="2" :color="info.primaryColor" class="bento-app-bar">
+  <v-app-bar :elevation="2" class="bento-app-bar">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <!-- Add Logo Here -->
     <img src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo" />
