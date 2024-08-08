@@ -6,11 +6,11 @@
   "components": [
     {
       "content": {
-        "description": "Ti basterà contattarci e ci occuperemo interamente della tua presenza online. Dalla creazione del sito web alla gestione dei domini, SEO, profili Google Maps e campagne pubblicitarie: tutto sarà curato nei minimi dettagli, così tu non dovrai pensare a niente!",
+        "description": "Lascia a noi il lavoro complesso e ci occuperemo interamente della tua presenza online. Dalla creazione del sito web alla gestione dei domini, SEO, profili Google Maps e campagne pubblicitarie: tutto sarà curato nei minimi dettagli, così tu non dovrai pensare a niente!",
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
         "orientationDesktop": "right",
-        "subtitle": "Lascia a noi il lavoro complesso!",
-        "title": "Fastsite : La Tua Presenza Online Completa",
+        "subtitle": "La Tua Presenza Online Completa",
+        "title": "Fastsite",
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
       },
       "menu": "Vantaggi",
@@ -21,8 +21,8 @@
         "description": "Con Chatty, il nostro chatbot AI avanzato, i tuoi clienti riceveranno risposte immediate e precise, aumentando le possibilità di conversione. Chatty non solo risponde alle domande, ma guida attivamente i clienti verso l'acquisto, proponendo i tuoi prodotti in base alle loro esigenze. Un potente strumento che lavora per te, incrementando le vendite senza sforzo!",
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
         "orientationDesktop": "left",
-        "subtitle": "Conversioni Effortless con Chatty",
-        "title": "Chatbot AI: Il Tuo Assistente di Vendita",
+        "subtitle": "Il Tuo Assistente di Vendita Virtuale",
+        "title": "Chatty",
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
       },
       "type": "dualSection"
@@ -32,8 +32,8 @@
         "description": "Offri ai tuoi clienti un'esperienza immersiva con i nostri tour virtuali di alta qualità. Ideali per agenzie immobiliari, hotel, bed and breakfast e qualsiasi altro business, i nostri tour virtuali permettono di esplorare ambienti e strutture comodamente da casa. Questo non solo aumenta l'engagement ma anche le possibilità di conversione, facilitando decisioni informate e aumentando il tuo potenziale di vendita.",
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
         "orientationDesktop": "right",
-        "subtitle": "Trasforma la tua presentazione con tour virtuali coinvolgenti.",
-        "title": "Tour Virtuali Immersivi",
+        "subtitle": "Tour Virtuali Immersivi",
+        "title": "Virtual Tour",
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
       },
       "type": "dualSection"

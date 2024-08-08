@@ -6,14 +6,7 @@
       </v-col>
       <v-col cols="12" md="6">
         <!-- Use TypeWriter for Title -->
-        <TypeWriter 
-          v-if="content.title" 
-          :texts="[content.title]" 
-          :typing-speed="80" 
-          :erasing-speed="80" 
-          :new-text-delay="1500"
-        />
-        <br>
+        <v-typography v-if="content.title" class="text-title-1 font-weight-black" v-html="content.title + '<br>'" />
         <v-typography v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="content.subtitle + '<br>'" />
         <v-typography v-if="content.description" v-html="content.description" />
         <br>
