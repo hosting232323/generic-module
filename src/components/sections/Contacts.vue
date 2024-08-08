@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-card-title class="text-h5 text-center mb-6 fixed-height">
     <div class="typewriter-wrapper">
       <TypeWriter 
@@ -30,6 +31,7 @@
   >
     Numero copiato
   </v-snackbar>
+</div>
 </template>
 
 <script setup>

@@ -26,8 +26,7 @@ import SiteViewer from '@/components/sections/SiteViewer';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
-const primaryColor = data.value.info.primaryColor;
-const secondaryColor = data.value.info.secondaryColor;
+
 const componentMap = {
   map: Map,
   gallery: Gallery,
