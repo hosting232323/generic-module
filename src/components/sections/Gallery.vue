@@ -66,6 +66,7 @@ const handleClick = () => {
 .carousel-image {
   height: 100%;
   width: 100%;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .hover-effect {
@@ -74,7 +75,7 @@ const handleClick = () => {
   right: 0;
   bottom: 0;
   width: 20px;
-  background: linear-gradient(to left, rgba(0,0,0,0.3), transparent);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -88,7 +89,6 @@ const handleClick = () => {
   transition: transform 0.5s ease;
 }
 
-/* Hide navigation buttons and controls */
 :deep(.v-carousel__controls),
 :deep(.v-btn--icon),
 :deep(.v-carousel__prev),
