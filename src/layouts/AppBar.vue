@@ -1,26 +1,21 @@
 <template>
   <v-navigation-drawer v-model="drawer" location="bottom" temporary class="bento-drawer">
     <v-list>
-      <v-list-item v-for="item in items" :key="item.path" class="bento-list-item">
-        <div @click="link(item)">
-          {{ item.title }}
-        </div>
+      <v-list-item v-for="item in menuItems" :key="item.path" class="bento-list-item" @click="handleItemClick(item)">
+        {{ item.title }}
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
+
   <v-app-bar :elevation="2" class="bento-app-bar">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <img src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo" />
     <v-app-bar-title>
-      <b>{{ info.name }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</b>
+      <b>{{ info.name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
       <TypeWriter :texts="['Power Your Business']" :typing-speed="80" :erasing-speed="80" :new-text-delay="1500" />
     </v-app-bar-title>
-    <!-- Logo container after the typewriter -->
-    <div class="logo-container">
-      <img v-for="n in logoCount" :key="n" :class="['app-bar-logo', 'animated-logo']" :style="{animationDelay: `${n * 0.5}s`}" src="@/assets/fastsite.svg" alt="Fastsite Logo" />
-    </div>
     <div v-if="!isMobile" class="desktop-menu">
-      <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)" class="bento-btn">
+      <v-btn v-for="item in menuItems" :key="item.path" variant="text" @click="handleItemClick(item)" class="bento-btn">
         {{ item.title }}
       </v-btn>
     </div>
@@ -42,9 +37,40 @@ const isMobile = mobile.setupMobileUtils();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
-const logoCount = ref(5); // or make this dynamic according to your needs
 
-const link = (item) => {
+const menuItems = computed(() => {
+  const items = [];
+
+  if (data.value.addOn && data.value.addOn.includes('VirtualTour')) {
+    items.push({
+      title: 'Virtual Tour',
+      path: 'https://test-virtual-tour.replit.app/',
+      type: 'externalLink'
+    });
+  }
+
+  if (data.value.addOn && data.value.addOn.includes('Blog')) {
+    items.push({
+      title: 'Blog',
+      path: '/blog',
+      type: 'internalLink'
+    });
+  }
+
+  items.push(
+    ...data.value.components
+      .filter(section => section.menu)
+      .map(section => ({
+        title: section.menu,
+        path: section.menu.toLowerCase(),
+        type: 'anchor'
+      }))
+  );
+
+  return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...items] : items;
+});
+
+const handleItemClick = (item) => {
   if (item.type === 'anchor') {
     const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
     router.push(`${pathUrl}/#${item.path}`);
@@ -54,32 +80,6 @@ const link = (item) => {
     router.push(item.path);
   }
 };
-
-const items = computed(() => {
-  let menuItems = [];
-  if (data.value.addOn && data.value.addOn.includes('VirtualTour')) {
-    menuItems.push({
-      title: 'Virtual Tour',
-      path: 'https://test-virtual-tour.replit.app/',
-      type: 'externalLink'
-    });
-  }
-  if (data.value.addOn && data.value.addOn.includes('Blog')) {
-    menuItems.push({
-      title: 'Blog',
-      path: '/blog',
-      type: 'internalLink'
-    });
-  }
-  menuItems = menuItems.concat(data.value.components
-    .filter(section => section.menu)
-    .map(section => ({
-      title: section.menu,
-      path: section.menu.toLowerCase(),
-      type: 'anchor'
-    })));
-  return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
-});
 </script>
 
 <style scoped>
