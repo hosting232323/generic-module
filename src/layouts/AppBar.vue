@@ -12,7 +12,7 @@
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <img src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo" />
     <v-app-bar-title>
-      <b>{{ info.name }}&nbsp&nbsp&nbsp&nbsp;</b>
+      <b>{{ info.name }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;</b>
       <TypeWriter :texts="['Power Your Business']" :typing-speed="80" :erasing-speed="80" :new-text-delay="1500" />
     </v-app-bar-title>
     <!-- Logo container after the typewriter -->
