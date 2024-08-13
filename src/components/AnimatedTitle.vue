@@ -62,8 +62,8 @@ export default {
       } else {
         this.typeStatus = false;
         this.displayTextArrayIndex = (this.displayTextArrayIndex + 1) % this.displayTextArray.length;
-        await this.wait(this.typingSpeed + 1000);
-        this.startTyping();
+        await this.wait(this.newTextDelay);
+        this.typeText();
       }
     },
     wait(ms) {

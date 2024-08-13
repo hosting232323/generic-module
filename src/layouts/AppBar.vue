@@ -85,6 +85,7 @@ const handleItemClick = (item) => {
 <style scoped>
 .bento-app-bar {
   border-radius: 3px;
+  font-family: 'HKGroteskBold', sans-serif;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -121,4 +122,12 @@ const handleItemClick = (item) => {
 .animated-logo {
   animation: slideLogo 3s ease-in-out forwards;
 }
+
+@font-face {
+  font-family: 'HKGroteskBold';
+  src: url('@/assets/fonts/HKGrotesk-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 </style>
