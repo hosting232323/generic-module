@@ -1,20 +1,21 @@
-<template class="app-bar">
-  <v-navigation-drawer v-model="drawer" location="bottom" temporary>
+<template>
+  <v-navigation-drawer v-model="drawer" location="bottom" temporary class="bento-drawer">
     <v-list>
-      <v-list-item v-for="item in items" :key="item.path">
-        <div @click="link(item)">
-          {{ item.title }}
-        </div>
+      <v-list-item v-for="item in menuItems" :key="item.path" class="bento-list-item" @click="handleItemClick(item)">
+        {{ item.title }}
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <v-app-bar :elevation="2" :color="info.primaryColor">
+
+  <v-app-bar :elevation="2" class="bento-app-bar">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
-    <v-app-bar-title><b>
-      {{ info.name }}
-    </b></v-app-bar-title>
+    <img src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo" />
+    <v-app-bar-title>
+      <b>{{ info.name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+      <TypeWriter :texts="['Power Your Business']" :typing-speed="80" :erasing-speed="80" :new-text-delay="1500" />
+    </v-app-bar-title>
     <div v-if="!isMobile" class="desktop-menu">
-      <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
+      <v-btn v-for="item in menuItems" :key="item.path" variant="text" @click="handleItemClick(item)" class="bento-btn">
         {{ item.title }}
       </v-btn>
     </div>
@@ -22,69 +23,111 @@
 </template>
 
 <script setup>
-  import { ref, computed } from 'vue';
-  import mobile from '@/utils/mobile';
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-  import { useRouter, useRoute } from 'vue-router';
+import { ref, computed } from 'vue';
+import mobile from '@/utils/mobile';
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
+import { useRouter, useRoute } from 'vue-router';
+import TypeWriter from '@/components/AnimatedTitle.vue';
 
-  const drawer = ref(null);
-  const route = useRoute();
-  const router = ref(useRouter());
-  const isMobile = mobile.setupMobileUtils();
+const drawer = ref(false);
+const route = useRoute();
+const router = useRouter();
+const isMobile = mobile.setupMobileUtils();
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const info = data.value.info;
 
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
-  const info = data.value.info;
-  const content = data.value.components;
+const menuItems = computed(() => {
+  const items = [];
 
-
-  const link = (item) => {
-    if (item.type == 'ancor') {
-      const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
-      router.value.push(`${pathUrl}/#${item.path}`);
-    } else if (item.type == 'externalLink')
-      window.open(item.path, '_blank');
-    else if (item.type == 'internalLink')
-      router.value.push(item.path);
+  if (data.value.addOn && data.value.addOn.includes('VirtualTour')) {
+    items.push({
+      title: 'Virtual Tour',
+      path: 'https://test-virtual-tour.replit.app/',
+      type: 'externalLink'
+    });
   }
 
-  const items = computed(() => {
-    let menuItems = [];
-    if (data.value.addOn && data.value.addOn.includes('VirtualTour'))
-      menuItems.push({
-        title: 'Virtual Tour',
-        path: 'https://test-virtual-tour.replit.app/',
-        type: 'externalLink'
-      });
-    if (data.value.addOn && data.value.addOn.includes('Blog'))
-      menuItems.push({
-        title: 'Blog',
-        path: '/blog',
-        type: 'internalLink'
-      });
-    menuItems = menuItems.concat(content
+  if (data.value.addOn && data.value.addOn.includes('Blog')) {
+    items.push({
+      title: 'Blog',
+      path: '/blog',
+      type: 'internalLink'
+    });
+  }
+
+  items.push(
+    ...data.value.components
       .filter(section => section.menu)
       .map(section => ({
         title: section.menu,
         path: section.menu.toLowerCase(),
-        type: 'ancor'
-      })));
-    return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
-  });
+        type: 'anchor'
+      }))
+  );
+
+  return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...items] : items;
+});
+
+const handleItemClick = (item) => {
+  if (item.type === 'anchor') {
+    const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
+    router.push(`${pathUrl}/#${item.path}`);
+  } else if (item.type === 'externalLink') {
+    window.open(item.path, '_blank');
+  } else if (item.type === 'internalLink') {
+    router.push(item.path);
+  }
+};
 </script>
 
 <style scoped>
-  .desktop-menu {
-    padding-right: 20px;
+.bento-app-bar {
+  border-radius: 3px;
+  font-family: 'HKGroteskBold', sans-serif;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.app-bar-logo {
+  height: 40px;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.bento-btn {
+  border-radius: 15px;
+}
+
+@keyframes slideLogo {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  .router-link-exact-active,
-  .router-link-active,
-  .router-link-exact-active a {
-    text-decoration: none;
-    color: inherit;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  .router-link:hover {
-    text-decoration: underline;
-  }
+}
+
+.animated-logo {
+  animation: slideLogo 3s ease-in-out forwards;
+}
+
+@font-face {
+  font-family: 'HKGroteskBold';
+  src: url('@/assets/fonts/HKGrotesk-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1 :style="{ color: info.primaryColor }">
+    <h1>
       I nostri vantaggi
     </h1>
     <v-card elevation="20" v-for="advantage in content" class="margin_top__default">

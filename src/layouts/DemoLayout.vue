@@ -4,7 +4,6 @@
       <UpArrow />
       <AppBar />
       <View />
-      <Footer />
     </template>
     <template v-else>
       <Loading />
@@ -15,7 +14,6 @@
 <script setup>
   import View from './View';
   import AppBar from './AppBar';
-  import Footer from './Footer';
   import UpArrow from './UpArrow';
   import Loading from './Loading';
 
