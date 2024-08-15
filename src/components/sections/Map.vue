@@ -22,7 +22,6 @@ import TileLayer from 'ol/layer/Tile';
 import { Icon, Style } from 'ol/style';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
-import TypeWriter from '@/components/AnimatedTitle.vue'
 
 const { content, info } = defineProps(['content', 'info']);
 const mapContainer = ref(null);

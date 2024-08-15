@@ -10,51 +10,49 @@
 
   const originalSites = [
     {
-      name: 'Gatti 1',
+      name: 'Colasanto Luigi',
+      link: 'https://colasantoluigi.it',
       images: [
-        '/gatti1/1.jpg',
-        '/gatti1/2.jpg',
-        '/gatti1/3.jpg'
+        '/colasantoluigi/1.png',
+        '/colasantoluigi/2.png',
+        '/colasantoluigi/3.png'
       ]
     },
     {
-      name: 'Gatti 2',
+      name: 'Il Forno',
+      link: 'https://ilfornomolfetta.it',
+      logo: 'https://ilfornomolfetta.it/logo.png',
       images: [
-        '/gatti2/1.jpg',
-        '/gatti2/2.jpg',
-        '/gatti2/3.jpg'
+        '/ilfornomolfetta/1.png',
+        '/ilfornomolfetta/2.png',
+        '/ilfornomolfetta/3.png'
       ]
     },
     {
-      name: 'Gatti 1',
+      name: 'Mulino Bianco - La Via del Gusto',
+      link: 'https://panificio-mulinobianco.it',
       images: [
-        '/gatti1/1.jpg',
-        '/gatti1/2.jpg',
-        '/gatti1/3.jpg'
+        '/panificio-mulinobianco/1.png',
+        '/panificio-mulinobianco/2.png',
+        '/panificio-mulinobianco/3.png'
       ]
     },
     {
-      name: 'Gatti 2',
+      name: 'La Dimora dell\'Angelo',
+      link: 'https://ladimoradellangelo.it',
       images: [
-        '/gatti2/1.jpg',
-        '/gatti2/2.jpg',
-        '/gatti2/3.jpg'
+        '/ladimoradellangelo/1.png',
+        '/ladimoradellangelo/2.png',
+        '/ladimoradellangelo/3.png'
       ]
     },
     {
-      name: 'Gatti 1',
+      name: 'Di Carne Showroom',
+      link: 'https://dicarneshowroom.it',
       images: [
-        '/gatti1/1.jpg',
-        '/gatti1/2.jpg',
-        '/gatti1/3.jpg'
-      ]
-    },
-    {
-      name: 'Gatti 2',
-      images: [
-        '/gatti2/1.jpg',
-        '/gatti2/2.jpg',
-        '/gatti2/3.jpg'
+        '/dicarneshowroom/1.png',
+        '/dicarneshowroom/2.png',
+        '/dicarneshowroom/3.png'
       ]
     }
   ];
