@@ -9,6 +9,32 @@ const routes = [
         path: '/',
         name: 'Production Home',
         component: () => import('@/views/Home')
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: () => import('@/views/Login')
+      },
+      {
+        path: '/blog-admin',
+        name: 'Blog Admin',
+        component: () => import('@/views/BlogAdmin')
+      },
+      {
+        path : '/blog',
+        name : 'Blog',
+        component : () => import('@/views/Blog')
+      },
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('@/layouts/DemoLayout'),
+    children: [
+      {
+        path: '/demo/:id',
+        name: 'Demo Home',
+        component: () => import('@/views/Home')
       }
     ]
   }

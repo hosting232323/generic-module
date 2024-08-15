@@ -14,6 +14,7 @@
   import Advantages from '@/components/sections/Advantages';
   import DualSection from '@/components/sections/DualSection';
   import Line from '@/components/sections/Line';
+  import SiteViewer from '@/components/sections/SiteViewer';
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
@@ -25,7 +26,8 @@
     advantages: Advantages,
     contacts: Contacts,
     dualSection: DualSection,
-    line: Line
+    line: Line,
+    siteViewer: SiteViewer
   };
 
   const sections = data.value.components;
