@@ -1,84 +1,86 @@
 <template>
-  <v-container>
-    <v-card elevation="4" height="500">
-      <v-card-title class="title-card">
-        <v-icon class="mr-2">mdi-web</v-icon>
-        Siti Attivi
-      </v-card-title>
-      <v-card-text>
-        <v-container class="scrollable-container">
-          <v-row>
-            <v-col v-for="site in content" :key="site.name" cols="12" md="6">
-              <v-card class="site-card" :style="{ borderColor: info.primaryColor }" elevation="2">
-                <v-card-title class="d-flex align-center justify-space-between py-2">
-                  <span class="site-name text-body-2">{{ site.name }}</span>
-                  <div class="d-flex align-center">
-                    <v-btn small color="primary" :href="'https://' + site.url" target="_blank" class="ml-2">
-                      Visita
-                    </v-btn>
-                    <v-avatar size="40" class="ml-2">
-                      <v-img :src="site.logo ? site.logo : 'src/assets/defaultLogo.png'"></v-img>
-                    </v-avatar>
-                  </div>
-                </v-card-title>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card-text>
-    </v-card>
-  </v-container>
+  <div>
+    <SiteRow v-for="site in sites" :key="site.name + Math.random()" :site="site" />
+  </div>
 </template>
 
 <script setup>
-  const { content, info } = defineProps(['content', 'info']);
+  import { ref, onMounted } from 'vue';
+  import SiteRow from '@/components/sections/SiteRow';
+
+  const originalSites = [
+    {
+      name: 'Gatti 1',
+      images: [
+        '/gatti1/1.jpg',
+        '/gatti1/2.jpg',
+        '/gatti1/3.jpg'
+      ]
+    },
+    {
+      name: 'Gatti 2',
+      images: [
+        '/gatti2/1.jpg',
+        '/gatti2/2.jpg',
+        '/gatti2/3.jpg'
+      ]
+    },
+    {
+      name: 'Gatti 1',
+      images: [
+        '/gatti1/1.jpg',
+        '/gatti1/2.jpg',
+        '/gatti1/3.jpg'
+      ]
+    },
+    {
+      name: 'Gatti 2',
+      images: [
+        '/gatti2/1.jpg',
+        '/gatti2/2.jpg',
+        '/gatti2/3.jpg'
+      ]
+    },
+    {
+      name: 'Gatti 1',
+      images: [
+        '/gatti1/1.jpg',
+        '/gatti1/2.jpg',
+        '/gatti1/3.jpg'
+      ]
+    },
+    {
+      name: 'Gatti 2',
+      images: [
+        '/gatti2/1.jpg',
+        '/gatti2/2.jpg',
+        '/gatti2/3.jpg'
+      ]
+    }
+  ];
+
+  const sites = ref([...originalSites]);
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function appendNewSites() {
+    const newSites = shuffle([...originalSites]);
+    sites.value = [...sites.value, ...newSites];
+  }
+
+  function handleScroll() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+      appendNewSites();
+    }
+  }
+
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+  });
 </script>
-
-<style scoped>
-.title-card {
-  font-weight: bold;
-  color: #3f51b5;
-  background-color: #e3f2fd;
-  padding: 16px;
-  border-bottom: 2px solid #3f51b5;
-}
-
-.scrollable-container {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.scrollable-container::-webkit-scrollbar {
-  width: 12px;
-}
-
-.scrollable-container::-webkit-scrollbar-thumb {
-  background-color: #3f51b5;
-  border-radius: 10px;
-  border: 3px solid #e3f2fd;
-}
-
-.scrollable-container::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
-  border-radius: 10px;
-}
-
-.site-card {
-  border: 2px solid;
-  border-radius: 8px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.site-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.v-avatar {
-  border: 2px solid #eee;
-}
-
-.site-name {
-  font-weight: bold;
-}
-</style>

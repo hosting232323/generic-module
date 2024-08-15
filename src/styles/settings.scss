@@ -1,3 +1,13 @@
 .margin_top__default {
   margin-top: 25px;
 }
+@font-face {
+  font-family: 'HKGrotesk';
+  src: url('@/assets/fonts/HKGrotesk-RegularLegacy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'HKGrotesk', sans-serif;
+}
