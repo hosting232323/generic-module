@@ -1,0 +1,104 @@
+<template>
+  <v-row>
+    <v-col cols="12">
+      <v-slide-group v-model="selectedColorTopic" center-active show-arrows>
+        <v-slide-group-item value="null">
+          <v-btn text="Tutti" style="margin: 0 4px 0 0;" 
+            :color="selectedColorTopic === null ? data.info.primaryColor : undefined"
+            @click="setSelectedTopic(null)" />
+        </v-slide-group-item>
+
+        <v-slide-group-item v-for="topic in topics" :key="topic.name" :value="topic.name">
+          <v-btn :text="topic.name" style="margin: 0 4px;" 
+            :color="selectedColorTopic === topic.name ? data.info.primaryColor : undefined"
+            @click="setSelectedTopic(topic.name)" />
+        </v-slide-group-item>
+
+        <v-slide-group-item value="altri">
+          <v-btn text="Altri" style="margin: 0 0 0 4px;" 
+            :color="selectedColorTopic === 'altri' ? data.info.primaryColor : undefined" 
+            @click="setSelectedTopic('altri')" />
+        </v-slide-group-item>
+      </v-slide-group>
+    </v-col>
+  </v-row>
+
+  <v-row>
+    <v-col v-for="post in filteredPosts" :key="post.id" cols="12" md="6">
+      <v-card class="mb-4" height="130">
+        <v-row>
+          <v-col cols="4">
+            <v-img v-if="post.cover" :src="post.cover" alt="Post Cover" height="130" class="rounded" />
+          </v-col>
+          <v-col cols="8">
+            <v-card-title class="py-0">
+              {{ post.title }}
+            </v-card-title>
+            <v-card-subtitle>
+              Topics: {{ post.topics ? post.topics.join(', ') : 'None' }}
+            </v-card-subtitle>
+            <v-menu>
+              <template v-slot:activator="{ props }">
+                <v-btn class="actions" variant="text" icon="mdi-dots-vertical" v-bind="props"
+                  :loading="loading[post.id]" />
+              </template>
+              <v-list>
+                <v-list-item @click="openEditForm(post)" title="Modifica" />
+                <v-list-item @click="deletePost(post.id)" title="Elimina" />
+              </v-list>
+            </v-menu>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
+</template>
+
+<script setup>
+  import http from '@/utils/http';
+  import { ref } from 'vue';
+  import { storeToRefs } from 'pinia';
+  import { useRouter } from 'vue-router';
+  import { usePostStore } from '@/stores/posts';
+  import { useDataStore } from '@/stores/data';
+
+  const dataStore = useDataStore();
+  const { data } = storeToRefs(dataStore);
+
+  const selectedColorTopic = ref(null); 
+
+  const loading = ref({});
+  const router = useRouter();
+  const postStore = usePostStore();
+  const { editCurrentPost, initPosts, resetCurrentPost } = postStore;
+  const { topics, filteredPosts, currentPost } = storeToRefs(postStore);
+
+  const deletePost = (id) => {
+    loading.value[id] = true;
+    http.getRequestGenericBE('blog/post', {
+      id: id
+    }, function (data) {
+      initPosts(router);
+      if (currentPost.value.id && currentPost.value.id === id)
+        resetCurrentPost();
+      loading.value[id] = false;
+    }, 'DELETE', router);
+  };
+
+  const openEditForm = (post) => {
+    editCurrentPost(post);
+  };
+
+  const setSelectedTopic = (topic) => {
+    selectedColorTopic.value = topic;
+    postStore.setSelectedTopic(topic);
+  };
+</script>
+
+<style scoped>
+  .actions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+</style>

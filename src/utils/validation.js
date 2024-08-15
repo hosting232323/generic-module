@@ -12,6 +12,16 @@ const emailRules = requiredRules.concat([
     }
 ]);
 
+const integerRules = [
+    ...requiredRules,
+    (value) => {
+        if (typeof value == 'string') value = Number(value);
+        if (isNaN(value)) return 'Non è un numero';
+        if (Number.isInteger(value) && value > 0) return true;
+        return 'Deve essere un numero intero e positivo';
+    }
+];
+
 const siteRules = requiredRules.concat([
     (value) => {
         if (/^(https?:\/\/)?([\w-]+\.)+([a-z]{2,})+(\/[\w-]*)*(\?[a-z0-9-]+=[a-z0-9-%]+(&[a-z0-9-]+=[a-z0-9-%]+)*)?$/i.test(value))
@@ -53,5 +63,6 @@ export default {
   requiredRules,
   emailRules,
   siteRules,
-  passwordRules
+  passwordRules,
+  integerRules
 };

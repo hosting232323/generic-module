@@ -1,95 +1,54 @@
 {
+  "info": {
+    "name": "FastSite",
+    "primaryColor": "#f34455",
+    "secondaryColor": "#f7f4ef"
+  },
   "addOn": [
-    "Chatty",
     "VirtualTour"
   ],
   "components": [
     {
-      "content": [
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png"
-      ],
-      "menu": "Galleria",
-      "type": "gallery"
-    },
-    {
-      "content": [
-        {
-          "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-          "name": "Design Personalizzato"
-        },
-        {
-          "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-          "name": "SEO Ottimizzato"
-        },
-        {
-          "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-          "name": "Responsive Design"
-        },
-        {
-          "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
-          "name": "Velocità di Caricamento Ottimale"
-        }
-      ],
+      "content": {
+        "description": "Scegliere <b>FastSite</b> non è solo un passo avanti, è una necessità per le aziende del presente e del futuro.<br><br>In un mondo sempre più connesso e competitivo, la digitalizzazione consente di ottimizzare i processi, migliorare l'efficienza operativa e offrire esperienze clienti superiori.<br><br>Un'azienda che si affida a strumenti avanzati come <b>Google Ads</b>, <b>integrazioni con IA</b> e <b>Virtual Tour</b> non solo aumenta la sua visibilità, ma si adatta anche alle nuove abitudini di consumo.<br><br>Con Fast Site, garantisci alla tua attività non solo un sito web professionale, ma una suite completa che va dalla prenotazione alla gestione del magazzino, rendendoti competitivo oggi e pronto per le sfide di domani.",
+        "image": "/logo.png",
+        "orientationDesktop": "left",
+        "orientationMobile": "top",
+        "subtitle": "La Tua Presenza Online Completa",
+        "title": "FastSite"
+      },
       "menu": "Vantaggi",
-      "type": "advantages"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": [
-        {
-          "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-          "name": "Sito Web Vetrina"
-        },
-        {
-          "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-          "name": "Sito Web E-commerce"
-        },
-        {
-          "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-          "name": "Ottimizzazione SEO"
-        },
-        {
-          "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-          "name": "Gestione Contenuti"
-        },
-        {
-          "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-          "name": "Sviluppo Web Personalizzato"
-        }
-      ],
-      "menu": "Servizi",
-      "type": "services"
-    },
-    {
-      "type": "line"
+      "type": "ourDualSection"
     },
     {
       "content": {
-        "button": "Cliccami!",
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-        "orientation": "right",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
+        "description": "Con Chatty, il nostro <b>chatbot AI avanzato</b>, i tuoi clienti riceveranno risposte immediate e precise, aumentando le possibilità di conversione.<br><br>Chatty non solo risponde alle domande, ma <b>guida attivamente i clienti verso l'acquisto</b>, proponendo i tuoi prodotti in base alle loro esigenze. Un potente strumento che lavora per te, incrementando le vendite senza sforzo!",
+        "image": "https://chattypictures.s3.amazonaws.com/logo.png",
+        "orientationDesktop": "right",
+        "orientationMobile": "top",
+        "subtitle": "Il Tuo Assistente di Vendita Virtuale",
+        "title": "Chatty"
       },
-      "menu": "Sezione doppia",
-      "type": "dualSection"
+      "type": "ourDualSection"
+    },
+    {
+      "content": {
+        "description": "Offri ai tuoi clienti un'esperienza immersiva con i nostri tour virtuali di alta qualità.<br><br>Ideali per <b>agenzie immobiliari</b>, <b>hotel</b>, <b>bed and breakfast</b> e qualsiasi altro business, i nostri tour virtuali permettono di esplorare ambienti e strutture comodamente da casa.<br><br>Questo non solo aumenta l'engagement ma anche le possibilità di conversione, facilitando decisioni informate e aumentando il tuo potenziale di vendita.<br><br>Guarda un esempio di un nostro <a href=\"https://test-virtual-tour.replit.app\">virtual tour</a>.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ozvapb71.jpg",
+        "orientationDesktop": "left",
+        "orientationMobile": "top",
+        "subtitle": "Tour Virtuali Immersivi",
+        "title": "Virtual Tour"
+      },
+      "type": "ourDualSection"
     },
     {
       "content": {
         "Email": "giovanni.colasanto@fastsite.it",
         "Phone": "+39 347 876 8340"
       },
-      "menu": "Contatti",
-      "type": "contacts"
+      "menu": "Contattaci",
+      "type": "ourContacts"
     },
     {
       "content": {
@@ -99,24 +58,11 @@
         ],
         "zoom": 9
       },
-      "type": "map"
+      "type": "ourMap"
+    },
+    {
+      "menu": "Siti Attivi",
+      "type": "siteViewer"
     }
-  ],
-  "info": {
-    "name": "FastSite",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C",
-    "logo": "https://imgur.com/mNAxeqq.png"
-  },
-  "store": {
-    "username": "bro.users.info@gmail.com",
-    "password": "Ciao1234",
-    "businessActivity": 1,
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
-    ]
-  }
+  ]
 }

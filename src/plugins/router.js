@@ -8,7 +8,8 @@ const routes = [
       {
         path: '/',
         name: 'Production Home',
-        component: () => import('@/views/Home')
+        component: () => import('@/views/Home'),
+        meta: { chatty: 3 }
       },
       {
         path: '/shop',
@@ -20,6 +21,56 @@ const routes = [
         name: 'ProductDetails',
         component: () => import('@/views/ProductDetails'),
         props: true
+      },
+      {
+        path: '/blog',
+        name: 'Blog',
+        component: () => import('@/views/Blog'),
+        meta: { chatty: 5 }
+      },
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('@/layouts/DemoLayout'),
+    children: [
+      {
+        path: '/demo/:id',
+        name: 'Demo Home',
+        component: () => import('@/views/Home'),
+        meta: { chatty: 0 }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('@/layouts/AdminLayout'),
+    children: [
+      {
+        path: '/login',
+        name: 'Login',
+        component: () => import('@/views/Login')
+      },
+      {
+        path: '/admin',
+        name: 'Admin',
+        component: () => import('@/views/admin/Index')
+      },
+      {
+        path: '/admin/blog',
+        name: 'Blog Admin',
+        component: () => import('@/views/admin/Blog'),
+        meta: { chatty: 5 }
+      },
+      {
+        path: '/admin/booking',
+        name: 'Prenotazioni',
+        component: () => import('@/views/admin/Booking')
+      },
+      {
+        path: '/admin/wooffy',
+        name: 'Wooffy',
+        component: () => import('@/views/admin/Wooffy')
       }
     ]
   }

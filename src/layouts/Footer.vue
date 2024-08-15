@@ -31,25 +31,25 @@
 </script>
 
 <style scoped>
-.footer-link {
-  color: #42b983;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+  .footer-link {
+    color: #42b983;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
 
-.footer-link:hover {
-  color: #2c3e50;
-  text-decoration: underline;
-}
+  .footer-link:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+  }
 
-.fast-site-link {
-  color: #42b983;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+  .fast-site-link {
+    color: #42b983;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
 
-.fast-site-link:hover {
-  color: #2c3e50;
-  text-decoration: underline;
+  .fast-site-link:hover {
+    color: #2c3e50;
+    text-decoration: underline;
 }
 </style>
