@@ -69,6 +69,9 @@ const isLeftAligned = computed(() => {
 .bento-img {
   border-radius: 15px;
   overflow: hidden;
+  width: 70%;
+  height: 70%;
+  margin: 0 auto;
   /*box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.2);*/
 }
 
