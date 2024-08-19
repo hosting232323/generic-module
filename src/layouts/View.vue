@@ -1,5 +1,5 @@
 <template>
-  <v-main >
+  <v-main :style="{ backgroundColor: data.info.secondaryColor }">
     <router-view />
   </v-main>
 </template>

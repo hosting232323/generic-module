@@ -34,5 +34,6 @@
     margin-left: 50px;
     margin-top: 50px;
     position: absolute;
+    max-width: 500px;
   }
 </style>
