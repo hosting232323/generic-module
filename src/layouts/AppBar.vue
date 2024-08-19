@@ -9,17 +9,34 @@
 
   <v-app-bar :elevation="2" class="bento-app-bar">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
-    <img src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo" />
+    <img v-if="!isMobile" src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo"/>
     <v-app-bar-title>
-      <b>{{ info.name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-      <TypeWriter :texts="['Power Your Business']" :typing-speed="80" :erasing-speed="80" :new-text-delay="1500" />
+      <b style="color: #E73C1D;">{{ info.name }}</b>
+      <TypeWriter :texts="['PowerYourBusiness']" :typing-speed="80" :erasing-speed="80" :new-text-delay="1500" />
     </v-app-bar-title>
+    <v-col v-if="!isMobile" v-for="(action, index) in actions" :key="index">
+      <v-btn
+        size="small"
+        :color="action.color"
+        @click="handleAction(action.type)"
+      >
+        <v-icon size="30">{{ action.icon }}</v-icon>
+      </v-btn>
+    </v-col>
     <div v-if="!isMobile" class="desktop-menu">
       <v-btn v-for="item in menuItems" :key="item.path" variant="text" @click="handleItemClick(item)" class="bento-btn">
         {{ item.title }}
       </v-btn>
     </div>
   </v-app-bar>
+  <v-snackbar
+    v-model="showCopiedMessage"
+    :timeout="2000"
+    color="success"
+    text
+  >
+    Numero copiato
+  </v-snackbar>
 </template>
 
 <script setup>
@@ -37,6 +54,36 @@ const isMobile = mobile.setupMobileUtils();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
+
+const actions = ref([
+  { type: 'phone', icon: 'mdi-phone', label: 'Chiama', color: 'green' },
+  { type: 'whatsapp', icon: 'mdi-whatsapp', label: 'WhatsApp', color: 'green' },
+  { type: 'email', icon: 'mdi-email', label: 'Email', color: 'red' }
+]);
+
+const showCopiedMessage = ref(false);
+
+const handleAction = (type) => {
+  switch (type) {
+    case 'phone':
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // Dispositivo mobile: avvia la chiamata
+        window.location.href = 'tel:+393478768340';
+      } else {
+        // Desktop: copia il numero negli appunti e mostra il messaggio
+        navigator.clipboard.writeText('+393478768340').then(() => {
+          showCopiedMessage.value = true;
+        });
+      }
+      break;
+    case 'whatsapp':
+      window.open('https://wa.me/393478768340', '_blank');
+      break;
+    case 'email':
+      window.location.href = 'mailto:giovanni.colasanto@fastsite.it';
+      break;
+  }
+};
 
 const menuItems = computed(() => {
   const items = [];
@@ -101,6 +148,7 @@ const handleItemClick = (item) => {
 .app-bar-logo {
   height: 40px;
   margin-right: 16px;
+  margin-left: 16px;
   flex-shrink: 0;
 }
 

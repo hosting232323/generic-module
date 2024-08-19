@@ -4,12 +4,29 @@
       <v-col v-if="isLeftAligned" cols="12" md="6">
         <v-img :src="content.image" cover class="bento-img"></v-img>
       </v-col>
+      
       <v-col cols="12" md="6">
-        <!-- Use TypeWriter for Title -->
-        <v-typography v-if="content.title" class="text-title-1 font-weight-black" v-html="content.title + '<br>'" />
-        <v-typography v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="content.subtitle + '<br>'" />
-        <v-typography v-if="content.description" v-html="content.description" />
+        <v-typography 
+          v-if="content.title" 
+          class="text-h3 font-weight-black" 
+          v-html="content.title + '<br>'" 
+        />
+        
+        <v-typography 
+          v-if="content.subtitle" 
+          class="text-h5" 
+          :style="{ fontStyle: 'italic' }" 
+          v-html="content.subtitle + '<br><br>'" 
+        />
+        
+        <v-typography 
+          v-if="content.description" 
+          class="text-body-1" 
+          v-html="content.description" 
+        />
+        
         <br>
+        
         <a :href="content.url" v-if="content.url && content.button">
           <v-btn
             v-html="content.button" 
@@ -19,12 +36,14 @@
           </v-btn>
         </a>
       </v-col>
+      
       <v-col v-if="!isLeftAligned" cols="12" md="6">
         <v-img :src="content.image" cover class="bento-img"></v-img>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
 
 <script setup>
 import { computed } from 'vue';
@@ -50,7 +69,7 @@ const isLeftAligned = computed(() => {
 .bento-img {
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.2);
+  /*box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.2);*/
 }
 
 .bento-sheet {

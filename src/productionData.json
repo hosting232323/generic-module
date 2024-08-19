@@ -6,11 +6,12 @@
   "components": [
     {
       "content": {
-        "description": "Lascia a noi il lavoro complesso e ci occuperemo interamente della tua presenza online. Dalla creazione del sito web alla gestione dei domini, SEO, profili Google Maps e campagne pubblicitarie: tutto sarà curato nei minimi dettagli, così tu non dovrai pensare a niente!",
+        "description": "Scegliere un servizio di <b>digitalizzazione</b> come Fast Site non è solo un passo avanti, è una necessità per le aziende del presente e del futuro. In un mondo sempre più connesso e competitivo, la digitalizzazione consente di ottimizzare i processi, migliorare l'efficienza operativa e offrire esperienze clienti superiori. Un'azienda che si affida a strumenti avanzati come <b>Google Ads</b>, <b>integrazioni con IA</b> e <b>Virtual Tour</b> non solo aumenta la sua visibilità, ma si adatta anche alle nuove abitudini di consumo. Con Fast Site, garantisci alla tua attività non solo un sito web professionale, ma una suite completa che va dalla prenotazione alla gestione del magazzino, rendendoti competitivo oggi e pronto per le sfide di domani.",
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Untitled+design.png",
-        "orientationDesktop": "right",
+        "orientationDesktop": "left",
+        "orientationMobile": "top",
         "subtitle": "La Tua Presenza Online Completa",
-        "title": "Fastsite",
+        "title": "FastSite",
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Untitled+design.png"
       },
       "menu": "Vantaggi",
@@ -20,7 +21,8 @@
       "content": {
         "description": "Con Chatty, il nostro chatbot AI avanzato, i tuoi clienti riceveranno risposte immediate e precise, aumentando le possibilità di conversione. Chatty non solo risponde alle domande, ma guida attivamente i clienti verso l'acquisto, proponendo i tuoi prodotti in base alle loro esigenze. Un potente strumento che lavora per te, incrementando le vendite senza sforzo!",
         "image": "https://chattypictures.s3.amazonaws.com/logo.png",
-        "orientationDesktop": "left",
+        "orientationDesktop": "right",
+        "orientationMobile": "top",
         "subtitle": "Il Tuo Assistente di Vendita Virtuale",
         "title": "Chatty",
         "url": "https://chattypictures.s3.amazonaws.com/logo.png"
@@ -31,7 +33,8 @@
       "content": {
         "description": "Offri ai tuoi clienti un'esperienza immersiva con i nostri tour virtuali di alta qualità. Ideali per agenzie immobiliari, hotel, bed and breakfast e qualsiasi altro business, i nostri tour virtuali permettono di esplorare ambienti e strutture comodamente da casa. Questo non solo aumenta l'engagement ma anche le possibilità di conversione, facilitando decisioni informate e aumentando il tuo potenziale di vendita. Guarda un esempio di un nostro virtual tour [qui](https://test-virtual-tour.replit.app).",
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ozvapb71.jpg",
-        "orientationDesktop": "right",
+        "orientationDesktop": "left",
+        "orientationMobile": "top",
         "subtitle": "Tour Virtuali Immersivi",
         "title": "Virtual Tour",
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ozvapb71.jpg"
@@ -57,41 +60,14 @@
       "type": "map"
     },
     {
-      "content": [
-        {
-          "name": "Il Forno Molfetta",
-          "logo": "https://ilfornomolfetta.it/logo.png",
-          "url": "ilfornomolfetta.it"
-        },
-        {
-          "name": "Colasanto Luigi",
-          "logo": "https://colasantoluigi.it/logo.png",
-          "url": "colasantoluigi.it"
-        },
-        {
-          "name": "Panificio Mulino Bianco",
-          "logo": "https://panificio-mulinobianco.it/logo.png",
-          "url": "panificio-mulinobianco.it"
-        },
-        {
-          "name": "La dimora dell'angelo",
-          "logo": "https://ladimoradellangelo.it/logo.png",
-          "url": "ladimoradellangelo.it"
-        },
-        {
-          "name": "Di Carne Showroom",
-          "logo": "https://dicarneshowroom.it/logo.png",
-          "url": "dicarneshowroom.it"
-        }
-      ],
-      "menu": "Testimonianze",
+      "menu": "Siti Attivi",
       "type": "siteViewer"
     }
   ],
   "info": {
     "name": "FastSite",
-    "primaryColor": "#f7f4ef",
-    "secondaryColor": "#f34455",
+    "primaryColor": "#f34455",
+    "secondaryColor": "#f7f4ef",
     "iva": "IT12345678901"
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-container>
     <div class="map-container">
       <v-card-title class="dove-siamo-title">
       </v-card-title>

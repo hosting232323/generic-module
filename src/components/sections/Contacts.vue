@@ -2,7 +2,8 @@
   <div>
   <v-card-title class="text-h5 text-center mb-6 fixed-height">
     <div class="typewriter-wrapper">
-      <TypeWriter 
+      <TypeWriter
+        v-if = false
         :texts="['Scopri la nostra offerta...']" 
         :typing-speed="80" 
         :erasing-speed="80" 
@@ -15,11 +16,11 @@
     <v-col cols="4" v-for="(action, index) in actions" :key="index" class="text-center">
       <v-btn
         icon
-        x-large
+        size="x-large"
         :color="action.color"
         @click="handleAction(action.type)"
       >
-        <v-icon size="48">{{ action.icon }}</v-icon>
+        <v-icon size="30">{{ action.icon }}</v-icon>
       </v-btn>
     </v-col>
   </v-row>
@@ -86,6 +87,7 @@ const handleAction = (type) => {
   justify-content: flex-start; /* Align to the left */
   padding-left:  12%; /* Adjust padding to shift the text */
   text-align: left;
+  color: black;
 }
 
 .shifted-typewriter {

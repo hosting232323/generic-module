@@ -4,7 +4,7 @@
       v-for="section in sections" 
       :is="componentMap[section.type]" 
       :id="section.menu ? section.menu.toLowerCase() : null" 
-      :content="section.content" 
+      :content="section.content"
       :info="info" 
     />
   </div>
