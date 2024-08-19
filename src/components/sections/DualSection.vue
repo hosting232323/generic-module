@@ -12,17 +12,17 @@
           v-html="content.title + '<br>'" 
         />
         
-        <v-typography 
+        <TypeWriter
           v-if="content.subtitle" 
           class="text-h5" 
-          :style="{ fontStyle: 'italic' }" 
-          v-html="content.subtitle + '<br><br>'" 
+          :style="{ fontStyle: 'italic' }"
+          :texts="[content.subtitle]"
         />
         
         <v-typography 
           v-if="content.description" 
           class="text-body-1" 
-          v-html="content.description" 
+          v-html="'<br><br>' + content.description" 
         />
         
         <br>
