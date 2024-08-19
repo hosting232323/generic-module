@@ -11,16 +11,6 @@ const routes = [
         component: () => import('@/views/Home')
       },
       {
-        path: '/login',
-        name: 'Login',
-        component: () => import('@/views/Login')
-      },
-      {
-        path: '/blog-admin',
-        name: 'Blog Admin',
-        component: () => import('@/views/BlogAdmin')
-      },
-      {
         path : '/blog',
         name : 'Blog',
         component : () => import('@/views/Blog')
@@ -37,7 +27,17 @@ const routes = [
         component: () => import('@/views/Home')
       }
     ]
-  }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/Login')
+  },
+  {
+    path: '/blog-admin',
+    name: 'Blog Admin',
+    component: () => import('@/views/BlogAdmin')
+  },
 ];
 
 const router = createRouter({
