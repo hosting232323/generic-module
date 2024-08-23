@@ -1,16 +1,6 @@
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
 
-const emptyPost = {
-  id: null,
-  title: '',
-  content: '',
-  subtitle: '',
-  enrichment: {},
-  topics: [],
-  files: []
-};
-
 export const usePostStore = defineStore('posts', {
   state: () => ({
     posts: [],
@@ -46,7 +36,15 @@ export const usePostStore = defineStore('posts', {
       this.enrichments = data.enrichment_types || [];
     },
     resetCurrentPost() {
-      this.currentPost = emptyPost;
+      this.currentPost = {
+        id: null,
+        title: '',
+        content: '',
+        subtitle: '',
+        enrichment: {},
+        topics: [],
+        files: []
+      };
     },
     editCurrentPost(post) {
       this.currentPost = post;

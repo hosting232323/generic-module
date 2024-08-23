@@ -29,15 +29,21 @@ const routes = [
     ]
   },
   {
+    path: '/',
+    component: () => import('@/layouts/AdminLayout'),
+    children: [
+      {
+        path: '/blog-admin',
+        name: 'Blog Admin',
+        component: () => import('@/views/BlogAdmin')
+      }
+    ]
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/Login')
-  },
-  {
-    path: '/blog-admin',
-    name: 'Blog Admin',
-    component: () => import('@/views/BlogAdmin')
-  },
+  }
 ];
 
 const router = createRouter({
