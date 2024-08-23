@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <AppBar />
+    <AppBar :ourSite="true" />
     <View />
   </v-app>
 </template>
@@ -8,7 +8,6 @@
 <script setup>
   import View from './View.vue';
   import AppBar from './AppBar.vue';
-
 
   import { useDataStore } from '@/stores/data';
 

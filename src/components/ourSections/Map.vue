@@ -1,12 +1,13 @@
 <template>
   <v-container>
-    <v-card elevation="20" title="Puoi venirci a conoscere qui">
-      <v-container>
-        <div ref="mapContainer" style="width: 100%; height: 400px;" />
-      </v-container>
-    </v-card>
+    <div class="map-container">
+      <v-card-title class="dove-siamo-title">
+      </v-card-title>
+      <div ref="mapContainer" class="map"></div>
+    </div>
   </v-container>
 </template>
+
 
 <script setup>
   import 'ol/ol.css';
@@ -23,9 +24,7 @@
   import VectorSource from 'ol/source/Vector';
 
   const { content, info } = defineProps(['content', 'info']);
-
-  let mapContainer = ref(null);
-  let map;
+  const mapContainer = ref(null);
 
   onMounted(() => {
     const iconFeature = new Feature({
@@ -51,7 +50,7 @@
       source: vectorSource
     });
 
-    map = new Map({
+    const map = new Map({
       target: mapContainer.value,
       layers: [
         new TileLayer({
@@ -66,3 +65,32 @@
     });
   });
 </script>
+
+<style scoped>
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-top: 20 px;
+  }
+
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+
+  .dove-siamo-title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    z-index: 1;
+  }
+</style>

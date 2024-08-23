@@ -1,4 +1,10 @@
 {
+  "info": {
+    "name": "FastSite",
+    "primaryColor": "#f34455",
+    "secondaryColor": "#f7f4ef",
+    "iva": "IT12345678901"
+  },
   "addOn": [
     "Chatty",
     "VirtualTour"
@@ -15,7 +21,7 @@
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Untitled+design.png"
       },
       "menu": "Vantaggi",
-      "type": "dualSection"
+      "type": "ourDualSection"
     },
     {
       "content": {
@@ -27,7 +33,7 @@
         "title": "Chatty",
         "url": "https://chattypictures.s3.amazonaws.com/logo.png"
       },
-      "type": "dualSection"
+      "type": "ourDualSection"
     },
     {
       "content": {
@@ -39,7 +45,7 @@
         "title": "Virtual Tour",
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ozvapb71.jpg"
       },
-      "type": "dualSection"
+      "type": "ourDualSection"
     },
     {
       "content": {
@@ -47,7 +53,7 @@
         "Phone": "+39 347 876 8340"
       },
       "menu": "Contattaci",
-      "type": "contacts"
+      "type": "ourContacts"
     },
     {
       "content": {
@@ -57,17 +63,11 @@
         ],
         "zoom": 9
       },
-      "type": "map"
+      "type": "ourMap"
     },
     {
       "menu": "Siti Attivi",
       "type": "siteViewer"
     }
-  ],
-  "info": {
-    "name": "FastSite",
-    "primaryColor": "#f34455",
-    "secondaryColor": "#f7f4ef",
-    "iva": "IT12345678901"
-  }
+  ]
 }

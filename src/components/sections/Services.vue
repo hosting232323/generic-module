@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>
+    <h1 :style="{ color: info.primaryColor }">
       I nostri servizi
     </h1>
     <v-expansion-panels multiple>

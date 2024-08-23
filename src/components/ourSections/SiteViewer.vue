@@ -6,7 +6,7 @@
 
 <script setup>
   import { ref, onMounted } from 'vue';
-  import SiteRow from '@/components/sections/SiteRow';
+  import SiteRow from '@/components/ourSections/SiteRow';
 
   const originalSites = [
     {

@@ -72,7 +72,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-/* No additional styles, relies on external styling */
-</style>
