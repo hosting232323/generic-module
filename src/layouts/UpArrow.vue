@@ -49,7 +49,7 @@
     justify-content: center;
     visibility: hidden;
     position: fixed;
-    bottom: 20px;
+    bottom: 100px;
     right: 20px;
     width: 40px;
     height: 40px;
