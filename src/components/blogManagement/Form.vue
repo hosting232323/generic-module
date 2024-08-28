@@ -8,8 +8,8 @@
         <v-text-field v-model="currentPost.title" label="Titolo" required />
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
         <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="id" multiple required />
-        <Enrichments />
         <Images />
+        <Enrichments />
         <v-btn type="submit" :color="data.info.primaryColor" class="mt-4">
           {{ currentPost.id ? 'Modifica Post' : 'Crea Post' }}
         </v-btn>

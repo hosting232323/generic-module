@@ -13,12 +13,11 @@
     {
       "content": {
         "description": "Scegliere <b>FastSite</b> non è solo un passo avanti, è una necessità per le aziende del presente e del futuro.<br><br>In un mondo sempre più connesso e competitivo, la digitalizzazione consente di ottimizzare i processi, migliorare l'efficienza operativa e offrire esperienze clienti superiori.<br><br>Un'azienda che si affida a strumenti avanzati come <b>Google Ads</b>, <b>integrazioni con IA</b> e <b>Virtual Tour</b> non solo aumenta la sua visibilità, ma si adatta anche alle nuove abitudini di consumo.<br><br>Con Fast Site, garantisci alla tua attività non solo un sito web professionale, ma una suite completa che va dalla prenotazione alla gestione del magazzino, rendendoti competitivo oggi e pronto per le sfide di domani.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Untitled+design.png",
+        "image": "/logo.png",
         "orientationDesktop": "left",
         "orientationMobile": "top",
         "subtitle": "La Tua Presenza Online Completa",
-        "title": "FastSite",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Untitled+design.png"
+        "title": "FastSite"
       },
       "menu": "Vantaggi",
       "type": "ourDualSection"
@@ -30,8 +29,7 @@
         "orientationDesktop": "right",
         "orientationMobile": "top",
         "subtitle": "Il Tuo Assistente di Vendita Virtuale",
-        "title": "Chatty",
-        "url": "https://chattypictures.s3.amazonaws.com/logo.png"
+        "title": "Chatty"
       },
       "type": "ourDualSection"
     },
@@ -42,8 +40,7 @@
         "orientationDesktop": "left",
         "orientationMobile": "top",
         "subtitle": "Tour Virtuali Immersivi",
-        "title": "Virtual Tour",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ozvapb71.jpg"
+        "title": "Virtual Tour"
       },
       "type": "ourDualSection"
     },
