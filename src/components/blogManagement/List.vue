@@ -1,7 +1,23 @@
 <template>
   <v-row>
-    <v-col v-for="post in posts" cols="12" md="6">
-      <v-card class="mb-4" :title="post.title" :content="post.content">
+    <v-col v-for="post in posts" :key="post.id" cols="12" md="6">
+      <v-card class="mb-4">
+        <v-row>
+          <v-col cols="4">
+            <v-img 
+              v-if="post.files && post.files.length" 
+              :src="post.files[0]" 
+              alt="Post Image" 
+              height="200px" 
+              class="rounded"
+            />
+          </v-col>
+          <v-col cols="8">
+            <v-card-title class="py-0">
+              {{ post.title }}
+            </v-card-title>
+          </v-col>
+        </v-row>
         <v-card-actions>
           <v-spacer />
           <v-menu>
