@@ -14,8 +14,20 @@ export const usePostStore = defineStore('posts', {
       enrichment: {},
       topics: [],
       files: []
-    }
+    },
+    selectedTopic: null
   }),
+  getters: {
+    filteredPosts: (state) => {
+      if (!state.selectedTopic) {
+        return state.posts;
+      }
+      if (state.selectedTopic === 'altri') {
+        return state.posts.filter(post => post.topics.length === 0);
+      }
+      return state.posts.filter(post => post.topics.includes(state.selectedTopic));
+    }
+  },
   actions: {
     initPosts(router) {
       http.getRequestGenericBE('blog/post', {
@@ -38,7 +50,7 @@ export const usePostStore = defineStore('posts', {
     updateTopics(data) {
       this.topics = data.topics || [];
     },
-    updateEnrichments(data){
+    updateEnrichments(data) {
       this.enrichments = data.enrichment_types || [];
     },
     resetCurrentPost() {
@@ -54,6 +66,9 @@ export const usePostStore = defineStore('posts', {
     },
     editCurrentPost(post) {
       this.currentPost = post;
+    },
+    setSelectedTopic(topic) {
+      this.selectedTopic = topic;
     }
   }
 });
