@@ -54,12 +54,12 @@
     {
       name: "description",
       content:
-        "FastSite offre soluzioni digitali complete per il tuo business: siti web professionali, chatbot avanzati, tour virtuali e molto altro. Digitalizza e ottimizza il tuo business con i nostri servizi di avanguardia tecnologica.",
+        "FastSite offre soluzioni digitali avanzate per aziende di tutta Italia: siti web professionali, chatbot AI, tour virtuali, SEO, e digitalizzazione completa. Trasforma il tuo business con noi.",
     },
     {
       name: "keywords",
       content:
-        "soluzioni digitali, siti web, chatbot AI, tour virtuali, digitalizzazione aziendale, innovazione, marketing digitale, ottimizzazione SEO, FastSite, servizi informatici, tecnologia avanzata, Google Ads, assistente virtuale, sviluppo web, software personalizzato, consulenza digitale, gestione clienti, automazione processi, Molfetta, Puglia",
+        "soluzioni digitali, digitalizzazione, siti web, chatbot AI, tour virtuali, marketing digitale, SEO, innovazione tecnologica, consulenza digitale, sviluppo web, automazione aziendale, software personalizzato, assistente virtuale, gestione clienti, Google Ads, ottimizzazione digitale, Bari, Puglia, Italia",
     },
     { name: "author", content: "FastSite" },
     { name: "robots", content: "index, follow" },
@@ -69,7 +69,7 @@
     {
       property: "og:description",
       content:
-        "Scopri FastSite: soluzioni digitali per la tua azienda, dai siti web ai chatbot e tour virtuali. Ottimizza la tua presenza online e fai crescere il tuo business con noi.",
+        "Scopri FastSite: soluzioni digitali per la tua azienda in tutta Italia, dai siti web ai chatbot e tour virtuali. Ottimizza la tua presenza online con i nostri servizi innovativi.",
     },
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://fastsite.it" },
@@ -84,15 +84,18 @@
     {
       name: "twitter:description",
       content:
-        "FastSite: leader in soluzioni digitali per le aziende. Offriamo siti web, chatbot AI, tour virtuali e strumenti per la digitalizzazione del tuo business.",
+        "FastSite: leader in soluzioni digitali per aziende in Italia. Offriamo servizi di sviluppo web, chatbot AI, tour virtuali e molto altro per la digitalizzazione del tuo business.",
     },
     { name: "twitter:image", content: "https://fastsite.it/logo.png" },
     { name: "twitter:site", content: "@fastsite" },
     { name: "geo.region", content: "IT-BA" }, // Codice della regione per Bari, Puglia
-    { name: "geo.placename", content: "Molfetta" }, // Nome del luogo
-    { name: "geo.position", content: "41.09665;16.882818" }, // Coordinate della posizione
-    { name: "ICBM", content: "41.09665, 16.882818" }, // Obsoleto ma ancora utilizzato da alcuni servizi
-    { name: "business:contact_data:locality", content: "Molfetta" },
+    { name: "geo.placename", content: "Bari" }, // Nome del luogo
+    { name: "geo.position", content: "41.117143;16.871871" }, // Coordinate della posizione per Bari
+    { name: "ICBM", content: "41.117143, 16.871871" }, // Obsoleto ma ancora utilizzato da alcuni servizi
+    { name: "business:contact_data:street_address", content: "Via Esempio, 10" }, // Indirizzo fittizio, sostituire con quello corretto
+    { name: "business:contact_data:locality", content: "Bari" },
+    { name: "business:contact_data:region", content: "BA" },
+    { name: "business:contact_data:postal_code", content: "70121" }, // Codice postale di Bari
     { name: "business:contact_data:country_name", content: "Italy" },
     { name: "business:contact_data:email", content: "giovanni.colasanto@fastsite.it" },
     { name: "business:contact_data:phone_number", content: "+39 347 876 8340" },
