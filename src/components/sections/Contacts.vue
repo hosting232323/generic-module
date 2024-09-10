@@ -38,8 +38,11 @@
 <script setup>
   import { ref } from 'vue';
   import http from '@/utils/http';
+  import { useRouter } from 'vue-router';
   import validation from '@/utils/validation';
 
+  const router = useRouter();
+  const mail = import.meta.env.VITE_FORM_MAIL;
   const { content, info } = defineProps(['content', 'info']);
 
   const name = ref('');
@@ -54,8 +57,6 @@
   const getContactTypes = (contacts) => {
     return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
   };
-
-  const mail = import.meta.env.VITE_FORM_MAIL;
 
   const sendMail = () => {
     if (
@@ -76,10 +77,3 @@
     }
   };
 </script>
-
-<style scoped>
-  .contact__text {
-    margin-left: 10px;
-    float: left;
-  }
-</style>
