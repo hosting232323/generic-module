@@ -1,6 +1,5 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
-const apiKey = import.meta.env.VITE_API_KEY;
 
 
 const getRequest = (endpoint, params, func) => {
@@ -22,7 +21,6 @@ const getRequest = (endpoint, params, func) => {
 };
 
 
-
 const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = undefined) => {
   fetch(`${hostnameGenericBackend}${endpoint}`, {
     method: method,
@@ -38,6 +36,7 @@ const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = un
     console.error('Errore nella richiesta:', error);
   });
 };
+
 
 const postRequestFileGenericBE = (endpoint, file, func, method = 'POST',router = undefined) => {
   const formData = new FormData();
@@ -79,13 +78,13 @@ const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefi
 
 
 const createHeader = (file = false) => {
-  let headers = {};
+  let headers = {
+    'Token': localStorage.getItem('token')
+  };
   if (file)
     headers['Accept'] = '*/*';
   else
     headers['Content-Type'] = 'application/json';
-  headers['Authorization'] = apiKey;
-  headers['Token'] = localStorage.getItem('token');
   return headers;
 };
 
@@ -97,10 +96,11 @@ const sessionHandler = (data, func, router) => {
   } else
     func(data);
 };
+
+
 export default {
   getRequest,
   postRequestGenericBE,
   postRequestFileGenericBE,
   getRequestGenericBE
 };
-
