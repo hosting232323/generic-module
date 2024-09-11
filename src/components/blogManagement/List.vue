@@ -47,7 +47,7 @@
     http.getRequestGenericBE('blog/post', {
       id: id
     }, function (data) {
-      initPosts();
+      initPosts(router);
       if (currentPost.id && currentPost.id === id)
         resetCurrentPost();
     }, 'DELETE', router);

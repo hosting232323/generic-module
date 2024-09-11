@@ -79,7 +79,7 @@ const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefi
 
 const createHeader = (file = false) => {
   let headers = {
-    'Token': localStorage.getItem('token')
+    'Authorization': localStorage.getItem('token')
   };
   if (file)
     headers['Accept'] = '*/*';
@@ -92,7 +92,7 @@ const createHeader = (file = false) => {
 const sessionHandler = (data, func, router) => {
   if (data.status == 'session') {
     alert('Sessione scaduta');
-    router.push('/');
+    router.push('/login');
   } else
     func(data);
 };

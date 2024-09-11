@@ -11,12 +11,14 @@
   import Form from '@/components/blogManagement/Form';
   import List from '@/components/blogManagement/List';
 
+  import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
 
+  const router = useRouter();
   const postStore = usePostStore();
   const { initPosts, initTopics, initEnrichments } = postStore;
 
-  initPosts();
-  initTopics();
-  initEnrichments();
+  initPosts(router);
+  initTopics(router);
+  initEnrichments(router);
 </script>

@@ -40,7 +40,7 @@
   const addOrUpdatePost = () => {
     if (currentPost.value.title && currentPost.value.content)
       http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
-        initPosts();
+        initPosts(router);
         resetCurrentPost();
       }, currentPost.value.id ? 'PATCH' : 'POST', router);
   };

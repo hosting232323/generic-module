@@ -17,14 +17,20 @@ export const usePostStore = defineStore('posts', {
     }
   }),
   actions: {
-    initPosts() {
-      http.getRequestGenericBE('blog/post', {}, this.updatePosts);
+    initPosts(router) {
+      http.getRequestGenericBE('blog/post', {
+        project: localStorage.getItem('project')
+      }, this.updatePosts, 'GET', router);
     },
-    initEnrichments() {
-      http.getRequestGenericBE('get-enrichment-types', {}, this.updateEnrichments)
+    initEnrichments(router) {
+      http.getRequestGenericBE('get-enrichment-types', {
+        project: localStorage.getItem('project')
+      }, this.updateEnrichments, 'GET', router);
     },
-    initTopics() {
-      http.getRequestGenericBE('blog/topic', {}, this.updateTopics);
+    initTopics(router) {
+      http.getRequestGenericBE('blog/topic', {
+        project: localStorage.getItem('project')
+      }, this.updateTopics, 'GET', router);
     },
     updatePosts(data) {
       this.posts = data.posts || [];

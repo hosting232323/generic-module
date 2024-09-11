@@ -48,6 +48,7 @@ const login = () => {
     }, function (data) {
       if (data.status == 'ok') {
         localStorage.setItem('token', data.token);
+        localStorage.setItem('project', data.project);
         router.push('/blog-admin');
       } else {
         message.value = data.error;
