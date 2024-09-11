@@ -38,10 +38,8 @@
 <script setup>
   import { ref } from 'vue';
   import http from '@/utils/http';
-  import { useRouter } from 'vue-router';
   import validation from '@/utils/validation';
 
-  const router = useRouter();
   const mail = import.meta.env.VITE_FORM_MAIL;
   const { content, info } = defineProps(['content', 'info']);
 
@@ -73,7 +71,7 @@
           `Testo:\n${body.value}`
       }, function () {
         alert("Mail inviata\nTi ringraziamo per il contatto");
-      }, 'POST', router);
+      });
     }
   };
 </script>
