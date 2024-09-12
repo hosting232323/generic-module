@@ -6,6 +6,7 @@ export const usePostStore = defineStore('posts', {
     posts: [],
     topics: [],
     enrichments: [],
+    selectedTopic: null,
     currentPost: {
       id: null,
       title: '',
@@ -14,8 +15,7 @@ export const usePostStore = defineStore('posts', {
       enrichment: {},
       topics: [],
       files: []
-    },
-    selectedTopic: null
+    }
   }),
   getters: {
     filteredPosts: (state) => {

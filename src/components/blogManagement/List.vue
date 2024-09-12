@@ -42,26 +42,27 @@
 
 <script setup>
   import { watch } from 'vue';
+  import http from '@/utils/http';
   import { storeToRefs } from 'pinia';
   import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
-  import http from '@/utils/http';
 
   const router = useRouter();
   const postStore = usePostStore();
-  const {topics, filteredPosts, selectedTopic } = storeToRefs(postStore);
-  const {editCurrentPost} = postStore;
+  const { topics, filteredPosts, selectedTopic } = storeToRefs(postStore);
+  const { editCurrentPost } = postStore;
 
   watch(selectedTopic, (newTopic) => {
     postStore.setSelectedTopic(newTopic === 'null' ? null : newTopic);
   });
 
-  const deletePost = async (id) => {
-    http.getRequestGenericBE('blog/post', { id }, () => {
-      postStore.initPosts();
-      if (postStore.currentPost.id === id) {
-        postStore.resetCurrentPost();
-      }
+  const deletePost = (id) => {
+    http.getRequestGenericBE('blog/post', {
+      id: id
+    }, function (data) {
+      initPosts(router);
+      if (currentPost.id && currentPost.id === id)
+        resetCurrentPost();
     }, 'DELETE', router);
   };
 </script>
