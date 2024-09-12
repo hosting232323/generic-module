@@ -1,12 +1,16 @@
 <template>
   <v-expansion-panels>
-    <v-expansion-panel title="Immagini">
+    <v-expansion-panel :title="`Immagini ${type}`">
       <v-expansion-panel-text>
         <v-file-input accept="image/*" label="Carica qui la tua immagine" @change="uploadImage" />
-        <v-card title="Immagini caricate" v-if="currentPost.files && currentPost.files.length > 0">
+        <v-card
+          title="Immagini caricate"
+          v-if="currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files'] &&
+            currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files'].length > 0"
+        >
           <v-card-text>
             <v-slide-group show-arrows>
-              <v-slide-group-item v-for="(image, index) in currentPost.files">
+              <v-slide-group-item v-for="(image, index) in currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files']">
                 <v-card elevation="5">
                   <v-img :src="image" width="200" height="200" />
                   <v-card-actions>
@@ -32,6 +36,7 @@
 
   const router = useRouter();
   const postStore = usePostStore();
+  const { type } = defineProps(['type']);
   const { currentPost } = storeToRefs(postStore);
 
   const uploadImage = (event) => {
@@ -41,17 +46,18 @@
     const bucketName = 'blogfast';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
-      if (data.status === 'ok')
-        currentPost.value.files.push({
-          type: 'Desktop',
-          key: `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`
-        });
-      else
+      if (data.status === 'ok') {
+        const listType = type == 'mobile' ? 'mobile_files' : 'desktop_files';
+        if (!currentPost.value[listType])
+          currentPost.value[listType] = [];
+        currentPost.value[listType].push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
+      } else
         console.error('File upload failed:', data.error);
     }, 'POST', router);
   };
 
   const deleteImage = (index) => {
-    currentPost.value.files.splice(index, 1);
+    const listType = type == 'mobile' ? 'mobile_files' : 'desktop_files';
+    currentPost.value[listType].splice(index, 1);
   };
 </script>

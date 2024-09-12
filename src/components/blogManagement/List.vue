@@ -2,11 +2,9 @@
   <v-row>
     <v-col cols="12">
       <v-btn-toggle v-model="selectedTopic" mandatory>
-        <v-btn value="null">Tutti</v-btn>
-        <v-btn v-for="topic in topics" :value="topic.name">
-          {{ topic.name }}
-        </v-btn>
-        <v-btn value="altri">Altri</v-btn>
+        <v-btn value="null" text="Tutti" />
+        <v-btn v-for="topic in topics" :value="topic.name" :text="topic.name" />
+        <v-btn value="altri" text="Altri" />
       </v-btn-toggle>
     </v-col>
   </v-row>
@@ -16,8 +14,8 @@
         <v-row>
           <v-col cols="4">
             <v-img 
-              v-if="post.files && post.files.length" 
-              :src="post.files[0]" 
+              v-if="post.cover" 
+              :src="post.cover" 
               alt="Post Cover" 
               height="130" 
               class="rounded"

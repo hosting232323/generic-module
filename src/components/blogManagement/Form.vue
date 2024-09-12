@@ -8,7 +8,16 @@
         <v-text-field v-model="currentPost.title" label="Titolo" required />
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
         <v-autocomplete v-model="currentPost.topics" :items="topics.map(topic => topic.name)" label="Topic" multiple required />
-        <Images />
+        <v-row no-gutters>
+          <v-col cols="10">
+            <v-file-input accept="image/*" label="Immagine di copertina" @change="uploadImage" />
+          </v-col>
+          <v-col cols="2">
+            <v-img :src="currentPost.cover" height="65" />
+          </v-col>
+        </v-row>
+        <Images type="desktop" />
+        <Images type="mobile" />
         <Enrichments />
         <v-btn type="submit" :color="data.info.primaryColor" class="mt-4">
           {{ currentPost.id ? 'Modifica Post' : 'Crea Post' }}
@@ -22,6 +31,7 @@
 <script setup>
   import http from '@/utils/http';
   import { storeToRefs } from 'pinia';
+  import { v4 as uuidv4 } from 'uuid';
   import { useRouter } from 'vue-router';
   import { useDataStore } from '@/stores/data';
   import { usePostStore } from '@/stores/posts';
@@ -43,5 +53,19 @@
         initPosts(router);
         resetCurrentPost();
       }, currentPost.value.id ? 'PATCH' : 'POST', router);
+  };
+
+  const uploadImage = (event) => {
+    const selectedFile = event.target.files[0];
+    if (!selectedFile)  return;
+
+    const bucketName = 'blogfast';
+    const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
+    http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
+      if (data.status === 'ok')
+        currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
+      else
+        console.error('File upload failed:', data.error);
+    }, 'POST', router);
   };
 </script>
