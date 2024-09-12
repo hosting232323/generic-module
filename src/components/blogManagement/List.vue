@@ -15,7 +15,13 @@
       <v-card class="mb-4" height="130">
         <v-row>
           <v-col cols="4">
-            <v-img v-if="post.files && post.files.length" :src="post.files[0]" />
+            <v-img 
+              v-if="post.files && post.files.length" 
+              :src="post.files[0]" 
+              alt="Post Cover" 
+              height="130" 
+              class="rounded"
+            />
           </v-col>
           <v-col cols="8">
             <v-card-title class="py-0">
