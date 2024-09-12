@@ -23,9 +23,9 @@ export const usePostStore = defineStore('posts', {
         return state.posts;
       }
       if (state.selectedTopic === 'altri') {
-        return state.posts.filter(post => post.topics.length === 0);
+        return state.posts.filter(post => !post.topics || post.topics.length === 0);
       }
-      return state.posts.filter(post => post.topics.includes(state.selectedTopic));
+      return state.posts.filter(post => post.topics && post.topics.includes(state.selectedTopic));
     }
   },
   actions: {
@@ -65,7 +65,7 @@ export const usePostStore = defineStore('posts', {
       };
     },
     editCurrentPost(post) {
-      this.currentPost = post;
+      this.currentPost = JSON.parse(JSON.stringify(post));
     },
     setSelectedTopic(topic) {
       this.selectedTopic = topic;

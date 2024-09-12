@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-btn-toggle v-model="selectedTopic" mandatory>
         <v-btn value="null">Tutti</v-btn>
-        <v-btn v-for="topic in topics" :key="topic.id" :value="topic.id">
+        <v-btn v-for="topic in topics" :value="topic.name">
           {{ topic.name }}
         </v-btn>
         <v-btn value="altri">Altri</v-btn>
@@ -28,7 +28,7 @@
               {{ post.title }}
             </v-card-title>
             <v-card-subtitle>
-              Topics: {{ post.topics.join(', ') || 'None' }}
+              Topics: {{ post.topics ? post.topics.join(', ') : 'None' }}
             </v-card-subtitle>
             <v-menu>
               <template v-slot:activator="{ props }">

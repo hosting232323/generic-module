@@ -42,7 +42,10 @@
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
       if (data.status === 'ok')
-        currentPost.value.files.push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
+        currentPost.value.files.push({
+          type: 'Desktop',
+          key: `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`
+        });
       else
         console.error('File upload failed:', data.error);
     }, 'POST', router);
