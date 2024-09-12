@@ -24,16 +24,16 @@
             <v-card-subtitle>
               Topics: {{ post.topics.join(', ') || 'None' }}
             </v-card-subtitle>
+            <v-menu>
+              <template v-slot:activator="{ props }">
+                <v-btn class="actions" variant="text" icon="mdi-dots-vertical" v-bind="props" />
+              </template>
+              <v-list>
+                <v-list-item @click="editCurrentPost(post)" title="Modifica" />
+                <v-list-item @click="deletePost(post.id)" title="Elimina" />
+              </v-list>
+            </v-menu>
           </v-col>
-          <v-menu>
-            <template v-slot:activator="{ props }">
-              <v-btn icon="mdi-dots-vertical" v-bind="props" />
-            </template>
-            <v-list>
-              <v-list-item @click="editCurrentPost(post)" title="Modifica" />
-              <v-list-item @click="deletePost(post.id)" title="Elimina" />
-            </v-list>
-          </v-menu>
         </v-row>
       </v-card>
     </v-col>
@@ -41,38 +41,29 @@
 </template>
 
 <script setup>
-import { watch, onMounted } from 'vue';
-import { storeToRefs } from 'pinia';
-import { useRouter } from 'vue-router';
-import { usePostStore } from '@/stores/posts';
-import http from '@/utils/http';
+  import { watch } from 'vue';
+  import { storeToRefs } from 'pinia';
+  import { useRouter } from 'vue-router';
+  import { usePostStore } from '@/stores/posts';
+  import http from '@/utils/http';
 
-const router = useRouter();
-const postStore = usePostStore();
-const {topics, filteredPosts, selectedTopic } = storeToRefs(postStore);
-const {editCurrentPost} = postStore;
+  const router = useRouter();
+  const postStore = usePostStore();
+  const {topics, filteredPosts, selectedTopic } = storeToRefs(postStore);
+  const {editCurrentPost} = postStore;
 
+  watch(selectedTopic, (newTopic) => {
+    postStore.setSelectedTopic(newTopic === 'null' ? null : newTopic);
+  });
 
-onMounted(() => {
-  postStore.initPosts();
-  postStore.initTopics();
-});
-
-watch(selectedTopic, (newTopic) => {
-  postStore.setSelectedTopic(newTopic === 'null' ? null : newTopic);
-});
-
-const deletePost = async (id) => {
-  try {
-    await http.getRequestGenericBE('blog/post', { id }, () => {
+  const deletePost = async (id) => {
+    http.getRequestGenericBE('blog/post', { id }, () => {
       postStore.initPosts();
       if (postStore.currentPost.id === id) {
         postStore.resetCurrentPost();
       }
     }, 'DELETE', router);
-  } catch (error) {
-  }
-};
+  };
 </script>
 
 <style scoped>
