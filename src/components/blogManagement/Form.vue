@@ -7,7 +7,7 @@
       <v-form @submit.prevent="addOrUpdatePost">
         <v-text-field v-model="currentPost.title" label="Titolo" required />
         <v-textarea v-model="currentPost.content" label="Contenuto" required />
-        <v-autocomplete v-model="currentPost.topics" :items="topics" label="Topic" item-title="name" item-value="id" multiple required />
+        <v-autocomplete v-model="currentPost.topics" :items="topics.map(topic => topic.name)" label="Topic" multiple required />
         <Images />
         <Enrichments />
         <v-btn type="submit" :color="data.info.primaryColor" class="mt-4">
