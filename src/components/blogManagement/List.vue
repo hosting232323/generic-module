@@ -1,13 +1,24 @@
 <template>
   <v-row>
-    <v-col v-for="post in posts" cols="12" md="6">
-      <v-card class="mb-4">
+    <v-col cols="12">
+      <v-btn-toggle v-model="selectedTopic" mandatory>
+        <v-btn value="null">Tutti</v-btn>
+        <v-btn v-for="topic in topics" :value="topic.name">
+          {{ topic.name }}
+        </v-btn>
+        <v-btn value="altri">Altri</v-btn>
+      </v-btn-toggle>
+    </v-col>
+  </v-row>
+  <v-row>
+    <v-col v-for="post in filteredPosts" :key="post.id" cols="12" md="6">
+      <v-card class="mb-4" height="130">
         <v-row>
           <v-col cols="4">
             <v-img 
               v-if="post.files && post.files.length" 
               :src="post.files[0]" 
-              alt="Post Image" 
+              alt="Post Cover" 
               height="130" 
               class="rounded"
             />
@@ -16,6 +27,9 @@
             <v-card-title class="py-0">
               {{ post.title }}
             </v-card-title>
+            <v-card-subtitle>
+              Topics: {{ post.topics ? post.topics.join(', ') : 'None' }}
+            </v-card-subtitle>
             <v-menu>
               <template v-slot:activator="{ props }">
                 <v-btn class="actions" variant="text" icon="mdi-dots-vertical" v-bind="props" />
@@ -33,6 +47,7 @@
 </template>
 
 <script setup>
+  import { watch } from 'vue';
   import http from '@/utils/http';
   import { storeToRefs } from 'pinia';
   import { useRouter } from 'vue-router';
@@ -40,8 +55,12 @@
 
   const router = useRouter();
   const postStore = usePostStore();
-  const { initPosts, resetCurrentPost, editCurrentPost } = postStore;
-  const { posts, currentPost } = storeToRefs(postStore);
+  const { topics, filteredPosts, selectedTopic } = storeToRefs(postStore);
+  const { editCurrentPost } = postStore;
+
+  watch(selectedTopic, (newTopic) => {
+    postStore.setSelectedTopic(newTopic === 'null' ? null : newTopic);
+  });
 
   const deletePost = (id) => {
     http.getRequestGenericBE('blog/post', {
