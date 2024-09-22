@@ -1,6 +1,18 @@
+
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
+import functionalities from '../views/Functionalities.json';
+import axios from 'axios';
+
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
+const hostnameBrooking = import.meta.env.VITE_HOSTNAME_BROOKING;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 
+const initializeStore = () => {
+  const dataStore = useDataStore();
+  const { data } = storeToRefs(dataStore);
+  return data.value.store;
+}
 
 const getRequest = (endpoint, params, func) => {
   const url = new URL(`${hostnameFastSite}${endpoint}`);
@@ -76,6 +88,36 @@ const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefi
   });
 };
 
+const executeGetRequestBrooking = (endpoint, token, params = {}, callback) => {
+  const url = new URL(`${hostnameBrooking}${endpoint}`);
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+  axios.get(url.href, {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then((response) => {
+    callback(response.data);
+  }).catch((error) => {
+    console.error('Errore durante la richiesta GET:', error);
+    throw new Error("Errore durante la chiamata HTTP: " + error.message);
+  });
+};
+
+const executePostRequestBrooking = (endpoint, dto, callback, method = 'POST', login = true) => {
+  console.log("Chiamata a executePostRequestBrooking con endpoint:", endpoint, "DTO:", dto);
+
+  const axiosMethod = method.toLowerCase();
+  axios[axiosMethod](hostnameBrooking + endpoint, dto, {})
+    .then((response) => {
+      callback(response.data);
+    })
+    .catch((error) => {
+      console.error(`Errore durante la richiesta ${method}:`, error.response ? error.response.data : error.message);
+      throw new Error("Errore durante la chiamata HTTP: " + error.message);
+    });
+    console.log("URL della richiesta:", hostnameBrooking + endpoint);
+  };
 
 const createHeader = (file = false) => {
   let headers = {
@@ -102,5 +144,6 @@ export default {
   getRequest,
   postRequestGenericBE,
   postRequestFileGenericBE,
-  getRequestGenericBE
+  getRequestGenericBE,
+  executePostRequestBrooking
 };

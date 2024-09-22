@@ -1,0 +1,33 @@
+{
+  "functionalities": 
+  [ 
+    {
+      "title": "Blog",
+      "icon": "mdi-book",
+      "link": "/blog-admin"
+    },
+    {
+      "title": "Wooffy",
+      "icon": "mdi-dog",
+      "link": "/Wooffy"
+    },
+    {
+      "title": "Ordering",
+      "icon": "mdi-cat",
+      "link": "https://brooking-fe-test.replit.app/",
+      "external": true
+    },
+    {
+      "title": "test",
+      "icon": "mdi-house",
+      "link": "/test"
+    }
+  ],
+  "brooking_user": {
+    "nickname": "bro.users.info@gmail.com",
+    "password": "Ciao1234"
+  }
+}
+
+  
+  

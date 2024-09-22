@@ -11,11 +11,11 @@
 </template>
 
 <script setup>
-  import { AuthManager } from 'generic-module';
-  import { useDataStore } from '@/stores/data';
-  import { storeToRefs } from 'pinia';
+import { AuthManager } from 'generic-module';
+import { useDataStore } from '@/stores/data';
+import { storeToRefs } from 'pinia';
 
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
-  const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 </script>
