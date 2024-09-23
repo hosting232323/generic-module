@@ -62,7 +62,7 @@
       !validation.validateInput(name.value, validation.requiredRules) &&
       !validation.validateInput(body.value, validation.requiredRules)
     ) {
-      http.postRequestGenericBE('send-mail', {
+      http.postRequestGenericBE('send-email', {
         email: mail,
         subject: `Qualcuno ho usato il form del sito ${info.name}`,
         body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
