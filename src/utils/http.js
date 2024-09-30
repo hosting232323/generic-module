@@ -1,4 +1,5 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
+const hostnameBrooking = import.meta.env.VITE_HOSTNAME_BROOKING;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 
 
@@ -76,6 +77,24 @@ const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefi
   });
 };
 
+const getRequestBrooking = (endpoint, params, func,method='GET',router = undefined) => {
+  const url = new URL(`${hostnameBrooking}${endpoint}`);
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+  fetch(url, {
+    method: method,
+    headers: {'Content-Type': 'application/json'}
+  }).then(response => {
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    sessionHandler(data, func, router);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
+  });
+};
+
 
 const createHeader = (file = false) => {
   let headers = {
@@ -102,5 +121,6 @@ export default {
   getRequest,
   postRequestGenericBE,
   postRequestFileGenericBE,
-  getRequestGenericBE
+  getRequestGenericBE,
+  getRequestBrooking
 };
