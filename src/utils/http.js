@@ -3,6 +3,8 @@ import axios from 'axios';
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameBrooking = import.meta.env.VITE_HOSTNAME_BROOKING;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
+const usernameBrooking = import.meta.env.USERNAME_BROOKING;
+const passwordBrooking = import.meta.env.PASSWORD_BROOKING;
 
 
 const getRequest = (endpoint, params, func) => {
@@ -81,8 +83,8 @@ const getRequestGenericBE = (endpoint, params, func, method = 'GET', router = un
 
 const obtainToken = (callback) => {
   postRequestBrooking('api/authentication/login/', {
-    username_or_email: "bro.users.info@gmail.com",
-    password: "Ciao1234"
+    username_or_email: usernameBrooking,
+    password: passwordBrooking
   }, (data) => {
     localStorage.setItem('bearer', data.access);
     callback(data.access);
