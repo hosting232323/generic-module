@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameBrooking = import.meta.env.VITE_HOSTNAME_BROOKING;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
@@ -6,10 +8,10 @@ const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 const getRequest = (endpoint, params, func) => {
   const url = new URL(`${hostnameFastSite}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-  
+
   fetch(url, {
     method: 'GET',
-    headers: {'Content-Type': 'application/json'}
+    headers: { 'Content-Type': 'application/json' }
   }).then(response => {
     if (!response.ok)
       throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
@@ -39,7 +41,7 @@ const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = un
 };
 
 
-const postRequestFileGenericBE = (endpoint, file, func, method = 'POST',router = undefined) => {
+const postRequestFileGenericBE = (endpoint, file, func, method = 'POST', router = undefined) => {
   const formData = new FormData();
   formData.append('file', file);
 
@@ -59,7 +61,7 @@ const postRequestFileGenericBE = (endpoint, file, func, method = 'POST',router =
 };
 
 
-const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefined) => {
+const getRequestGenericBE = (endpoint, params, func, method = 'GET', router = undefined) => {
   const url = new URL(`${hostnameGenericBackend}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -77,24 +79,61 @@ const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefi
   });
 };
 
-const getRequestBrooking = (endpoint, params, func,method='GET',router = undefined) => {
-  const url = new URL(`${hostnameBrooking}${endpoint}`);
-  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-
-  fetch(url, {
-    method: method,
-    headers: {'Content-Type': 'application/json'}
-  }).then(response => {
-    if (!response.ok)
-      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-    return response.json();
-  }).then(data => {
-    sessionHandler(data, func, router);
-  }).catch(error => {
-    console.error('Errore nella richiesta:', error);
+const obtainToken = (callback) => {
+  postRequestBrooking('api/authentication/login/', {
+    username_or_email: "bro.users.info@gmail.com",
+    password: "Ciao1234"
+  }, (data) => {
+    localStorage.setItem('bearer', data.access);
+    callback(data.access);
   });
 };
 
+const getRequestBrooking = (endpoint, params = {}, func, method = 'GET', router = undefined) => {
+  const token = localStorage.getItem('bearer');
+  if (token) {
+    executeGet(endpoint, token, params, func);
+  } else {
+    obtainToken((newToken) => {
+      executeGet(endpoint, newToken, params, func);
+    });
+  }
+};
+
+const executeGet = (endpoint, token, params = {}, callback) => {
+  const url = new URL(`${hostnameBrooking}${endpoint}`);
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+  axios.get(url.href, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }).then((response) => {
+    callback(response.data);
+  }).catch((error) => {
+    console.error('Errore durante la richiesta GET:', error);
+    throw new Error("Errore durante la chiamata HTTP: " + error.message);
+  });
+};
+
+const postRequestBrooking = (endpoint, dto, callback, session = false, method = 'POST') => {
+  let options = {
+    headers: {}
+  };
+  if (session) {
+    options.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+  }
+
+  const axiosMethod = method.toLowerCase();
+  axios[axiosMethod](hostnameBrooking + endpoint, dto, options)
+    .then((response) => {
+      callback(response.data);
+    })
+    .catch((error) => {
+      console.error(`Errore durante la richiesta ${method}:`, error);
+      throw new Error("Errore durante la chiamata HTTP: " + error.message);
+    });
+};
 
 const createHeader = (file = false) => {
   let headers = {
