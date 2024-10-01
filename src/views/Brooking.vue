@@ -35,7 +35,7 @@
 </template>
   
 <script setup>
-  const businessActivityBrooking = import.meta.env.BUSINESS_ACTIVITY_BROOKING;
+  const businessActivityBrooking = import.meta.env.VITE_BUSINESS_ACTIVITY_BROOKING;
   import { useHead } from '@vueuse/head';
   import { ref, onMounted } from 'vue';
   import http from '@/utils/http';

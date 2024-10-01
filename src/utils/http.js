@@ -3,8 +3,8 @@ import axios from 'axios';
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameBrooking = import.meta.env.VITE_HOSTNAME_BROOKING;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
-const usernameBrooking = import.meta.env.USERNAME_BROOKING;
-const passwordBrooking = import.meta.env.PASSWORD_BROOKING;
+const usernameBrooking = import.meta.env.VITE_USERNAME_BROOKING;
+const passwordBrooking = import.meta.env.VITE_PASSWORD_BROOKING;
 
 
 const getRequest = (endpoint, params, func) => {
