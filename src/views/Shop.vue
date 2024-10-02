@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <Loading v-if="loading" />
     <v-row>
       <v-col cols="12" md="3" v-for="(product, index) in products" :key="product.id">
         <v-card class="mb-5">
@@ -88,9 +89,12 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import http from '@/utils/http';
+import Loading from '@/layouts/Loading';
+
 
 const products = ref([]);
 const dialog = ref(false);
+const loading = ref(true);
 const selectedProduct = ref(null);
 const businessActivityBrooking = import.meta.env.VITE_BUSINESS_ACTIVITY_BROOKING;
 
@@ -102,14 +106,10 @@ const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
-const showDetails = (product) => {
-  selectedProduct.value = product;
-  dialog.value = true;
-};
-
 const fetchProducts = () => {
   http.getRequestBrooking(`api/shop/product/${businessActivityBrooking}/`, {}, function (data) {
     products.value = data;
+    loading.value = false;
   }, true);
 };
 

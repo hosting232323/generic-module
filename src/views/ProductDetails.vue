@@ -1,6 +1,8 @@
 <template>
     <v-container>
-        <v-row v-if="product">
+        <Loading v-if="loading" />
+
+        <v-row v-else-if="product">
             <v-col cols="12" md="6">
                 <v-card>
                     <v-carousel v-if="product.images && product.images.length > 0" hide-delimiter-background>
@@ -31,8 +33,7 @@
 
                         <div class="mb-3">
                             <strong>Disponibilità:</strong>
-                            <p>{{ product.inventory?.quantity >= 0 ? product.inventory.quantity : 'Non disponibile' }}
-                            </p>
+                            <p>{{ product.inventory?.quantity >= 0 ? product.inventory.quantity : 'Non disponibile' }}</p>
                         </div>
                     </v-card-text>
 
@@ -46,7 +47,7 @@
 
         <v-row v-else>
             <v-col cols="12">
-                <v-alert type="info">Caricamento del prodotto...</v-alert>
+                <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
             </v-col>
         </v-row>
     </v-container>
@@ -56,6 +57,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import http from '@/utils/http';
+import Loading from '@/layouts/Loading.vue';
 
 const businessActivityBrooking = import.meta.env.VITE_BUSINESS_ACTIVITY_BROOKING;
 
@@ -67,11 +69,10 @@ const getImageForProduct = (product) => {
     return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
-// Stato del prodotto
 const product = ref(null);
+const loading = ref(true);
 const route = useRoute();
 const router = useRouter();
-
 
 const fetchProductDetails = () => {
     const productId = route.params.id;
@@ -84,11 +85,11 @@ const fetchProductDetails = () => {
             } else {
                 console.error("Nessun prodotto trovato con l'ID specificato.");
             }
+            loading.value = false;
         },
         true
     );
 };
-
 
 const goBack = () => {
     router.back();
