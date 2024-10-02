@@ -30,7 +30,7 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="purple" @click="showDetails(product)">
+            <v-btn color="purple" :to="`/product/${product.id}`">
               Dettagli
             </v-btn>
           </v-card-actions>
