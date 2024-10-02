@@ -2,7 +2,7 @@
   <v-expansion-panels>
     <v-expansion-panel :title="`Immagini ${type}`">
       <v-expansion-panel-text>
-        <v-file-input accept="image/*" label="Carica qui la tua immagine" @change="uploadImage" />
+        <v-file-input accept="image/*" label="Carica qui la tua immagine" @change="uploadImage" v-model="fileInput" />
         <v-card
           title="Immagini caricate"
           v-if="currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files'] &&
@@ -11,7 +11,7 @@
           <v-card-text>
             <v-slide-group show-arrows>
               <v-slide-group-item v-for="(image, index) in currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files']">
-                <v-card elevation="5">
+                <v-card elevation="5" class="mr-5">
                   <v-img :src="image" width="200" height="200" />
                   <v-card-actions>
                     <v-spacer />
@@ -28,12 +28,14 @@
 </template>
 
 <script setup>
+  import { ref } from 'vue';
   import http from '@/utils/http';
   import { storeToRefs } from 'pinia';
   import { v4 as uuidv4 } from 'uuid';
   import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
 
+  const fileInput = ref([]);
   const router = useRouter();
   const postStore = usePostStore();
   const { type } = defineProps(['type']);
@@ -53,6 +55,7 @@
         currentPost.value[listType].push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
       } else
         console.error('File upload failed:', data.error);
+      fileInput.value = [];
     }, 'POST', router);
   };
 
