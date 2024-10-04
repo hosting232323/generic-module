@@ -87,16 +87,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import http from '@/utils/http';
 import Loading from '@/layouts/Loading';
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
 
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+
+const store = data.value.store;
 
 const products = ref([]);
 const dialog = ref(false);
 const loading = ref(true);
 const selectedProduct = ref(null);
-const businessActivityBrooking = import.meta.env.VITE_BUSINESS_ACTIVITY_BROOKING;
 
 const formatPrice = (price) => {
   return parseFloat(price).toFixed(2) + ' €';
@@ -107,7 +112,7 @@ const getImageForProduct = (product) => {
 };
 
 const fetchProducts = () => {
-  http.getRequestBrooking(`api/shop/product/${businessActivityBrooking}/`, {}, function (data) {
+  http.getRequestBrooking(`api/shop/product/${store.businessActivity}/`, {}, function (data) {
     products.value = data;
     loading.value = false;
   }, true);

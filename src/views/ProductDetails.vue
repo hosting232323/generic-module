@@ -59,7 +59,13 @@ import { useRoute, useRouter } from 'vue-router';
 import http from '@/utils/http';
 import Loading from '@/layouts/Loading.vue';
 
-const businessActivityBrooking = import.meta.env.VITE_BUSINESS_ACTIVITY_BROOKING;
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
+
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+
+const store = data.value.store;
 
 const formatPrice = (price) => {
     return parseFloat(price).toFixed(2) + ' €';
@@ -77,7 +83,7 @@ const router = useRouter();
 const fetchProductDetails = () => {
     const productId = route.params.id;
     http.getRequestBrooking(
-        `api/shop/product/${businessActivityBrooking}/${productId}/`,
+        `api/shop/product/${store.businessActivity}/${productId}/`,
         {},
         function (data) {
             if (data) {

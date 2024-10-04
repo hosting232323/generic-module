@@ -1,11 +1,16 @@
 import axios from 'axios';
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
 
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameBrooking = import.meta.env.VITE_HOSTNAME_BROOKING;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
-const usernameBrooking = import.meta.env.VITE_USERNAME_BROOKING;
-const passwordBrooking = import.meta.env.VITE_PASSWORD_BROOKING;
 
+const initializeStore = () => {
+  const dataStore = useDataStore();
+  const { data } = storeToRefs(dataStore);
+  return data.value.store;
+};
 
 const getRequest = (endpoint, params, func) => {
   const url = new URL(`${hostnameFastSite}${endpoint}`);
@@ -82,17 +87,18 @@ const getRequestGenericBE = (endpoint, params, func, method = 'GET', router = un
 };
 
 const obtainToken = (callback) => {
+  const store = initializeStore();
   postRequestBrooking('api/authentication/login/', {
-    username_or_email: usernameBrooking,
-    password: passwordBrooking
+    username_or_email: store.username,
+    password: store.password
   }, (data) => {
-    localStorage.setItem('bearer', data.access);
+    sessionStorage.setItem('bearer', data.access);
     callback(data.access);
   });
 };
 
 const getRequestBrooking = (endpoint, params = {}, func, method = 'GET', router = undefined) => {
-  const token = localStorage.getItem('bearer');
+  const token = sessionStorage.getItem('bearer');
   if (token) {
     executeGet(endpoint, token, params, func);
   } else {
