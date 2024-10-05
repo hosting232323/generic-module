@@ -31,58 +31,18 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="purple" :to="`/product/${product.id}`">
+            <v-btn
+              class="text-none"
+              :to="`/product/${product.id}`"
+              variant="flat"
+              :color="info.primaryColor">
               Dettagli
             </v-btn>
+            
           </v-card-actions>
         </v-card>
       </v-col>
-    </v-row>
-
-    <v-dialog v-model="dialog" max-width="600px">
-      <v-card>
-        <v-img
-          height="300"
-          :src="getImageForProduct(selectedProduct)"
-          cover
-        />
-        <v-card-title class="text-h6">
-          {{ selectedProduct?.name }}
-        </v-card-title>
-        <v-card-subtitle>
-          Prezzo: {{ selectedProduct?.price ? formatPrice(selectedProduct.price) : 'Non disponibile' }}
-        </v-card-subtitle>
-        <v-card-text>
-
-          <div>
-            Descrizione:
-            <span v-if="selectedProduct?.description">
-              {{ selectedProduct.description}}
-            </span>
-            <span v-else>Non disponibile</span>
-          </div>
-
-          <div>
-            Categoria: {{ selectedProduct?.product_type ? selectedProduct.product_type : 'Non specificata' }}
-          </div>
-
-          <div>
-            Disponibilità: 
-            <span v-if="selectedProduct?.inventory">
-              {{ selectedProduct.inventory.quantity >= 0 ? selectedProduct.inventory.quantity : 'Non disponibile' }}
-            </span>
-            <span v-else>Non disponibile</span>
-          </div>
-
-        </v-card-text>
-        <v-card-actions>
-          <v-btn color="purple" text @click="dialog = false">
-            Chiudi
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-    
+    </v-row>   
   </v-container>
 </template>
 
@@ -96,12 +56,11 @@ import { useDataStore } from '@/stores/data';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
+const info = data.value.info;
 const store = data.value.store;
 
 const products = ref([]);
-const dialog = ref(false);
 const loading = ref(true);
-const selectedProduct = ref(null);
 
 const formatPrice = (price) => {
   return parseFloat(price).toFixed(2) + ' €';

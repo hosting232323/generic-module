@@ -38,8 +38,17 @@
                     </v-card-text>
 
                     <v-card-actions>
-                        <v-btn color="purple" large class="ma-2">Aggiungi al carrello</v-btn>
-                        <v-btn color="grey" large text class="ma-2" @click="goBack">Torna indietro</v-btn>
+                        <v-btn
+                            class="text-none ma-2"
+                            variant="flat"
+                            :color="info.primaryColor">
+                            <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
+                            Aggiungi al carrello
+                        </v-btn>
+                        <v-btn class="ma-2" color="red-darken-2" @click="goBack">
+                            <v-icon icon="mdi-arrow-left" start></v-icon>
+                            Torna indietro
+                        </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-col>
@@ -65,6 +74,7 @@ import { useDataStore } from '@/stores/data';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
+const info = data.value.info;
 const store = data.value.store;
 
 const formatPrice = (price) => {
