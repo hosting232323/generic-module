@@ -86,29 +86,28 @@ const getRequestGenericBE = (endpoint, params, func, method = 'GET', router = un
   });
 };
 
-const obtainToken = (callback) => {
+
+const getRequestBrooking = (endpoint, params = {}, func) => {
+  const token = sessionStorage.getItem('bearer');
+  if (token) {
+    executeGetRequestBrooking(endpoint, token, params, func);
+  } else {
+    obtainToken(func, endpoint, params);
+  }
+};
+
+const obtainToken = (func, endpoint, params) => {
   const store = initializeStore();
-  postRequestBrooking('api/authentication/login/', {
+  executePostRequestBrooking('api/authentication/login/', {
     username_or_email: store.username,
     password: store.password
   }, (data) => {
     sessionStorage.setItem('bearer', data.access);
-    callback(data.access);
+    executeGetRequestBrooking(endpoint, data.access, params, func);
   });
 };
 
-const getRequestBrooking = (endpoint, params = {}, func, method = 'GET', router = undefined) => {
-  const token = sessionStorage.getItem('bearer');
-  if (token) {
-    executeGet(endpoint, token, params, func);
-  } else {
-    obtainToken((newToken) => {
-      executeGet(endpoint, newToken, params, func);
-    });
-  }
-};
-
-const executeGet = (endpoint, token, params = {}, callback) => {
+const executeGetRequestBrooking = (endpoint, token, params = {}, callback) => {
   const url = new URL(`${hostnameBrooking}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -124,12 +123,29 @@ const executeGet = (endpoint, token, params = {}, callback) => {
   });
 };
 
-const postRequestBrooking = (endpoint, dto, callback, session = false, method = 'POST') => {
-  let options = {
-    headers: {}
-  };
-  if (session) {
-    options.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+
+const postRequestBrooking = (endpoint, dto, callback, method = 'POST', login) => {
+  const token = sessionStorage.getItem('bearer');
+  var loginAccess = true;
+  if(login != true) {
+    loginAccess = false;
+  }
+  if (token) {
+    executePostRequestBrooking(endpoint, dto, callback, token, method, loginAccess);
+  } else {
+    obtainToken(callback, endpoint, dto);
+  }
+};
+
+
+const executePostRequestBrooking = (endpoint, dto, callback, token, method = 'POST', login = true) => {
+  var options;
+  if(login != true) {
+    options = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    };
   }
 
   const axiosMethod = method.toLowerCase();
@@ -142,6 +158,7 @@ const postRequestBrooking = (endpoint, dto, callback, session = false, method = 
       throw new Error("Errore durante la chiamata HTTP: " + error.message);
     });
 };
+
 
 const createHeader = (file = false) => {
   let headers = {
@@ -169,5 +186,6 @@ export default {
   postRequestGenericBE,
   postRequestFileGenericBE,
   getRequestGenericBE,
-  getRequestBrooking
+  getRequestBrooking,
+  postRequestBrooking
 };

@@ -17,7 +17,7 @@
       <v-col cols="12" md="6">
         <v-card>
           <v-card-title class="text-h5">{{ product.name }}</v-card-title>
-          <v-card-subtitle>Prezzo: <strong>{{ formatPrice(product.price) }}</strong></v-card-subtitle>
+          <v-card-subtitle>Prezzo: <strong>{{ formatPrice(product) }}</strong></v-card-subtitle>
           <v-divider></v-divider>
 
           <v-card-text>
@@ -30,15 +30,14 @@
               <strong>Categoria:</strong>
               <p>{{ product.product_type || 'Non specificata' }}</p>
             </div>
-
-            <!-- <div class="mb-3">
-                            <strong>Disponibilità:</strong>
-                            <p>{{ product.inventory?.quantity >= 0 ? product.inventory.quantity : 'Non disponibile' }}</p>
-                        </div> -->
           </v-card-text>
 
           <v-card-actions>
-            <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor">
+            <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="buy">
+              <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
+              Compra
+            </v-btn>
+            <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               Aggiungi al carrello
             </v-btn>
@@ -67,9 +66,11 @@ import Loading from '@/layouts/Loading.vue';
 
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
+import { useOrderStore } from '@/stores/order';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+const orderStore = useOrderStore();
 
 const info = data.value.info;
 const store = data.value.store;
@@ -103,6 +104,18 @@ const fetchProductDetails = () => {
     true
   );
 };
+
+const addToCart = () => {
+  const body = {
+    product: route.params.id,
+    quantity: 1
+  }
+  orderStore.addProduct(body);
+}
+
+const buy = () => {
+  orderStore.submitOrders(store.businessActivity);
+}
 
 const goBack = () => {
   router.back();

@@ -7,17 +7,25 @@ export const useOrderStore = defineStore('order', {
   }),
   actions: {
     addProduct(product) {
-      this.products.push(product);
+      const existingProduct = this.products.find(item => item.product === product.product);
+      if (existingProduct) existingProduct.quantity += 1;
+      else {
+        product.quantity = 1;
+        this.products.push(product);
+      }
     },
     removeProduct(product) {
-      this.products.remove(product);
+      const existingProduct = this.products.find(item => item.product === product.product);
+      if (existingProduct) {
+        if (existingProduct.quantity > 1) existingProduct.quantity -= 1;
+        else this.products = this.products.filter(item => item.product !== product.product);
+      }
     },
-    submitOrders() {
-    //   prendere  business 
+    submitOrders(businessActivity) {
       http.postRequestBrooking('api/shop/order/', {
-        business_activity: 1,
+        business_activity: businessActivity,
         items: this.products
-      }, this.removeAllProduct);
+      }, this.removeAllProduct, 'POST', false);
     },
     removeAllProduct() {
       this.products = [];

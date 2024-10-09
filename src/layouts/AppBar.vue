@@ -17,6 +17,7 @@
       <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
+      <Cart></Cart>
     </div>
   </v-app-bar>
 </template>
@@ -27,6 +28,7 @@
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
   import { useRouter, useRoute } from 'vue-router';
+  import Cart from './Cart.vue';
 
   const drawer = ref(null);
   const route = useRoute();
