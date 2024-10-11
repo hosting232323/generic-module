@@ -24,7 +24,8 @@ export const useOrderStore = defineStore('order', {
     submitOrders(businessActivity) {
       http.postRequestBrooking('api/shop/order/', {
         business_activity: businessActivity,
-        items: this.products
+        items: this.products,
+        service: 36
       }, this.removeAllProduct, 'POST', false);
     },
     removeAllProduct() {

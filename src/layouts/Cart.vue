@@ -1,7 +1,11 @@
 <template>
   <v-menu v-model="isMenuVisible" transition="scale-transition">
     <template #activator="{ props }">
-      <v-btn v-bind="props">
+      <v-btn v-bind="props" v-if="isMobile">
+        <v-icon icon="mdi-cart-outline"></v-icon>
+        ({{ totalItems }})
+      </v-btn>
+      <v-btn v-bind="props" v-if="!isMobile">
         <v-icon icon="mdi-cart-outline" start></v-icon>
         Carrello ({{ totalItems }})
       </v-btn>
@@ -20,9 +24,9 @@
                   <p style="font-size: 15px;">{{ getProductName(product.product) }}</p>
                   <v-list-item-subtitle>
                     Quantità: 
-                    <v-btn @click="decreaseQuantity(index)" icon="mdi-minus" size="x-small" />
+                    <v-btn @click="decreaseQuantity(product)" icon="mdi-minus" size="x-small" />
                     {{ product.quantity }}
-                    <v-btn @click="increaseQuantity(index)" icon="mdi-plus" size="x-small" />
+                    <v-btn @click="increaseQuantity(product)" icon="mdi-plus" size="x-small" />
                   </v-list-item-subtitle>
               </v-col>
             </v-row>
@@ -46,6 +50,11 @@ import { storeToRefs } from 'pinia';
 import { useOrderStore } from '@/stores/order';
 import http from '@/utils/http';
 import { useDataStore } from '@/stores/data';
+import mobile from '@/utils/mobile';
+
+const isMobile = mobile.setupMobileUtils();
+
+
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
@@ -71,27 +80,20 @@ const totalItems = computed(() => {
   return orderStore.products.reduce((total, product) => total + product.quantity, 0);
 });
 
-const increaseQuantity = (index) => {
-  orderStore.products[index].quantity++;
+const increaseQuantity = (product) => {
+  orderStore.addProduct(product);
 };
 
-const decreaseQuantity = (index) => {
-  if (orderStore.products[index].quantity > 1) {
-    orderStore.products[index].quantity--;
-  }
+const decreaseQuantity = (product) => {
+  orderStore.removeProduct(product);
 };
 
 const placeOrder = () => {
-  // Logica per inviare l'ordine
+  orderStore.submitOrders(store.businessActivity);
   console.log('Ordine inviato:', orderStore.products);
-  clearCart();
 };
 
 const clearCart = () => {
-  orderStore.products = []; // Assicurati che questo sia il modo corretto di svuotare il carrello
+  orderStore.removeAllProduct();
 };
 </script>
-
-<style scoped>
-/* Stili del componente */
-</style>

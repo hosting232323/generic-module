@@ -1,4 +1,5 @@
 <template class="app-bar">
+
   <v-navigation-drawer v-model="drawer" location="bottom" temporary>
     <v-list>
       <v-list-item v-for="item in items" :key="item.path">
@@ -8,18 +9,31 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <v-app-bar :elevation="2" :color="info.primaryColor">
-    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
-    <v-app-bar-title><b>
+
+  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    <v-app-bar-title>
+      <b>
       {{ info.name }}
-    </b></v-app-bar-title>
-    <div v-if="!isMobile" class="desktop-menu">
+      </b>
+    </v-app-bar-title>
+    <Cart></Cart>
+  </v-app-bar>
+
+  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
+    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
+    <v-app-bar-title>
+      <b>{{ info.name }}</b>
+    </v-app-bar-title>
+
+    <div class="desktop-menu">
       <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
       <Cart></Cart>
     </div>
   </v-app-bar>
+
 </template>
 
 <script setup>

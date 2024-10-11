@@ -33,10 +33,10 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="buy">
+            <!-- <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="buy">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               Compra
-            </v-btn>
+            </v-btn> -->
             <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               Aggiungi al carrello
