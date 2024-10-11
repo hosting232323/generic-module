@@ -55,7 +55,6 @@ import mobile from '@/utils/mobile';
 const isMobile = mobile.setupMobileUtils();
 
 
-
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const store = data.value.store;
