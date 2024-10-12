@@ -9,6 +9,17 @@ const routes = [
         path: '/',
         name: 'Production Home',
         component: () => import('@/views/Home')
+      },
+      {
+        path: '/shop',
+        name: 'Shop Page',
+        component: () => import('@/views/Shop')
+      },
+      {
+        path: '/product/:id',
+        name: 'ProductDetails',
+        component: () => import('@/views/ProductDetails'),
+        props: true
       }
     ]
   }
