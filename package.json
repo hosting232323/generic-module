@@ -9,6 +9,7 @@
   "dependencies": {
     "@mdi/font": "7.0.96",
     "@vueuse/head": "^2.0.0",
+    "axios": "^1.7.7",
     "core-js": "^3.29.0",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.4.5",
@@ -16,11 +17,11 @@
     "ol": "^9.1.0",
     "pinia": "^2.1.7",
     "roboto-fontface": "*",
+    "uuid": "10.0.0",
     "vue": "^3.3.4",
     "vue-i18n": "^9.10.1",
     "vue-router": "^4.0.0",
-    "vuetify": "^3.0.0",
-    "uuid": "10.0.0"
+    "vuetify": "^3.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.6.2",

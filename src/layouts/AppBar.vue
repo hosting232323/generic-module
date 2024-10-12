@@ -1,4 +1,5 @@
 <template class="app-bar">
+
   <v-navigation-drawer v-model="drawer" location="bottom" temporary>
     <v-list>
       <v-list-item v-for="item in items" :key="item.path">
@@ -8,17 +9,31 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <v-app-bar :elevation="2" :color="info.primaryColor">
-    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
-    <v-app-bar-title><b>
+
+  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+    <v-app-bar-title>
+      <b>
       {{ info.name }}
-    </b></v-app-bar-title>
-    <div v-if="!isMobile" class="desktop-menu">
+      </b>
+    </v-app-bar-title>
+    <Cart v-if="getCartQuantity != 0"></Cart>
+  </v-app-bar>
+
+  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
+    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
+    <v-app-bar-title>
+      <b>{{ info.name }}</b>
+    </v-app-bar-title>
+
+    <div class="desktop-menu">
       <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
+      <Cart v-if="getCartQuantity != 0"></Cart>
     </div>
   </v-app-bar>
+
 </template>
 
 <script setup>
@@ -27,6 +42,10 @@
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
   import { useRouter, useRoute } from 'vue-router';
+  import Cart from './Cart.vue';
+
+  import { useOrderStore } from '@/stores/order';
+  const orderStore = useOrderStore();
 
   const drawer = ref(null);
   const route = useRoute();
@@ -72,6 +91,10 @@
       })));
     return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
   });
+
+const getCartQuantity = computed(() => {
+  return orderStore.products.reduce((total, product) => total + product.quantity, 0);
+});
 </script>
 
 <style scoped>
