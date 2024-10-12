@@ -2,7 +2,7 @@
   <v-menu 
     v-model="isMenuVisible" 
     transition="scale-transition" 
-    close-on-content-click="false"
+    :close-on-content-click="false"
     @click:outside="isMenuVisible = false" 
   >
     <template #activator="{ props }">
@@ -38,7 +38,7 @@
                   </div>
                 </div>
                 
-                <p style="font-size: 15px; font-weight: bold;">{{ getProductPrice(product.product) }} €</p>
+                <p style="font-size: 15px; font-weight: bold;">{{ getProductPrice(product.product) + ' €'}}</p>
               </v-col>
             </v-row>
           </v-list-item>
@@ -46,7 +46,7 @@
       </v-card-text>
 
       <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;">
-        Prezzo Totale: € {{ totalPrice }}
+        Prezzo Totale: {{ totalPrice }}
       </v-card-subtitle>
 
       <v-card-actions>
@@ -54,6 +54,7 @@
         <v-btn @click="clearCart" color="error">Svuota Carrello</v-btn>
       </v-card-actions>
     </v-card>
+
   </v-menu>
 </template>
 
@@ -77,6 +78,10 @@ const isMenuVisible = ref(false);
 const productNames = ref({});
 const productPrices = ref({});
 
+const formatPrice = (price) => {
+  return parseFloat(price).toFixed(2) + ' €';
+};
+
 const getProductName = (productId) => {
   if (productNames.value[productId]) {
     const name = productNames.value[productId];
@@ -94,15 +99,14 @@ const getProductName = (productId) => {
   return 'Caricamento...';
 };
 
-
 const getProductPrice = (productId) => {
   if (productPrices.value[productId]) {
-    return productPrices.value[productId];
+    return productPrices.value[productId]; // Restituisce il prezzo come numero
   }
   http.getRequestBrooking(`api/shop/product/${store.businessActivity}/${productId}/`, {}, function (data) {
     productPrices.value[productId] = data.price; 
   }, true);
-  return 'Caricamento...';
+  return 0;
 };
 
 const totalItems = computed(() => {
@@ -111,9 +115,9 @@ const totalItems = computed(() => {
 
 const totalPrice = computed(() => {
   return orderStore.products.reduce((total, product) => {
-    const price = getProductPrice(product.product);
-    return total + (price * product.quantity);
-  }, 0);
+    const price = getProductPrice(product.product); 
+    return total + (price * product.quantity); // Assicura che il prezzo sia numerico
+  }, 0).toFixed(2) + ' €'; // Formatta il totale con due decimali
 });
 
 const increaseQuantity = (product) => {
@@ -126,7 +130,6 @@ const decreaseQuantity = (product) => {
 
 const placeOrder = () => {
   orderStore.submitOrders(store.businessActivity);
-  console.log('Ordine inviato:', orderStore.products);
 };
 
 const clearCart = () => {
@@ -137,6 +140,7 @@ const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 </script>
+
 
 <style scoped>
 .v-card-title {

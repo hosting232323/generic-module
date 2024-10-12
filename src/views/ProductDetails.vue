@@ -17,7 +17,7 @@
       <v-col cols="12" md="6">
         <v-card>
           <v-card-title class="text-h5">{{ product.name }}</v-card-title>
-          <v-card-subtitle>Prezzo: <strong>{{ formatPrice(product) }}</strong></v-card-subtitle>
+          <v-card-subtitle>Prezzo: <strong>{{ formatPrice(product.price) }}</strong></v-card-subtitle>
           <v-divider></v-divider>
 
           <v-card-text>
@@ -33,10 +33,6 @@
           </v-card-text>
 
           <v-card-actions>
-            <!-- <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="buy">
-              <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
-              Compra
-            </v-btn> -->
             <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               Aggiungi al carrello
@@ -55,6 +51,16 @@
         <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
       </v-col>
     </v-row>
+
+    <v-alert 
+      v-model="popupVisible" 
+      :type="popupType" 
+      transition="scale-transition" 
+      class="successCart"
+    >
+      {{ popupContent }}
+    </v-alert>
+
   </v-container>
 </template>
 
@@ -71,6 +77,10 @@ import { useOrderStore } from '@/stores/order';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const orderStore = useOrderStore();
+
+const popupVisible = ref(false);
+const popupContent = ref(' ');
+const popupType = ref('success');
 
 const info = data.value.info;
 const store = data.value.store;
@@ -110,11 +120,21 @@ const addToCart = () => {
     product: route.params.id,
     quantity: 1
   }
-  orderStore.addProduct(body);
+  try {
+    orderStore.addProduct(body);
+    popup('Aggiunto al carrello!', "success");
+  } catch (error) {
+    popup('Impossibile aggiungere al carrello!', "error");
+  }
 }
 
-const buy = () => {
-  orderStore.submitOrders(store.businessActivity);
+const popup = (text, type) => {
+  popupContent.value = text;
+  popupType.value = type;
+  popupVisible.value = true;
+  setTimeout(() => {
+    popupVisible.value = false;
+  }, 2000);
 }
 
 const goBack = () => {
@@ -129,5 +149,14 @@ onMounted(() => {
 <style scoped>
 .mb-3 {
   margin-bottom: 16px;
+}
+.successCart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  user-select: none;
 }
 </style>
