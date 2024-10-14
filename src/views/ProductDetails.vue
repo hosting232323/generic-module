@@ -52,14 +52,12 @@
       </v-col>
     </v-row>
 
-    <v-alert 
-      v-model="popupVisible" 
+    <Popup 
+      :initialVisible="popupVisible" 
+      :content="popupContent" 
       :type="popupType" 
-      transition="scale-transition" 
-      class="successCart"
-    >
-      {{ popupContent }}
-    </v-alert>
+      @update:visible="popupVisible = $event"
+    />
 
   </v-container>
 </template>
@@ -69,6 +67,8 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import http from '@/utils/http';
 import Loading from '@/layouts/Loading.vue';
+
+import Popup from '@/layouts/Popup.vue';
 
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
@@ -80,7 +80,7 @@ const orderStore = useOrderStore();
 
 const popupVisible = ref(false);
 const popupContent = ref(' ');
-const popupType = ref('success');
+const popupType = ref(' ');
 
 const info = data.value.info;
 const store = data.value.store;
@@ -132,10 +132,7 @@ const popup = (text, type) => {
   popupContent.value = text;
   popupType.value = type;
   popupVisible.value = true;
-  setTimeout(() => {
-    popupVisible.value = false;
-  }, 2000);
-}
+};
 
 const goBack = () => {
   router.back();
@@ -149,14 +146,5 @@ onMounted(() => {
 <style scoped>
 .mb-3 {
   margin-bottom: 16px;
-}
-.successCart {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  user-select: none;
 }
 </style>

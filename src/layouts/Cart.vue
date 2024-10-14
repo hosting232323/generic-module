@@ -55,6 +55,13 @@
       </v-card-actions>
     </v-card>
 
+    <Popup 
+      :initialVisible="popupVisible" 
+      :content="popupContent" 
+      :type="popupType" 
+      @update:visible="popupVisible = $event"
+    />
+
   </v-menu>
 </template>
 
@@ -65,6 +72,12 @@ import { useOrderStore } from '@/stores/order';
 import http from '@/utils/http';
 import { useDataStore } from '@/stores/data';
 import mobile from '@/utils/mobile';
+
+import Popup from '@/layouts/Popup.vue';
+
+const popupVisible = ref(false);
+const popupContent = ref(' ');
+const popupType = ref(' ');
 
 const isMobile = mobile.setupMobileUtils();
 
@@ -129,15 +142,31 @@ const decreaseQuantity = (product) => {
 };
 
 const placeOrder = () => {
-  orderStore.submitOrders(store.businessActivity);
+  try {
+    orderStore.submitOrders(store.businessActivity);
+    popup('Ordine inviato correttamente!', "success");
+  } catch (error) {
+    popup('Impossibile inviare l\'ordine!', "error");
+  }
 };
 
 const clearCart = () => {
-  orderStore.removeAllProduct();
+  try {
+    orderStore.removeAllProduct();
+    popup('Carrello svuotato correttamente!', "success");
+  } catch (error) {
+    popup('Impossibile svuotare il carrello!', "error");
+  }
 };
 
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
+};
+
+const popup = (text, type) => {
+  popupContent.value = text;
+  popupType.value = type;
+  popupVisible.value = true;
 };
 </script>
 
