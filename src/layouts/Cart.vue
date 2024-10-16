@@ -54,14 +54,6 @@
         <v-btn @click="clearCart" color="error">Svuota Carrello</v-btn>
       </v-card-actions>
     </v-card>
-
-    <Popup 
-      :initialVisible="popupVisible" 
-      :content="popupContent" 
-      :type="popupType" 
-      @update:visible="popupVisible = $event"
-    />
-
   </v-menu>
 </template>
 
@@ -73,11 +65,8 @@ import http from '@/utils/http';
 import { useDataStore } from '@/stores/data';
 import mobile from '@/utils/mobile';
 
-import Popup from '@/layouts/Popup.vue';
-
-const popupVisible = ref(false);
-const popupContent = ref(' ');
-const popupType = ref(' ');
+import { usePopupStore } from '@/stores/popup';
+const popupStore = usePopupStore();
 
 const isMobile = mobile.setupMobileUtils();
 
@@ -90,10 +79,6 @@ const isMenuVisible = ref(false);
 
 const productNames = ref({});
 const productPrices = ref({});
-
-const formatPrice = (price) => {
-  return parseFloat(price).toFixed(2) + ' €';
-};
 
 const getProductName = (productId) => {
   if (productNames.value[productId]) {
@@ -114,7 +99,7 @@ const getProductName = (productId) => {
 
 const getProductPrice = (productId) => {
   if (productPrices.value[productId]) {
-    return productPrices.value[productId]; // Restituisce il prezzo come numero
+    return productPrices.value[productId];
   }
   http.getRequestBrooking(`api/shop/product/${store.businessActivity}/${productId}/`, {}, function (data) {
     productPrices.value[productId] = data.price; 
@@ -129,8 +114,8 @@ const totalItems = computed(() => {
 const totalPrice = computed(() => {
   return orderStore.products.reduce((total, product) => {
     const price = getProductPrice(product.product); 
-    return total + (price * product.quantity); // Assicura che il prezzo sia numerico
-  }, 0).toFixed(2) + ' €'; // Formatta il totale con due decimali
+    return total + (price * product.quantity); 
+  }, 0).toFixed(2) + ' €'; 
 });
 
 const increaseQuantity = (product) => {
@@ -144,18 +129,18 @@ const decreaseQuantity = (product) => {
 const placeOrder = () => {
   try {
     orderStore.submitOrders(store.businessActivity);
-    popup('Ordine inviato correttamente!', "success");
+    popupStore.setPopup('Ordine inviato correttamente!', "success");
   } catch (error) {
-    popup('Impossibile inviare l\'ordine!', "error");
+    popupStore.setPopup('Impossibile inviare l\'ordine!', "error");
   }
 };
 
 const clearCart = () => {
   try {
     orderStore.removeAllProduct();
-    popup('Carrello svuotato correttamente!', "success");
+    popupStore.setPopup('Carrello svuotato correttamente!', "success");
   } catch (error) {
-    popup('Impossibile svuotare il carrello!', "error");
+    popupStore.setPopup('Impossibile svuotare il carrello!', "error");
   }
 };
 
@@ -163,11 +148,6 @@ const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
-const popup = (text, type) => {
-  popupContent.value = text;
-  popupType.value = type;
-  popupVisible.value = true;
-};
 </script>
 
 

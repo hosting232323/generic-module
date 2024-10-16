@@ -51,14 +51,7 @@
         <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
       </v-col>
     </v-row>
-
-    <Popup 
-      :initialVisible="popupVisible" 
-      :content="popupContent" 
-      :type="popupType" 
-      @update:visible="popupVisible = $event"
-    />
-
+    <Popup></Popup>
   </v-container>
 </template>
 
@@ -68,7 +61,10 @@ import { useRoute, useRouter } from 'vue-router';
 import http from '@/utils/http';
 import Loading from '@/layouts/Loading.vue';
 
-import Popup from '@/layouts/Popup.vue';
+import Popup from '@/components/sections/Popup.vue';
+
+import { usePopupStore } from '@/stores/popup';
+const popupStore = usePopupStore();
 
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
@@ -77,10 +73,6 @@ import { useOrderStore } from '@/stores/order';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const orderStore = useOrderStore();
-
-const popupVisible = ref(false);
-const popupContent = ref(' ');
-const popupType = ref(' ');
 
 const info = data.value.info;
 const store = data.value.store;
@@ -122,17 +114,11 @@ const addToCart = () => {
   }
   try {
     orderStore.addProduct(body);
-    popup('Aggiunto al carrello!', "success");
+    popupStore.setPopup('Aggiunto al carrello!', "success");
   } catch (error) {
-    popup('Impossibile aggiungere al carrello!', "error");
+    popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
   }
 }
-
-const popup = (text, type) => {
-  popupContent.value = text;
-  popupType.value = type;
-  popupVisible.value = true;
-};
 
 const goBack = () => {
   router.back();
