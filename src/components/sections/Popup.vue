@@ -27,14 +27,11 @@ const alertMessage = computed(() => {
 });
 
 watch(message, (newValue) => {
-  console.log('Message changed:', newValue);
   if (newValue) {
     showAlert.value = true;
-    console.log('Popup is now visible', message.value); 
 
     setTimeout(() => {
       showAlert.value = false;
-      console.log('Popup hidden after timeout');  
     }, 3000);
   }
 });

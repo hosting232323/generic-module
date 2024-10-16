@@ -49,6 +49,8 @@
         Prezzo Totale: {{ totalPrice }}
       </v-card-subtitle>
 
+      <input type="text">
+
       <v-card-actions>
         <v-btn @click="placeOrder" color="primary">Invia Ordine</v-btn>
         <v-btn @click="clearCart" color="error">Svuota Carrello</v-btn>
