@@ -41,13 +41,13 @@ watch(message, (newValue) => {
 
 <style scoped>
 .popupResponse {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   user-select: none;
-  z-index: 999;
+  z-index: 99999;
 }
 </style>
