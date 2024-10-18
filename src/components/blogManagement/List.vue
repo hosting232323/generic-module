@@ -30,7 +30,13 @@
             </v-card-subtitle>
             <v-menu>
               <template v-slot:activator="{ props }">
-                <v-btn class="actions" variant="text" icon="mdi-dots-vertical" v-bind="props" />
+                <v-btn
+                  class="actions"
+                  variant="text"
+                  icon="mdi-dots-vertical"
+                  v-bind="props"
+                  :loading="loading[post.id]"
+                />
               </template>
               <v-list>
                 <v-list-item @click="editCurrentPost(post)" title="Modifica" />
@@ -45,28 +51,31 @@
 </template>
 
 <script setup>
-  import { watch } from 'vue';
   import http from '@/utils/http';
+  import { ref, watch } from 'vue';
   import { storeToRefs } from 'pinia';
   import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
 
+  const loading = ref({});
   const router = useRouter();
   const postStore = usePostStore();
-  const { topics, filteredPosts, selectedTopic } = storeToRefs(postStore);
-  const { editCurrentPost } = postStore;
+  const { editCurrentPost, initPosts, resetCurrentPost } = postStore;
+  const { topics, filteredPosts, selectedTopic, currentPost } = storeToRefs(postStore);
 
   watch(selectedTopic, (newTopic) => {
     postStore.setSelectedTopic(newTopic === 'null' ? null : newTopic);
   });
 
   const deletePost = (id) => {
+    loading.value[id] = true;
     http.getRequestGenericBE('blog/post', {
       id: id
     }, function (data) {
       initPosts(router);
-      if (currentPost.id && currentPost.id === id)
+      if (currentPost.value.id && currentPost.value.id === id)
         resetCurrentPost();
+      loading.value[id] = false;
     }, 'DELETE', router);
   };
 </script>

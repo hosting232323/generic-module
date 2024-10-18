@@ -2,11 +2,17 @@
   <v-expansion-panels>
     <v-expansion-panel :title="`Immagini ${type}`">
       <v-expansion-panel-text>
-        <v-file-input accept="image/*" label="Carica qui la tua immagine" @change="uploadImage" v-model="fileInput" />
+        <v-file-input
+          accept="image/*"
+          label="Carica qui la tua immagine"
+          @change="uploadImage"
+          v-model="fileInput"
+          :loading="loading"
+        />
         <v-card
           title="Immagini caricate"
           v-if="currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files'] &&
-            currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files'].length > 0"
+                currentPost[type == 'mobile' ? 'mobile_files' : 'desktop_files'].length > 0"
         >
           <v-card-text>
             <v-slide-group show-arrows>
@@ -37,6 +43,7 @@
 
   const fileInput = ref([]);
   const router = useRouter();
+  const loading = ref(false);
   const postStore = usePostStore();
   const { type } = defineProps(['type']);
   const { currentPost } = storeToRefs(postStore);
@@ -47,6 +54,7 @@
 
     const bucketName = 'blogfast';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
+    loading.value = true;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
       if (data.status === 'ok') {
         const listType = type == 'mobile' ? 'mobile_files' : 'desktop_files';
@@ -56,6 +64,7 @@
       } else
         console.error('File upload failed:', data.error);
       fileInput.value = [];
+      loading.value = false;
     }, 'POST', router);
   };
 
