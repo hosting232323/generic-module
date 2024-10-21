@@ -17,7 +17,7 @@
       <v-col cols="12" md="6">
         <v-card>
           <v-card-title class="text-h5">{{ product.name }}</v-card-title>
-          <v-card-subtitle>Prezzo: <strong>{{ formatPrice(product) }}</strong></v-card-subtitle>
+          <v-card-subtitle>Prezzo: <strong>{{ formatPrice(product.price) }}</strong></v-card-subtitle>
           <v-divider></v-divider>
 
           <v-card-text>
@@ -33,10 +33,6 @@
           </v-card-text>
 
           <v-card-actions>
-            <!-- <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="buy">
-              <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
-              Compra
-            </v-btn> -->
             <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               Aggiungi al carrello
@@ -55,6 +51,7 @@
         <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
       </v-col>
     </v-row>
+    <Popup></Popup>
   </v-container>
 </template>
 
@@ -63,6 +60,11 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import http from '@/utils/http';
 import Loading from '@/layouts/Loading.vue';
+
+import Popup from '@/components/sections/Popup.vue';
+
+import { usePopupStore } from '@/stores/popup';
+const popupStore = usePopupStore();
 
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
@@ -110,11 +112,12 @@ const addToCart = () => {
     product: route.params.id,
     quantity: 1
   }
-  orderStore.addProduct(body);
-}
-
-const buy = () => {
-  orderStore.submitOrders(store.businessActivity);
+  try {
+    orderStore.addProduct(body);
+    popupStore.setPopup('Aggiunto al carrello!', "success");
+  } catch (error) {
+    popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
+  }
 }
 
 const goBack = () => {

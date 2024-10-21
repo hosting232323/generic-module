@@ -19,11 +19,15 @@
                 <v-btn class="text-none" :to="`/product/${product.id}`" variant="flat" :color="info.primaryColor">
                   Dettagli
                 </v-btn>
+                <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)">
+                  Aggiungi al carrello
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
       </v-col>
+      <Popup></Popup>
     </v-row>
   </v-container>
 </template>
@@ -34,6 +38,14 @@ import http from '@/utils/http';
 import Loading from '@/layouts/Loading';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
+
+import Popup from '@/components/sections/Popup.vue';
+
+import { useOrderStore } from '@/stores/order';
+import { usePopupStore } from '@/stores/popup';
+
+const orderStore = useOrderStore();
+const popupStore = usePopupStore();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
@@ -73,6 +85,19 @@ const fetchProducts = () => {
     loading.value = false;
   }, true);
 };
+
+const addToCart = (productId) => {
+  const body = {
+    product: productId,
+    quantity: 1
+  }
+  try {
+    orderStore.addProduct(body);
+    popupStore.setPopup('Aggiunto al carrello!', "success");
+  } catch (error) {
+    popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
+  }
+}
 
 onMounted(() => {
   fetchProducts();
