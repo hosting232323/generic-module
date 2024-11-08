@@ -1,12 +1,10 @@
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
-
 import { useAddressStore } from '@/stores/address';
-const addressStore = useAddressStore();
 
 export const useOrderStore = defineStore('order', {
   state: () => ({
-    products: JSON.parse(localStorage.getItem('orderProducts')) || []
+    products: []
   }),
   actions: {
     addProduct(product) {
@@ -16,7 +14,6 @@ export const useOrderStore = defineStore('order', {
         product.quantity = 1;
         this.products.push(product);
       }
-      this.saveProductsToSession();
     },
     removeProduct(product) {
       const existingProduct = this.products.find(item => item.product === product.product);
@@ -24,15 +21,13 @@ export const useOrderStore = defineStore('order', {
         if (existingProduct.quantity > 1) existingProduct.quantity -= 1;
         else this.products = this.products.filter(item => item.product !== product.product);
       }
-      this.saveProductsToSession();
     },
     submitOrders(businessActivity) {
+      const addressStore = useAddressStore();
       const fullAddress = addressStore.getFullAddress();
 
-      if (fullAddress === false) {
-        throw new Error;
-      }
-
+      if (!fullAddress) throw new Error;
+      
       http.postRequestBrooking('api/shop/order/', {
         business_activity: businessActivity,
         items: this.products,
@@ -40,15 +35,17 @@ export const useOrderStore = defineStore('order', {
         note: fullAddress
       }, this.removeAllProduct, 'POST', false);
   
-      localStorage.removeItem('orderProducts');
+      this.removeAllProduct();
     },
     removeAllProduct() {
-      this.products = [];
+      const addressStore = useAddressStore();
       addressStore.clearAll();
-      this.saveProductsToSession();
+      this.products = [];
     },
-    saveProductsToSession() {
-      localStorage.setItem('orderProducts', JSON.stringify(this.products));
-    }
-  }
+  },
+  persist: {
+    enabled: true,
+    key: 'orderProduct',
+    storage: localStorage,
+  },
 });

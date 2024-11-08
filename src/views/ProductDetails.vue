@@ -7,10 +7,10 @@
         <v-card>
           <v-carousel v-if="product.images && product.images.length > 0" hide-delimiter-background>
             <v-carousel-item v-for="(image, index) in product.images" :key="index">
-              <v-img :src="image" height="400" cover></v-img>
+              <v-img :src="image" height="600" cover></v-img>
             </v-carousel-item>
           </v-carousel>
-          <v-img v-else :src="getImageForProduct(product)" height="400" cover />
+          <v-img v-else :src="getImageForProduct(product)" height="600" cover />
         </v-card>
       </v-col>
 
@@ -23,12 +23,12 @@
           <v-card-text>
             <div class="mb-3">
               <strong>Descrizione:</strong>
-              <p>{{ product.description }}</p>
+              <p v-html="product.description" />
             </div>
 
             <div class="mb-3">
               <strong>Categoria:</strong>
-              <p>{{ product.product_type || 'Non specificata' }}</p>
+              {{ product.product_type || 'Non specificata' }}
             </div>
           </v-card-text>
 
@@ -51,34 +51,31 @@
         <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
       </v-col>
     </v-row>
-    <Popup></Popup>
+    <Popup />
   </v-container>
 </template>
 
 <script setup>
+import http from '@/utils/http';
+import { storeToRefs } from 'pinia';
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import http from '@/utils/http';
-import Loading from '@/layouts/Loading.vue';
 
+import Loading from '@/layouts/Loading.vue';
 import Popup from '@/components/sections/Popup.vue';
 
-import { usePopupStore } from '@/stores/popup';
-const popupStore = usePopupStore();
-
-import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
+import { usePopupStore } from '@/stores/popup';
 import { useOrderStore } from '@/stores/order';
 
+const popupStore = usePopupStore();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+const info = data.value.info;
 const orderStore = useOrderStore();
 
-const info = data.value.info;
-const store = data.value.store;
-
 const formatPrice = (price) => {
-  return parseFloat(price).toFixed(2) + ' €';
+  return (parseFloat(price) / 100).toFixed(2) + ' €';
 };
 
 const getImageForProduct = (product) => {
@@ -91,29 +88,19 @@ const route = useRoute();
 const router = useRouter();
 
 const fetchProductDetails = () => {
-  const productId = route.params.id;
-  http.getRequestBrooking(
-    `api/shop/product/${store.businessActivity}/${productId}/`,
-    {},
-    function (data) {
-      if (data) {
-        product.value = data;
-      } else {
-        console.error("Nessun prodotto trovato con l'ID specificato.");
-      }
-      loading.value = false;
-    },
-    true
-  );
+  const productId = parseInt(route.params.id);
+  http.getRequestGenericBE('products', {}, function (data) {
+    product.value = data.find(product => product.id == productId);
+    loading.value = false;
+  });
 };
 
 const addToCart = () => {
-  const body = {
-    product: route.params.id,
-    quantity: 1
-  }
   try {
-    orderStore.addProduct(body);
+    orderStore.addProduct({
+      product: parseInt(route.params.id),
+      quantity: 1
+    });
     popupStore.setPopup('Aggiunto al carrello!', "success");
   } catch (error) {
     popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
