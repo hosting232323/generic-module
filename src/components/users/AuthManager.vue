@@ -61,15 +61,15 @@ const props = defineProps({
   },
   signinTitle: {
     type: String,
-    required: true
+    required: props => props.signUp
   },
   changePasswordTitle: {
     type: String,
-    required: true
+    required: props => props.signUp
   },
   newPasswordTitle: {
     type: String,
-    required: true
+    required: props => props.signUp
   },
   primaryColor: {
     type: String,
