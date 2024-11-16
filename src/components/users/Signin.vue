@@ -72,23 +72,27 @@ import http from '@/utils/http';
 import validation from '@/utils/validation';
 
 const props = defineProps({
-  logo : {
+  logo: {
     type: String,
     required: true,
   },
-  title : {
+  title: {
     type: String,
     required: true,
   },
-  primaryColor : {
+  primaryColor: {
     type: String,
     required: true,
   },
-  secondaryColor : {
+  secondaryColor: {
     type: String,
     required: true,
   },
-  redirectLink : {
+  redirectLink: {
+    type: String,
+    required: true,
+  },
+  hostname: {
     type: String,
     required: true,
   },
@@ -111,7 +115,7 @@ const registerUser = () => {
   ) {
     message.value = '';
     http.postRequest(
-      'register-user',
+      `${props.hostname}register-user`,
       {
         name: name.value,
         email: mail.value,

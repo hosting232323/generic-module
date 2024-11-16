@@ -61,23 +61,27 @@ import http from '@/utils/http';
 import validation from '@/utils/validation';
 
 const props = defineProps({
-  logo : {
+  logo: {
     type: String,
     required: true,
   },
-  title : {
+  title: {
     type: String,
     required: true,
   },
-  primaryColor : {
+  primaryColor: {
     type: String,
     required: true,
   },
-  secondaryColor : {
+  secondaryColor: {
     type: String,
     required: true,
   },
-  redirectLink : {
+  redirectLink: {
+    type: String,
+    required: true,
+  },
+  hostname: {
     type: String,
     required: true,
   },
@@ -96,7 +100,7 @@ const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
     message.value = '';
     http.postRequest(
-      `${props.hostname}ask-change-password`, //hostname è il mio parametro (props) passato da AuthManager o Password
+      `${props.hostname}ask-change-password`,
       {
         email: mail.value,
       },

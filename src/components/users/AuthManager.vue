@@ -9,6 +9,7 @@
       :secondaryColor="secondaryColor"
       :redirectLink="redirectLink"
       :signUp="signUp"
+      :hostname="hostname"
     />
     <Signin 
       v-if="status == 2 && signUp" 
@@ -18,6 +19,7 @@
       :primaryColor="primaryColor"
       :secondaryColor="secondaryColor"
       :redirectLink="redirectLink"
+      :hostname="hostname"
     />
     <ChangePassword 
       v-if="status == 3 && signUp" 
@@ -27,8 +29,8 @@
       :primaryColor="primaryColor"
       :secondaryColor="secondaryColor"
       :redirectLink="redirectLink"
+      :hostname="hostname"
     />
-    
     <Password
       v-if="status == 4 && signUp" 
       @changeStatus="changeStatus"
@@ -37,6 +39,7 @@
       :primaryColor="primaryColor"
       :secondaryColor="secondaryColor"
       :redirectLink="redirectLink"
+      :hostname="hostname"
     />
   </v-container>
 </template>
@@ -86,6 +89,10 @@ const props = defineProps({
   signUp: {
     type: Boolean,
     default: true
+  },
+  hostname: {
+    type: String,
+    default: import.meta.env.VITE_HOSTNAME_GENERICBACKED
   }
 });
 

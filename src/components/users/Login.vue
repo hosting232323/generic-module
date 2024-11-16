@@ -103,6 +103,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  hostname: {
+    type: String,
+    required: true, // Assicurati che hostname venga passato dal componente AuthManager
+  },
 });
 
 const mail = ref('');
@@ -116,15 +120,15 @@ const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
     http.postRequest(
-      'login',
+      `${props.hostname}login`,
       {
         email: mail.value,
-        password: SHA256(pass.value).toString(),
+        password: props.signUp ? SHA256(pass.value).toString() : pass.value,
       },
       function (data) {
         if (data.status === 'ok') {
           localStorage.setItem('strongbox_session_token', data.session_token);
-          router.push(`${redirectLink}/${data.user_id}`);
+          router.push(`${props.redirectLink}/${data.user_id}`); //** */
         } else {
           message.value = data.error;
         }
