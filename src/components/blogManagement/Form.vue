@@ -4,7 +4,7 @@
       <v-toolbar flat :title="currentPost.id ? `Modifica il post: ${currentPost.title}` : 'Crea un post'" />
     </v-card-title>
     <v-card-text>
-      <v-form @submit="addOrUpdatePost">
+      <v-form @submit.prevent="addOrUpdatePost">
         <v-text-field
           v-model="currentPost.title"
           label="Titolo"
