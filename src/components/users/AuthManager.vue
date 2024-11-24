@@ -63,16 +63,13 @@ const props = defineProps({
     required: true
   },
   signinTitle: {
-    type: String,
-    required: props => props.signUp
+    type: String
   },
   changePasswordTitle: {
-    type: String,
-    required: props => props.signUp
+    type: String
   },
   newPasswordTitle: {
-    type: String,
-    required: props => props.signUp
+    type: String
   },
   primaryColor: {
     type: String,
@@ -92,7 +89,7 @@ const props = defineProps({
   },
   hostname: {
     type: String,
-    default: import.meta.env.VITE_HOSTNAME_GENERICBACKED
+    required: true
   }
 });
 

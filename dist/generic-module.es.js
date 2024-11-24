@@ -1,9 +1,9 @@
-import { ref as _, resolveComponent as n, openBlock as g, createBlock as p, withCtx as o, createVNode as t, createTextVNode as v, toDisplayString as R, withModifiers as j, createCommentVNode as L, createElementVNode as E, unref as B } from "vue";
+import { ref as f, resolveComponent as n, openBlock as p, createBlock as y, withCtx as o, createVNode as t, createTextVNode as g, toDisplayString as R, withModifiers as E, createCommentVNode as L, createElementVNode as j, unref as B } from "vue";
 import { SHA256 as M } from "crypto-js";
 import { useRouter as O, useRoute as H } from "vue-router";
-const G = (e, d, a, r = "POST") => {
+const J = (e, d, s, a = "POST") => {
   fetch(e, {
-    method: r,
+    method: a,
     headers: {
       "Content-Type": "application/json"
     },
@@ -13,19 +13,19 @@ const G = (e, d, a, r = "POST") => {
       throw new Error(`Errore nella risposta del server: ${l.status} - ${l.statusText}`);
     return l.json();
   }).then((l) => {
-    a(l);
+    s(l);
   }).catch((l) => {
     console.error("Errore nella richiesta:", l);
   });
-}, N = {
-  postRequest: G
+}, z = {
+  postRequest: J
 };
-const z = (e, d) => {
-  const a = e.__vccOpts || e;
-  for (const [r, l] of d)
-    a[r] = l;
-  return a;
-}, J = { class: "d-flex justify-center align-center full-width-btn-group" }, K = {
+const A = (e, d) => {
+  const s = e.__vccOpts || e;
+  for (const [a, l] of d)
+    s[a] = l;
+  return s;
+}, F = { class: "d-flex justify-center align-center full-width-btn-group" }, G = {
   __name: "Login",
   props: {
     logo: {
@@ -35,6 +35,15 @@ const z = (e, d) => {
     title: {
       type: String,
       required: !0
+    },
+    signinTitle: {
+      type: String
+    },
+    changePasswordTitle: {
+      type: String
+    },
+    newPasswordTitle: {
+      type: String
     },
     primaryColor: {
       type: String,
@@ -59,61 +68,61 @@ const z = (e, d) => {
   },
   emits: ["changeStatus"],
   setup(e, { emit: d }) {
-    const a = e, r = _(""), l = _(""), c = _(""), b = _(!1), U = O(), $ = d, w = () => {
-      r.value && l.value && (c.value = "", N.postRequest(
-        `${a.hostname}login`,
+    const s = e, a = f(""), l = f(""), c = f(""), w = f(!1), T = O(), U = d, C = () => {
+      a.value && l.value && (c.value = "", z.postRequest(
+        `${s.hostname}login`,
         {
-          email: r.value,
-          password: a.signUp ? M(l.value).toString() : l.value
+          email: a.value,
+          password: s.signUp ? M(l.value).toString() : l.value
         },
-        function(y) {
-          y.status === "ok" ? (localStorage.setItem("strongbox_session_token", y.session_token), U.push(`${a.redirectLink}/${y.user_id}`)) : c.value = y.error;
+        function(_) {
+          _.status === "ok" ? (localStorage.setItem("strongbox_session_token", _.session_token), T.push(i(s.redirectLink, _))) : c.value = _.error;
         }
       ));
-    }, u = () => {
-      b.value = !b.value;
-    }, s = (y) => {
-      $("changeStatus", y);
+    }, i = (_, r) => _.replace(/:([a-zA-Z0-9_]+)/g, (m, v) => v in r ? r[v] : m), u = () => {
+      w.value = !w.value;
+    }, V = (_) => {
+      U("changeStatus", _);
     };
-    return (y, i) => {
-      const x = n("v-img"), m = n("v-card-title"), f = n("v-text-field"), C = n("v-col"), h = n("v-row"), q = n("v-btn"), T = n("v-alert"), P = n("v-form"), V = n("v-card-text"), k = n("v-card"), D = n("v-container");
-      return g(), p(D, { class: "d-flex align-center justify-center fill-height" }, {
+    return (_, r) => {
+      const m = n("v-img"), v = n("v-card-title"), h = n("v-text-field"), x = n("v-col"), S = n("v-row"), q = n("v-btn"), $ = n("v-alert"), P = n("v-form"), k = n("v-card-text"), Z = n("v-card"), D = n("v-container");
+      return p(), y(D, { class: "d-flex align-center justify-center fill-height" }, {
         default: o(() => [
-          t(k, {
+          t(Z, {
             elevation: 20,
             width: "500",
             class: "pa-5"
           }, {
             default: o(() => [
-              t(x, {
+              t(m, {
                 src: e.logo,
                 "max-width": "100",
                 class: "mx-auto mb-4",
                 alt: "Logo"
               }, null, 8, ["src"]),
-              t(m, { class: "text-h5 text-center mb-6" }, {
+              t(v, { class: "text-h5 text-center mb-6" }, {
                 default: o(() => [
-                  v(R(e.title), 1)
+                  g(R(e.title), 1)
                 ]),
                 _: 1
               }),
-              t(V, null, {
+              t(k, null, {
                 default: o(() => [
                   t(P, {
-                    onSubmit: j(w, ["prevent"])
+                    onSubmit: E(C, ["prevent"])
                   }, {
                     default: o(() => [
-                      t(h, null, {
+                      t(S, null, {
                         default: o(() => [
-                          t(C, {
+                          t(x, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(f, {
+                              t(h, {
                                 label: "Email",
-                                modelValue: r.value,
-                                "onUpdate:modelValue": i[0] || (i[0] = (I) => r.value = I),
+                                modelValue: a.value,
+                                "onUpdate:modelValue": r[0] || (r[0] = (I) => a.value = I),
                                 type: "email",
                                 "prepend-icon": "mdi-email",
                                 outlined: "",
@@ -126,20 +135,20 @@ const z = (e, d) => {
                         ]),
                         _: 1
                       }),
-                      t(h, null, {
+                      t(S, null, {
                         default: o(() => [
-                          t(C, {
+                          t(x, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(f, {
-                                type: b.value ? "text" : "password",
+                              t(h, {
+                                type: w.value ? "text" : "password",
                                 label: "Password",
                                 modelValue: l.value,
-                                "onUpdate:modelValue": i[1] || (i[1] = (I) => l.value = I),
+                                "onUpdate:modelValue": r[1] || (r[1] = (I) => l.value = I),
                                 "prepend-icon": "mdi-lock",
-                                "append-inner-icon": b.value ? "mdi-eye-off" : "mdi-eye",
+                                "append-inner-icon": w.value ? "mdi-eye-off" : "mdi-eye",
                                 "onClick:appendInner": u,
                                 outlined: "",
                                 color: e.primaryColor,
@@ -151,9 +160,9 @@ const z = (e, d) => {
                         ]),
                         _: 1
                       }),
-                      t(h, null, {
+                      t(S, null, {
                         default: o(() => [
-                          t(C, {
+                          t(x, {
                             cols: "12",
                             md: "12",
                             class: "text-center"
@@ -165,8 +174,8 @@ const z = (e, d) => {
                                 color: e.secondaryColor,
                                 type: "submit"
                               }, {
-                                default: o(() => i[4] || (i[4] = [
-                                  v(" Login ")
+                                default: o(() => r[4] || (r[4] = [
+                                  g(" Login ")
                                 ])),
                                 _: 1
                               }, 8, ["color"])
@@ -176,19 +185,19 @@ const z = (e, d) => {
                         ]),
                         _: 1
                       }),
-                      c.value ? (g(), p(h, { key: 0 }, {
+                      c.value ? (p(), y(S, { key: 0 }, {
                         default: o(() => [
-                          t(C, {
+                          t(x, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(T, {
+                              t($, {
                                 type: "error",
                                 dense: ""
                               }, {
                                 default: o(() => [
-                                  v(R(c.value), 1)
+                                  g(R(c.value), 1)
                                 ]),
                                 _: 1
                               })
@@ -198,35 +207,35 @@ const z = (e, d) => {
                         ]),
                         _: 1
                       })) : L("", !0),
-                      e.signUp ? (g(), p(h, { key: 1 }, {
+                      e.signUp ? (p(), y(S, { key: 1 }, {
                         default: o(() => [
-                          t(C, {
+                          t(x, {
                             cols: "12",
                             md: "12",
                             class: "text-center"
                           }, {
                             default: o(() => [
-                              E("div", J, [
+                              j("div", F, [
                                 t(q, {
                                   text: "",
-                                  onClick: i[2] || (i[2] = (I) => s(2)),
+                                  onClick: r[2] || (r[2] = (I) => V(2)),
                                   class: "custom-btn full-width-btn",
                                   color: e.primaryColor
                                 }, {
-                                  default: o(() => i[5] || (i[5] = [
-                                    v("Registrati qui")
+                                  default: o(() => r[5] || (r[5] = [
+                                    g("Registrati qui")
                                   ])),
                                   _: 1
                                 }, 8, ["color"]),
-                                i[7] || (i[7] = E("span", { class: "ml-1 mr-1" }, null, -1)),
+                                r[7] || (r[7] = j("span", { class: "ml-1 mr-1" }, null, -1)),
                                 t(q, {
                                   text: "",
-                                  onClick: i[3] || (i[3] = (I) => s(3)),
+                                  onClick: r[3] || (r[3] = (I) => V(3)),
                                   class: "custom-btn full-width-btn",
                                   color: e.primaryColor
                                 }, {
-                                  default: o(() => i[6] || (i[6] = [
-                                    v("Reset password")
+                                  default: o(() => r[6] || (r[6] = [
+                                    g("Reset password")
                                   ])),
                                   _: 1
                                 }, 8, ["color"])
@@ -251,32 +260,32 @@ const z = (e, d) => {
       });
     };
   }
-}, Z = /* @__PURE__ */ z(K, [["__scopeId", "data-v-16255f9e"]]), A = [
+}, K = /* @__PURE__ */ A(G, [["__scopeId", "data-v-a0d66ed2"]]), N = [
   (e) => e ? !0 : "Campo obbligatorio"
-], F = A.concat([
+], Q = N.concat([
   (e) => /.+@.+\..+/.test(e) ? !0 : "E-mail non valida."
-]), Q = A.concat([
+]), W = N.concat([
   (e) => /^(https?:\/\/)?([\w-]+\.)+([a-z]{2,})+(\/[\w-]*)*(\?[a-z0-9-]+=[a-z0-9-%]+(&[a-z0-9-]+=[a-z0-9-%]+)*)?$/i.test(e) ? !0 : "Sito non valido."
-]), W = A.concat([
+]), X = N.concat([
   (e) => /[A-Z]/.test(e) ? !0 : "La password deve contenere almeno una lettera maiscola.",
   (e) => /[a-z]/.test(e) ? !0 : "La password deve contenere almeno una lettera minuscola.",
   (e) => /\d/.test(e) ? !0 : "La password deve contenere almeno un numero.",
   (e) => e.length >= 8 ? !0 : "La password deve contenere almeno 8 caratteri."
-]), X = (e, d) => {
-  const a = [];
-  for (const r of d) {
-    const l = r(e);
-    l !== !0 && a.push(l);
+]), Y = (e, d) => {
+  const s = [];
+  for (const a of d) {
+    const l = a(e);
+    l !== !0 && s.push(l);
   }
-  return a.length === 0 ? null : a;
-}, S = {
-  validateInput: X,
-  requiredRules: A,
-  emailRules: F,
-  siteRules: Q,
-  passwordRules: W
+  return s.length === 0 ? null : s;
+}, b = {
+  validateInput: Y,
+  requiredRules: N,
+  emailRules: Q,
+  siteRules: W,
+  passwordRules: X
 };
-const Y = { class: "d-flex justify-start align-center" }, ee = {
+const ee = { class: "d-flex justify-start align-center" }, te = {
   __name: "Signin",
   props: {
     logo: {
@@ -306,59 +315,59 @@ const Y = { class: "d-flex justify-start align-center" }, ee = {
   },
   emits: ["changeStatus"],
   setup(e, { emit: d }) {
-    const a = e, r = _(""), l = _(""), c = _(""), b = _("error"), U = d, $ = (u) => {
-      U("changeStatus", u);
-    }, w = () => {
-      !S.validateInput(r.value, S.emailRules) && !S.validateInput(l.value, S.requiredRules) && (c.value = "", N.postRequest(
-        `${a.hostname}register-user`,
+    const s = e, a = f(""), l = f(""), c = f(""), w = f("error"), T = d, U = (i) => {
+      T("changeStatus", i);
+    }, C = () => {
+      !b.validateInput(a.value, b.emailRules) && !b.validateInput(l.value, b.requiredRules) && (c.value = "", z.postRequest(
+        `${s.hostname}register-user`,
         {
           name: l.value,
-          email: r.value
+          email: a.value
         },
-        function(u) {
-          u.status === "ok" ? (b.value = "success", c.value = u.message) : (b.value = "error", c.value = u.error);
+        function(i) {
+          i.status === "ok" ? (w.value = "success", c.value = i.message) : (w.value = "error", c.value = i.error);
         }
       ));
     };
-    return (u, s) => {
-      const y = n("v-img"), i = n("v-card-title"), x = n("v-text-field"), m = n("v-col"), f = n("v-row"), C = n("v-btn"), h = n("v-alert"), q = n("v-form"), T = n("v-card-text"), P = n("v-card"), V = n("v-container");
-      return g(), p(V, { class: "d-flex align-center justify-center fill-height" }, {
+    return (i, u) => {
+      const V = n("v-img"), _ = n("v-card-title"), r = n("v-text-field"), m = n("v-col"), v = n("v-row"), h = n("v-btn"), x = n("v-alert"), S = n("v-form"), q = n("v-card-text"), $ = n("v-card"), P = n("v-container");
+      return p(), y(P, { class: "d-flex align-center justify-center fill-height" }, {
         default: o(() => [
-          t(P, {
+          t($, {
             elevation: 20,
             width: "500",
             class: "pa-5"
           }, {
             default: o(() => [
-              t(y, {
+              t(V, {
                 src: e.logo,
                 "max-width": "100",
                 class: "mx-auto mb-4",
                 alt: "Logo"
               }, null, 8, ["src"]),
-              t(i, { class: "text-h5 text-center mb-6" }, {
+              t(_, { class: "text-h5 text-center mb-6" }, {
                 default: o(() => [
-                  v(R(e.title), 1)
+                  g(R(e.title), 1)
                 ]),
                 _: 1
               }),
-              t(T, null, {
+              t(q, null, {
                 default: o(() => [
-                  t(q, {
-                    onSubmit: j(w, ["prevent"])
+                  t(S, {
+                    onSubmit: E(C, ["prevent"])
                   }, {
                     default: o(() => [
-                      t(f, null, {
+                      t(v, null, {
                         default: o(() => [
                           t(m, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(x, {
+                              t(r, {
                                 label: "Nome",
                                 modelValue: l.value,
-                                "onUpdate:modelValue": s[0] || (s[0] = (k) => l.value = k),
+                                "onUpdate:modelValue": u[0] || (u[0] = (k) => l.value = k),
                                 outlined: "",
                                 color: e.primaryColor,
                                 class: "mb-4"
@@ -369,17 +378,17 @@ const Y = { class: "d-flex justify-start align-center" }, ee = {
                         ]),
                         _: 1
                       }),
-                      t(f, null, {
+                      t(v, null, {
                         default: o(() => [
                           t(m, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(x, {
+                              t(r, {
                                 label: "Email",
-                                modelValue: r.value,
-                                "onUpdate:modelValue": s[1] || (s[1] = (k) => r.value = k),
+                                modelValue: a.value,
+                                "onUpdate:modelValue": u[1] || (u[1] = (k) => a.value = k),
                                 type: "email",
                                 outlined: "",
                                 color: e.primaryColor,
@@ -391,7 +400,7 @@ const Y = { class: "d-flex justify-start align-center" }, ee = {
                         ]),
                         _: 1
                       }),
-                      t(f, null, {
+                      t(v, null, {
                         default: o(() => [
                           t(m, {
                             cols: "12",
@@ -399,15 +408,15 @@ const Y = { class: "d-flex justify-start align-center" }, ee = {
                             class: "text-center"
                           }, {
                             default: o(() => [
-                              t(C, {
+                              t(h, {
                                 block: "",
                                 variant: "elevated",
                                 color: e.secondaryColor,
                                 type: "submit",
                                 class: "mb-4 custom-btn"
                               }, {
-                                default: o(() => s[3] || (s[3] = [
-                                  v(" Registrati ")
+                                default: o(() => u[3] || (u[3] = [
+                                  g(" Registrati ")
                                 ])),
                                 _: 1
                               }, 8, ["color"])
@@ -417,19 +426,19 @@ const Y = { class: "d-flex justify-start align-center" }, ee = {
                         ]),
                         _: 1
                       }),
-                      c.value ? (g(), p(f, { key: 0 }, {
+                      c.value ? (p(), y(v, { key: 0 }, {
                         default: o(() => [
                           t(m, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(h, {
-                                type: b.value,
+                              t(x, {
+                                type: w.value,
                                 dense: ""
                               }, {
                                 default: o(() => [
-                                  v(R(c.value), 1)
+                                  g(R(c.value), 1)
                                 ]),
                                 _: 1
                               }, 8, ["type"])
@@ -439,22 +448,22 @@ const Y = { class: "d-flex justify-start align-center" }, ee = {
                         ]),
                         _: 1
                       })) : L("", !0),
-                      t(f, null, {
+                      t(v, null, {
                         default: o(() => [
                           t(m, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              E("div", Y, [
-                                t(C, {
+                              j("div", ee, [
+                                t(h, {
                                   text: "",
-                                  onClick: s[2] || (s[2] = (k) => $(1)),
+                                  onClick: u[2] || (u[2] = (k) => U(1)),
                                   color: e.primaryColor,
                                   class: "custom-btn full-width-btn"
                                 }, {
-                                  default: o(() => s[4] || (s[4] = [
-                                    v("Torna al login")
+                                  default: o(() => u[4] || (u[4] = [
+                                    g("Torna al login")
                                   ])),
                                   _: 1
                                 }, 8, ["color"])
@@ -479,8 +488,8 @@ const Y = { class: "d-flex justify-start align-center" }, ee = {
       });
     };
   }
-}, te = /* @__PURE__ */ z(ee, [["__scopeId", "data-v-0f9a674f"]]);
-const oe = { class: "d-flex justify-start align-center" }, ne = {
+}, oe = /* @__PURE__ */ A(te, [["__scopeId", "data-v-0f9a674f"]]);
+const ne = { class: "d-flex justify-start align-center" }, le = {
   __name: "ChangePassword",
   props: {
     logo: {
@@ -510,58 +519,58 @@ const oe = { class: "d-flex justify-start align-center" }, ne = {
   },
   emits: ["changeStatus"],
   setup(e, { emit: d }) {
-    const a = e, r = _(""), l = _(""), c = _("error"), b = d, U = (w) => {
-      b("changeStatus", w);
-    }, $ = () => {
-      S.validateInput(r.value, S.emailRules) || (l.value = "", N.postRequest(
-        `${a.hostname}ask-change-password`,
+    const s = e, a = f(""), l = f(""), c = f("error"), w = d, T = (C) => {
+      w("changeStatus", C);
+    }, U = () => {
+      b.validateInput(a.value, b.emailRules) || (l.value = "", z.postRequest(
+        `${s.hostname}ask-change-password`,
         {
-          email: r.value
+          email: a.value
         },
-        function(w) {
-          w.status == "ok" ? (c.value = "success", l.value = w.message) : (c.value = "error", l.value = w.error);
+        function(C) {
+          C.status == "ok" ? (c.value = "success", l.value = C.message) : (c.value = "error", l.value = C.error);
         }
       ));
     };
-    return (w, u) => {
-      const s = n("v-img"), y = n("v-card-title"), i = n("v-text-field"), x = n("v-col"), m = n("v-row"), f = n("v-btn"), C = n("v-alert"), h = n("v-form"), q = n("v-card-text"), T = n("v-card"), P = n("v-container");
-      return g(), p(P, { class: "d-flex align-center justify-center fill-height" }, {
+    return (C, i) => {
+      const u = n("v-img"), V = n("v-card-title"), _ = n("v-text-field"), r = n("v-col"), m = n("v-row"), v = n("v-btn"), h = n("v-alert"), x = n("v-form"), S = n("v-card-text"), q = n("v-card"), $ = n("v-container");
+      return p(), y($, { class: "d-flex align-center justify-center fill-height" }, {
         default: o(() => [
-          t(T, {
+          t(q, {
             elevation: 20,
             width: "500",
             class: "pa-5"
           }, {
             default: o(() => [
-              t(s, {
+              t(u, {
                 src: e.logo,
                 "max-width": "100",
                 class: "mx-auto mb-4",
                 alt: "Logo"
               }, null, 8, ["src"]),
-              t(y, { class: "text-h5 text-center mb-6" }, {
+              t(V, { class: "text-h5 text-center mb-6" }, {
                 default: o(() => [
-                  v(R(e.title), 1)
+                  g(R(e.title), 1)
                 ]),
                 _: 1
               }),
-              t(q, null, {
+              t(S, null, {
                 default: o(() => [
-                  t(h, {
-                    onSubmit: j($, ["prevent"])
+                  t(x, {
+                    onSubmit: E(U, ["prevent"])
                   }, {
                     default: o(() => [
                       t(m, null, {
                         default: o(() => [
-                          t(x, {
+                          t(r, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(i, {
+                              t(_, {
                                 label: "Email",
-                                modelValue: r.value,
-                                "onUpdate:modelValue": u[0] || (u[0] = (V) => r.value = V),
+                                modelValue: a.value,
+                                "onUpdate:modelValue": i[0] || (i[0] = (P) => a.value = P),
                                 type: "email",
                                 outlined: "",
                                 color: e.primaryColor,
@@ -575,21 +584,21 @@ const oe = { class: "d-flex justify-start align-center" }, ne = {
                       }),
                       t(m, null, {
                         default: o(() => [
-                          t(x, {
+                          t(r, {
                             cols: "12",
                             md: "12",
                             class: "text-center"
                           }, {
                             default: o(() => [
-                              t(f, {
+                              t(v, {
                                 block: "",
                                 variant: "elevated",
                                 color: e.secondaryColor,
                                 type: "submit",
                                 class: "mb-4 custom-btn"
                               }, {
-                                default: o(() => u[2] || (u[2] = [
-                                  v(" Invia mail ")
+                                default: o(() => i[2] || (i[2] = [
+                                  g(" Invia mail ")
                                 ])),
                                 _: 1
                               }, 8, ["color"])
@@ -599,19 +608,19 @@ const oe = { class: "d-flex justify-start align-center" }, ne = {
                         ]),
                         _: 1
                       }),
-                      l.value ? (g(), p(m, { key: 0 }, {
+                      l.value ? (p(), y(m, { key: 0 }, {
                         default: o(() => [
-                          t(x, {
+                          t(r, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              t(C, {
+                              t(h, {
                                 type: c.value,
                                 dense: ""
                               }, {
                                 default: o(() => [
-                                  v(R(l.value), 1)
+                                  g(R(l.value), 1)
                                 ]),
                                 _: 1
                               }, 8, ["type"])
@@ -623,20 +632,20 @@ const oe = { class: "d-flex justify-start align-center" }, ne = {
                       })) : L("", !0),
                       t(m, null, {
                         default: o(() => [
-                          t(x, {
+                          t(r, {
                             cols: "12",
                             md: "12"
                           }, {
                             default: o(() => [
-                              E("div", oe, [
-                                t(f, {
+                              j("div", ne, [
+                                t(v, {
                                   text: "",
-                                  onClick: u[1] || (u[1] = (V) => U(1)),
+                                  onClick: i[1] || (i[1] = (P) => T(1)),
                                   color: e.primaryColor,
                                   class: "custom-btn full-width-btn"
                                 }, {
-                                  default: o(() => u[3] || (u[3] = [
-                                    v("Torna al login")
+                                  default: o(() => i[3] || (i[3] = [
+                                    g("Torna al login")
                                   ])),
                                   _: 1
                                 }, 8, ["color"])
@@ -661,8 +670,8 @@ const oe = { class: "d-flex justify-start align-center" }, ne = {
       });
     };
   }
-}, le = /* @__PURE__ */ z(ne, [["__scopeId", "data-v-c75b0514"]]);
-const re = { class: "d-flex justify-start align-center" }, ae = {
+}, re = /* @__PURE__ */ A(le, [["__scopeId", "data-v-c75b0514"]]);
+const ae = { class: "d-flex justify-start align-center" }, se = {
   __name: "Password",
   props: {
     logo: {
@@ -691,57 +700,57 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
     }
   },
   setup(e) {
-    const d = e, a = _(""), r = _(""), l = _(""), c = _("error"), b = O(), U = H(), $ = () => {
-      b.push(d.redirectLink);
-    }, w = () => {
-      !S.validateInput(a.value, S.passwordRules) && !S.validateInput(r.value, S.passwordRules) && (a.value !== r.value ? (c.value = "error", l.value = "Le password non coincidono") : (l.value = "", N.postRequest(
+    const d = e, s = f(""), a = f(""), l = f(""), c = f("error"), w = O(), T = H(), U = () => {
+      w.push(d.redirectLink);
+    }, C = () => {
+      !b.validateInput(s.value, b.passwordRules) && !b.validateInput(a.value, b.passwordRules) && (s.value !== a.value ? (c.value = "error", l.value = "Le password non coincidono") : (l.value = "", z.postRequest(
         `${d.hostname}change-password`,
         {
-          pass_token: U.params.token,
-          new_password: M(a.value).toString()
+          pass_token: T.params.token,
+          new_password: M(s.value).toString()
         },
-        function(u) {
-          u.status === "ok" ? (c.value = "success", l.value = u.message) : (c.value = "error", l.value = u.error);
+        function(i) {
+          i.status === "ok" ? (c.value = "success", l.value = i.message) : (c.value = "error", l.value = i.error);
         }
       )));
     };
-    return (u, s) => {
-      const y = n("v-img"), i = n("v-card-title"), x = n("v-text-field"), m = n("v-col"), f = n("v-row"), C = n("v-btn"), h = n("v-alert"), q = n("v-form"), T = n("v-card-text"), P = n("v-card"), V = n("v-container");
-      return g(), p(V, { class: "d-flex align-center justify-center fill-height" }, {
+    return (i, u) => {
+      const V = n("v-img"), _ = n("v-card-title"), r = n("v-text-field"), m = n("v-col"), v = n("v-row"), h = n("v-btn"), x = n("v-alert"), S = n("v-form"), q = n("v-card-text"), $ = n("v-card"), P = n("v-container");
+      return p(), y(P, { class: "d-flex align-center justify-center fill-height" }, {
         default: o(() => [
-          t(P, {
+          t($, {
             elevation: 20,
             width: "500",
             class: "pa-5"
           }, {
             default: o(() => [
-              t(y, {
+              t(V, {
                 src: e.logo,
                 "max-width": "100",
                 class: "mx-auto mb-4",
                 alt: "Logo"
               }, null, 8, ["src"]),
-              t(i, { class: "text-h5 text-center mb-6" }, {
+              t(_, { class: "text-h5 text-center mb-6" }, {
                 default: o(() => [
-                  v(R(e.title), 1)
+                  g(R(e.title), 1)
                 ]),
                 _: 1
               }),
-              t(T, null, {
+              t(q, null, {
                 default: o(() => [
-                  t(q, {
-                    onSubmit: j(w, ["prevent"])
+                  t(S, {
+                    onSubmit: E(C, ["prevent"])
                   }, {
                     default: o(() => [
-                      t(f, null, {
+                      t(v, null, {
                         default: o(() => [
                           t(m, { cols: "12" }, {
                             default: o(() => [
-                              t(x, {
+                              t(r, {
                                 label: "Password",
-                                modelValue: a.value,
-                                "onUpdate:modelValue": s[0] || (s[0] = (k) => a.value = k),
-                                rules: B(S).passwordRules,
+                                modelValue: s.value,
+                                "onUpdate:modelValue": u[0] || (u[0] = (k) => s.value = k),
+                                rules: B(b).passwordRules,
                                 type: "password",
                                 outlined: "",
                                 color: e.primaryColor,
@@ -752,11 +761,11 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
                           }),
                           t(m, { cols: "12" }, {
                             default: o(() => [
-                              t(x, {
+                              t(r, {
                                 label: "Conferma password",
-                                modelValue: r.value,
-                                "onUpdate:modelValue": s[1] || (s[1] = (k) => r.value = k),
-                                rules: B(S).passwordRules,
+                                modelValue: a.value,
+                                "onUpdate:modelValue": u[1] || (u[1] = (k) => a.value = k),
+                                rules: B(b).passwordRules,
                                 type: "password",
                                 outlined: "",
                                 color: e.primaryColor,
@@ -768,22 +777,22 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
                         ]),
                         _: 1
                       }),
-                      t(f, null, {
+                      t(v, null, {
                         default: o(() => [
                           t(m, {
                             cols: "12",
                             class: "text-center"
                           }, {
                             default: o(() => [
-                              t(C, {
+                              t(h, {
                                 block: "",
                                 variant: "elevated",
                                 color: e.secondaryColor,
                                 type: "submit",
                                 class: "mb-4 custom-btn"
                               }, {
-                                default: o(() => s[2] || (s[2] = [
-                                  v(" Invia ")
+                                default: o(() => u[2] || (u[2] = [
+                                  g(" Invia ")
                                 ])),
                                 _: 1
                               }, 8, ["color"])
@@ -793,16 +802,16 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
                         ]),
                         _: 1
                       }),
-                      l.value ? (g(), p(f, { key: 0 }, {
+                      l.value ? (p(), y(v, { key: 0 }, {
                         default: o(() => [
                           t(m, { cols: "12" }, {
                             default: o(() => [
-                              t(h, {
+                              t(x, {
                                 type: c.value,
                                 dense: ""
                               }, {
                                 default: o(() => [
-                                  v(R(l.value), 1)
+                                  g(R(l.value), 1)
                                 ]),
                                 _: 1
                               }, 8, ["type"])
@@ -812,22 +821,22 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
                         ]),
                         _: 1
                       })) : L("", !0),
-                      t(f, null, {
+                      t(v, null, {
                         default: o(() => [
                           t(m, {
                             cols: "12",
                             class: "text-center"
                           }, {
                             default: o(() => [
-                              E("div", re, [
-                                t(C, {
+                              j("div", ae, [
+                                t(h, {
                                   text: "",
-                                  onClick: $,
+                                  onClick: U,
                                   color: e.primaryColor,
                                   class: "custom-btn full-width-btn"
                                 }, {
-                                  default: o(() => s[3] || (s[3] = [
-                                    v("Torna al login")
+                                  default: o(() => u[3] || (u[3] = [
+                                    g("Torna al login")
                                   ])),
                                   _: 1
                                 }, 8, ["color"])
@@ -852,7 +861,7 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
       });
     };
   }
-}, se = /* @__PURE__ */ z(ae, [["__scopeId", "data-v-2991cc40"]]), de = {
+}, ue = /* @__PURE__ */ A(se, [["__scopeId", "data-v-2991cc40"]]), me = {
   __name: "AuthManager",
   props: {
     logo: {
@@ -864,16 +873,13 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
       required: !0
     },
     signinTitle: {
-      type: String,
-      required: (e) => e.signUp
+      type: String
     },
     changePasswordTitle: {
-      type: String,
-      required: (e) => e.signUp
+      type: String
     },
     newPasswordTitle: {
-      type: String,
-      required: (e) => e.signUp
+      type: String
     },
     primaryColor: {
       type: String,
@@ -893,20 +899,20 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
     },
     hostname: {
       type: String,
-      default: {}.VITE_HOSTNAME_GENERICBACKED
+      required: !0
     }
   },
   setup(e) {
-    const d = _(1), a = (r) => {
-      d.value = r;
+    const d = f(1), s = (a) => {
+      d.value = a;
     };
-    return (r, l) => {
+    return (a, l) => {
       const c = n("v-container");
-      return g(), p(c, { class: "login-container" }, {
+      return p(), y(c, { class: "login-container" }, {
         default: o(() => [
-          d.value == 1 ? (g(), p(Z, {
+          d.value == 1 ? (p(), y(K, {
             key: 0,
-            onChangeStatus: a,
+            onChangeStatus: s,
             logo: e.logo,
             title: e.title,
             primaryColor: e.primaryColor,
@@ -915,9 +921,9 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
             signUp: e.signUp,
             hostname: e.hostname
           }, null, 8, ["logo", "title", "primaryColor", "secondaryColor", "redirectLink", "signUp", "hostname"])) : L("", !0),
-          d.value == 2 && e.signUp ? (g(), p(te, {
+          d.value == 2 && e.signUp ? (p(), y(oe, {
             key: 1,
-            onChangeStatus: a,
+            onChangeStatus: s,
             logo: e.logo,
             title: e.signinTitle,
             primaryColor: e.primaryColor,
@@ -925,9 +931,9 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
             redirectLink: e.redirectLink,
             hostname: e.hostname
           }, null, 8, ["logo", "title", "primaryColor", "secondaryColor", "redirectLink", "hostname"])) : L("", !0),
-          d.value == 3 && e.signUp ? (g(), p(le, {
+          d.value == 3 && e.signUp ? (p(), y(re, {
             key: 2,
-            onChangeStatus: a,
+            onChangeStatus: s,
             logo: e.logo,
             title: e.changePasswordTitle,
             primaryColor: e.primaryColor,
@@ -935,9 +941,9 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
             redirectLink: e.redirectLink,
             hostname: e.hostname
           }, null, 8, ["logo", "title", "primaryColor", "secondaryColor", "redirectLink", "hostname"])) : L("", !0),
-          d.value == 4 && e.signUp ? (g(), p(se, {
+          d.value == 4 && e.signUp ? (p(), y(ue, {
             key: 3,
-            onChangeStatus: a,
+            onChangeStatus: s,
             logo: e.logo,
             title: e.newPasswordTitle,
             primaryColor: e.primaryColor,
@@ -952,6 +958,6 @@ const re = { class: "d-flex justify-start align-center" }, ae = {
   }
 };
 export {
-  de as AuthManager,
-  se as Password
+  me as AuthManager,
+  ue as Password
 };

@@ -81,32 +81,41 @@ import { useRouter } from 'vue-router';
 const props = defineProps({
   logo: {
     type: String,
-    required: true,
+    required: true
   },
   title: {
     type: String,
-    required: true,
+    required: true
+  },
+  signinTitle: {
+    type: String
+  },
+  changePasswordTitle: {
+    type: String
+  },
+  newPasswordTitle: {
+    type: String
   },
   primaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   secondaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   redirectLink: {
     type: String,
-    required: true,
+    required: true
   },
   signUp: {
     type: Boolean,
-    default: true,
+    default: true
   },
   hostname: {
     type: String,
-    required: true, // Assicurati che hostname venga passato dal componente AuthManager
-  },
+    required: true
+  }
 });
 
 const mail = ref('');
@@ -128,7 +137,7 @@ const login = () => {
       function (data) {
         if (data.status === 'ok') {
           localStorage.setItem('strongbox_session_token', data.session_token);
-          router.push(`${props.redirectLink}/${data.user_id}`); //** */
+          router.push(interpolatePath(props.redirectLink, data));
         } else {
           message.value = data.error;
         }
@@ -136,6 +145,14 @@ const login = () => {
     );
   }
 };
+
+const interpolatePath = (path, data) => {
+  return path.replace(/:([a-zA-Z0-9_]+)/g, (match, paramName) => {
+    if (paramName in data)
+      return data[paramName];
+    return match;
+  });
+}
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
