@@ -23,7 +23,7 @@ const siteRules = requiredRules.concat([
 const passwordRules = requiredRules.concat([
     (value) => {
         if (/[A-Z]/.test(value)) return true;
-        return 'La password deve contenere almeno una lettera maiscola.';
+        return 'La password deve contenere almeno una lettera maiuscola.';
     },
     (value) => {
         if (/[a-z]/.test(value)) return true;

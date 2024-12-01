@@ -20,7 +20,6 @@
                 type="email"
                 prepend-icon="mdi-email"
                 outlined
-                :color="primaryColor"
                 class="mb-2"
               />
             </v-col>
@@ -35,7 +34,6 @@
                 :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
                 @click:append-inner="togglePasswordVisibility"
                 outlined
-                :color="primaryColor"
                 class="mb-4"
               />
             </v-col>
@@ -45,7 +43,7 @@
               <v-btn
                 class="full-width-btn mb-1 custom-btn"
                 variant="elevated"
-                :color="secondaryColor"
+                :style="{'background-color': secondaryColor}"
                 type="submit"
               >
                 Login
@@ -60,9 +58,21 @@
           <v-row v-if="signUp">
             <v-col cols="12" md="12" class="text-center">
               <div class="d-flex justify-center align-center full-width-btn-group">
-                <v-btn text @click="changeStatus(2)" class="custom-btn full-width-btn" :color="primaryColor">Registrati qui</v-btn>
+                <v-btn 
+                  text @click="changeStatus(2)" 
+                  class="custom-btn full-width-btn" 
+                  :style="{'background-color': primaryColor}"
+                >
+              Registrati qui
+              </v-btn>
                 <span class="ml-1 mr-1"></span>
-                <v-btn text @click="changeStatus(3)" class="custom-btn full-width-btn" :color="primaryColor">Reset password</v-btn>
+                <v-btn 
+                  text @click="changeStatus(3)" 
+                  class="custom-btn full-width-btn" 
+                  :style="{'background-color': primaryColor}"
+                >
+              Reset password
+              </v-btn>
               </div>
             </v-col>
           </v-row>

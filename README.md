@@ -25,6 +25,7 @@ Per installare il modulo in un altro progetto:
 ```bash
 npm link generic-module
 ```
+Assicurati di aver buildato e linkato il modulo prima di installarlo in un altro progetto.
 
 ### Rimozione del link simbolico
 Per rimuovere il link simbolico dalla macchina locale:
