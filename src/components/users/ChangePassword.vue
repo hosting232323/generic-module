@@ -19,7 +19,6 @@
                 v-model="mail"
                 type="email"
                 outlined
-                :color="primaryColor"
                 class="mb-4"
               />
             </v-col>
@@ -29,7 +28,7 @@
               <v-btn
                 block
                 variant="elevated"
-                :color="secondaryColor"
+                :style="{'background-color': secondaryColor}"
                 type="submit"
                 class="mb-4 custom-btn"
               >
@@ -45,7 +44,13 @@
           <v-row>
             <v-col cols="12" md="12">
               <div class="d-flex justify-start align-center">
-                <v-btn text @click="changeStatus(1)" :color="primaryColor" class="custom-btn full-width-btn">Torna al login</v-btn>
+                <v-btn
+                  text @click="changeStatus(1)"
+                  :style="{'background-color': primaryColor}"
+                  class="custom-btn full-width-btn"
+                >
+                  Torna al login
+                </v-btn>
               </div>
             </v-col>
           </v-row>
