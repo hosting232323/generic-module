@@ -2,8 +2,8 @@
   <AuthManager
     logo="/logo.png"
     title="Login"
-    :primaryColor="data.info.primaryColor"
-    :secondaryColor="data.info.secondaryColor"
+    :secondaryColor="data.info.primaryColor"
+    :primaryColor="data.info.secondaryColor"
     redirectLink="/blog-admin"
     :hostname="hostname"
     :signUp="false"
