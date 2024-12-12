@@ -30,6 +30,12 @@
             <v-img :src="currentPost.cover" height="65" />
           </v-col>
         </v-row>
+        <v-text-field
+          v-model="currentPost.ordinal"
+          label="Posizionamento"
+          type="number"
+          :rules="validation.integerRules"
+        />
         <Images type="desktop" />
         <Images type="mobile" />
         <Enrichments />
@@ -79,7 +85,8 @@
   const addOrUpdatePost = () => {
     if (
       !validation.validateInput(currentPost.value.title, validation.requiredRules) &&
-      !validation.validateInput(currentPost.value.content, validation.requiredRules)
+      !validation.validateInput(currentPost.value.content, validation.requiredRules) &&
+      !validation.validateInput(currentPost.value.ordinal, validation.integerRules)
     ) {
       loading.value = true;
       http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
