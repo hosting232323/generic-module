@@ -6,9 +6,9 @@
         <h3 class="text-h5 mb-3" :style="{ color: info.primaryColor }">{{ category }}</h3>
         <hr :style="{ height: '3px', margin: '-10px 0 10px', backgroundColor: info.primaryColor, border: 'none' }" />
         <v-row>
-          <v-col cols="12" md="3" v-for="product in group" :key="product.id">
+          <v-col cols="12" md="4" v-for="product in group" :key="product.id">
             <v-card class="mb-5">
-              <v-img height="200" :src="getImageForProduct(product)" cover />
+              <v-img height="400" :src="getImageForProduct(product)" cover />
               <v-card-title class="text-h6">{{ product.name }}</v-card-title>
               <v-card-text>
                 <div>
@@ -27,20 +27,21 @@
           </v-col>
         </v-row>
       </v-col>
-      <Popup></Popup>
+      <Popup />
     </v-row>
   </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
 import http from '@/utils/http';
-import Loading from '@/layouts/Loading';
 import { storeToRefs } from 'pinia';
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+
+import Loading from '@/layouts/Loading';
+import Popup from '@/components/sections/Popup';
+
 import { useDataStore } from '@/stores/data';
-
-import Popup from '@/components/sections/Popup.vue';
-
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
@@ -49,15 +50,14 @@ const popupStore = usePopupStore();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
-
 const info = data.value.info;
-const store = data.value.store;
 
+const route = useRoute();
 const loading = ref(true);
 const groupedProducts = ref({});
 
 const formatPrice = (price) => {
-  return parseFloat(price).toFixed(2) + ' €';
+  return (parseFloat(price) / 100).toFixed(2) + ' €';
 };
 
 const getImageForProduct = (product) => {
@@ -80,22 +80,24 @@ const groupProductsByCategory = (productsArray) => {
 };
 
 const fetchProducts = () => {
-  http.getRequestBrooking(`api/shop/product/${store.businessActivity}/`, {}, function (data) {
+  http.getRequestGenericBE('products', {}, function (data) {
     groupedProducts.value = groupProductsByCategory(data);
     loading.value = false;
-  }, true);
+
+    if (route.query.order)
+      popupStore.setPopup('Ordine effettuato con successo!', 'success');
+  });
 };
 
 const addToCart = (productId) => {
-  const body = {
-    product: productId,
-    quantity: 1
-  }
   try {
-    orderStore.addProduct(body);
-    popupStore.setPopup('Aggiunto al carrello!', "success");
+    orderStore.addProduct({
+      product: productId,
+      quantity: 1
+    });
+    popupStore.setPopup('Aggiunto al carrello!', 'success');
   } catch (error) {
-    popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
+    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
   }
 }
 
