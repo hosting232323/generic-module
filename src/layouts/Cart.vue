@@ -27,10 +27,10 @@
         </template>
         <template v-else>
           <v-list>
-            <v-list-item v-for="(product, index) in orderStore.products" :key="product.id" class="py-4">
+            <v-list-item v-for="product in orderStore.products" class="py-4">
               <v-row align="center" style="width: 100%;">
                 <v-col class="d-flex align-center">
-                  <v-img :src="getImageForProduct()" alt="product image" width="40" class="mr-3" />
+                  <v-img :src="getImageForProduct(product.product)" alt="product image" width="40" class="mr-3" />
                   
                   <div style="flex-grow: 1;">
                     <p style="font-size: 16px; font-weight: bold;">{{ getProductName(product.product) }}</p>
@@ -67,27 +67,27 @@
 </template>
 
 <script setup>
+import http from '@/utils/http';
+import mobile from '@/utils/mobile';
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useOrderStore } from '@/stores/order';
-import http from '@/utils/http';
-import { useDataStore } from '@/stores/data';
-import mobile from '@/utils/mobile';
 
-import Address from './Address.vue';
+import Address from './Address';
+
+import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
 const popupStore = usePopupStore();
+const orderStore = useOrderStore();
 
+const products = ref([]);
+const isCheckout = ref(false);
+const isMenuVisible = ref(false);
 const isMobile = mobile.setupMobileUtils();
 
-const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
-const store = data.value.store;
-
-const orderStore = useOrderStore();
-const isMenuVisible = ref(false);
-const isCheckout = ref(false); // Gestisce la visualizzazione tra carrello e checkout
+http.getRequestGenericBE('products', {}, function (data) {
+  products.value = data;
+});
 
 const totalItems = computed(() => {
   return orderStore.products.reduce((total, product) => total + product.quantity, 0);
@@ -100,8 +100,22 @@ const totalPrice = computed(() => {
   }, 0).toFixed(2) + ' €'; 
 });
 
-const proceedToCheckout = () => {
-  isCheckout.value = true;
+const proceedToCheckout = async () => {
+  // isCheckout.value = true;
+  const { products } = storeToRefs(orderStore);
+  const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
+
+  const response = await fetch(`${hostname}stripe-session`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(products.value)
+  });
+
+  const data = await response.json();
+  if (data.url)
+    window.location.href = data.url;
+  else if (data.status == 'ko')
+    alert(data.message);
 };
 
 const cancelCheckout = () => {
@@ -111,27 +125,24 @@ const cancelCheckout = () => {
 const placeOrder = () => {
   try {
     orderStore.submitOrders(store.businessActivity);
-    popupStore.setPopup('Ordine inviato correttamente!', "success");
+    popupStore.setPopup('Ordine inviato correttamente!', 'success');
   } catch (error) {
-    popupStore.setPopup('Impossibile inviare l\'ordine!', "error");
+    popupStore.setPopup('Impossibile inviare l\'ordine!', 'error');
   }
 };
 
 const clearCart = () => {
   try {
     orderStore.removeAllProduct();
-    popupStore.setPopup('Carrello svuotato correttamente!', "success");
+    popupStore.setPopup('Carrello svuotato correttamente!', 'success');
   } catch (error) {
-    popupStore.setPopup('Impossibile svuotare il carrello!', "error");
+    popupStore.setPopup('Impossibile svuotare il carrello!', 'error');
   }
 };
 
-
 const productNames = ref({});
 const getProductName = (productId) => {
-  http.getRequestBrooking(`api/shop/product/${store.businessActivity}/${productId}/`, {}, function (data) {
-    productNames.value[productId] = data.name; 
-  }, true);
+  productNames.value[productId] = products.value.find(product => product.id == productId).name;
 
   if (productNames.value[productId]) {
     const name = productNames.value[productId];
@@ -146,12 +157,11 @@ const getProductName = (productId) => {
 
 const productPrices = ref({});
 const getProductPrice = (productId) => {
-  http.getRequestBrooking(`api/shop/product/${store.businessActivity}/${productId}/`, {}, function (data) {
-    productPrices.value[productId] = data.price; 
-  }, true);
-  if (productPrices.value[productId]) {
+  const price = products.value.find(product => product.id == productId).price
+  productPrices.value[productId] = parseFloat(price) / 100;
+
+  if (productPrices.value[productId])
     return productPrices.value[productId];
-  }
   return 0;
 };
 
@@ -163,10 +173,10 @@ const decreaseQuantity = (product) => {
   orderStore.removeProduct(product);
 };
 
-const getImageForProduct = (product) => {
+const getImageForProduct = (productId) => {
+  const product = products.value.find(product => product.id == productId);
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
-
 </script>
 
 <style scoped>

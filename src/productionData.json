@@ -19,7 +19,6 @@
     },
     {
       "type": "services",
-      "menu": "servizi",
       "content": [
         {
           "description": "Benvenuti al Panificio Mulino Bianco, il nostro panificio storico che rappresenta un'ode alla tradizione e alla qualità artigianale. Qui, ci impegniamo a creare prodotti da forno eccezionali utilizzando solo ingredienti di prima qualità e ricette tramandate da generazioni. Ogni pane, ogni biscotto e ogni dolce che esce dal nostro forno racconta la nostra storia di passione per la panificazione.",
@@ -40,7 +39,6 @@
     },
     {
       "type": "advantages",
-      "menu": "Prodotti",
       "content": [
         {
           "image": "/advantage1.jpeg",
@@ -99,5 +97,16 @@
         "zoom": 18
       }
     }
-  ]
+  ],
+  "store": {
+    "username": "bro.users.info@gmail.com",
+    "password": "Ciao1234",
+    "businessActivity": 1,
+    "addressMode": 1,
+    "province": "Barletta-Andria-Trani",
+    "cities": [
+      "Lanzo Torinese",
+      "Cafasse"
+    ]
+  }
 }

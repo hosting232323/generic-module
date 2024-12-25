@@ -89,6 +89,11 @@
         path: section.menu.toLowerCase(),
         type: 'ancor'
       })));
+    menuItems.push({
+      title: 'Negozio',
+      path: '/shop',
+      type: 'internalLink'
+    });
     return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
   });
 
