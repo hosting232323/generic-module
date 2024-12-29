@@ -146,7 +146,7 @@ const login = () => {
       },
       function (data) {
         if (data.status === 'ok') {
-          localStorage.setItem('strongbox_session_token', data.session_token);
+          localStorage.setItem('token', data.session_token);
           router.push(interpolatePath(props.redirectLink, data));
         } else {
           message.value = data.error;
