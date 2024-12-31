@@ -11,7 +11,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, './src/index.js'), // Correggi qui il percorso
+      entry: path.resolve(__dirname, './src/index.js'),
       name: 'generic-module',
       fileName: (format) => `generic-module.${format}.js`,
     },
