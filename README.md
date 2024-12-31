@@ -39,3 +39,12 @@ Per rimuovere il modulo da un altro progetto:
 ```bash
 npm unlink generic-module
 ```
+
+## Bug/Fix momentaneo:
+Le icone dei form (login, register, etc.) non vengono visualizzate correttamente. Per risolvere il problema, aggiungere il seguente codice al file vuetify.js del progetto in cui si vuole utilizzare il modulo:
+```javascript
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+import '@mdi/font/css/materialdesignicons.css';
+
+```
