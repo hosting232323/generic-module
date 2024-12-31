@@ -7,7 +7,6 @@
     "serve": "node server.js"
   },
   "dependencies": {
-    "@mdi/font": "7.0.96",
     "@vueuse/head": "^2.0.0",
     "core-js": "^3.29.0",
     "crypto-js": "^4.2.0",
@@ -21,7 +20,7 @@
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0",
     "uuid": "10.0.0",
-    "generic-module": "git+https://glpat-sngGyLiEByCWsVKoUmex@gitlab.com/generic-lab/generic-be/generic-module.git"
+    "generic-module": "git+https://github.com/hosting232323/generic-module.git"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.6.2",
