@@ -147,6 +147,8 @@ const login = () => {
       function (data) {
         if (data.status === 'ok') {
           localStorage.setItem('token', data.token);
+          if (data.project)
+            localStorage.setItem('project', data.project);
           router.push(interpolatePath(props.redirectLink, data));
         } else {
           message.value = data.error;
