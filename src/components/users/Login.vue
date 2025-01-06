@@ -147,6 +147,7 @@ const login = () => {
       function (data) {
         if (data.status === 'ok') {
           localStorage.setItem('token', data.token);
+          console.log(data.project)
           if (data.project)
             localStorage.setItem('project', data.project);
           router.push(interpolatePath(props.redirectLink, data));
