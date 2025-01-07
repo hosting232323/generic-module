@@ -1,0 +1,154 @@
+{
+  "Commercio al dettaglio": [
+    "Negozio di abbigliamento",
+    "Negozio di calzature",
+    "Negozio di elettronica",
+    "Supermercato",
+    "Negozio di alimentari e generi vari",
+    "Negozio di articoli per la casa",
+    "Fermata di tabacchi",
+    "Negozio di giocattolo",
+    "Libreria",
+    "Fioraio",
+    "Negozio di prodotto biologico",
+    "Negozio di articolo sportivo",
+    "Negozio di animale",
+    "Negozio di cosmetico e profumo",
+    "Negozio di arredamento",
+    "Negozio di antiquariato",
+    "Negozio di utensile e ferramenta",
+    "Mercato e bancarella",
+    "Chiosco"
+  ],
+  "Commercio all'ingrosso": [
+    "Grossista di alimentari",
+    "Grossista di elettronica",
+    "Grossista di abbigliamento",
+    "Grossista di articolo per la casa",
+    "Grossista di prodotto agricolo",
+    "Grossista di materiale da costruzione",
+    "Grossista di attrezzatura industriale",
+    "Grossista di cosmetico",
+    "Grossista di giocattolo"
+  ],
+  "Ristorazione e caffetteria": [
+    "Ristorante",
+    "Pizzeria",
+    "Trattoria e osteria",
+    "Fast food",
+    "Caffetteria e bar",
+    "Gelateria",
+    "Panetteria e pasticceria",
+    "Catering e banchetto",
+    "Food truck",
+    "Bistrot",
+    "Sushi bar e ristorante asiatico",
+    "Pasticceria artigianale"
+  ],
+  "Servizio": [
+    "Servizio di trasporto e logistica",
+    "Servizio di pulizia",
+    "Servizio di giardinaggio",
+    "Servizio di consulenza",
+    "Servizio di traduzione e interpretariato",
+    "Servizio di riparazione",
+    "Servizio di parrucchiere e estetista",
+    "Servizio di estetica e bellezza",
+    "Salone di massaggio",
+    "Servizio di gestione e consulenza aziendale",
+    "Centro benessere e spa",
+    "Servizio di fitness e palestra",
+    "Servizio di dog-sitting e pet-sitting",
+    "Agenzia di viaggio",
+    "Agenzia immobiliare",
+    "Servizio di marketing e pubblicità",
+    "Assicurazione e consulenza finanziaria",
+    "Servizio legale"
+  ],
+  "Attività professionale": [
+    "Studio medico",
+    "Studio legale",
+    "Studio di architettura",
+    "Studio di ingegneria",
+    "Consulente aziendale",
+    "Contabilità e consulenza fiscale",
+    "Psicologo e psichiatra",
+    "Agente immobiliare",
+    "Designer grafico e pubblicitario"
+  ],
+  "Attività artistica e culturale": [
+    "Teatro",
+    "Cinema",
+    "Galleria d'arte",
+    "Museo",
+    "Scuola di musica e danza",
+    "Scuola di arte e design",
+    "Evento e organizzazione di spettacolo",
+    "Libreria specializzata"
+  ],
+  "Tecnologia e informatica": [
+    "Azienda di software e sviluppo web",
+    "Centro assistenza tecnica per elettronica",
+    "Negozio di computer e accessorio",
+    "Fornitore di servizio Internet e hosting",
+    "Negozio di videogioco e gioco elettronico",
+    "Azienda di consulenza IT"
+  ],
+  "Attività legata alla salute e benessere": [
+    "Farmacia",
+    "Erboristeria",
+    "Negozio di prodotto naturale",
+    "Ottico e negozio di occhiali",
+    "Centro per la salute e la cura della persona",
+    "Laboratorio di analisi",
+    "Clinica veterinaria"
+  ],
+  "Commercio di carburante": [
+    "Stazione di servizio",
+    "Carburante e lubrificante"
+  ],
+  "Costruzione e edilizia": [
+    "Azienda edile",
+    "Noleggio attrezzatura edile",
+    "Fornitore di materiale da costruzione",
+    "Impresa di ristrutturazione",
+    "Azienda di progettazione architettonica"
+  ],
+  "Industria e produzione": [
+    "Fabbrica e impianto produttivo",
+    "Fornitore di macchinario industriale",
+    "Industria tessile e abbigliamento",
+    "Industria alimentare",
+    "Industria chimica"
+  ],
+  "Settore turistico e ricettivo": [
+    "Hotel",
+    "Bed & Breakfast",
+    "Agriturismo",
+    "Casa vacanza",
+    "Camping e villaggio turistico",
+    "Tour operator e agenzia turistica",
+    "Noleggio auto, bici, scooter",
+    "Agenzia di viaggio",
+    "Guida turistica e servizio locale"
+  ],
+  "Attività all'aperto e tempo libero": [
+    "Noleggio attrezzatura sportiva",
+    "Parco divertimento e parco tematico",
+    "Escursione e attività all'aperto",
+    "Camping e attrezzatura outdoor",
+    "Club e associazione sportiva",
+    "Centro ippico e scuola di equitazione"
+  ],
+  "Attività religiosa e spirituale": [
+    "Chiesa e luogo di culto",
+    "Meditazione e yoga",
+    "Associazione spirituale e religiosa",
+    "Libreria esoterica e spirituale"
+  ],
+  "Commercio di prodotto riciclato e sostenibile": [
+    "Negozio di prodotto ecologico e sostenibile",
+    "Centro di riciclo",
+    "Azienda di smaltimento rifiuto"
+  ]
+}

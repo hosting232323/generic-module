@@ -1,5 +1,6 @@
 <template>
   <div class="grainy-gradient">
+    <SiteForm />
     <component 
       v-for="section in sections" 
       :is="componentMap[section.type]" 
@@ -24,6 +25,7 @@
   import DualSection from '@/components/sections/DualSection';
 
   import OurMap from '@/components/ourSections/Map';
+  import SiteForm from '../components/ourSections/SiteForm';
   import OurContacts from '@/components/ourSections/Contacts';
   import SiteViewer from '@/components/ourSections/SiteViewer';
   import OurDualSection from '@/components/ourSections/DualSection';
