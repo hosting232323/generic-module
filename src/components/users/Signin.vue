@@ -88,7 +88,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  redirectLink : {
+  hostname: {
     type: String,
     required: true,
   },

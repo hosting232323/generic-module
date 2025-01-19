@@ -17,7 +17,7 @@
       :title="signinTitle"
       :primaryColor="primaryColor"
       :secondaryColor="secondaryColor"
-      :redirectLink="redirectLink"
+      :hostname="hostname"
     />
     <ChangePassword 
       v-if="status == 3 && signUp" 
@@ -26,17 +26,7 @@
       :title="changePasswordTitle"
       :primaryColor="primaryColor"
       :secondaryColor="secondaryColor"
-      :redirectLink="redirectLink"
-    />
-    
-    <Password
-      v-if="status == 4 && signUp" 
-      @changeStatus="changeStatus"
-      :logo="logo"
-      :title="newPasswordTitle"
-      :primaryColor="primaryColor"
-      :secondaryColor="secondaryColor"
-      :redirectLink="redirectLink"
+      :hostname="hostname"
     />
   </v-container>
 </template>
@@ -46,7 +36,6 @@ import { ref } from 'vue';
 import Login from '@/components/users/Login.vue';
 import Signin from '@/components/users/Signin.vue';
 import ChangePassword from '@/components/users/ChangePassword.vue';
-import Password from '@/components/users/Password.vue';
 
 const status = ref(1);
 
