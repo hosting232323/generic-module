@@ -2,8 +2,7 @@
   "info": {
     "name": "FastSite",
     "primaryColor": "#f34455",
-    "secondaryColor": "#f7f4ef",
-    "iva": "IT12345678901"
+    "secondaryColor": "#f7f4ef"
   },
   "addOn": [
     "Chatty",
