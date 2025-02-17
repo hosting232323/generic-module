@@ -33,19 +33,24 @@ const routes = [
     component: () => import('@/layouts/AdminLayout'),
     children: [
       {
-        path: '/blog-admin',
-        name: 'Blog Admin',
-        component: () => import('@/views/BlogAdmin')
-      },
-      {
         path: '/login',
         name: 'Login',
         component: () => import('@/views/Login')
       },
       {
-        path: '/wooffy',
+        path: '/admin/blog',
+        name: 'Blog Admin',
+        component: () => import('@/views/admin/Blog')
+      },
+      {
+        path: '/admin/booking',
+        name: 'Prenotazioni',
+        component: () => import('@/views/admin/Booking')
+      },
+      {
+        path: '/admin/wooffy',
         name: 'Wooffy',
-        component: () => import('@/views/Wooffy')
+        component: () => import('@/views/admin/Wooffy')
       }
     ]
   }

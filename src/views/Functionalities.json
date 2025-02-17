@@ -3,7 +3,7 @@
     {
       "title": "Blog",
       "icon": "mdi-book",
-      "link": "/blog-admin"
+      "link": "/admin/blog"
     },
     {
       "title": "Wooffy",

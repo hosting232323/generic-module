@@ -1,6 +1,7 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 
+
 const getRequest = (endpoint, params, func) => {
   const url = new URL(`${hostnameFastSite}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
@@ -74,6 +75,7 @@ const getRequestGenericBE = (endpoint, params, func,method='GET',router = undefi
     console.error('Errore nella richiesta:', error);
   });
 };
+
 
 const createHeader = (file = false) => {
   let headers = {
