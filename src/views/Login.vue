@@ -4,7 +4,7 @@
     title="Login"
     :secondaryColor="data.info.primaryColor"
     :primaryColor="data.info.secondaryColor"
-    redirectLink="/admin/blog"
+    redirectLink="/admin"
     :hostname="hostname"
     :signUp="false"
   />

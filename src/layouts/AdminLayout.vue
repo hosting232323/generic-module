@@ -6,7 +6,7 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      v-if="menuItems.length > 1"
+      v-if="Array.isArray(functionalities)"
       v-model="drawer"
       :permanent="!isMobile"
       :temporary="isMobile"
@@ -18,28 +18,29 @@
         <v-list-item prepend-icon="mdi-account" title="Fast Site" :subtitle="user" />
       </v-list>
       <v-list>
-        <v-list-item-group>
-          <template v-for="item in menuItems" :key="item.title">
-            <v-list-item class="menu-item" :prepend-icon="item.icon" :title="item.title" @click="router.push(item.link)" />
-          </template>
-        </v-list-item-group>
+        <v-list-item
+          v-for="item in functionalities" :key="functionalitiesInfo[item].title"
+          class="menu-item"
+          :prepend-icon="item.icon"
+          :title="functionalitiesInfo[item].title"
+          @click="router.push(functionalitiesInfo[item].link)"
+        />
       </v-list>
     </v-navigation-drawer>
 
-    <v-main>
-      <View />
-    </v-main>
+    <View />
   </v-app>
 </template>
 
 <script setup>
+import View from './View.vue';
+import functionalitiesInfo from '@/assets/Functionalities.json';
+
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
-import View from './View.vue';
-import functionalities from '../views/Functionalities.json';
-import { useDataStore } from '@/stores/data';
 import mobile from '@/utils/mobile';
 import { useRouter } from 'vue-router';
+import { useDataStore } from '@/stores/data';
 
 const isMobile = mobile.setupMobileUtils();
 const dataStore = useDataStore();
@@ -47,37 +48,9 @@ const { data } = storeToRefs(dataStore);
 const router = useRouter();
 
 const drawer = ref(!isMobile.value);
-const menuItems = ref([]);
+const functionalities = localStorage.getItem('user_functionalities');
 
 dataStore.initData();
-
-const getDataByName = (backendFunctionalities) => {
-  return functionalities.functionalities.filter((item) =>
-    backendFunctionalities.includes(item.title)
-  );
-};
-
-const initMenu = () => {
-  const functionalitiesFromStorage = localStorage.getItem('functionalities');
-  console.log('Functionalities salvate nel localStorage:', functionalitiesFromStorage);
-
-  if (functionalitiesFromStorage) {
-    const functionalitiesArray = functionalitiesFromStorage;
-
-    if (functionalitiesArray.length > 0) {
-      menuItems.value = getDataByName(functionalitiesArray);
-      console.log('sono nell if functionalities.length>0');
-    } else {
-      console.warn('Il localStorage contiene un array vuoto o non valido.');
-      menuItems.value = [];
-    }
-  } else {
-    console.warn('Nessuna funzionalità trovata nel localStorage.');
-    menuItems.value = [];
-  }
-};
-
-initMenu();
 </script>
 
 <style scoped>
