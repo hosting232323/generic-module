@@ -6,6 +6,7 @@
         @add-event="handleAddEvent"
         @update-event="handleUpdateEvent"
         @delete-event="handleDeleteEvent"
+        @delete-occurrence="handleDeleteOccurrence"
       />
     </main>
   </div>
@@ -61,13 +62,28 @@ export default {
         id: 4,
         name: "Evento corrente",
         description: "Prova",
-        date: "2025-02-11",
+        date: "2025-02-12",
         startTime: "10:00",
         endTime: "23:30",
         capacity: 300,
         ticketsSold: 275,
         status: "upcoming"
-      }      
+      },
+      {
+        id: 5,
+        name: "Visita a palazzo delle acque",
+        description: "Un affascinante viaggio alla scoperta del palazzo delle acque e dei suoi segreti storici",
+        date: "2025-03-01",
+        endDate: "2025-12-31",
+        startTime: "10:00",
+        endTime: "12:00",
+        capacity: 30,
+        ticketsSold: 0,
+        status: "upcoming",
+        isRecurring: true,
+        recurrenceType: "weekly",
+        weekDays: ["6", "0"]  // 6 = Sabato, 0 = Domenica
+      }
     ]);
 
     const handleAddEvent = (newEvent) => {
@@ -89,11 +105,29 @@ export default {
       events.value = events.value.filter(event => event.id !== eventId);
     };
 
+    const handleDeleteOccurrence = (occurrence) => {
+      const event = events.value.find(e => 
+        e.isRecurring && 
+        occurrence.date >= e.date && 
+        occurrence.date <= e.endDate &&
+        e.startTime === occurrence.startTime
+      );
+      
+      if (event) {
+        // Se l'evento ha delle date da escludere, le aggiungiamo
+        if (!event.excludedDates) {
+          event.excludedDates = [];
+        }
+        event.excludedDates.push(occurrence.date);
+      }
+    };
+
     return {
       events,
       handleAddEvent,
       handleUpdateEvent,
-      handleDeleteEvent
+      handleDeleteEvent,
+      handleDeleteOccurrence
     };
   }
 };

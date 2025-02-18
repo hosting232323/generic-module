@@ -44,20 +44,27 @@
             <div class="event-header">
               <h3>{{ event.name }}</h3>
               <span :class="['status-badge', getStatusClass(event.status)]">
-                {{ getStatusText(event.status) }}
+                {{ getStatusText(event.status, event) }}
               </span>
             </div>
             <p class="event-description">{{ event.description }}</p>
             <div class="event-details">
               <div class="detail-item">
-                <p class="detail-label">Data</p>
-                <p class="detail-value">{{ formatDate(event.date) }}</p>
+                <p class="detail-label">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</p>
+                <p class="detail-value">
+                  <template v-if="event.isRecurring">
+                    {{ getRecurrenceText(event) }}
+                  </template>
+                  <template v-else>
+                    {{ formatDate(event.date) }}
+                  </template>
+                </p>
               </div>
               <div class="detail-item">
                 <p class="detail-label">Orario</p>
                 <p class="detail-value">{{ event.startTime }} - {{ event.endTime }}</p>
               </div>
-              <div class="detail-item">
+              <div v-if="!event.isRecurring" class="detail-item">
                 <p class="detail-label">Partecipanti</p>
                 <p class="detail-value">{{ event.ticketsSold }} / {{ event.capacity }}</p>
               </div>
@@ -66,7 +73,7 @@
           <div class="event-actions">
             <button @click="showParticipants(event)" class="btn btn-info">
               <i class="fas fa-users"></i>
-              Partecipanti
+              {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
             </button>
             <button @click="editEvent(event)" class="btn btn-secondary">
               Modifica
@@ -93,20 +100,27 @@
               <div class="event-header">
                 <h3>{{ event.name }}</h3>
                 <span :class="['status-badge', getStatusClass(event.status)]">
-                  {{ getStatusText(event.status) }}
+                  {{ getStatusText(event.status, event) }}
                 </span>
               </div>
               <p class="event-description">{{ event.description }}</p>
               <div class="event-details">
                 <div class="detail-item">
-                  <p class="detail-label">Data</p>
-                  <p class="detail-value">{{ formatDate(event.date) }}</p>
+                  <p class="detail-label">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</p>
+                  <p class="detail-value">
+                    <template v-if="event.isRecurring">
+                      {{ getRecurrenceText(event) }}
+                    </template>
+                    <template v-else>
+                      {{ formatDate(event.date) }}
+                    </template>
+                  </p>
                 </div>
                 <div class="detail-item">
                   <p class="detail-label">Orario</p>
                   <p class="detail-value">{{ event.startTime }} - {{ event.endTime }}</p>
                 </div>
-                <div class="detail-item">
+                <div v-if="!event.isRecurring" class="detail-item">
                   <p class="detail-label">Partecipanti</p>
                   <p class="detail-value">{{ event.ticketsSold }} / {{ event.capacity }}</p>
                 </div>
@@ -115,7 +129,7 @@
             <div class="event-actions">
               <button @click="showParticipants(event)" class="btn btn-info">
                 <i class="fas fa-users"></i>
-                Partecipanti
+                {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
               </button>
               <button @click="deleteEvent(event.id)" class="btn btn-danger">
                 Elimina
@@ -128,42 +142,79 @@
 
     <!-- Modal Aggiungi/Modifica Evento -->
     <div v-if="showAddModal" class="modal-overlay">
-      <div class="modal-content">
+      <div class="modal-content event-form-modal">
         <h2>{{ editingEvent ? 'Modifica Evento' : 'Nuovo Evento' }}</h2>
         <form @submit.prevent="saveEvent" class="event-form">
-          <div class="form-grid">
-            <div class="form-group">
-              <label>Nome Evento</label>
-              <input v-model="eventForm.name" type="text" required>
-            </div>
-            <div class="form-group">
-              <label>Descrizione</label>
-              <textarea v-model="eventForm.description" rows="3" required></textarea>
-            </div>
-            <div class="form-row">
+          <div class="form-content">
+            <div class="form-grid">
               <div class="form-group">
-                <label>Data</label>
-                <input v-model="eventForm.date" type="date" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Orario di Inizio</label>
-                <input v-model="eventForm.startTime" type="time" required>
+                <label>Nome Evento</label>
+                <input v-model="eventForm.name" type="text" required>
               </div>
               <div class="form-group">
-                <label>Orario di Fine</label>
-                <input v-model="eventForm.endTime" type="time" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Capacità</label>
-                <input v-model.number="eventForm.capacity" type="number" required>
+                <label>Descrizione</label>
+                <textarea v-model="eventForm.description" rows="3" required></textarea>
               </div>
               <div class="form-group">
-                <label>Biglietti Venduti</label>
-                <input v-model.number="eventForm.ticketsSold" type="number" required>
+                <label>Tipo Evento</label>
+                <select v-model="eventForm.isRecurring" class="form-control">
+                  <option :value="false">Singolo</option>
+                  <option :value="true">Ricorrente</option>
+                </select>
+              </div>
+              <div v-if="eventForm.isRecurring" class="form-group">
+                <label>Frequenza</label>
+                <select v-model="eventForm.recurrenceType" class="form-control">
+                  <option value="weekly">Settimanale</option>
+                  <option value="monthly">Mensile</option>
+                </select>
+              </div>
+              <div v-if="eventForm.isRecurring && eventForm.recurrenceType === 'weekly'" class="form-group">
+                <label>Giorni della Settimana</label>
+                <div class="weekday-checkboxes">
+                  <label v-for="(day, index) in weekDays" :key="day" class="weekday-checkbox">
+                    <input 
+                      type="checkbox" 
+                      :value="index" 
+                      v-model="eventForm.weekDays"
+                      :required="eventForm.weekDays.length === 0"
+                    >
+                    {{ day }}
+                  </label>
+                </div>
+                <small class="error-text" v-if="eventForm.weekDays.length === 0">
+                  Seleziona almeno un giorno
+                </small>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>{{ eventForm.isRecurring ? 'Data Inizio' : 'Data' }}</label>
+                  <input v-model="eventForm.date" type="date" required>
+                </div>
+                <div v-if="eventForm.isRecurring" class="form-group">
+                  <label>Data Fine</label>
+                  <input v-model="eventForm.endDate" type="date" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Orario di Inizio</label>
+                  <input v-model="eventForm.startTime" type="time" required>
+                </div>
+                <div class="form-group">
+                  <label>Orario di Fine</label>
+                  <input v-model="eventForm.endTime" type="time" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Capacità</label>
+                  <input v-model.number="eventForm.capacity" type="number" required>
+                </div>
+                <div class="form-group">
+                  <label>Biglietti Venduti</label>
+                  <input v-model.number="eventForm.ticketsSold" type="number" required>
+                </div>
               </div>
             </div>
           </div>
@@ -186,6 +237,71 @@
         @close="showParticipantsModal = false"
       />
     </div>
+
+    <!-- Modal Selezione Occorrenza -->
+    <div v-if="showOccurrenceModal" class="modal-overlay">
+      <div class="modal-content recurring-events-modal">
+        <div class="modal-header">
+          <div class="header-navigation">
+            <button @click="showOccurrenceModal = false" class="btn btn-link">
+              <i class="fas fa-arrow-left"></i>
+              Torna alla lista
+            </button>
+          </div>
+          <h2>{{ selectedEvent.name }}</h2>
+          <p class="event-recurrence">{{ getRecurrenceText(selectedEvent) }}</p>
+        </div>
+        
+        <div class="event-period">
+          <div class="period-item">
+            <span class="period-label">Periodo:</span>
+            <span class="period-value">
+              {{ formatDate(selectedEvent.date) }} - {{ formatDate(selectedEvent.endDate) }}
+            </span>
+          </div>
+          <div class="period-item">
+            <span class="period-label">Orario:</span>
+            <span class="period-value">{{ selectedEvent.startTime }} - {{ selectedEvent.endTime }}</span>
+          </div>
+        </div>
+
+        <div class="occurrence-container">
+          <div class="list-header">
+            <h3>Eventi singoli</h3>
+            <div class="occurrence-count">
+              Totale: {{ eventOccurrences.length }} eventi
+            </div>
+          </div>
+          
+          <div class="occurrences-grid">
+            <div v-for="occurrence in eventOccurrences" 
+                 :key="occurrence.date" 
+                 class="occurrence-card">
+              <div class="occurrence-info">
+                <div class="occurrence-date">
+                  {{ formatDate(occurrence.date) }}
+                </div>
+                <div class="occurrence-time">
+                  {{ occurrence.startTime }} - {{ occurrence.endTime }}
+                </div>
+              </div>
+              <div class="occurrence-actions">
+                <button @click="viewOccurrenceParticipants(occurrence)" 
+                        class="btn btn-primary btn-sm">
+                  <i class="fas fa-users"></i>
+                  Partecipanti
+                </button>
+                <button @click="deleteOccurrence(occurrence)" 
+                        class="btn btn-danger btn-sm">
+                  <i class="fas fa-trash"></i>
+                  Elimina
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -207,11 +323,14 @@ export default {
 
   data() {
     return {
+      weekDays: ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'],
       showAddModal: false,
-      showPastEvents: false,
       showParticipantsModal: false,
-      editingEvent: null,
+      showOccurrenceModal: false,
+      showPastEvents: false,
       selectedEvent: null,
+      eventOccurrences: [],
+      editingEvent: null,
       eventForm: {
         name: "",
         description: "",
@@ -219,7 +338,12 @@ export default {
         startTime: "",
         endTime: "",
         capacity: 0,
-        ticketsSold: 0
+        ticketsSold: 0,
+        isRecurring: false,
+        recurrenceType: 'weekly',
+        weekDays: [],
+        endDate: '',
+        excludedDates: []
       }
     };
   },
@@ -313,13 +437,18 @@ export default {
       return classes[status] || classes.upcoming;
     },
 
-    getStatusText(status) {
+    getStatusText(status, event) {
+      if (event && event.isRecurring) {
+        return 'Evento ricorrente';
+      }
+      
       const texts = {
         upcoming: 'In Programma',
         ongoing: 'In Corso',
-        completed: 'Passato'
+        completed: 'Completato',
+        cancelled: 'Annullato'
       };
-      return texts[status] || texts.upcoming;
+      return texts[status] || status;
     },
 
     editEvent(event) {
@@ -359,15 +488,95 @@ export default {
         startTime: "",
         endTime: "",
         capacity: 0,
-        ticketsSold: 0
+        ticketsSold: 0,
+        isRecurring: false,
+        recurrenceType: 'weekly',
+        weekDays: [],
+        endDate: '',
+        excludedDates: []
       };
       this.editingEvent = null;
       this.showAddModal = false;
     },
 
     showParticipants(event) {
-      this.selectedEvent = event;
+      if (event.isRecurring) {
+        this.selectedEvent = event;
+        this.eventOccurrences = this.generateOccurrences(event);
+        this.showOccurrenceModal = true;
+      } else {
+        this.selectedEvent = event;
+        this.showParticipantsModal = true;
+      }
+    },
+
+    viewOccurrenceParticipants(occurrence) {
+      this.selectedEvent = { ...this.selectedEvent, date: occurrence.date };
+      this.showOccurrenceModal = false;
       this.showParticipantsModal = true;
+    },
+
+    getRecurrenceText(event) {
+      if (event.recurrenceType === 'weekly') {
+        const selectedDays = event.weekDays
+          .map(day => this.weekDays[parseInt(day)])
+          .join(' e ');
+        return `Ogni ${selectedDays}`;
+      } else if (event.recurrenceType === 'monthly') {
+        const dayOfMonth = new Date(event.date).getDate();
+        return `Ogni ${dayOfMonth} del mese`;
+      }
+      return '';
+    },
+
+    generateOccurrences(event) {
+      const occurrences = [];
+      const startDate = new Date(event.date);
+      const endDate = new Date(event.endDate);
+      
+      let currentDate = new Date(startDate);
+      
+      // Funzione helper per convertire il getDay() di JS (0-6, domenica-sabato) 
+      // nel nostro formato (0-6, lunedì-domenica)
+      const convertDay = (jsDay) => jsDay === 0 ? 6 : jsDay - 1;
+      
+      while (currentDate <= endDate) {
+        // Per eventi settimanali, verifica se il giorno corrente è tra quelli selezionati
+        if (event.recurrenceType === 'weekly') {
+          const adjustedDay = convertDay(currentDate.getDay()).toString();
+          if (event.weekDays.includes(adjustedDay)) {
+            const dateStr = currentDate.toISOString().split('T')[0];
+            // Verifica se la data non è tra quelle escluse
+            if (!event.excludedDates || !event.excludedDates.includes(dateStr)) {
+              occurrences.push({
+                date: dateStr,
+                startTime: event.startTime,
+                endTime: event.endTime
+              });
+            }
+          }
+          currentDate.setDate(currentDate.getDate() + 1);
+        } else if (event.recurrenceType === 'monthly') {
+          const dateStr = currentDate.toISOString().split('T')[0];
+          // Verifica se la data non è tra quelle escluse
+          if (!event.excludedDates || !event.excludedDates.includes(dateStr)) {
+            occurrences.push({
+              date: dateStr,
+              startTime: event.startTime,
+              endTime: event.endTime
+            });
+          }
+          currentDate.setMonth(currentDate.getMonth() + 1);
+        }
+      }
+      
+      return occurrences;
+    },
+    
+    deleteOccurrence(occurrence) {
+      if (confirm('Sei sicuro di voler eliminare questo evento singolo?')) {
+        this.$emit('delete-occurrence', occurrence);
+      }
     }
   }
 };
@@ -579,10 +788,25 @@ export default {
 }
 
 /* Form styles */
-.event-form {
+.event-form-modal {
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+}
+
+.event-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.form-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 1rem;
 }
 
 .form-grid {
@@ -621,10 +845,39 @@ export default {
 }
 
 .form-actions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
   display: flex;
   justify-content: flex-end;
+  gap: 1rem;
+  background: white;
+}
+
+.weekday-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.weekday-checkbox {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.weekday-checkbox input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 
 /* Button styles */
@@ -691,5 +944,75 @@ export default {
   .form-row {
     grid-template-columns: 1fr;
   }
+}
+
+.recurring-events-modal {
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-navigation {
+  margin-bottom: 1rem;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #007bff;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.occurrence-container {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.occurrences-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  align-content: start;
+}
+
+.occurrence-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.occurrence-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  flex: 1;
+  white-space: nowrap;
 }
 </style>
