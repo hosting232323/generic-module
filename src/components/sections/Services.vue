@@ -1,5 +1,5 @@
 <template>
-  <v-container :style="{ color: data.primaryColor }" >
+  <v-container :style="{ color: content.primaryColor }" >
     <br>
     <div v-if="!isMobile"><h1>
       Chi siamo
@@ -17,14 +17,7 @@
 </template>
 
 <script setup>
-  import mobile from '@/utils/mobile';
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
-
-  const isMobile = mobile.setupMobileUtils();
+  const { content, info } = defineProps(['content', 'info']);
 </script>
 
 <style scoped>

@@ -1,39 +1,48 @@
 <template>
-  <Gallery v-if="data.gallery" />
-  <Services id="whoweare" v-slide-in />
-  <v-container v-if="data.contacts" v-slide-in>
-    <hr :style="{ backgroundColor: data.primaryColor, height: '5px' }" />
-  </v-container>
-  <Brandlist id="brandlist" v-slide-in />
-  <v-container v-if="data.contacts" v-slide-in>
-    <hr :style="{ backgroundColor: data.primaryColor, height: '5px' }" />
-  </v-container>
-  <DualSection1 id="advantages" v-slide-in />
-  <DualSection2 v-if="isMobile" v-slide-in />
-  <DualSection4 v-else v-slide-in />
-  <DualSection3 v-slide-in />
-  <v-container v-if="data.contacts" v-slide-in>
-    <hr :style="{ backgroundColor: data.primaryColor, height: '5px' }" />
-  </v-container>
-  <Contacts id="contacts" v-if="data.contacts" v-slide-in />
+	<component v-for="section in sections" :is="componentMap[section.type]"
+		:id="section.menu ? section.menu.toLowerCase() : null" :content="section.content" :info="info" v-slide-in />
 </template>
 
 <script setup>
-  import Gallery from '@/components/Gallery';
-  import Services from '@/components/Services';
-  import Contacts from '@/components/Contacts';
-  import Brandlist from '@/components/Brandlist';
-  import DualSection1 from '@/components/DualSection1';
-  import DualSection2 from '@/components/DualSection2';
-  import DualSection3 from '@/components/DualSection3';
-  import DualSection4 from '@/components/DualSection4';
+import { storeToRefs } from 'pinia';
+import { useHead } from '@vueuse/head';
+import { useDataStore } from '@/stores/data';
 
-  import mobile from '@/utils/mobile';
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
+import Map from '@/components/sections/Map';
+import Line from '@/components/sections/Line';
+import Gallery from '@/components/sections/Gallery';
+import Services from '@/components/sections/Services';
+import Contacts from '@/components/sections/Contacts';
+import Advantages from '@/components/sections/Advantages';
+import DualSection from '@/components/sections/DualSection';
+import SiteViewer from '@/components/sections/SiteViewer';
+import BrandList from '@/components/sections/Brandlist';
+import WhoWeAre from '@/components/sections/WhoWeAre.vue';
 
-  const isMobile = mobile.setupMobileUtils();
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
 
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+const componentMap = {
+	map: Map,
+	gallery: Gallery,
+	services: Services,
+	advantages: Advantages,
+	contacts: Contacts,
+	dualSection: DualSection,
+	line: Line,
+	siteViewer: SiteViewer,
+	brandList: BrandList,
+	whoWeAre: WhoWeAre
+
+};
+
+const sections = data.value.components;
+const info = data.value.info;
+
+useHead({
+	title: 'Di Carne Show Room',
+	meta: [
+		{ name: 'Fast Site', content: 'This is the home page' }
+	]
+});
 </script>
