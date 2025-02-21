@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <h1 :style="{ color: data.primaryColor }">
+    <h1 :style="{ color: info.primaryColor }">
       I nostri vantaggi
     </h1>
-    <v-card elevation="20" v-for="advantage in data.advantages" class="margin_top__default" >
+    <v-card elevation="20" v-for="advantage in content" class="margin_top__default">
       <v-img :src="advantage.image" style="max-height: 600px;" cover />
       <v-card-title style="white-space: normal;">
         {{ advantage.name }}
@@ -16,9 +16,5 @@
 </template>
 
 <script setup>
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+  const { content, info } = defineProps(['content', 'info']);
 </script>

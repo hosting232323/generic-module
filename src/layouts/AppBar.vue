@@ -1,5 +1,5 @@
 <template class="app-bar">
-  <v-app-bar v-if="!isMobile" :elevation="2" :color="data.primaryColor">
+  <v-app-bar v-if="!isMobile" :elevation="2" :color="data.info.primaryColor">
     <v-spacer />
     <v-btn variant="text" class="desktop-menu" href="/#whoweare" text="Chi siamo" />
     <v-btn variant="text" class="desktop-menu" href="/#brandlist" text="Brandlist" />

@@ -5,10 +5,11 @@ import productionData from '@/productionData';
 
 export const useDataStore = defineStore('data', {
   state: () => ({
-    data: {}
+    data: {},
+    ready: false
   }),
   actions: {
-    initData(id) {
+    initData(id = undefined) {
       if (id)
         http.getRequest(`get-data/${id}`, {}, this.updateData);
       else
@@ -16,6 +17,7 @@ export const useDataStore = defineStore('data', {
     },
     updateData(data) {
       this.data = data.data;
+      this.ready = true;
     }
   }
 });
