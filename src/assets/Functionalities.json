@@ -1,0 +1,22 @@
+{
+  "Blog": {
+    "title": "Blog",
+    "icon": "mdi-book",
+    "link": "/admin/blog"
+  },
+  "Wooffy": {
+    "title": "Wooffy",
+    "icon": "mdi-dog",
+    "link": "/admin/wooffy"
+  },
+  "Ordering": {
+    "title": "Ordering",
+    "icon": "mdi-cat",
+    "link": "/admin/blog"
+  },
+  "Booking": {
+    "title": "Booking",
+    "icon": "mdi-house",
+    "link": "/admin/booking"
+  }
+}
