@@ -13,11 +13,10 @@ import Line from '@/components/sections/Line';
 import Gallery from '@/components/sections/Gallery';
 import Services from '@/components/sections/Services';
 import Contacts from '@/components/sections/Contacts';
-import Advantages from '@/components/sections/Advantages';
-import DualSection from '@/components/sections/DualSection';
-import SiteViewer from '@/components/sections/SiteViewer';
 import BrandList from '@/components/sections/Brandlist';
 import WhoWeAre from '@/components/sections/WhoWeAre.vue';
+import Advantages from '@/components/sections/Advantages';
+import DualSection from '@/components/sections/DualSection';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
@@ -30,10 +29,8 @@ const componentMap = {
 	contacts: Contacts,
 	dualSection: DualSection,
 	line: Line,
-	siteViewer: SiteViewer,
 	brandList: BrandList,
 	whoWeAre: WhoWeAre
-
 };
 
 const sections = data.value.components;
