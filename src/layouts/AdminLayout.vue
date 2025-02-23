@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar v-if="isMobile && menuItems.length > 1" :color="data.info.primaryColor">
+    <v-app-bar v-if="isMobile && Array.isArray(functionalities)" :color="data.info.primaryColor">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Fast Site</v-toolbar-title>
     </v-app-bar>
