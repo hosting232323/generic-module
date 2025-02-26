@@ -40,8 +40,14 @@ Per rimuovere il modulo da un altro progetto:
 npm unlink generic-module
 ```
 
-## Bug/Fix momentaneo:
-Le icone dei form (login, register, etc.) non vengono visualizzate correttamente. Per risolvere il problema, aggiungere il seguente codice al file vuetify.js del progetto in cui si vuole utilizzare il modulo:
+### Abilitare login Google
+Per abilitare il login con Google, è necessario aggiungere nel file .env del progetto in cui si vuole utilizzare il modulo la variabile VITE_GOOGLE_CLIENT_ID con il CLIENT_ID ottenuto da Google Cloud Console. Esempio:
+```bash
+VITE_GOOGLE_CLIENT_ID='1234567890'
+```
+
+## Bug/Fix momentaneo icone:
+Le icone dei form (login, register, etc.) a volte non vengono visualizzate correttamente. Per risolvere il problema, aggiungere il seguente codice al file vuetify.js del progetto in cui si vuole utilizzare il modulo:
 ```javascript
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
