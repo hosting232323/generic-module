@@ -34,7 +34,6 @@
           v-model="currentPost.ordinal"
           label="Posizionamento"
           type="number"
-          :rules="validation.integerRules"
         />
         <Images type="desktop" />
         <Images type="mobile" />
@@ -85,8 +84,7 @@
   const addOrUpdatePost = () => {
     if (
       !validation.validateInput(currentPost.value.title, validation.requiredRules) &&
-      !validation.validateInput(currentPost.value.content, validation.requiredRules) &&
-      !validation.validateInput(currentPost.value.ordinal, validation.integerRules)
+      !validation.validateInput(currentPost.value.content, validation.requiredRules)
     ) {
       loading.value = true;
       http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
