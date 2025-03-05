@@ -12,125 +12,129 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Events from '@/components/bookingManagement/Events.vue';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import http from '@/utils/http';
 
-export default {
-  name: 'Booking Admin',
-  
-  components: {
-    Events
-  },
+const events = ref([]);
 
-  setup() {
-    const events = ref([
-      {
-        id: 1,
-        name: "Workshop di Arte Contemporanea",
-        description: "Workshop intensivo con artisti rinomati",
-        date: "2025-05-20",
-        startTime: "10:00",
-        endTime: "16:00",
-        capacity: 50,
-        ticketsSold: 45,
-        status: "upcoming"
-      },
-      {
-        id: 2,
-        name: "Festa di Carne e Vino",
-        description: "Festa di Carne e Vino con una vasta scelta di vini e carni",
-        date: "2025-06-10",
-        startTime: "19:00",
-        endTime: "23:30",
-        capacity: 300,
-        ticketsSold: 275,
-        status: "upcoming"
-      },
-      {
-        id: 3,
-        name: "Evento passato",
-        description: "Prova",
-        date: "2024-06-10",
-        startTime: "19:00",
-        endTime: "23:30",
-        capacity: 300,
-        ticketsSold: 275,
-        status: "completed"
-      },
-      {
-        id: 4,
-        name: "Evento corrente",
-        description: "Prova",
-        date: "2025-02-12",
-        startTime: "10:00",
-        endTime: "23:30",
-        capacity: 300,
-        ticketsSold: 275,
-        status: "upcoming"
-      },
-      {
-        id: 5,
-        name: "Visita a palazzo delle acque",
-        description: "Un affascinante viaggio alla scoperta del palazzo delle acque e dei suoi segreti storici",
-        date: "2025-03-01",
-        endDate: "2025-12-31",
-        startTime: "10:00",
-        endTime: "12:00",
-        capacity: 30,
-        ticketsSold: 0,
-        status: "upcoming",
-        isRecurring: true,
-        recurrenceType: "weekly",
-        weekDays: ["6", "0"]  // 6 = Sabato, 0 = Domenica
-      }
-    ]);
-
-    const handleAddEvent = (newEvent) => {
-      const eventToAdd = {
-        ...newEvent,
-        id: events.value.length + 1
+const fetchEvents = () => {
+  http.getRequestBooking('event', {}, (data) => {
+    console.log('Eventi ricevuti', data.data);
+    
+    // Trasforma gli eventi per adattarli al formato atteso dal componente Events
+    const transformedEvents = data.data.map(event => {
+      // Base event object with common properties
+      const baseEvent = {
+        id: event.id,
+        name: event.name,
+        description: event.name, // Using name as description since it's not provided
+        status: 'active', // Default status
+        createdAt: event.created_at,
+        updatedAt: event.updated_at
       };
-      events.value.push(eventToAdd);
-    };
 
-    const handleUpdateEvent = (updatedEvent) => {
-      const index = events.value.findIndex(e => e.id === updatedEvent.id);
-      if (index !== -1) {
-        events.value[index] = updatedEvent;
+      // Handle Single events
+      if (event.type === 'Single') {
+        return {
+          ...baseEvent,
+          isRecurring: false,
+          date: event.info.start_date,
+          startTime: event.info.start_time.substring(0, 5), // Format HH:MM
+          endTime: event.info.end_time.substring(0, 5), // Format HH:MM
+          capacity: event.enrichment.capacity,
+          ticketsSold: event.enrichment.participants
+        };
+      } 
+      // Handle Weekly events
+      else if (event.type === 'Weekly') {
+        // Extract unique days from info array
+        const weekDays = [...new Set(event.info.map(info => info.start_day))];
+        
+        // Get the earliest start date and latest end date
+        const startDates = event.info.map(info => info.start_date);
+        const endDates = event.info.map(info => info.end_date);
+        const startDate = startDates.sort()[0];
+        const endDate = endDates.sort()[endDates.length - 1];
+        
+        // Get the earliest start time and latest end time
+        const startTimes = event.info.map(info => info.start_time);
+        const endTimes = event.info.map(info => info.end_time);
+        const startTime = startTimes.sort()[0].substring(0, 5); // Format HH:MM
+        const endTime = endTimes.sort()[endTimes.length - 1].substring(0, 5); // Format HH:MM
+
+        return {
+          ...baseEvent,
+          isRecurring: true,
+          recurrenceType: 'weekly',
+          date: startDate,
+          endDate: endDate,
+          startTime: startTime,
+          endTime: endTime,
+          weekDays: weekDays.map(day => {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            return days.indexOf(day);
+          }),
+          // For weekly events, we'll store the original data for generating occurrences
+          originalData: event
+        };
       }
-    };
-
-    const handleDeleteEvent = (eventId) => {
-      events.value = events.value.filter(event => event.id !== eventId);
-    };
-
-    const handleDeleteOccurrence = (occurrence) => {
-      const event = events.value.find(e => 
-        e.isRecurring && 
-        occurrence.date >= e.date && 
-        occurrence.date <= e.endDate &&
-        e.startTime === occurrence.startTime
-      );
       
-      if (event) {
-        // Se l'evento ha delle date da escludere, le aggiungiamo
-        if (!event.excludedDates) {
-          event.excludedDates = [];
-        }
-        event.excludedDates.push(occurrence.date);
-      }
-    };
+      // Default case (should not happen)
+      return baseEvent;
+    });
+    
+    events.value = transformedEvents;
+  });
+};
 
-    return {
-      events,
-      handleAddEvent,
-      handleUpdateEvent,
-      handleDeleteEvent,
-      handleDeleteOccurrence
-    };
+onMounted(() => {
+  fetchEvents();
+});
+
+const handleAddEvent = (newEvent) => {
+  const eventToAdd = {
+    ...newEvent,
+    id: events.value.length + 1
+  };
+  events.value.push(eventToAdd);
+};
+
+const handleUpdateEvent = (updatedEvent) => {
+  const index = events.value.findIndex(e => e.id === updatedEvent.id);
+  if (index !== -1) {
+    events.value[index] = updatedEvent;
   }
 };
+
+const handleDeleteEvent = (eventId) => {
+  events.value = events.value.filter(event => event.id !== eventId);
+};
+
+const handleDeleteOccurrence = (occurrence) => {
+  const event = events.value.find(e => 
+    e.isRecurring && 
+    occurrence.date >= e.date && 
+    occurrence.date <= e.endDate &&
+    e.startTime === occurrence.startTime
+  );
+  
+  if (event) {
+    if (!event.excludedDates) {
+      event.excludedDates = [];
+    }
+    event.excludedDates.push(occurrence.date);
+  }
+};
+
+defineExpose({
+  events,
+  handleAddEvent,
+  handleUpdateEvent,
+  handleDeleteEvent,
+  handleDeleteOccurrence
+});
 </script>
 
 <style scoped>

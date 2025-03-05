@@ -19,7 +19,15 @@
         </div>
       </div>
 
-      <div class="participants-table">
+      <div v-if="loading" class="loading-indicator">
+        <p>Caricamento partecipanti in corso...</p>
+      </div>
+
+      <div v-else-if="participants.length === 0" class="no-participants">
+        <p>Nessun partecipante registrato per questo evento.</p>
+      </div>
+
+      <div v-else class="participants-table">
         <table>
           <thead>
             <tr>
@@ -28,7 +36,6 @@
               <th>Email</th>
               <th>Telefono</th>
               <th>N° Partecipanti</th>
-              <th>Lingua</th>
               <th>Note</th>
             </tr>
           </thead>
@@ -39,7 +46,6 @@
               <td>{{ participant.email }}</td>
               <td>{{ participant.phone }}</td>
               <td>{{ participant.numberOfParticipants }}</td>
-              <td>{{ participant.language }}</td>
               <td>
                 <span v-if="participant.notes" class="notes-tooltip" :title="participant.notes">
                   <i class="fas fa-info-circle"></i>
@@ -53,63 +59,68 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    event: {
-      type: Object,
-      required: true
-    }
-  },
+<script setup>
+import { ref, computed, defineProps, defineEmits, onMounted } from 'vue';
+import http from '@/utils/http';
 
-  data() {
-    return {
-      participants: this.generateRandomParticipants()
-    };
-  },
-
-  computed: {
-    totalParticipants() {
-      return this.participants.reduce((sum, p) => sum + p.numberOfParticipants, 0);
-    }
-  },
-
-  methods: {
-    generateRandomParticipants() {
-      const languages = ['Italiano', 'Inglese', 'Francese', 'Tedesco', 'Spagnolo'];
-      const firstNames = ['Marco', 'Anna', 'Giuseppe', 'Maria', 'Giovanni', 'Laura', 'Paolo', 'Chiara'];
-      const lastNames = ['Rossi', 'Bianchi', 'Verdi', 'Ferrari', 'Romano', 'Costa'];
-      const notes = [
-        'Richiesta posto vicino al palco',
-        'Allergia al lattosio',
-        'Necessita di assistenza',
-        'Gruppo familiare',
-        null,
-        null
-      ];
-
-      const numParticipants = Math.floor(Math.random() * (this.event.capacity * 0.8));
-      const participants = [];
-
-      for (let i = 0; i < numParticipants; i++) {
-        const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-        const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-        
-        participants.push({
-          firstName,
-          lastName,
-          email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${Math.floor(Math.random() * 100)}@email.com`,
-          phone: `+39 ${Math.floor(Math.random() * 1000).toString().padStart(3, '0')} ${Math.floor(Math.random() * 10000000).toString().padStart(7, '0')}`,
-          numberOfParticipants: Math.floor(Math.random() * 3) + 1,
-          language: languages[Math.floor(Math.random() * languages.length)],
-          notes: notes[Math.floor(Math.random() * notes.length)]
-        });
-      }
-
-      return participants;
-    }
+const props = defineProps({
+  event: {
+    type: Object,
+    required: true
   }
+});
+
+defineEmits(['close']);
+
+const participants = ref([]);
+const loading = ref(true);
+
+// Fetch participants from booking endpoint
+const fetchParticipants = () => {
+  loading.value = true;
+  
+  // Different parameters based on event type
+  let params = {};
+  
+  if (props.event.isRecurring) {
+    // For Weekly events, we need event ID, date, and time
+    params = {
+      event_id: props.event.id,
+      date: props.event.date,
+      time: props.event.startTime
+    };
+  } else {
+    // For Single events, we only need event ID
+    params = {
+      event_id: props.event.id
+    };
+  }
+  
+  http.getRequestBooking('booking', params, (data) => {
+    if (data && data.data) {
+      // Transform the data to match our component's expected format
+      participants.value = data.data.map(booking => ({
+        firstName: booking.enrichment?.first_name || '',
+        lastName: booking.enrichment?.last_name || '',
+        email: booking.email || '',
+        phone: booking.enrichment?.phone || '',
+        numberOfParticipants: booking.participants || 0,
+        notes: booking.enrichment?.notes || ''
+      }));
+    } else {
+      participants.value = [];
+    }
+    loading.value = false;
+  });
 };
+
+onMounted(() => {
+  fetchParticipants();
+});
+
+const totalParticipants = computed(() => {
+  return participants.value.reduce((sum, p) => sum + p.numberOfParticipants, 0);
+});
 </script>
 
 <style scoped>
@@ -182,6 +193,12 @@ export default {
   overflow-x: auto;
 }
 
+.loading-indicator, .no-participants {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -202,16 +219,12 @@ td {
   border-bottom: 1px solid #eee;
 }
 
-tr:hover {
-  background-color: #f8f8f8;
+tr:hover td {
+  background-color: #f9f9f9;
 }
 
 .notes-tooltip {
-  color: #666;
   cursor: help;
-}
-
-.notes-tooltip:hover {
-  color: #333;
+  color: #17a2b8;
 }
 </style>

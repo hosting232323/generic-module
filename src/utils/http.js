@@ -1,5 +1,6 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
+const hostnameBooking = import.meta.env.VITE_HOSTNAME_BOOKING;  
 
 
 const getRequest = (endpoint, params, func) => {
@@ -97,10 +98,58 @@ const sessionHandler = (data, func, router) => {
     func(data);
 };
 
+const getRequestBooking = (endpoint, params, func, method = 'GET', router = undefined) => {
+  const url = new URL(`${hostnameBooking}${endpoint}`);
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+  fetch(url, {
+    method: method,
+    headers: createHeader(router),
+  }).then(response => {
+    console.log('Response received:', response); // Aggiungi questo
+    if (response.status === 404) {
+      console.error('Endpoint not found: 404');
+      return;
+    }
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    console.log('Data received:', data); // Aggiungi questo
+    sessionHandler(data, func, router);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
+  });
+};
+
+const postRequestBooking = (endpoint, body, func, method = 'POST', router = undefined) => {
+  fetch(`${hostnameBooking}${endpoint}`, {
+    method: method,
+    headers: createHeader(router),
+    body: JSON.stringify(body),
+  }).then(response => {
+    console.log('Response received:', response); // Aggiungi questo
+    if (response.status === 404) {
+      console.error('Endpoint not found: 404');
+      return;
+    }
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    console.log('Data received:', data); // Aggiungi questo
+    sessionHandler(data, func, router);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
+  });
+};
+
 
 export default {
   getRequest,
   postRequestGenericBE,
   postRequestFileGenericBE,
-  getRequestGenericBE
+  getRequestGenericBE,
+  getRequestBooking,
+  postRequestBooking
 };

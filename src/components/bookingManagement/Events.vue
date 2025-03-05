@@ -9,33 +9,6 @@
       </button>
     </div>
 
-    <!-- Cards statistiche -->
-    <div class="stats-grid">
-      <div class="stats-card">
-        <div class="stats-header">
-          <h3>Eventi Totali</h3>
-          <i class="fas fa-calendar"></i>
-        </div>
-        <div class="stats-value">{{ events.length }}</div>
-      </div>
-
-      <div class="stats-card">
-        <div class="stats-header">
-          <h3>Partecipanti Totali</h3>
-          <i class="fas fa-users"></i>
-        </div>
-        <div class="stats-value">{{ totalParticipants }}</div>
-      </div>
-
-      <div class="stats-card">
-        <div class="stats-header">
-          <h3>Tasso di Riempimento</h3>
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <div class="stats-value">{{ occupancyRate }}%</div>
-      </div>
-    </div>
-
     <!-- Lista Eventi -->
     <div class="events-list">
       <div v-for="event in activeEvents" :key="event.id" class="event-card">
@@ -47,7 +20,7 @@
                 {{ getStatusText(event.status, event) }}
               </span>
             </div>
-            <p class="event-description">{{ event.description }}</p>
+            <p class="event-description">{{ event.description || event.name }}</p>
             <div class="event-details">
               <div class="detail-item">
                 <p class="detail-label">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</p>
@@ -66,7 +39,7 @@
               </div>
               <div v-if="!event.isRecurring" class="detail-item">
                 <p class="detail-label">Partecipanti</p>
-                <p class="detail-value">{{ event.ticketsSold }} / {{ event.capacity }}</p>
+                <p class="detail-value">{{ event.ticketsSold || 0 }} / {{ event.capacity || 0 }}</p>
               </div>
             </div>
           </div>
@@ -103,7 +76,7 @@
                   {{ getStatusText(event.status, event) }}
                 </span>
               </div>
-              <p class="event-description">{{ event.description }}</p>
+              <p class="event-description">{{ event.description || event.name }}</p>
               <div class="event-details">
                 <div class="detail-item">
                   <p class="detail-label">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</p>
@@ -122,7 +95,7 @@
                 </div>
                 <div v-if="!event.isRecurring" class="detail-item">
                   <p class="detail-label">Partecipanti</p>
-                  <p class="detail-value">{{ event.ticketsSold }} / {{ event.capacity }}</p>
+                  <p class="detail-value">{{ event.ticketsSold || 0 }} / {{ event.capacity || 0 }}</p>
                 </div>
               </div>
             </div>
@@ -305,281 +278,337 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, computed, defineProps, defineEmits } from 'vue';
 import EventParticipants from './EventParticipants.vue';
 
-export default {
-  components: {
-    EventParticipants
-  },
+// Props definition
+const props = defineProps({
+  events: {
+    type: Array,
+    required: true,
+    default: () => []
+  }
+});
 
-  props: {
-    events: {
-      type: Array,
-      required: true,
-      default: () => []
+// Emits definition
+const emit = defineEmits([
+  'delete-event', 
+  'update-event', 
+  'add-event', 
+  'delete-occurrence'
+]);
+
+// Static data
+const weekDays = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'];
+
+// Reactive state
+const showAddModal = ref(false);
+const showParticipantsModal = ref(false);
+const showOccurrenceModal = ref(false);
+const showPastEvents = ref(false);
+const selectedEvent = ref(null);
+const eventOccurrences = ref([]);
+const editingEvent = ref(null);
+
+// Event form reactive state
+const eventForm = ref({
+  name: "",
+  description: "",
+  date: "",
+  startTime: "",
+  endTime: "",
+  capacity: 0,
+  ticketsSold: 0,
+  isRecurring: false,
+  recurrenceType: 'weekly',
+  weekDays: [],
+  endDate: '',
+  excludedDates: []
+});
+
+// Computed properties
+const sortedEvents = computed(() => {
+  return [...props.events].sort((a, b) => {
+    // Confronta prima le date
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    if (dateA.getTime() !== dateB.getTime()) {
+      return dateA - dateB;
     }
-  },
-
-  data() {
-    return {
-      weekDays: ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica'],
-      showAddModal: false,
-      showParticipantsModal: false,
-      showOccurrenceModal: false,
-      showPastEvents: false,
-      selectedEvent: null,
-      eventOccurrences: [],
-      editingEvent: null,
-      eventForm: {
-        name: "",
-        description: "",
-        date: "",
-        startTime: "",
-        endTime: "",
-        capacity: 0,
-        ticketsSold: 0,
-        isRecurring: false,
-        recurrenceType: 'weekly',
-        weekDays: [],
-        endDate: '',
-        excludedDates: []
-      }
-    };
-  },
-
-  computed: {
-    totalParticipants() {
-      return this.events.reduce((acc, event) => acc + event.ticketsSold, 0);
-    },
-    occupancyRate() {
-      const totalCapacity = this.events.reduce((acc, event) => acc + event.capacity, 0);
-      const totalSold = this.events.reduce((acc, event) => acc + event.ticketsSold, 0);
-      return totalCapacity ? Math.round((totalSold / totalCapacity) * 100) : 0;
-    },
-    sortedEvents() {
-      return [...this.events].sort((a, b) => {
-        // Confronta prima le date
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        if (dateA.getTime() !== dateB.getTime()) {
-          return dateA - dateB;
-        }
-        
-        // Se le date sono uguali, confronta gli orari di inizio
-        const [hoursA, minutesA] = a.startTime.split(':').map(Number);
-        const [hoursB, minutesB] = b.startTime.split(':').map(Number);
-        const timeCompare = hoursA * 60 + minutesA - (hoursB * 60 + minutesB);
-        if (timeCompare !== 0) {
-          return timeCompare;
-        }
-        
-        // Se anche gli orari di inizio sono uguali, confronta gli orari di fine
-        const [endHoursA, endMinutesA] = a.endTime.split(':').map(Number);
-        const [endHoursB, endMinutesB] = b.endTime.split(':').map(Number);
-        return (endHoursA * 60 + endMinutesA) - (endHoursB * 60 + endMinutesB);
-      });
-    },
-    eventsWithStatus() {
-      return this.sortedEvents.map(event => ({
-        ...event,
-        status: this.calculateEventStatus(event)
-      }));
-    },
-    activeEvents() {
-      return this.eventsWithStatus.filter(event => event.status !== 'completed');
-    },
-    pastEvents() {
-      return this.eventsWithStatus.filter(event => event.status === 'completed');
-    }
-  },
-
-  methods: {
-    calculateEventStatus(event) {
-      const now = new Date();
-      const eventDate = new Date(event.date);
-      const [startHours, startMinutes] = event.startTime.split(':').map(Number);
-      const [endHours, endMinutes] = event.endTime.split(':').map(Number);
-      
-      const eventStart = new Date(eventDate);
-      eventStart.setHours(startHours, startMinutes, 0);
-      
-      const eventEnd = new Date(eventDate);
-      eventEnd.setHours(endHours, endMinutes, 0);
-
-      // Rimuovi ore, minuti e secondi per confrontare solo le date
-      const todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const eventDateOnly = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate());
-
-      if (eventDateOnly < todayDate || (eventDateOnly.getTime() === todayDate.getTime() && now > eventEnd)) {
-        return 'completed';
-      } else if (eventDateOnly.getTime() === todayDate.getTime() && now >= eventStart && now <= eventEnd) {
-        return 'ongoing';
-      } else {
-        return 'upcoming';
-      }
-    },
-
-    formatDate(dateStr) {
-      return new Date(dateStr).toLocaleDateString('it-IT', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      });
-    },
-
-    getStatusClass(status) {
-      const classes = {
-        upcoming: 'upcoming',
-        ongoing: 'ongoing',
-        completed: 'completed'
-      };
-      return classes[status] || classes.upcoming;
-    },
-
-    getStatusText(status, event) {
-      if (event && event.isRecurring) {
-        return 'Evento ricorrente';
-      }
-      
-      const texts = {
-        upcoming: 'In Programma',
-        ongoing: 'In Corso',
-        completed: 'Completato',
-        cancelled: 'Annullato'
-      };
-      return texts[status] || status;
-    },
-
-    editEvent(event) {
-      this.editingEvent = event;
-      this.eventForm = { ...event };
-      this.showAddModal = true;
-    },
-
-    deleteEvent(eventId) {
-      if (confirm('Sei sicuro di voler eliminare questo evento?')) {
-        this.$emit('delete-event', eventId);
-      }
-    },
-
-    saveEvent() {
-      const eventData = {
-        ...this.eventForm,
-        capacity: Number(this.eventForm.capacity),
-        ticketsSold: Number(this.eventForm.ticketsSold)
-      };
-
-      if (this.editingEvent) {
-        eventData.id = this.editingEvent.id;
-        this.$emit('update-event', eventData);
-      } else {
-        this.$emit('add-event', eventData);
-      }
-
-      this.resetForm();
-    },
-
-    resetForm() {
-      this.eventForm = {
-        name: "",
-        description: "",
-        date: "",
-        startTime: "",
-        endTime: "",
-        capacity: 0,
-        ticketsSold: 0,
-        isRecurring: false,
-        recurrenceType: 'weekly',
-        weekDays: [],
-        endDate: '',
-        excludedDates: []
-      };
-      this.editingEvent = null;
-      this.showAddModal = false;
-    },
-
-    showParticipants(event) {
-      if (event.isRecurring) {
-        this.selectedEvent = event;
-        this.eventOccurrences = this.generateOccurrences(event);
-        this.showOccurrenceModal = true;
-      } else {
-        this.selectedEvent = event;
-        this.showParticipantsModal = true;
-      }
-    },
-
-    viewOccurrenceParticipants(occurrence) {
-      this.selectedEvent = { ...this.selectedEvent, date: occurrence.date };
-      this.showOccurrenceModal = false;
-      this.showParticipantsModal = true;
-    },
-
-    getRecurrenceText(event) {
-      if (event.recurrenceType === 'weekly') {
-        const selectedDays = event.weekDays
-          .map(day => this.weekDays[parseInt(day)])
-          .join(' e ');
-        return `Ogni ${selectedDays}`;
-      } else if (event.recurrenceType === 'monthly') {
-        const dayOfMonth = new Date(event.date).getDate();
-        return `Ogni ${dayOfMonth} del mese`;
-      }
-      return '';
-    },
-
-    generateOccurrences(event) {
-      const occurrences = [];
-      const startDate = new Date(event.date);
-      const endDate = new Date(event.endDate);
-      
-      let currentDate = new Date(startDate);
-      
-      // Funzione helper per convertire il getDay() di JS (0-6, domenica-sabato) 
-      // nel nostro formato (0-6, lunedì-domenica)
-      const convertDay = (jsDay) => jsDay === 0 ? 6 : jsDay - 1;
-      
-      while (currentDate <= endDate) {
-        // Per eventi settimanali, verifica se il giorno corrente è tra quelli selezionati
-        if (event.recurrenceType === 'weekly') {
-          const adjustedDay = convertDay(currentDate.getDay()).toString();
-          if (event.weekDays.includes(adjustedDay)) {
-            const dateStr = currentDate.toISOString().split('T')[0];
-            // Verifica se la data non è tra quelle escluse
-            if (!event.excludedDates || !event.excludedDates.includes(dateStr)) {
-              occurrences.push({
-                date: dateStr,
-                startTime: event.startTime,
-                endTime: event.endTime
-              });
-            }
-          }
-          currentDate.setDate(currentDate.getDate() + 1);
-        } else if (event.recurrenceType === 'monthly') {
-          const dateStr = currentDate.toISOString().split('T')[0];
-          // Verifica se la data non è tra quelle escluse
-          if (!event.excludedDates || !event.excludedDates.includes(dateStr)) {
-            occurrences.push({
-              date: dateStr,
-              startTime: event.startTime,
-              endTime: event.endTime
-            });
-          }
-          currentDate.setMonth(currentDate.getMonth() + 1);
-        }
-      }
-      
-      return occurrences;
-    },
     
-    deleteOccurrence(occurrence) {
-      if (confirm('Sei sicuro di voler eliminare questo evento singolo?')) {
-        this.$emit('delete-occurrence', occurrence);
+    // Se le date sono uguali, confronta gli orari di inizio
+    const [hoursA, minutesA] = a.startTime.split(':').map(Number);
+    const [hoursB, minutesB] = b.startTime.split(':').map(Number);
+    const timeCompare = hoursA * 60 + minutesA - (hoursB * 60 + minutesB);
+    if (timeCompare !== 0) {
+      return timeCompare;
+    }
+    
+    // Se anche gli orari di inizio sono uguali, confronta gli orari di fine
+    const [endHoursA, endMinutesA] = a.endTime.split(':').map(Number);
+    const [endHoursB, endMinutesB] = b.endTime.split(':').map(Number);
+    return (endHoursA * 60 + endMinutesA) - (endHoursB * 60 + endMinutesB);
+  });
+});
+
+const eventsWithStatus = computed(() => {
+  return sortedEvents.value.map(event => ({
+    ...event,
+    status: calculateEventStatus(event)
+  }));
+});
+
+const activeEvents = computed(() => {
+  return eventsWithStatus.value.filter(event => event.status !== 'completed');
+});
+
+const pastEvents = computed(() => {
+  return eventsWithStatus.value.filter(event => event.status === 'completed');
+});
+
+// Methods
+function calculateEventStatus(event) {
+  // Se l'evento ha un campo status esplicito, usalo
+  if (event.status) {
+    return event.status;
+  }
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  // Per eventi ricorrenti
+  if (event.isRecurring) {
+    const endDate = new Date(event.endDate);
+    endDate.setHours(0, 0, 0, 0);
+    
+    if (endDate < today) {
+      return 'past';
+    }
+    
+    return 'active';
+  }
+  
+  // Per eventi singoli
+  const eventDate = new Date(event.date);
+  eventDate.setHours(0, 0, 0, 0);
+  
+  if (eventDate < today) {
+    return 'past';
+  }
+  
+  return 'active';
+}
+
+function formatDate(dateStr) {
+  return new Date(dateStr).toLocaleDateString('it-IT', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
+
+function getStatusClass(status) {
+  switch (status) {
+    case 'active':
+      return 'status-active';
+    case 'past':
+      return 'status-completed';
+    case 'ongoing':
+      return 'status-ongoing';
+    case 'upcoming':
+      return 'status-upcoming';
+    case 'completed':
+      return 'status-completed';
+    default:
+      return 'status-active';
+  }
+}
+
+function getStatusText(status, event) {
+  switch (status) {
+    case 'active':
+      if (event.isRecurring) {
+        return 'Attivo';
       }
+      return 'Attivo';
+    case 'past':
+      return 'Terminato';
+    case 'ongoing':
+      return 'In corso';
+    case 'upcoming':
+      return 'Prossimo';
+    case 'completed':
+      return 'Terminato';
+    default:
+      return 'Attivo';
+  }
+}
+
+function editEvent(event) {
+  editingEvent.value = event;
+  eventForm.value = { ...event };
+  showAddModal.value = true;
+}
+
+function deleteEvent(eventId) {
+  if (confirm('Sei sicuro di voler eliminare questo evento?')) {
+    emit('delete-event', eventId);
+  }
+}
+
+function saveEvent() {
+  const eventData = {
+    ...eventForm.value,
+    capacity: Number(eventForm.value.capacity),
+    ticketsSold: Number(eventForm.value.ticketsSold)
+  };
+
+  if (editingEvent.value) {
+    eventData.id = editingEvent.value.id;
+    emit('update-event', eventData);
+  } else {
+    emit('add-event', eventData);
+  }
+
+  resetForm();
+}
+
+function resetForm() {
+  eventForm.value = {
+    name: "",
+    description: "",
+    date: "",
+    startTime: "",
+    endTime: "",
+    capacity: 0,
+    ticketsSold: 0,
+    isRecurring: false,
+    recurrenceType: 'weekly',
+    weekDays: [],
+    endDate: '',
+    excludedDates: []
+  };
+  editingEvent.value = null;
+  showAddModal.value = false;
+}
+
+function showParticipants(event) {
+  if (event.isRecurring) {
+    selectedEvent.value = event;
+    eventOccurrences.value = generateOccurrences(event);
+    showOccurrenceModal.value = true;
+  } else {
+    selectedEvent.value = event;
+    showParticipantsModal.value = true;
+  }
+}
+
+function viewOccurrenceParticipants(occurrence) {
+  selectedEvent.value = { ...selectedEvent.value, date: occurrence.date };
+  showOccurrenceModal.value = false;
+  showParticipantsModal.value = true;
+}
+
+function getRecurrenceText(event) {
+  // If we have original data for weekly events, use that
+  if (event.originalData && event.originalData.type === 'Weekly') {
+    return `Evento settimanale dal ${event.date} al ${event.endDate}`;
+  }
+  
+  if (event.recurrenceType === 'weekly') {
+    const selectedDays = event.weekDays
+      .map(day => weekDays[day])
+      .filter(day => day) // Filter out undefined values
+      .join(' e ');
+    return `Ogni ${selectedDays || 'settimana'} dal ${event.date} al ${event.endDate}`;
+  } else if (event.recurrenceType === 'monthly') {
+    const dayOfMonth = new Date(event.date).getDate();
+    return `Ogni ${dayOfMonth} del mese`;
+  }
+  return '';
+}
+
+function generateOccurrences(event) {
+  // If we have the original data for weekly events, use that
+  if (event.originalData && event.originalData.type === 'Weekly') {
+    const occurrences = [];
+    
+    // Use the slot information from the enrichment data
+    if (event.originalData.enrichment && event.originalData.enrichment.slot) {
+      event.originalData.enrichment.slot.forEach(slot => {
+        occurrences.push({
+          date: slot.start_date,
+          startTime: slot.start_time,
+          endTime: slot.start_time, // End time not provided in slot, use start_time
+          capacity: slot.capacity,
+          participants: slot.participants
+        });
+      });
+    } else {
+      // Fallback to generating from info array
+      event.originalData.info.forEach(info => {
+        occurrences.push({
+          date: info.start_date,
+          startTime: info.start_time.substring(0, 5),
+          endTime: info.end_time.substring(0, 5),
+          id: info.id
+        });
+      });
+    }
+    
+    return occurrences;
+  }
+  
+  // Original implementation for manually created events
+  const occurrences = [];
+  const startDate = new Date(event.date);
+  const endDate = new Date(event.endDate);
+  
+  let currentDate = new Date(startDate);
+  
+  // Funzione helper per convertire il getDay() di JS (0-6, domenica-sabato) 
+  // nel nostro formato (0-6, lunedì-domenica)
+  const convertDay = (jsDay) => jsDay === 0 ? 6 : jsDay - 1;
+  
+  while (currentDate <= endDate) {
+    // Per eventi settimanali, verifica se il giorno corrente è tra quelli selezionati
+    if (event.recurrenceType === 'weekly') {
+      const currentDay = currentDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+      if (event.weekDays.includes(currentDay)) {
+        const dateStr = currentDate.toISOString().split('T')[0];
+        // Verifica se la data non è tra quelle escluse
+        if (!event.excludedDates || !event.excludedDates.includes(dateStr)) {
+          occurrences.push({
+            date: dateStr,
+            startTime: event.startTime,
+            endTime: event.endTime
+          });
+        }
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
+    } else if (event.recurrenceType === 'monthly') {
+      const dateStr = currentDate.toISOString().split('T')[0];
+      // Verifica se la data non è tra quelle escluse
+      if (!event.excludedDates || !event.excludedDates.includes(dateStr)) {
+        occurrences.push({
+          date: dateStr,
+          startTime: event.startTime,
+          endTime: event.endTime
+        });
+      }
+      currentDate.setMonth(currentDate.getMonth() + 1);
     }
   }
-};
+  
+  return occurrences;
+}
+
+function deleteOccurrence(occurrence) {
+  if (confirm('Sei sicuro di voler eliminare questo evento singolo?')) {
+    emit('delete-occurrence', occurrence);
+  }
+}
 </script>
 
 <style scoped>
@@ -674,19 +703,24 @@ export default {
   font-size: 0.875rem;
 }
 
-.status-badge.upcoming {
+.status-badge.status-active {
   background-color: #e6f3ff;
   color: #1a73e8;
 }
 
-.status-badge.ongoing {
+.status-badge.status-completed {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.status-badge.status-ongoing {
   background-color: #e6f7e6;
   color: #28a745;
 }
 
-.status-badge.completed {
-  background-color: #f0f0f0;
-  color: #666;
+.status-badge.status-upcoming {
+  background-color: #e6f3ff;
+  color: #1a73e8;
 }
 
 .event-description {
