@@ -1,4 +1,4 @@
-const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
+const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 
 
