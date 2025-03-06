@@ -26,6 +26,16 @@
             <span class="stat-value">{{ props.event.capacity - displayedParticipants }}</span>
           </div>
         </div>
+        <div class="export-actions">
+          <button class="btn btn-export btn-ics">
+            <i class="fas fa-calendar-alt"></i>
+            Esporta ICS
+          </button>
+          <button class="btn btn-export btn-xls">
+            <i class="fas fa-file-excel"></i>
+            Esporta XLS
+          </button>
+        </div>
       </div>
 
       <div v-if="loading" class="loading-indicator">
@@ -258,6 +268,42 @@ watch(() => [props.event.id, props.event.date, props.event.fullStartTime], ([new
 .stat-value {
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.export-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-export {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-ics {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-ics:hover {
+  background-color: #3e8e41;
+}
+
+.btn-xls {
+  background-color: #217346;
+  color: white;
+}
+
+.btn-xls:hover {
+  background-color: #1a5c38;
 }
 
 .loading-indicator, .no-participants {

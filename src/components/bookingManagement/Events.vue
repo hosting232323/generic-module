@@ -1,12 +1,8 @@
 <template>
   <div class="events-dashboard">
-    <!-- Header con titolo e pulsante nuovo evento -->
+    <!-- Header con titolo -->
     <div class="dashboard-header">
       <h1>Gestione Eventi</h1>
-      <button @click="showAddModal = true" class="btn btn-primary">
-        <i class="fas fa-plus-circle"></i>
-        Nuovo Evento
-      </button>
     </div>
 
     <!-- Lista Eventi -->
@@ -47,12 +43,6 @@
             <button @click="showParticipants(event)" class="btn btn-info">
               <i class="fas fa-users"></i>
               {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
-            </button>
-            <button @click="editEvent(event)" class="btn btn-secondary">
-              Modifica
-            </button>
-            <button @click="deleteEvent(event.id)" class="btn btn-danger">
-              Elimina
             </button>
           </div>
         </div>
@@ -104,102 +94,9 @@
                 <i class="fas fa-users"></i>
                 {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
               </button>
-              <button @click="deleteEvent(event.id)" class="btn btn-danger">
-                Elimina
-              </button>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Modal Aggiungi/Modifica Evento -->
-    <div v-if="showAddModal" class="modal-overlay">
-      <div class="modal-content event-form-modal">
-        <h2>{{ editingEvent ? 'Modifica Evento' : 'Nuovo Evento' }}</h2>
-        <form @submit.prevent="saveEvent" class="event-form">
-          <div class="form-content">
-            <div class="form-grid">
-              <div class="form-group">
-                <label>Nome Evento</label>
-                <input v-model="eventForm.name" type="text" required>
-              </div>
-              <div class="form-group">
-                <label>Descrizione</label>
-                <textarea v-model="eventForm.description" rows="3" required></textarea>
-              </div>
-              <div class="form-group">
-                <label>Tipo Evento</label>
-                <select v-model="eventForm.isRecurring" class="form-control">
-                  <option :value="false">Singolo</option>
-                  <option :value="true">Ricorrente</option>
-                </select>
-              </div>
-              <div v-if="eventForm.isRecurring" class="form-group">
-                <label>Frequenza</label>
-                <select v-model="eventForm.recurrenceType" class="form-control">
-                  <option value="weekly">Settimanale</option>
-                  <option value="monthly">Mensile</option>
-                </select>
-              </div>
-              <div v-if="eventForm.isRecurring && eventForm.recurrenceType === 'weekly'" class="form-group">
-                <label>Giorni della Settimana</label>
-                <div class="weekday-checkboxes">
-                  <label v-for="(day, index) in weekDays" :key="day" class="weekday-checkbox">
-                    <input 
-                      type="checkbox" 
-                      :value="index" 
-                      v-model="eventForm.weekDays"
-                      :required="eventForm.weekDays.length === 0"
-                    >
-                    {{ day }}
-                  </label>
-                </div>
-                <small class="error-text" v-if="eventForm.weekDays.length === 0">
-                  Seleziona almeno un giorno
-                </small>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>{{ eventForm.isRecurring ? 'Data Inizio' : 'Data' }}</label>
-                  <input v-model="eventForm.date" type="date" required>
-                </div>
-                <div v-if="eventForm.isRecurring" class="form-group">
-                  <label>Data Fine</label>
-                  <input v-model="eventForm.endDate" type="date" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Orario di Inizio</label>
-                  <input v-model="eventForm.startTime" type="time" required>
-                </div>
-                <div class="form-group">
-                  <label>Orario di Fine</label>
-                  <input v-model="eventForm.endTime" type="time" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Capacità</label>
-                  <input v-model.number="eventForm.capacity" type="number" required>
-                </div>
-                <div class="form-group">
-                  <label>Biglietti Venduti</label>
-                  <input v-model.number="eventForm.ticketsSold" type="number" required>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-actions">
-            <button type="button" @click="showAddModal = false" class="btn btn-secondary">
-              Annulla
-            </button>
-            <button type="submit" class="btn btn-primary">
-              {{ editingEvent ? 'Salva Modifiche' : 'Crea Evento' }}
-            </button>
-          </div>
-        </form>
       </div>
     </div>
 
@@ -214,7 +111,6 @@
             </button>
             <h2>{{ selectedEvent.name }}</h2>
           </div>
-          <!-- Rimosso il bottone "Aggiungi Occorrenza" come richiesto -->
         </div>
         <div class="occurrences-list-container">
           <div class="occurrences-list">
@@ -242,9 +138,6 @@
                   <button @click="showOccurrenceParticipants(occurrence)" class="btn btn-info">
                     <i class="fas fa-users"></i>
                     Partecipanti
-                  </button>
-                  <button @click="deleteOccurrence(occurrence.id)" class="btn btn-danger">
-                    Elimina
                   </button>
                 </div>
               </div>
@@ -280,32 +173,15 @@ const props = defineProps({
 const emit = defineEmits(['refresh']);
 
 // Stato del componente
-const showAddModal = ref(false);
 const showOccurrenceModal = ref(false);
 const showParticipantsModal = ref(false);
 const showPastEvents = ref(false);
-const editingEvent = ref(null);
 const selectedEvent = ref(null);
 const participantsEvent = ref(null);
 const isRecurringOccurrence = ref(false);
 
 // Giorni della settimana
 const weekDays = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
-
-// Form per l'aggiunta/modifica di un evento
-const eventForm = ref({
-  name: '',
-  description: '',
-  isRecurring: false,
-  recurrenceType: 'weekly',
-  weekDays: [],
-  date: '',
-  endDate: '',
-  startTime: '',
-  endTime: '',
-  capacity: 20,
-  ticketsSold: 0
-});
 
 // Filtra gli eventi attivi e passati
 const activeEvents = computed(() => {
@@ -397,53 +273,6 @@ const showOccurrenceParticipants = (occurrence) => {
   isRecurringOccurrence.value = true;
   showParticipantsModal.value = true;
   showOccurrenceModal.value = false;
-};
-
-// Modifica un evento
-const editEvent = (event) => {
-  editingEvent.value = event;
-  
-  // Popola il form con i dati dell'evento
-  eventForm.value = {
-    id: event.id,
-    name: event.name,
-    description: event.description || event.name,
-    isRecurring: event.isRecurring,
-    recurrenceType: event.recurrenceType || 'weekly',
-    weekDays: event.weekDays || [],
-    date: event.date,
-    endDate: event.endDate || event.date,
-    startTime: event.startTime,
-    endTime: event.endTime,
-    capacity: event.capacity || 20,
-    ticketsSold: event.ticketsSold || 0
-  };
-  
-  showAddModal.value = true;
-};
-
-// Salva un evento
-const saveEvent = () => {
-  // Qui implementeremo la logica per salvare l'evento nel backend
-  // Per ora, chiudiamo solo il modale
-  showAddModal.value = false;
-  emit('refresh');
-};
-
-// Elimina un evento
-const deleteEvent = (eventId) => {
-  if (confirm('Sei sicuro di voler eliminare questo evento?')) {
-    // Qui implementeremo la logica per eliminare l'evento dal backend
-    emit('refresh');
-  }
-};
-
-// Elimina un'occorrenza
-const deleteOccurrence = (occurrenceId) => {
-  if (confirm('Sei sicuro di voler eliminare questa occorrenza?')) {
-    // Qui implementeremo la logica per eliminare l'occorrenza dal backend
-    emit('refresh');
-  }
 };
 </script>
 <style scoped>
