@@ -8,18 +8,45 @@
     </div>
 
     <div class="participants-content">
-      <div class="participants-stats">
-        <div class="stat-item">
-          <span class="stat-label">Totale Partecipanti:</span>
-          <span class="stat-value">{{ totalParticipants }}</span>
+      <div class="participants-info">
+        <div class="event-details">
+          <h3>{{ props.event.name }}</h3>
+          <p v-if="props.isRecurringOccurrence">
+            Data: {{ formatDate(props.event.date) }} | 
+            Orario: {{ props.event.startTime }} - {{ props.event.endTime }}
+          </p>
         </div>
-        <div class="stat-item">
-          <span class="stat-label">Posti Disponibili:</span>
-          <span class="stat-value">{{ event.capacity - totalParticipants }}</span>
+        <div class="participants-stats">
+          <div class="stat-item">
+            <span class="stat-label">Totale Partecipanti:</span>
+            <span class="stat-value">{{ displayedParticipants }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Posti Disponibili:</span>
+            <span class="stat-value">{{ props.event.capacity - displayedParticipants }}</span>
+          </div>
+        </div>
+        <div class="export-actions">
+          <button class="btn btn-export btn-ics">
+            <i class="fas fa-calendar-alt"></i>
+            Esporta ICS
+          </button>
+          <button class="btn btn-export btn-xls">
+            <i class="fas fa-file-excel"></i>
+            Esporta XLS
+          </button>
         </div>
       </div>
 
-      <div class="participants-table">
+      <div v-if="loading" class="loading-indicator">
+        <p>Caricamento partecipanti in corso...</p>
+      </div>
+
+      <div v-else-if="participants.length === 0" class="no-participants">
+        <p>Nessun partecipante registrato per questo evento.</p>
+      </div>
+
+      <div v-else class="participants-table">
         <table>
           <thead>
             <tr>
@@ -28,7 +55,6 @@
               <th>Email</th>
               <th>Telefono</th>
               <th>N° Partecipanti</th>
-              <th>Lingua</th>
               <th>Note</th>
             </tr>
           </thead>
@@ -39,7 +65,6 @@
               <td>{{ participant.email }}</td>
               <td>{{ participant.phone }}</td>
               <td>{{ participant.numberOfParticipants }}</td>
-              <td>{{ participant.language }}</td>
               <td>
                 <span v-if="participant.notes" class="notes-tooltip" :title="participant.notes">
                   <i class="fas fa-info-circle"></i>
@@ -53,128 +78,238 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    event: {
-      type: Object,
-      required: true
-    }
+<script setup>
+import { ref, computed, defineProps, defineEmits, onMounted, watch } from 'vue';
+import http from '@/utils/http';
+
+const props = defineProps({
+  event: {
+    type: Object,
+    required: true
   },
-
-  data() {
-    return {
-      participants: this.generateRandomParticipants()
-    };
-  },
-
-  computed: {
-    totalParticipants() {
-      return this.participants.reduce((sum, p) => sum + p.numberOfParticipants, 0);
-    }
-  },
-
-  methods: {
-    generateRandomParticipants() {
-      const languages = ['Italiano', 'Inglese', 'Francese', 'Tedesco', 'Spagnolo'];
-      const firstNames = ['Marco', 'Anna', 'Giuseppe', 'Maria', 'Giovanni', 'Laura', 'Paolo', 'Chiara'];
-      const lastNames = ['Rossi', 'Bianchi', 'Verdi', 'Ferrari', 'Romano', 'Costa'];
-      const notes = [
-        'Richiesta posto vicino al palco',
-        'Allergia al lattosio',
-        'Necessita di assistenza',
-        'Gruppo familiare',
-        null,
-        null
-      ];
-
-      const numParticipants = Math.floor(Math.random() * (this.event.capacity * 0.8));
-      const participants = [];
-
-      for (let i = 0; i < numParticipants; i++) {
-        const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-        const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-        
-        participants.push({
-          firstName,
-          lastName,
-          email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}${Math.floor(Math.random() * 100)}@email.com`,
-          phone: `+39 ${Math.floor(Math.random() * 1000).toString().padStart(3, '0')} ${Math.floor(Math.random() * 10000000).toString().padStart(7, '0')}`,
-          numberOfParticipants: Math.floor(Math.random() * 3) + 1,
-          language: languages[Math.floor(Math.random() * languages.length)],
-          notes: notes[Math.floor(Math.random() * notes.length)]
-        });
-      }
-
-      return participants;
-    }
+  isRecurringOccurrence: {
+    type: Boolean,
+    default: false
   }
+});
+
+defineEmits(['close']);
+
+const participants = ref([]);
+const loading = ref(true);
+
+// Calcola il totale dei partecipanti dai dati dei partecipanti caricati
+const calculatedParticipants = computed(() => {
+  return participants.value.reduce((sum, participant) => sum + participant.numberOfParticipants, 0);
+});
+
+// Determina quale valore di partecipanti mostrare
+const displayedParticipants = computed(() => {
+  // Se l'evento ha già il numero di partecipanti, usalo direttamente
+  if (props.event && typeof props.event.ticketsSold === 'number') {
+    return props.event.ticketsSold;
+  }
+  // Altrimenti usa il valore calcolato dai partecipanti caricati
+  return calculatedParticipants.value;
+});
+
+// Formatta una data nel formato italiano
+const formatDate = (dateString) => {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('it-IT', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
 };
+
+const fetchParticipants = () => {
+  loading.value = true;
+  
+  console.log('Evento ricevuto in EventParticipants:', props.event);
+  
+  // Costruisci i parametri della richiesta in base al tipo di evento
+  const params = {};
+  
+  if (props.isRecurringOccurrence) {
+    // Se è un'occorrenza di un evento ricorrente, usa l'ID dell'occorrenza
+    const [eventId, date, time] = props.event.id.split('-');
+    params.event_id = eventId;
+    
+    // Assicurati che la data sia completa (YYYY-MM-DD)
+    params.date = props.event.date || date;
+    
+    // Usa l'orario completo con i secondi se disponibile, altrimenti formattalo
+    if (props.event.fullStartTime) {
+      params.time = props.event.fullStartTime;
+    } else {
+      // Formatta l'orario nel formato HH:MM:SS
+      const formattedTime = time.length === 4 
+        ? `${time.substring(0, 2)}:${time.substring(2, 4)}:00`
+        : `${time.substring(0, 2)}:${time.substring(2, 4)}:${time.substring(4, 6)}`;
+      params.time = formattedTime;
+    }
+  } else if (!props.event.isRecurring) {
+    // Se è un evento singolo, usa l'ID dell'evento
+    params.event_id = props.event.id;
+  } else {
+    // Se è un evento ricorrente (ma non un'occorrenza specifica), usa l'ID dell'evento
+    params.event_id = props.event.id;
+  }
+  
+  console.log('Parametri richiesta partecipanti:', params);
+  
+  http.getRequestBooking('booking', params, (response) => {
+    loading.value = false;
+    console.log('Risposta partecipanti dal backend:', response);
+    
+    if (response.status === 'ok' && response.data) {
+      participants.value = response.data.map(participant => {
+        // Estrai i dati dall'oggetto enrichment se presente
+        const enrichment = participant.enrichment || {};
+        
+        return {
+          firstName: enrichment.first_name || '',
+          lastName: enrichment.last_name || '',
+          email: participant.email || '',
+          phone: enrichment.phone || '',
+          numberOfParticipants: participant.participants || 1,
+          notes: enrichment.notes || ''
+        };
+      });
+      console.log('Partecipanti trasformati:', participants.value);
+    } else {
+      console.error('Errore nel recupero dei partecipanti:', response);
+      participants.value = [];
+    }
+  });
+};
+
+// Carica i partecipanti all'avvio del componente
+onMounted(fetchParticipants);
+
+// Ricarica i partecipanti quando cambia l'evento visualizzato
+watch(() => [props.event.id, props.event.date, props.event.fullStartTime], ([newId, newDate, newTime], [oldId, oldDate, oldTime]) => {
+  if (newId !== oldId || newDate !== oldDate || newTime !== oldTime) {
+    console.log('Evento o dettagli cambiati, ricarico i partecipanti');
+    fetchParticipants();
+  }
+}, { immediate: false });
 </script>
 
 <style scoped>
 .participants-modal {
-  background: white;
+  background-color: white;
   border-radius: 8px;
   width: 90%;
-  max-width: 1200px;
+  max-width: 800px;
   max-height: 90vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid #eee;
-}
-
-.modal-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.btn-close {
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  color: #666;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.btn-close:hover {
-  color: #333;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .participants-content {
-  padding: 1.5rem;
+  flex: 1;
+  padding: 1rem;
   overflow-y: auto;
+}
+
+.participants-info {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.event-details {
+  margin-bottom: 1rem;
+}
+
+.event-details h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.event-details p {
+  margin: 0;
+  color: #666;
 }
 
 .participants-stats {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .stat-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .stat-label {
-  font-weight: 500;
+  font-size: 0.9rem;
   color: #666;
+  margin-bottom: 0.25rem;
 }
 
 .stat-value {
-  font-weight: 600;
-  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.export-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-export {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-ics {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-ics:hover {
+  background-color: #3e8e41;
+}
+
+.btn-xls {
+  background-color: #217346;
+  color: white;
+}
+
+.btn-xls:hover {
+  background-color: #1a5c38;
+}
+
+.loading-indicator, .no-participants {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
 }
 
 .participants-table {
@@ -185,33 +320,37 @@ export default {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 800px;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 th {
-  background-color: #f8f8f8;
-  padding: 0.75rem 1rem;
-  text-align: left;
-  font-weight: 500;
-  color: #666;
-  border-bottom: 2px solid #eee;
-}
-
-td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #eee;
+  background-color: #f5f5f5;
+  font-weight: 600;
 }
 
 tr:hover {
-  background-color: #f8f8f8;
+  background-color: #f9f9f9;
 }
 
 .notes-tooltip {
-  color: #666;
   cursor: help;
+  color: #007bff;
 }
 
-.notes-tooltip:hover {
+.btn-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.btn-close:hover {
   color: #333;
 }
 </style>
