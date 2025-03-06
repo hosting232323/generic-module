@@ -1,11 +1,9 @@
 <template>
   <div class="events-dashboard">
-    <!-- Header con titolo -->
     <div class="dashboard-header">
       <h1>Gestione Eventi</h1>
     </div>
 
-    <!-- Lista Eventi -->
     <div class="events-list">
       <div v-for="event in activeEvents" :key="event.id" class="event-card">
         <div class="event-content">
@@ -49,7 +47,6 @@
       </div>
     </div>
 
-    <!-- Lista Eventi Passati -->
     <div class="past-events-section">
       <button @click="showPastEvents = !showPastEvents" class="past-events-toggle">
         <i class="fas fa-chevron-down" v-if="showPastEvents"></i>
@@ -100,7 +97,6 @@
       </div>
     </div>
 
-    <!-- Modal Occorrenze Evento Ricorrente -->
     <div v-if="showOccurrenceModal" class="modal-overlay">
       <div class="modal-content recurring-events-modal">
         <div class="modal-header">
@@ -147,7 +143,6 @@
       </div>
     </div>
 
-    <!-- Modal Partecipanti -->
     <div v-if="showParticipantsModal" class="modal-overlay">
       <EventParticipants 
         :event="participantsEvent" 
@@ -161,7 +156,7 @@
 <script setup>
 import { ref, computed, defineProps, defineEmits } from 'vue';
 import EventParticipants from './EventParticipants.vue';
-import './Events.css';
+import '../../styles/Events.css';
 
 const props = defineProps({
   events: {
