@@ -84,10 +84,15 @@ const fetchParticipants = () => {
   
   if (props.event.isRecurring) {
     // For Weekly events, we need event ID, date, and time
+    // Format time to match the expected format in the API (HH:MM:SS)
+    const formattedTime = props.event.startTime.includes(':') && props.event.startTime.split(':').length === 2
+      ? `${props.event.startTime}:00`
+      : props.event.startTime;
+    
     params = {
       event_id: props.event.id,
       date: props.event.date,
-      time: props.event.startTime
+      time: formattedTime
     };
   } else {
     // For Single events, we only need event ID

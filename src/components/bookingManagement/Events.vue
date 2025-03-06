@@ -33,7 +33,7 @@
                   </template>
                 </p>
               </div>
-              <div class="detail-item">
+              <div class="detail-item" v-if="!event.isRecurring">
                 <p class="detail-label">Orario</p>
                 <p class="detail-value">{{ event.startTime }} - {{ event.endTime }}</p>
               </div>
@@ -89,7 +89,7 @@
                     </template>
                   </p>
                 </div>
-                <div class="detail-item">
+                <div class="detail-item" v-if="!event.isRecurring">
                   <p class="detail-label">Orario</p>
                   <p class="detail-value">{{ event.startTime }} - {{ event.endTime }}</p>
                 </div>
@@ -225,19 +225,6 @@
           <p class="event-recurrence">{{ getRecurrenceText(selectedEvent) }}</p>
         </div>
         
-        <div class="event-period">
-          <div class="period-item">
-            <span class="period-label">Periodo:</span>
-            <span class="period-value">
-              {{ formatDate(selectedEvent.date) }} - {{ formatDate(selectedEvent.endDate) }}
-            </span>
-          </div>
-          <div class="period-item">
-            <span class="period-label">Orario:</span>
-            <span class="period-value">{{ selectedEvent.startTime }} - {{ selectedEvent.endTime }}</span>
-          </div>
-        </div>
-
         <div class="occurrence-container">
           <div class="list-header">
             <h3>Eventi singoli</h3>
@@ -513,7 +500,7 @@ function viewOccurrenceParticipants(occurrence) {
 function getRecurrenceText(event) {
   // If we have original data for weekly events, use that
   if (event.originalData && event.originalData.type === 'Weekly') {
-    return `Evento settimanale dal ${event.date} al ${event.endDate}`;
+    return `Evento settimanale dal ${formatDate(event.date)} al ${formatDate(event.endDate)}`;
   }
   
   if (event.recurrenceType === 'weekly') {
@@ -521,7 +508,7 @@ function getRecurrenceText(event) {
       .map(day => weekDays[day])
       .filter(day => day) // Filter out undefined values
       .join(' e ');
-    return `Ogni ${selectedDays || 'settimana'} dal ${event.date} al ${event.endDate}`;
+    return `Ogni ${selectedDays || 'settimana'} dal ${formatDate(event.date)} al ${formatDate(event.endDate)}`;
   } else if (event.recurrenceType === 'monthly') {
     const dayOfMonth = new Date(event.date).getDate();
     return `Ogni ${dayOfMonth} del mese`;
