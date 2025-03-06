@@ -172,7 +172,6 @@ const props = defineProps({
 
 const emit = defineEmits(['refresh']);
 
-// Stato del componente
 const showOccurrenceModal = ref(false);
 const showParticipantsModal = ref(false);
 const showPastEvents = ref(false);
@@ -180,10 +179,8 @@ const selectedEvent = ref(null);
 const participantsEvent = ref(null);
 const isRecurringOccurrence = ref(false);
 
-// Giorni della settimana
 const weekDays = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
 
-// Filtra gli eventi attivi e passati
 const activeEvents = computed(() => {
   return props.events.filter(event => 
     event.status === 'upcoming' || 
@@ -196,7 +193,6 @@ const pastEvents = computed(() => {
   return props.events.filter(event => event.status === 'completed');
 });
 
-// Formatta una data
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   return date.toLocaleDateString('it-IT', {
@@ -206,7 +202,6 @@ const formatDate = (dateString) => {
   });
 };
 
-// Ottiene il testo della ricorrenza
 const getRecurrenceText = (event) => {
   if (event.recurrenceType === 'weekly') {
     const days = event.weekDays
@@ -221,7 +216,6 @@ const getRecurrenceText = (event) => {
   return '';
 };
 
-// Ottiene la classe CSS per lo stato dell'evento
 const getStatusClass = (status) => {
   switch (status) {
     case 'active':
@@ -237,7 +231,6 @@ const getStatusClass = (status) => {
   }
 };
 
-// Ottiene il testo dello stato dell'evento
 const getStatusText = (status, event) => {
   switch (status) {
     case 'active':
@@ -253,21 +246,17 @@ const getStatusText = (status, event) => {
   }
 };
 
-// Mostra il modale dei partecipanti
 const showParticipants = (event) => {
   if (event.isRecurring) {
-    // Per eventi ricorrenti, mostra le occorrenze
     selectedEvent.value = event;
     showOccurrenceModal.value = true;
   } else {
-    // Per eventi singoli, mostra i partecipanti
     participantsEvent.value = event;
     isRecurringOccurrence.value = false;
     showParticipantsModal.value = true;
   }
 };
 
-// Mostra i partecipanti di un'occorrenza
 const showOccurrenceParticipants = (occurrence) => {
   participantsEvent.value = occurrence;
   isRecurringOccurrence.value = true;
