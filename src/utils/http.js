@@ -112,7 +112,7 @@ const getRequestBooking = (endpoint, params, func, method = 'GET', router = unde
     }
     if (!response.ok)
       throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-    return (file) ? response.json() : response.blob();
+    return (!file) ? response.json() : response.blob();
   }).then(data => {
     sessionHandler(data, func, router);
   }).catch(error => {

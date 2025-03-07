@@ -105,8 +105,8 @@ const calculatedParticipants = computed(() => {
 const exportFile = (exportType) => {
   let params = {};
   if (props.isRecurringOccurrence)
-    params = { date: props.event.date, time: props.event.time };
-  http.getRequestBooking(`export/${props.event.id}/${exportType}`, params, function (blob) {
+    params = { date: props.event.date, time: props.event.fullStartTime };
+  http.getRequestBooking(`export/${props.event.id.split('-')[0]}/${exportType}`, params, function (blob) {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -115,7 +115,7 @@ const exportFile = (exportType) => {
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
-  });
+  }, 'GET', undefined, true);
 };
 
 const displayedParticipants = computed(() => {
