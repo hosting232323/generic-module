@@ -27,11 +27,11 @@
           </div>
         </div>
         <div class="export-actions">
-          <button class="btn btn-export btn-ics">
+          <button class="btn btn-export btn-ics" @click="exportFile('ics')">
             <i class="fas fa-calendar-alt"></i>
             Esporta ICS
           </button>
-          <button class="btn btn-export btn-xls">
+          <button class="btn btn-export btn-xls" @click="exportFile('xls')">
             <i class="fas fa-file-excel"></i>
             Esporta XLS
           </button>
@@ -101,6 +101,22 @@ const loading = ref(true);
 const calculatedParticipants = computed(() => {
   return participants.value.reduce((sum, participant) => sum + participant.numberOfParticipants, 0);
 });
+
+const exportFile = (exportType) => {
+  let params = {};
+  if (props.isRecurringOccurrence)
+    params = { date: props.event.date, time: props.event.time };
+  http.getRequestBooking(`export/${props.event.id}/${exportType}`, params, function (blob) {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `export.${exportType}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  });
+};
 
 const displayedParticipants = computed(() => {
   if (props.event && typeof props.event.ticketsSold === 'number') {

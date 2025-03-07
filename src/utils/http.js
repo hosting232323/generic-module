@@ -98,7 +98,7 @@ const sessionHandler = (data, func, router) => {
     func(data);
 };
 
-const getRequestBooking = (endpoint, params, func, method = 'GET', router = undefined) => {
+const getRequestBooking = (endpoint, params, func, method = 'GET', router = undefined, file = false) => {
   const url = new URL(`${hostnameBooking}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -112,10 +112,11 @@ const getRequestBooking = (endpoint, params, func, method = 'GET', router = unde
     }
     if (!response.ok)
       throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-    return response.json();
+    return (file) ? response.json() : response.blob();
   }).then(data => {
     sessionHandler(data, func, router);
   }).catch(error => {
+    console.error('Errore nella richiesta:', error);
   });
 };
 
