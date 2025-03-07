@@ -106,7 +106,6 @@ const getRequestBooking = (endpoint, params, func, method = 'GET', router = unde
     method: method,
     headers: createHeader(router),
   }).then(response => {
-    console.log('Response received:', response); // Aggiungi questo
     if (response.status === 404) {
       console.error('Endpoint not found: 404');
       return;
@@ -115,10 +114,8 @@ const getRequestBooking = (endpoint, params, func, method = 'GET', router = unde
       throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
     return response.json();
   }).then(data => {
-    console.log('Data received:', data); // Aggiungi questo
     sessionHandler(data, func, router);
   }).catch(error => {
-    console.error('Errore nella richiesta:', error);
   });
 };
 
@@ -128,7 +125,6 @@ const postRequestBooking = (endpoint, body, func, method = 'POST', router = unde
     headers: createHeader(router),
     body: JSON.stringify(body),
   }).then(response => {
-    console.log('Response received:', response); // Aggiungi questo
     if (response.status === 404) {
       console.error('Endpoint not found: 404');
       return;
@@ -137,7 +133,6 @@ const postRequestBooking = (endpoint, body, func, method = 'POST', router = unde
       throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
     return response.json();
   }).then(data => {
-    console.log('Data received:', data); // Aggiungi questo
     sessionHandler(data, func, router);
   }).catch(error => {
     console.error('Errore nella richiesta:', error);

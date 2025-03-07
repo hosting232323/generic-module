@@ -98,22 +98,17 @@ defineEmits(['close']);
 const participants = ref([]);
 const loading = ref(true);
 
-// Calcola il totale dei partecipanti dai dati dei partecipanti caricati
 const calculatedParticipants = computed(() => {
   return participants.value.reduce((sum, participant) => sum + participant.numberOfParticipants, 0);
 });
 
-// Determina quale valore di partecipanti mostrare
 const displayedParticipants = computed(() => {
-  // Se l'evento ha già il numero di partecipanti, usalo direttamente
   if (props.event && typeof props.event.ticketsSold === 'number') {
     return props.event.ticketsSold;
   }
-  // Altrimenti usa il valore calcolato dai partecipanti caricati
   return calculatedParticipants.value;
 });
 
-// Formatta una data nel formato italiano
 const formatDate = (dateString) => {
   if (!dateString) return '';
   const date = new Date(dateString);
@@ -126,47 +121,34 @@ const formatDate = (dateString) => {
 
 const fetchParticipants = () => {
   loading.value = true;
-  
-  console.log('Evento ricevuto in EventParticipants:', props.event);
-  
-  // Costruisci i parametri della richiesta in base al tipo di evento
+    
   const params = {};
   
   if (props.isRecurringOccurrence) {
-    // Se è un'occorrenza di un evento ricorrente, usa l'ID dell'occorrenza
     const [eventId, date, time] = props.event.id.split('-');
     params.event_id = eventId;
     
-    // Assicurati che la data sia completa (YYYY-MM-DD)
     params.date = props.event.date || date;
     
-    // Usa l'orario completo con i secondi se disponibile, altrimenti formattalo
     if (props.event.fullStartTime) {
       params.time = props.event.fullStartTime;
     } else {
-      // Formatta l'orario nel formato HH:MM:SS
       const formattedTime = time.length === 4 
         ? `${time.substring(0, 2)}:${time.substring(2, 4)}:00`
         : `${time.substring(0, 2)}:${time.substring(2, 4)}:${time.substring(4, 6)}`;
       params.time = formattedTime;
     }
   } else if (!props.event.isRecurring) {
-    // Se è un evento singolo, usa l'ID dell'evento
     params.event_id = props.event.id;
   } else {
-    // Se è un evento ricorrente (ma non un'occorrenza specifica), usa l'ID dell'evento
     params.event_id = props.event.id;
   }
-  
-  console.log('Parametri richiesta partecipanti:', params);
-  
+    
   http.getRequestBooking('booking', params, (response) => {
     loading.value = false;
-    console.log('Risposta partecipanti dal backend:', response);
     
     if (response.status === 'ok' && response.data) {
       participants.value = response.data.map(participant => {
-        // Estrai i dati dall'oggetto enrichment se presente
         const enrichment = participant.enrichment || {};
         
         return {
@@ -178,7 +160,6 @@ const fetchParticipants = () => {
           notes: enrichment.notes || ''
         };
       });
-      console.log('Partecipanti trasformati:', participants.value);
     } else {
       console.error('Errore nel recupero dei partecipanti:', response);
       participants.value = [];
@@ -186,13 +167,10 @@ const fetchParticipants = () => {
   });
 };
 
-// Carica i partecipanti all'avvio del componente
 onMounted(fetchParticipants);
 
-// Ricarica i partecipanti quando cambia l'evento visualizzato
 watch(() => [props.event.id, props.event.date, props.event.fullStartTime], ([newId, newDate, newTime], [oldId, oldDate, oldTime]) => {
   if (newId !== oldId || newDate !== oldDate || newTime !== oldTime) {
-    console.log('Evento o dettagli cambiati, ricarico i partecipanti');
     fetchParticipants();
   }
 }, { immediate: false });
