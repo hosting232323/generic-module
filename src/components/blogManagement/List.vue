@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-slide-group v-model="selectedColorTopic" center-active show-arrows>
         <v-slide-group-item value="null" v-slot="{ isSelected, toggle }">
-          <v-btn text="Tutti" :color="selectedColorTopic === null ? data.info.primaryColor : undefined"
+          <v-btn text="Tutti" style="margin: 0 4px 0 0;" :color="selectedColorTopic === null ? data.info.primaryColor : undefined"
             @click="selectedColorTopic = null" />
         </v-slide-group-item>
 
@@ -14,7 +14,7 @@
         </v-slide-group-item>
 
         <v-slide-group-item value="altri" v-slot="{ isSelected, toggle }">
-          <v-btn text="Altri" :color="isSelected ? data.info.primaryColor : undefined" @click="toggle" />
+          <v-btn text="Altri" style="margin: 0 0 0 4px;" :color="isSelected ? data.info.primaryColor : undefined" @click="toggle" />
         </v-slide-group-item>
       </v-slide-group>
     </v-col>
