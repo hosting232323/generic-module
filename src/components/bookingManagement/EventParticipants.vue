@@ -35,7 +35,20 @@
             <i class="fas fa-file-excel"></i>
             Esporta XLS
           </button>
+          <button 
+            class="btn btn-export" 
+            :class="isEventBlocked ? 'btn-unblock' : 'btn-block'"
+            @click="toggleEventBlocked"
+          >
+            <i :class="isEventBlocked ? 'fas fa-unlock' : 'fas fa-lock'"></i>
+            {{ isEventBlocked ? 'Sblocca Prenotazioni' : 'Blocca Prenotazioni' }}
+          </button>
         </div>
+      </div>
+
+      <div v-if="isEventBlocked" class="event-blocked-notice">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Questo evento è attualmente bloccato. Le nuove prenotazioni non sono consentite.</span>
       </div>
 
       <div v-if="loading" class="loading-indicator">
@@ -56,6 +69,7 @@
               <th>Telefono</th>
               <th>N° Partecipanti</th>
               <th>Note</th>
+              <th>Azioni</th>
             </tr>
           </thead>
           <tbody>
@@ -65,10 +79,11 @@
               <td>{{ participant.email }}</td>
               <td>{{ participant.phone }}</td>
               <td>{{ participant.numberOfParticipants }}</td>
+              <td>{{ participant.notes }}</td>
               <td>
-                <span v-if="participant.notes" class="notes-tooltip" :title="participant.notes">
-                  <i class="fas fa-info-circle"></i>
-                </span>
+                <button class="btn-delete" @click="deleteParticipant(participant)">
+                  <i class="fas fa-trash"></i>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -97,6 +112,7 @@ defineEmits(['close']);
 
 const participants = ref([]);
 const loading = ref(true);
+const isEventBlocked = ref(false);
 
 const calculatedParticipants = computed(() => {
   return participants.value.reduce((sum, participant) => sum + participant.numberOfParticipants, 0);
@@ -181,6 +197,19 @@ const fetchParticipants = () => {
       participants.value = [];
     }
   });
+};
+
+const deleteParticipant = (participant) => {
+  // Placeholder function for future implementation
+  console.log('Delete participant:', participant);
+  // In future: will call an API endpoint to delete the participant
+};
+
+const toggleEventBlocked = () => {
+  // Placeholder function for future implementation
+  isEventBlocked.value = !isEventBlocked.value;
+  console.log('Event booking status changed:', isEventBlocked.value ? 'Blocked' : 'Unblocked');
+  // In future: will call an API endpoint to update the event's booking status
 };
 
 onMounted(fetchParticipants);
@@ -300,6 +329,39 @@ watch(() => [props.event.id, props.event.date, props.event.fullStartTime], ([new
   background-color: #1a5c38;
 }
 
+.btn-block {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-block:hover {
+  background-color: #5a6268;
+}
+
+.btn-unblock {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-unblock:hover {
+  background-color: #218838;
+}
+
+.event-blocked-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.event-blocked-notice i {
+  font-size: 1.2rem;
+}
+
 .loading-indicator, .no-participants {
   text-align: center;
   padding: 2rem;
@@ -331,9 +393,18 @@ tr:hover {
   background-color: #f9f9f9;
 }
 
-.notes-tooltip {
-  cursor: help;
-  color: #007bff;
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
 }
 
 .btn-close {
