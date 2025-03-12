@@ -35,14 +35,14 @@
             <i class="fas fa-file-excel"></i>
             Esporta XLS
           </button>
-          <button 
+          <v-btn 
             class="btn btn-export btn-block" 
             @click="toggleEventBlocked"
             :loading="blockLoading"
           >
             <i class="fas fa-lock"></i>
-            Blocca Prenotazioni
-          </button>
+            Blocca
+          </v-btn>
         </div>
       </div>
 
