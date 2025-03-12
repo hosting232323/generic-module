@@ -71,51 +71,36 @@ const transformEvents = (backendEvents) => {
     return null;
   }).filter(event => event !== null);
 
-  // Sort events according to the specified order:
-  // 1. Recurring events with nearest date first
-  // 2. Recurring events with furthest date next
-  // 3. Single events with nearest date next
-  // 4. Single events with furthest date last
-  // For events with the same date, sort by time
   return transformedEvents.sort((a, b) => {
     const now = new Date();
     const dateA = new Date(a.date);
     const dateB = new Date(b.date);
     
-    // First, separate recurring from single events
     if (a.isRecurring !== b.isRecurring) {
-      return a.isRecurring ? -1 : 1; // Recurring events first
+      return a.isRecurring ? -1 : 1;
     }
     
-    // For events of the same type (both recurring or both single)
     if (a.isRecurring && b.isRecurring) {
-      // For recurring events: nearest date first, then furthest date
       if (dateA.getTime() !== dateB.getTime()) {
-        // Calculate distance from today
         const diffA = Math.abs(dateA - now);
         const diffB = Math.abs(dateB - now);
-        return diffA - diffB; // Nearest date first
+        return diffA - diffB;
       }
     } else if (!a.isRecurring && !b.isRecurring) {
-      // For single events: nearest date first, then furthest date
       if (dateA.getTime() !== dateB.getTime()) {
-        // Calculate distance from today
         const diffA = Math.abs(dateA - now);
         const diffB = Math.abs(dateB - now);
-        return diffA - diffB; // Nearest date first
+        return diffA - diffB;
       }
     }
     
-    // If dates are the same, sort by time
     const timeA = a.startTime.split(':').map(Number);
     const timeB = b.startTime.split(':').map(Number);
     
-    // Compare hours
     if (timeA[0] !== timeB[0]) {
       return timeA[0] - timeB[0];
     }
     
-    // Compare minutes if hours are the same
     return timeA[1] - timeB[1];
   });
 };
