@@ -37,18 +37,13 @@
           </button>
           <button 
             class="btn btn-export" 
-            :class="isEventBlocked ? 'btn-unblock' : 'btn-block'"
+            :class="btn-block"
             @click="toggleEventBlocked"
           >
-            <i :class="isEventBlocked ? 'fas fa-unlock' : 'fas fa-lock'"></i>
-            {{ isEventBlocked ? 'Sblocca Prenotazioni' : 'Blocca Prenotazioni' }}
+            <i class="fas fa-lock"></i>
+            Blocca Prenotazioni
           </button>
         </div>
-      </div>
-
-      <div v-if="isEventBlocked" class="event-blocked-notice">
-        <i class="fas fa-exclamation-triangle"></i>
-        <span>Questo evento è attualmente bloccato. Le nuove prenotazioni non sono consentite.</span>
       </div>
 
       <div v-if="loading" class="loading-indicator">
@@ -112,7 +107,6 @@ defineEmits(['close']);
 
 const participants = ref([]);
 const loading = ref(true);
-const isEventBlocked = ref(false);
 
 const calculatedParticipants = computed(() => {
   return participants.value.reduce((sum, participant) => sum + participant.numberOfParticipants, 0);
@@ -194,8 +188,8 @@ const toggleEventBlocked = () => {
   if (props.isRecurringOccurrence)
     params = { date: props.event.date, time: props.event.fullStartTime };
   const id = props.isRecurringOccurrence ? props.event.id.split('-')[0] : props.event.id;
-  http.postRequestBooking(`event/disable/${id}`, params, function (_data) {
-    isEventBlocked.value = !isEventBlocked.value;
+  http.postRequestBooking(`event/disable/${id}`, params, function (data) {
+    console.log(data)
   }, 'PUT');
 };
 
@@ -340,15 +334,6 @@ watch(() => [props.event.id, props.event.date, props.event.fullStartTime], ([new
 
 .btn-block:hover {
   background-color: #5a6268;
-}
-
-.btn-unblock {
-  background-color: #28a745;
-  color: white;
-}
-
-.btn-unblock:hover {
-  background-color: #218838;
 }
 
 .event-blocked-notice {
