@@ -36,8 +36,7 @@
             Esporta XLS
           </button>
           <button 
-            class="btn btn-export" 
-            :class="btn-block"
+            class="btn btn-export btn-block" 
             @click="toggleEventBlocked"
           >
             <i class="fas fa-lock"></i>
