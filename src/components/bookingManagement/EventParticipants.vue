@@ -118,22 +118,6 @@ const calculatedParticipants = computed(() => {
   return participants.value.reduce((sum, participant) => sum + participant.numberOfParticipants, 0);
 });
 
-const exportFile = (exportType) => {
-  let params = {};
-  if (props.isRecurringOccurrence)
-    params = { date: props.event.date, time: props.event.fullStartTime };
-  http.getRequestBooking(`export/${props.event.id.split('-')[0]}/${exportType}`, params, function (blob) {
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `export.${exportType}`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(url);
-  }, 'GET', undefined, true);
-};
-
 const displayedParticipants = computed(() => {
   if (props.event && typeof props.event.ticketsSold === 'number') {
     return props.event.ticketsSold;
@@ -206,10 +190,30 @@ const deleteParticipant = (participant) => {
 };
 
 const toggleEventBlocked = () => {
-  // Placeholder function for future implementation
-  isEventBlocked.value = !isEventBlocked.value;
-  console.log('Event booking status changed:', isEventBlocked.value ? 'Blocked' : 'Unblocked');
-  // In future: will call an API endpoint to update the event's booking status
+  let params = {};
+  if (props.isRecurringOccurrence)
+    params = { date: props.event.date, time: props.event.fullStartTime };
+  const id = props.isRecurringOccurrence ? props.event.id.split('-')[0] : props.event.id;
+  http.postRequestBooking(`event/disable/${id}`, params, function (_data) {
+    isEventBlocked.value = !isEventBlocked.value;
+  }, 'PUT');
+};
+
+const exportFile = (exportType) => {
+  let params = {};
+  if (props.isRecurringOccurrence)
+    params = { date: props.event.date, time: props.event.fullStartTime };
+  const id = props.isRecurringOccurrence ? props.event.id.split('-')[0] : props.event.id;
+  http.getRequestBooking(`export/${id}/${exportType}`, params, function (blob) {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `export.${exportType}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  }, 'GET', undefined, true);
 };
 
 onMounted(fetchParticipants);
