@@ -38,6 +38,7 @@
           <button 
             class="btn btn-export btn-block" 
             @click="toggleEventBlocked"
+            :loading="blockLoading"
           >
             <i class="fas fa-lock"></i>
             Blocca Prenotazioni
@@ -106,6 +107,7 @@ defineEmits(['close']);
 
 const participants = ref([]);
 const loading = ref(true);
+const blockLoading = ref(false);
 
 const calculatedParticipants = computed(() => {
   return participants.value.reduce((sum, participant) => sum + participant.numberOfParticipants, 0);
@@ -187,8 +189,9 @@ const toggleEventBlocked = () => {
   if (props.isRecurringOccurrence)
     params = { date: props.event.date, time: props.event.fullStartTime };
   const id = props.isRecurringOccurrence ? props.event.id.split('-')[0] : props.event.id;
-  http.postRequestBooking(`event/disable/${id}`, params, function (data) {
-    console.log(data)
+  blockLoading.value = true;
+  http.postRequestBooking(`event/disable/${id}`, params, function (_data) {
+    blockLoading.value = false;
   }, 'PUT');
 };
 
