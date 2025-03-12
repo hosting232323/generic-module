@@ -1,10 +1,14 @@
 <template>
   <v-card>
     <v-card-title>
-      <v-toolbar flat :title="currentPost.id ? `Modifica il post: ${currentPost.title}` : 'Crea un post'" />
+      <v-btn v-if="!showForm" :color="data.info.primaryColor" @click="toggleForm(true)">
+        Crea un post
+      </v-btn>
+      <span v-else>{{ currentPost.id ? `Modifica il post: ${currentPost.title}` : 'Crea un post' }}</span>
     </v-card-title>
-    <v-card-text>
-      <v-form @submit.prevent="addOrUpdatePost">
+    
+    <v-card-text v-if="showForm">
+      <v-form ref="form" @submit.prevent="addOrUpdatePost">
         <v-text-field
           v-model="currentPost.title"
           label="Titolo"
@@ -15,43 +19,29 @@
           label="Contenuto"
           :rules="validation.requiredRules"
         />
-        <v-autocomplete v-model="currentPost.topics" :items="topics.map(topic => topic.name)" label="Topic" multiple required />
+        <v-autocomplete
+          v-model="currentPost.topics"
+          :items="topics.map(topic => topic.name)"
+          label="Topic" multiple required
+        />
         <v-row no-gutters>
           <v-col cols="10">
-            <v-file-input
-              accept="image/*"
-              label="Immagine di copertina"
-              @change="uploadImage"
-              v-model="fileInput"
-              :loading="imageLoading"
-            />
+            <v-file-input accept="image/*" label="Immagine di copertina" @change="uploadImage" v-model="fileInput" :loading="imageLoading" />
           </v-col>
           <v-col cols="2">
             <v-img :src="currentPost.cover" height="65" />
           </v-col>
         </v-row>
-        <v-text-field
-          v-model="currentPost.ordinal"
-          label="Posizionamento"
-          type="number"
-        />
+
+        <v-text-field v-model="currentPost.ordinal" label="Posizionamento" type="number" />
+
         <Images type="desktop" />
         <Images type="mobile" />
         <Enrichments />
-        <v-btn
-          type="submit"
-          :color="data.info.primaryColor"
-          class="mt-4"
-          :text="currentPost.id ? 'Modifica Post' : 'Crea Post'"
-          :loading="loading"
-        />
-        <v-btn
-          v-if="currentPost.id"
-          :color="data.info.primaryColor"
-          @click="resetCurrentPost"
-          class="mt-4 ml-2"
-          text="Cancella"
-        />
+
+        <v-btn type="submit" :color="data.info.primaryColor" class="mt-4" :text="currentPost.id ? 'Modifica Post' : 'Crea Post'" :loading="loading" />
+        <v-btn v-if="currentPost.id" :color="data.info.primaryColor" @click="resetCurrentPost" class="mt-4 ml-2" text="Reset" />
+        <v-btn @click="closeForm" class="mt-4 ml-2" text="Annulla" />
       </v-form>
     </v-card-text>
   </v-card>
@@ -74,30 +64,30 @@
   const router = useRouter();
   const loading = ref(false);
   const imageLoading = ref(false);
+  const form = ref(null);
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
 
   const postStore = usePostStore();
-  const { initPosts, resetCurrentPost } = postStore;
-  const { currentPost, topics } = storeToRefs(postStore);
+  const { initPosts, resetCurrentPost, toggleForm } = postStore;
+  const { currentPost, topics, showForm } = storeToRefs(postStore);
 
-  const addOrUpdatePost = () => {
-    if (
-      !validation.validateInput(currentPost.value.title, validation.requiredRules) &&
-      !validation.validateInput(currentPost.value.content, validation.requiredRules)
-    ) {
-      loading.value = true;
-      http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
-        initPosts(router);
-        resetCurrentPost();
-        loading.value = false;
-      }, currentPost.value.id ? 'PATCH' : 'POST', router);
-    }
+  const addOrUpdatePost = async () => {
+    const { valid } = await form.value.validate();
+    if (!valid) return;
+
+    loading.value = true;
+    http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
+      initPosts(router);
+      resetCurrentPost();
+      loading.value = false;
+      toggleForm(false);
+    }, currentPost.value.id ? 'PATCH' : 'POST', router);
   };
 
   const uploadImage = (event) => {
     const selectedFile = event.target.files[0];
-    if (!selectedFile)  return;
+    if (!selectedFile) return;
 
     const bucketName = 'blogfast';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
@@ -110,5 +100,10 @@
       fileInput.value = [];
       imageLoading.value = false;
     }, 'POST', router);
+  };
+
+  const closeForm = () => {
+    resetCurrentPost();
+    toggleForm(false);
   };
 </script>

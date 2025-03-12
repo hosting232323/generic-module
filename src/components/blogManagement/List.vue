@@ -41,7 +41,7 @@
                   :loading="loading[post.id]" />
               </template>
               <v-list>
-                <v-list-item @click="editCurrentPost(post)" title="Modifica" />
+                <v-list-item @click="openEditForm(post)" title="Modifica" />
                 <v-list-item @click="deletePost(post.id)" title="Elimina" />
               </v-list>
             </v-menu>
@@ -68,7 +68,7 @@
   const loading = ref({});
   const router = useRouter();
   const postStore = usePostStore();
-  const { editCurrentPost, initPosts, resetCurrentPost } = postStore;
+  const { editCurrentPost, initPosts, resetCurrentPost, showForm } = postStore;
   const { topics, filteredPosts, selectedTopic, currentPost } = storeToRefs(postStore);
 
   watch(selectedTopic, (newTopic) => {
@@ -85,6 +85,11 @@
         resetCurrentPost();
       loading.value[id] = false;
     }, 'DELETE', router);
+  };
+
+  const openEditForm = (post) => {
+    editCurrentPost(post);
+    // showForm.value = true;
   };
 </script>
 
