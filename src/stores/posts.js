@@ -7,6 +7,7 @@ export const usePostStore = defineStore('posts', {
     topics: [],
     enrichments: [],
     selectedTopic: null,
+    showForm: false,
     currentPost: {
       id: null,
       title: '',
@@ -66,6 +67,10 @@ export const usePostStore = defineStore('posts', {
     },
     editCurrentPost(post) {
       this.currentPost = JSON.parse(JSON.stringify(post));
+      this.showForm = true; 
+    },
+    toggleForm(value) {
+      this.showForm = value;
     },
     setSelectedTopic(topic) {
       this.selectedTopic = topic;
