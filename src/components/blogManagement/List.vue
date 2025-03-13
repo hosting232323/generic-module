@@ -1,25 +1,32 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <v-btn-toggle v-model="selectedTopic" mandatory>
-        <v-btn value="null" text="Tutti" />
-        <v-btn v-for="topic in topics" :value="topic.name" :text="topic.name" />
-        <v-btn value="altri" text="Altri" />
-      </v-btn-toggle>
+      <v-slide-group v-model="selectedColorTopic" center-active show-arrows>
+        <v-slide-group-item value="null" v-slot="{ isSelected, toggle }">
+          <v-btn text="Tutti" style="margin: 0 4px 0 0;" :color="selectedColorTopic === null ? data.info.primaryColor : undefined"
+            @click="selectedColorTopic = null" />
+        </v-slide-group-item>
+
+        <v-slide-group-item v-for="topic in topics" :key="topic.name" :value="topic.name"
+          v-slot="{ isSelected, toggle }">
+          <v-btn :text="topic.name" style="margin: 0 4px;" :color="isSelected ? data.info.primaryColor : undefined"
+            @click="toggle" />
+        </v-slide-group-item>
+
+        <v-slide-group-item value="altri" v-slot="{ isSelected, toggle }">
+          <v-btn text="Altri" style="margin: 0 0 0 4px;" :color="isSelected ? data.info.primaryColor : undefined" @click="toggle" />
+        </v-slide-group-item>
+      </v-slide-group>
     </v-col>
   </v-row>
+
+
   <v-row>
     <v-col v-for="post in filteredPosts" :key="post.id" cols="12" md="6">
       <v-card class="mb-4" height="130">
         <v-row>
           <v-col cols="4">
-            <v-img 
-              v-if="post.cover" 
-              :src="post.cover" 
-              alt="Post Cover" 
-              height="130" 
-              class="rounded"
-            />
+            <v-img v-if="post.cover" :src="post.cover" alt="Post Cover" height="130" class="rounded" />
           </v-col>
           <v-col cols="8">
             <v-card-title class="py-0">
@@ -30,16 +37,11 @@
             </v-card-subtitle>
             <v-menu>
               <template v-slot:activator="{ props }">
-                <v-btn
-                  class="actions"
-                  variant="text"
-                  icon="mdi-dots-vertical"
-                  v-bind="props"
-                  :loading="loading[post.id]"
-                />
+                <v-btn class="actions" variant="text" icon="mdi-dots-vertical" v-bind="props"
+                  :loading="loading[post.id]" />
               </template>
               <v-list>
-                <v-list-item @click="editCurrentPost(post)" title="Modifica" />
+                <v-list-item @click="openEditForm(post)" title="Modifica" />
                 <v-list-item @click="deletePost(post.id)" title="Elimina" />
               </v-list>
             </v-menu>
@@ -56,11 +58,17 @@
   import { storeToRefs } from 'pinia';
   import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
+  import { useDataStore } from '@/stores/data';
+
+  const dataStore = useDataStore();
+  const { data } = storeToRefs(dataStore);
+
+  const selectedColorTopic = ref(null); 
 
   const loading = ref({});
   const router = useRouter();
   const postStore = usePostStore();
-  const { editCurrentPost, initPosts, resetCurrentPost } = postStore;
+  const { editCurrentPost, initPosts, resetCurrentPost, showForm } = postStore;
   const { topics, filteredPosts, selectedTopic, currentPost } = storeToRefs(postStore);
 
   watch(selectedTopic, (newTopic) => {
@@ -77,6 +85,11 @@
         resetCurrentPost();
       loading.value[id] = false;
     }, 'DELETE', router);
+  };
+
+  const openEditForm = (post) => {
+    editCurrentPost(post);
+    // showForm.value = true;
   };
 </script>
 
