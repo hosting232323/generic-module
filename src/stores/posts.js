@@ -54,7 +54,7 @@ export const usePostStore = defineStore('posts', {
     updateEnrichments(data) {
       this.enrichments = data.enrichment_types || [];
     },
-    resetCurrentPost() {
+    clearCurrentPost() {
       this.currentPost = {
         id: null,
         title: '',
@@ -64,6 +64,18 @@ export const usePostStore = defineStore('posts', {
         topics: [],
         files: []
       };
+    },
+    resetCurrentPost() {
+      const id = this.currentPost.id;
+      this.currentPost = {
+        id: id,
+        title: '',
+        content: '',
+        subtitle: '',
+        enrichment: {},
+        topics: [],
+        files: []
+      }
     },
     editCurrentPost(post) {
       this.currentPost = JSON.parse(JSON.stringify(post));
