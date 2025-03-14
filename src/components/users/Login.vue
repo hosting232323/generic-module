@@ -128,9 +128,13 @@ const props = defineProps({
   }
 });
 
-const showGoogleLogin = computed(() => !!props.googleClientId);
+const showGoogleLogin = computed(() => {
+  console.log('Login.vue - Computing showGoogleLogin with googleClientId:', props.googleClientId);
+  return !!props.googleClientId;
+});
 
 const handleGoogleLogin = () => {
+  console.log('Login.vue - Handling Google login with client ID:', props.googleClientId);
   google.accounts.id.initialize({
     client_id: props.googleClientId,
     callback: handleCredentialResponse,
