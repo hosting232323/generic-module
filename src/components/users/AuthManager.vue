@@ -10,6 +10,7 @@
       :redirectLink="redirectLink"
       :signUp="signUp"
       :hostname="hostname"
+      :googleClientId="googleClientId"
     />
     <Signin 
       v-if="status == 2 && signUp" 
@@ -90,6 +91,10 @@ const props = defineProps({
   hostname: {
     type: String,
     required: true
+  },
+  googleClientId: {
+    type: String,
+    default: ''
   }
 });
 

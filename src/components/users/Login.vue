@@ -20,6 +20,7 @@
                 type="email"
                 prepend-icon="mdi-email"
                 outlined
+                :color="primaryColor"
                 class="mb-2"
               />
             </v-col>
@@ -34,6 +35,7 @@
                 :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
                 @click:append-inner="togglePasswordVisibility"
                 outlined
+                :color="primaryColor"
                 class="mb-4"
               />
             </v-col>
@@ -43,7 +45,7 @@
               <v-btn
                 class="full-width-btn mb-1 custom-btn"
                 variant="elevated"
-                :style="{'background-color': secondaryColor}"
+                :color="secondaryColor"
                 type="submit"
               >
                 Login
@@ -55,24 +57,27 @@
               <v-alert type="error" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
+          <v-row v-if="showGoogleLogin">
+            <v-col cols="12" md="12" class="text-center">
+              <v-btn
+                class="full-width-btn mb-3 custom-btn google-login-btn"
+                variant="elevated"
+                @click="handleGoogleLogin"
+              >
+                Accedi con Google
+              </v-btn>
+            </v-col>
+          </v-row>
           <v-row v-if="signUp">
             <v-col cols="12" md="12" class="text-center">
               <div class="d-flex justify-center align-center full-width-btn-group">
-                <v-btn 
-                  text @click="changeStatus(2)" 
-                  class="custom-btn full-width-btn" 
-                  :style="{'background-color': primaryColor}"
-                >
-              Registrati qui
-              </v-btn>
+                <v-btn text @click="changeStatus(2)" class="custom-btn full-width-btn" :color="primaryColor">
+                  Registrati qui
+                </v-btn>
                 <span class="ml-1 mr-1"></span>
-                <v-btn 
-                  text @click="changeStatus(3)" 
-                  class="custom-btn full-width-btn" 
-                  :style="{'background-color': primaryColor}"
-                >
-              Reset password
-              </v-btn>
+                <v-btn text @click="changeStatus(3)" class="custom-btn full-width-btn" :color="primaryColor">
+                  Reset password
+                </v-btn>
               </div>
             </v-col>
           </v-row>
@@ -83,7 +88,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import http from '@/utils/http';
 import { SHA256 } from 'crypto-js';
 import { useRouter } from 'vue-router';
@@ -96,15 +101,6 @@ const props = defineProps({
   title: {
     type: String,
     required: true
-  },
-  signinTitle: {
-    type: String
-  },
-  changePasswordTitle: {
-    type: String
-  },
-  newPasswordTitle: {
-    type: String
   },
   primaryColor: {
     type: String,
@@ -125,7 +121,47 @@ const props = defineProps({
   hostname: {
     type: String,
     required: true
+  },
+  googleClientId: {
+    type: String,
+    default: ''
   }
+});
+
+const showGoogleLogin = computed(() => !!props.googleClientId);
+
+const handleGoogleLogin = () => {
+  google.accounts.id.initialize({
+    client_id: props.googleClientId,
+    callback: handleCredentialResponse,
+  });
+
+  google.accounts.id.prompt();
+};
+
+const handleCredentialResponse = (response) => {
+  const jwt = response.credential;
+
+  http.postRequest(
+    `${props.hostname}google-login`,
+    { token: jwt },
+    (data) => {
+      if (data.status === 'ok') {
+        localStorage.setItem('strongbox_session_token', data.session_token);
+        router.push(interpolatePath(props.redirectLink, data));
+      } else {
+        message.value = data.error;
+      }
+    }
+  );
+};
+
+onMounted(() => {
+  const script = document.createElement('script');
+  script.src = 'https://accounts.google.com/gsi/client';
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
 });
 
 const mail = ref('');
@@ -142,14 +178,11 @@ const login = () => {
       `${props.hostname}login`,
       {
         email: mail.value,
-        password: props.signUp ? SHA256(pass.value).toString() : pass.value,
+        password: SHA256(pass.value).toString(),
       },
       function (data) {
         if (data.status === 'ok') {
-          localStorage.setItem('token', data.token);
-          if (data.user_info)
-            for (const info of Object.keys(data.user_info))
-              localStorage.setItem(`user_${info}`, data.user_info[info]);
+          localStorage.setItem('strongbox_session_token', data.session_token);
           router.push(interpolatePath(props.redirectLink, data));
         } else {
           message.value = data.error;
@@ -165,7 +198,7 @@ const interpolatePath = (path, data) => {
       return data[paramName];
     return match;
   });
-}
+};
 
 const togglePasswordVisibility = () => {
   showPassword.value = !showPassword.value;
@@ -192,4 +225,96 @@ const changeStatus = (value) => {
   min-height: 48px;
   line-height: 1.5;
 }
+
+.google-login-btn {
+  transition: background-color .3s, box-shadow .3s;
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+  color: #757575;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 12px 11px;
+}
+
+.google-login-btn:hover {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+}
+
+.google-login-btn:active {
+  background-color: #eeeeee;
+}
+
+.google-login-btn:focus {
+  outline: none;
+  box-shadow: 
+    0 -1px 0 rgba(0, 0, 0, .04),
+    0 2px 4px rgba(0, 0, 0, .25),
+    0 0 0 3px #c8dafc;
+}
+
+.google-login-btn:disabled {
+  filter: grayscale(100%);
+  background-color: #ebebeb;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+  cursor: not-allowed;
+}
+</style>
+
+<template>
+  <div class="day-events">
+    <div class="header">
+      <button class="back-button" @click="router.back()">
+        ← Torna al calendario
+      </button>
+      <h1>{{ formattedDate }}</h1>
+    </div>
+    <div class="events-list">
+      <template v-for="event in dayEvents" :key="event.id">
+        <div v-for="(slot, slotIndex) in getEventSlotsForDay(event)" 
+             :key="`${event.id}-${slotIndex}`" 
+             class="event-card">
+          <div class="event-header">
+            <h2 class="event-title">{{ event.name }}</h2>
+            <div class="event-type">
+              {{ getEventTypeLabel(event.type) }}
+              <span class="slot-time">• {{ formatTime(slot.start_time) }} - {{ formatTime(slot.end_time) }}</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-details">
+              <p v-if="event.description" class="event-description">
+                {{ event.description }}
+              </p>
+              <p v-if="event.price" class="event-price">
+                Prezzo: €{{ event.price }}
+              </p>
+            </div>
+            
+            <div class="event-actions">
+              <button 
+                class="book-button"
+                :disabled="isEventBooked(event.id) || isEventFull(event, slot.start_time)"
+                @click="goToEventDetails(event, slot)"
+              >
+                {{ isEventBooked(event.id) ? 'Già prenotato' : isEventFull(event, slot.start_time) ? 'Evento pieno' : 'Prenota' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </template>
+      <div v-if="dayEvents.length === 0" class="no-events">
+        Nessun evento programmato per questa data.
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+@import '../styles/DayEvents.css';
 </style>
