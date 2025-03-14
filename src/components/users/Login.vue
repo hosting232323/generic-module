@@ -128,13 +128,9 @@ const props = defineProps({
   }
 });
 
-const showGoogleLogin = computed(() => {
-  console.log('Login.vue - Computing showGoogleLogin with googleClientId:', props.googleClientId);
-  return !!props.googleClientId;
-});
+const showGoogleLogin = computed(() => !!props.googleClientId);
 
 const handleGoogleLogin = () => {
-  console.log('Login.vue - Handling Google login with client ID:', props.googleClientId);
   google.accounts.id.initialize({
     client_id: props.googleClientId,
     callback: handleCredentialResponse,
@@ -161,9 +157,6 @@ const handleCredentialResponse = (response) => {
 };
 
 onMounted(() => {
-  console.log('googleClientId prop:', props.googleClientId);
-  console.log('showGoogleLogin value:', showGoogleLogin.value);
-
   const script = document.createElement('script');
   script.src = 'https://accounts.google.com/gsi/client';
   script.async = true;

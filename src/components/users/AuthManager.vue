@@ -98,8 +98,6 @@ const props = defineProps({
   }
 });
 
-console.log('AuthManager - received googleClientId:', props.googleClientId);
-
 const changeStatus = (value) => {
   status.value = value;
 };
