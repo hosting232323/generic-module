@@ -95,6 +95,7 @@ import { useRouter } from 'vue-router';
 
 const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 const showGoogleLogin = computed(() => !!CLIENT_ID);
+console.log(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
 const handleGoogleLogin = () => {
   google.accounts.id.initialize({
