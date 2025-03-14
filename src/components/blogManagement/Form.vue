@@ -69,9 +69,9 @@
   const { data } = storeToRefs(dataStore);
 
   const postStore = usePostStore();
-  const { initPosts, resetCurrentPost, toggleForm } = postStore;
+  const { initPosts, resetCurrentPost, clearCurrentPost, toggleForm } = postStore;
   const { currentPost, topics, showForm } = storeToRefs(postStore);
-
+  
   const addOrUpdatePost = async () => {
     const { valid } = await form.value.validate();
     if (!valid) return;
@@ -79,7 +79,7 @@
     loading.value = true;
     http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
       initPosts(router);
-      resetCurrentPost();
+      clearCurrentPost();
       loading.value = false;
       toggleForm(false);
     }, currentPost.value.id ? 'PATCH' : 'POST', router);
@@ -103,7 +103,7 @@
   };
 
   const closeForm = () => {
-    resetCurrentPost();
+    clearCurrentPost();
     toggleForm(false);
   };
 </script>
