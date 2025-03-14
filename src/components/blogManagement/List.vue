@@ -2,24 +2,26 @@
   <v-row>
     <v-col cols="12">
       <v-slide-group v-model="selectedColorTopic" center-active show-arrows>
-        <v-slide-group-item value="null" v-slot="{ isSelected, toggle }">
-          <v-btn text="Tutti" style="margin: 0 4px 0 0;" :color="selectedColorTopic === null ? data.info.primaryColor : undefined"
-            @click="selectedColorTopic = null" />
+        <v-slide-group-item value="null">
+          <v-btn text="Tutti" style="margin: 0 4px 0 0;" 
+            :color="selectedColorTopic === null ? data.info.primaryColor : undefined"
+            @click="setSelectedTopic(null)" />
         </v-slide-group-item>
 
-        <v-slide-group-item v-for="topic in topics" :key="topic.name" :value="topic.name"
-          v-slot="{ isSelected, toggle }">
-          <v-btn :text="topic.name" style="margin: 0 4px;" :color="isSelected ? data.info.primaryColor : undefined"
-            @click="toggle" />
+        <v-slide-group-item v-for="topic in topics" :key="topic.name" :value="topic.name">
+          <v-btn :text="topic.name" style="margin: 0 4px;" 
+            :color="selectedColorTopic === topic.name ? data.info.primaryColor : undefined"
+            @click="setSelectedTopic(topic.name)" />
         </v-slide-group-item>
 
-        <v-slide-group-item value="altri" v-slot="{ isSelected, toggle }">
-          <v-btn text="Altri" style="margin: 0 0 0 4px;" :color="isSelected ? data.info.primaryColor : undefined" @click="toggle" />
+        <v-slide-group-item value="altri">
+          <v-btn text="Altri" style="margin: 0 0 0 4px;" 
+            :color="selectedColorTopic === 'altri' ? data.info.primaryColor : undefined" 
+            @click="setSelectedTopic('altri')" />
         </v-slide-group-item>
       </v-slide-group>
     </v-col>
   </v-row>
-
 
   <v-row>
     <v-col v-for="post in filteredPosts" :key="post.id" cols="12" md="6">
@@ -54,7 +56,7 @@
 
 <script setup>
   import http from '@/utils/http';
-  import { ref, watch } from 'vue';
+  import { ref } from 'vue';
   import { storeToRefs } from 'pinia';
   import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
@@ -68,12 +70,8 @@
   const loading = ref({});
   const router = useRouter();
   const postStore = usePostStore();
-  const { editCurrentPost, initPosts, resetCurrentPost, showForm } = postStore;
-  const { topics, filteredPosts, selectedTopic, currentPost } = storeToRefs(postStore);
-
-  watch(selectedTopic, (newTopic) => {
-    postStore.setSelectedTopic(newTopic === 'null' ? null : newTopic);
-  });
+  const { editCurrentPost, initPosts, resetCurrentPost } = postStore;
+  const { topics, filteredPosts, currentPost } = storeToRefs(postStore);
 
   const deletePost = (id) => {
     loading.value[id] = true;
@@ -89,7 +87,11 @@
 
   const openEditForm = (post) => {
     editCurrentPost(post);
-    // showForm.value = true;
+  };
+
+  const setSelectedTopic = (topic) => {
+    selectedColorTopic.value = topic;
+    postStore.setSelectedTopic(topic);
   };
 </script>
 
