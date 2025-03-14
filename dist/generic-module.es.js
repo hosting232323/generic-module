@@ -71,7 +71,7 @@ const N = (e, d) => {
     }, v = (s) => {
       const r = s.credential;
       E.postRequest(
-        `${a.hostname}/google-login`,
+        `${a.hostname}google-login`,
         { token: r },
         (b) => {
           b.status === "ok" ? (localStorage.setItem("strongbox_session_token", b.session_token), i.push(I(a.redirectLink, b))) : q.value = b.error;
@@ -84,7 +84,7 @@ const N = (e, d) => {
     });
     const x = _(""), L = _(""), q = _(""), f = _(!1), i = O(), c = d, T = () => {
       x.value && L.value && (q.value = "", E.postRequest(
-        `${a.hostname}/login`,
+        `${a.hostname}login`,
         {
           email: x.value,
           password: G(L.value).toString()
@@ -298,7 +298,7 @@ const N = (e, d) => {
       });
     };
   }
-}, te = /* @__PURE__ */ N(ee, [["__scopeId", "data-v-6b1f9c87"]]), B = [
+}, te = /* @__PURE__ */ N(ee, [["__scopeId", "data-v-e78ed996"]]), B = [
   (e) => e ? !0 : "Campo obbligatorio"
 ], oe = B.concat([
   (e) => /.+@.+\..+/.test(e) ? !0 : "E-mail non valida."

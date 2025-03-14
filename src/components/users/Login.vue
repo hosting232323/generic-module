@@ -143,7 +143,7 @@ const handleCredentialResponse = (response) => {
   const jwt = response.credential;
 
   http.postRequest(
-    `${props.hostname}/google-login`,
+    `${props.hostname}google-login`,
     { token: jwt },
     (data) => {
       if (data.status === 'ok') {
@@ -175,7 +175,7 @@ const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
     http.postRequest(
-      `${props.hostname}/login`,
+      `${props.hostname}login`,
       {
         email: mail.value,
         password: SHA256(pass.value).toString(),
