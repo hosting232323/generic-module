@@ -93,44 +93,6 @@ import http from '@/utils/http';
 import { SHA256 } from 'crypto-js';
 import { useRouter } from 'vue-router';
 
-const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-const showGoogleLogin = computed(() => !!CLIENT_ID);
-console.log(import.meta.env.VITE_GOOGLE_CLIENT_ID);
-
-const handleGoogleLogin = () => {
-  google.accounts.id.initialize({
-    client_id: CLIENT_ID,
-    callback: handleCredentialResponse,
-  });
-
-  google.accounts.id.prompt();
-};
-
-const handleCredentialResponse = (response) => {
-  const jwt = response.credential;
-
-  http.postRequest(
-    `${props.hostname}/google-login`,
-    { token: jwt },
-    (data) => {
-      if (data.status === 'ok') {
-        localStorage.setItem('strongbox_session_token', data.session_token);
-        router.push(interpolatePath(props.redirectLink, data));
-      } else {
-        message.value = data.error;
-      }
-    }
-  );
-};
-
-onMounted(() => {
-  const script = document.createElement('script');
-  script.src = 'https://accounts.google.com/gsi/client';
-  script.async = true;
-  script.defer = true;
-  document.body.appendChild(script);
-});
-
 const props = defineProps({
   logo: {
     type: String,
@@ -159,7 +121,50 @@ const props = defineProps({
   hostname: {
     type: String,
     required: true
+  },
+  googleClientId: {
+    type: String,
+    default: ''
   }
+});
+
+const showGoogleLogin = computed(() => !!props.googleClientId);
+
+const handleGoogleLogin = () => {
+  google.accounts.id.initialize({
+    client_id: props.googleClientId,
+    callback: handleCredentialResponse,
+  });
+
+  google.accounts.id.prompt();
+};
+
+const handleCredentialResponse = (response) => {
+  const jwt = response.credential;
+
+  http.postRequest(
+    `${props.hostname}/google-login`,
+    { token: jwt },
+    (data) => {
+      if (data.status === 'ok') {
+        localStorage.setItem('strongbox_session_token', data.session_token);
+        router.push(interpolatePath(props.redirectLink, data));
+      } else {
+        message.value = data.error;
+      }
+    }
+  );
+};
+
+onMounted(() => {
+  console.log('googleClientId prop:', props.googleClientId);
+  console.log('showGoogleLogin value:', showGoogleLogin.value);
+
+  const script = document.createElement('script');
+  script.src = 'https://accounts.google.com/gsi/client';
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
 });
 
 const mail = ref('');
