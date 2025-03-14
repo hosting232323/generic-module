@@ -1,10 +1,10 @@
 <template>
+  <v-btn v-if="!showForm" :color="data.info.primaryColor" @click="toggleForm(true)">
+    Crea un post
+  </v-btn>
   <v-card>
-    <v-card-title>
-      <v-btn v-if="!showForm" :color="data.info.primaryColor" @click="toggleForm(true)">
-        Crea un post
-      </v-btn>
-      <span v-else>{{ currentPost.id ? `Modifica il post: ${currentPost.title}` : 'Crea un post' }}</span>
+    <v-card-title v-if="showForm">
+      <span >{{ currentPost.id ? `Modifica il post: ${currentPost.title}` : 'Crea un post' }}</span>
     </v-card-title>
     
     <v-card-text v-if="showForm">
