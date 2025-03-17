@@ -26,7 +26,7 @@
         />
         <v-row no-gutters>
           <v-col cols="10">
-            <v-file-input accept="image/*" label="Immagine di copertina" @change="uploadImage" v-model="fileInput" :loading="imageLoading" />
+            <v-file-input accept="image/*" label="Immagine di copertina" @change="uploadImage" v-model="fileInput" :loading="imageLoading" :error-messages="fileError" />
           </v-col>
           <v-col cols="2">
             <v-img :src="currentPost.cover" height="65" />
@@ -60,6 +60,7 @@
   import Images from '@/components/blogManagement/Images';
   import Enrichments from '@/components/blogManagement/Enrichments';
 
+  const fileError = ref("");
   const fileInput = ref([]);
   const router = useRouter();
   const loading = ref(false);
@@ -89,14 +90,18 @@
     const selectedFile = event.target.files[0];
     if (!selectedFile) return;
 
+    fileError.value = '';
     const bucketName = 'blogfast';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
     imageLoading.value = true;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
       if (data.status === 'ok')
         currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
-      else
+      else {
         console.error('File upload failed:', data.error);
+        fileError.value = "Errore nel caricamento del file: formato non supportato.";
+      }
+
       fileInput.value = [];
       imageLoading.value = false;
     }, 'POST', router);
