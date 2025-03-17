@@ -147,8 +147,11 @@ const handleCredentialResponse = (response) => {
     { token: jwt },
     (data) => {
       if (data.status === 'ok') {
-        localStorage.setItem('strongbox_session_token', data.session_token);
-        router.push(interpolatePath(props.redirectLink, data));
+          localStorage.setItem('token', data.token);
+          if (data.user_info)
+            for (const info of Object.keys(data.user_info))
+              localStorage.setItem(`user_${info}`, data.user_info[info]);
+          router.push(interpolatePath(props.redirectLink, data));
       } else {
         message.value = data.error;
       }
