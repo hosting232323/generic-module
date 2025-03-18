@@ -43,7 +43,7 @@
           <v-row>
             <v-col cols="12" md="12" class="text-center">
               <v-btn
-                class="full-width-btn mb-1 custom-btn"
+                class="full-width-btn mb-4 custom-btn"
                 variant="elevated"
                 :color="secondaryColor"
                 type="submit"
@@ -57,9 +57,11 @@
               <v-alert type="error" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
+          
+          <!-- Nuovo pulsante Google Material Design -->
           <v-row v-if="showGoogleLogin">
-            <v-col cols="12" md="12" class="text-center mb-3">
-              <button class="gsi-material-button" type="button" @click="handleGoogleLogin">
+            <v-col cols="12" md="12" class="text-center mb-4">
+              <button type="button" class="gsi-material-button" @click="handleGoogleLogin">
                 <div class="gsi-material-button-state"></div>
                 <div class="gsi-material-button-content-wrapper">
                   <div class="gsi-material-button-icon">
@@ -77,6 +79,7 @@
               </button>
             </v-col>
           </v-row>
+          
           <v-row v-if="signUp">
             <v-col cols="12" md="12" class="text-center">
               <div class="d-flex justify-center align-center full-width-btn-group">
@@ -271,6 +274,7 @@ const changeStatus = (value) => {
   width: 100%;
   max-width: 100%;
   min-width: min-content;
+  margin: 0 auto;
 }
 
 .gsi-material-button .gsi-material-button-icon {
@@ -295,8 +299,8 @@ const changeStatus = (value) => {
 }
 
 .gsi-material-button .gsi-material-button-contents {
-  -webkit-flex-grow: 1;
-  flex-grow: 1;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
   font-family: 'Roboto', arial, sans-serif;
   font-weight: 500;
   overflow: hidden;

@@ -201,7 +201,7 @@ const A = (e, d) => {
                           }, {
                             default: t(() => [
                               o(q, {
-                                class: "full-width-btn mb-1 custom-btn",
+                                class: "full-width-btn mb-4 custom-btn",
                                 variant: "elevated",
                                 color: e.secondaryColor,
                                 type: "submit"
@@ -244,12 +244,12 @@ const A = (e, d) => {
                           o(S, {
                             cols: "12",
                             md: "12",
-                            class: "text-center mb-3"
+                            class: "text-center mb-4"
                           }, {
                             default: t(() => [
                               p("button", {
-                                class: "gsi-material-button",
                                 type: "button",
+                                class: "gsi-material-button",
                                 onClick: r
                               }, [
                                 l[8] || (l[8] = p("div", { class: "gsi-material-button-state" }, null, -1)),
@@ -341,7 +341,7 @@ const A = (e, d) => {
       });
     };
   }
-}, re = /* @__PURE__ */ A(le, [["__scopeId", "data-v-08be12fe"]]), B = [
+}, re = /* @__PURE__ */ A(le, [["__scopeId", "data-v-ca479a27"]]), B = [
   (e) => e ? !0 : "Campo obbligatorio"
 ], se = B.concat([
   (e) => /.+@.+\..+/.test(e) ? !0 : "E-mail non valida."
