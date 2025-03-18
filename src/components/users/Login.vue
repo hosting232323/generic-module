@@ -58,8 +58,8 @@
             </v-col>
           </v-row>
           <v-row v-if="showGoogleLogin">
-            <v-col cols="12" md="12" class="text-center">
-              <button class="gsi-material-button" @click="handleGoogleLogin">
+            <v-col cols="12" md="12" class="text-center mb-3">
+              <button class="gsi-material-button" type="button" @click="handleGoogleLogin">
                 <div class="gsi-material-button-state"></div>
                 <div class="gsi-material-button-content-wrapper">
                   <div class="gsi-material-button-icon">
@@ -71,7 +71,7 @@
                       <path fill="none" d="M0 0h48v48H0z"></path>
                     </svg>
                   </div>
-                  <span class="gsi-material-button-contents">Sign in with Google</span>
+                  <span class="gsi-material-button-contents">Accedi con Google</span>
                   <span style="display: none;">Sign in with Google</span>
                 </div>
               </button>
@@ -268,8 +268,8 @@ const changeStatus = (value) => {
   transition: background-color .218s, border-color .218s, box-shadow .218s;
   vertical-align: middle;
   white-space: nowrap;
-  width: auto;
-  max-width: 400px;
+  width: 100%;
+  max-width: 100%;
   min-width: min-content;
 }
 
@@ -289,7 +289,7 @@ const changeStatus = (value) => {
   -webkit-flex-wrap: nowrap;
   flex-wrap: nowrap;
   height: 100%;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
   width: 100%;
 }
