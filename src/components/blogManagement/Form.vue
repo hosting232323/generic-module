@@ -60,7 +60,7 @@
   import Images from '@/components/blogManagement/Images';
   import Enrichments from '@/components/blogManagement/Enrichments';
 
-  const fileError = ref("");
+  const fileError = ref('');
   const fileInput = ref([]);
   const router = useRouter();
   const loading = ref(false);
@@ -97,10 +97,8 @@
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
       if (data.status === 'ok')
         currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
-      else {
-        console.error('File upload failed:', data.error);
+      else
         fileError.value = "Errore nel caricamento del file: formato non supportato.";
-      }
 
       fileInput.value = [];
       imageLoading.value = false;
