@@ -48,64 +48,64 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import { storeToRefs } from 'pinia';
-  import { v4 as uuidv4 } from 'uuid';
-  import { useRouter } from 'vue-router';
-  import validation from '@/utils/validation';
-  import { useDataStore } from '@/stores/data';
-  import { usePostStore } from '@/stores/posts';
+import { ref } from 'vue';
+import http from '@/utils/http';
+import { storeToRefs } from 'pinia';
+import { v4 as uuidv4 } from 'uuid';
+import { useRouter } from 'vue-router';
+import validation from '@/utils/validation';
+import { useDataStore } from '@/stores/data';
+import { usePostStore } from '@/stores/posts';
 
-  import Images from '@/components/blogManagement/Images';
-  import Enrichments from '@/components/blogManagement/Enrichments';
+import Images from '@/components/blogManagement/Images';
+import Enrichments from '@/components/blogManagement/Enrichments';
 
-  const fileError = ref('');
-  const fileInput = ref([]);
-  const router = useRouter();
-  const loading = ref(false);
-  const form = ref(null);
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+const fileError = ref('');
+const fileInput = ref([]);
+const router = useRouter();
+const loading = ref(false);
+const form = ref(null);
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
 
-  const postStore = usePostStore();
-  const { initPosts, resetCurrentPost, clearCurrentPost, toggleForm } = postStore;
-  const { currentPost, topics, showForm } = storeToRefs(postStore);
-  
-  const addOrUpdatePost = async () => {
-    const { valid } = await form.value.validate();
-    if (!valid) return;
+const postStore = usePostStore();
+const { initPosts, resetCurrentPost, clearCurrentPost, toggleForm } = postStore;
+const { currentPost, topics, showForm } = storeToRefs(postStore);
 
-    loading.value = true;
-    http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
-      initPosts(router);
-      clearCurrentPost();
-      loading.value = false;
-      toggleForm(false);
-    }, currentPost.value.id ? 'PATCH' : 'POST', router);
-  };
+const addOrUpdatePost = async () => {
+  const { valid } = await form.value.validate();
+  if (!valid) return;
 
-  const uploadImage = (event) => {
-    const selectedFile = event.target.files[0];
-    if (!selectedFile) return;
-
-    fileError.value = '';
-    const bucketName = 'blogfast';
-    const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
-    loading.value = true;
-    http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
-      if (data.status === 'ok')
-        currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
-      else
-        fileError.value = "Errore nel caricamento del file: formato non supportato.";
-
-      fileInput.value = [];
-      loading.value = false;
-    }, 'POST', router);
-  };
-
-  const closeForm = () => {
+  loading.value = true;
+  http.postRequestGenericBE('blog/post', currentPost.value, function (data) {
+    initPosts(router);
     clearCurrentPost();
+    loading.value = false;
     toggleForm(false);
-  };
+  }, currentPost.value.id ? 'PATCH' : 'POST', router);
+};
+
+const uploadImage = (event) => {
+  const selectedFile = event.target.files[0];
+  if (!selectedFile) return;
+
+  fileError.value = '';
+  const bucketName = 'blogfast';
+  const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
+  loading.value = true;
+  http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
+    if (data.status === 'ok')
+      currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
+    else
+      fileError.value = "Errore nel caricamento del file: formato non supportato.";
+
+    fileInput.value = [];
+    loading.value = false;
+  }, 'POST', router);
+};
+
+const closeForm = () => {
+  clearCurrentPost();
+  toggleForm(false);
+};
 </script>
