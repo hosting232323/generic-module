@@ -26,7 +26,7 @@
         />
         <v-row no-gutters>
           <v-col cols="10">
-            <v-file-input accept="image/*" label="Immagine di copertina" @change="uploadImage" v-model="fileInput" :loading="imageLoading" :error-messages="fileError" />
+            <v-file-input accept="image/*" label="Immagine di copertina" @change="uploadImage" v-model="fileInput" :loading="loading" :error-messages="fileError" />
           </v-col>
           <v-col cols="2">
             <v-img :src="currentPost.cover" height="65" />
