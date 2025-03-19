@@ -42,6 +42,7 @@
   import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
 
+  const imageLoading = ref(false);
   const fileError = ref('');
   const fileInput = ref([]);
   const router = useRouter();
