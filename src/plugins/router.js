@@ -8,12 +8,14 @@ const routes = [
       {
         path: '/',
         name: 'Production Home',
-        component: () => import('@/views/Home')
+        component: () => import('@/views/Home'),
+        meta: { chatty: 3 }
       },
       {
-        path : '/blog',
-        name : 'Blog',
-        component : () => import('@/views/Blog')
+        path: '/blog',
+        name: 'Blog',
+        component: () => import('@/views/Blog'),
+        meta: { chatty: 5 }
       },
     ]
   },
@@ -24,7 +26,7 @@ const routes = [
       {
         path: '/demo/:id',
         name: 'Demo Home',
-        component: () => import('@/views/Home')
+        component: () => import('@/views/Home'),
       }
     ]
   },
@@ -40,22 +42,26 @@ const routes = [
       {
         path: '/admin',
         name: 'Admin',
-        component: () => import('@/views/admin/Index')
+        component: () => import('@/views/admin/Index'),
+        meta: { chatty: 5 }
       },
       {
         path: '/admin/blog',
         name: 'Blog Admin',
-        component: () => import('@/views/admin/Blog')
+        component: () => import('@/views/admin/Blog'),
+        meta: { chatty: 5 }
       },
       {
         path: '/admin/booking',
         name: 'Prenotazioni',
-        component: () => import('@/views/admin/Booking')
+        component: () => import('@/views/admin/Booking'),
+        meta: { chatty: 5 }
       },
       {
         path: '/admin/wooffy',
         name: 'Wooffy',
-        component: () => import('@/views/admin/Wooffy')
+        component: () => import('@/views/admin/Wooffy'),
+        meta: { chatty: 5 }
       }
     ]
   }
