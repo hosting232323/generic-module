@@ -64,7 +64,6 @@
   const fileInput = ref([]);
   const router = useRouter();
   const loading = ref(false);
-  const imageLoading = ref(false);
   const form = ref(null);
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
@@ -93,7 +92,7 @@
     fileError.value = '';
     const bucketName = 'blogfast';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
-    imageLoading.value = true;
+    loading.value = true;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
       if (data.status === 'ok')
         currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
@@ -101,7 +100,7 @@
         fileError.value = "Errore nel caricamento del file: formato non supportato.";
 
       fileInput.value = [];
-      imageLoading.value = false;
+      loading.value = false;
     }, 'POST', router);
   };
 
