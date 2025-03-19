@@ -8,6 +8,7 @@
           @change="uploadImage"
           v-model="fileInput"
           :loading="loading"
+          :error-messages="fileError"
         />
         <v-card
           title="Immagini caricate"
@@ -41,6 +42,7 @@
   import { useRouter } from 'vue-router';
   import { usePostStore } from '@/stores/posts';
 
+  const fileError = ref('');
   const fileInput = ref([]);
   const router = useRouter();
   const loading = ref(false);
@@ -50,21 +52,20 @@
 
   const uploadImage = (event) => {
     const selectedFile = event.target.files[0];
-    if (!selectedFile)  return;
+    if (!selectedFile) return;
 
+    fileError.value = '';
     const bucketName = 'blogfast';
     const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
-    loading.value = true;
+    imageLoading.value = true;
     http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
-      if (data.status === 'ok') {
-        const listType = type == 'mobile' ? 'mobile_files' : 'desktop_files';
-        if (!currentPost.value[listType])
-          currentPost.value[listType] = [];
-        currentPost.value[listType].push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
-      } else
-        console.error('File upload failed:', data.error);
+      if (data.status === 'ok')
+        currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
+      else
+        fileError.value = "Errore nel caricamento del file: formato non supportato.";
+
       fileInput.value = [];
-      loading.value = false;
+      imageLoading.value = false;
     }, 'POST', router);
   };
 
