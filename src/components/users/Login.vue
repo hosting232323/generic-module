@@ -59,13 +59,11 @@
           </v-row>
           <v-row v-if="showGoogleLogin">
             <v-col cols="12" md="12" class="text-center">
-              <v-btn
-                class="google-login-btn"
-                variant="elevated"
-                @click="handleGoogleLogin"
-              >
+              <v-btn 
+                class="google-login-btn" 
+                @click="handleGoogleLogin">
                 <img src="https://developers.google.com/identity/images/g-logo.png" class="google-icon" />
-                Accedi con Google
+                <span>Accedi con Google</span>
               </v-btn>
             </v-col>
           </v-row>
@@ -237,7 +235,7 @@ const changeStatus = (value) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   background-color: #ffffff;
   color: #757575;
   font-size: 14px;
@@ -247,6 +245,7 @@ const changeStatus = (value) => {
   border-radius: 4px;
   padding: 10px 16px;
   min-height: 48px;
+  width: 100%; /* Adatta alla larghezza del contenitore */
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 

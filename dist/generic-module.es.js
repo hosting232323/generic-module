@@ -1,4 +1,4 @@
-import { computed as K, onMounted as Q, ref as _, resolveComponent as n, openBlock as y, createBlock as b, withCtx as t, createVNode as o, createTextVNode as g, toDisplayString as P, withModifiers as A, createCommentVNode as I, createElementVNode as T, normalizeStyle as j, unref as B } from "vue";
+import { computed as K, onMounted as Q, ref as _, resolveComponent as n, openBlock as y, createBlock as b, withCtx as t, createVNode as o, createTextVNode as f, toDisplayString as P, withModifiers as A, createCommentVNode as I, createElementVNode as T, normalizeStyle as j, unref as B } from "vue";
 import { SHA256 as M } from "crypto-js";
 import { useRouter as G, useRoute as W } from "vue-router";
 const X = (e, d, a, u = "POST") => {
@@ -73,14 +73,14 @@ const N = (e, d) => {
       E.postRequest(
         `${a.hostname}google-login`,
         { token: r },
-        (f) => {
-          if (f.status === "ok") {
-            if (localStorage.setItem("token", f.token), f.user_info)
-              for (const C of Object.keys(f.user_info))
-                localStorage.setItem(`user_${C}`, f.user_info[C]);
-            i.push(R(a.redirectLink, f));
+        (g) => {
+          if (g.status === "ok") {
+            if (localStorage.setItem("token", g.token), g.user_info)
+              for (const C of Object.keys(g.user_info))
+                localStorage.setItem(`user_${C}`, g.user_info[C]);
+            i.push(R(a.redirectLink, g));
           } else
-            V.value = f.error;
+            V.value = g.error;
         }
       );
     };
@@ -105,13 +105,13 @@ const N = (e, d) => {
             V.value = s.error;
         }
       ));
-    }, R = (s, r) => s.replace(/:([a-zA-Z0-9_]+)/g, (f, C) => C in r ? r[C] : f), x = () => {
+    }, R = (s, r) => s.replace(/:([a-zA-Z0-9_]+)/g, (g, C) => C in r ? r[C] : g), x = () => {
       p.value = !p.value;
     }, m = (s) => {
       c("changeStatus", s);
     };
     return (s, r) => {
-      const f = n("v-img"), C = n("v-card-title"), $ = n("v-text-field"), h = n("v-col"), w = n("v-row"), k = n("v-btn"), Z = n("v-alert"), D = n("v-form"), H = n("v-card-text"), J = n("v-card"), F = n("v-container");
+      const g = n("v-img"), C = n("v-card-title"), $ = n("v-text-field"), h = n("v-col"), w = n("v-row"), k = n("v-btn"), Z = n("v-alert"), D = n("v-form"), H = n("v-card-text"), J = n("v-card"), F = n("v-container");
       return y(), b(F, { class: "d-flex align-center justify-center fill-height" }, {
         default: t(() => [
           o(J, {
@@ -120,7 +120,7 @@ const N = (e, d) => {
             class: "pa-5"
           }, {
             default: t(() => [
-              o(f, {
+              o(g, {
                 src: e.logo,
                 "max-width": "100",
                 class: "mx-auto mb-4",
@@ -128,7 +128,7 @@ const N = (e, d) => {
               }, null, 8, ["src"]),
               o(C, { class: "text-h5 text-center mb-6" }, {
                 default: t(() => [
-                  g(P(e.title), 1)
+                  f(P(e.title), 1)
                 ]),
                 _: 1
               }),
@@ -201,7 +201,7 @@ const N = (e, d) => {
                                 type: "submit"
                               }, {
                                 default: t(() => r[4] || (r[4] = [
-                                  g(" Login ")
+                                  f(" Login ")
                                 ])),
                                 _: 1
                               }, 8, ["color"])
@@ -223,7 +223,7 @@ const N = (e, d) => {
                                 dense: ""
                               }, {
                                 default: t(() => [
-                                  g(P(V.value), 1)
+                                  f(P(V.value), 1)
                                 ]),
                                 _: 1
                               })
@@ -243,7 +243,6 @@ const N = (e, d) => {
                             default: t(() => [
                               o(k, {
                                 class: "google-login-btn",
-                                variant: "elevated",
                                 onClick: l
                               }, {
                                 default: t(() => r[5] || (r[5] = [
@@ -251,7 +250,7 @@ const N = (e, d) => {
                                     src: "https://developers.google.com/identity/images/g-logo.png",
                                     class: "google-icon"
                                   }, null, -1),
-                                  g(" Accedi con Google ")
+                                  T("span", null, "Accedi con Google", -1)
                                 ])),
                                 _: 1
                               })
@@ -277,7 +276,7 @@ const N = (e, d) => {
                                   color: e.primaryColor
                                 }, {
                                   default: t(() => r[6] || (r[6] = [
-                                    g(" Registrati qui ")
+                                    f(" Registrati qui ")
                                   ])),
                                   _: 1
                                 }, 8, ["color"]),
@@ -289,7 +288,7 @@ const N = (e, d) => {
                                   color: e.primaryColor
                                 }, {
                                   default: t(() => r[7] || (r[7] = [
-                                    g(" Reset password ")
+                                    f(" Reset password ")
                                   ])),
                                   _: 1
                                 }, 8, ["color"])
@@ -314,7 +313,7 @@ const N = (e, d) => {
       });
     };
   }
-}, te = /* @__PURE__ */ N(ee, [["__scopeId", "data-v-36e46e5a"]]), O = [
+}, te = /* @__PURE__ */ N(ee, [["__scopeId", "data-v-a6861e0a"]]), O = [
   (e) => e ? !0 : "Campo obbligatorio"
 ], oe = O.concat([
   (e) => /.+@.+\..+/.test(e) ? !0 : "E-mail non valida."
@@ -384,7 +383,7 @@ const se = { class: "d-flex justify-start align-center" }, ae = {
       ));
     };
     return (i, c) => {
-      const U = n("v-img"), R = n("v-card-title"), x = n("v-text-field"), m = n("v-col"), s = n("v-row"), r = n("v-btn"), f = n("v-alert"), C = n("v-form"), $ = n("v-card-text"), h = n("v-card"), w = n("v-container");
+      const U = n("v-img"), R = n("v-card-title"), x = n("v-text-field"), m = n("v-col"), s = n("v-row"), r = n("v-btn"), g = n("v-alert"), C = n("v-form"), $ = n("v-card-text"), h = n("v-card"), w = n("v-container");
       return y(), b(w, { class: "d-flex align-center justify-center fill-height" }, {
         default: t(() => [
           o(h, {
@@ -401,7 +400,7 @@ const se = { class: "d-flex justify-start align-center" }, ae = {
               }, null, 8, ["src"]),
               o(R, { class: "text-h5 text-center mb-6" }, {
                 default: t(() => [
-                  g(P(e.title), 1)
+                  f(P(e.title), 1)
                 ]),
                 _: 1
               }),
@@ -468,7 +467,7 @@ const se = { class: "d-flex justify-start align-center" }, ae = {
                                 class: "mb-4 custom-btn"
                               }, {
                                 default: t(() => c[3] || (c[3] = [
-                                  g(" Registrati ")
+                                  f(" Registrati ")
                                 ])),
                                 _: 1
                               }, 8, ["style"])
@@ -485,12 +484,12 @@ const se = { class: "d-flex justify-start align-center" }, ae = {
                             md: "12"
                           }, {
                             default: t(() => [
-                              o(f, {
+                              o(g, {
                                 type: S.value,
                                 dense: ""
                               }, {
                                 default: t(() => [
-                                  g(P(v.value), 1)
+                                  f(P(v.value), 1)
                                 ]),
                                 _: 1
                               }, 8, ["type"])
@@ -515,7 +514,7 @@ const se = { class: "d-flex justify-start align-center" }, ae = {
                                   class: "custom-btn full-width-btn"
                                 }, {
                                   default: t(() => c[4] || (c[4] = [
-                                    g(" Torna al login ")
+                                    f(" Torna al login ")
                                   ])),
                                   _: 1
                                 }, 8, ["style"])
@@ -585,7 +584,7 @@ const ie = { class: "d-flex justify-start align-center" }, ce = {
       ));
     };
     return (p, i) => {
-      const c = n("v-img"), U = n("v-card-title"), R = n("v-text-field"), x = n("v-col"), m = n("v-row"), s = n("v-btn"), r = n("v-alert"), f = n("v-form"), C = n("v-card-text"), $ = n("v-card"), h = n("v-container");
+      const c = n("v-img"), U = n("v-card-title"), R = n("v-text-field"), x = n("v-col"), m = n("v-row"), s = n("v-btn"), r = n("v-alert"), g = n("v-form"), C = n("v-card-text"), $ = n("v-card"), h = n("v-container");
       return y(), b(h, { class: "d-flex align-center justify-center fill-height" }, {
         default: t(() => [
           o($, {
@@ -602,13 +601,13 @@ const ie = { class: "d-flex justify-start align-center" }, ce = {
               }, null, 8, ["src"]),
               o(U, { class: "text-h5 text-center mb-6" }, {
                 default: t(() => [
-                  g(P(e.title), 1)
+                  f(P(e.title), 1)
                 ]),
                 _: 1
               }),
               o(C, null, {
                 default: t(() => [
-                  o(f, {
+                  o(g, {
                     onSubmit: A(V, ["prevent"])
                   }, {
                     default: t(() => [
@@ -649,7 +648,7 @@ const ie = { class: "d-flex justify-start align-center" }, ce = {
                                 class: "mb-4 custom-btn"
                               }, {
                                 default: t(() => i[2] || (i[2] = [
-                                  g(" Invia mail ")
+                                  f(" Invia mail ")
                                 ])),
                                 _: 1
                               }, 8, ["style"])
@@ -671,7 +670,7 @@ const ie = { class: "d-flex justify-start align-center" }, ce = {
                                 dense: ""
                               }, {
                                 default: t(() => [
-                                  g(P(l.value), 1)
+                                  f(P(l.value), 1)
                                 ]),
                                 _: 1
                               }, 8, ["type"])
@@ -696,7 +695,7 @@ const ie = { class: "d-flex justify-start align-center" }, ce = {
                                   class: "custom-btn full-width-btn"
                                 }, {
                                   default: t(() => i[3] || (i[3] = [
-                                    g(" Torna al login ")
+                                    f(" Torna al login ")
                                   ])),
                                   _: 1
                                 }, 8, ["style"])
@@ -766,7 +765,7 @@ const me = { class: "d-flex justify-start align-center" }, ve = {
       )));
     };
     return (i, c) => {
-      const U = n("v-img"), R = n("v-card-title"), x = n("v-text-field"), m = n("v-col"), s = n("v-row"), r = n("v-btn"), f = n("v-alert"), C = n("v-form"), $ = n("v-card-text"), h = n("v-card"), w = n("v-container");
+      const U = n("v-img"), R = n("v-card-title"), x = n("v-text-field"), m = n("v-col"), s = n("v-row"), r = n("v-btn"), g = n("v-alert"), C = n("v-form"), $ = n("v-card-text"), h = n("v-card"), w = n("v-container");
       return y(), b(w, { class: "d-flex align-center justify-center fill-height" }, {
         default: t(() => [
           o(h, {
@@ -783,7 +782,7 @@ const me = { class: "d-flex justify-start align-center" }, ve = {
               }, null, 8, ["src"]),
               o(R, { class: "text-h5 text-center mb-6" }, {
                 default: t(() => [
-                  g(P(e.title), 1)
+                  f(P(e.title), 1)
                 ]),
                 _: 1
               }),
@@ -841,7 +840,7 @@ const me = { class: "d-flex justify-start align-center" }, ve = {
                                 class: "mb-4 custom-btn"
                               }, {
                                 default: t(() => c[2] || (c[2] = [
-                                  g(" Invia ")
+                                  f(" Invia ")
                                 ])),
                                 _: 1
                               }, 8, ["style"])
@@ -855,12 +854,12 @@ const me = { class: "d-flex justify-start align-center" }, ve = {
                         default: t(() => [
                           o(m, { cols: "12" }, {
                             default: t(() => [
-                              o(f, {
+                              o(g, {
                                 type: v.value,
                                 dense: ""
                               }, {
                                 default: t(() => [
-                                  g(P(l.value), 1)
+                                  f(P(l.value), 1)
                                 ]),
                                 _: 1
                               }, 8, ["type"])
@@ -885,7 +884,7 @@ const me = { class: "d-flex justify-start align-center" }, ve = {
                                   class: "custom-btn full-width-btn"
                                 }, {
                                   default: t(() => c[3] || (c[3] = [
-                                    g(" Torna al login ")
+                                    f(" Torna al login ")
                                   ])),
                                   _: 1
                                 }, 8, ["style"])
