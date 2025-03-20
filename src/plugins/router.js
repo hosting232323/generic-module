@@ -27,6 +27,7 @@ const routes = [
         path: '/demo/:id',
         name: 'Demo Home',
         component: () => import('@/views/Home'),
+        meta: { chatty: 0 }
       }
     ]
   },

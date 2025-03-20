@@ -15,16 +15,17 @@
   const route = useRoute();
 
   watch(route, () => {
-    data.value.info.chattyId = route.meta?.chatty ?? route.params.id;
-    console.log(data.value.info.chattyId);
-    console.log(`Route: ${route.path}, Chatty: ${data.value.info.chattyId}`);
+    if (data.value.addOn && data.value.addOn.includes('Chatty')) {
+      if(route.meta?.chatty && route.meta?.chatty != 0)
+        data.value.info.chattyId = route.meta?.chatty;
+      
+      if(!route.meta.chatty) return
+
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
+      document.body.appendChild(script); 
+    }
   }, { immediate: true });
 
-  if (data.value.addOn && data.value.addOn.includes('Chatty')) {
-    console.log(data.value.info.chattyId);
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
-    document.body.appendChild(script); 
-  }
 </script>

@@ -28,5 +28,5 @@
   const { ready } = storeToRefs(dataStore);
   const route = useRoute();
 
-  // initData(route.params.id);
+  initData(route.params.id);
 </script>
