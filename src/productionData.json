@@ -2,11 +2,9 @@
   "info": {
     "name": "FastSite",
     "primaryColor": "#f34455",
-    "secondaryColor": "#f7f4ef",
-    "chattyId": 3
+    "secondaryColor": "#f7f4ef"
   },
   "addOn": [
-    "Chatty",
     "VirtualTour"
   ],
   "components": [

@@ -5,27 +5,31 @@
 </template>
 
 <script setup>
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-  import { useRouter, useRoute } from 'vue-router';
-  import { watch } from 'vue';
-  
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
-  const route = useRoute();
+import { watch } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useRoute } from 'vue-router';
+import { useDataStore } from '@/stores/data';
 
-  watch(route, () => {
-    if (data.value.addOn && data.value.addOn.includes('Chatty')) {
-      if(route.meta?.chatty && route.meta?.chatty != 0)
-        data.value.info.chattyId = route.meta?.chatty;
-      
-      if(!route.meta.chatty) return
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const route = useRoute();
 
-      const script = document.createElement('script');
-      script.type = 'module';
-      script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
-      document.body.appendChild(script); 
-    }
-  }, { immediate: true });
+watch(route, () => {
+  if(!route.meta?.chatty) return;
 
+  let chattyId = route.meta.chatty;
+  if (chattyId == 0) {
+    if (!(
+      data.value.addOn &&
+      data.value.addOn.includes('Chatty') &&
+      data.value.info.chattyId
+    )) return;
+
+    chattyId = data.value.info.chattyId;
+  }
+  const script = document.createElement('script');
+  script.type = 'module';
+  script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${chattyId}`;
+  document.body.appendChild(script);
+}, { immediate: true });
 </script>
