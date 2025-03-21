@@ -43,8 +43,7 @@ const routes = [
       {
         path: '/admin',
         name: 'Admin',
-        component: () => import('@/views/admin/Index'),
-        meta: { chatty: 5 }
+        component: () => import('@/views/admin/Index')
       },
       {
         path: '/admin/blog',
@@ -55,14 +54,12 @@ const routes = [
       {
         path: '/admin/booking',
         name: 'Prenotazioni',
-        component: () => import('@/views/admin/Booking'),
-        meta: { chatty: 5 }
+        component: () => import('@/views/admin/Booking')
       },
       {
         path: '/admin/wooffy',
         name: 'Wooffy',
-        component: () => import('@/views/admin/Wooffy'),
-        meta: { chatty: 5 }
+        component: () => import('@/views/admin/Wooffy')
       }
     ]
   }
