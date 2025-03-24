@@ -1,42 +1,39 @@
-<template>
+<template class="app-bar">
+
   <v-navigation-drawer v-model="drawer" location="bottom" temporary>
     <v-list>
-      <v-list-item v-for="item in menuItems" :key="item.path" class="bento-list-item" @click="handleItemClick(item)">
-        {{ item.title }}
+      <v-list-item v-for="item in items" :key="item.path">
+        <div @click="link(item)">
+          {{ item.title }}
+        </div>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
 
-  <v-app-bar :elevation="2" class="bento-app-bar" :color="ourSite ? '' : info.primaryColor">
-    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
-    <img v-if="!isMobile && ourSite" src="@/assets/fastsite.svg" alt="Fastsite Logo" class="app-bar-logo"/>
+  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     <v-app-bar-title>
-      <b :class="{'our-title': ourSite}">{{ info.name }}</b>
-      <TypeWriter v-if="ourSite" :texts="['PowerYourBusiness']" :typing-speed="80" :erasing-speed="80" :new-text-delay="1500" />
+      <img v-if="info.logo" :src="info.logo" alt="Logo" class="app-logo">
+      <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
-    <v-col v-if="!isMobile && ourSite" v-for="(action, index) in actions" :key="index">
-      <v-btn
-        size="small"
-        :color="action.color"
-        @click="handleAction(action.type)"
-      >
-        <v-icon size="30">{{ action.icon }}</v-icon>
-      </v-btn>
-    </v-col>
-    <div v-if="!isMobile" class="desktop-menu">
-      <v-btn v-for="item in menuItems" :key="item.path" variant="text" @click="handleItemClick(item)" class="bento-btn">
+    <Cart v-if="getCartQuantity != 0"></Cart>
+  </v-app-bar>
+
+  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
+    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
+    <v-app-bar-title>
+      <img v-if="info.logo" :src="info.logo" alt="Logo" class="app-logo">
+      <b v-else>{{ info.name }}</b>
+    </v-app-bar-title>
+
+    <div class="desktop-menu">
+      <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
+      <Cart v-if="getCartQuantity != 0"></Cart>
     </div>
   </v-app-bar>
-  <v-snackbar
-    v-model="showCopiedMessage"
-    :timeout="2000"
-    color="success"
-    text
-  >
-    Numero copiato
-  </v-snackbar>
+
 </template>
 
 <script setup>
@@ -45,139 +42,64 @@
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
   import { useRouter, useRoute } from 'vue-router';
+  import Cart from './Cart.vue';
 
-  import TypeWriter from '@/components/ourSections/AnimatedTitle.vue';
+  import { useOrderStore } from '@/stores/order';
+  const orderStore = useOrderStore();
 
-  const drawer = ref(false);
+  const drawer = ref(null);
   const route = useRoute();
-  const router = useRouter();
+  const router = ref(useRouter());
   const isMobile = mobile.setupMobileUtils();
-  const { ourSite } = defineProps(['ourSite']);
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
   const info = data.value.info;
+  const content = data.value.components;
 
-  const actions = ref([
-    { type: 'phone', icon: 'mdi-phone', label: 'Chiama', color: 'green' },
-    { type: 'whatsapp', icon: 'mdi-whatsapp', label: 'WhatsApp', color: 'green' },
-    { type: 'email', icon: 'mdi-email', label: 'Email', color: 'red' }
-  ]);
 
-  const showCopiedMessage = ref(false);
+  const link = (item) => {
+    if (item.type == 'ancor') {
+      const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
+      router.value.push(`${pathUrl}/#${item.path}`);
+    } else if (item.type == 'externalLink')
+      window.open(item.path, '_blank');
+    else if (item.type == 'internalLink')
+      router.value.push(item.path);
+  }
 
-  const handleAction = (type) => {
-    switch (type) {
-      case 'phone':
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-          window.location.href = 'tel:+393478768340';
-        else
-          navigator.clipboard.writeText('+393478768340').then(() => {
-            showCopiedMessage.value = true;
-          });
-        break;
-      case 'whatsapp':
-        window.open('https://wa.me/393478768340', '_blank');
-        break;
-      case 'email':
-        window.location.href = 'mailto:giovanni.colasanto@fastsite.it';
-        break;
-    }
-  };
-
-  const menuItems = computed(() => {
-    const items = [];
-
-    if (data.value.addOn && data.value.addOn.includes('VirtualTour')) {
-      items.push({
+  const items = computed(() => {
+    let menuItems = [];
+    if (data.value.addOn && data.value.addOn.includes('VirtualTour'))
+      menuItems.push({
         title: 'Virtual Tour',
         path: 'https://test-virtual-tour.replit.app/',
         type: 'externalLink'
       });
-    }
-
-    if (data.value.addOn && data.value.addOn.includes('Blog')) {
-      items.push({
+    if (data.value.addOn && data.value.addOn.includes('Blog'))
+      menuItems.push({
         title: 'Blog',
         path: '/blog',
         type: 'internalLink'
       });
-    }
-
-    items.push(
-      ...data.value.components
-        .filter(section => section.menu)
-        .map(section => ({
-          title: section.menu,
-          path: section.menu.toLowerCase(),
-          type: 'anchor'
-        }))
-    );
-
-    return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...items] : items;
+    menuItems = menuItems.concat(content
+      .filter(section => section.menu)
+      .map(section => ({
+        title: section.menu,
+        path: section.menu.toLowerCase(),
+        type: 'ancor'
+      })));
+    return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
   });
 
-  const handleItemClick = (item) => {
-    if (item.type === 'anchor') {
-      const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
-      router.push(`${pathUrl}/#${item.path}`);
-    } else if (item.type === 'externalLink') {
-      window.open(item.path, '_blank');
-    } else if (item.type === 'internalLink') {
-      router.push(item.path);
-    }
-  };
+const getCartQuantity = computed(() => {
+  return orderStore.products.reduce((total, product) => total + product.quantity, 0);
+});
 </script>
 
 <style scoped>
-  .our-title {
-    color: #E73C1D;
-  }
-
-  .bento-app-bar {
-    font-family: 'HKGroteskBold', sans-serif;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo-container {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-  }
-
-  .app-bar-logo {
-    height: 40px;
-    margin-right: 16px;
-    margin-left: 16px;
-    flex-shrink: 0;
-  }
-
-  .bento-btn {
-    border-radius: 15px;
-  }
-
-  @keyframes slideLogo {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .animated-logo {
-    animation: slideLogo 3s ease-in-out forwards;
-  }
-
-  @font-face {
-    font-family: 'HKGroteskBold';
-    src: url('@/assets/fonts/HKGrotesk-Bold.otf') format('opentype');
-    font-weight: bold;
-    font-style: normal;
-  }
+.app-logo {
+  height: 40px;
+  max-width: 150px;
+}
 </style>
