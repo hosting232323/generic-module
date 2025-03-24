@@ -13,9 +13,8 @@
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     <v-app-bar-title>
-      <b>
-      {{ info.name }}
-      </b>
+      <img v-if="info.logo" :src="info.logo" alt="Logo" class="app-logo">
+      <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
     <Cart v-if="getCartQuantity != 0"></Cart>
   </v-app-bar>
@@ -23,7 +22,8 @@
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <v-app-bar-title>
-      <b>{{ info.name }}</b>
+      <img v-if="info.logo" :src="info.logo" alt="Logo" class="app-logo">
+      <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
 
     <div class="desktop-menu">
@@ -98,16 +98,8 @@ const getCartQuantity = computed(() => {
 </script>
 
 <style scoped>
-  .desktop-menu {
-    padding-right: 20px;
-  }
-  .router-link-exact-active,
-  .router-link-active,
-  .router-link-exact-active a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .router-link:hover {
-    text-decoration: underline;
-  }
+.app-logo {
+  height: 40px;
+  max-width: 150px;
+}
 </style>

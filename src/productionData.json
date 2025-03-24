@@ -105,7 +105,8 @@
   "info": {
     "name": "FastSite",
     "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C"
+    "secondaryColor": "#D2B48C",
+    "logo": "https://imgur.com/mNAxeqq.png"
   },
   "store": {
     "username": "bro.users.info@gmail.com",
