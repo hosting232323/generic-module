@@ -14,10 +14,10 @@
 
 <script setup>
   import View from './View';
-  import AppBar from './AppBar';
   import Footer from './Footer';
   import UpArrow from './UpArrow';
   import Loading from './Loading';
+  import AppBar from './DemoAppBar';
 
   import { storeToRefs } from 'pinia';
   import { useRoute } from 'vue-router';
