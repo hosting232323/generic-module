@@ -110,7 +110,7 @@
         </div>
         <div class="occurrences-list-container">
           <div class="occurrences-list">
-            <div v-for="occurrence in selectedEvent.occurrences" :key="occurrence.id" class="occurrence-card">
+            <div v-for="occurrence in sortedOccurrences" :key="occurrence.id" class="occurrence-card">
               <div class="occurrence-content">
                 <div class="occurrence-info">
                   <div class="occurrence-header">
@@ -175,6 +175,23 @@ const participantsEvent = ref(null);
 const isRecurringOccurrence = ref(false);
 
 const weekDays = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
+
+// Computed property to sort occurrences
+const sortedOccurrences = computed(() => {
+  if (!selectedEvent.value?.occurrences) return [];
+  
+  const now = new Date();
+  return [...selectedEvent.value.occurrences].sort((a, b) => {
+    // First, separate completed events
+    if (a.status === 'completed' && b.status !== 'completed') return 1;
+    if (a.status !== 'completed' && b.status === 'completed') return -1;
+    
+    // Then sort by date and time for non-completed events
+    const dateA = new Date(`${a.date}T${a.startTime}`);
+    const dateB = new Date(`${b.date}T${b.startTime}`);
+    return dateA - dateB;
+  });
+});
 
 const activeEvents = computed(() => {
   return props.events.filter(event => 
