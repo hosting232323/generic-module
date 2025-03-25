@@ -7,7 +7,7 @@
 
 <script setup>
   import View from './View.vue';
-  import AppBar from './AppBar.vue';
+  import AppBar from './OurAppBar.vue';
 
   import { useDataStore } from '@/stores/data';
 
