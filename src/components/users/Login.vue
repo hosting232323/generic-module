@@ -20,7 +20,6 @@
                 type="email"
                 prepend-icon="mdi-email"
                 outlined
-                :color="primaryColor"
                 class="mb-2"
               />
             </v-col>
@@ -35,7 +34,6 @@
                 :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
                 @click:append-inner="togglePasswordVisibility"
                 outlined
-                :color="primaryColor"
                 class="mb-4"
               />
             </v-col>
