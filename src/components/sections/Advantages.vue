@@ -24,17 +24,16 @@
       required: true
     },
     content: {
-      type: array,
+      type: Array,
       required: true
     },
     primaryColor: {
       type: String,
       required: true
-    },
-    secondaryColor: {
-      type: String,
-      required: true
-    },
+    }
   })
+  
+  console.log(props.content);
+
 
 </script>

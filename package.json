@@ -1,10 +1,8 @@
 {
   "name": "generic_frontend",
   "version": "0.0.0",
-  "exports": {
-    ".": "./index.js",
-    "./Advantage": "./components/Advantage.vue"
-  },
+  "main": "dist/generic_frontend.umd.js",
+  "module": "dist/generic_frontend.es.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
