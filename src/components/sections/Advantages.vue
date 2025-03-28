@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-  const { content, info } = defineProps(['content', 'info']);
+  // const { content, info } = defineProps(['content', 'info']);
 
   const props = defineProps({
     title: {

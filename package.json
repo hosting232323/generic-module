@@ -1,6 +1,10 @@
 {
   "name": "generic_frontend",
   "version": "0.0.0",
+  "exports": {
+    ".": "./index.js",
+    "./Advantage": "./components/Advantage.vue"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
