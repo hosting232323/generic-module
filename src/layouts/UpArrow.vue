@@ -4,18 +4,19 @@
       <i class="fas fa-arrow-up" id="UpArrow"></i>
     </div>
   </v-UpArrow>
-
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { storeToRefs } from 'pinia';
-import { useDataStore } from '@/stores/data';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 
+const props = defineProps({
+  info: {
+    type: Object,
+    required: true
+  }
+});
 
-const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
-const info = data.value.info;
+const info = computed(() => props.info);
 
 const topButton = ref(null);
 const scrollToTop = () => {
@@ -34,7 +35,7 @@ const handleScroll = () => {
 
 onMounted(() => {
   const upArrow = document.getElementById('UpArrow');
-  if (upArrow) upArrow.style.color = info.primaryColor;
+  if (upArrow) upArrow.style.color = info.value.primaryColor;
   window.addEventListener('scroll', handleScroll);
 });
 

@@ -1,3 +1,3 @@
-import Advantage from './components/sections/Advantages.vue';
+import ProductionLayout from './layouts/ProductionLayout.vue';
 
-export { Advantage };
+export { ProductionLayout };

@@ -1,12 +1,13 @@
 <template>
   <v-main :style="{ backgroundColor: data.info.secondaryColor }">
-    <router-view />
+    <Home />
   </v-main>
 </template>
 
 <script setup>
   import { storeToRefs } from 'pinia';
   import { useDataStore } from '@/stores/data';
+  import Home from '@/views/Home.vue';
 
   const dataStore = useDataStore();
   const { data } = storeToRefs(dataStore);
