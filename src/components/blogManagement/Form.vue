@@ -90,12 +90,13 @@ const uploadImage = (event) => {
   if (!selectedFile) return;
 
   fileError.value = '';
-  const bucketName = 'blogfast';
+
   const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
   loading.value = true;
-  http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
+  http.postRequestFileGenericBE(`upload-file/${filename}`, selectedFile, function (data) {
+    console.log(data);
     if (data.status === 'ok')
-      currentPost.value.cover = `https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`;
+      currentPost.value.cover = data.imageUrl;
     else
       fileError.value = "Errore nel caricamento del file: formato non supportato.";
 

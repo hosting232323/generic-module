@@ -55,15 +55,14 @@ const uploadImage = (event) => {
   if (!selectedFile) return;
 
   fileError.value = '';
-  const bucketName = 'blogfast';
   const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
   loading.value = true;
-  http.postRequestFileGenericBE(`upload-file/${bucketName}/${filename}`, selectedFile, function (data) {
+  http.postRequestFileGenericBE(`upload-file/${filename}`, selectedFile, function (data) {
     if (data.status === 'ok'){
       const listType = type == 'mobile' ? 'mobile_files' : 'desktop_files';
       if (!currentPost.value[listType])
         currentPost.value[listType] = [];
-      currentPost.value[listType].push(`https://${bucketName}.s3.eu-north-1.amazonaws.com/${filename}`);
+        currentPost.value[listType].push(data.imageUrl);
     } else
       fileError.value = "Errore nel caricamento del file: formato non supportato.";
 
