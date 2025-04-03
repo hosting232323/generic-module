@@ -62,7 +62,7 @@
 
   const info = computed(() => props.info);
   const addOn = computed(() => props.addOn);
-  const content = computed(() => props.components);
+  const components = computed(() => props.components);
 
   const drawer = ref(null);
   const route = useRoute();
@@ -93,7 +93,7 @@
         path: '/blog',
         type: 'internalLink'
       });
-    menuItems = menuItems.concat(content.value
+    menuItems = menuItems.concat(components.value
       .filter(section => section.menu)
       .map(section => ({
         title: section.menu,

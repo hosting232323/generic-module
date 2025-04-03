@@ -2,14 +2,14 @@
   <v-app>
     <UpArrow :info="info" />
     <AppBar :info="info" :addOn="addOn" :components="components" />
-    <!-- <View />  -->
-    <Footer :info="info"/>
+    <View :info="info" :addOn="addOn" :components="components" /> 
+    <Footer :info="info" />
   </v-app>
 </template>
 
 <script setup>
   import UpArrow from './UpArrow.vue';
-  // import View from './View.vue';
+  import View from './View.vue';
   import AppBar from './AppBar.vue';
   import Footer from './Footer.vue';
   import { computed } from 'vue';

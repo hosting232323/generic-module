@@ -1,9 +1,7 @@
 <template>
-  <v-UpArrow>
-    <div class="sup-container shadown" ref="topButton" @click="scrollToTop">
-      <i class="fas fa-arrow-up" id="UpArrow"></i>
-    </div>
-  </v-UpArrow>
+  <div class="sup-container shadown" ref="topButton" @click="scrollToTop">
+    <i class="fas fa-arrow-up" id="UpArrow"></i>
+  </div>
 </template>
 
 <script setup>
@@ -17,8 +15,8 @@ const props = defineProps({
 });
 
 const info = computed(() => props.info);
-
 const topButton = ref(null);
+
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,

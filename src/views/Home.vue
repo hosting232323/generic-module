@@ -1,11 +1,10 @@
 <template>
-  <component v-for="section in sections" :is="componentMap[section.type]" :id="section.menu ? section.menu.toLowerCase() : null" :content="section.content" :info="info" />
+  <component v-for="component in components" :is="componentMap[component.type]" :id="component.menu ? component.menu.toLowerCase() : null" :content="component.content" :info="info" />
 </template>
 
 <script setup>
-  import { storeToRefs } from 'pinia';
   import { useHead } from '@vueuse/head';
-  import { useDataStore } from '@/stores/data';
+  import { computed } from 'vue';
   
   import Map from '@/components/sections/Map';
   import Gallery from '@/components/sections/Gallery';
@@ -15,8 +14,23 @@
   import DualSection from '@/components/sections/DualSection';
   import Line from '@/components/sections/Line';
 
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
+  const props = defineProps({
+    info: {
+      type: Object,
+      required: true
+    },
+    addOn: {
+      type: Array,
+      default: () => []
+    },
+    components: {
+      type: Object,
+      required: true
+    }
+  });
+
+  const info = computed(() => props.info);
+  const components = computed(() => props.components);
 
   const componentMap = {
     map: Map,
@@ -27,9 +41,6 @@
     dualSection: DualSection,
     line: Line
   };
-
-  const sections = data.value.components;
-  const info = data.value.info;
 
   useHead({
     title: 'Home Page',
