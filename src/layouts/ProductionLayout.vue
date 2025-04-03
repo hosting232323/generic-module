@@ -19,11 +19,11 @@
   const props = defineProps({
     content: {
       type: Object,
-      required: false
+      default: () => productionData
     }
   })
 
-  const content = computed(() => Object.keys(props.content).length > 0 ? props.content : productionData);
+  const content = computed(() => props.content);
 
   const info = computed(() => content.value.info);
   const addOn = computed(() => content.value.addOn);
