@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 :style="{ color: info.primaryColor }">
-      I nostri vantaggi
+      {{ title || 'I nostri servizi' }}
     </h1>
     <v-card elevation="20" v-for="advantage in content" class="margin_top__default">
       <v-img :src="advantage.image" style="max-height: 600px;" cover />
@@ -16,5 +16,5 @@
 </template>
 
 <script setup>
-  const { content, info } = defineProps(['content', 'info']);
+  const { content, info } = defineProps(['content', 'info', 'title']);
 </script>

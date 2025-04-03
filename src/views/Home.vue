@@ -1,5 +1,5 @@
 <template>
-  <component v-for="component in components" :is="componentMap[component.type]" :id="component.menu ? component.menu.toLowerCase() : null" :content="component.content" :info="info" />
+  <component v-for="component in components" :is="componentMap[component.type]" :id="component.menu ? component.menu.toLowerCase() : null" :content="component.content" :info="info" :title="component.title"/>
 </template>
 
 <script setup>

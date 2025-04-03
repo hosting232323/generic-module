@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 :style="{ color: info.primaryColor }">
-      I nostri servizi
+      {{ title || 'I nostri servizi' }}
     </h1>
     <v-expansion-panels multiple>
       <v-expansion-panel elevation="20" v-for="service in content" class="margin_top__default">
@@ -17,5 +17,5 @@
 </template>
 
 <script setup>
-  const { content, info } = defineProps(['content', 'info']);
+  const { content, info } = defineProps(['content', 'info', 'title']);
 </script>

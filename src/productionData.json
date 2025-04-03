@@ -35,6 +35,7 @@
           "name": "Velocità di Caricamento Ottimale"
         }
       ],
+      "title": "I nostri vantaggi",
       "menu": "Vantaggi",
       "type": "advantages"
     },
@@ -64,6 +65,7 @@
           "name": "Sviluppo Web Personalizzato"
         }
       ],
+      "title": "I nostri servizi",
       "menu": "Servizi",
       "type": "services"
     },
