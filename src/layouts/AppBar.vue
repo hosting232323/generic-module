@@ -38,8 +38,11 @@
 
 <script setup>
   import { ref, computed } from 'vue';
-  import mobile from '@/utils/mobile';
+  // import mobile from '@/utils/mobile';
   import { useRouter, useRoute } from 'vue-router';
+  
+  import { useMobileUtils } from '@/utils/mobile';
+  const { isMobile } = useMobileUtils();
   // import Cart from './Cart.vue';
 
   // import { useOrderStore } from '@/stores/order';
@@ -67,7 +70,7 @@
   const drawer = ref(null);
   const route = useRoute();
   const router = ref(useRouter());
-  const isMobile = mobile.setupMobileUtils();
+  // const isMobile = mobile.setupMobileUtils();
 
   const link = (item) => {
     if (item.type == 'ancor') {
