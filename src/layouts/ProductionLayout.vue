@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <UpArrow :info="info" />
-    <AppBar :info="info" :addOn="addOn" :components="components" />
+    <AppBar :info="info" :addOn="addOn" :components="components" :routeId="routeId" />
     <View :info="info" :addOn="addOn" :components="components" /> 
     <Footer :info="info" />
   </v-app>
@@ -20,7 +20,11 @@
     content: {
       type: Object,
       default: () => productionData
-    }
+    },
+    routeId: {
+      type: String,
+      required: false
+    },
   })
 
   const content = computed(() => props.content);

@@ -38,15 +38,13 @@
 
 <script setup>
   import { ref, computed } from 'vue';
-  // import mobile from '@/utils/mobile';
-  import { useRouter, useRoute } from 'vue-router';
-  
+  import { useRouter } from 'vue-router';
   import { useMobileUtils } from '@/utils/mobile';
+
+  const drawer = ref(null);
+  const router = useRouter();
   const { isMobile } = useMobileUtils();
   // import Cart from './Cart.vue';
-
-  // import { useOrderStore } from '@/stores/order';
-  // const orderStore = useOrderStore();
 
   const props = defineProps({
     info: {
@@ -60,26 +58,44 @@
     components: {
       type: Object,
       required: true
-    }
+    },
+    routeId: {
+      type: String,
+      default: null
+    },
   });
 
   const info = computed(() => props.info);
   const addOn = computed(() => props.addOn);
   const components = computed(() => props.components);
 
-  const drawer = ref(null);
-  const route = useRoute();
-  const router = ref(useRouter());
-  // const isMobile = mobile.setupMobileUtils();
-
   const link = (item) => {
-    if (item.type == 'ancor') {
-      const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
-      router.value.push(`${pathUrl}/#${item.path}`);
-    } else if (item.type == 'externalLink')
-      window.open(item.path, '_blank');
-    else if (item.type == 'internalLink')
-      router.value.push(item.path);
+    const pathUrl = props.routeId ? `/demo/${parseInt(props.routeId, 10)}` : '';
+    
+    switch (item.type) {
+      case 'ancor':
+        if (props.routeId)
+          location.hash = `#${item.path}`;
+        else
+          router.push(`${pathUrl}/#${item.path}`);
+        break;
+
+      case 'externalLink':
+        window.open(item.path, '_blank');
+        break;
+
+      case 'internalLink':
+        if (props.routeId)
+          location.hash = item.path;
+        else
+          router.push(item.path);
+        break;
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
 
   const items = computed(() => {
