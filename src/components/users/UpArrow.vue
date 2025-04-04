@@ -1,12 +1,10 @@
 <template>
-  <v-UpArrow>
-    <div
-      :class="{'sup-container shadown': true, visible: flag}"
-      @click="scrollToTop"
-    >
-      <i class="fas fa-arrow-up" id="UpArrow"></i>
-    </div>
-  </v-UpArrow>
+  <div
+    :class="{'sup-container shadown': true, visible: flag}"
+    @click="scrollToTop"
+  >
+    <i class="fas fa-arrow-up" id="UpArrow"></i>
+  </div>
 </template>
 
 <script setup>
