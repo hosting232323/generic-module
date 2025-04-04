@@ -1,68 +1,7 @@
 <template>
-  <div
-    :class="{'sup-container shadown': true, visible: flag}"
-    @click="scrollToTop"
-  >
-    <i class="fas fa-arrow-up"  />
-  </div>
+  <v-btn text="Ciao" />
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-
-const flag = ref(false);
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-};
-const handleScroll = () => {
-  if (window.scrollY >= 250) {
-    flag.value = true;
-    console.log('ciao')
-  } else {
-    flag.value = false;
-    console.log('ciao2')
-  }
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+//
 </script>
-
-<style scoped>
-.sup-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(238, 238, 238, 0.8);
-  border-radius: 100%;
-  z-index: 999;
-  cursor: pointer;
-}
-
-.visible {
-  visibility: visible;
-}
-
-.shadown {
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 20%);
-  transition: box-shadow 225ms;
-}
-
-.shadown:hover {
-  box-shadow: 0px 10px 14px 0px rgba(0, 0, 0, 0.2);
-}
-</style>
