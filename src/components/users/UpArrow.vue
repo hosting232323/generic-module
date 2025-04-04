@@ -3,7 +3,7 @@
     :class="{'sup-container shadown': true, visible: flag}"
     @click="scrollToTop"
   >
-    <i class="fas fa-arrow-up" id="UpArrow"></i>
+    <i class="fas fa-arrow-up"  />
   </div>
 </template>
 
