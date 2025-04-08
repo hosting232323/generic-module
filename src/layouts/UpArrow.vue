@@ -1,68 +1,72 @@
 <template>
-  <div @click="scrollToTop" :style="supContainerStyle">
-    <span class="mdi mdi-arrow-up-thin" :style="upArrowStyle"></span>
+  <div class="sup-container shadown" ref="topButton" @click="scrollToTop">
+    <i class="fas fa-arrow-up" id="UpArrow"></i>
   </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, computed, ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
 
-const props = defineProps({
-  info: {
-    type: Object,
-    required: true
-  }
-});
 
-const info = computed(() => props.info);
-const isVisible = ref(false);
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const info = data.value.info;
 
+const topButton = ref(null);
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
 };
-
 const handleScroll = () => {
-  isVisible.value = window.scrollY >= 250;
-  console.log(supContainerStyle.value.visibility);
-  if (isVisible.value) supContainerStyle.value.visibility = 'visible !important';
-  if (!isVisible.value) supContainerStyle.value.visibility = 'hidden !important';
-  console.log(supContainerStyle.value.visibility);
+  if (window.scrollY >= 250) {
+    topButton.value.classList.add('visible');
+  } else {
+    topButton.value.classList.remove('visible');
+  }
 };
 
 onMounted(() => {
-  console.log("onMounted: Aggiungo evento scroll");
+  const upArrow = document.getElementById('UpArrow');
+  if (upArrow) upArrow.style.color = info.primaryColor;
   window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Controlla lo stato iniziale
 });
 
 onUnmounted(() => {
-  console.log("onUnmounted: Rimuovo evento scroll");
   window.removeEventListener('scroll', handleScroll);
 });
-
-const supContainerStyle = computed(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  position: 'fixed',
-  bottom: '20px',
-  right: '20px',
-  width: '40px',
-  height: '40px',
-  backgroundColor: 'rgba(238, 238, 238, 0.8)',
-  borderRadius: '100%',
-  zIndex: '999',
-  cursor: 'pointer',
-  boxShadow: isVisible.value ? '0px 10px 14px 0px rgba(0, 0, 0, 0.2)' : '0px 4px 4px 0px rgb(0 0 0 / 20%)',
-  transition: 'box-shadow 225ms',
-  visibility: 'hidden'
-}));
-
-const upArrowStyle = computed(() => ({
-  fontSize: '25px',
-  color: info.value.primaryColor
-}));
 </script>
+
+<style scoped>
+.sup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(238, 238, 238, 0.8);
+  border-radius: 100%;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.shadown {
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 20%);
+  transition: box-shadow 225ms;
+}
+
+.shadown:hover {
+  box-shadow: 0px 10px 14px 0px rgba(0, 0, 0, 0.2);
+}
+</style>

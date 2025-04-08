@@ -7,9 +7,9 @@
             </v-col>
             <v-col cols="12" md="6">
                 <v-sheet :color = "info.secondaryColor">
-                    <p  v-if="content.title" class="text-h3 font-weight-black" :style="{ color: info.primaryColor + ' !important' }" v-html="content.title"></p><br>
-                    <p v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="content.subtitle + '<br>'"></p>
-                    <p v-if="content.description" v-html="content.description"></p>
+                    <p  v-if="content.title" class="text-h3 font-weight-black" :style="{ color: info.primaryColor + ' !important' }" v-html="content.title" /><br>
+                    <p v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="content.subtitle + '<br>'" />
+                    <p v-if="content.description" v-html="content.description" />
                     <br>
                     <a :href="content.url" v-if="content.url && content.button">
                         <v-btn

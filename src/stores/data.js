@@ -10,9 +10,8 @@ export const useDataStore = defineStore('data', {
   }),
   actions: {
     initData(id = undefined) {
-      console.log('Esecuzione di initData con i seguenti dati:', id);
       if (id)
-        this.data = id;
+        http.getRequest(`get-data/${id}`, {}, this.updateData);
       else
         this.data = productionData;
     },

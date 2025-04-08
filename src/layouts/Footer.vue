@@ -1,11 +1,11 @@
 <template>
-  <v-footer elevation="2" :color="info.primaryColor">
+  <v-footer elevation="2" :color="data.info.primaryColor">
     <v-container>
       <v-row>
         <v-col cols="6">
           {{ new Date().getFullYear() }} —
-          <strong>{{ info.name }}</strong>
-          <div v-if="info.iva">P. IVA {{ info.iva }}</div>
+          <strong>{{ data.info.name }}</strong>
+          <div v-if="data.info.iva">P. IVA {{ data.info.iva }}</div>
         </v-col>
         <v-col cols="6" class="text-right">
           <a href="/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>
@@ -23,12 +23,11 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  info: {
-    type: Object,
-    required: true
-  }
-});
+  import { storeToRefs } from 'pinia';
+  import { useDataStore } from '@/stores/data';
+
+  const dataStore = useDataStore();
+  const { data } = storeToRefs(dataStore);
 </script>
 
 <style scoped>

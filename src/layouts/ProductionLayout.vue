@@ -1,9 +1,9 @@
 <template>
-  <v-app>
-    <UpArrow :info="info" />
-    <AppBar :info="info" :addOn="addOn" :components="components" :routeId="routeId" />
-    <View :info="info" :addOn="addOn" :components="components" /> 
-    <Footer :info="info" />
+  <v-app  v-if="dataStore.ready">
+    <UpArrow />
+    <AppBar />
+    <View /> 
+    <Footer />
   </v-app>
 </template>
 
@@ -12,25 +12,16 @@
   import View from './View.vue';
   import AppBar from './AppBar.vue';
   import Footer from './Footer.vue';
-  import { computed } from 'vue';
-  import productionData from '@/productionData';
 
+  import { useDataStore } from '@/stores/data';
+  const dataStore = useDataStore();
 
-  const props = defineProps({
-    content: {
-      type: Object,
-      default: () => productionData
-    },
-    routeId: {
-      type: String,
-      required: false
-    },
-  })
+  const query = new URLSearchParams(window.location.search);
+  const routeId = query.get('id');
 
-  const content = computed(() => props.content);
-
-  const info = computed(() => content.value.info);
-  const addOn = computed(() => content.value.addOn);
-  const components = computed(() => content.value.components);
-
+  if (routeId) {
+    dataStore.initData(routeId);
+  } else {
+    dataStore.initData();
+  }
 </script>
