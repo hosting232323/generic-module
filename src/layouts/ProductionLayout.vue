@@ -19,7 +19,7 @@
   const query = new URLSearchParams(window.location.search);
   const routeId = query.get('id');
 
-  if (routeId) {
+  if (routeId != null) {
     dataStore.initData(routeId);
   } else {
     dataStore.initData();

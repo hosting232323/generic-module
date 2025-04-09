@@ -12,8 +12,10 @@ export const useDataStore = defineStore('data', {
     initData(id = undefined) {
       if (id)
         http.getRequest(`get-data/${id}`, {}, this.updateData);
-      else
+      else {
         this.data = productionData;
+        this.ready = true;
+      }
     },
     updateData(data) {
       this.data = data.data;
