@@ -1,5 +1,5 @@
 <template>
-  <component v-for="section in sections" :is="componentMap[section.type]" :id="section.menu ? section.menu.toLowerCase() : null" :content="section.content" :info="info" />
+  <component v-for="section in sections" :is="componentMap[section.type]" :id="section.menu ? section.menu.toLowerCase() : null" v-bind="getSectionProps(section)" />
 </template>
 
 <script setup>
@@ -30,6 +30,19 @@
 
   const sections = data.value.components;
   const info = data.value.info;
+
+  const getSectionProps = (section) => {
+    const props = {
+      content: section.content,
+      info: info
+    };
+    
+    if (section.title) {
+      props.title = section.title;
+    }
+    
+    return props;
+  }
 
   useHead({
     title: 'Home Page',
