@@ -1,162 +1,206 @@
 <template>
-  <div class="events-dashboard">
-    <div class="dashboard-header">
-      <h1>Gestione Eventi</h1>
-    </div>
+  <v-container class="events-dashboard">
+    <v-row>
+      <v-col>
+        <h1 class="text-h4 mb-6">Gestione Eventi</h1>
+      </v-col>
+    </v-row>
 
-    <div class="events-list">
-      <div v-for="event in activeEvents" :key="event.id" class="event-card">
-        <div class="event-content">
-          <div class="event-main">
-            <div class="event-header">
-              <h3>{{ event.name }}</h3>
-              <span :class="['status-badge', getStatusClass(event.status)]">
-                {{ getStatusText(event.status, event) }}
-              </span>
-            </div>
-            <p class="event-description">{{ event.description || event.name }}</p>
-            <div class="event-details">
-              <div class="detail-item">
-                <p class="detail-label">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</p>
-                <p class="detail-value">
-                  <template v-if="event.isRecurring">
-                    {{ getRecurrenceText(event) }}
-                  </template>
-                  <template v-else>
-                    {{ formatDate(event.date) }}
-                  </template>
-                </p>
-              </div>
-              <div class="detail-item" v-if="!event.isRecurring">
-                <p class="detail-label">Orario</p>
-                <p class="detail-value">{{ event.startTime }} - {{ event.endTime }}</p>
-              </div>
-              <div v-if="!event.isRecurring" class="detail-item">
-                <p class="detail-label">Partecipanti</p>
-                <p class="detail-value">{{ event.ticketsSold || 0 }} / {{ event.capacity || 0 }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="event-actions">
-            <button @click="showParticipants(event)" class="btn btn-info">
-              <i class="fas fa-users"></i>
-              {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="past-events-section">
-      <button @click="showPastEvents = !showPastEvents" class="past-events-toggle">
-        <i class="fas fa-chevron-down" v-if="showPastEvents"></i>
-        <i class="fas fa-chevron-right" v-else></i>
-        Eventi Passati
-      </button>
-      <div v-if="showPastEvents" class="past-events">
-        <div v-for="event in pastEvents" :key="event.id" class="event-card past-event">
-          <div class="event-content">
-            <div class="event-main">
-              <div class="event-header">
-                <h3>{{ event.name }}</h3>
-                <span :class="['status-badge', getStatusClass(event.status)]">
-                  {{ getStatusText(event.status, event) }}
-                </span>
-              </div>
-              <p class="event-description">{{ event.description || event.name }}</p>
-              <div class="event-details">
-                <div class="detail-item">
-                  <p class="detail-label">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</p>
-                  <p class="detail-value">
-                    <template v-if="event.isRecurring">
-                      {{ getRecurrenceText(event) }}
-                    </template>
-                    <template v-else>
-                      {{ formatDate(event.date) }}
-                    </template>
-                  </p>
+    <v-row>
+      <v-col v-for="event in activeEvents" :key="event.id" cols="12">
+        <v-card>
+          <v-card-item>
+            <v-row>
+              <v-col cols="12" md="8">
+                <div class="d-flex align-center">
+                  <h3 class="text-h5 mr-4">{{ event.name }}</h3>
+                  <v-chip
+                    :color="getStatusClass(event.status)"
+                    class="ml-2"
+                  >
+                    {{ getStatusText(event.status, event) }}
+                  </v-chip>
                 </div>
-                <div class="detail-item" v-if="!event.isRecurring">
-                  <p class="detail-label">Orario</p>
-                  <p class="detail-value">{{ event.startTime }} - {{ event.endTime }}</p>
-                </div>
-                <div v-if="!event.isRecurring" class="detail-item">
-                  <p class="detail-label">Partecipanti</p>
-                  <p class="detail-value">{{ event.ticketsSold || 0 }} / {{ event.capacity || 0 }}</p>
-                </div>
-              </div>
-            </div>
-            <div class="event-actions">
-              <button @click="showParticipants(event)" class="btn btn-info">
-                <i class="fas fa-users"></i>
-                {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div v-if="showOccurrenceModal" class="modal-overlay">
-      <div class="modal-content recurring-events-modal">
-        <div class="modal-header">
-          <div class="header-navigation">
-            <button @click="showOccurrenceModal = false" class="btn btn-link">
-              <i class="fas fa-arrow-left"></i>
-              Torna agli eventi
-            </button>
-            <h2>{{ selectedEvent.name }}</h2>
-          </div>
-        </div>
-        <div class="occurrences-list-container">
-          <div class="occurrences-list">
-            <div v-for="occurrence in sortedOccurrences" :key="occurrence.id" class="occurrence-card">
-              <div class="occurrence-content">
-                <div class="occurrence-info">
-                  <div class="occurrence-header">
-                    <h3>{{ formatDate(occurrence.date) }}</h3>
-                    <span :class="['status-badge', getStatusClass(occurrence.status)]">
-                      {{ getStatusText(occurrence.status, occurrence) }}
-                    </span>
-                  </div>
-                  <div class="occurrence-details">
-                    <div class="detail-item">
-                      <p class="detail-label">Orario</p>
-                      <p class="detail-value">{{ occurrence.startTime }} - {{ occurrence.endTime }}</p>
+                <p class="text-body-1 text-medium-emphasis mt-2">{{ event.description || event.name }}</p>
+                <v-row class="mt-4">
+                  <v-col cols="12" sm="4">
+                    <div class="text-caption text-medium-emphasis">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</div>
+                    <div class="text-body-1">
+                      <template v-if="event.isRecurring">
+                        {{ getRecurrenceText(event) }}
+                      </template>
+                      <template v-else>
+                        {{ formatDate(event.date) }}
+                      </template>
                     </div>
-                    <div class="detail-item">
-                      <p class="detail-label">Partecipanti</p>
-                      <p class="detail-value">{{ occurrence.ticketsSold }} / {{ occurrence.capacity }}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="occurrence-actions">
-                  <button @click="showOccurrenceParticipants(occurrence)" class="btn btn-info">
-                    <i class="fas fa-users"></i>
-                    Partecipanti
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                  </v-col>
+                  <v-col v-if="!event.isRecurring" cols="12" sm="4">
+                    <div class="text-caption text-medium-emphasis">Orario</div>
+                    <div class="text-body-1">{{ event.startTime }} - {{ event.endTime }}</div>
+                  </v-col>
+                  <v-col v-if="!event.isRecurring" cols="12" sm="4">
+                    <div class="text-caption text-medium-emphasis">Partecipanti</div>
+                    <div class="text-body-1">{{ event.ticketsSold || 0 }} / {{ event.capacity || 0 }}</div>
+                  </v-col>
+                </v-row>
+              </v-col>
+              <v-col cols="12" md="4" class="d-flex justify-end align-center">
+                <v-btn
+                  color="#f34455"
+                  prepend-icon="mdi-account-group"
+                  @click="showParticipants(event)"
+                >
+                  {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card-item>
+        </v-card>
+      </v-col>
+    </v-row>
 
-    <div v-if="showParticipantsModal" class="modal-overlay">
+    <v-row class="mt-6">
+      <v-col>
+        <v-expansion-panels v-model="showPastEvents">
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              <div class="d-flex align-center">
+                <v-icon :icon="showPastEvents ? 'mdi-chevron-down' : 'mdi-chevron-right'" class="mr-2" />
+                Eventi Passati
+              </div>
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <v-row>
+                <v-col v-for="event in pastEvents" :key="event.id" cols="12">
+                  <v-card variant="outlined">
+                    <v-card-item>
+                      <v-row>
+                        <v-col cols="12" md="8">
+                          <div class="d-flex align-center">
+                            <h3 class="text-h5 mr-4">{{ event.name }}</h3>
+                            <v-chip
+                              :color="getStatusClass(event.status)"
+                              class="ml-2"
+                            >
+                              {{ getStatusText(event.status, event) }}
+                            </v-chip>
+                          </div>
+                          <p class="text-body-1 text-medium-emphasis mt-2">{{ event.description || event.name }}</p>
+                          <v-row class="mt-4">
+                            <v-col cols="12" sm="4">
+                              <div class="text-caption text-medium-emphasis">{{ event.isRecurring ? 'Ricorrenza' : 'Data' }}</div>
+                              <div class="text-body-1">
+                                <template v-if="event.isRecurring">
+                                  {{ getRecurrenceText(event) }}
+                                </template>
+                                <template v-else>
+                                  {{ formatDate(event.date) }}
+                                </template>
+                              </div>
+                            </v-col>
+                            <v-col v-if="!event.isRecurring" cols="12" sm="4">
+                              <div class="text-caption text-medium-emphasis">Orario</div>
+                              <div class="text-body-1">{{ event.startTime }} - {{ event.endTime }}</div>
+                            </v-col>
+                            <v-col v-if="!event.isRecurring" cols="12" sm="4">
+                              <div class="text-caption text-medium-emphasis">Partecipanti</div>
+                              <div class="text-body-1">{{ event.ticketsSold || 0 }} / {{ event.capacity || 0 }}</div>
+                            </v-col>
+                          </v-row>
+                        </v-col>
+                        <v-col cols="12" md="4" class="d-flex justify-end align-center">
+                          <v-btn
+                            color="#f34455"
+                            prepend-icon="mdi-account-group"
+                            @click="showParticipants(event)"
+                          >
+                            {{ event.isRecurring ? 'Elenco degli eventi singoli' : 'Partecipanti' }}
+                          </v-btn>
+                        </v-col>
+                      </v-row>
+                    </v-card-item>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-col>
+    </v-row>
+
+    <v-dialog
+      v-model="showOccurrenceModal"
+      max-width="800"
+      scrollable
+    >
+      <v-card>
+        <v-toolbar density="compact">
+          <v-btn color="#f34455" icon @click="showOccurrenceModal = false">
+            <v-icon>mdi-arrow-left</v-icon>
+          </v-btn>
+          <v-toolbar-title>{{ selectedEvent?.name }}</v-toolbar-title>
+        </v-toolbar>
+        <v-card-text class="pa-4">
+          <v-row>
+            <v-col v-for="occurrence in sortedOccurrences" :key="occurrence.id" cols="12">
+              <v-card variant="outlined">
+                <v-card-item>
+                  <v-row>
+                    <v-col cols="12" md="8">
+                      <div class="d-flex align-center">
+                        <h3 class="text-h6">{{ formatDate(occurrence.date) }}</h3>
+                        <v-chip
+                          :color="getStatusClass(occurrence.status)"
+                          class="ml-2"
+                        >
+                          {{ getStatusText(occurrence.status, occurrence) }}
+                        </v-chip>
+                      </div>
+                      <v-row class="mt-4">
+                        <v-col cols="12" sm="6">
+                          <div class="text-caption text-medium-emphasis">Orario</div>
+                          <div class="text-body-1">{{ occurrence.startTime }} - {{ occurrence.endTime }}</div>
+                        </v-col>
+                        <v-col cols="12" sm="6">
+                          <div class="text-caption text-medium-emphasis">Partecipanti</div>
+                          <div class="text-body-1">{{ occurrence.ticketsSold }} / {{ occurrence.capacity }}</div>
+                        </v-col>
+                      </v-row>
+                    </v-col>
+                    <v-col cols="12" md="4" class="d-flex justify-end align-center">
+                      <v-btn
+                        color="#f34455"
+                        prepend-icon="mdi-account-group"
+                        @click="showOccurrenceParticipants(occurrence)"
+                      >
+                        Partecipanti
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-card-item>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog
+      v-model="showParticipantsModal"
+      max-width="800"
+    >
       <EventParticipants 
         :event="participantsEvent" 
         :isRecurringOccurrence="isRecurringOccurrence"
         @close="showParticipantsModal = false" 
       />
-    </div>
-  </div>
+    </v-dialog>
+  </v-container>
 </template>
 
 <script setup>
 import { ref, computed, defineProps, defineEmits } from 'vue';
 import EventParticipants from './EventParticipants.vue';
-import '../../styles/Events.css';
 
 const props = defineProps({
   events: {
@@ -276,6 +320,9 @@ const showOccurrenceParticipants = (occurrence) => {
   showOccurrenceModal.value = false;
 };
 </script>
+
 <style scoped>
-/* Styles moved to Events.css */
+.events-dashboard {
+  background-color: #f7f4ef;
+}
 </style>

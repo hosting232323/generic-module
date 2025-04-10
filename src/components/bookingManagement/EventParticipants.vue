@@ -1,91 +1,121 @@
 <template>
-  <div class="participants-modal">
-    <div class="modal-header">
-      <h2>Partecipanti all'evento</h2>
-      <button @click="$emit('close')" class="btn-close">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
+  <v-card class="participants-modal">
+    <v-card-title class="d-flex justify-space-between align-center pa-4">
+      <span>Partecipanti all'evento</span>
+      <v-btn icon="mdi-close" variant="text" @click="$emit('close')" />
+    </v-card-title>
 
-    <div class="participants-content">
-      <div class="participants-info">
-        <div class="event-details">
-          <h3>{{ props.event.name }}</h3>
-          <p v-if="props.isRecurringOccurrence">
-            Data: {{ formatDate(props.event.date) }} | 
-            Orario: {{ props.event.startTime }} - {{ props.event.endTime }}
-          </p>
-        </div>
-        <div class="participants-stats">
-          <div class="stat-item">
-            <span class="stat-label">Totale Partecipanti:</span>
-            <span class="stat-value">{{ displayedParticipants }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Posti Disponibili:</span>
-            <span class="stat-value">{{ props.event.capacity - displayedParticipants }}</span>
-          </div>
-        </div>
-        <div class="export-actions">
-          <button class="btn btn-export btn-ics" @click="exportFile('ics')">
-            <i class="fas fa-calendar-alt"></i>
-            Esporta ICS
-          </button>
-          <button class="btn btn-export btn-xls" @click="exportFile('xls')">
-            <i class="fas fa-file-excel"></i>
-            Esporta XLS
-          </button>
-          <v-btn 
-            class="btn btn-export btn-block" 
-            @click="toggleEventBlocked"
-            :loading="blockLoading"
-          >
-            <i class="fas fa-lock"></i>
-            Blocca
-          </v-btn>
-        </div>
-      </div>
+    <v-card-text>
+      <v-container>
+        <v-row>
+          <v-col cols="12">
+            <div class="d-flex flex-column">
+              <h3 class="text-h5">{{ props.event.name }}</h3>
+              <p v-if="props.isRecurringOccurrence" class="text-body-1">
+                Data: {{ formatDate(props.event.date) }} | 
+                Orario: {{ props.event.startTime }} - {{ props.event.endTime }}
+              </p>
+            </div>
+          </v-col>
 
-      <div v-if="loading" class="loading-indicator">
-        <p>Caricamento partecipanti in corso...</p>
-      </div>
+          <v-col cols="12" sm="6" md="auto">
+            <v-card variant="outlined" class="pa-4">
+              <div class="text-caption text-medium-emphasis">Totale Partecipanti</div>
+              <div class="text-h6">{{ displayedParticipants }}</div>
+            </v-card>
+          </v-col>
 
-      <div v-else-if="participants.length === 0" class="no-participants">
-        <p>Nessun partecipante registrato per questo evento.</p>
-      </div>
+          <v-col cols="12" sm="6" md="auto">
+            <v-card variant="outlined" class="pa-4">
+              <div class="text-caption text-medium-emphasis">Posti Disponibili</div>
+              <div class="text-h6">{{ props.event.capacity - displayedParticipants }}</div>
+            </v-card>
+          </v-col>
 
-      <div v-else class="participants-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Cognome</th>
-              <th>Email</th>
-              <th>Telefono</th>
-              <th>N° Partecipanti</th>
-              <th>Note</th>
-              <th>Azioni</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="participant in participants" :key="participant.email">
-              <td>{{ participant.firstName }}</td>
-              <td>{{ participant.lastName }}</td>
-              <td>{{ participant.email }}</td>
-              <td>{{ participant.phone }}</td>
-              <td>{{ participant.numberOfParticipants }}</td>
-              <td>{{ participant.notes }}</td>
-              <td>
-                <button class="btn-delete" @click="deleteParticipant(participant)">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+          <v-col cols="12" class="d-flex gap-6 mt-4">
+            <v-btn
+              class="me-4"
+              color="#f34455"
+              prepend-icon="mdi-calendar"
+              @click="exportFile('ics')"
+            >
+              Esporta ICS
+            </v-btn>
+            <v-btn
+              class="me-4"
+              color="#f34455"
+              prepend-icon="mdi-file-excel"
+              @click="exportFile('xls')"
+            >
+              Esporta XLS
+            </v-btn>
+            <v-btn
+              class="me-4"
+              :loading="blockLoading"
+              color="#f34455"
+              prepend-icon="mdi-lock"
+              @click="toggleEventBlocked"
+            >
+              Blocca
+            </v-btn>
+          </v-col>
+        </v-row>
+
+        <v-row class="mt-4">
+          <v-col cols="12">
+            <v-progress-circular
+              v-if="loading"
+              indeterminate
+              color="#f34455"
+              class="ma-4"
+            />
+
+            <v-alert
+              v-else-if="participants.length === 0"
+              type="info"
+              text="Nessun partecipante registrato per questo evento."
+            />
+
+            <v-table
+              v-else
+              hover
+            >
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Cognome</th>
+                  <th>Email</th>
+                  <th>Telefono</th>
+                  <th>N° Partecipanti</th>
+                  <th>Note</th>
+                  <th>Azioni</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="participant in participants" :key="participant.email">
+                  <td>{{ participant.firstName }}</td>
+                  <td>{{ participant.lastName }}</td>
+                  <td>{{ participant.email }}</td>
+                  <td>{{ participant.phone }}</td>
+                  <td>{{ participant.numberOfParticipants }}</td>
+                  <td>{{ participant.notes }}</td>
+                  <td>
+                    <v-btn
+                      color="error"
+                      icon="mdi-delete"
+                      size="small"
+                      variant="text"
+                      @click="deleteParticipant(participant)"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </v-table>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script setup>
@@ -221,192 +251,3 @@ watch(() => [props.event.id, props.event.date, props.event.fullStartTime], ([new
 }, { immediate: false });
 </script>
 
-<style scoped>
-.participants-modal {
-  background-color: white;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 800px;
-  max-height: 90vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.participants-content {
-  flex: 1;
-  padding: 1rem;
-  overflow-y: auto;
-}
-
-.participants-info {
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.event-details {
-  margin-bottom: 1rem;
-}
-
-.event-details h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.2rem;
-}
-
-.event-details p {
-  margin: 0;
-  color: #666;
-}
-
-.participants-stats {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stat-label {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.25rem;
-}
-
-.stat-value {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.export-actions {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.btn-export {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.btn-ics {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.btn-ics:hover {
-  background-color: #3e8e41;
-}
-
-.btn-xls {
-  background-color: #217346;
-  color: white;
-}
-
-.btn-xls:hover {
-  background-color: #1a5c38;
-}
-
-.btn-block {
-  background-color: #6c757d;
-  color: white;
-}
-
-.btn-block:hover {
-  background-color: #5a6268;
-}
-
-.event-blocked-notice {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #fff3cd;
-  color: #856404;
-  padding: 0.75rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-.event-blocked-notice i {
-  font-size: 1.2rem;
-}
-
-.loading-indicator, .no-participants {
-  text-align: center;
-  padding: 2rem;
-  color: #666;
-}
-
-.participants-table {
-  width: 100%;
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-th {
-  background-color: #f5f5f5;
-  font-weight: 600;
-}
-
-tr:hover {
-  background-color: #f9f9f9;
-}
-
-.btn-delete {
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 0.3rem 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.btn-delete:hover {
-  background-color: #c82333;
-}
-
-.btn-close {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.btn-close:hover {
-  color: #333;
-}
-</style>
