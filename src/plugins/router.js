@@ -9,6 +9,12 @@ const routes = [
         path: '/',
         name: 'Production Home',
         component: () => import('@/views/Home')
+      },,
+      {
+        path: '/blog',
+        name: 'Blog',
+        component: () => import('@/views/Blog'),
+        meta: { chatty: 5 }
       },
       {
         path: '/shop',
