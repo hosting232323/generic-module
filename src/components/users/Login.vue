@@ -51,11 +51,6 @@
               </v-btn>
             </v-col>
           </v-row>
-          <v-row v-if="message">
-            <v-col cols="12" md="12">
-              <v-alert type="error" dense>{{ message }}</v-alert>
-            </v-col>
-          </v-row>
           <v-row v-if="showGoogleLogin">
             <v-col cols="12" md="12" class="d-flex justify-center">
               <v-btn
@@ -77,15 +72,32 @@
             </v-col>
           </v-row>
           <v-row v-if="signUp">
-            <v-col cols="12" md="12" class="d-flex justify-center">
-              <div class="d-flex" :style="{ width: $vuetify.display.width > 400 ? '350px' : '280px' }">
-                <v-btn text @click="changeStatus(2)" class="custom-btn mr-6" :color="primaryColor">
+            <v-col cols="12" md="12">
+              <div class="d-flex flex-column flex-sm-row justify-center" :style="{ maxWidth: $vuetify.display.width > 400 ? '350px' : '280px', margin: '0 auto', gap: '16px' }">
+                <v-btn
+                  text
+                  @click="changeStatus(2)"
+                  class="custom-btn flex-grow-1"
+                  :color="primaryColor"
+                  :block="$vuetify.display.xs"
+                >
                   Registrati qui
                 </v-btn>
-                <v-btn text @click="changeStatus(3)" class="custom-btn" :color="primaryColor">
+                <v-btn
+                  text
+                  @click="changeStatus(3)"
+                  class="custom-btn flex-grow-1"
+                  :color="primaryColor"
+                  :block="$vuetify.display.xs"
+                >
                   Reset password
                 </v-btn>
               </div>
+            </v-col>
+          </v-row>
+          <v-row v-if="message">
+            <v-col cols="12" md="12">
+              <v-alert type="error" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
         </v-form>
@@ -254,7 +266,7 @@ const changeStatus = (value) => {
   padding: 10px 16px;
   min-height: 48px;
   line-height: 1.5;
-  flex: 1;
+  width: 100%;
 }
 
 .google-btn:hover {
