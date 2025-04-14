@@ -11,7 +11,7 @@ export const useDataStore = defineStore('data', {
   actions: {
     initData(id = undefined) {
       if (id)
-        http.getRequest(`get-data/${id}`, {}, function (data) {
+        http.getRequest(`get-data/${id}`, {}, (data) => {
           this.updateData(data.data);
         });
       else 

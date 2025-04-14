@@ -13,15 +13,21 @@
   import AppBar from './AppBar.vue';
   import Footer from './Footer.vue';
 
+  import { onMounted } from 'vue';
+  import { useRoute } from 'vue-router';
   import { useDataStore } from '@/stores/data';
+
+  const route = useRoute();
   const dataStore = useDataStore();
 
-  const query = new URLSearchParams(window.location.search);
-  const routeId = query.get('id');
+  onMounted(() => {
+    const routeId = route.params.id;
+    console.log(routeId)
 
-  if (routeId != null) {
-    dataStore.initData(routeId);
-  } else {
-    dataStore.initData();
-  }
+    if (routeId) {
+      dataStore.initData(routeId);
+    } else {
+      dataStore.initData();
+    }
+  });
 </script>
