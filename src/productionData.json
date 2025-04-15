@@ -1,67 +1,43 @@
 {
   "addOn": [
     "Chatty",
-    "VirtualTour"
+    "Menu"
   ],
   "components": [
     {
+      "content": {
+        "button": "Vai al menu!",
+        "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
+        "orientationDesktop": "right",
+        "orientationMobile": "top",
+        "subtitle": "Tradizione e creatività in ogni fetta",
+        "title": "Esplora il nostro menu",
+        "url": "/menu"
+      },
+      "type": "dualSection"
+    },
+    {
       "content": [
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png"
+        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
+        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
+        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
       ],
-      "menu": "Galleria",
       "type": "gallery"
     },
     {
       "content": [
         {
-          "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-          "name": "Design Personalizzato"
+          "description": "Crea la tua pizza scegliendo gli ingredienti che preferisci. Da gustare calda e appena sfornata.",
+          "name": "Pizza Personalizzata"
         },
         {
-          "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-          "name": "SEO Ottimizzato"
+          "description": "Scopri una selezione dei nostri migliori piatti con il menu degustazione che include antipasti, pizze speciali e dolci fatti in casa.",
+          "name": "Menu Degustazione"
         },
         {
-          "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-          "name": "Responsive Design"
-        },
-        {
-          "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
-          "name": "Velocità di Caricamento Ottimale"
-        }
-      ],
-      "menu": "Vantaggi",
-      "type": "advantages"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": [
-        {
-          "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-          "name": "Sito Web Vetrina"
-        },
-        {
-          "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-          "name": "Sito Web E-commerce"
-        },
-        {
-          "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-          "name": "Ottimizzazione SEO"
-        },
-        {
-          "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-          "name": "Gestione Contenuti"
-        },
-        {
-          "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-          "name": "Sviluppo Web Personalizzato"
+          "description": "Organizza una festa o un evento speciale con il nostro servizio di pizza party a domicilio. Scegli le pizze da gustare comodamente a casa tua.",
+          "name": "Pizza Party a Domicilio"
         }
       ],
       "menu": "Servizi",
@@ -71,22 +47,28 @@
       "type": "line"
     },
     {
-      "content": {
-        "button": "Cliccami!",
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-        "orientation": "right",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
-      },
-      "menu": "Sezione doppia",
-      "type": "dualSection"
+      "content": [
+        {
+          "description": "Le nostre pizze vengono cotte in un forno a legna che garantisce una cottura perfetta e conferisce quel caratteristico sapore affumicato.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png",
+          "name": "Forno a Legna"
+        },
+        {
+          "description": "Il nostro staff è ben addestrato a garantire un servizio rapido e cordiale, creando un'atmosfera accogliente per i nostri clienti.",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png",
+          "name": "Servizio Veloce e Accogliente"
+        }
+      ],
+      "menu": "Vantaggi",
+      "type": "advantages"
+    },
+    {
+      "type": "line"
     },
     {
       "content": {
-        "Email": "giovanni.colasanto@fastsite.it",
-        "Phone": "+39 347 876 8340"
+        "Address": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy",
+        "Phone": "+39 080 964 8969"
       },
       "menu": "Contatti",
       "type": "contacts"
@@ -94,29 +76,18 @@
     {
       "content": {
         "coordinates": [
-          16.882818,
-          41.09665
+          "16.5978131",
+          "41.2051935"
         ],
-        "zoom": 9
+        "zoom": 10
       },
       "type": "map"
     }
   ],
   "info": {
-    "name": "FastSite",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C",
-    "logo": "https://imgur.com/mNAxeqq.png"
-  },
-  "store": {
-    "username": "bro.users.info@gmail.com",
-    "password": "Ciao1234",
-    "businessActivity": 1,
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
-    ]
+    "chattyId": "10",
+    "name": "Pizzeria - Molfetta",
+    "primaryColor": "#F26C4F",
+    "secondaryColor": "#FFD166"
   }
 }
