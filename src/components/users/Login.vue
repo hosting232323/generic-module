@@ -75,23 +75,19 @@
             <v-col cols="12" md="12">
               <div class="d-flex flex-column flex-sm-row justify-center" :style="{ maxWidth: $vuetify.display.width > 400 ? '350px' : '280px', margin: '0 auto', gap: '16px' }">
                 <v-btn
-                  text
+                  text="Registrati qui"
                   @click="changeStatus(2)"
                   class="custom-btn flex-grow-1"
                   :color="primaryColor"
                   :block="$vuetify.display.xs"
-                >
-                  Registrati qui
-                </v-btn>
+                />
                 <v-btn
-                  text
+                  text="Reset password"
                   @click="changeStatus(3)"
                   class="custom-btn flex-grow-1"
                   :color="primaryColor"
                   :block="$vuetify.display.xs"
-                >
-                  Reset password
-                </v-btn>
+                />
               </div>
             </v-col>
           </v-row>
