@@ -9,11 +9,12 @@ const routes = [
         path: '/',
         name: 'Production Home',
         component: () => import('@/views/Home')
-      },
+      },,
       {
         path: '/blog',
         name: 'Blog',
-        component: () => import('@/views/Blog')
+        component: () => import('@/views/Blog'),
+        meta: { chatty: 5 }
       },
       {
         path: '/shop',
@@ -25,12 +26,7 @@ const routes = [
         name: 'ProductDetails',
         component: () => import('@/views/ProductDetails'),
         props: true
-      },
-      {
-        path: '/menu',
-        name: 'Menu',
-        component: () => import('@/views/Menu')
-      },
+      }
     ]
   }
 ];
