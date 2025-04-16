@@ -20,6 +20,11 @@ const routes = [
         name: 'ProductDetails',
         component: () => import('@/views/ProductDetails'),
         props: true
+      },
+      {
+        path: '/demo/:id',
+        name: 'Demo',
+        component: () => import('@/views/Home')
       }
     ]
   }

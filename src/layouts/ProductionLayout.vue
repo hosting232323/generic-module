@@ -13,7 +13,7 @@
   import AppBar from './AppBar.vue';
   import Footer from './Footer.vue';
 
-  import { onMounted } from 'vue';
+  import { onMounted  } from 'vue';
   import { useRoute } from 'vue-router';
   import { useDataStore } from '@/stores/data';
 
@@ -22,8 +22,6 @@
 
   onMounted(() => {
     const routeId = route.params.id;
-    console.log(routeId)
-
     if (routeId) {
       dataStore.initData(routeId);
     } else {
