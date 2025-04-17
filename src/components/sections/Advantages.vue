@@ -20,5 +20,4 @@ const { content, info } = defineProps(['content', 'info']);
 
 const pageTitle = content.find(item => item.title)?.title ?? null;
 const filteredContent = content.filter(item => !item.title);
-
 </script>

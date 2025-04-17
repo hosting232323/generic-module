@@ -1,6 +1,6 @@
 <template>
   <div class="sup-container shadown" ref="topButton" @click="scrollToTop">
-    <i class="fas fa-arrow-up" id="UpArrow"></i>
+    <i class="fas fa-arrow-up" id="UpArrow" />
   </div>
 </template>
 
@@ -22,11 +22,10 @@ const scrollToTop = () => {
   });
 };
 const handleScroll = () => {
-  if (window.scrollY >= 250) {
+  if (window.scrollY >= 250)
     topButton.value.classList.add('visible');
-  } else {
+  else
     topButton.value.classList.remove('visible');
-  }
 };
 
 onMounted(() => {

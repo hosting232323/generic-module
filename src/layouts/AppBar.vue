@@ -37,60 +37,60 @@
 </template>
 
 <script setup>
-  import { ref, computed } from 'vue';
-  import { storeToRefs } from 'pinia';
-  import { useDataStore } from '@/stores/data';
-  import { useRouter, useRoute } from 'vue-router';
-  import { useMobileUtils } from '@/utils/mobile';
+import { ref, computed } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
+import { useOrderStore } from '@/stores/order';
+import { useMobileUtils } from '@/utils/mobile';
+import { useRouter, useRoute } from 'vue-router';
 
-  const { isMobile } = useMobileUtils();
-  // import Cart from './Cart.vue';
+// import Cart from './Cart.vue';
 
-  import { useOrderStore } from '@/stores/order';
-  const orderStore = useOrderStore();
+const orderStore = useOrderStore();
 
-  const drawer = ref(null);
-  const route = useRoute();
-  const router = ref(useRouter());
+const drawer = ref(null);
+const route = useRoute();
+const router = ref(useRouter());
 
-  const dataStore = useDataStore();
-  const { data } = storeToRefs(dataStore);
-  const info = data.value.info;
-  const content = data.value.components;
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const info = data.value.info;
+const content = data.value.components;
+const { isMobile } = useMobileUtils();
 
-  const link = (item) => {
-    if (item.type == 'ancor') {
-      const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
-      router.value.push(`${pathUrl}/#${item.path}`);
-    } else if (item.type == 'externalLink')
-      window.open(item.path, '_blank');
-    else if (item.type == 'internalLink')
-      router.value.push(item.path);
-  }
+const link = (item) => {
+  if (item.type == 'ancor') {
+    const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
+    router.value.push(`${pathUrl}/#${item.path}`);
+  } else if (item.type == 'externalLink')
+    window.open(item.path, '_blank');
+  else if (item.type == 'internalLink')
+    router.value.push(item.path);
+}
 
-  const items = computed(() => {
-    let menuItems = [];
-    if (data.value.addOn && data.value.addOn.includes('VirtualTour'))
-      menuItems.push({
-        title: 'Virtual Tour',
-        path: 'https://test-virtual-tour.replit.app/',
-        type: 'externalLink'
-      });
-    if (data.value.addOn && data.value.addOn.includes('Blog'))
-      menuItems.push({
-        title: 'Blog',
-        path: '/blog',
-        type: 'internalLink'
-      });
-    menuItems = menuItems.concat(content
-      .filter(section => section.menu)
-      .map(section => ({
-        title: section.menu,
-        path: section.menu.toLowerCase(),
-        type: 'ancor'
-      })));
-    return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
-  });
+const items = computed(() => {
+  let menuItems = [];
+  if (data.value.addOn && data.value.addOn.includes('VirtualTour'))
+    menuItems.push({
+      title: 'Virtual Tour',
+      path: 'https://test-virtual-tour.replit.app/',
+      type: 'externalLink'
+    });
+  if (data.value.addOn && data.value.addOn.includes('Blog'))
+    menuItems.push({
+      title: 'Blog',
+      path: '/blog',
+      type: 'internalLink'
+    });
+  menuItems = menuItems.concat(content
+    .filter(section => section.menu)
+    .map(section => ({
+      title: section.menu,
+      path: section.menu.toLowerCase(),
+      type: 'ancor'
+    })));
+  return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
+});
 
 const getCartQuantity = computed(() => {
   return orderStore.products.reduce((total, product) => total + product.quantity, 0);
