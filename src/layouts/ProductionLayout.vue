@@ -33,7 +33,7 @@ watch(ready, (newValue) => {
     if (data.value.addOn && data.value.addOn.includes('Chatty')) {
       const script = document.createElement('script');
       script.type = 'module';
-      script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&bot_id=${data.value.info.chattyId}`;
+      script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
       document.body.appendChild(script); 
     }
   }
