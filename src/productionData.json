@@ -113,7 +113,8 @@
     "name": "FastSite",
     "primaryColor": "#2F4F4F",
     "secondaryColor": "#D2B48C",
-    "logo": "https://imgur.com/mNAxeqq.png"
+    "logo": "https://imgur.com/mNAxeqq.png",
+    "chattyId": 10
   },
   "store": {
     "username": "bro.users.info@gmail.com",

@@ -1,27 +1,41 @@
 <template>
-  <v-app  v-if="dataStore.ready">
-    <UpArrow />
+  <v-app  v-if="ready">
     <AppBar />
-    <View /> 
+    <UpArrow />
+    <v-main :style="{ backgroundColor: data.info.secondaryColor }">
+      <router-view />
+    </v-main>
     <Footer />
   </v-app>
 </template>
 
 <script setup>
 import UpArrow from './UpArrow.vue';
-import View from './View.vue';
 import AppBar from './AppBar.vue';
 import Footer from './Footer.vue';
 
-import { onMounted  } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
+import { onMounted, watch } from 'vue';
 import { useDataStore } from '@/stores/data';
 
 const route = useRoute();
 const dataStore = useDataStore();
+const { data, ready } = storeToRefs(dataStore);
 
 onMounted(() => {
-  if (routeId) dataStore.initData(route.params.id);
+  if (route.name == 'Demo') dataStore.initData(route.params.id);
   else dataStore.initData();
+});
+
+watch(ready, (newValue) => {
+  if (newValue) {
+    if (data.value.addOn && data.value.addOn.includes('Chatty')) {
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&bot_id=${data.value.info.chattyId}`;
+      document.body.appendChild(script); 
+    }
+  }
 });
 </script>

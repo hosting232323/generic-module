@@ -3,7 +3,6 @@
     v-for="section in sections"
     :is="componentMap[section.type]"
     :id="section.menu ? section.menu.toLowerCase() : null"
-    v-bind="getSectionProps(section)"
     :content="section.content"
     :info="info"
   />
