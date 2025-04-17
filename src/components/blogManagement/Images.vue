@@ -55,20 +55,24 @@ const uploadImage = (event) => {
   if (!selectedFile) return;
 
   fileError.value = '';
-  const filename = `${uuidv4()}.${selectedFile.name.split('.').pop()}`;
   loading.value = true;
-  http.postRequestFileGenericBE(`upload-file/${filename}`, selectedFile, function (data) {
-    if (data.status === 'ok'){
-      const listType = type == 'mobile' ? 'mobile_files' : 'desktop_files';
-      if (!currentPost.value[listType])
-        currentPost.value[listType] = [];
+  http.postRequestFileGenericBE(
+    `upload-file/${uuidv4()}.${selectedFile.name.split('.').pop()}`,
+    selectedFile,
+    function (data) {
+      if (data.status === 'ok'){
+        const listType = type == 'mobile' ? 'mobile_files' : 'desktop_files';
+        if (!currentPost.value[listType]) currentPost.value[listType] = [];
         currentPost.value[listType].push(data.imageUrl);
-    } else
-      fileError.value = "Errore nel caricamento del file: formato non supportato.";
+      } else
+        fileError.value = 'Errore nel caricamento del file: formato non supportato.';
 
-    fileInput.value = [];
-    loading.value = false;
-  }, 'POST', router);
+      fileInput.value = [];
+      loading.value = false;
+    },
+    'POST',
+    router
+  );
 };
 
 const deleteImage = (index) => {
