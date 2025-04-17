@@ -11,12 +11,14 @@ export const useDataStore = defineStore('data', {
   actions: {
     initData(id = undefined) {
       if (id)
-        http.getRequest(`get-data/${id}`, {}, this.updateData);
-      else
-        this.data = productionData;
+        http.getRequest(`get-data/${id}`, {}, (data) => {
+          this.updateData(data.data);
+        });
+      else 
+        this.updateData(productionData);
     },
     updateData(data) {
-      this.data = data.data;
+      this.data = data;
       this.ready = true;
     }
   }
