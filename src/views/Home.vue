@@ -37,10 +37,6 @@
       info: info
     };
     
-    if (section.title) {
-      props.title = section.title;
-    }
-    
     return props;
   }
 

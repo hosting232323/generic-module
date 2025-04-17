@@ -15,6 +15,9 @@
     {
       "content": [
         {
+          "title": "Vantaggi"
+        },
+        {
           "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
           "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
           "name": "Design Personalizzato"
@@ -35,7 +38,6 @@
           "name": "Velocità di Caricamento Ottimale"
         }
       ],
-      "title": "I nostri vantaggi",
       "menu": "Vantaggi",
       "type": "advantages"
     },
@@ -43,7 +45,11 @@
       "type": "line"
     },
     {
-      "content": [
+      "content": 
+      [
+        {
+          "title": "Servizi"
+        },
         {
           "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
           "name": "Sito Web Vetrina"
@@ -65,7 +71,6 @@
           "name": "Sviluppo Web Personalizzato"
         }
       ],
-      "title": "I nostri servizi",
       "menu": "Servizi",
       "type": "services"
     },
