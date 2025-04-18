@@ -1,7 +1,8 @@
 {
   "addOn": [
     "Chatty",
-    "VirtualTour"
+    "VirtualTour",
+    "Shop"
   ],
   "components": [
     {
@@ -16,34 +17,34 @@
       "type": "gallery"
     },
     {
-      "content": [
-        {
-          "title": "Vantaggi"
-        },
-        {
-          "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-          "image": { 
-            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+      "content": {
+        "title": "Vantaggi",
+        "advantages": [
+          {
+            "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
+            "image":  { 
+              "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+              "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+            },
+            "name": "Design Personalizzato"
           },
-          "name": "Design Personalizzato"
-        },
-        {
-          "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-          "name": "SEO Ottimizzato"
-        },
-        {
-          "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-          "name": "Responsive Design"
-        },
-        {
-          "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
-          "name": "Velocità di Caricamento Ottimale"
-        }
-      ],
+          {
+            "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
+            "name": "SEO Ottimizzato"
+          },
+          {
+            "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
+            "name": "Responsive Design"
+          },
+          {
+            "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
+            "name": "Velocità di Caricamento Ottimale"
+          }
+        ]
+      },
       "menu": "Vantaggi",
       "type": "advantages"
     },
@@ -51,32 +52,31 @@
       "type": "line"
     },
     {
-      "content": 
-      [
-        {
-          "title": "Servizi"
-        },
-        {
-          "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-          "name": "Sito Web Vetrina"
-        },
-        {
-          "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-          "name": "Sito Web E-commerce"
-        },
-        {
-          "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-          "name": "Ottimizzazione SEO"
-        },
-        {
-          "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-          "name": "Gestione Contenuti"
-        },
-        {
-          "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-          "name": "Sviluppo Web Personalizzato"
-        }
-      ],
+      "content": {
+        "title": "Servizi",
+        "services": [
+          {
+            "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
+            "name": "Sito Web Vetrina"
+          },
+          {
+            "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
+            "name": "Sito Web E-commerce"
+          },
+          {
+            "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
+            "name": "Ottimizzazione SEO"
+          },
+          {
+            "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
+            "name": "Gestione Contenuti"
+          },
+          {
+            "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
+            "name": "Sviluppo Web Personalizzato"
+          }
+        ]
+      },
       "menu": "Servizi",
       "type": "services"
     },

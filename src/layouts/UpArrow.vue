@@ -1,14 +1,20 @@
 <template>
-  <div class="sup-container shadown" ref="topButton" @click="scrollToTop">
+  <div class="sup-container shadown" :style="{ bottom: `${props.bottomOffset}px` }" ref="topButton" @click="scrollToTop">
     <i class="fas fa-arrow-up" id="UpArrow" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, defineProps } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
+const props = defineProps({
+  bottomOffset: {
+    type: Number,
+    default: 20
+  }
+});
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
@@ -46,7 +52,6 @@ onUnmounted(() => {
   justify-content: center;
   visibility: hidden;
   position: fixed;
-  bottom: 20px;
   right: 20px;
   width: 40px;
   height: 40px;

@@ -1,7 +1,7 @@
 <template>
   <v-app  v-if="ready">
     <AppBar />
-    <UpArrow />
+    <UpArrow :bottomOffset="showChatty ? 100 : 20"/>
     <v-main :style="{ backgroundColor: data.info.secondaryColor }">
       <router-view />
     </v-main>
@@ -16,9 +16,10 @@ import Footer from './Footer.vue';
 
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
-import { onMounted, watch } from 'vue';
+import { onMounted, watch, ref } from 'vue';
 import { useDataStore } from '@/stores/data';
 
+const showChatty = ref(false);
 const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
@@ -35,6 +36,7 @@ watch(ready, (newValue) => {
       script.type = 'module';
       script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
       document.body.appendChild(script); 
+      showChatty.value = true
     }
   }
 });
