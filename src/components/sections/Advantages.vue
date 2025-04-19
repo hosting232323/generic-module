@@ -3,8 +3,8 @@
     <h1 :style="{ color: info.primaryColor }">
       {{ pageTitle || 'I nostri vantaggi' }}
     </h1>
-    <v-card elevation="20" v-for="advantage in filteredContent" class="margin_top__default">
-      <v-img :src="advantage.image" style="max-height: 600px;" cover />
+    <v-card v-for="(advantage, index) in filteredContent" :key="index" class="margin_top__default" elevation="20">
+      <v-img :src="resolveImg(advantage.image)" style="max-height: 600px;" cover />
       <v-card-title style="white-space: normal;">
         {{ advantage.name }}
       </v-card-title>
@@ -16,8 +16,17 @@
 </template>
 
 <script setup>
+import { useMobileUtils } from '@/utils/mobile';
+const { isMobile } = useMobileUtils();
+
 const { content, info } = defineProps(['content', 'info']);
 
 const pageTitle = content.find(item => item.title)?.title ?? null;
 const filteredContent = content.filter(item => !item.title);
+
+const resolveImg = (img) => {
+  if (typeof img === 'string') return img;
+  if (typeof img === 'object') return isMobile ? img.mobile : img.desktop;
+  return '';
+};
 </script>

@@ -3,11 +3,20 @@
     <v-card elevation="20" title="I nostri contatti">
       <v-container>
         <v-list>
-          <v-list-item height="20" v-for="contact_type in getContactTypes(content)">
+          <v-list-item height="20" v-for="contact_type in getContactTypes(content)" :key="contact_type">
             <template v-slot:prepend>
               <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="info.primaryColor" />
             </template>
-            <v-list-item-title v-html="content[contact_type]" />
+            <v-list-item-title class="contact__text">
+              <template v-if="CUSTOM_LINK_TEXT[contact_type]">
+                <a :href="content[contact_type]" target="_blank" style="text-decoration: none; color: inherit;">
+                  {{ CUSTOM_LINK_TEXT[contact_type] }}
+                </a>
+              </template>
+              <template v-else>
+                <span v-html="content[contact_type]" />
+              </template>
+            </v-list-item-title>
           </v-list-item>
         </v-list><br>
         <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
@@ -49,7 +58,23 @@
 
   const CONTACT_ICON_MAP = {
     Phone: 'mdi-phone',
-    Address: 'mdi-map-marker'
+    Email: 'mdi-email',
+    Address: 'mdi-map-marker',
+    Facebook: 'mdi-facebook',
+    Instagram: 'mdi-instagram',
+    LinkedIn: 'mdi-linkedin',
+    Twitter: 'mdi-twitter',
+    TikTok: 'mdi-music',
+    YouTube: 'mdi-youtube'
+  };
+
+  const CUSTOM_LINK_TEXT = {
+    Facebook: 'Seguici su Facebook',
+    Instagram: 'Seguici su Instagram',
+    LinkedIn: 'Seguici su LinkedIn',
+    Twitter: 'Seguici su X (Twitter)',
+    TikTok: 'Seguici su TikTok',
+    YouTube: 'Guarda il nostro canale YouTube'
   };
 
   const getContactTypes = (contacts) => {
@@ -75,3 +100,9 @@
     }
   };
 </script>
+
+<style scoped>
+  .contact__text {
+    white-space: normal;
+  }
+</style>
