@@ -19,7 +19,7 @@
       </div>
       <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
-    <!-- <Cart v-if="getCartQuantity != 0"></Cart> -->
+    <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
   </v-app-bar>
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
@@ -36,7 +36,7 @@
       <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
-      <!-- <Cart v-if="getCartQuantity != 0"></Cart> -->
+      <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
     </div>
   </v-app-bar>
 
@@ -50,7 +50,7 @@ import { useOrderStore } from '@/stores/order';
 import { useMobileUtils } from '@/utils/mobile';
 import { useRouter, useRoute } from 'vue-router';
 
-// import Cart from './Cart.vue';
+import Cart from './Cart.vue';
 
 const orderStore = useOrderStore();
 
@@ -62,6 +62,8 @@ const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
 const content = data.value.components;
+const addOn = data.value.addOn;
+const cartActive = addOn && addOn.includes('Shop');
 const { isMobile } = useMobileUtils();
 
 const link = (item) => {
@@ -76,13 +78,13 @@ const link = (item) => {
 
 const items = computed(() => {
   let menuItems = [];
-  if (data.value.addOn && data.value.addOn.includes('VirtualTour'))
+  if (addOn && addOn.includes('VirtualTour'))
     menuItems.push({
       title: 'Virtual Tour',
       path: 'https://test-virtual-tour.replit.app/',
       type: 'externalLink'
     });
-  if (data.value.addOn && data.value.addOn.includes('Blog'))
+  if (addOn && addOn.includes('Blog'))
     menuItems.push({
       title: 'Blog',
       path: '/blog',

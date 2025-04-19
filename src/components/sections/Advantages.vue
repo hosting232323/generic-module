@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <h1 :style="{ color: info.primaryColor }">
-      {{ pageTitle || 'I nostri vantaggi' }}
+      {{ content.title || 'I nostri vantaggi' }}
     </h1>
-    <v-card v-for="(advantage, index) in filteredContent" :key="index" class="margin_top__default" elevation="20">
+    <v-card v-for="advantage in content.advantages" :key="index" class="margin_top__default" elevation="20">
       <v-img :src="resolveImg(advantage.image)" style="max-height: 600px;" cover />
       <v-card-title style="white-space: normal;">
         {{ advantage.name }}
@@ -20,9 +20,6 @@ import { useMobileUtils } from '@/utils/mobile';
 const { isMobile } = useMobileUtils();
 
 const { content, info } = defineProps(['content', 'info']);
-
-const pageTitle = content.find(item => item.title)?.title ?? null;
-const filteredContent = content.filter(item => !item.title);
 
 const resolveImg = (img) => {
   if (typeof img === 'string') return img;
