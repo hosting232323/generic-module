@@ -7,7 +7,10 @@
     {
       "content": [
         "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png"
+        { 
+          "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png",
+          "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
+        }
       ],
       "menu": "Galleria",
       "type": "gallery"
@@ -19,7 +22,10 @@
         },
         {
           "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+          "image": { 
+            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
+            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+          },
           "name": "Design Personalizzato"
         },
         {
@@ -81,8 +87,12 @@
       "content": {
         "button": "Cliccami!",
         "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-        "orientation": "right",
+        "image": { 
+          "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
+          "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+        },
+        "orientationDesktop": "left",
+        "orientationMobile": "top",
         "subtitle": "Da siti statici a piattaforme complesse",
         "title": "Servizi di Sviluppo Web",
         "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
@@ -93,7 +103,13 @@
     {
       "content": {
         "Email": "giovanni.colasanto@fastsite.it",
-        "Phone": "+39 347 876 8340"
+        "Phone": "+39 347 876 8340",
+        "Facebook": "https://www.facebook.com/",
+        "Instagram": "https://www.instagram.com/",
+        "LinkedIn": "https://www.linkedin.com/in/nomeprofilo",
+        "Twitter": "https://twitter.com/profilo",
+        "YouTube": "https://www.youtube.com/@canale",
+        "TikTok": "https://www.tiktok.com/@utente"
       },
       "menu": "Contatti",
       "type": "contacts"
