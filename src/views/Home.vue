@@ -17,6 +17,7 @@ import { useLanguageStore } from '@/stores/language';
 
 import Map from '@/components/sections/Map';
 import Blog from '@/components/sections/Blog';
+import Text from '@/components/sections/Text';
 import Line from '@/components/sections/Line';
 import Gallery from '@/components/sections/Gallery';
 import Services from '@/components/sections/Services';
@@ -32,6 +33,7 @@ const { data } = storeToRefs(dataStore);
 const componentMap = {
   map: Map,
   blog: Blog,
+  text: Text,
   line: Line,
   gallery: Gallery,
   services: Services,
@@ -55,9 +57,32 @@ const sections = computed(() => {
 
 
 useHead({
-  title: 'FastSite',
+  title: 'Enoteca DiVinBacco',
   meta: [
-    { name: 'FastSite', content: 'This is the home page' }
-  ]
+    {
+      name: 'description',
+      content: 'Enoteca DiVinBacco: Vini sfusi, servizi personalizzati e una selezione accurata nel cuore di Bisceglie.'
+    },
+    {
+      property: 'og:title',
+      content: 'Enoteca DiVinBacco'
+    },
+    {
+      property: 'og:description',
+      content: 'Vini sfusi, servizi personalizzati e selezione accurata nel cuore di Bisceglie.'
+    },
+    {
+      property: 'og:image',
+      content: 'https://enotecadivinbacco.com/url_logo.jpg'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:url',
+      content: 'https://enotecadivinbacco.com/'
+    }
+  ],
 });
 </script>

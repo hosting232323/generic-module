@@ -1,131 +1,41 @@
 {
-  "addOn": [
-    "Chatty",
-    "VirtualTour",
-    "Multilingual",
-    "Blog",
-    "Shop"
-  ],
   "components": [
     {
       "content": {
-        "type": "static",
-        "title": {
-          "it": "Il mio blog",
-          "gb": "My blog"
-        },
-        "url": "Scopri di più...",
-        "articles": [
-          {
-            "title": "Titolo articolo 1",
-            "content": "Descrizione articolo",
-            "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-          },
-          {
-            "title": "Titolo articolo 2",
-            "content": "Descrizione articolo",
-            "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-          },
-          {
-            "title": "Titolo articolo 3",
-            "content": "Descrizione articolo",
-            "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-          }
-        ]
-      },
-      "type": "blog",
-      "menu": "Blog"
-    },
-    {
-      "content": {
-        "type": "automatic",
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-          { 
-            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png",
-            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
-          }
-        ]
-      },
-      "menu": {
-        "it": "Carosello",
-        "gb": "Carusel"
+          {
+            "desktop": "gallery/3.jpeg",
+            "mobile": "gallery/7.jpeg"
+          },
+          "gallery/1.jpeg",
+          "gallery/2.jpeg",
+          "gallery/5.jpeg",
+          "gallery/4.jpeg",
+          "gallery/6.jpeg"
+        ],
+        "type": "automatic"
       },
       "type": "gallery"
     },
     {
       "content": {
-        "type": "manual",
-        "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-          { 
-            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png",
-            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
-          }
-        ]
+        "text": "Benvenuti da Enoteca DiVinBacco, un luogo dove la passione per il vino si unisce all'esperienza. Guidati da Antonella e Isabella (con 25 anni nel settore) sarete portati ad una scelta di vini consigliati e personalizzati. Ogni cliente è parte integrante del loro lavoro e delle loro scelte. Ogni bottiglia racconta una storia e ogni consiglio nasce dall'ascolto. Vieni a scoprire il gusto della tradizione nazionale e internazionale su misura per te."
       },
-      "menu": "Galleria",
-      "type": "gallery"
+      "menu": "Chi Siamo",
+      "type": "text"
     },
     {
       "content": {
-        "brands": [
-          "img-01.png",
-          "img-02.png",
-          "img-03.png",
-          "img-04.png"
-        ]
-      },
-      "menu": "Brandlist",
-      "type": "brandlist"
-    },
-    {
-      "content": {
-        "title": {
-          "it": "Vantaggi",
-          "gb": "Advantages"
-        },
         "advantages": [
           {
-            "description": {
-              "it": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-              "gb": "We create unique and personalized websites for each client, ensuring a distinctive and professional image."
-            },
-            "image": {
-              "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-              "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-            },
-            "name": {
-              "it": "Design Personalizzato",
-              "gb": "Pers Design"
-            }
+            "description": "Da Enoteca DiVinBacco, si pone grande attenzione alla selezione dei prodotti, dando priorità alle realtà presenti sul territorio locale e nazionale. Scegliamo Aziende che puntano sull' eccellenza del risultato, all'autenticità del processo e sulla sostenibilità. L'obiettivo è portare sulla tavola dei nostri clienti, non solo gusto e raffinatezza ma viaggi sensoriali che abbiano anche un ottimo rapporto qualità-prezzo, promuovendo una cultura del vino che valorizza la sostanza più che l'apparenza.",
+            "image": "advantages/2.png",
+            "name": "<strong>Il Nostro Assortimento</strong>"
           },
           {
-            "description": {
-              "it": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-              "gb": "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-            "name": "SEO Ottimizzato"
-          },
-          {
-            "description": {
-              "it": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-              "gb": "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-            "name": "Responsive Design"
-          },
-          {
-            "description": {
-              "it": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-              "gb": "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking."
-            },
-            "image": [
-              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"
-            ],
-            "name": "Velocità di Caricamento Ottimale"
+            "description": "Forniamo consulenza personalizzata per aiutare i clienti a scegliere i prodotti più adatti alle loro esigenze, promuovendo una relazione di fiducia e fedeltà.",
+            "image": "advantages/3.png",
+            "name": "<strong>Consulenza Personalizzata</strong>"
           }
         ]
       },
@@ -133,109 +43,17 @@
       "type": "advantages"
     },
     {
-      "type": "line"
-    },
-    {
-      "content": {
-        "title": "Servizi",
-        "services": [
-          {
-            "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-            "name": "Sito Web Vetrina"
-          },
-          {
-            "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-            "name": "Sito Web E-commerce"
-          },
-          {
-            "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-            "name": "Ottimizzazione SEO"
-          },
-          {
-            "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-            "name": "Gestione Contenuti"
-          },
-          {
-            "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-            "name": "Sviluppo Web Personalizzato"
-          }
-        ]
-      },
-      "menu": "Servizi",
-      "type": "services"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": {
-        "button": {
-          "it": "Cliccami!",
-          "gb": "Click on me!"
-        },
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": { 
-          "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-          "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-        },
-        "orientationDesktop": "left",
-        "orientationMobile": "top",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
-      },
-      "menu": "Sezione doppia",
-      "type": "dualSection"
-    },
-    {
       "content": {
         "title": "I nostri contatti",
         "subtitle": "Contattaci direttamente con questo form",
         "contacts": [
           {
-            "icon": "mdi-email",
-            "title": "giovanni.colasanto@fastsite.it"
-          },
-          {
-            "icon": "mdi-phone",
-            "title": "+39 347 876 8340"
-          },
-          {
             "icon": "mdi-map-marker",
             "title": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy"
           },
           {
-            "icon": "mdi-facebook",
-            "title": {
-              "it": "Seguici su Facebook",
-              "gb": "Follow us on Facebook"
-            },
-            "url": "https://www.facebook.com/"
-          },
-          {
-            "icon": "mdi-instagram",
-            "title": "Seguici su Instagram",
-            "url": "https://www.instagram.com/"
-          },
-          {
-            "icon": "mdi-linkedin",
-            "title": "Seguici su LinkedIn",
-            "url": "https://www.linkedin.com/in/nomeprofilo"
-          },
-          {
-            "icon": "mdi-twitter",
-            "title": "Seguici su X (Twitter)",
-            "url": "https://twitter.com/profilo"
-          },
-          {
-            "icon": "mdi-youtube",
-            "title": "Guarda il nostro canale YouTube",
-            "url": "https://www.youtube.com/@canale"
-          },
-          {
-            "icon": "mdi-music",
-            "title": "Seguici su TikTok",
-            "url": "https://www.tiktok.com/@utente"
+            "icon": "mdi-phone",
+            "title": "+39 080 395 3830"
           }
         ]
       },
@@ -247,46 +65,33 @@
         "title": "Puoi venirci a conoscere qui",
         "address": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy",
         "coordinates": [
-          16.882818,
-          41.09665
+          "16.5069649",
+          "41.2356566"
         ],
-        "zoom": 9
+        "zoom": 10
       },
       "type": "map"
     }
   ],
   "info": {
-    "name": "FastSite",
-    "logo": "https://imgur.com/mNAxeqq.png",
-    "logoMode": "both",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C",
-    "chattyId": 10,
-    "locales": [
-      "it", "gb"
-    ],
+    "iva": "07308830723",
+    "logo": "logo.png",
+    "name": "Enoteca DiVinBacco",
+    "primaryColor": "#000000",
+    "secondaryColor": "#B22222",
     "socialBubbles": [
       {
         "icon": "mdi-whatsapp",
-        "url": "https://twitter.com/profilo"
+        "url": "https://wa.me/393784116186"
       },
       {
         "icon": "mdi-instagram",
-        "url": "https://twitter.com/profilo"
+        "url": "https://www.instagram.com/enoteca_divinbacco_bisceglie"
       },
       {
         "icon": "mdi-facebook",
-        "url": "https://twitter.com/profilo"
+        "url": "https://www.facebook.com/DivinbaccoEnoteca"
       }
-    ]
-  },
-  "store": {
-    "userId": 3,
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
     ]
   }
 }
