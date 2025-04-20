@@ -3,7 +3,7 @@
     <h1 :style="{ color: info.primaryColor }">
       {{ content.title || 'I nostri vantaggi' }}
     </h1>
-    <v-card v-for="advantage in content.advantages" :key="index" class="margin_top__default" elevation="20">
+    <v-card v-for="(advantage, index) in content.advantages" :key="index" class="margin_top__default" elevation="20">
       <v-img :src="resolveImg(advantage.image)" style="max-height: 600px;" cover />
       <v-card-title style="white-space: normal;">
         {{ advantage.name }}
