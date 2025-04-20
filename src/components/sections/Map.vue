@@ -10,8 +10,8 @@
             <v-img :src="info.logo" width="80" height="auto" object-fit style="margin-bottom: 10px;"/>
             <p style="font-size: 14px; font-weight: bold;" class="mb-1">{{ info.name }}</p>
             <p style="font-size: 13px;" class="mb-1">{{ content.address }}</p>
-            <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.primaryColor }">
-              <v-icon icon="mdi-directions" :color="info.primaryColor" style="font-size: 16px;" class="mr-1"/>
+            <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.secondaryColor }">
+              <v-icon icon="mdi-directions" :color="info.secondaryColor" style="font-size: 16px;" class="mr-1"/>
               Navigazione
             </a>
           </div>
@@ -61,7 +61,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKEND}/colorize-image?color=%23${info.primaryColor.substring(1)}`
+      src: 'image.png'
     })
   });
 

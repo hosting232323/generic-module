@@ -1,7 +1,13 @@
-html {
-  overflow-y: auto;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .margin_top__default {
   margin-top: 25px;
+}
+
+.html, body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.font {
+  font-family: "Montserrat", sans-serif !important;
 }

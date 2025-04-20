@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 :style="{ color: info.primaryColor, textAlign: orientationTitle }" v-html="getText(content.title) || 'I nostri vantaggi'"/>
-    <div :style="{ textAlign: orientationDescription }" v-html="getText(content.description)"/>
+    <div :style="{ textAlign: orientationDescription, color: '#fff' }" v-html="getText(content.description)"/>
   </v-container>
 </template>
 
