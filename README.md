@@ -61,27 +61,24 @@ Questa sezione viene utilizzata per mostrare una lista di **vantaggi o punti di 
 
 ```json
 {
-  "content": [
-    {
-      "title": "Vantaggi"
-    },
-    {
-      "name": "Titolo del vantaggio",
-      "description": "Descrizione dettagliata del vantaggio offerto.",
-      "image": {
-        "desktop": "URL immagine versione desktop",
-        "mobile": "URL immagine versione mobile"
-      }
-    },
-    ...
-  ],
+  "content": {
+    "title": "Vantaggi",
+    "advantages": [
+      {
+        "name": "Titolo del vantaggio",
+        "description": "Descrizione dettagliata del vantaggio offerto.",
+        "image": {
+          "desktop": "URL immagine versione desktop",
+          "mobile": "URL immagine versione mobile"
+        }
+      },
+      ...
+    ]
+  },
   "menu": "Nome della voce nel menu",
   "type": "advantages"
 }
 ```
-
-> Il primo oggetto dentro `content` deve contenere solo la chiave `"title"`: verrà mostrato come intestazione principale.  
-> Gli altri oggetti rappresentano ciascun vantaggio.
 
 ### ✅ Campi disponibili
 
@@ -91,10 +88,6 @@ Questa sezione viene utilizzata per mostrare una lista di **vantaggi o punti di 
 | `name`         | `string`          | ✅           | Titolo specifico di ogni vantaggio. |
 | `description`  | `string (HTML)`   | ✅           | Descrizione del vantaggio. Supporta HTML. |
 | `image`        | `string` _oppure_ `object` | ✅ | L’immagine da mostrare. Può essere una stringa (`url`) oppure un oggetto con `{ desktop, mobile }`. |
-
----
-
-Perfetto, Giuseppe! Ecco la **documentazione** in italiano per il secondo componente: `DualSection.vue`. Continuiamo a mantenere lo stile coerente con la sezione precedente del README. 👇
 
 ---
 
@@ -142,10 +135,6 @@ La sezione **DualSection** permette di mostrare **un’immagine affiancata a un 
 
 ---
 
-Perfetto Giuseppe, ecco la terza sezione del README per il componente `Gallery.vue`, in linea con lo stile usato finora:
-
----
-
 ## 🖼️ Sezione: Galleria (`Gallery.vue`)
 
 La sezione **Gallery** mostra una **galleria a scorrimento** di immagini tramite carousel. Supporta immagini diverse per desktop e mobile.
@@ -176,10 +165,6 @@ La sezione **Gallery** mostra una **galleria a scorrimento** di immagini tramite
 | `content`  | `array` di stringhe o oggetti | ✅ | Ogni elemento rappresenta un'immagine nel carousel. Può essere una `string` (immagine unica) oppure un oggetto `{ desktop, mobile }`. |
 | `menu`     | `string`            | ✅           | Nome della voce nel menu laterale. |
 | `type`     | `string`            | ✅           | Deve essere `"gallery"` per attivare correttamente il componente. |
-
----
-
-Perfetto, Giuseppe! Ecco la sezione del README relativa al componente `Services.vue`, in linea con lo stile adottato:
 
 ---
 
@@ -218,10 +203,6 @@ La sezione **Servizi** mostra un elenco espandibile dei servizi offerti, ciascun
 
 ---
 
-Ottimo lavoro, Giuseppe! Ecco la sezione del README dedicata al componente `Map.vue`:
-
----
-
 ## 🗺️ Sezione: Mappa (`Map.vue`)
 
 La sezione **Mappa** mostra una mappa interattiva con un marcatore sulla posizione specificata, utile per far sapere dove si trova l'attività o sede dell’azienda. Utilizza [OpenLayers](https://openlayers.org/) per la gestione della mappa.
@@ -253,10 +234,6 @@ La sezione **Mappa** mostra una mappa interattiva con un marcatore sulla posizio
 
 ---
 
-Perfetto! Ecco la sezione per il componente `Line.vue` da includere nel tuo README:
-
----
-
 ## ➖ Sezione: Linea Separatrice (`Line.vue`)
 
 La sezione **Linea** aggiunge un separatore orizzontale (una riga) tra le sezioni del sito per migliorarne la leggibilità e la struttura visiva. Il colore della linea si adatta automaticamente al tema tramite `info.primaryColor`.
@@ -279,10 +256,6 @@ La sezione **Linea** aggiunge un separatore orizzontale (una riga) tra le sezion
 | `type`   | `string` | ✅           | Deve essere `"line"` per attivare la riga.  |
 
 💡 **Nota:** Il colore della linea è controllato da `info.primaryColor`.
-
----
-
-Perfetto! Ecco la sezione documentata per `Contacts.vue` da includere nel tuo README.
 
 ---
 
@@ -322,15 +295,3 @@ La sezione **Contatti** mostra le informazioni di contatto dell’attività (ema
 | `Email`    | `string` | ❌           | Indirizzo email                                                            |
 | `Phone`    | `string` | ❌           | Numero di telefono                                                         |
 | `Facebook`, `Instagram`, `LinkedIn`, `Twitter`, `TikTok`, `YouTube` | `string` | ❌ | Link ai social, ognuno mostrerà un’icona e un testo personalizzato        |
-
-### 📤 Funzionalità del form
-
-Il form presente in fondo alla card consente all’utente di inserire:
-
-- Nome
-- Email
-- Messaggio
-
-Alla pressione di **"Invia"**, il contenuto viene inviato a un endpoint `send-email` usando `http.postRequestGenericBE`. L’indirizzo di destinazione è specificato in `VITE_FORM_MAIL`.
-
-⚠️ Il messaggio viene validato tramite le regole in `utils/validation.js`.
