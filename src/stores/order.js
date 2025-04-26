@@ -1,9 +1,6 @@
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
 
-import { useAddressStore } from '@/stores/address';
-const addressStore = useAddressStore();
-
 export const useOrderStore = defineStore('order', {
   state: () => ({
     products: JSON.parse(localStorage.getItem('orderProducts')) || []
@@ -27,24 +24,16 @@ export const useOrderStore = defineStore('order', {
       this.saveProductsToSession();
     },
     submitOrders(businessActivity) {
-      const fullAddress = addressStore.getFullAddress();
-
-      if (fullAddress === false) {
-        throw new Error;
-      }
-
       http.postRequestBrooking('api/shop/order/', {
         business_activity: businessActivity,
         items: this.products,
-        service: 36,
-        note: fullAddress
+        service: 36
       }, this.removeAllProduct, 'POST', false);
   
       localStorage.removeItem('orderProducts');
     },
     removeAllProduct() {
       this.products = [];
-      addressStore.clearAll();
       this.saveProductsToSession();
     },
     saveProductsToSession() {

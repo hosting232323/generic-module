@@ -18,49 +18,40 @@
 
     <v-card class="mt-4" style="width: 400px; background-color: #f5f5f5;">
       <v-card-title>
-        <span class="font-weight-bold">{{ isCheckout ? 'Indirizzo di Spedizione' : 'Riepilogo Ordini' }}</span>
+        <span class="font-weight-bold">Riepilogo Ordini</span>
       </v-card-title>
 
       <v-card-text>
-        <template v-if="isCheckout">
-          <Address />
-        </template>
-        <template v-else>
-          <v-list>
-            <v-list-item v-for="product in orderStore.products" class="py-4">
-              <v-row align="center" style="width: 100%;">
-                <v-col class="d-flex align-center">
-                  <v-img :src="getImageForProduct(product.product)" alt="product image" width="40" class="mr-3" />
-                  
-                  <div style="flex-grow: 1;">
-                    <p style="font-size: 16px; font-weight: bold;">{{ getProductName(product.product) }}</p>
-                    <div style="display: flex; align-items: center;">
-                      <p class="text-caption">Quantità:</p>
-                      <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
-                      {{ product.quantity }}
-                      <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
-                    </div>
+        <v-list>
+          <v-list-item v-for="product in orderStore.products" class="py-4">
+            <v-row align="center" style="width: 100%;">
+              <v-col class="d-flex align-center">
+                <v-img :src="getImageForProduct(product.product)" alt="product image" width="40" class="mr-3" />
+                
+                <div style="flex-grow: 1;">
+                  <p style="font-size: 16px; font-weight: bold;">{{ getProductName(product.product) }}</p>
+                  <div style="display: flex; align-items: center;">
+                    <p class="text-caption">Quantità:</p>
+                    <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
+                    {{ product.quantity }}
+                    <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
                   </div>
-                  
-                  <p style="font-size: 15px; font-weight: bold;">{{ getProductPrice(product.product) + ' €'}}</p>
-                </v-col>
-              </v-row>
-            </v-list-item>
-          </v-list>
-        </template>
+                </div>
+                
+                <p style="font-size: 15px; font-weight: bold;">{{ getProductPrice(product.product) + ' €'}}</p>
+              </v-col>
+            </v-row>
+          </v-list-item>
+        </v-list>
       </v-card-text>
 
-      <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;" v-if="!isCheckout">
+      <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;">
         Prezzo Totale: {{ totalPrice }}
       </v-card-subtitle>
 
       <v-card-actions>
-        <v-btn @click="isCheckout ? placeOrder() : proceedToCheckout()" color="primary">
-          {{ isCheckout ? 'Invia Ordine' : 'Procedi al Checkout' }}
-        </v-btn>
-        <v-btn @click="isCheckout ? cancelCheckout() : clearCart()" color="error">
-          {{ isCheckout ? 'Torna Indietro' : 'Svuota Carrello' }}
-        </v-btn>
+        <v-btn @click="proceedToCheckout()" color="primary">Procedi al Checkout</v-btn>
+        <v-btn @click="clearCart()" color="error">Svuota Carrello</v-btn>
       </v-card-actions>
     </v-card>
   </v-menu>
@@ -72,8 +63,6 @@ import { useMobileUtils } from '@/utils/mobile';
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 
-import Address from './Address';
-
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
@@ -81,7 +70,6 @@ const popupStore = usePopupStore();
 const orderStore = useOrderStore();
 
 const products = ref([]);
-const isCheckout = ref(false);
 const isMenuVisible = ref(false);
 const { isMobile } = useMobileUtils();
 
@@ -102,7 +90,6 @@ const totalPrice = computed(() => {
 });
 
 const proceedToCheckout = async () => {
-  // isCheckout.value = true;
   const { products } = storeToRefs(orderStore);
   const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
@@ -117,10 +104,6 @@ const proceedToCheckout = async () => {
     window.location.href = data.url;
   else if (data.status == 'ko')
     alert(data.message);
-};
-
-const cancelCheckout = () => {
-  isCheckout.value = false;
 };
 
 const placeOrder = () => {
