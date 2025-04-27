@@ -14,7 +14,7 @@
 
   const resolveImg = (slide) => {
     if (typeof slide === 'string') return slide;
-    if (typeof slide === 'object') return isMobile ? slide.mobile : slide.desktop;
+    if (typeof slide === 'object') return isMobile.value ? slide.mobile : slide.desktop;
     return '';
   };
 </script>

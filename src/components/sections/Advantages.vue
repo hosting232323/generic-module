@@ -23,7 +23,7 @@ const { content, info } = defineProps(['content', 'info']);
 
 const resolveImg = (img) => {
   if (typeof img === 'string') return img;
-  if (typeof img === 'object') return isMobile ? img.mobile : img.desktop;
+  if (typeof img === 'object') return isMobile.value ? img.mobile : img.desktop;
   return '';
 };
 </script>
