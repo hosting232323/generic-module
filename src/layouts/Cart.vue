@@ -102,7 +102,24 @@ const totalPrice = computed(() => {
 });
 
 const proceedToCheckout = async () => {
-  // isCheckout.value = true;
+  isCheckout.value = true;
+  // const { products } = storeToRefs(orderStore);
+  // const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
+
+  // const response = await fetch(`${hostname}stripe-session`, {
+  //   method: 'POST',
+  //   headers: {'Content-Type': 'application/json'},
+  //   body: JSON.stringify(products.value)
+  // });
+
+  // const data = await response.json();
+  // if (data.url)
+  //   window.location.href = data.url;
+  // else if (data.status == 'ko')
+  //   alert(data.message);
+};
+
+const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
   const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
@@ -123,14 +140,14 @@ const cancelCheckout = () => {
   isCheckout.value = false;
 };
 
-const placeOrder = () => {
-  try {
-    orderStore.submitOrders(store.businessActivity);
-    popupStore.setPopup('Ordine inviato correttamente!', 'success');
-  } catch (error) {
-    popupStore.setPopup('Impossibile inviare l\'ordine!', 'error');
-  }
-};
+// const placeOrder = () => {
+//   try {
+//     orderStore.submitOrders(store.businessActivity);
+//     popupStore.setPopup('Ordine inviato correttamente!', 'success');
+//   } catch (error) {
+//     popupStore.setPopup('Impossibile inviare l\'ordine!', 'error');
+//   }
+// };
 
 const clearCart = () => {
   try {
