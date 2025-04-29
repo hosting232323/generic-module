@@ -295,3 +295,40 @@ La sezione **Contatti** mostra le informazioni di contatto dell’attività (ema
 | `Email`    | `string` | ❌           | Indirizzo email                                                            |
 | `Phone`    | `string` | ❌           | Numero di telefono                                                         |
 | `Facebook`, `Instagram`, `LinkedIn`, `Twitter`, `TikTok`, `YouTube` | `string` | ❌ | Link ai social, ognuno mostrerà un’icona e un testo personalizzato        |
+
+---
+
+## 📬 Sezione: Indirizzo (`Address.vue`)
+
+La sezione **Indirizzo** consente agli utenti di inserire il loro nome, cognome, e indirizzo. Può essere utile per moduli di registrazione, checkout, o altre interazioni che richiedono l'inserimento di dati personali. La sezione include anche un campo di autocompletamento per la selezione della regione, provincia, città e indirizzo. Puoi limitare gli indirizzi per Province e Comuni
+
+### 🔧 Componente usato
+`Address.vue`
+
+### 📦 Tipo JSON richiesto
+
+```json
+"store": {
+  "username": "esempio@dominio.it",
+  "password": "esempio",
+  "businessActivity": 1,
+  "addressMode": 1,
+  "province": "Barletta-Andria-Trani",
+  "cities": [
+    "Lanzo Torinese",
+    "Cafasse"
+  ]
+}
+```
+
+### ✅ Campi disponibili
+
+| Chiave     | Tipo     | Obbligatoria | Descrizione                                                                 |
+|------------|----------|--------------|-----------------------------------------------------------------------------|
+| `username`     | `string` | ✅           | Indirizzo email dell'utente, utilizzato per identificare l'account     |
+| `password`     | `string` | ✅           | La password dell'utente per l'accesso.                                 |
+| `businessActivity`  | `number` | ✅           | ...        |
+| `addressMode`    | `number` | ❌           | La modalità di visualizzazione dell'indirizzo. Se non inserita manda direttamente su stripe.|
+| `province`    | `string` | ❌           | La provincia selezionata per l'indirizzo. Se fornita, il componente mostrerà solo questa provincia nell'elenco|
+| `cities` | `array` | ❌ | Un array che contiene le città limitate alla provincia selezionata. Se non specificato, tutte le città della provincia saranno disponibili.|
+

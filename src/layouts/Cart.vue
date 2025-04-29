@@ -74,6 +74,7 @@ import { storeToRefs } from 'pinia';
 
 import Address from './Address';
 
+import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
@@ -85,6 +86,9 @@ const isCheckout = ref(false);
 const isMenuVisible = ref(false);
 const { isMobile } = useMobileUtils();
 
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const store = data.value.store;
 
 http.getRequestGenericBE('products', {}, function (data) {
   products.value = data;
@@ -102,21 +106,11 @@ const totalPrice = computed(() => {
 });
 
 const proceedToCheckout = async () => {
-  isCheckout.value = true;
-  // const { products } = storeToRefs(orderStore);
-  // const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
-
-  // const response = await fetch(`${hostname}stripe-session`, {
-  //   method: 'POST',
-  //   headers: {'Content-Type': 'application/json'},
-  //   body: JSON.stringify(products.value)
-  // });
-
-  // const data = await response.json();
-  // if (data.url)
-  //   window.location.href = data.url;
-  // else if (data.status == 'ko')
-  //   alert(data.message);
+  if (!store.addressMode) {
+    await placeOrder();
+  } else {
+    isCheckout.value = true;
+  }
 };
 
 const placeOrder = async () => {
