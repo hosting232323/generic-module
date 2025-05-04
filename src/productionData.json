@@ -1,32 +1,15 @@
 {
   "addOn": [
-    "Chatty",
-    "Menu",
-    "Shop",
-    "Booking"
+    "Multilingual"
   ],
-  "info": {
-    "chattyId": "10",
-    "name": "Pizzeria - Molfetta",
-    "primaryColor": "#F26C4F",
-    "secondaryColor": "#FFD166"
-  },
-  "store": {
-    "userId": 5,
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
-    ]
-  },
   "components": [
     {
       "content": {
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
+          "img-01.png",
+          "img-02.png",
+          "img-03.png",
+          "img-04.png"
         ],
         "type": "automatic"
       },
@@ -34,92 +17,100 @@
     },
     {
       "content": {
-        "button": "Vai al menu!",
-        "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
-        "orientationDesktop": "right",
+        "description": {
+          "it": "desamarmi nasce nel 1970 per volontà di Mario De Santis, come piccola attività specializzata in arte funeraria. Con il tempo, la qualità del lavoro e l’impegno costante hanno portato l’azienda ad ampliare il proprio raggio d’azione, operando anche in ambito pubblico con interventi su ville, lungomari, rotonde e spazi comunali.",
+          "gb": "desamarmi was founded in 1970 by Mario De Santis, as a small business specialized in funerary art. Over time, the quality of the work and constant commitment led the company to expand its scope, also operating in public spaces such as villas, promenades, roundabouts, and municipal areas."
+        },
+        "image": "chi-siamo-old.jpg",
+        "orientationDesktop": "left",
         "orientationMobile": "top",
-        "subtitle": "Tradizione e creatività in ogni fetta",
-        "title": "Esplora il nostro menu",
-        "url": "/menu"
+        "subtitle": {
+          "it": "Un’azienda in continua evoluzione.",
+          "gb": "A constantly evolving company."
+        },
+        "title": {
+          "it": "Chi Siamo",
+          "gb": "About Us"
+        }
+      },
+      "menu": {
+        "it": "Chi Siamo",
+        "gb": "About Us"
       },
       "type": "dualSection"
     },
     {
       "content": {
-        "title": "Consulenza personalizzata",
-        "orientationTitle": "left",
-        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
-        "orientationDescription": "left"
+        "description": {
+          "it": "Alla scomparsa di Mario, i figli Giampiero e Gigi hanno raccolto l’eredità con uno sguardo rivolto al futuro: affiancando all’esperienza artigiana l’uso di materiali innovativi e soluzioni di design contemporaneo. Oggi desamarmi è una realtà dinamica, capace di unire tradizione e ricerca, offrendo top cucina, arredi in pietra e superfici su misura per ambienti eleganti e funzionali. Lavoriamo con quarzo, gres, Neolith, granito e pietra naturale, trasformando ogni materiale in un’opera unica.",
+          "gb": "After Mario's passing, his sons Giampiero and Gigi inherited his legacy with an eye toward the future: combining artisanal experience with the use of innovative materials and contemporary design solutions. Today, desamarmi is a dynamic company that blends tradition and innovation, offering kitchen countertops, stone furniture, and custom surfaces for elegant and functional spaces. We work with quartz, stoneware, Neolith, granite, and natural stone, turning every material into a unique work of art."
+        },
+        "image": "chi-siamo.png",
+        "orientationDesktop": "right",
+        "orientationMobile": "top",
+        "subtitle": {
+          "it": "Un’azienda in continua evoluzione.",
+          "gb": "A constantly evolving company."
+        }
       },
-      "type": "text"
+      "type": "dualSection"
     },
     {
       "content": {
-        "reviews": [
-          {
-            "descrizione":"Servizio impeccabile. Consigliatissimo!",
-            "stars": 5,
-            "name":"Anna"
-          },
-          {
-            "descrizione":"Esperienza molto positiva! Il team si è mostrato disponibile e competente in ogni fase del progetto. Grazie a loro sono riuscita a realizzare esattamente ciò che avevo in mente.",
-            "stars": 4,
-            "name":"Luca"
-          },
-          {
-            "descrizione":"Collaborare con questo team è stato entusiasmante sin dall'inizio. Hanno ascoltato con attenzione ogni mia esigenza e hanno trasformato le mie idee in soluzioni concrete e ben strutturate. La loro professionalità e l’attenzione ai dettagli hanno davvero fatto la differenza. Non potrei essere più soddisfatto del risultato finale.",
-            "stars": 3,
-            "name":"Chiara"
-          }
-        ],
-        "title": "Consulenza",
-        "orientationTitle": "left",
-        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
-        "orientationDescription": "left"
-      },
-      "type": "reviews"
-    },
-    {
-      "content": {
-        "title": "I servizi",
-        "services": [
-          {
-            "description": "Crea la tua pizza scegliendo gli ingredienti che preferisci. Da gustare calda e appena sfornata.",
-            "name": "Pizza Personalizzata"
-          },
-          {
-            "description": "Scopri una selezione dei nostri migliori piatti con il menu degustazione che include antipasti, pizze speciali e dolci fatti in casa.",
-            "name": "Menu Degustazione"
-          },
-          {
-            "description": "Organizza una festa o un evento speciale con il nostro servizio di pizza party a domicilio. Scegli le pizze da gustare comodamente a casa tua.",
-            "name": "Pizza Party a Domicilio"
-          }
-        ]
-      },
-      "menu": "Servizi",
-      "type": "services"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": {
+        "title": {
+          "it": "Cosa Facciamo",
+          "gb": "What We Do"
+        },
         "advantages": [
           {
-            "description": "Le nostre pizze vengono cotte in un forno a legna che garantisce una cottura perfetta e conferisce quel caratteristico sapore affumicato.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png",
-            "name": "Forno a Legna"
+            "description": {
+              "it": "- Top cucina e bagno in materiali innovativi<br>- Rivestimenti e superfici per interni moderni<br>- Complementi d’arredo in pietra naturale<br><br>Soluzioni estetiche e funzionali per ambienti su misura.",
+              "gb": "- Kitchen and bathroom tops in innovative materials<br>- Coatings and surfaces for modern interiors<br>- Furniture accessories in natural stone<br><br>Aesthetic and functional solutions for custom environments."
+            },
+            "image": [
+              {
+                "desktop": "advantages/desk-01.jpg",
+                "mobile": "advantages/mob-01.jpg"
+              },
+              {
+                "desktop": "advantages/desk-02.jpg",
+                "mobile": "advantages/mob-02.jpg"
+              },
+              {
+                "desktop": "advantages/desk-03.jpg",
+                "mobile": "advantages/mob-03.jpg"
+              },
+              {
+                "desktop": "advantages/desk-04.jpg",
+                "mobile": "advantages/mob-04.jpg"
+              },
+              {
+                "desktop": "advantages/desk-05.jpg",
+                "mobile": "advantages/mob-05.jpg"
+              }
+            ],
+            "name": {
+              "it": "Design & Arredo",
+              "gb": "Design & Furnishing"
+            }
           },
           {
-            "description": "Il nostro staff è ben addestrato a garantire un servizio rapido e cordiale, creando un'atmosfera accogliente per i nostri clienti.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png",
-            "name": "Servizio Veloce e Accogliente"
+            "description": {
+              "it": "- Monumenti funebri e lapidi personalizzate<br>- Incisioni, accessori, restauri<br>- Progettazione su misura e rispetto per la memoria<br><br>Una storia di cura, dignità e attenzione artigianale.",
+              "gb": "- Customized funeral monuments and gravestones<br>- Engravings, accessories, restorations<br>- Custom design and respect for memory<br><br>A story of care, dignity, and artisanal attention."
+            },
+            "image":  "img-07.jpg",
+            "name": {
+              "it": "Arte Funeraria",
+              "gb": "Funerary Art"
+            }
           }
         ]
       },
-      "menu": "Vantaggi",
+      "menu": {
+        "it": "Cosa Facciamo",
+        "gb": "What We Do"
+      },
       "type": "advantages"
     },
     {
@@ -127,293 +118,153 @@
     },
     {
       "content": {
-        "Address": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy",
-        "Phone": "+39 080 964 8969"
+        "brands": [
+          "branlist1.jpeg",
+          "branlist2.jpeg",
+          "branlist3.jpeg",
+          "branlist4.jpeg",
+          "branlist5.jpeg"
+        ]
       },
-      "menu": "Contatti",
-      "type": "contacts"
+      "menu": "Brandlist",
+      "type": "brandlist"
+    },
+    {
+      "type": "line"
     },
     {
       "content": {
-        "title": "Puoi venirci a conoscere qui",
-        "address": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy",
+        "title": {
+          "it": "Macchinari",
+          "gb": "Machinery"
+        },
+        "services": [
+          {
+            "name": {
+              "it": "Helios Evo - CNC a 3 assi",
+              "gb": "Helios Evo - 3-Axis CNC"
+            },
+            "description": {
+              "it": "Tecnologia al servizio della tradizione.</br>La Helios Evo è una <span style=\"color: #a33a3f; font-weight: bold;\">fresatrice CNC a 3 assi</span> che utilizziamo per <span style=\"color: #a33a3f; font-weight: bold;\">lavorazioni di precisione</span> su marmo, quarzo e gres.</br><span style=\"color: #a33a3f; font-weight: bold;\">Affidabile e versatile</span>, ci permette di realizzare tagli diritti, incisioni semplici e lavorazioni funerarie piane, garantendo sempre un’<span style=\"color: #a33a3f; font-weight: bold;\">elevata qualità</span> su superfici planari.</br></br>Questo macchinario rappresenta un <span style=\"color: #a33a3f; font-weight: bold;\">punto di forza</span> del nostro laboratorio: essenziale per eseguire <span style=\"color: #a33a3f; font-weight: bold;\">sagomature lineari</span> e garantire uniformità nei progetti più tradizionali.",
+              "gb": "Technology serving tradition.</br>The Helios Evo is a <span style=\"color: #a33a3f; font-weight: bold;\">3-axis CNC milling machine</span> we use for <span style=\"color: #a33a3f; font-weight: bold;\">precision work</span> on marble, quartz, and porcelain stoneware.</br><span style=\"color: #a33a3f; font-weight: bold;\">Reliable and versatile</span>, it allows us to perform straight cuts, simple engravings, and flat funerary surfaces, always ensuring <span style=\"color: #a33a3f; font-weight: bold;\">high-quality results</span> on planar surfaces.</br></br>This machine is a <span style=\"color: #a33a3f; font-weight: bold;\">key asset</span> in our workshop, essential for executing <span style=\"color: #a33a3f; font-weight: bold;\">linear shaping</span> and ensuring consistency in traditional projects."
+            },
+            "image": "helios-evo.jpg"
+          },
+          {
+            "name": {
+              "it": "OMAG Blade 5 - CNC a 5 assi",
+              "gb": "OMAG Blade 5 - 5-Axis CNC"
+            },
+            "description": {
+              "it": "Tagli complessi, forme libere.</br>Nel nostro processo produttivo, la OMAG Blade 5 è una <span style=\"color: #a33a3f; font-weight: bold;\">CNC a 5 assi interpolati</span> che ci consente di eseguire <span style=\"color: #a33a3f; font-weight: bold;\">lavorazioni tridimensionali</span> e <span style=\"color: #a33a3f; font-weight: bold;\">tagli inclinati</span> su materiali come marmo, quarzo e gres.</br></br>Grazie alla sua <span style=\"color: #a33a3f; font-weight: bold;\">versatilità</span>, possiamo affrontare <span style=\"color: #a33a3f; font-weight: bold;\">progetti di design avanzato</span>, superfici inclinate e elementi personalizzati, sia in ambito funerario che d’arredo. È uno <span style=\"color: #a33a3f; font-weight: bold;\">strumento strategico</span> per un’azienda che evolve costantemente.",
+              "gb": "Complex cuts, free forms.</br>The OMAG Blade 5 is a <span style=\"color: #a33a3f; font-weight: bold;\">5-axis interpolated CNC machine</span> that allows us to perform <span style=\"color: #a33a3f; font-weight: bold;\">three-dimensional processing</span> and <span style=\"color: #a33a3f; font-weight: bold;\">angled cuts</span> on materials such as marble, quartz, and porcelain stoneware.</br></br>Thanks to its <span style=\"color: #a33a3f; font-weight: bold;\">flexibility</span>, we can handle <span style=\"color: #a33a3f; font-weight: bold;\">advanced design projects</span>, inclined surfaces, and custom elements, both in funerary art and modern interior applications. It’s a <span style=\"color: #a33a3f; font-weight: bold;\">strategic tool</span> for a company in continuous evolution."
+            },
+            "image": "omag-blade.jpg"
+          },
+          {
+            "name": {
+              "it": "GMM Tecna 36 - Segatrice a ponte",
+              "gb": "GMM Tecna 36 - Bridge Saw"
+            },
+            "description": {
+              "it": "Precisione costante, solidità operativa.</br>La GMM Tecna 36 è una <span style=\"color: #a33a3f; font-weight: bold;\">segatrice a ponte</span> che utilizziamo per il <span style=\"color: #a33a3f; font-weight: bold;\">taglio preciso</span> di lastre destinate a top cucina, rivestimenti e pavimentazioni.</br>Adatta a lavorare marmo, granito e quarzo, garantisce <span style=\"color: #a33a3f; font-weight: bold;\">tagli netti, regolari e ripetibili</span>, rendendola ideale per la produzione di <span style=\"color: #a33a3f; font-weight: bold;\">elementi standardizzati</span>.</br></br>Una macchina che accompagna ogni giorno il nostro lavoro, contribuendo alla <span style=\"color: #a33a3f; font-weight: bold;\">qualità finale</span> dei prodotti che realizziamo su misura.",
+              "gb": "Consistent precision, robust performance.</br>The GMM Tecna 36 is a <span style=\"color: #a33a3f; font-weight: bold;\">bridge saw</span> we use for <span style=\"color: #a33a3f; font-weight: bold;\">accurate cutting</span> of slabs destined for kitchen countertops, wall claddings, and flooring.</br>Suitable for marble, granite, and quartz, it ensures <span style=\"color: #a33a3f; font-weight: bold;\">clean, repeatable cuts</span>—ideal for the production of <span style=\"color: #a33a3f; font-weight: bold;\">standardized elements</span>.</br></br>This machine is part of our <span style=\"color: #a33a3f; font-weight: bold;\">daily operations</span>, contributing to the <span style=\"color: #a33a3f; font-weight: bold;\">quality and precision</span> of every made-to-measure project."
+            },
+            "image": "gmm-tecna.jpg"
+          }
+        ]
+      },
+      "menu": {
+        "it": "Macchinari",
+        "gb": "Machinery"
+      },
+      "type": "services"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "content": {
+        "title": {
+          "it": "I nostri contatti",
+          "gb": "Our contacts"
+        },
+        "subtitle": {
+          "it": "Contattaci direttamente con questo form",
+          "gb": "Contact us directly with this form"
+        },
+        "contacts": [
+          {
+            "icon": "mdi-phone",
+            "title": {
+              "it": "Cucine & Design<br>+39 349 675 7635",
+              "gb": "Kitchens & Design<br>+39 349 675 7635"
+            }
+          },
+          {
+            "icon": "mdi-phone",
+            "title": {
+              "it": "Arte Funeraria<br>+39 345 177 2545",
+              "gb": "Funeral Art<br>+39 345 177 2545"
+            }
+          },
+          {
+            "icon": "mdi-email",
+            "title": "desamarmi@libero.it"
+          },
+          {
+            "icon": "mdi-facebook",
+            "title": {
+              "it": "Seguici su facebook",
+              "gb": "Follow us on facebook"
+            },
+            "url": "https://www.facebook.com/desamarmisnc"
+          },
+          {
+            "icon": "mdi-instagram",
+            "title": {
+              "it": "Seguici su instagram",
+              "gb": "Follow us on instagram"
+            },
+            "url": "https://www.instagram.com/__desamarmi/"
+          }
+        ]
+      },
+      "menu": {
+        "it": "Contatti",
+        "gb": "Contacts"
+      },
+      "type": "contacts"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "content": {
+        "title": {
+          "it": "Puoi venirci a conoscere qui",
+          "gb": "You can come meet us here"
+        },
+        "address": "Via del Cimitero, 70056 Molfetta BA",
         "coordinates": [
-          "16.5978131",
-          "41.2051935"
+          16.58067,
+          41.20528
         ],
-        "zoom": 10
+        "zoom": 15
       },
       "type": "map"
     }
   ],
-  "calendar": [
-    {
-      "id": 1,
-      "name": "Prenota un tavolo",
-      "type": "Weekly",
-      "enrichment": {
-        "slot": [
-          {
-            "start_time": "10:00",
-            "end_time": "11:00"
-          },
-          {
-            "start_time": "11:00",
-            "end_time": "12:00"
-          },
-          {
-            "start_time": "12:00",
-            "end_time": "13:00"
-          }
-        ]
-      },
-      "info": [
-        {
-          "start_time": "10:00",
-          "end_time": "23:00",
-          "start_day": "Tuesday"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Prenota un tavolo",
-      "type": "Weekly",
-      "enrichment": {
-        "slot": [
-          {
-            "start_time": "10:00",
-            "end_time": "11:00"
-          },
-          {
-            "start_time": "11:00",
-            "end_time": "12:00"
-          },
-          {
-            "start_time": "12:00",
-            "end_time": "13:00"
-          }
-        ]
-      },
-      "info": [
-        {
-          "start_time": "10:00",
-          "end_time": "23:00",
-          "start_day": "Wednesday"
-        }
-      ]
-    }
-  ],
-  "menu": [
-    {
-      "name": "Antipasti",
-      "icon": "mdi-food",
-      "image": "/menu/antipasti.jpg",
-      "items": [
-        {
-          "name": "Bruschette al Pomodoro",
-          "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Tagliere di Salumi",
-          "description": "Selezione di salumi italiani, accompagnati da focaccia",
-          "price": 12,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Mozzarella in Carrozza",
-          "description": "Mozzarella fritta con crosta dorata di pane",
-          "price": 7,
-          "allergens": [
-            "glutine",
-            "uova",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Frittura Mista",
-          "description": "Verdure pastellate croccanti con salsa yogurt",
-          "price": 9,
-          "allergens": [
-            "glutine",
-            "uova",
-            "lattosio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Pizze classiche",
-      "icon": "mdi-pizza",
-      "image": "/menu/pizze_classiche.jpg",
-      "items": [
-        {
-          "name": "Margherita",
-          "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-          "image": "/menu/pizza_margherita.png",
-          "price": 7,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Marinara",
-          "description": "Pomodoro, aglio fresco, origano e olio EVO",
-          "image": "/menu/pizza_marinara.png",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Diavola",
-          "description": "Mozzarella, salame piccante, pomodoro",
-          "image": "/menu/pizza_diavola.png",
-          "price": 8,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Capricciosa",
-          "description": "Mozzarella, prosciutto, funghi, carciofi e olive",
-          "image": "/menu/pizza_capricciosa.png",
-          "price": 9,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Pizze Gourmet",
-      "icon": "mdi-star",
-      "image": "/menu/pizze_gourmet.jpg",
-      "items": [
-        {
-          "name": "Tartufo e Porcini",
-          "description": "Mozzarella, crema al tartufo nero, funghi porcini",
-          "price": 15,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Bufala e Pachino",
-          "description": "Mozzarella di bufala DOP, pomodorini Pachino, olio EVO",
-          "price": 13,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Speck e Brie",
-          "description": "Base bianca, speck dell'Alto Adige, brie fuso",
-          "price": 14,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Mortadella e Pistacchio",
-          "description": "Cremosa al pistacchio, mortadella IGP e granella di pistacchi",
-          "price": 16,
-          "allergens": [
-            "glutine",
-            "lattosio",
-            "frutta_a_guscio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Beverage",
-      "icon": "mdi-cup-water",
-      "image": "/menu/bevande.jpg",
-      "items": [
-        {
-          "name": "Acqua Naturale",
-          "description": "Bottiglia da 50cl",
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": "Acqua Frizzante",
-          "description": "Bottiglia da 50cl",
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": "Coca Cola",
-          "description": "Lattina da 33cl",
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": "Fanta",
-          "description": "Lattina da 33cl",
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": "Tè al Limone",
-          "description": "Bottiglietta fredda da 50cl",
-          "price": 3,
-          "allergens": []
-        }
-      ]
-    },
-    {
-      "name": "Birre artigianali",
-      "icon": "mdi-beer",
-      "image": "/menu/birre.jpg",
-      "items": [
-        {
-          "name": "IPA Artigianale",
-          "description": "India Pale Ale luppolata e agrumata, 6.5%",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Stout Nera",
-          "description": "Birra scura con note di caffè, 7%",
-          "price": 6.5,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Weiss",
-          "description": "Birra di frumento, dolce e leggermente fruttata",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Blonde Ale",
-          "description": "Birra chiara, leggera e rinfrescante",
-          "price": 5.5,
-          "allergens": [
-            "glutine"
-          ]
-        }
-      ]
-    }
-  ]
+  "info": {
+    "name": "desamarmi",
+    "primaryColor": "#a33a3f",
+    "secondaryColor": "#f3f3f3",
+    "logo": "logo.png",
+    "logoMode": "logo",
+    "backgroundImage": "/marmo.jpg",
+    "iva": "05548920726",
+    "locales": [
+      "it", "gb"
+    ]
+  }
 }

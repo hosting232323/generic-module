@@ -57,11 +57,10 @@ const sections = computed(() => {
   });
 });
 
-
 useHead({
-  title: 'FastSite',
+  title: 'desamarmi',
   meta: [
-    { name: 'FastSite', content: 'This is the home page' }
+    { name: 'desamarmi', content: 'This is the home page' }
   ]
 });
 </script>
