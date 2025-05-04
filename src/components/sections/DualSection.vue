@@ -6,7 +6,7 @@
         </v-col>
         <v-col cols="12" md="6">
             <v-sheet style="background-color: transparent;">
-                <p v-if="content.title" class="text-h3 font-weight-black" :style="{ color: info.primaryColor + ' !important' }" v-html="getText(content.title)" />
+                <p v-if="content.title" class="font-title text-h3 font-weight-black" :style="{ color: info.primaryColor + ' !important' }" v-html="getText(content.title)" />
                 <br />
                 <p v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="getText(content.subtitle) + '<br>'" />
                 <p v-if="content.description" v-html="getText(content.description)" />

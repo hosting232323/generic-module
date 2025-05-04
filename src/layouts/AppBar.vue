@@ -37,7 +37,7 @@
       <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
       <Language v-if="multilingualActive" />
     </div>
-
+    
   </v-app-bar>
 </template>
 

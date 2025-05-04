@@ -1,10 +1,6 @@
 {
   "addOn": [
-    "Chatty",
-    "VirtualTour",
-    "Multilingual",
-    "Blog",
-    "Shop"
+    "Multilingual"
   ],
   "components": [
     {
@@ -40,96 +36,110 @@
       "content": {
         "type": "automatic",
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-          { 
-            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png",
-            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
-          }
-        ]
-      },
-      "menu": {
-        "it": "Carosello",
-        "gb": "Carusel"
-      },
-      "type": "gallery"
-    },
-    {
-      "content": {
-        "type": "manual",
-        "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-          { 
-            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png",
-            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
-          }
-        ]
-      },
-      "menu": "Galleria",
-      "type": "gallery"
-    },
-    {
-      "content": {
-        "brands": [
           "img-01.png",
           "img-02.png",
           "img-03.png",
           "img-04.png"
         ]
       },
-      "menu": "Brandlist",
-      "type": "brandlist"
+      "type": "gallery"
+    },
+    {
+      "content": {
+        "description": {
+          "it": "desamarmi nasce nel 1970 per volontà di Mario De Santis, come piccola attività specializzata in arte funeraria. Con il tempo, la qualità del lavoro e l’impegno costante hanno portato l’azienda ad ampliare il proprio raggio d’azione, operando anche in ambito pubblico con interventi su ville, lungomari, rotonde e spazi comunali.",
+          "gb": "desamarmi was founded in 1970 by Mario De Santis, as a small business specialized in funerary art. Over time, the quality of the work and constant commitment led the company to expand its scope, also operating in public spaces such as villas, promenades, roundabouts, and municipal areas."
+        },
+        "image": "chi-siamo-old.jpg",
+        "orientationDesktop": "left",
+        "orientationMobile": "top",
+        "subtitle": {
+          "it": "Un’azienda in continua evoluzione.",
+          "gb": "A constantly evolving company."
+        },
+        "title": {
+          "it": "Chi Siamo",
+          "gb": "About Us"
+        }
+      },
+      "menu": {
+        "it": "Chi Siamo",
+        "gb": "About Us"
+      },
+      "type": "dualSection"
+    },
+    {
+      "content": {
+        "description": {
+          "it": "Alla scomparsa di Mario, i figli Giampiero e Gigi hanno raccolto l’eredità con uno sguardo rivolto al futuro: affiancando all’esperienza artigiana l’uso di materiali innovativi e soluzioni di design contemporaneo. Oggi desamarmi è una realtà dinamica, capace di unire tradizione e ricerca, offrendo top cucina, arredi in pietra e superfici su misura per ambienti eleganti e funzionali. Lavoriamo con quarzo, gres, Neolith, granito e pietra naturale, trasformando ogni materiale in un’opera unica.",
+          "gb": "After Mario's passing, his sons Giampiero and Gigi inherited his legacy with an eye toward the future: combining artisanal experience with the use of innovative materials and contemporary design solutions. Today, desamarmi is a dynamic company that blends tradition and innovation, offering kitchen countertops, stone furniture, and custom surfaces for elegant and functional spaces. We work with quartz, stoneware, Neolith, granite, and natural stone, turning every material into a unique work of art."
+        },
+        "image": "chi-siamo.png",
+        "orientationDesktop": "right",
+        "orientationMobile": "top",
+        "subtitle": {
+          "it": "Un’azienda in continua evoluzione.",
+          "gb": "A constantly evolving company."
+        }
+      },
+      "type": "dualSection"
     },
     {
       "content": {
         "title": {
-          "it": "Vantaggi",
-          "gb": "Advantages"
+          "it": "Cosa Facciamo",
+          "gb": "What We Do"
         },
         "advantages": [
           {
             "description": {
-              "it": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-              "gb": "We create unique and personalized websites for each client, ensuring a distinctive and professional image."
+              "it": "- Top cucina e bagno in materiali innovativi<br>- Rivestimenti e superfici per interni moderni<br>- Complementi d’arredo in pietra naturale<br><br>Soluzioni estetiche e funzionali per ambienti su misura.",
+              "gb": "- Kitchen and bathroom tops in innovative materials<br>- Coatings and surfaces for modern interiors<br>- Furniture accessories in natural stone<br><br>Aesthetic and functional solutions for custom environments."
             },
-            "image": {
-              "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-              "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-            },
+            "image": [
+              {
+                "desktop": "advantages/desk-01.jpg",
+                "mobile": "advantages/mob-01.jpg"
+              },
+              {
+                "desktop": "advantages/desk-02.jpg",
+                "mobile": "advantages/mob-02.jpg"
+              },
+              {
+                "desktop": "advantages/desk-03.jpg",
+                "mobile": "advantages/mob-03.jpg"
+              },
+              {
+                "desktop": "advantages/desk-04.jpg",
+                "mobile": "advantages/mob-04.jpg"
+              },
+              {
+                "desktop": "advantages/desk-05.jpg",
+                "mobile": "advantages/mob-05.jpg"
+              }
+            ],
             "name": {
-              "it": "Design Personalizzato",
-              "gb": "Pers Design"
+              "it": "Design & Arredo",
+              "gb": "Design & Furnishing"
             }
           },
           {
             "description": {
-              "it": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-              "gb": "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines."
+              "it": "- Monumenti funebri e lapidi personalizzate<br>- Incisioni, accessori, restauri<br>- Progettazione su misura e rispetto per la memoria<br><br>Una storia di cura, dignità e attenzione artigianale.",
+              "gb": "- Customized funeral monuments and gravestones<br>- Engravings, accessories, restorations<br>- Custom design and respect for memory<br><br>A story of care, dignity, and artisanal attention."
             },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-            "name": "SEO Ottimizzato"
-          },
-          {
-            "description": {
-              "it": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-              "gb": "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-            "name": "Responsive Design"
-          },
-          {
-            "description": {
-              "it": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-              "gb": "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking."
-            },
-            "image": [
-              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"
-            ],
-            "name": "Velocità di Caricamento Ottimale"
+            "image":  "img-07.jpg",
+            "name": {
+              "it": "Arte Funeraria",
+              "gb": "Funerary Art"
+            }
           }
         ]
       },
-      "menu": "Vantaggi",
+      "menu": {
+        "it": "Cosa Facciamo",
+        "gb": "What We Do"
+      },
       "type": "advantages"
     },
     {
@@ -137,31 +147,66 @@
     },
     {
       "content": {
-        "title": "Servizi",
+        "brands": [
+          "branlist1.jpeg",
+          "branlist2.jpeg",
+          "branlist3.jpeg",
+          "branlist4.jpeg",
+          "branlist5.jpeg"
+        ]
+      },
+      "menu": "Brandlist",
+      "type": "brandlist"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "content": {
+        "title": {
+          "it": "Macchinari",
+          "gb": "Machinery"
+        },
         "services": [
           {
-            "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-            "name": "Sito Web Vetrina"
+            "name": {
+              "it": "Helios Evo - CNC a 3 assi",
+              "gb": "Helios Evo - 3-Axis CNC"
+            },
+            "description": {
+              "it": "Tecnologia al servizio della tradizione.</br>La Helios Evo è una <span style=\"color: #a33a3f; font-weight: bold;\">fresatrice CNC a 3 assi</span> che utilizziamo per <span style=\"color: #a33a3f; font-weight: bold;\">lavorazioni di precisione</span> su marmo, quarzo e gres.</br><span style=\"color: #a33a3f; font-weight: bold;\">Affidabile e versatile</span>, ci permette di realizzare tagli diritti, incisioni semplici e lavorazioni funerarie piane, garantendo sempre un’<span style=\"color: #a33a3f; font-weight: bold;\">elevata qualità</span> su superfici planari.</br></br>Questo macchinario rappresenta un <span style=\"color: #a33a3f; font-weight: bold;\">punto di forza</span> del nostro laboratorio: essenziale per eseguire <span style=\"color: #a33a3f; font-weight: bold;\">sagomature lineari</span> e garantire uniformità nei progetti più tradizionali.",
+              "gb": "Technology serving tradition.</br>The Helios Evo is a <span style=\"color: #a33a3f; font-weight: bold;\">3-axis CNC milling machine</span> we use for <span style=\"color: #a33a3f; font-weight: bold;\">precision work</span> on marble, quartz, and porcelain stoneware.</br><span style=\"color: #a33a3f; font-weight: bold;\">Reliable and versatile</span>, it allows us to perform straight cuts, simple engravings, and flat funerary surfaces, always ensuring <span style=\"color: #a33a3f; font-weight: bold;\">high-quality results</span> on planar surfaces.</br></br>This machine is a <span style=\"color: #a33a3f; font-weight: bold;\">key asset</span> in our workshop, essential for executing <span style=\"color: #a33a3f; font-weight: bold;\">linear shaping</span> and ensuring consistency in traditional projects."
+            },
+            "image": "helios-evo.jpg"
           },
           {
-            "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-            "name": "Sito Web E-commerce"
+            "name": {
+              "it": "OMAG Blade 5 - CNC a 5 assi",
+              "gb": "OMAG Blade 5 - 5-Axis CNC"
+            },
+            "description": {
+              "it": "Tagli complessi, forme libere.</br>Nel nostro processo produttivo, la OMAG Blade 5 è una <span style=\"color: #a33a3f; font-weight: bold;\">CNC a 5 assi interpolati</span> che ci consente di eseguire <span style=\"color: #a33a3f; font-weight: bold;\">lavorazioni tridimensionali</span> e <span style=\"color: #a33a3f; font-weight: bold;\">tagli inclinati</span> su materiali come marmo, quarzo e gres.</br></br>Grazie alla sua <span style=\"color: #a33a3f; font-weight: bold;\">versatilità</span>, possiamo affrontare <span style=\"color: #a33a3f; font-weight: bold;\">progetti di design avanzato</span>, superfici inclinate e elementi personalizzati, sia in ambito funerario che d’arredo. È uno <span style=\"color: #a33a3f; font-weight: bold;\">strumento strategico</span> per un’azienda che evolve costantemente.",
+              "gb": "Complex cuts, free forms.</br>The OMAG Blade 5 is a <span style=\"color: #a33a3f; font-weight: bold;\">5-axis interpolated CNC machine</span> that allows us to perform <span style=\"color: #a33a3f; font-weight: bold;\">three-dimensional processing</span> and <span style=\"color: #a33a3f; font-weight: bold;\">angled cuts</span> on materials such as marble, quartz, and porcelain stoneware.</br></br>Thanks to its <span style=\"color: #a33a3f; font-weight: bold;\">flexibility</span>, we can handle <span style=\"color: #a33a3f; font-weight: bold;\">advanced design projects</span>, inclined surfaces, and custom elements, both in funerary art and modern interior applications. It’s a <span style=\"color: #a33a3f; font-weight: bold;\">strategic tool</span> for a company in continuous evolution."
+            },
+            "image": "omag-blade.jpg"
           },
           {
-            "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-            "name": "Ottimizzazione SEO"
-          },
-          {
-            "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-            "name": "Gestione Contenuti"
-          },
-          {
-            "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-            "name": "Sviluppo Web Personalizzato"
+            "name": {
+              "it": "GMM Tecna 36 - Segatrice a ponte",
+              "gb": "GMM Tecna 36 - Bridge Saw"
+            },
+            "description": {
+              "it": "Precisione costante, solidità operativa.</br>La GMM Tecna 36 è una <span style=\"color: #a33a3f; font-weight: bold;\">segatrice a ponte</span> che utilizziamo per il <span style=\"color: #a33a3f; font-weight: bold;\">taglio preciso</span> di lastre destinate a top cucina, rivestimenti e pavimentazioni.</br>Adatta a lavorare marmo, granito e quarzo, garantisce <span style=\"color: #a33a3f; font-weight: bold;\">tagli netti, regolari e ripetibili</span>, rendendola ideale per la produzione di <span style=\"color: #a33a3f; font-weight: bold;\">elementi standardizzati</span>.</br></br>Una macchina che accompagna ogni giorno il nostro lavoro, contribuendo alla <span style=\"color: #a33a3f; font-weight: bold;\">qualità finale</span> dei prodotti che realizziamo su misura.",
+              "gb": "Consistent precision, robust performance.</br>The GMM Tecna 36 is a <span style=\"color: #a33a3f; font-weight: bold;\">bridge saw</span> we use for <span style=\"color: #a33a3f; font-weight: bold;\">accurate cutting</span> of slabs destined for kitchen countertops, wall claddings, and flooring.</br>Suitable for marble, granite, and quartz, it ensures <span style=\"color: #a33a3f; font-weight: bold;\">clean, repeatable cuts</span>—ideal for the production of <span style=\"color: #a33a3f; font-weight: bold;\">standardized elements</span>.</br></br>This machine is part of our <span style=\"color: #a33a3f; font-weight: bold;\">daily operations</span>, contributing to the <span style=\"color: #a33a3f; font-weight: bold;\">quality and precision</span> of every made-to-measure project."
+            },
+            "image": "gmm-tecna.jpg"
           }
         ]
       },
-      "menu": "Servizi",
+      "menu": {
+        "it": "Macchinari",
+        "gb": "Machinery"
+      },
       "type": "services"
     },
     {
@@ -169,86 +214,70 @@
     },
     {
       "content": {
-        "button": {
-          "it": "Cliccami!",
-          "gb": "Click on me!"
+        "title": {
+          "it": "I nostri contatti",
+          "gb": "Our contacts"
         },
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": { 
-          "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-          "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+        "subtitle": {
+          "it": "Contattaci direttamente con questo form",
+          "gb": "Contact us directly with this form"
         },
-        "orientationDesktop": "left",
-        "orientationMobile": "top",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
-      },
-      "menu": "Sezione doppia",
-      "type": "dualSection"
-    },
-    {
-      "content": {
-        "title": "I nostri contatti",
-        "subtitle": "Contattaci direttamente con questo form",
         "contacts": [
           {
-            "icon": "mdi-email",
-            "title": "giovanni.colasanto@fastsite.it"
+            "icon": "mdi-phone",
+            "title": {
+              "it": "Cucine & Design<br>+39 349 675 7635",
+              "gb": "Kitchens & Design<br>+39 349 675 7635"
+            }
           },
           {
             "icon": "mdi-phone",
-            "title": "+39 347 876 8340"
+            "title": {
+              "it": "Arte Funeraria<br>+39 345 177 2545",
+              "gb": "Funeral Art<br>+39 345 177 2545"
+            }
           },
           {
-            "icon": "mdi-map-marker",
-            "title": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy"
+            "icon": "mdi-email",
+            "title": "desamarmi@libero.it"
           },
           {
             "icon": "mdi-facebook",
             "title": {
-              "it": "Seguici su Facebook",
-              "gb": "Follow us on Facebook"
+              "it": "Seguici su facebook",
+              "gb": "Follow us on facebook"
             },
-            "url": "https://www.facebook.com/"
+            "url": "https://www.facebook.com/desamarmisnc"
           },
           {
             "icon": "mdi-instagram",
-            "title": "Seguici su Instagram",
-            "url": "https://www.instagram.com/"
-          },
-          {
-            "icon": "mdi-linkedin",
-            "title": "Seguici su LinkedIn",
-            "url": "https://www.linkedin.com/in/nomeprofilo"
-          },
-          {
-            "icon": "mdi-twitter",
-            "title": "Seguici su X (Twitter)",
-            "url": "https://twitter.com/profilo"
-          },
-          {
-            "icon": "mdi-youtube",
-            "title": "Guarda il nostro canale YouTube",
-            "url": "https://www.youtube.com/@canale"
-          },
-          {
-            "icon": "mdi-music",
-            "title": "Seguici su TikTok",
-            "url": "https://www.tiktok.com/@utente"
+            "title": {
+              "it": "Seguici su instagram",
+              "gb": "Follow us on instagram"
+            },
+            "url": "https://www.instagram.com/__desamarmi/"
           }
         ]
       },
-      "menu": "Contatti",
+      "menu": {
+        "it": "Contatti",
+        "gb": "Contacts"
+      },
       "type": "contacts"
     },
     {
+      "type": "line"
+    },
+    {
       "content": {
-        "title": "Puoi venirci a conoscere qui",
-        "address": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy",
+        "title": {
+          "it": "Puoi venirci a conoscere qui",
+          "gb": "You can come meet us here"
+        },
+        "address": "Via del Cimitero, 70056 Molfetta BA",
         "coordinates": [
-          16.882818,
-          41.09665
+          16.58067,
+          41.20528
         ],
         "zoom": 9
       },
@@ -256,37 +285,15 @@
     }
   ],
   "info": {
-    "name": "FastSite",
-    "logo": "https://imgur.com/mNAxeqq.png",
-    "logoMode": "both",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C",
-    "chattyId": 10,
+    "name": "desamarmi",
+    "primaryColor": "#a33a3f",
+    "secondaryColor": "#f3f3f3",
+    "logo": "logo.png",
+    "logoMode": "logo",
+    "backgroundImage": "/marmo.jpg",
+    "iva": "05548920726",
     "locales": [
       "it", "gb"
-    ],
-    "socialBubbles": [
-      {
-        "icon": "mdi-whatsapp",
-        "url": "https://twitter.com/profilo"
-      },
-      {
-        "icon": "mdi-instagram",
-        "url": "https://twitter.com/profilo"
-      },
-      {
-        "icon": "mdi-facebook",
-        "url": "https://twitter.com/profilo"
-      }
-    ]
-  },
-  "store": {
-    "userId": 3,
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
     ]
   }
 }
