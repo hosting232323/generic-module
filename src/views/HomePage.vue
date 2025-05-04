@@ -32,6 +32,9 @@ import AdvantagesBusiness from '@/components/sections/advantages/AdvantagesBusin
 import AdvantagesCreative from '@/components/sections/advantages/AdvantagesCreative';
 import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcommerce';
 
+import ServicesSectionCustom from '@/components/customs/ServicesSection';
+
+
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -41,7 +44,7 @@ const componentMap = {
   line: LineDivider,
   reviews: ReviewsSection,
   gallery: GallerySection,
-  services: ServicesSection,
+  services: ServicesSectionCustom,
   contacts: ContactsSection,
   brandlist: BrandList,
   advantages: {
@@ -75,13 +78,6 @@ const sections = computed(() => {
     }
     return true;
   });
-});
-
-useHead({
-  title: 'FastSite',
-  meta: [
-    { name: 'FastSite', content: 'This is the home page' }
-  ]
 });
 
 const preloadedSections = ref([]);
@@ -135,5 +131,50 @@ onMounted(() => {
     preloadAboveFold(data.value.components);
     lazyLoadImages();
   }
+});
+
+useHead({
+  title: 'Desamarmi',
+
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Desamarmi nasce come realtà specializzata in arte funeraria e lavorazione della pietra a Molfetta (Bari). Realizziamo monumenti funebri, lapidi e soluzioni di design in marmo, quarzo, gres e pietra naturale, unendo tradizione artigiana e tecnologie CNC avanzate.'
+    },
+    {
+      name: 'keywords',
+      content:
+        'Desamarmi, arte funeraria Puglia, marmo Molfetta, lavorazione pietra Bari, lapidi personalizzate, monumenti funebri, top cucina marmo, quarzo, gres, Neolith, granito, pietra naturale, CNC 5 assi, OMAG Blade, GMM Tecna, design pietra, arredo in pietra, Molfetta showroom, Puglia stone design'
+    },
+    { name: 'author', content: 'Desamarmi' },
+    { name: 'robots', content: 'index, follow' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+    { name: 'theme-color', content: '#a33a3f' },
+
+    {
+      property: 'og:title',
+      content: 'Desamarmi | Arte Funeraria e Design in Pietra in Puglia'
+    },
+    {
+      property: 'og:description',
+      content:
+        'Arte funeraria e lavorazione della pietra a Molfetta (Bari). Soluzioni su misura in marmo, quarzo e gres con tecnologie CNC avanzate.'
+    },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://desamarmi.it' },
+    { property: 'og:image', content: 'https://desamarmi.it/logo.png' },
+    { property: 'og:locale', content: 'it_IT' },
+    { property: 'og:site_name', content: 'Desamarmi' },
+
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Desamarmi | Arte Funeraria e Pietra' },
+    {
+      name: 'twitter:description',
+      content:
+        'Arte funeraria e lavorazioni in pietra a Molfetta (Bari) con soluzioni artigianali e tecnologiche.'
+    },
+    { name: 'twitter:image', content: 'https://desamarmi.it/logo.png' }
+  ]
 });
 </script>

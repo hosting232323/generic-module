@@ -5,3 +5,36 @@ html {
 .margin_top__default {
   margin-top: 25px;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.font-title {
+  font-family: "Cormorant Garamond", serif !important;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  margin: 0 0 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+h2 {
+  margin: 0 0 24px;
+  font-size: 20px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+}
