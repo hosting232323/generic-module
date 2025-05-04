@@ -19,7 +19,7 @@
         >
           <p
             v-if="content.title"
-            class="text-h3 font-weight-black"
+            class="font-title text-h3 font-weight-black"
             :style="{ color: info.primaryColor + ' !important' }"
             v-html="getText(content.title)"
           />          <br>

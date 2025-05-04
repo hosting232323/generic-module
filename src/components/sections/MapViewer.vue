@@ -113,7 +113,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: '/map.png'
+      src: 'image.png'
     })
   });
 
@@ -148,7 +148,7 @@ onMounted(async () => {
       duration: 250
     },
     positioning: 'bottom-center',
-    offset: [0, -155]
+    offset: [0, -180]
   });
 
   map.addOverlay(overlay);
