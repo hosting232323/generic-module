@@ -2,7 +2,7 @@
   <v-app  v-if="ready">
     <AppBar />
     <UpArrow :bottomOffset="showChatty ? 100 : 20"/>
-    <v-main :style="{ backgroundColor: data.info.secondaryColor }">
+    <v-main :style="backgroundStyle">
       <router-view />
     </v-main>
     <Footer />
@@ -16,13 +16,28 @@ import Footer from './Footer.vue';
 
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
-import { onMounted, watch, ref } from 'vue';
+import { onMounted, watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
 
 const showChatty = ref(false);
 const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
+
+const backgroundStyle = computed(() => {
+  if (data.value.info.bgImg) {
+    return {
+      backgroundImage: `url(${data.value.info.bgImg})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    };
+  } else {
+    return {
+      backgroundColor: data.value.info.secondaryColor
+    };
+  }
+});
 
 onMounted(() => {
   if (route.name == 'Demo') dataStore.initData(route.params.id);

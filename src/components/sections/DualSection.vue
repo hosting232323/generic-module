@@ -2,7 +2,7 @@
     <v-container>
       <v-row align="center">
         <v-col v-if="isLeftAligned" cols="12" md="6">
-          <v-img :src="resolvedImg" cover />
+          <v-img :src="resolveImg(content.image)" cover />
         </v-col>
         <v-col cols="12" md="6">
             <v-sheet :color="info.secondaryColor">
@@ -17,7 +17,7 @@
             </v-sheet>
             </v-col>
             <v-col v-if="!isLeftAligned" cols="12" md="6">
-                <v-img :src="resolvedImg" cover />
+                <v-img :src="resolveImg(content.image)" cover />
             </v-col>
         </v-row>
     </v-container>
@@ -27,15 +27,8 @@
 import { computed } from 'vue';
 import { useMobileUtils } from '@/utils/mobile';
 
-const { isMobile } = useMobileUtils();
+const { isMobile, resolveImg } = useMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
-
-const resolvedImg = computed(() => {
-const img = content.image;
-    if (typeof img === 'string') return img;
-    if (typeof img === 'object') return isMobile.value ? img.mobile : img.desktop;
-    return '';
-});
 
 const defaultDesktopOrientation = 'right';
 const defaultMobileOrientation = 'bottom';

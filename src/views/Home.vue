@@ -15,6 +15,7 @@ import { useDataStore } from '@/stores/data';
 
 import Map from '@/components/sections/Map';
 import Gallery from '@/components/sections/Gallery';
+import Carusel from '@/components/sections/Carusel';
 import Services from '@/components/sections/Services';
 import Contacts from '@/components/sections/Contacts';
 import Advantages from '@/components/sections/Advantages';
@@ -27,6 +28,7 @@ const { data } = storeToRefs(dataStore);
 const componentMap = {
   map: Map,
   gallery: Gallery,
+  carusel: Carusel,
   services: Services,
   advantages: Advantages,
   contacts: Contacts,

@@ -7,14 +7,8 @@
 </template>
 
 <script setup>
-  import { useMobileUtils } from '@/utils/mobile';
-  const { isMobile } = useMobileUtils();
+import { useMobileUtils } from '@/utils/mobile';
 
-  const { content } = defineProps(['content']);
-
-  const resolveImg = (slide) => {
-    if (typeof slide === 'string') return slide;
-    if (typeof slide === 'object') return isMobile.value ? slide.mobile : slide.desktop;
-    return '';
-  };
+const { isMobile, resolveImg } = useMobileUtils();
+const { content } = defineProps(['content']);
 </script>
