@@ -19,6 +19,12 @@
       </div>
       <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
+    <img
+      :src="flagImage"
+      alt="Language Switch"
+      @click="toggleLanguage"
+      style="cursor: pointer; width: 30px; height: 20px; margin: 0 16px;"
+    />
     <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
   </v-app-bar>
 
@@ -32,14 +38,19 @@
       <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
 
-    <div class="desktop-menu">
+    <div class="desktop-menu d-flex align-center">
       <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
+      <img
+        :src="flagImage"
+        alt="Language Switch"
+        @click="toggleLanguage"
+        style="cursor: pointer; width: 30px; height: 20px; margin: 0 16px;"
+      />
       <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
     </div>
   </v-app-bar>
-
 </template>
 
 <script setup>
@@ -49,9 +60,18 @@ import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { useMobileUtils } from '@/utils/mobile';
 import { useRouter, useRoute } from 'vue-router';
-
+import { useI18n } from 'vue-i18n';
 import Cart from './Cart.vue';
 
+const { t, locale } = useI18n();
+const flagImage = ref(locale.value === 'it' ? 'flag-en.png' : 'flag-it.png');
+
+const toggleLanguage = () => {
+  console.log(locale.value);
+  const newLang = locale.value === 'it' ? 'en' : 'it';
+  locale.value = newLang;
+  flagImage.value = newLang === 'it' ? 'flag-it.png' : 'flag-en.png';
+};
 const orderStore = useOrderStore();
 
 const drawer = ref(null);
@@ -80,20 +100,20 @@ const items = computed(() => {
   let menuItems = [];
   if (addOn && addOn.includes('VirtualTour'))
     menuItems.push({
-      title: 'Virtual Tour',
+      title: t('AppBar.virtualTour'),
       path: 'https://test-virtual-tour.replit.app/',
       type: 'externalLink'
     });
   if (addOn && addOn.includes('Blog'))
     menuItems.push({
-      title: 'Blog',
+      title: t('AppBar.blog'),
       path: '/blog',
       type: 'internalLink'
     });
   menuItems = menuItems.concat(content
     .filter(section => section.menu)
     .map(section => ({
-      title: section.menu,
+      title: t(`Sections.${section.menu}`, section.menu),
       path: section.menu.toLowerCase(),
       type: 'ancor'
     })));

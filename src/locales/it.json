@@ -1,0 +1,46 @@
+{
+    "AppBar": {
+      "home": "Home",
+      "virtualTour": "Virtual Tour",
+      "blog": "Blog",
+      "galleria": "Galleria",
+      "vantaggi": "Vantaggi",
+      "servizi": "Servizi",
+      "doubleSection": "Sezione Doppia",
+      "contatti": "Contatti"
+    },
+    "Contacts": {
+      "button1": "Vai su WeChat",
+      "button2": "Invia",
+      "label1": "Nominativo",
+      "label2": "Email",
+      "label3": "Testo",
+      "title": "I nostri contatti",
+      "subtitle": "Oppure contattaci direttamente con questo form"
+    },
+    "DoubleCards": {
+      "title": "I nostri vantaggi",
+      "title1": "Traduttore e interprete a vostra disposizione",
+      "title2": "Assistenza alla clientela presso il proprio domicilio"
+    },
+    "Map": {
+      "title": "Puoi trovarci qui"
+    },
+    "Services": {
+      "text1": "Ottimizziamo la tua contabilità aziendale garantendo per te la tenuta della contabilità, la registrazione di documenti fiscali e la redazione delle dichiarazioni fiscali e di bilancio",
+      "text2": "Gestiamo in modo preciso e puntuale la remunerazione dei tuoi dipendenti, garantendo il rispetto delle normative fiscali e previdenziali vigenti",
+      "text3": "Affidati alla nostra consulenza per guidarti attraverso il complesso processo imprenditoriale, dall'avvio di un'attività alla sua crescita sostenibile nel mercato",
+      "text4": "Ti supportiamo passo dopo passo nella costituzione e nell'organizzazione della tua società, presso tutti gli uffici preposti (comuni, camere di commercio, eccetera)",
+      "text5": "Semplifichiamo la procedura per il rilascio del permesso di soggiorno per te e i tuoi dipendenti stranieri presso un ufficio autorizzato, garantendo il rispetto delle leggi sull'immigrazione e agevolando il processo burocratico",
+      "title": "I nostri servizi",
+      "title1": "Contabilità",
+      "title2": "Stipendio del lavoratore",
+      "title3": "Processo imprenditoriale",
+      "title4": "Costituzione di una società",
+      "title5": "Procedura di rilascio del permesso di soggiorno"
+    },
+    "validation": {
+      "error1": "Campo obbligatorio",
+      "error2": "E-mail non valida"
+    }
+  }

@@ -1,9 +1,4 @@
 {
-  "addOn": [
-    "Chatty",
-    "VirtualTour",
-    "Shop"
-  ],
   "components": [
     {
       "content": [
