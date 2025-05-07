@@ -45,7 +45,7 @@ const next = () => {
 const startTimer = () => {
     intervalId.value = setInterval(() => {
         next();
-    }, 4000);
+    }, 5000);
 };
 
 const resetTimer = () => {
