@@ -45,60 +45,61 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import validation from '@/utils/validation';
+import { ref } from 'vue';
+import http from '@/utils/http';
+import validation from '@/utils/validation';
 
-  const mail = import.meta.env.VITE_FORM_MAIL;
-  const { content, info } = defineProps(['content', 'info']);
+const mail = import.meta.env.VITE_FORM_MAIL;
+const { content, info } = defineProps(['content', 'info']);
 
-  const name = ref('');
-  const body = ref('');
-  const email = ref('');
 
-  const CONTACT_ICON_MAP = {
-    Phone: 'mdi-phone',
-    Email: 'mdi-email',
-    Address: 'mdi-map-marker',
-    Facebook: 'mdi-facebook',
-    Instagram: 'mdi-instagram',
-    LinkedIn: 'mdi-linkedin',
-    Twitter: 'mdi-twitter',
-    TikTok: 'mdi-music',
-    YouTube: 'mdi-youtube'
-  };
+const name = ref('');
+const body = ref('');
+const email = ref('');
 
-  const CUSTOM_LINK_TEXT = {
-    Facebook: 'Seguici su Facebook',
-    Instagram: 'Seguici su Instagram',
-    LinkedIn: 'Seguici su LinkedIn',
-    Twitter: 'Seguici su X (Twitter)',
-    TikTok: 'Seguici su TikTok',
-    YouTube: 'Guarda il nostro canale YouTube'
-  };
+const CONTACT_ICON_MAP = {
+  Phone: 'mdi-phone',
+  Email: 'mdi-email',
+  Address: 'mdi-map-marker',
+  Facebook: 'mdi-facebook',
+  Instagram: 'mdi-instagram',
+  LinkedIn: 'mdi-linkedin',
+  Twitter: 'mdi-twitter',
+  TikTok: 'mdi-music',
+  YouTube: 'mdi-youtube'
+};
 
-  const getContactTypes = (contacts) => {
-    return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
-  };
+const CUSTOM_LINK_TEXT = {
+  Facebook: 'Seguici su Facebook',
+  Instagram: 'Seguici su Instagram',
+  LinkedIn: 'Seguici su LinkedIn',
+  Twitter: 'Seguici su X (Twitter)',
+  TikTok: 'Seguici su TikTok',
+  YouTube: 'Guarda il nostro canale YouTube'
+};
 
-  const sendMail = () => {
-    if (
-      !validation.validateInput(email.value, validation.emailRules) &&
-      !validation.validateInput(name.value, validation.requiredRules) &&
-      !validation.validateInput(body.value, validation.requiredRules)
-    ) {
-      http.postRequestGenericBE('send-email', {
-        email: mail,
-        subject: `Qualcuno ho usato il form del sito ${info.name}`,
-        body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
-          `Nominativo: ${name.value}\n` +
-          `Mail: ${email.value}\n\n` +
-          `Testo:\n${body.value}`
-      }, function () {
-        alert("Mail inviata\nTi ringraziamo per il contatto");
-      });
-    }
-  };
+const getContactTypes = (contacts) => {
+  return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
+};
+
+const sendMail = () => {
+  if (
+    !validation.validateInput(email.value, validation.emailRules) &&
+    !validation.validateInput(name.value, validation.requiredRules) &&
+    !validation.validateInput(body.value, validation.requiredRules)
+  ) {
+    http.postRequestGenericBE('send-email', {
+      email: mail,
+      subject: `Qualcuno ho usato il form del sito ${info.name}`,
+      body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
+        `Nominativo: ${name.value}\n` +
+        `Mail: ${email.value}\n\n` +
+        `Testo:\n${body.value}`
+    }, function () {
+      alert("Mail inviata\nTi ringraziamo per il contatto");
+    });
+  }
+};
 </script>
 
 <style scoped>

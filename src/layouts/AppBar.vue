@@ -19,6 +19,7 @@
       <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
     <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
+    <Language v-if="multilingualActive" style="margin: 0 16px;" />
   </v-app-bar>
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
@@ -31,12 +32,14 @@
       <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
 
-    <div class="desktop-menu">
+    <div class="desktop-menu d-flex justify-center align-center" >
       <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
       <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
+      <Language v-if="multilingualActive" style="margin: 0 16px;" />
     </div>
+
   </v-app-bar>
 </template>
 
@@ -49,6 +52,7 @@ import { useMobileUtils } from '@/utils/mobile';
 import { useRouter, useRoute } from 'vue-router';
 
 import Cart from './Cart.vue';
+import Language from '@/components/sections/Language.vue';
 
 const orderStore = useOrderStore();
 
@@ -62,6 +66,7 @@ const info = data.value.info;
 const content = data.value.components;
 const addOn = data.value.addOn;
 const cartActive = addOn && addOn.includes('Shop');
+const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const { isMobile } = useMobileUtils();
 
 const link = (item) => {
