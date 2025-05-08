@@ -35,7 +35,8 @@ La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali**
 ```json
 "addOn": [
   "Chatty",
-  "VirtualTour"
+  "VirtualTour",
+  "Shop"
 ]
 ```
 
@@ -45,6 +46,7 @@ La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali**
 |---------------|-----------------------------------------------------------------------------|
 | `Chatty`      | Aggiunge un assistente virtuale (chatbot) configurato tramite `chattyId`    |
 | `VirtualTour` | Aggiunge una sezione dedicata al tour virtuale del locale o azienda         |
+| `Shop` | Aggiunge una sezione dedicata per l'e-commerce         |
 
 > 📌 **Nota:** Gli add-on vengono caricati solo se presenti nell'array `addOn`.
 
@@ -295,3 +297,35 @@ La sezione **Contatti** mostra le informazioni di contatto dell’attività (ema
 | `Email`    | `string` | ❌           | Indirizzo email                                                            |
 | `Phone`    | `string` | ❌           | Numero di telefono                                                         |
 | `Facebook`, `Instagram`, `LinkedIn`, `Twitter`, `TikTok`, `YouTube` | `string` | ❌ | Link ai social, ognuno mostrerà un’icona e un testo personalizzato        |
+
+---
+
+## 📬 Sezione: Indirizzo
+
+La sezione **Indirizzo** consente agli utenti di inserire il loro nome, cognome, e indirizzo. Può essere utile per moduli di registrazione, checkout, o altre interazioni che richiedono l'inserimento di dati personali. La sezione include anche un campo di autocompletamento per la selezione della regione, provincia, città e indirizzo. Puoi limitare gli indirizzi per Province e Comuni
+
+### 📦 Tipo JSON richiesto
+
+```json
+"store": {
+  "username": "esempio@dominio.it",
+  "password": "esempio",
+  "addressMode": 1,
+  "province": "Barletta-Andria-Trani",
+  "cities": [
+    "Lanzo Torinese",
+    "Cafasse"
+  ]
+}
+```
+
+### ✅ Campi disponibili
+
+| Chiave     | Tipo     | Obbligatoria | Descrizione                                                                 |
+|------------|----------|--------------|-----------------------------------------------------------------------------|
+| `username`     | `string` | ✅           | Indirizzo email dell'utente, utilizzato per identificare l'account     |
+| `password`     | `string` | ✅           | La password dell'utente per l'accesso.                                 |
+| `addressMode`    | `number` | ❌           | La modalità di visualizzazione dell'indirizzo. Se non inserita manda direttamente su stripe.|
+| `province`    | `string` | ❌           | La provincia selezionata per l'indirizzo. Se fornita, il componente mostrerà solo questa provincia nell'elenco|
+| `cities` | `array` | ❌ | Un array che contiene le città limitate alla provincia selezionata. Se non specificato, tutte le città della provincia saranno disponibili.|
+

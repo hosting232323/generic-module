@@ -3,8 +3,7 @@
     <v-row>
       <v-col cols="6">
         <v-text-field
-          v-model="firstName"
-          @input="addressStore.updateField('firstname', firstName)"
+          v-model="addressStore.firstname"
           label="Nome"
           placeholder="Inserisci il nome"
           outlined
@@ -14,8 +13,7 @@
       </v-col>
       <v-col cols="6">
         <v-text-field
-          v-model="lastName"
-          @input="addressStore.updateField('lastname', lastName)"
+          v-model="addressStore.lastname"
           label="Cognome"
           placeholder="Inserisci il cognome"
           outlined
@@ -27,8 +25,7 @@
 
     <!-- Autocomplete per la regione -->
     <v-autocomplete
-      v-model="selectedRegion"
-      @update:model-value="addressStore.updateField('region', selectedRegion)"
+      v-model="addressStore.region"
       :items="availableRegions"
       label="Seleziona una regione"
       placeholder="Inserisci la regione"
@@ -42,15 +39,14 @@
 
     <!-- Autocomplete per la provincia -->
     <v-autocomplete
-      v-model="selectedProvince"
-      @update:model-value="addressStore.updateField('province', selectedProvince)"
+      v-model="addressStore.province"
       :items="availableProvinces"
       label="Seleziona una provincia"
       placeholder="Inserisci la provincia"
       hide-no-data
       hide-selected
       :readonly="addressMode === 2"
-      :disabled="addressMode === 1 ? !selectedRegion : false"
+      :disabled="addressMode === 1 ? !addressStore.region : false"
       outlined
       dense
       :rules="[value => !!value || 'Campo obbligatorio']"
@@ -58,22 +54,20 @@
 
     <!-- Autocomplete per la città -->
     <v-autocomplete
-      v-model="selectedCity"
-      @update:model-value="addressStore.updateField('city', selectedCity)"
+      v-model="addressStore.city"
       :items="availableCities"
       label="Seleziona una città"
       placeholder="Inserisci la città"
       hide-no-data
       hide-selected
-      :disabled="addressMode === 1 ? !selectedProvince : false"
+      :disabled="addressMode === 1 ? !addressStore.province : false"
       outlined
       dense
       :rules="[value => !!value || 'Campo obbligatorio']"
     />
 
     <v-text-field
-      v-model="streetAddress"
-      @input="addressStore.updateField('address', streetAddress)"
+      v-model="addressStore.address"
       label="Inserisci la via e il numero civico"
       placeholder="Via e numero"
       outlined
@@ -85,12 +79,11 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
-import comuniData from '@/utils/comuni.json';
+import comuniData from '@/assets/comuni.json';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 import { useAddressStore } from '@/stores/address';
 
-// Store e variabili
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -99,40 +92,32 @@ const addressMode = store.addressMode;
 
 const addressStore = useAddressStore();
 
-// Salvataggio selezione
-const firstName = ref(addressStore.firstname || '');
-const lastName = ref(addressStore.lastname || '');
-const streetAddress = ref(addressStore.address || '');
-const selectedRegion = ref(addressStore.region || '');
-const selectedProvince = ref(addressStore.province || '');
-const selectedCity = ref(addressStore.city || '');
-
-// Salvataggio disponibilità
 const availableRegions = ref([]);
 const availableProvinces = ref([]);
 const availableCities = ref([]);
 
-// Funzioni di aggiornamento
-const updateProvince = () => {
-  if (selectedRegion.value && comuniData[selectedRegion.value]) {
-    availableProvinces.value = Object.keys(comuniData[selectedRegion.value]);
-    selectedProvince.value = '';
+const updateProvince = (isInput = false) => {
+  if (addressStore.region && addressStore.province && !isInput) return 
+  if (addressStore.region && comuniData[addressStore.region]) {
+    availableProvinces.value = Object.keys(comuniData[addressStore.region]);
+    addressStore.province = '';
     availableCities.value = [];
-    selectedCity.value = '';
+    addressStore.city = '';
   }
 };
 
-const updateCity = () => {
-  if (selectedProvince.value && comuniData[selectedRegion.value][selectedProvince.value]) {
-    availableCities.value = comuniData[selectedRegion.value][selectedProvince.value];
-    selectedCity.value = '';
+const updateCity = (isInput = false) => {
+  if (addressStore.region && addressStore.province && addressStore.city && !isInput) return 
+  if (addressStore.province && comuniData[addressStore.region]?.[addressStore.province]) {
+    availableCities.value = comuniData[addressStore.region][addressStore.province];
+    addressStore.city = '';
   }
 };
 
 const updateRegionForProvince = () => {
   for (const regione in comuniData) {
-    if (comuniData[regione][selectedProvince.value]) {
-      selectedRegion.value = regione;
+    if (comuniData[regione][addressStore.province]) {
+      addressStore.region = regione;
       updateCity();
       break;
     }
@@ -146,45 +131,44 @@ const updateRegionAndProvinceForCities = () => {
       const allCitiesMatch = availableCities.value.every(city => citiesInProvince.includes(city));
 
       if (allCitiesMatch) {
-        selectedProvince.value = provincia;
-        selectedRegion.value = regione;
+        addressStore.province = provincia;
+        addressStore.region = regione;
         break;
       }
     }
   }
 };
 
-// Funzione per impostare le città predefinite
 const setCittaPredefinite = () => {
   if (addressMode === 3) {
     availableCities.value = store.cities;
     updateRegionAndProvinceForCities();
-    selectedCity.value = '';
+    addressStore.city = '';
   } else if (addressMode === 2) {
-    selectedProvince.value = store.province;
+    addressStore.province = store.province;
     updateRegionForProvince();
   }
 };
 
-// Watchers
-watch(selectedRegion, () => {
+watch(() => addressStore.region, () => {
   if (addressMode == 1) {
-    updateProvince();
+    console.log("Cambio regione");
+    updateProvince(true);
   }
 });
 
-watch(selectedProvince, () => {
+watch(() => addressStore.province, () => {
   if (addressMode === 1) {
-    updateCity();
+    updateCity(true);
   } else if (addressMode === 2) {
     updateRegionForProvince();
   }
 });
 
 onMounted(() => {
-  if (selectedRegion.value) {
+  if (addressStore.region) {
     updateProvince();
-    if (selectedProvince.value) {
+    if (addressStore.province) {
       updateCity();
     }
   }
