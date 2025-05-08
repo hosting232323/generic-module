@@ -135,9 +135,9 @@ La sezione **DualSection** permette di mostrare **un’immagine affiancata a un 
 
 ---
 
-## 🖼️ Sezione: Galleria (`Gallery.vue`)
+## 🖼️ Sezione: Galleria/Carosello (`Gallery.vue`)
 
-La sezione **Gallery** mostra una **galleria a scorrimento** di immagini tramite carousel. Supporta immagini diverse per desktop e mobile.
+La sezione **Gallery/Carosello** mostra una **galleria a scorrimento** di immagini tramite carousel. Supporta immagini diverse per desktop e mobile.
 
 ### 🔧 Componente usato
 `Gallery.vue`
@@ -164,7 +164,7 @@ La sezione **Gallery** mostra una **galleria a scorrimento** di immagini tramite
 |------------|---------------------|--------------|-------------|
 | `content`  | `array` di stringhe o oggetti | ✅ | Ogni elemento rappresenta un'immagine nel carousel. Può essere una `string` (immagine unica) oppure un oggetto `{ desktop, mobile }`. |
 | `menu`     | `string`            | ✅           | Nome della voce nel menu laterale. |
-| `type`     | `string`            | ✅           | Deve essere `"gallery"` per attivare correttamente il componente. |
+| `type`     | `string`            | ✅           | Deve essere `"gallery"` per attivare il componente a scorrimento manuale o `"carusel"` per lo scorrimento automatico. |
 
 ---
 
