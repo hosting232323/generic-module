@@ -1,5 +1,4 @@
 <template class="app-bar">
-
   <v-navigation-drawer v-model="drawer" location="bottom" temporary>
     <v-list>
       <v-list-item v-for="item in items" :key="item.path">
@@ -9,7 +8,7 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-
+  
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     <v-app-bar-title>
@@ -39,7 +38,6 @@
       <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
     </div>
   </v-app-bar>
-
 </template>
 
 <script setup>

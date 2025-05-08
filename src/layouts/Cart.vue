@@ -74,6 +74,7 @@ import { storeToRefs } from 'pinia';
 
 import Address from './Address';
 
+import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
@@ -85,6 +86,9 @@ const isCheckout = ref(false);
 const isMenuVisible = ref(false);
 const { isMobile } = useMobileUtils();
 
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const store = data.value.store;
 
 http.getRequestGenericBE('products', {}, function (data) {
   products.value = data;
@@ -102,7 +106,14 @@ const totalPrice = computed(() => {
 });
 
 const proceedToCheckout = async () => {
-  // isCheckout.value = true;
+  if (!store.addressMode) {
+    await placeOrder();
+  } else {
+    isCheckout.value = true;
+  }
+};
+
+const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
   const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
@@ -121,15 +132,6 @@ const proceedToCheckout = async () => {
 
 const cancelCheckout = () => {
   isCheckout.value = false;
-};
-
-const placeOrder = () => {
-  try {
-    orderStore.submitOrders(store.businessActivity);
-    popupStore.setPopup('Ordine inviato correttamente!', 'success');
-  } catch (error) {
-    popupStore.setPopup('Impossibile inviare l\'ordine!', 'error');
-  }
 };
 
 const clearCart = () => {
