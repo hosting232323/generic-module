@@ -134,15 +134,6 @@ const cancelCheckout = () => {
   isCheckout.value = false;
 };
 
-// const placeOrder = () => {
-//   try {
-//     orderStore.submitOrders(store.businessActivity);
-//     popupStore.setPopup('Ordine inviato correttamente!', 'success');
-//   } catch (error) {
-//     popupStore.setPopup('Impossibile inviare l\'ordine!', 'error');
-//   }
-// };
-
 const clearCart = () => {
   try {
     orderStore.removeAllProduct();

@@ -22,23 +22,6 @@ export const useOrderStore = defineStore('order', {
         else this.products = this.products.filter(item => item.product !== product.product);
       }
     },
-    submitOrders(businessActivity) {
-      const addressStore = useAddressStore();
-      const fullAddress = addressStore.getFullAddress();
-
-      if (fullAddress === false) {
-        throw new Error('Indirizzo non completo.');
-      }
-
-      http.postRequestBrooking('api/shop/order/', {
-        business_activity: businessActivity,
-        items: this.products,
-        service: 36,
-        note: fullAddress
-      }, this.removeAllProduct, 'POST', false);
-  
-      this.removeAllProduct();
-    },
     removeAllProduct() {
       this.products = [];
       const addressStore = useAddressStore();
