@@ -5,10 +5,10 @@
     </v-carousel-item>
   </v-carousel>
   <v-carousel v-if="content.type === 'automatic'" :id="id" style="height: 96vh;" @click="resetTimer" v-model="selected" hide-delimiters>
-      <v-carousel-item v-for="img in content.images" :src="resolveImg(img)" cover />
-      <template #prev></template>
-      <template #next></template>
-    </v-carousel>
+    <v-carousel-item v-for="img in content.images" :src="resolveImg(img)" cover />
+    <template #prev></template>
+    <template #next></template>
+  </v-carousel>
 </template>
 
 <script setup>
@@ -17,8 +17,6 @@ import { useMobileUtils } from '@/utils/mobile';
 
 const { isMobile, resolveImg } = useMobileUtils();
 const { id, content, info } = defineProps(['id', 'content', 'info']);
-
-console.log(id);
 
 const selected = ref(0);
 const intervalId = ref(null);
