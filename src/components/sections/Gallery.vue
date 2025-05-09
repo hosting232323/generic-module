@@ -5,27 +5,9 @@
     </v-carousel-item>
   </v-carousel>
   <v-carousel v-if="content.type === 'automatic'" :id="id" style="height: 96vh;" @click="resetTimer" v-model="selected" hide-delimiters>
-        <v-carousel-item v-for="img in content.images" :src="resolveImg(img)" cover />
-        <template #prev></template>
-        <template #next></template>
-        <v-row align="end" justify="end">
-            <div>
-                <div v-if="!isMobile" class="caption">
-                    {{ content.images[selected].caption }}
-                </div>
-                <div v-else class="caption-mobile">
-                    {{ content.images[selected].caption }}
-                </div>
-            </div>
-            <div class="custom-controls">
-                <div v-for="(_img, index) in content.images">
-                    <div :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
-                        @click="selected = index"
-                        :style="selected === index ? { backgroundColor: info.primaryColor } : {}"
-                    ></div>
-                </div>
-            </div>
-        </v-row>
+      <v-carousel-item v-for="img in content.images" :src="resolveImg(img)" cover />
+      <template #prev></template>
+      <template #next></template>
     </v-carousel>
 </template>
 
@@ -52,7 +34,7 @@ const next = () => {
 const startTimer = () => {
   intervalId.value = setInterval(() => {
     next();
-  }, 5000);
+  }, 4000);
 };
 
 const resetTimer = () => {
