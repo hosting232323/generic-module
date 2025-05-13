@@ -5,7 +5,7 @@
           <v-img :src="resolveImg(content.image)" cover />
         </v-col>
         <v-col cols="12" md="6">
-            <v-sheet background="none">
+            <v-sheet style="background-color: transparent;">
                 <p v-if="content.title" class="text-h3 font-weight-black" :style="{ color: info.primaryColor + ' !important' }" v-html="content.title" />
                 <br />
                 <p v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="content.subtitle + '<br>'" />

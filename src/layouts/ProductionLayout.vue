@@ -25,7 +25,7 @@ const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
 
 const backgroundStyle = computed(() => {
-  if (data.value.info.bgImg) {
+  if (data.value.info.backgroundImage) {
     return {
       backgroundImage: `url(${data.value.info.backgroundImage})`,
       backgroundSize: 'cover',
