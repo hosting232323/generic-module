@@ -35,7 +35,19 @@
     },
     {
       "content": {
-        "title": "Vantaggi",
+        "brands": [
+          "img-01.png",
+          "img-02.png",
+          "img-03.png",
+          "img-04.png"
+        ]
+      },
+      "menu": "Brandlist",
+      "type": "brandlist"
+    },
+    {
+      "content": {
+        "title": "Cosa Facciamo",
         "advantages": [
           {
             "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
