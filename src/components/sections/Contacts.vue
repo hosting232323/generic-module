@@ -52,7 +52,6 @@ import validation from '@/utils/validation';
 const mail = import.meta.env.VITE_FORM_MAIL;
 const { content, info } = defineProps(['content', 'info']);
 
-
 const name = ref('');
 const body = ref('');
 const email = ref('');
