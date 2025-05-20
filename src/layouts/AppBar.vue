@@ -19,7 +19,7 @@
       <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
     <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
-    <Language v-if="multilingualActive" style="margin: 0 16px;" />
+    <Language v-if="multilingualActive" />
   </v-app-bar>
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
@@ -37,7 +37,7 @@
         {{ item.title }}
       </v-btn>
       <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
-      <Language v-if="multilingualActive" style="margin: 0 16px;" />
+      <Language v-if="multilingualActive" />
     </div>
 
   </v-app-bar>

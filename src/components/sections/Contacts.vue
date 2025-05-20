@@ -1,32 +1,30 @@
 <template>
   <v-container>
-    <v-card elevation="20" title="I nostri contatti">
+    <v-card elevation="20">
       <v-container>
+        <h2 :style="{ color: info.primaryColor }">
+          {{ getText(content.title) || 'I nostri contatti' }}
+        </h2>
         <v-list>
-          <v-list-item height="20" v-for="contact_type in getContactTypes(content)" :key="contact_type">
+          <v-list-item height="20" v-for="contact in content.contacts" :key="contact">
             <template v-slot:prepend>
-              <v-icon :icon="CONTACT_ICON_MAP[contact_type]" :color="info.primaryColor" />
+              <v-icon :icon="CONTACT_ICON_MAP[contact.type]" :color="info.primaryColor" />
             </template>
             <v-list-item-title class="contact__text">
-              <template v-if="CUSTOM_LINK_TEXT[contact_type]">
-                <a :href="content[contact_type]" target="_blank" style="text-decoration: none; color: inherit;">
-                  {{ CUSTOM_LINK_TEXT[contact_type] }}
-                </a>
-              </template>
-              <template v-else>
-                <span v-html="content[contact_type]" />
-              </template>
+              <a :href="contact.url" target="_blank" style="text-decoration: none; color: inherit;">
+                {{ getText(contact.title) }}
+              </a>
             </v-list-item-title>
           </v-list-item>
         </v-list><br>
         <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
         <br><b>
-          Contattaci direttamente con questo form
+          {{ getText(content.subtitle) || 'Contattaci direttamente con questo form' }}
         </b><br><br>
         <v-form fast-fail @submit.prevent="sendMail">
           <v-row>
             <v-col cols="12" md="6">
-              <v-text-field v-model="name" :rules="validation.requiredRules" variant="outlined" label="Nominativo" />
+              <v-text-field v-model="name" :rules="validation.requiredRules" variant="outlined" label="Name" />
             </v-col>
             <v-col cols="12" md="6">
               <v-text-field v-model="email" :rules="validation.emailRules" variant="outlined" label="Email" />
@@ -34,10 +32,10 @@
           </v-row>
           <v-row>
             <v-col cols="12" md="12">
-              <v-textarea label="Testo" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
+              <v-textarea label="Body" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
             </v-col>
           </v-row><br>
-          <v-btn block text="Invia" type="submit" :color="info.primaryColor" />
+          <v-btn block text="Send" type="submit" :color="info.primaryColor" />
         </v-form>
       </v-container>
     </v-card>
@@ -48,9 +46,12 @@
 import { ref } from 'vue';
 import http from '@/utils/http';
 import validation from '@/utils/validation';
+import { useLanguageStore } from '@/stores/language';
+
 
 const mail = import.meta.env.VITE_FORM_MAIL;
 const { content, info } = defineProps(['content', 'info']);
+const { getText } = useLanguageStore();
 
 const name = ref('');
 const body = ref('');
@@ -66,19 +67,6 @@ const CONTACT_ICON_MAP = {
   Twitter: 'mdi-twitter',
   TikTok: 'mdi-music',
   YouTube: 'mdi-youtube'
-};
-
-const CUSTOM_LINK_TEXT = {
-  Facebook: 'Seguici su Facebook',
-  Instagram: 'Seguici su Instagram',
-  LinkedIn: 'Seguici su LinkedIn',
-  Twitter: 'Seguici su X (Twitter)',
-  TikTok: 'Seguici su TikTok',
-  YouTube: 'Guarda il nostro canale YouTube'
-};
-
-const getContactTypes = (contacts) => {
-  return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
 };
 
 const sendMail = () => {

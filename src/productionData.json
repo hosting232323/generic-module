@@ -152,20 +152,58 @@
     },
     {
       "content": {
-        "Email": "giovanni.colasanto@fastsite.it",
-        "Phone": "+39 347 876 8340",
-        "Facebook": "https://www.facebook.com/",
-        "Instagram": "https://www.instagram.com/",
-        "LinkedIn": "https://www.linkedin.com/in/nomeprofilo",
-        "Twitter": "https://twitter.com/profilo",
-        "YouTube": "https://www.youtube.com/@canale",
-        "TikTok": "https://www.tiktok.com/@utente"
+        "title": "I nostri contatti",
+        "subtitle": "Contattaci direttamente con questo form",
+        "contacts": [
+          {
+            "type": "Email",
+            "title": "giovanni.colasanto@fastsite.it"
+          },
+          {
+            "type": "Phone",
+            "title": "+39 347 876 8340"
+          },
+          {
+            "type": "Facebook",
+            "title": {
+              "it": "Seguici su Facebook",
+              "gb": "Follow us on Facebook"
+            },
+            "url": "https://www.facebook.com/"
+          },
+          {
+            "type": "Instagram",
+            "title": "Seguici su Instagram",
+            "url": "https://www.instagram.com/"
+          },
+          {
+            "type": "LinkedIn",
+            "title": "Seguici su LinkedIn",
+            "url": "https://www.linkedin.com/in/nomeprofilo"
+          },
+          {
+            "type": "Twitter",
+            "title": "Seguici su X (Twitter)",
+            "url": "https://twitter.com/profilo"
+          },
+          {
+            "type": "YouTube",
+            "title": "Guarda il nostro canale YouTube",
+            "url": "https://www.youtube.com/@canale"
+          },
+          {
+            "type": "TikTok",
+            "title": "Seguici su TikTok",
+            "url": "https://www.tiktok.com/@utente"
+          }
+        ]
       },
       "menu": "Contatti",
       "type": "contacts"
     },
     {
       "content": {
+        "title": "Puoi venirci a conoscere qui",
         "coordinates": [
           16.882818,
           41.09665
