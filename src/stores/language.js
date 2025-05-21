@@ -1,12 +1,8 @@
-import { defineStore, storeToRefs } from 'pinia'
-import { useDataStore } from '@/stores/data';
-
-const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
+import { defineStore } from 'pinia'
 
 export const useLanguageStore = defineStore('language', {
   state: () => ({
-    locale: data.value.info.locales[0]
+    locale: 'it'
   }),
   actions: {
     setLocale(lang) {
