@@ -87,7 +87,10 @@
               "it": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
               "gb": "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking."
             },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
+            "image": [
+              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
+              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"
+            ],
             "name": "Velocità di Caricamento Ottimale"
           }
         ]
