@@ -1,6 +1,6 @@
 ## ⚙️ Info Generali del Sito (`info`)
 
-La sezione `info` contiene i **metadati principali** del sito, inclusi i colori, il logo e l'identificativo Chatty.
+La sezione `info` contiene i **metadati principali** del sito, inclusi i colori, il logo, l'identificativo Chatty e le lingue utilizzabili con il multilingua.
 
 ### 📦 Struttura JSON
 
@@ -10,7 +10,10 @@ La sezione `info` contiene i **metadati principali** del sito, inclusi i colori,
   "primaryColor": "#2F4F4F",
   "secondaryColor": "#D2B48C",
   "logo": "https://imgur.com/mNAxeqq.png",
-  "chattyId": 10
+  "chattyId": 10,
+  "locales": [
+    "it", "gb"
+  ]
 }
 ```
 
@@ -23,6 +26,7 @@ La sezione `info` contiene i **metadati principali** del sito, inclusi i colori,
 | `secondaryColor` | `string` | ✅           | Colore secondario del tema (es. sfondi alternativi, accenti)         |
 | `logo`           | `string` | ✅           | URL del logo visualizzato nel sito                                   |
 | `chattyId`       | `number` | ❌           | ID utilizzato per l’integrazione con Chatty                          |
+| `locales`       | `array` | ❌           | Lista di lingue utilizzate per il multilingua           |
 
 ---
 
@@ -36,7 +40,8 @@ La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali**
 "addOn": [
   "Chatty",
   "VirtualTour",
-  "Shop"
+  "Shop",
+  "Multilingual"
 ]
 ```
 
@@ -47,6 +52,7 @@ La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali**
 | `Chatty`      | Aggiunge un assistente virtuale (chatbot) configurato tramite `chattyId`    |
 | `VirtualTour` | Aggiunge una sezione dedicata al tour virtuale del locale o azienda         |
 | `Shop` | Aggiunge una sezione dedicata per l'e-commerce         |
+| `Multilingual` | In base a quanti paesi inseriti in locales aggiunge una bandiera o un menu con tutte le bandiere corrispondenti alle lingue del sito         |
 
 > 📌 **Nota:** Gli add-on vengono caricati solo se presenti nell'array `addOn`.
 

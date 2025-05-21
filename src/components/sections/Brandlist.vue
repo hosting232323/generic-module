@@ -1,8 +1,18 @@
 <template>
   <v-container>
-    <v-slide-group>
-      <v-slide-group-item v-for="brand in content.brands">
-        <v-card :height="isMobile ? 150 : 300" :width="isMobile ? 150 : 300" class="brand_item" >
+    <v-slide-group show-arrows>
+      <template #prev>
+          <v-icon>mdi-chevron-left</v-icon>
+      </template>
+      <template #next>
+          <v-icon>mdi-chevron-right</v-icon>
+      </template>
+      <v-slide-group-item v-for="(brand, index) in content.brands" :key="index">
+        <v-card
+          :height="isMobile ? 150 : 300"
+          :width="isMobile ? 150 : 300"
+          class="brand_item"
+        >
           <v-img :src="brand" />
         </v-card>
       </v-slide-group-item>
@@ -20,6 +30,6 @@ const { content, info } = defineProps(['content', 'info']);
 <style scoped>
 .brand_item {
   margin-right: 25px;
-  border: 0px
+  border: 0px;
 }
 </style>

@@ -6,13 +6,13 @@
         </v-col>
         <v-col cols="12" md="6">
             <v-sheet style="background-color: transparent;">
-                <p v-if="content.title" class="text-h3 font-weight-black" :style="{ color: info.primaryColor + ' !important' }" v-html="content.title" />
+                <p v-if="content.title" class="text-h3 font-weight-black" :style="{ color: info.primaryColor + ' !important' }" v-html="getText(content.title)" />
                 <br />
-                <p v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="content.subtitle + '<br>'" />
-                <p v-if="content.description" v-html="content.description" />
+                <p v-if="content.subtitle" class="text-subtitle-1 font-weight-black" v-html="getText(content.subtitle) + '<br>'" />
+                <p v-if="content.description" v-html="getText(content.description)" />
                 <br />
                 <a :href="content.url" v-if="content.url && content.button">
-                <v-btn v-html="content.button" class="text-none" variant="flat" :color="info.primaryColor" :style="{ marginTop: '7px' }" />
+                <v-btn v-html="getText(content.button)" class="text-none" variant="flat" :color="info.primaryColor" :style="{ marginTop: '7px' }" />
                 </a>
             </v-sheet>
             </v-col>
@@ -26,9 +26,11 @@
 <script setup>
 import { computed } from 'vue';
 import { useMobileUtils } from '@/utils/mobile';
+import { useLanguageStore } from '@/stores/language';
 
 const { isMobile, resolveImg } = useMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
+const{ getText } = useLanguageStore();
 
 const defaultDesktopOrientation = 'right';
 const defaultMobileOrientation = 'bottom';
