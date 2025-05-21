@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export const useLanguageStore = defineStore('language', {
   state: () => ({
@@ -17,4 +17,4 @@ export const useLanguageStore = defineStore('language', {
   persist: {
     storage: localStorage,
   }
-})
+});

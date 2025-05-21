@@ -48,7 +48,6 @@ import http from '@/utils/http';
 import validation from '@/utils/validation';
 import { useLanguageStore } from '@/stores/language';
 
-
 const mail = import.meta.env.VITE_FORM_MAIL;
 const { content, info } = defineProps(['content', 'info']);
 const { getText } = useLanguageStore();
