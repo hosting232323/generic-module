@@ -2,7 +2,7 @@
   "addOn": [
     "Chatty",
     "VirtualTour",
-    "Shop"
+    "Multilingual"
   ],
   "components": [
     {
@@ -47,28 +47,46 @@
     },
     {
       "content": {
-        "title": "Cosa Facciamo",
+        "title": {
+          "it": "Vantaggi",
+          "gb": "Advantages"
+        },
         "advantages": [
           {
-            "description": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-            "image":  { 
+            "description": {
+              "it": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
+              "gb": "We create unique and personalized websites for each client, ensuring a distinctive and professional image."
+            },
+            "image": {
               "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
               "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
             },
-            "name": "Design Personalizzato"
+            "name": {
+              "it": "Design Personalizzato",
+              "gb": "Pers Design"
+            }
           },
           {
-            "description": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
+            "description": {
+              "it": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
+              "gb": "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines."
+            },
             "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
             "name": "SEO Ottimizzato"
           },
           {
-            "description": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
+            "description": {
+              "it": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
+              "gb": "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone."
+            },
             "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
             "name": "Responsive Design"
           },
           {
-            "description": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
+            "description": {
+              "it": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
+              "gb": "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking."
+            },
             "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png",
             "name": "Velocità di Caricamento Ottimale"
           }
@@ -114,7 +132,10 @@
     },
     {
       "content": {
-        "button": "Cliccami!",
+        "button": {
+          "it": "Cliccami!",
+          "gb": "Click on me!"
+        },
         "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
         "image": { 
           "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
@@ -131,20 +152,58 @@
     },
     {
       "content": {
-        "Email": "giovanni.colasanto@fastsite.it",
-        "Phone": "+39 347 876 8340",
-        "Facebook": "https://www.facebook.com/",
-        "Instagram": "https://www.instagram.com/",
-        "LinkedIn": "https://www.linkedin.com/in/nomeprofilo",
-        "Twitter": "https://twitter.com/profilo",
-        "YouTube": "https://www.youtube.com/@canale",
-        "TikTok": "https://www.tiktok.com/@utente"
+        "title": "I nostri contatti",
+        "subtitle": "Contattaci direttamente con questo form",
+        "contacts": [
+          {
+            "type": "Email",
+            "title": "giovanni.colasanto@fastsite.it"
+          },
+          {
+            "type": "Phone",
+            "title": "+39 347 876 8340"
+          },
+          {
+            "type": "Facebook",
+            "title": {
+              "it": "Seguici su Facebook",
+              "gb": "Follow us on Facebook"
+            },
+            "url": "https://www.facebook.com/"
+          },
+          {
+            "type": "Instagram",
+            "title": "Seguici su Instagram",
+            "url": "https://www.instagram.com/"
+          },
+          {
+            "type": "LinkedIn",
+            "title": "Seguici su LinkedIn",
+            "url": "https://www.linkedin.com/in/nomeprofilo"
+          },
+          {
+            "type": "Twitter",
+            "title": "Seguici su X (Twitter)",
+            "url": "https://twitter.com/profilo"
+          },
+          {
+            "type": "YouTube",
+            "title": "Guarda il nostro canale YouTube",
+            "url": "https://www.youtube.com/@canale"
+          },
+          {
+            "type": "TikTok",
+            "title": "Seguici su TikTok",
+            "url": "https://www.tiktok.com/@utente"
+          }
+        ]
       },
       "menu": "Contatti",
       "type": "contacts"
     },
     {
       "content": {
+        "title": "Puoi venirci a conoscere qui",
         "coordinates": [
           16.882818,
           41.09665
@@ -159,7 +218,10 @@
     "primaryColor": "#2F4F4F",
     "secondaryColor": "#D2B48C",
     "logo": "https://imgur.com/mNAxeqq.png",
-    "chattyId": 10
+    "chattyId": 10,
+    "locales": [
+      "it", "gb"
+    ]
   },
   "store": {
     "username": "bro.users.info@gmail.com",
