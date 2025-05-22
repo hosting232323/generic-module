@@ -53,6 +53,10 @@ import { useRouter, useRoute } from 'vue-router';
 
 import Cart from './Cart.vue';
 import Language from '@/components/sections/Language.vue';
+import { useLanguageStore } from '@/stores/language';
+
+const { getText } = useLanguageStore();
+
 
 const orderStore = useOrderStore();
 
@@ -96,8 +100,8 @@ const items = computed(() => {
   menuItems = menuItems.concat(content
     .filter(section => section.menu)
     .map(section => ({
-      title: section.menu,
-      path: section.menu.toLowerCase(),
+      title: getText(section.menu),
+      path: getText(section.menu).toLowerCase(),
       type: 'ancor'
     })));
   return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;

@@ -1,10 +1,10 @@
 <template>
-  <v-img v-if="locals.length == 2" :src="getFlag(otherLang)" class="flag" @click="toggleLang" style="margin: 16px;"/>
+  <img v-if="locals.length == 2" :src="getFlag(otherLang)" class="flag" @click="toggleLang" style="margin: 16px;"/>
 
   <v-menu v-if="locals.length > 2">
     <template #activator="{ props }">
       <div v-bind="props" class="flag-wrapper">
-        <v-img :src="getFlag(locale)" class="flag" style="width: 20px; height: 20px;"/>
+        <img :src="getFlag(locale)" class="flag" style="width: 20px; height: 20px;"/>
         <v-icon class="arrow">mdi-menu-down</v-icon>
       </div>
     </template>
@@ -16,7 +16,7 @@
         @click="selectLang(lang)"
         style="padding: 0; height: 35px; min-height: auto;"
       >
-        <v-img
+        <img
           :src="getFlag(lang)"
           style="width: 20px; height: 20px;"
           class="flag"
@@ -64,9 +64,8 @@ const selectLang = (lang) => {
 
 <style scoped>
 .flag {
-  max-width: 30px;
-  width: 30px;
-  height: 20px;
+  width: 28px;
+  height: 18px;
   cursor: pointer;
 }
 
