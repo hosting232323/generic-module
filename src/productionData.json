@@ -16,7 +16,10 @@
           }
         ]
       },
-      "menu": "Carosello",
+      "menu": {
+        "it": "Carosello",
+        "gb": "Carusel"
+      },
       "type": "gallery"
     },
     {
