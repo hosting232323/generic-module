@@ -2,7 +2,7 @@
   <component
     v-for="section in sections"
     :is="componentMap[section.type]"
-    :id="getText(section.menu) ? getText(section.menu).toLowerCase() : null"
+    :id="getAncor(section.menu) ? getAncor(section.menu).toLowerCase() : null"
     :content="section.content"
     :info="info"
   />
@@ -23,7 +23,7 @@ import BrandList from '@/components/sections/BrandList';
 import Advantages from '@/components/sections/Advantages';
 import DualSection from '@/components/sections/DualSection';
 
-const { getText } = useLanguageStore();
+const { getAncor } = useLanguageStore();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
