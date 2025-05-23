@@ -8,9 +8,15 @@ export const useLanguageStore = defineStore('language', {
     setLocale(lang) {
       this.locale = lang
     },
-    getText (text) {
+    getText(text) {
       if (typeof text === 'string') return text
       if (typeof text === 'object') return text[this.locale]
+      return ''
+    },
+    getAncor(text) {
+      if (!text) return ''
+      if (typeof text === 'string') return text
+      if (typeof text === 'object') return text[0]
       return ''
     }
   },

@@ -1,100 +1,34 @@
 {
-  "addOn": [
-    "Chatty",
-    "VirtualTour",
-    "Multilingual"
-  ],
   "components": [
     {
       "content": {
-        "type": "automatic",
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-          { 
-            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png",
-            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
-          }
-        ]
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250415132119.png",
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250415125417.png",
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250415130704.png"
+        ],
+        "type": "manual"
       },
-      "menu": {
-        "it": "Carosello",
-        "gb": "Carusel"
-      },
+      "menu": null,
       "type": "gallery"
     },
     {
       "content": {
-        "type": "manual",
-        "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png",
-          { 
-            "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png",
-            "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png"
-          }
-        ]
-      },
-      "menu": "Galleria",
-      "type": "gallery"
-    },
-    {
-      "content": {
-        "brands": [
-          "img-01.png",
-          "img-02.png",
-          "img-03.png",
-          "img-04.png"
-        ]
-      },
-      "menu": "Brandlist",
-      "type": "brandlist"
-    },
-    {
-      "content": {
-        "title": {
-          "it": "Vantaggi",
-          "gb": "Advantages"
-        },
         "advantages": [
           {
-            "description": {
-              "it": "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.",
-              "gb": "We create unique and personalized websites for each client, ensuring a distinctive and professional image."
-            },
-            "image": {
-              "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png",
-              "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-            },
-            "name": {
-              "it": "Design Personalizzato",
-              "gb": "Pers Design"
-            }
+            "description": "A guidare l’attività ci sono Antonella e Isabella con 25 anni di esperienza nel settore, che mettono ogni giorno passione, competenza e cuore in tutto ciò che fanno.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250406205651.png",
+            "name": "Chi Siamo?"
           },
           {
-            "description": {
-              "it": "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.",
-              "gb": "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png",
-            "name": "SEO Ottimizzato"
+            "description": "Si pone grande attenzione alla selezione dei prodotti, dando priorità alle realtà presenti sul territorio locale e nazionale. Scegliamo Aziende che puntano sull' eccellenza del risultato, all'autenticità del processo e sulla sostenibilità . L'obiettivo è portare sulla tavola dei nostri clienti, non solo gusto e raffinatezza ma viaggi sensoriali che abbiano anche un ottimo rapporto qualità-prezzo, promuovendo una cultura del vino che valorizza la sostanza più che l'apparenza .",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250415124957.png",
+            "name": "La Nostra Selezione"
           },
           {
-            "description": {
-              "it": "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.",
-              "gb": "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-            "name": "Responsive Design"
-          },
-          {
-            "description": {
-              "it": "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.",
-              "gb": "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking."
-            },
-            "image": [
-              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png",
-              "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"
-            ],
-            "name": "Velocità di Caricamento Ottimale"
+            "description": "Forniamo consulenza personalizzata per aiutare i clienti a scegliere i prodotti più adatti alle loro esigenze, promuovendo una relazione di fiducia e fedeltà.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250415133145.png",
+            "name": "Consulenza Personalizzata"
           }
         ]
       },
@@ -106,137 +40,63 @@
     },
     {
       "content": {
-        "title": "Servizi",
-        "services": [
-          {
-            "description": "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.",
-            "name": "Sito Web Vetrina"
-          },
-          {
-            "description": "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.",
-            "name": "Sito Web E-commerce"
-          },
-          {
-            "description": "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.",
-            "name": "Ottimizzazione SEO"
-          },
-          {
-            "description": "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.",
-            "name": "Gestione Contenuti"
-          },
-          {
-            "description": "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.",
-            "name": "Sviluppo Web Personalizzato"
-          }
-        ]
+        "button": "Cliccami!",
+        "description": "Con la nostra Wine Card, ogni 5 litri di vino sfuso acquistati accumuli 1 punto. Raggiunti 10 punti avrai i 5 litri in OMAGGIO!!.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250408212816.png",
+        "orientationDesktop": "right",
+        "subtitle": "Premiamo la tua fedeltà, con qualità e convenienza",
+        "title": "Wine Card",
+        "url": "https://img.restaurantguru.com/r8bb-wine-ENOTECA-DIVINBACCO-WINE-SHOP.jpg"
       },
-      "menu": "Servizi",
-      "type": "services"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": {
-        "button": {
-          "it": "Cliccami!",
-          "gb": "Click on me!"
-        },
-        "description": "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.",
-        "image": { 
-          "desktop": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png",
-          "mobile": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
-        },
-        "orientationDesktop": "left",
-        "orientationMobile": "top",
-        "subtitle": "Da siti statici a piattaforme complesse",
-        "title": "Servizi di Sviluppo Web",
-        "url": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png"
-      },
-      "menu": "Sezione doppia",
+      "menu": "Wine Card",
       "type": "dualSection"
     },
     {
+      "content": {
+        "button": "Cliccami!",
+        "description": "Il nostro negozio offre una vasta gamma di prodotti...........",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250410125226.png",
+        "orientationDesktop": "left",
+        "subtitle": "Scopri il gusto.....",
+        "title": "Tessera Fedeltà",
+        "url": "https://img.restaurantguru.com/r8bb-wine-ENOTECA-DIVINBACCO-WINE-SHOP.jpg"
+      },
+      "type": "dualSection"
+    },
+    {
+      "type": "contacts",
+      "menu": "Contatti",
       "content": {
         "title": "I nostri contatti",
         "subtitle": "Contattaci direttamente con questo form",
         "contacts": [
           {
-            "type": "Email",
-            "title": "giovanni.colasanto@fastsite.it"
-          },
-          {
             "type": "Phone",
-            "title": "+39 347 876 8340"
+            "title": "+39 080 395 3830"
           },
           {
-            "type": "Facebook",
-            "title": {
-              "it": "Seguici su Facebook",
-              "gb": "Follow us on Facebook"
-            },
-            "url": "https://www.facebook.com/"
-          },
-          {
-            "type": "Instagram",
-            "title": "Seguici su Instagram",
-            "url": "https://www.instagram.com/"
-          },
-          {
-            "type": "LinkedIn",
-            "title": "Seguici su LinkedIn",
-            "url": "https://www.linkedin.com/in/nomeprofilo"
-          },
-          {
-            "type": "Twitter",
-            "title": "Seguici su X (Twitter)",
-            "url": "https://twitter.com/profilo"
-          },
-          {
-            "type": "YouTube",
-            "title": "Guarda il nostro canale YouTube",
-            "url": "https://www.youtube.com/@canale"
-          },
-          {
-            "type": "TikTok",
-            "title": "Seguici su TikTok",
-            "url": "https://www.tiktok.com/@utente"
+            "type": "Address",
+            "title": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy"
           }
         ]
-      },
-      "menu": "Contatti",
-      "type": "contacts"
+      }
     },
     {
       "content": {
-        "title": "Puoi venirci a conoscere qui",
         "coordinates": [
-          16.882818,
-          41.09665
+          "16.5069649",
+          "41.2356566"
         ],
-        "zoom": 9
+        "zoom": 10
       },
       "type": "map"
     }
   ],
   "info": {
-    "name": "FastSite",
-    "primaryColor": "#2F4F4F",
-    "secondaryColor": "#D2B48C",
-    "logo": "https://imgur.com/mNAxeqq.png",
-    "chattyId": 10,
-    "locales": [
-      "it", "gb"
-    ]
-  },
-  "store": {
-    "username": "bro.users.info@gmail.com",
-    "password": "Ciao1234",
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
-    ]
+    "iva": "07308830723",
+    "logo": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/4-20250408213143.png",
+    "name": "Enoteca Divinbacco",
+    "primaryColor": "#000000",
+    "secondaryColor": "#B22222"
   }
 }
