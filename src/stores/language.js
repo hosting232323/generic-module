@@ -16,7 +16,7 @@ export const useLanguageStore = defineStore('language', {
     getAncor(text) {
       if (!text) return ''
       if (typeof text === 'string') return text
-      if (typeof text === 'object') return text[0]
+      if (typeof text === 'object') return Object.values(text)[0]
       return ''
     }
   },
