@@ -4,14 +4,14 @@
       {{ getText(content.title) || 'I nostri vantaggi' }}
     </h1>
     <v-card v-for="(advantage, index) in content.advantages" :key="index" class="margin_top__default" elevation="20" :class="{ 'carousel--mobile': isMobile }">
-      <div class="img-wrapper">
-        <v-carousel v-if="Array.isArray(advantage.image)" show-arrows hide-delimiters height="auto">
+      <div :class="['img-wrapper', { 'mobile-height': isMobile }]">
+        <v-carousel v-if="Array.isArray(advantage.image)" show-arrows hide-delimiters :height="isMobile ? '400px' : '600px'">
           <v-carousel-item v-for="(img, imgIndex) in advantage.image" :key="imgIndex">
-            <v-img :src="resolveImg(img)" cover class="img"/>
+            <img :src="resolveImg(img)" class="img"/>
           </v-carousel-item>
         </v-carousel>
 
-        <v-img v-else :src="resolveImg(advantage.image)" cover class="img"/>
+        <img v-else :src="resolveImg(advantage.image)" class="img"/>
       </div>
 
       <v-card-title style="white-space: normal;">
@@ -35,13 +35,19 @@ const { content, info } = defineProps(['content', 'info']);
 
 <style scoped>
 .img-wrapper {
-  max-height: 600px;
+  width: 100%;
+  height: 600px;
   overflow: hidden;
+  position: relative;
+}
+.img-wrapper.mobile-height {
+  height: 400px !important;
 }
 .img {
-  max-height: 600px;
+  width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .carousel--mobile >>> .v-btn.v-btn--icon {
   width: 35px !important;
