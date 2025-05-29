@@ -217,6 +217,12 @@
         "zoom": 9
       },
       "type": "map"
+    },
+    {
+      "type": "socialBubbles",
+      "whatsapp": "awd",
+      "instagram": "awd",
+      "facebook": "awd"
     }
   ],
   "info": {
