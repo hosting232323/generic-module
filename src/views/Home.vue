@@ -22,7 +22,6 @@ import Contacts from '@/components/sections/Contacts';
 import BrandList from '@/components/sections/BrandList';
 import Advantages from '@/components/sections/Advantages';
 import DualSection from '@/components/sections/DualSection';
-import SocialBubbles from '@/components/sections/SocialBubbles';
 
 const { getAncor } = useLanguageStore();
 const dataStore = useDataStore();
@@ -36,8 +35,7 @@ const componentMap = {
   contacts: Contacts,
   brandlist: BrandList,
   advantages: Advantages,
-  dualSection: DualSection,
-  socialBubbles: SocialBubbles,
+  dualSection: DualSection
 };
 
 const sections = data.value.components;

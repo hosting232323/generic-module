@@ -57,15 +57,16 @@ const body = ref('');
 const email = ref('');
 
 const CONTACT_ICON_MAP = {
-  Phone: 'mdi-phone',
   Email: 'mdi-email',
-  Address: 'mdi-map-marker',
-  Facebook: 'mdi-facebook',
-  Instagram: 'mdi-instagram',
-  LinkedIn: 'mdi-linkedin',
-  Twitter: 'mdi-twitter',
+  Phone: 'mdi-phone',
   TikTok: 'mdi-music',
-  YouTube: 'mdi-youtube'
+  Twitter: 'mdi-twitter',
+  YouTube: 'mdi-youtube',
+  WhatsApp: 'mdi-whatsapp',
+  Facebook: 'mdi-facebook',
+  LinkedIn: 'mdi-linkedin',
+  Address: 'mdi-map-marker',
+  Instagram: 'mdi-instagram'
 };
 
 const sendMail = () => {

@@ -2,7 +2,8 @@
   "addOn": [
     "Chatty",
     "VirtualTour",
-    "Multilingual"
+    "Multilingual",
+    "SocialBubbles"
   ],
   "components": [
     {
@@ -220,9 +221,20 @@
     },
     {
       "type": "socialBubbles",
-      "whatsapp": "awd",
-      "instagram": "awd",
-      "facebook": "awd"
+      "socialBubbles": [
+        {
+          "type": "WhatsApp",
+          "url": "https://twitter.com/profilo"
+        },
+        {
+          "type": "Instagram",
+          "url": "https://twitter.com/profilo"
+        },
+        {
+          "type": "Facebook",
+          "url": "https://twitter.com/profilo"
+        }
+      ]
     }
   ],
   "info": {
