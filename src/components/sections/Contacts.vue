@@ -8,7 +8,7 @@
         <v-list>
           <v-list-item height="20" v-for="contact in content.contacts" :key="contact">
             <template v-slot:prepend>
-              <v-icon :icon="CONTACT_ICON_MAP[contact.type]" :color="info.primaryColor" />
+              <v-icon :icon="contact.icon" :color="info.primaryColor" />
             </template>
             <v-list-item-title class="contact__text">
               <a :href="contact.url" target="_blank" style="text-decoration: none; color: inherit;">
@@ -55,18 +55,6 @@ const { getText } = useLanguageStore();
 const name = ref('');
 const body = ref('');
 const email = ref('');
-
-const CONTACT_ICON_MAP = {
-  Phone: 'mdi-phone',
-  Email: 'mdi-email',
-  Address: 'mdi-map-marker',
-  Facebook: 'mdi-facebook',
-  Instagram: 'mdi-instagram',
-  LinkedIn: 'mdi-linkedin',
-  Twitter: 'mdi-twitter',
-  TikTok: 'mdi-music',
-  YouTube: 'mdi-youtube'
-};
 
 const sendMail = () => {
   if (
