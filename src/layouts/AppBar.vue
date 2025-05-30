@@ -1,5 +1,5 @@
 <template class="app-bar">
-  <v-navigation-drawer v-model="drawer" location="bottom" temporary>
+  <v-navigation-drawer v-model="drawer" location="bottom" temporary touchless>
     <v-list>
       <v-list-item v-for="item in items" :key="item.path">
         <div @click="link(item)">
@@ -74,13 +74,19 @@ const multilingualActive = addOn && addOn.includes('Multilingual') && info.local
 const { isMobile } = useMobileUtils();
 
 const link = (item) => {
-  if (item.type == 'ancor') {
-    const pathUrl = route.params.id ? `/demo/${route.params.id}` : '';
-    router.value.push(`${pathUrl}/#${item.path}`);
-  } else if (item.type == 'externalLink')
+  if (item.type === 'ancor') {
+    const id = getAncor(item.path).toLowerCase();
+    const target = document.getElementById(id);
+    if (target) {
+      const offset = 64;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  } else if (item.type === 'externalLink') {
     window.open(item.path, '_blank');
-  else if (item.type == 'internalLink')
+  } else if (item.type === 'internalLink') {
     router.value.push(item.path);
+  }
 }
 
 const items = computed(() => {
