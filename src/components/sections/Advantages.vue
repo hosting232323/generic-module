@@ -1,8 +1,6 @@
 <template>
   <v-container>
-    <h1 :style="{ color: info.primaryColor }">
-      {{ getText(content.title) || 'I nostri vantaggi' }}
-    </h1>
+    <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri vantaggi'"/>
     <v-card v-for="(advantage, index) in content.advantages" :key="index" class="margin_top__default" elevation="20" :class="{ 'carousel--mobile': isMobile }">
       <div :class="['img-wrapper', { 'mobile-height': isMobile }]">
         <v-carousel v-if="Array.isArray(advantage.image)" show-arrows hide-delimiters :height="isMobile ? '400px' : '600px'">
@@ -10,15 +8,11 @@
             <img :src="resolveImg(img)" class="img"/>
           </v-carousel-item>
         </v-carousel>
-
         <img v-else :src="resolveImg(advantage.image)" class="img"/>
       </div>
-
-      <v-card-title style="white-space: normal;">
-        {{ getText(advantage.name) }}
-      </v-card-title>
+      <v-card-title style="white-space: normal;" v-html="getText(advantage.name)"/>
       <v-card-text v-if="advantage.description">
-        <div v-html="getText(advantage.description)" />
+        <div v-html="getText(advantage.description)"/>
       </v-card-text>
     </v-card>
   </v-container>
