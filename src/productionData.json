@@ -2,8 +2,7 @@
   "addOn": [
     "Chatty",
     "VirtualTour",
-    "Multilingual",
-    "SocialBubbles"
+    "Multilingual"
   ],
   "components": [
     {
@@ -163,15 +162,15 @@
         "subtitle": "Contattaci direttamente con questo form",
         "contacts": [
           {
-            "type": "Email",
+            "icon": "mdi-email",
             "title": "giovanni.colasanto@fastsite.it"
           },
           {
-            "type": "Phone",
+            "icon": "mdi-phone",
             "title": "+39 347 876 8340"
           },
           {
-            "type": "Facebook",
+            "icon": "mdi-facebook",
             "title": {
               "it": "Seguici su Facebook",
               "gb": "Follow us on Facebook"
@@ -179,27 +178,27 @@
             "url": "https://www.facebook.com/"
           },
           {
-            "type": "Instagram",
+            "icon": "mdi-instagram",
             "title": "Seguici su Instagram",
             "url": "https://www.instagram.com/"
           },
           {
-            "type": "LinkedIn",
+            "icon": "mdi-linkedin",
             "title": "Seguici su LinkedIn",
             "url": "https://www.linkedin.com/in/nomeprofilo"
           },
           {
-            "type": "Twitter",
+            "icon": "mdi-twitter",
             "title": "Seguici su X (Twitter)",
             "url": "https://twitter.com/profilo"
           },
           {
-            "type": "YouTube",
+            "icon": "mdi-youtube",
             "title": "Guarda il nostro canale YouTube",
             "url": "https://www.youtube.com/@canale"
           },
           {
-            "type": "TikTok",
+            "icon": "mdi-music",
             "title": "Seguici su TikTok",
             "url": "https://www.tiktok.com/@utente"
           }
@@ -218,23 +217,6 @@
         "zoom": 9
       },
       "type": "map"
-    },
-    {
-      "type": "socialBubbles",
-      "socialBubbles": [
-        {
-          "type": "WhatsApp",
-          "url": "https://twitter.com/profilo"
-        },
-        {
-          "type": "Instagram",
-          "url": "https://twitter.com/profilo"
-        },
-        {
-          "type": "Facebook",
-          "url": "https://twitter.com/profilo"
-        }
-      ]
     }
   ],
   "info": {
@@ -245,6 +227,20 @@
     "chattyId": 10,
     "locales": [
       "it", "gb"
+    ],
+    "socialBubbles": [
+      {
+        "icon": "mdi-whatsapp",
+        "url": "https://twitter.com/profilo"
+      },
+      {
+        "icon": "mdi-instagram",
+        "url": "https://twitter.com/profilo"
+      },
+      {
+        "icon": "mdi-facebook",
+        "url": "https://twitter.com/profilo"
+      }
     ]
   },
   "store": {

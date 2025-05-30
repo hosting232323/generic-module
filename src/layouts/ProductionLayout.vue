@@ -61,7 +61,7 @@ watch(ready, (newValue) => {
     showChatty.value = true;
   }
 
-  if(addOn.includes('SocialBubbles')) {
+  if(data.value.info.socialBubbles) {
     showBubbles.value = true;
   }
 });

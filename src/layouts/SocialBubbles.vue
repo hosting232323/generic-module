@@ -1,6 +1,6 @@
 <template>
   <div
-    v-for="(social, index) in content.socialBubbles"
+    v-for="(social, index) in content"
     :key="index"
     class="social-container shadown"
     :style="{
@@ -10,7 +10,7 @@
   >
     <a :href="social.url" target="_blank" rel="noopener noreferrer">
       <v-btn
-        :icon="SOCIAL_ICON_MAP[social.type]"
+        :icon="social.icon"
         :style="{ backgroundColor: info.primaryColor, color: '#fff' }"
         size="x-large"
       />
@@ -25,25 +25,12 @@ import { useDataStore } from '@/stores/data';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
-const content = data.value.components.find(c => c.type === 'socialBubbles');
 const info = data.value.info;
+const content = info.socialBubbles;
 
 defineProps({
   chattyActive: Boolean
 });
-
-const SOCIAL_ICON_MAP = {
-  Email: 'mdi-email',
-  Phone: 'mdi-phone',
-  TikTok: 'mdi-music',
-  Twitter: 'mdi-twitter',
-  YouTube: 'mdi-youtube',
-  WhatsApp: 'mdi-whatsapp',
-  Facebook: 'mdi-facebook',
-  LinkedIn: 'mdi-linkedin',
-  Address: 'mdi-map-marker',
-  Instagram: 'mdi-instagram'
-};
 </script>
 
 <style scoped>
