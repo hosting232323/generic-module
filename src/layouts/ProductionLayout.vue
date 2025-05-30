@@ -51,9 +51,7 @@ watch(ready, (newValue) => {
   if (!newValue) return
 
   const addOn = data.value.addOn;
-  if(!addOn) return
-
-  if (addOn.includes('Chatty')) {
+  if (addOn && addOn.includes('Chatty')) {
     const script = document.createElement('script');
     script.type = 'module';
     script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
