@@ -41,7 +41,8 @@ export default defineConfig({
     lib: {
       entry: fileURLToPath(new URL('./src/components/index.js', import.meta.url)),
       name: 'generic_frontend',
-      fileName: (format) => `generic_frontend.${format}.js`
+      fileName: (format) => `generic_frontend.${format}.js`,
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
       external: ['vue', 'vuetify', 'pinia'],
