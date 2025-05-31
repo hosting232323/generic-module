@@ -2,9 +2,7 @@
   <v-container>
     <v-card elevation="20">
       <v-container>
-        <h3 :style="{ color: info.primaryColor }">
-          {{ getText(content.title) || 'Puoi venirci a conoscere qui' }}
-        </h3>
+        <h3 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Puoi venirci a conoscere qui'"/>
         <div ref="mapContainer" style="width: 100%; height: 400px;" />
       </v-container>
     </v-card>

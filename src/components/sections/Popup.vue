@@ -4,11 +4,10 @@
       :type="alertType"
       transition="scale-transition"
       class="popupResponse"
-    >
-    {{ alertMessage }}
-    </v-alert>
-  </template>
-  
+      v-html="alertMessage"
+    />
+</template>
+
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -36,8 +35,6 @@ watch(message, (newValue) => {
   }
 });
 </script>
-
-
 
 <style scoped>
 .popupResponse {

@@ -2,25 +2,20 @@
   <v-container>
     <v-card elevation="20">
       <v-container>
-        <h2 :style="{ color: info.primaryColor }">
-          {{ getText(content.title) || 'I nostri contatti' }}
-        </h2>
+        <h2 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri contatti'"/>
         <v-list>
           <v-list-item height="20" v-for="contact in content.contacts" :key="contact">
             <template v-slot:prepend>
               <v-icon :icon="contact.icon" :color="info.primaryColor" />
             </template>
             <v-list-item-title class="contact__text">
-              <a :href="contact.url" target="_blank" style="text-decoration: none; color: inherit;">
-                {{ getText(contact.title) }}
-              </a>
+              <a :href="contact.url" target="_blank" style="text-decoration: none; color: inherit;" v-html="getText(contact.title)"/>
             </v-list-item-title>
           </v-list-item>
         </v-list><br>
         <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
-        <br><b>
-          {{ getText(content.subtitle) || 'Contattaci direttamente con questo form' }}
-        </b><br><br>
+        <br><b v-html="getText(content.subtitle) || 'Contattaci direttamente con questo form'"/>
+        <br><br>
         <v-form fast-fail @submit.prevent="sendMail">
           <v-row>
             <v-col cols="12" md="6">
