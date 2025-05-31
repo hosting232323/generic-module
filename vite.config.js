@@ -40,9 +40,8 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: fileURLToPath(new URL('./src/components/index.js', import.meta.url)),
-      name: 'GenericFrontend',
-      formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format}.js`
+      name: 'generic_frontend',
+      fileName: (format) => `generic_frontend.${format}.js`
     },
     rollupOptions: {
       external: ['vue', 'vuetify', 'pinia'],
@@ -54,8 +53,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  server: {
-    port: 3000
   }
 });
