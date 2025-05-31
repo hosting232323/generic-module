@@ -6,9 +6,7 @@ import dotenv from "dotenv";
 import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 
-
 dotenv.config();
-
 
 export default defineConfig({
   plugins: [
@@ -38,10 +36,26 @@ export default defineConfig({
     },
     extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue']
   },
+  build: {
+    outDir: 'dist',
+    lib: {
+      entry: fileURLToPath(new URL('./src/components/index.js', import.meta.url)),
+      name: 'GenericFrontend',
+      formats: ['es', 'cjs'],
+      fileName: (format) => `index.${format}.js`
+    },
+    rollupOptions: {
+      external: ['vue', 'vuetify', 'pinia'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          vuetify: 'Vuetify',
+          pinia: 'Pinia'
+        }
+      }
+    }
+  },
   server: {
     port: 3000
-  },
-  build: {
-    outDir: 'dist'
   }
 });
