@@ -56,7 +56,12 @@ watch(ready, (newValue) => {
     script.type = 'module';
     script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
     document.body.appendChild(script); 
-    showChatty.value = true;
+    script.onload = () => {
+      showChatty.value = true;
+    };
+    script.onerror = () => {
+      showChatty.value = false;
+    };
   }
 
   if(data.value.info.socialBubbles) {
