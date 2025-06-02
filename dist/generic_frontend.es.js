@@ -23430,7 +23430,7 @@ const z0 = N({
   setup(t) {
     const { getText: e } = Vi();
     let n = Z(null);
-    return at(() => {
+    return console.log(t.content), at(() => {
       const i = new d_({
         geometry: new hh(Yc(t.content.coordinates))
       }), a = new Na({
@@ -28426,7 +28426,7 @@ const dM = N({
       }) : this.updateData(MM);
     },
     updateData(t) {
-      console.log(t), this.data = t, this.ready = !0;
+      this.data = t, this.ready = !0;
     }
   }
 });
