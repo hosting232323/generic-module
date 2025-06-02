@@ -28426,7 +28426,7 @@ const dM = N({
       }) : this.updateData(MM);
     },
     updateData(t) {
-      this.data = t, this.ready = !0;
+      console.log(t), this.data = t, this.ready = !0;
     }
   }
 });
