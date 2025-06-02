@@ -1,5 +1,3 @@
-import AppBar from '../layouts/AppBar.vue';
-
 export { default as Map } from './sections/Map.vue';
 export { default as Line } from './sections/Line.vue';
 export { default as Gallery } from './sections/Gallery.vue';
@@ -13,4 +11,4 @@ export { useMobileUtils } from '../utils/mobile';
 export { useLanguageStore } from '../stores/language';
 
 
-export { default as AppBar } from '../layouts/AppBar.vue';
+export { default as ProductionLayout } from '../layouts/ProductionLayout.vue';
