@@ -15,6 +15,7 @@ import UpArrow from './UpArrow.vue';
 import AppBar from './AppBar.vue';
 import Footer from './Footer.vue';
 import SocialBubbles from './SocialBubbles.vue';
+import { defineProps } from 'vue';
 
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
@@ -26,6 +27,13 @@ const showBubbles = ref(false);
 const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
+const props = defineProps({
+  id: {
+    type: [String, Number],
+    default: null,
+  }
+});
+
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage) {
@@ -43,8 +51,13 @@ const backgroundStyle = computed(() => {
 });
 
 onMounted(() => {
-  if (route.name == 'Demo') dataStore.initData(route.params.id);
-  else dataStore.initData();
+  const dataId = props.id ?? (route.name === 'Demo' ? route.params.id : null);
+
+  if (dataId) {
+    dataStore.initData(dataId);
+  } else {
+    dataStore.initData();
+  }
 });
 
 watch(ready, (newValue) => {

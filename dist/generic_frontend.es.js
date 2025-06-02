@@ -40983,8 +40983,14 @@ const BP = N({
   }
 }), KP = {
   __name: "ProductionLayout",
+  props: {
+    id: {
+      type: [String, Number],
+      default: null
+    }
+  },
   setup(t) {
-    const e = Z(!1), n = Z(!1), i = Ng(), a = vi(), { data: o, ready: r } = hn(a), s = x(() => o.value.info.backgroundImage ? {
+    const e = Z(!1), n = Z(!1), i = Ng(), a = vi(), { data: o, ready: r } = hn(a), s = t, l = x(() => o.value.info.backgroundImage ? {
       backgroundImage: `url(${o.value.info.backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
@@ -40993,22 +40999,23 @@ const BP = N({
       backgroundColor: o.value.info.secondaryColor
     });
     return at(() => {
-      i.name == "Demo" ? a.initData(i.params.id) : a.initData();
-    }), Q(r, (l) => {
-      if (!l)
+      const c = s.id ?? (i.name === "Demo" ? i.params.id : null);
+      c ? a.initData(c) : a.initData();
+    }), Q(r, (c) => {
+      if (!c)
         return;
-      const c = o.value.addOn;
-      if (c && c.includes("Chatty")) {
-        const u = document.createElement("script");
-        u.type = "module", u.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${o.value.info.chattyId}`, document.body.appendChild(u), u.onload = () => {
+      const u = o.value.addOn;
+      if (u && u.includes("Chatty")) {
+        const d = document.createElement("script");
+        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${o.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
           e.value = !0;
-        }, u.onerror = () => {
+        }, d.onerror = () => {
           e.value = !1;
         };
       }
       o.value.info.socialBubbles && (n.value = !0);
-    }), (l, c) => {
-      const u = xm("router-view");
+    }), (c, u) => {
+      const d = xm("router-view");
       return U(r) ? (H(), ge(VP, { key: 0 }, {
         default: Y(() => [
           v(MP),
@@ -41021,10 +41028,10 @@ const BP = N({
             chattyActive: e.value
           }, null, 8, ["chattyActive"])) : Le("", !0),
           v(FP, {
-            style: Ht(s.value)
+            style: Ht(l.value)
           }, {
             default: Y(() => [
-              v(u)
+              v(d)
             ]),
             _: 1
           }, 8, ["style"]),
