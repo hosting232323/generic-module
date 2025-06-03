@@ -79,22 +79,26 @@ const info = computed(() => {
 })
 
 const content = computed(() => {
-  if(props.data.content) return props.data.content;
+  if(props.data) return props.data.content;
   else return data.value.components;
 })
 
+
 const addOn = computed(() => {
-  if(props.data.addOn) return props.data.addOn;
+  if(props.data) return props.data.addOn;
   else return data.value.addOn;
 })
+
+console.log(addOn.value)
+
 
 
 // const info = data.value.info;
 // const content = data.value.components;
 // const addOn = data.value.addOn;
 
-const cartActive = addOn && addOn.includes('Shop');
-const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
+const cartActive = addOn.value && addOn.value.includes('Shop');
+const multilingualActive = addOn.value && addOn.value.includes('Multilingual') && info.value.locales.length > 1;
 const { isMobile } = useMobileUtils();
 
 const link = (item) => {
@@ -115,19 +119,19 @@ const link = (item) => {
 
 const items = computed(() => {
   let menuItems = [];
-  if (addOn && addOn.includes('VirtualTour'))
+  if (addOn.value && addOn.value.includes('VirtualTour'))
     menuItems.push({
       title: 'Virtual Tour',
       path: 'https://test-virtual-tour.replit.app/',
       type: 'externalLink'
     });
-  if (addOn && addOn.includes('Blog'))
+  if (addOn.value && addOn.value.includes('Blog'))
     menuItems.push({
       title: 'Blog',
       path: '/blog',
       type: 'internalLink'
     });
-  menuItems = menuItems.concat(content
+  menuItems = menuItems.concat(content.value
     .filter(section => section.menu)
     .map(section => ({
       title: getText(section.menu),
