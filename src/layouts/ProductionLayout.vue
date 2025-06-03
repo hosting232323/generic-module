@@ -1,6 +1,7 @@
 <template>
   <v-app  v-if="ready">
-    <AppBar />
+    <AppBar v-if="router" :router="router" />
+    <AppBar v-else />
     <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
     <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
     <v-main :style="backgroundStyle">
@@ -31,7 +32,11 @@ const props = defineProps({
   id: {
     type: [String, Number],
     default: null,
-  }
+  },
+  router: { 
+    type: Object, 
+    default: null 
+  } 
 });
 
 
