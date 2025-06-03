@@ -60,18 +60,9 @@ const { getText, getAncor } = useLanguageStore();
 
 const orderStore = useOrderStore();
 
-const props = defineProps({
-  router: {
-    type: Object,
-    default: null,
-  },
-});
-
 const drawer = ref(null);
-
-const router = computed(() => {
-  return props.router ?? useRouter();
-});
+const route = useRoute();
+const router = ref(useRouter());
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);

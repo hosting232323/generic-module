@@ -11,4 +11,4 @@ export { useMobileUtils } from '../utils/mobile';
 export { useLanguageStore } from '../stores/language';
 
 
-export { default as ProductionLayout } from '../layouts/ProductionLayout.vue';
+export { default as AppBar } from '../layouts/AppBar.vue';
