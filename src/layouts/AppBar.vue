@@ -66,9 +66,33 @@ const router = ref(useRouter());
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
-const info = data.value.info;
-const content = data.value.components;
-const addOn = data.value.addOn;
+
+const props = defineProps({
+  data: {
+    default: null,
+  }
+});
+
+const info = computed(() => {
+  if(props.data) return props.data.info;
+  else return data.value.info;
+})
+
+const content = computed(() => {
+  if(props.data.content) return props.data.content;
+  else return data.value.components;
+})
+
+const addOn = computed(() => {
+  if(props.data.addOn) return props.data.addOn;
+  else return data.value.addOn;
+})
+
+
+// const info = data.value.info;
+// const content = data.value.components;
+// const addOn = data.value.addOn;
+
 const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const { isMobile } = useMobileUtils();
