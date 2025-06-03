@@ -40439,7 +40439,9 @@ const tP = ["start", "end", "left", "right", "top", "bottom"], nP = N({
   setup(t) {
     const { getText: e, getAncor: n } = Ai(), i = Bg(), a = Z(null);
     bM();
-    const o = Z(SM()), r = Yr(), { data: s } = ia(r), l = t, c = x(() => l.data ? l.data.info : s.value.info), u = x(() => l.data.content ? l.data.content : s.value.components), d = x(() => l.data.addOn ? l.data.addOn : s.value.addOn), h = d && d.includes("Shop"), f = d && d.includes("Multilingual") && c.locales.length > 1, { isMobile: g } = _a(), m = (p) => {
+    const o = Z(SM()), r = Yr(), { data: s } = ia(r), l = t, c = x(() => l.data ? l.data.info : s.value.info), u = x(() => l.data ? l.data.content : s.value.components), d = x(() => l.data ? l.data.addOn : s.value.addOn);
+    console.log(d.value);
+    const h = d.value && d.value.includes("Shop"), f = d.value && d.value.includes("Multilingual") && c.value.locales.length > 1, { isMobile: g } = _a(), m = (p) => {
       if (p.type === "ancor") {
         const S = n(p.path).toLowerCase(), _ = document.getElementById(S);
         if (_) {
@@ -40450,15 +40452,15 @@ const tP = ["start", "end", "left", "right", "top", "bottom"], nP = N({
         p.type === "externalLink" ? window.open(p.path, "_blank") : p.type === "internalLink" && o.value.push(p.path);
     }, C = x(() => {
       let p = [];
-      return d && d.includes("VirtualTour") && p.push({
+      return d.value && d.value.includes("VirtualTour") && p.push({
         title: "Virtual Tour",
         path: "https://test-virtual-tour.replit.app/",
         type: "externalLink"
-      }), d && d.includes("Blog") && p.push({
+      }), d.value && d.value.includes("Blog") && p.push({
         title: "Blog",
         path: "/blog",
         type: "internalLink"
-      }), p = p.concat(u.filter((S) => S.menu).map((S) => ({
+      }), p = p.concat(u.value.filter((S) => S.menu).map((S) => ({
         title: e(S.menu),
         path: n(S.menu).toLowerCase(),
         type: "ancor"
@@ -40560,7 +40562,7 @@ const tP = ["start", "end", "left", "right", "top", "bottom"], nP = N({
       }, 8, ["color"]))
     ], 64));
   }
-}, EP = /* @__PURE__ */ Ii(gP, [["__scopeId", "data-v-da4ba659"]]);
+}, EP = /* @__PURE__ */ Ii(gP, [["__scopeId", "data-v-15581f33"]]);
 export {
   TP as Advantages,
   EP as AppBar,
