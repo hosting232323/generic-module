@@ -40765,7 +40765,76 @@ const LP = {
     ]), 4));
   }
 }, VP = /* @__PURE__ */ Pn(LP, [["__scopeId", "data-v-d98997a0"]]);
-const BP = $({
+let BP;
+function FP() {
+  return BP;
+}
+wm.startsWith("3");
+function OP(t) {
+  return typeof t == "function" ? t() : N(t);
+}
+function nl(t, e = "") {
+  if (t instanceof Promise)
+    return t;
+  const n = OP(t);
+  return !t || !n ? n : Array.isArray(n) ? n.map((i) => nl(i, e)) : typeof n == "object" ? Object.fromEntries(
+    Object.entries(n).map(([i, a]) => i === "titleTemplate" || i.startsWith("on") ? [i, N(a)] : [i, nl(a, i)])
+  ) : n;
+}
+const kP = "usehead", Dd = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, Gd = "__unhead_injection_handler__";
+function DP() {
+  if (Gd in Dd)
+    return Dd[Gd]();
+  const t = Ve(kP);
+  return !t && process.env.NODE_ENV !== "production" && console.warn("Unhead is missing Vue context, falling back to shared context. This may have unexpected results."), t || FP();
+}
+function GP(t, e = {}) {
+  const n = e.head || DP();
+  if (n)
+    return n.ssr ? n.push(t, e) : NP(n, t, e);
+}
+function NP(t, e, n = {}) {
+  const i = H(!1), a = H({});
+  Dt(() => {
+    a.value = i.value ? {} : nl(e);
+  });
+  const o = t.push(a.value, n);
+  return J(a, (s) => {
+    o.patch(s);
+  }), Wd() && (ft(() => {
+    o.dispose();
+  }), Yd(() => {
+    i.value = !0;
+  }), jd(() => {
+    i.value = !1;
+  })), o;
+}
+const $P = {
+  __name: "Home",
+  setup(t) {
+    const { getAncor: e } = gi(), n = jn(), { data: i } = Kt(n), a = {
+      map: O0,
+      line: k0,
+      gallery: nb,
+      services: gb,
+      contacts: uM,
+      brandlist: gM,
+      advantages: _M,
+      dualSection: AM
+    }, o = i.value.components, r = i.value.info;
+    return GP({
+      title: "Home Page",
+      meta: [
+        { name: "Fast Site", content: "This is the home page" }
+      ]
+    }), (s, l) => (Z(!0), Te(de, null, At(N(o), (c) => (Z(), fe(Ud(a[c.type]), {
+      id: N(e)(c.menu) ? N(e)(c.menu).toLowerCase() : null,
+      content: c.content,
+      info: N(r)
+    }, null, 8, ["id", "content", "info"]))), 256));
+  }
+};
+const WP = $({
   app: Boolean,
   color: String,
   height: {
@@ -40781,9 +40850,9 @@ const BP = $({
     tag: "footer"
   }),
   ...ke()
-}, "VFooter"), FP = K()({
+}, "VFooter"), UP = K()({
   name: "VFooter",
-  props: BP(),
+  props: WP(),
   setup(t, e) {
     let {
       slots: n
@@ -40822,15 +40891,15 @@ const BP = $({
       }, t.style]
     }, n)), {};
   }
-}), OP = { key: 0 }, kP = {
+}), XP = { key: 0 }, YP = {
   href: "https://fastsite.it",
   class: "fast-site-link",
   target: "_blank"
-}, DP = {
+}, jP = {
   __name: "Footer",
   setup(t) {
     const e = jn(), { data: n } = Kt(e);
-    return (i, a) => (Z(), fe(FP, {
+    return (i, a) => (Z(), fe(UP, {
       elevation: "2",
       color: N(n).info.primaryColor
     }, {
@@ -40843,7 +40912,7 @@ const BP = $({
                   default: Y(() => [
                     ct(Je((/* @__PURE__ */ new Date()).getFullYear()) + " — ", 1),
                     me("strong", null, Je(N(n).info.name), 1),
-                    N(n).info.iva ? (Z(), Te("div", OP, "P. IVA " + Je(N(n).info.iva), 1)) : Le("", !0)
+                    N(n).info.iva ? (Z(), Te("div", XP, "P. IVA " + Je(N(n).info.iva), 1)) : Le("", !0)
                   ]),
                   _: 1
                 }),
@@ -40859,7 +40928,7 @@ const BP = $({
                     }, "Privacy Policy", -1)),
                     me("div", null, [
                       a[2] || (a[2] = ct(" Powered by ")),
-                      me("a", kP, [
+                      me("a", YP, [
                         a[1] || (a[1] = ct(" Fast-Site ")),
                         v(Re, { right: "" }, {
                           default: Y(() => a[0] || (a[0] = [
@@ -40882,8 +40951,8 @@ const BP = $({
       _: 1
     }, 8, ["color"]));
   }
-}, GP = /* @__PURE__ */ Pn(DP, [["__scopeId", "data-v-5d96d66f"]]);
-const NP = ["href"], $P = {
+}, HP = /* @__PURE__ */ Pn(jP, [["__scopeId", "data-v-5d96d66f"]]);
+const ZP = ["href"], KP = {
   __name: "SocialBubbles",
   props: {
     chattyActive: Boolean
@@ -40908,79 +40977,10 @@ const NP = ["href"], $P = {
           style: Zt({ backgroundColor: N(i).primaryColor, color: "#fff" }),
           size: "x-large"
         }, null, 8, ["icon", "style"])
-      ], 8, NP)
+      ], 8, ZP)
     ], 4))), 128));
   }
-}, WP = /* @__PURE__ */ Pn($P, [["__scopeId", "data-v-c1c609f0"]]);
-let UP;
-function XP() {
-  return UP;
-}
-wm.startsWith("3");
-function YP(t) {
-  return typeof t == "function" ? t() : N(t);
-}
-function nl(t, e = "") {
-  if (t instanceof Promise)
-    return t;
-  const n = YP(t);
-  return !t || !n ? n : Array.isArray(n) ? n.map((i) => nl(i, e)) : typeof n == "object" ? Object.fromEntries(
-    Object.entries(n).map(([i, a]) => i === "titleTemplate" || i.startsWith("on") ? [i, N(a)] : [i, nl(a, i)])
-  ) : n;
-}
-const jP = "usehead", Dd = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {}, Gd = "__unhead_injection_handler__";
-function HP() {
-  if (Gd in Dd)
-    return Dd[Gd]();
-  const t = Ve(jP);
-  return !t && process.env.NODE_ENV !== "production" && console.warn("Unhead is missing Vue context, falling back to shared context. This may have unexpected results."), t || XP();
-}
-function ZP(t, e = {}) {
-  const n = e.head || HP();
-  if (n)
-    return n.ssr ? n.push(t, e) : KP(n, t, e);
-}
-function KP(t, e, n = {}) {
-  const i = H(!1), a = H({});
-  Dt(() => {
-    a.value = i.value ? {} : nl(e);
-  });
-  const o = t.push(a.value, n);
-  return J(a, (s) => {
-    o.patch(s);
-  }), Wd() && (ft(() => {
-    o.dispose();
-  }), Yd(() => {
-    i.value = !0;
-  }), jd(() => {
-    i.value = !1;
-  })), o;
-}
-const qP = {
-  __name: "Home",
-  setup(t) {
-    const { getAncor: e } = gi(), n = jn(), { data: i } = Kt(n), a = {
-      map: O0,
-      line: k0,
-      gallery: nb,
-      services: gb,
-      contacts: uM,
-      brandlist: gM,
-      advantages: _M,
-      dualSection: AM
-    }, o = i.value.components, r = i.value.info;
-    return ZP({
-      title: "Home Page",
-      meta: [
-        { name: "Fast Site", content: "This is the home page" }
-      ]
-    }), (s, l) => (Z(!0), Te(de, null, At(N(o), (c) => (Z(), fe(Ud(a[c.type]), {
-      id: N(e)(c.menu) ? N(e)(c.menu).toLowerCase() : null,
-      content: c.content,
-      info: N(r)
-    }, null, 8, ["id", "content", "info"]))), 256));
-  }
-};
+}, qP = /* @__PURE__ */ Pn(KP, [["__scopeId", "data-v-c1c609f0"]]);
 const JP = $({
   ...ue(),
   ...aP({
@@ -41059,58 +41059,50 @@ const e1 = $({
     }
   },
   setup(t) {
-    const e = H(!1), n = H(!1);
-    Hg();
-    const i = jn(), { data: a, ready: o } = Kt(i), r = t;
-    at(() => {
-      const l = r.id;
-      i.initData(l);
-    }), J(o, (l) => {
-      var u;
-      if (!l)
+    const e = H(!1), n = H(!1), i = Hg(), a = jn(), { data: o, ready: r } = Kt(a), s = t, l = x(() => o.value.info.backgroundImage ? {
+      backgroundImage: `url(${o.value.info.backgroundImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
+    } : {
+      backgroundColor: o.value.info.secondaryColor
+    });
+    return at(() => {
+      const c = s.id ?? (i.name === "Demo" ? i.params.id : null);
+      c ? a.initData(c) : a.initData();
+    }), J(r, (c) => {
+      if (!c)
         return;
-      const c = a.value.addOn;
-      if (c != null && c.includes("Chatty")) {
+      const u = o.value.addOn;
+      if (u && u.includes("Chatty")) {
         const d = document.createElement("script");
-        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${a.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
+        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${o.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
           e.value = !0;
         }, d.onerror = () => {
           e.value = !1;
         };
       }
-      (u = a.value.info) != null && u.socialBubbles && (n.value = !0);
-    });
-    const s = x(() => {
-      const l = a.value.info || {};
-      return l.backgroundImage ? {
-        backgroundImage: `url(${l.backgroundImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
-      } : {
-        backgroundColor: l.secondaryColor || "#ffffff"
-      };
-    });
-    return (l, c) => N(o) ? (Z(), fe(QP, { key: 0 }, {
+      o.value.info.socialBubbles && (n.value = !0);
+    }), (c, u) => N(r) ? (Z(), fe(QP, { key: 0 }, {
       default: Y(() => [
         v(zP),
         n.value ? Le("", !0) : (Z(), fe(VP, {
           key: 0,
           bottomOffset: e.value ? 100 : 20
         }, null, 8, ["bottomOffset"])),
-        n.value ? (Z(), fe(WP, {
+        n.value ? (Z(), fe(qP, {
           key: 1,
           chattyActive: e.value
         }, null, 8, ["chattyActive"])) : Le("", !0),
         v(t1, {
-          style: Zt(s.value)
+          style: Zt(l.value)
         }, {
           default: Y(() => [
-            v(qP)
+            v($P)
           ]),
           _: 1
         }, 8, ["style"]),
-        v(GP)
+        v(HP)
       ]),
       _: 1
     })) : Le("", !0);
