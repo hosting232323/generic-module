@@ -69,7 +69,6 @@ const { data } = storeToRefs(dataStore);
 const info = data.value.info;
 const content = data.value.components;
 const addOn = data.value.addOn;
-
 const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const { isMobile } = useMobileUtils();
