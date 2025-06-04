@@ -67,6 +67,7 @@ const router = ref(useRouter());
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
+/*
 const props = defineProps({
   data: {
     default: null,
@@ -88,14 +89,11 @@ const addOn = computed(() => {
   if(props.data) return props.data.addOn;
   else return data.value.addOn;
 })
+*/
 
-console.log(addOn.value)
-
-
-
-// const info = data.value.info;
-// const content = data.value.components;
-// const addOn = data.value.addOn;
+const info = data.value.info;
+const content = data.value.components;
+const addOn = data.value.addOn;
 
 const cartActive = addOn.value && addOn.value.includes('Shop');
 const multilingualActive = addOn.value && addOn.value.includes('Multilingual') && info.value.locales.length > 1;

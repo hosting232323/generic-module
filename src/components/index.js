@@ -12,3 +12,4 @@ export { useLanguageStore } from '../stores/language';
 
 
 export { default as AppBar } from '../layouts/AppBar.vue';
+export { default as DemoLayout } from '../layouts/DemoLayout.vue';
