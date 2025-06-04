@@ -41052,28 +41052,36 @@ const e1 = $({
   }
 }), s1 = {
   __name: "DemoLayout",
+  props: {
+    id: {
+      type: [String, Number],
+      default: null
+    }
+  },
   setup(t) {
-    const e = H(!1), n = H(!1), i = Hg(), a = jn(), { data: o, ready: r } = Kt(a);
+    const e = H(!1), n = H(!1);
+    Hg();
+    const i = jn(), { data: a, ready: o } = Kt(i), r = t;
     at(() => {
-      const l = i.params.id;
-      a.initData(l);
-    }), J(r, (l) => {
+      const l = r.id;
+      i.initData(l);
+    }), J(o, (l) => {
       var u;
       if (!l)
         return;
-      const c = o.value.addOn;
+      const c = a.value.addOn;
       if (c != null && c.includes("Chatty")) {
         const d = document.createElement("script");
-        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${o.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
+        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${a.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
           e.value = !0;
         }, d.onerror = () => {
           e.value = !1;
         };
       }
-      (u = o.value.info) != null && u.socialBubbles && (n.value = !0);
+      (u = a.value.info) != null && u.socialBubbles && (n.value = !0);
     });
     const s = x(() => {
-      const l = o.value.info || {};
+      const l = a.value.info || {};
       return l.backgroundImage ? {
         backgroundImage: `url(${l.backgroundImage})`,
         backgroundSize: "cover",
@@ -41083,7 +41091,7 @@ const e1 = $({
         backgroundColor: l.secondaryColor || "#ffffff"
       };
     });
-    return (l, c) => N(r) ? (Z(), fe(QP, { key: 0 }, {
+    return (l, c) => N(o) ? (Z(), fe(QP, { key: 0 }, {
       default: Y(() => [
         v(zP),
         n.value ? Le("", !0) : (Z(), fe(VP, {
