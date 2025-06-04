@@ -66,7 +66,6 @@ const router = ref(useRouter());
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
-
 const info = data.value.info;
 const content = data.value.components;
 const addOn = data.value.addOn;
