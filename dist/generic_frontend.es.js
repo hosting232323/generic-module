@@ -23430,7 +23430,7 @@ const B0 = $({
   setup(t) {
     const { getText: e } = gi();
     let n = H(null);
-    return console.log(t.content), at(() => {
+    return at(() => {
       const i = new g_({
         geometry: new yh(jc(t.content.coordinates))
       }), a = new Na({
@@ -40607,7 +40607,7 @@ const pP = ["start", "end", "left", "right", "top", "bottom"], yP = $({
   setup(t) {
     const { getText: e, getAncor: n } = gi(), i = jg(), a = H(null);
     Hg();
-    const o = H(OM()), r = jn(), { data: s } = Kt(r), l = s.value.info, c = s.value.components, u = s.value.addOn, d = u.value && u.value.includes("Shop"), h = u.value && u.value.includes("Multilingual") && l.value.locales.length > 1, { isMobile: f } = xa(), g = (p) => {
+    const o = H(OM()), r = jn(), { data: s } = Kt(r), l = s.value.info, c = s.value.components, u = s.value.addOn, d = u && u.includes("Shop"), h = u && u.includes("Multilingual") && l.locales.length > 1, { isMobile: f } = xa(), g = (p) => {
       if (p.type === "ancor") {
         const y = n(p.path).toLowerCase(), b = document.getElementById(y);
         if (b) {
@@ -40618,15 +40618,15 @@ const pP = ["start", "end", "left", "right", "top", "bottom"], yP = $({
         p.type === "externalLink" ? window.open(p.path, "_blank") : p.type === "internalLink" && o.value.push(p.path);
     }, m = x(() => {
       let p = [];
-      return u.value && u.value.includes("VirtualTour") && p.push({
+      return u && u.includes("VirtualTour") && p.push({
         title: "Virtual Tour",
         path: "https://test-virtual-tour.replit.app/",
         type: "externalLink"
-      }), u.value && u.value.includes("Blog") && p.push({
+      }), u && u.includes("Blog") && p.push({
         title: "Blog",
         path: "/blog",
         type: "internalLink"
-      }), p = p.concat(c.value.filter((y) => y.menu).map((y) => ({
+      }), p = p.concat(c.filter((y) => y.menu).map((y) => ({
         title: e(y.menu),
         path: n(y.menu).toLowerCase(),
         type: "ancor"
@@ -40728,7 +40728,7 @@ const pP = ["start", "end", "left", "right", "top", "bottom"], yP = $({
       }, 8, ["color"]))
     ], 64));
   }
-}, zP = /* @__PURE__ */ Pn(IP, [["__scopeId", "data-v-475ed9d4"]]);
+}, zP = /* @__PURE__ */ Pn(IP, [["__scopeId", "data-v-f9fcbf3b"]]);
 const LP = {
   __name: "UpArrow",
   props: {
