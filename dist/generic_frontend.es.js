@@ -40728,7 +40728,7 @@ const pP = ["start", "end", "left", "right", "top", "bottom"], yP = $({
       }, 8, ["color"]))
     ], 64));
   }
-}, zP = /* @__PURE__ */ Pn(IP, [["__scopeId", "data-v-f9fcbf3b"]]);
+}, zP = /* @__PURE__ */ Pn(IP, [["__scopeId", "data-v-3cb44702"]]);
 const LP = {
   __name: "UpArrow",
   props: {
@@ -41053,19 +41053,16 @@ const e1 = $({
 }), s1 = {
   __name: "DemoLayout",
   props: {
-    id: {
-      type: [String, Number],
-      default: null
-    }
+    data: Object
   },
   setup(t) {
-    const e = H(!1), n = H(!1), i = Hg(), a = jn(), { data: o, ready: r } = Kt(a), s = t, l = x(() => o.value.info.backgroundImage ? {
-      backgroundImage: `url(${o.value.info.backgroundImage})`,
+    const e = H(!1), n = H(!1), i = Hg(), a = jn(), { data: o, ready: r } = Kt(a), s = t, l = x(() => s.data.value.info.backgroundImage ? {
+      backgroundImage: `url(${s.data.value.info.backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat"
     } : {
-      backgroundColor: o.value.info.secondaryColor
+      backgroundColor: s.data.value.info.secondaryColor
     });
     return at(() => {
       const c = s.id ?? (i.name === "Demo" ? i.params.id : null);
@@ -41073,16 +41070,16 @@ const e1 = $({
     }), J(r, (c) => {
       if (!c)
         return;
-      const u = o.value.addOn;
+      const u = s.data.value.addOn;
       if (u && u.includes("Chatty")) {
         const d = document.createElement("script");
-        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${o.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
+        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${s.data.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
           e.value = !0;
         }, d.onerror = () => {
           e.value = !1;
         };
       }
-      o.value.info.socialBubbles && (n.value = !0);
+      s.data.value.info.socialBubbles && (n.value = !0);
     }), (c, u) => N(r) ? (Z(), fe(QP, { key: 0 }, {
       default: Y(() => [
         v(zP),

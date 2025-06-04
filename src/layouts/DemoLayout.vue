@@ -28,25 +28,23 @@ const showBubbles = ref(false);
 const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
+
 const props = defineProps({
-  id: {
-    type: [String, Number],
-    default: null,
-  }
+  data: Object
 });
 
 
 const backgroundStyle = computed(() => {
-  if (data.value.info.backgroundImage) {
+  if (props.data.value.info.backgroundImage) {
     return {
-      backgroundImage: `url(${data.value.info.backgroundImage})`,
+      backgroundImage: `url(${props.data.value.info.backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     };
   } else {
     return {
-      backgroundColor: data.value.info.secondaryColor
+      backgroundColor: props.data.value.info.secondaryColor
     };
   }
 });
@@ -64,11 +62,11 @@ onMounted(() => {
 watch(ready, (newValue) => {
   if (!newValue) return
 
-  const addOn = data.value.addOn;
+  const addOn = props.data.value.addOn;
   if (addOn && addOn.includes('Chatty')) {
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
+    script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${props.data.value.info.chattyId}`;
     document.body.appendChild(script); 
     script.onload = () => {
       showChatty.value = true;
@@ -78,7 +76,7 @@ watch(ready, (newValue) => {
     };
   }
 
-  if(data.value.info.socialBubbles) {
+  if(props.data.value.info.socialBubbles) {
     showBubbles.value = true;
   }
 });
