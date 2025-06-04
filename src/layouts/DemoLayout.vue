@@ -29,8 +29,16 @@ const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
 
+
+const props = defineProps({
+  id: {
+    type: [String, Number],
+    default: null,
+  }
+});
+
 onMounted(() => {
-  const dataId = route.params.id;
+  const dataId = props.id;
   dataStore.initData(dataId);
 });
 
