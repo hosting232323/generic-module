@@ -36,16 +36,16 @@ const props = defineProps({
 
 
 const backgroundStyle = computed(() => {
-  if (data.value.info.backgroundImage) {
+  if (data.info.backgroundImage) {
     return {
-      backgroundImage: `url(${data.value.info.backgroundImage})`,
+      backgroundImage: `url(${data.info.backgroundImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     };
   } else {
     return {
-      backgroundColor: data.value.info.secondaryColor
+      backgroundColor: data.info.secondaryColor
     };
   }
 });
@@ -58,11 +58,11 @@ onMounted(() => {
 watch(ready, (newValue) => {
   if (!newValue) return
 
-  const addOn = data.value.addOn;
+  const addOn = data.addOn;
   if (addOn && addOn.includes('Chatty')) {
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
+    script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.info.chattyId}`;
     document.body.appendChild(script); 
     script.onload = () => {
       showChatty.value = true;
@@ -72,7 +72,7 @@ watch(ready, (newValue) => {
     };
   }
 
-  if(data.value.info.socialBubbles) {
+  if(data.info.socialBubbles) {
     showBubbles.value = true;
   }
 });

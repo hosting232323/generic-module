@@ -41060,13 +41060,13 @@ const e1 = $({
   setup(t) {
     const e = H(!1), n = H(!1);
     Hg();
-    const i = jn(), { data: a, ready: o } = Kt(i), r = t, s = x(() => a.value.info.backgroundImage ? {
-      backgroundImage: `url(${a.value.info.backgroundImage})`,
+    const i = jn(), { data: a, ready: o } = Kt(i), r = t, s = x(() => a.info.backgroundImage ? {
+      backgroundImage: `url(${a.info.backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat"
     } : {
-      backgroundColor: a.value.info.secondaryColor
+      backgroundColor: a.info.secondaryColor
     });
     return at(() => {
       const l = r.data;
@@ -41074,16 +41074,16 @@ const e1 = $({
     }), J(o, (l) => {
       if (!l)
         return;
-      const c = a.value.addOn;
+      const c = a.addOn;
       if (c && c.includes("Chatty")) {
         const u = document.createElement("script");
-        u.type = "module", u.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${a.value.info.chattyId}`, document.body.appendChild(u), u.onload = () => {
+        u.type = "module", u.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${a.info.chattyId}`, document.body.appendChild(u), u.onload = () => {
           e.value = !0;
         }, u.onerror = () => {
           e.value = !1;
         };
       }
-      a.value.info.socialBubbles && (n.value = !0);
+      a.info.socialBubbles && (n.value = !0);
     }), (l, c) => N(o) ? (Z(), fe(QP, { key: 0 }, {
       default: Y(() => [
         v(zP),
