@@ -29,8 +29,7 @@ const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
 const props = defineProps({
-  id: {
-    type: [String, Number],
+  data: {
     default: null,
   }
 });
@@ -52,13 +51,8 @@ const backgroundStyle = computed(() => {
 });
 
 onMounted(() => {
-  const dataId = props.id ?? (route.name === 'Demo' ? route.params.id : null);
-
-  if (dataId) {
-    dataStore.initData(dataId);
-  } else {
-    dataStore.initData();
-  }
+  const data = props.data ;
+  dataStore.updateData(data);
 });
 
 watch(ready, (newValue) => {

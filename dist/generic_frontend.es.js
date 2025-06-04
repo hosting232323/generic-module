@@ -41053,37 +41053,38 @@ const e1 = $({
 }), s1 = {
   __name: "DemoLayout",
   props: {
-    id: {
-      type: [String, Number],
+    data: {
       default: null
     }
   },
   setup(t) {
-    const e = H(!1), n = H(!1), i = Hg(), a = jn(), { data: o, ready: r } = Kt(a), s = t, l = x(() => o.value.info.backgroundImage ? {
-      backgroundImage: `url(${o.value.info.backgroundImage})`,
+    const e = H(!1), n = H(!1);
+    Hg();
+    const i = jn(), { data: a, ready: o } = Kt(i), r = t, s = x(() => a.value.info.backgroundImage ? {
+      backgroundImage: `url(${a.value.info.backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat"
     } : {
-      backgroundColor: o.value.info.secondaryColor
+      backgroundColor: a.value.info.secondaryColor
     });
     return at(() => {
-      const c = s.id ?? (i.name === "Demo" ? i.params.id : null);
-      c ? a.initData(c) : a.initData();
-    }), J(r, (c) => {
-      if (!c)
+      const l = r.data;
+      i.updateData(l);
+    }), J(o, (l) => {
+      if (!l)
         return;
-      const u = o.value.addOn;
-      if (u && u.includes("Chatty")) {
-        const d = document.createElement("script");
-        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${o.value.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
+      const c = a.value.addOn;
+      if (c && c.includes("Chatty")) {
+        const u = document.createElement("script");
+        u.type = "module", u.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${a.value.info.chattyId}`, document.body.appendChild(u), u.onload = () => {
           e.value = !0;
-        }, d.onerror = () => {
+        }, u.onerror = () => {
           e.value = !1;
         };
       }
-      o.value.info.socialBubbles && (n.value = !0);
-    }), (c, u) => N(r) ? (Z(), fe(QP, { key: 0 }, {
+      a.value.info.socialBubbles && (n.value = !0);
+    }), (l, c) => N(o) ? (Z(), fe(QP, { key: 0 }, {
       default: Y(() => [
         v(zP),
         n.value ? Le("", !0) : (Z(), fe(VP, {
@@ -41095,7 +41096,7 @@ const e1 = $({
           chattyActive: e.value
         }, null, 8, ["chattyActive"])) : Le("", !0),
         v(t1, {
-          style: Zt(l.value)
+          style: Zt(s.value)
         }, {
           default: Y(() => [
             v($P)
