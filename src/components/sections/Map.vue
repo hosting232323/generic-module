@@ -30,8 +30,6 @@ const { content, info } = defineProps(['content', 'info']);
 let mapContainer = ref(null);
 let map;
 
-console.log(content);
-
 onMounted(() => {
   const iconFeature = new Feature({
     geometry: new Point(fromLonLat(content.coordinates))

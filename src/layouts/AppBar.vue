@@ -67,36 +67,12 @@ const router = ref(useRouter());
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
-/*
-const props = defineProps({
-  data: {
-    default: null,
-  }
-});
+const info = data.info;
+const content = data.components;
+const addOn = data.addOn;
 
-const info = computed(() => {
-  if(props.data) return props.data.info;
-  else return data.value.info;
-})
-
-const content = computed(() => {
-  if(props.data) return props.data.content;
-  else return data.value.components;
-})
-
-
-const addOn = computed(() => {
-  if(props.data) return props.data.addOn;
-  else return data.value.addOn;
-})
-*/
-
-const info = data.value.info;
-const content = data.value.components;
-const addOn = data.value.addOn;
-
-const cartActive = addOn.value && addOn.value.includes('Shop');
-const multilingualActive = addOn.value && addOn.value.includes('Multilingual') && info.value.locales.length > 1;
+const cartActive = addOn && addOn.includes('Shop');
+const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const { isMobile } = useMobileUtils();
 
 const link = (item) => {
@@ -117,19 +93,19 @@ const link = (item) => {
 
 const items = computed(() => {
   let menuItems = [];
-  if (addOn.value && addOn.value.includes('VirtualTour'))
+  if (addOn && addOn.includes('VirtualTour'))
     menuItems.push({
       title: 'Virtual Tour',
       path: 'https://test-virtual-tour.replit.app/',
       type: 'externalLink'
     });
-  if (addOn.value && addOn.value.includes('Blog'))
+  if (addOn && addOn.includes('Blog'))
     menuItems.push({
       title: 'Blog',
       path: '/blog',
       type: 'internalLink'
     });
-  menuItems = menuItems.concat(content.value
+  menuItems = menuItems.concat(content
     .filter(section => section.menu)
     .map(section => ({
       title: getText(section.menu),
