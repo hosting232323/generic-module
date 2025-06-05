@@ -41070,10 +41070,9 @@ const e1 = $({
     });
     return console.log(r.data), at(() => {
       i.updateData(r.data);
-    }), J(o, (l) => {
+    }), console.log(a), J(o, (l) => {
       if (!l)
         return;
-      console.log(a);
       const c = a.addOn;
       if (c && c.includes("Chatty")) {
         const u = document.createElement("script");

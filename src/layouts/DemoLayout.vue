@@ -56,9 +56,10 @@ onMounted(() => {
   dataStore.updateData(props.data);
 });
 
+console.log(data)
+
 watch(ready, (newValue) => {
   if (!newValue) return
-  console.log(data)
 
   const addOn = data.addOn;
   if (addOn && addOn.includes('Chatty')) {
