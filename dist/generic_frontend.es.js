@@ -41075,14 +41075,15 @@ const e1 = $({
         return;
       const c = a.addOn;
       if (c && c.includes("Chatty")) {
-        const u = document.createElement("script");
-        u.type = "module", u.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${a.info.chattyId}`, document.body.appendChild(u), u.onload = () => {
+        const d = document.createElement("script");
+        d.type = "module", d.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${a.info.chattyId}`, document.body.appendChild(d), d.onload = () => {
           e.value = !0;
-        }, u.onerror = () => {
+        }, d.onerror = () => {
           e.value = !1;
         };
       }
-      a.info.socialBubbles && (n.value = !0);
+      const u = a.info;
+      u && u.socialBubbles && (n.value = !0);
     }), (l, c) => N(o) ? (Z(), fe(QP, { key: 0 }, {
       default: Y(() => [
         v(zP),

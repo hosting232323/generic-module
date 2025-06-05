@@ -56,8 +56,6 @@ onMounted(() => {
   dataStore.updateData(props.data);
 });
 
-console.log(data)
-
 watch(ready, (newValue) => {
   if (!newValue) return
 
@@ -75,7 +73,8 @@ watch(ready, (newValue) => {
     };
   }
 
-  if(data.info.socialBubbles) {
+  const info = data.info;
+  if(info && info.socialBubbles) {
     showBubbles.value = true;
   }
 });
