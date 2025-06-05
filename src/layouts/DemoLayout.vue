@@ -53,8 +53,7 @@ const backgroundStyle = computed(() => {
 console.log(props.data);
 
 onMounted(() => {
-  const data = props.data ;
-  dataStore.updateData(data);
+  dataStore.updateData(props.data);
 });
 
 watch(ready, (newValue) => {

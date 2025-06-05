@@ -41069,8 +41069,7 @@ const e1 = $({
       backgroundColor: a.info.secondaryColor
     });
     return console.log(r.data), at(() => {
-      const l = r.data;
-      i.updateData(l);
+      i.updateData(r.data);
     }), J(o, (l) => {
       if (!l)
         return;
