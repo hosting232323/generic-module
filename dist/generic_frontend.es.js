@@ -41073,6 +41073,7 @@ const e1 = $({
     }), J(o, (l) => {
       if (!l)
         return;
+      console.log(a);
       const c = a.addOn;
       if (c && c.includes("Chatty")) {
         const u = document.createElement("script");
