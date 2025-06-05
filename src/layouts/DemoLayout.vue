@@ -1,5 +1,5 @@
 <template>
-  <AppBar />
+  <AppBar   />
   <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
   <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
   <v-main :style="backgroundStyle">
@@ -27,20 +27,15 @@ const route = useRoute();
 // const dataStore = useDataStore();
 // const { data, ready } = storeToRefs(dataStore);
 const props = defineProps({
-  info: {
-    default: null,
-  },
-  components: {
-    default: null,
-  },
-  addOn: {
+  data: {
     default: null,
   }
 });
 
-const info = props.info;
-const components = props.components;
-const addOn = props.addOn;
+
+const info = props.data.info;
+const components = props.data.components;
+const addOn = props.data.addOn;
 
 console.log(info);
 console.log(components);

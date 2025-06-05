@@ -66,9 +66,15 @@ const router = ref(useRouter());
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+
 const info = data.value.info;
 const content = data.value.components;
 const addOn = data.value.addOn;
+
+console.log(info);
+console.log(content);
+console.log(addOn);
+
 const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const { isMobile } = useMobileUtils();

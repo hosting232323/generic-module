@@ -40444,7 +40444,9 @@ const gP = ["start", "end", "left", "right", "top", "bottom"], mP = $({
   setup(t) {
     const { getText: e, getAncor: n } = hi(), i = Xg(), a = H(null);
     Yg();
-    const o = H(BM()), r = vi(), { data: s } = dn(r), l = s.value.info, c = s.value.components, u = s.value.addOn, d = u && u.includes("Shop"), h = u && u.includes("Multilingual") && l.locales.length > 1, { isMobile: f } = Ma(), g = (y) => {
+    const o = H(BM()), r = vi(), { data: s } = dn(r), l = s.value.info, c = s.value.components, u = s.value.addOn;
+    console.log(l), console.log(c), console.log(u);
+    const d = u && u.includes("Shop"), h = u && u.includes("Multilingual") && l.locales.length > 1, { isMobile: f } = Ma(), g = (y) => {
       if (y.type === "ancor") {
         const p = n(y.path).toLowerCase(), S = document.getElementById(p);
         if (S) {
@@ -40565,7 +40567,7 @@ const gP = ["start", "end", "left", "right", "top", "bottom"], mP = $({
       }, 8, ["color"]))
     ], 64));
   }
-}, EP = /* @__PURE__ */ Pn(wP, [["__scopeId", "data-v-3cb44702"]]);
+}, EP = /* @__PURE__ */ Pn(wP, [["__scopeId", "data-v-4037981f"]]);
 const AP = {
   __name: "UpArrow",
   props: {
@@ -40853,20 +40855,14 @@ const HP = $({
 }), tT = {
   __name: "DemoLayout",
   props: {
-    info: {
-      default: null
-    },
-    components: {
-      default: null
-    },
-    addOn: {
+    data: {
       default: null
     }
   },
   setup(t) {
     const e = H(!1), n = H(!1);
     Yg();
-    const i = t, a = i.info, o = i.components, r = i.addOn;
+    const i = t, a = i.data.info, o = i.data.components, r = i.data.addOn;
     console.log(a), console.log(o), console.log(r);
     const s = x(() => a.backgroundImage ? {
       backgroundImage: `url(${a.backgroundImage})`,
