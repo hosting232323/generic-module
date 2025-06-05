@@ -64,15 +64,7 @@ const backgroundStyle = computed(() => {
   }
 });
 
-// console.log(props.data);
-
-// onMounted(() => {
-//   dataStore.updateData(props.data);
-// });
-
-watch(ready, (newValue) => {
-  if (!newValue) return
-
+onMounted(() => {
   if (addOn && addOn.includes('Chatty')) {
     const script = document.createElement('script');
     script.type = 'module';
