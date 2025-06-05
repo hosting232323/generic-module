@@ -1,13 +1,11 @@
 <template>
-  <v-app  v-if="ready">
-    <AppBar />
-    <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
-    <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
-    <v-main :style="backgroundStyle">
-      <Home />
-    </v-main>
-    <Footer />
-  </v-app>
+  <AppBar />
+  <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
+  <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
+  <v-main :style="backgroundStyle">
+    <Home />
+  </v-main>
+  <Footer />
 </template>
 
 <script setup>
@@ -32,7 +30,7 @@ const props = defineProps({
   info: {
     default: null,
   },
-  content: {
+  components: {
     default: null,
   },
   addOn: {
@@ -41,11 +39,11 @@ const props = defineProps({
 });
 
 const info = props.info;
-const content = props.content;
+const components = props.components;
 const addOn = props.addOn;
 
 console.log(info);
-console.log(content);
+console.log(components);
 console.log(addOn);
 
 
