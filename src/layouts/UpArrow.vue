@@ -9,16 +9,20 @@ import { ref, onMounted, onUnmounted, defineProps } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+
 const props = defineProps({
   bottomOffset: {
     type: Number,
     default: 20
+  },
+  info: {
+    default: null,
   }
 });
 
-const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
-const info = data.value.info;
+const info = props.info ? props.info : data.value.info;
 
 const topButton = ref(null);
 const scrollToTop = () => {

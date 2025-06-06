@@ -1,9 +1,9 @@
 <template>
   <AppBar :info="info" :components="components" :addOn="addOn"/>
-  <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
-  <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
+  <UpArrow v-if="!showBubbles" :info="info" :bottomOffset="showChatty ? 100 : 20"/>
+  <SocialBubbles v-if="showBubbles" :info="info" :components="components" :chattyActive="showChatty"/>
   <v-main :style="backgroundStyle">
-    <Home />
+    <Home :info="info" :components="components"/>
   </v-main>
   <Footer :info="info"/>
 </template>

@@ -83,14 +83,6 @@ const info = props.info ? props.info : data.value.info;
 const content = props.components ? props.components : data.value.components;
 const addOn = props.addOn ? props.addOn : data.value.addOn;
 
-// const info = data.value.info;
-// const content = data.value.components;
-// const addOn = data.value.addOn;
-
-console.log(info);
-console.log(content);
-console.log(addOn);
-
 const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const { isMobile } = useMobileUtils();

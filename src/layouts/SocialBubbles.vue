@@ -4,7 +4,7 @@
     :key="index"
     class="social-container shadown"
     :style="{
-      bottom: `${(chattyActive ? 100 : 20) + index * 70}px`,
+      bottom: `${(props.chattyActive ? 100 : 20) + index * 70}px`,
       backgroundColor: 'transparent'
     }"
   >
@@ -25,12 +25,18 @@ import { useDataStore } from '@/stores/data';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
-const info = data.value.info;
-const content = info.socialBubbles;
-
-defineProps({
-  chattyActive: Boolean
+const props = defineProps({
+  chattyActive: Boolean,
+  info: {
+    default: null,
+  },
+  components: {
+    default: null,
+  }
 });
+
+const info = props.info ? props.info : data.value.info;
+const content = props.components ? props.components : data.value.components;
 </script>
 
 <style scoped>
