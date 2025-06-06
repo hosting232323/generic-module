@@ -5,7 +5,7 @@
   <v-main :style="backgroundStyle">
     <Home />
   </v-main>
-  <Footer />
+  <Footer :info="info"/>
 </template>
 
 <script setup>

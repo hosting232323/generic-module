@@ -40747,11 +40747,16 @@ const DP = $({
   target: "_blank"
 }, WP = {
   __name: "Footer",
+  props: {
+    info: {
+      default: null
+    }
+  },
   setup(t) {
-    const e = vi(), { data: n } = dn(e);
-    return (i, a) => (Z(), ge(GP, {
+    const e = vi(), { data: n } = dn(e), i = t, a = i.info ? i.info : n.value.info;
+    return (o, r) => (Z(), ge(GP, {
       elevation: "2",
-      color: G(n).info.primaryColor
+      color: G(a).primaryColor
     }, {
       default: j(() => [
         v(mn, null, {
@@ -40761,8 +40766,8 @@ const DP = $({
                 v(Ht, { cols: "6" }, {
                   default: j(() => [
                     st(qe((/* @__PURE__ */ new Date()).getFullYear()) + " — ", 1),
-                    me("strong", null, qe(G(n).info.name), 1),
-                    G(n).info.iva ? (Z(), Pe("div", NP, "P. IVA " + qe(G(n).info.iva), 1)) : ze("", !0)
+                    me("strong", null, qe(G(a).name), 1),
+                    G(a).iva ? (Z(), Pe("div", NP, "P. IVA " + qe(G(a).iva), 1)) : ze("", !0)
                   ]),
                   _: 1
                 }),
@@ -40771,17 +40776,17 @@ const DP = $({
                   class: "text-right"
                 }, {
                   default: j(() => [
-                    a[3] || (a[3] = me("a", {
+                    r[3] || (r[3] = me("a", {
                       href: "/PrivacyPolicyForm.pdf",
                       class: "footer-link",
                       target: "_blank"
                     }, "Privacy Policy", -1)),
                     me("div", null, [
-                      a[2] || (a[2] = st(" Powered by ")),
+                      r[2] || (r[2] = st(" Powered by ")),
                       me("a", $P, [
-                        a[1] || (a[1] = st(" Fast-Site ")),
+                        r[1] || (r[1] = st(" Fast-Site ")),
                         v(Re, { right: "" }, {
-                          default: j(() => a[0] || (a[0] = [
+                          default: j(() => r[0] || (r[0] = [
                             st("mdi-web")
                           ])),
                           _: 1
@@ -40801,7 +40806,7 @@ const DP = $({
       _: 1
     }, 8, ["color"]));
   }
-}, UP = /* @__PURE__ */ Pn(WP, [["__scopeId", "data-v-5d96d66f"]]);
+}, UP = /* @__PURE__ */ Pn(WP, [["__scopeId", "data-v-10d2e9fa"]]);
 const XP = ["href"], YP = {
   __name: "SocialBubbles",
   props: {
@@ -40913,7 +40918,7 @@ const HP = $({
         ]),
         _: 1
       }, 8, ["style"]),
-      v(UP)
+      v(UP, { info: G(a) }, null, 8, ["info"])
     ], 64));
   }
 };
