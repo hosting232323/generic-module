@@ -1,5 +1,5 @@
 <template>
-  <AppBar   />
+  <AppBar :info="info" :components="components" :addOn="addOn"/>
   <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
   <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
   <v-main :style="backgroundStyle">
@@ -32,15 +32,9 @@ const props = defineProps({
   }
 });
 
-
 const info = props.data.info;
 const components = props.data.components;
 const addOn = props.data.addOn;
-
-console.log(info);
-console.log(components);
-console.log(addOn);
-
 
 const backgroundStyle = computed(() => {
   if (info.backgroundImage) {
