@@ -36,7 +36,7 @@ const props = defineProps({
 });
 
 const info = props.info ? props.info : data.value.info;
-const content = props.components ? props.components : data.value.components;
+const content = info.socialBubbles;
 </script>
 
 <style scoped>
