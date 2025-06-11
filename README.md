@@ -11,6 +11,13 @@ La sezione `info` contiene i **metadati principali** del sito, inclusi i colori,
   "secondaryColor": "#D2B48C",
   "logo": "https://imgur.com/mNAxeqq.png",
   "chattyId": 10,
+  "socialBubbles": [
+    {
+      "icon": "mdi-whatsapp",
+      "url": "https://whatsapp.com/"
+    },
+    ...
+  ],
   "locales": [
     "it", "gb"
   ]
@@ -25,6 +32,7 @@ La sezione `info` contiene i **metadati principali** del sito, inclusi i colori,
 | `primaryColor`   | `string` | ✅           | Colore principale del tema (es. pulsanti, icone, linee)              |
 | `secondaryColor` | `string` | ✅           | Colore secondario del tema (es. sfondi alternativi, accenti)         |
 | `logo`           | `string` | ✅           | URL del logo visualizzato nel sito                                   |
+| `socialBubbles`           | `array` | ❌           | Lista delle fab mostrate in basso a destra con i vari social, prendere l'icon da https://pictogrammers.com/library/mdi/                                  |
 | `chattyId`       | `number` | ❌           | ID utilizzato per l’integrazione con Chatty                          |
 | `locales`       | `array` | ❌           | Lista di lingue utilizzate per il multilingua           |
 
@@ -279,14 +287,15 @@ La sezione **Contatti** mostra le informazioni di contatto dell’attività (ema
 ```json
 {
   "content": {
-    "Email": "esempio@dominio.it",
-    "Phone": "+39 123 456 7890",
-    "Facebook": "https://www.facebook.com/",
-    "Instagram": "https://www.instagram.com/",
-    "LinkedIn": "https://www.linkedin.com/in/profilo",
-    "Twitter": "https://twitter.com/profilo",
-    "YouTube": "https://www.youtube.com/@canale",
-    "TikTok": "https://www.tiktok.com/@utente"
+    "title": "I nostri contatti",
+    "subtitle": "Contattaci direttamente con questo form",
+    "contacts": [
+      {
+        "icon": "mdi-email",
+        "title": "giovanni.colasanto@fastsite.it"
+      },
+      ...
+    ]
   },
   "menu": "Contatti",
   "type": "contacts"
@@ -300,10 +309,11 @@ La sezione **Contatti** mostra le informazioni di contatto dell’attività (ema
 | `type`     | `string` | ✅           | Deve essere `"contacts"`                                                   |
 | `menu`     | `string` | ✅           | Etichetta da mostrare nel menu di navigazione                              |
 | `content`  | `object` | ✅           | Oggetto contenente uno o più dei seguenti campi                            |
-| `Email`    | `string` | ❌           | Indirizzo email                                                            |
-| `Phone`    | `string` | ❌           | Numero di telefono                                                         |
-| `Facebook`, `Instagram`, `LinkedIn`, `Twitter`, `TikTok`, `YouTube` | `string` | ❌ | Link ai social, ognuno mostrerà un’icona e un testo personalizzato        |
+| `title`    | `string` | ❌           | Titolo della sezione                                                            |
+| `subtitle`    | `string` | ❌           | Sottotitolo della sezione                                                         |
+| `contacts`    | `array` | ❌           | Lista dei contatti con i vari social, prendere l'icon da https://pictogrammers.com/library/mdi/|
 
+        
 ---
 
 ## 📬 Sezione: Indirizzo
