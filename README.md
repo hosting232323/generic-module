@@ -11,6 +11,13 @@ La sezione `info` contiene i **metadati principali** del sito, inclusi i colori,
   "secondaryColor": "#D2B48C",
   "logo": "https://imgur.com/mNAxeqq.png",
   "chattyId": 10,
+  "socialBubbles": [
+    {
+      "icon": "mdi-whatsapp",
+      "url": "https://whatsapp.com/"
+    },
+    ...
+  ],
   "locales": [
     "it", "gb"
   ]
@@ -25,6 +32,7 @@ La sezione `info` contiene i **metadati principali** del sito, inclusi i colori,
 | `primaryColor`   | `string` | ✅           | Colore principale del tema (es. pulsanti, icone, linee)              |
 | `secondaryColor` | `string` | ✅           | Colore secondario del tema (es. sfondi alternativi, accenti)         |
 | `logo`           | `string` | ✅           | URL del logo visualizzato nel sito                                   |
+| `socialBubbles`           | `array` | ❌           | Lista delle fab mostrate in basso a destra con i vari social, prendere l'icon da https://pictogrammers.com/library/mdi/                                  |
 | `chattyId`       | `number` | ❌           | ID utilizzato per l’integrazione con Chatty                          |
 | `locales`       | `array` | ❌           | Lista di lingue utilizzate per il multilingua           |
 
@@ -41,7 +49,8 @@ La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali**
   "Chatty",
   "VirtualTour",
   "Shop",
-  "Multilingual"
+  "Multilingual",
+  "Blog"
 ]
 ```
 
@@ -53,17 +62,15 @@ La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali**
 | `VirtualTour` | Aggiunge una sezione dedicata al tour virtuale del locale o azienda         |
 | `Shop` | Aggiunge una sezione dedicata per l'e-commerce         |
 | `Multilingual` | In base a quanti paesi inseriti in locales aggiunge una bandiera o un menu con tutte le bandiere corrispondenti alle lingue del sito         |
+| `Blog` | Aggiunge una sezione per articoli con immagini, data e preview|
 
 > 📌 **Nota:** Gli add-on vengono caricati solo se presenti nell'array `addOn`.
 
 ---
 
-## 🟩 Sezione: Vantaggi
+## 🟩 Sezione: Vantaggi (Advantages.vue)
 
 Questa sezione viene utilizzata per mostrare una lista di **vantaggi o punti di forza** dell’azienda o dei suoi servizi, organizzati come card visivamente accattivanti con immagine, titolo e descrizione.
-
-### 🔧 Componente usato
-`Advantages.vue`
 
 ### 📦 Tipo JSON richiesto
 
@@ -102,9 +109,6 @@ Questa sezione viene utilizzata per mostrare una lista di **vantaggi o punti di 
 ## 🟪 Sezione: Sezione Doppia (`DualSection.vue`)
 
 La sezione **DualSection** permette di mostrare **un’immagine affiancata a un blocco di testo**, con titolo, sottotitolo, descrizione e un bottone opzionale. L'immagine può essere mostrata a sinistra o a destra (su desktop) o in alto o in basso (su mobile), in base alla configurazione.
-
-### 🔧 Componente usato
-`DualSection.vue`
 
 ### 📦 Tipo JSON richiesto
 
@@ -147,9 +151,6 @@ La sezione **DualSection** permette di mostrare **un’immagine affiancata a un 
 
 La sezione **Gallery/Carosello** mostra una **galleria a scorrimento** di immagini tramite carousel. Supporta immagini diverse per desktop e mobile.
 
-### 🔧 Componente usato
-`Gallery.vue`
-
 ### 📦 Tipo JSON richiesto
 
 ```json
@@ -180,9 +181,6 @@ La sezione **Gallery/Carosello** mostra una **galleria a scorrimento** di immagi
 
 La sezione **Servizi** mostra un elenco espandibile dei servizi offerti, ciascuno con **titolo e descrizione**. Utilizza `v-expansion-panels` per un'esperienza utente ordinata e interattiva.
 
-### 🔧 Componente usato
-`Services.vue`
-
 ### 📦 Tipo JSON richiesto
 
 ```json
@@ -211,12 +209,48 @@ La sezione **Servizi** mostra un elenco espandibile dei servizi offerti, ciascun
 
 ---
 
+
+## 📰 Sezione: Blog (Blog.vue)
+
+La sezione **Blog** permette di mostrare un elenco di articoli o aggiornamenti, ciascuno con **immagine, titolo, anteprima del contenuto e data**, organizzati in griglia. È utile per comunicazioni, novità aziendali o contenuti editoriali.
+
+### 📦 Tipo JSON richiesto
+
+```json
+{
+  "content": [
+    {
+      "title": "Il mio blog",
+      "url": "Scopri di più...",
+      "type": "Static o Dynamic",
+      "articles": [
+        {
+          "title": "Titolo articolo 1",
+          "content": "Descrizione articolo",
+          "cover": "img.png"
+        },
+        ...
+      ]
+    }
+  ],
+  "menu": "Blog",
+  "type": "blog"
+}
+```
+
+### ✅ Campi disponibili
+
+| Chiave         | Tipo       | Obbligatoria | Descrizione |
+|----------------|------------|--------------|-------------|
+| `title`        | `string`   | ❌           | Titolo della sezione|
+| `url`          | `string`    | ❌          | Testo del collegamento alla pagina dei blog |
+| `type`         | `string`   | ✅           | Può essere o Static o Dynamic, con Static **DEVI** aggiungere i post a mano seguendo articles, con Dynamic fa tutto l'endpoint collegato |
+
+---
+
 ## 🗺️ Sezione: Mappa (`Map.vue`)
 
 La sezione **Mappa** mostra una mappa interattiva con un marcatore sulla posizione specificata, utile per far sapere dove si trova l'attività o sede dell’azienda. Utilizza [OpenLayers](https://openlayers.org/) per la gestione della mappa.
-
-### 🔧 Componente usato
-`Map.vue`
 
 ### 📦 Tipo JSON richiesto
 
@@ -246,9 +280,6 @@ La sezione **Mappa** mostra una mappa interattiva con un marcatore sulla posizio
 
 La sezione **Linea** aggiunge un separatore orizzontale (una riga) tra le sezioni del sito per migliorarne la leggibilità e la struttura visiva. Il colore della linea si adatta automaticamente al tema tramite `info.primaryColor`.
 
-### 🔧 Componente usato
-`Line.vue`
-
 ### 📦 Tipo JSON richiesto
 
 ```json
@@ -271,22 +302,20 @@ La sezione **Linea** aggiunge un separatore orizzontale (una riga) tra le sezion
 
 La sezione **Contatti** mostra le informazioni di contatto dell’attività (email, telefono, social, indirizzo ecc.), con icone corrispondenti e link personalizzati dove necessario. Inoltre, include un **form di contatto diretto** che invia una mail al proprietario del sito.
 
-### 🔧 Componente usato
-`Contacts.vue`
-
 ### 📦 Tipo JSON richiesto
 
 ```json
 {
   "content": {
-    "Email": "esempio@dominio.it",
-    "Phone": "+39 123 456 7890",
-    "Facebook": "https://www.facebook.com/",
-    "Instagram": "https://www.instagram.com/",
-    "LinkedIn": "https://www.linkedin.com/in/profilo",
-    "Twitter": "https://twitter.com/profilo",
-    "YouTube": "https://www.youtube.com/@canale",
-    "TikTok": "https://www.tiktok.com/@utente"
+    "title": "I nostri contatti",
+    "subtitle": "Contattaci direttamente con questo form",
+    "contacts": [
+      {
+        "icon": "mdi-email",
+        "title": "giovanni.colasanto@fastsite.it"
+      },
+      ...
+    ]
   },
   "menu": "Contatti",
   "type": "contacts"
@@ -300,10 +329,11 @@ La sezione **Contatti** mostra le informazioni di contatto dell’attività (ema
 | `type`     | `string` | ✅           | Deve essere `"contacts"`                                                   |
 | `menu`     | `string` | ✅           | Etichetta da mostrare nel menu di navigazione                              |
 | `content`  | `object` | ✅           | Oggetto contenente uno o più dei seguenti campi                            |
-| `Email`    | `string` | ❌           | Indirizzo email                                                            |
-| `Phone`    | `string` | ❌           | Numero di telefono                                                         |
-| `Facebook`, `Instagram`, `LinkedIn`, `Twitter`, `TikTok`, `YouTube` | `string` | ❌ | Link ai social, ognuno mostrerà un’icona e un testo personalizzato        |
+| `title`    | `string` | ❌           | Titolo della sezione                                                            |
+| `subtitle`    | `string` | ❌           | Sottotitolo della sezione                                                         |
+| `contacts`    | `array` | ❌           | Lista dei contatti con i vari social, prendere l'icon da https://pictogrammers.com/library/mdi/|
 
+        
 ---
 
 ## 📬 Sezione: Indirizzo

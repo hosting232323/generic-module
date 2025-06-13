@@ -2,9 +2,39 @@
   "addOn": [
     "Chatty",
     "VirtualTour",
-    "Multilingual"
+    "Multilingual",
+    "Blog"
   ],
   "components": [
+    {
+      "content": {
+        "type": "static",
+        "title": {
+          "it": "Il mio blog",
+          "gb": "My blog"
+        },
+        "url": "Scopri di più...",
+        "articles": [
+          {
+            "title": "Titolo articolo 1",
+            "content": "Descrizione articolo",
+            "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+          },
+          {
+            "title": "Titolo articolo 2",
+            "content": "Descrizione articolo",
+            "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+          },
+          {
+            "title": "Titolo articolo 3",
+            "content": "Descrizione articolo",
+            "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png"
+          }
+        ]
+      },
+      "type": "blog",
+      "menu": "Blog"
+    },
     {
       "content": {
         "type": "automatic",
