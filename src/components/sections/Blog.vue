@@ -4,10 +4,13 @@
       {{ getText(content.title) || 'I miei articoli' }}
     </h1>
     <div class="articles-wrapper margin_top__default">
-      <div v-for="(article, index) in content.articles" :key="index" class="article-item">
-        <img :src="resolveImg(article.image)" class="img"/>
+      <div v-for="(article, index) in articles" :key="index" class="article-item">
+        <img :src="resolveImg(article.cover)" class="img"/>
         <p :style="{ color: info.primaryColor, fontWeight: 700 }">{{ getText(article.title) }}</p>
-        <p>{{ getText(article.description) }}</p>
+        <p>{{ truncate(getText(article.content)) }}</p>
+
+        {{ article.cover
+         }}
       </div>
     </div>
     <p class="margin_top__default"><a href="/blog" class="link" :style="{ color: info.primaryColor }">{{ getText(content.url)}} </a></p>
@@ -15,12 +18,32 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted } from 'vue';
 import { useMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
+import http from '@/utils/http';
 
 const { getText } = useLanguageStore();
 const { isMobile, resolveImg } = useMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
+
+const articles = ref([]);
+const isStatic = computed(() => content.type === 'static');
+
+const truncate = (text) => {
+  if (!text) return '';
+  return text.length > 150 ? text.slice(0, 150) + '...' : text;
+};
+
+onMounted(() => {
+  if (isStatic.value) {
+    articles.value = content.articles;
+  } else {
+    http.getRequestGenericBE('blog/post', { project: 'dorianadinanni.it' }, (data) => {
+      articles.value = data.posts.slice(0, 3).reverse();
+    });
+  }
+})
 </script>
 
 <style scoped>

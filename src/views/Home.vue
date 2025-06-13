@@ -9,6 +9,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useHead } from '@vueuse/head';
 import { useDataStore } from '@/stores/data';
@@ -40,8 +41,17 @@ const componentMap = {
   dualSection: DualSection
 };
 
-const sections = data.value.components;
+const addOn = data.value.addOn;
 const info = data.value.info;
+
+const sections = computed(() => {
+  return data.value.components.filter(section => {
+    if (section.type === 'blog') {
+      return addOn?.some(a => a.toLowerCase() === 'blog');
+    }
+    return true;
+  });
+});
 
 useHead({
   title: 'Home Page',
