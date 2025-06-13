@@ -9,12 +9,14 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useHead } from '@vueuse/head';
 import { useDataStore } from '@/stores/data';
 import { useLanguageStore } from '@/stores/language';
 
 import Map from '@/components/sections/Map';
+import Blog from '@/components/sections/Blog';
 import Line from '@/components/sections/Line';
 import Gallery from '@/components/sections/Gallery';
 import Services from '@/components/sections/Services';
@@ -29,6 +31,7 @@ const { data } = storeToRefs(dataStore);
 
 const componentMap = {
   map: Map,
+  blog: Blog,
   line: Line,
   gallery: Gallery,
   services: Services,
@@ -38,8 +41,17 @@ const componentMap = {
   dualSection: DualSection
 };
 
-const sections = data.value.components;
+const addOn = data.value.addOn;
 const info = data.value.info;
+
+const sections = computed(() => {
+  return data.value.components.filter(section => {
+    if (section.type === 'blog') {
+      return addOn?.some(a => a.toLowerCase() === 'blog');
+    }
+    return true;
+  });
+});
 
 useHead({
   title: 'Home Page',
