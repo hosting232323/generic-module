@@ -4,13 +4,10 @@
       {{ getText(content.title) || 'I miei articoli' }}
     </h1>
     <div class="articles-wrapper margin_top__default">
-      <div v-for="(article, index) in articles" :key="index" class="article-item">
+      <div v-for="(article, index) in articles" :key="index" class="article-item mt-2">
         <img :src="resolveImg(article.cover)" class="img"/>
         <p :style="{ color: info.primaryColor, fontWeight: 700 }">{{ getText(article.title) }}</p>
         <p>{{ truncate(getText(article.content)) }}</p>
-
-        {{ article.cover
-         }}
       </div>
     </div>
     <p class="margin_top__default"><a href="/blog" class="link" :style="{ color: info.primaryColor }">{{ getText(content.url)}} </a></p>
@@ -24,7 +21,7 @@ import { useLanguageStore } from '@/stores/language';
 import http from '@/utils/http';
 
 const { getText } = useLanguageStore();
-const { isMobile, resolveImg } = useMobileUtils();
+const { resolveImg } = useMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 
 const articles = ref([]);
