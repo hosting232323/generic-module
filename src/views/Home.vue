@@ -27,15 +27,6 @@ const { getAncor } = useLanguageStore();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
-const props = defineProps({
-  info: {
-    default: null,
-  },
-  components: {
-    default: null,
-  }
-});
-
 const componentMap = {
   map: Map,
   line: Line,
@@ -47,8 +38,11 @@ const componentMap = {
   dualSection: DualSection
 };
 
-const info = props.info ? props.info : data.value.info;
-const sections = props.components ? props.components : data.value.components;
+const info = data.value.info;
+const sections = data.value.components;
+
+console.log(info);
+console.log(sections);
 
 useHead({
   title: 'Home Page',

@@ -4,7 +4,7 @@
     <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
     <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
     <v-main :style="backgroundStyle">
-      <router-view />
+      <Home />
     </v-main>
     <Footer />
   </v-app>
@@ -14,6 +14,8 @@
 import UpArrow from './UpArrow.vue';
 import AppBar from './AppBar.vue';
 import Footer from './Footer.vue';
+import Home from '../views/Home.vue';
+
 import SocialBubbles from './SocialBubbles.vue';
 import { defineProps } from 'vue';
 
@@ -51,24 +53,10 @@ const backgroundStyle = computed(() => {
 });
 
 onMounted(() => {
-  let dataId = null;
-  if(route.name === 'Demo')
-    dataId = route.params.id;
+  let dataId = props.id ?? (route.name === 'Demo' ? route.params.id : null);
 
-  if(props.id)
-    dataId = props.id;
-
-  console.log(dataId);
-
-
-  if (dataId) {
-    dataStore.initData(dataId);
-  } else {
-    dataStore.initData();
-  }
-
-  console.log(data);
-
+  if (dataId) dataStore.initData(dataId);
+  else dataStore.initData();
 });
 
 watch(ready, (newValue) => {

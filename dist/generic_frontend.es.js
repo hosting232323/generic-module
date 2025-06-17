@@ -41024,8 +41024,8 @@ const BP = N({
       backgroundColor: o.value.info.secondaryColor
     });
     return at(() => {
-      let c = null;
-      i.name === "Demo" && (c = i.params.id), s.id && (c = s.id), console.log(c), c ? a.initData(c) : a.initData(), console.log(o);
+      let c = s.id ?? (i.name === "Demo" ? i.params.id : null);
+      c ? a.initData(c) : a.initData(), console.log(o);
     }), Q(r, (c) => {
       if (!c)
         return;
