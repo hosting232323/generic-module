@@ -41025,7 +41025,7 @@ const BP = N({
     });
     return at(() => {
       let c = null;
-      i.name === "Demo" && (c = i.params.id), s.id && (c = s.id), c ? a.initData(c) : a.initData();
+      i.name === "Demo" && (c = i.params.id), s.id && (c = s.id), console.log(c), c ? a.initData(c) : a.initData(), console.log(o);
     }), Q(r, (c) => {
       if (!c)
         return;

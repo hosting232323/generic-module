@@ -58,11 +58,17 @@ onMounted(() => {
   if(props.id)
     dataId = props.id;
 
+  console.log(dataId);
+
+
   if (dataId) {
     dataStore.initData(dataId);
   } else {
     dataStore.initData();
   }
+
+  console.log(data);
+
 });
 
 watch(ready, (newValue) => {
