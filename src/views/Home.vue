@@ -41,9 +41,6 @@ const componentMap = {
 const info = data.value.info;
 const sections = data.value.components;
 
-console.log(info);
-console.log(sections);
-
 useHead({
   title: 'Home Page',
   meta: [
