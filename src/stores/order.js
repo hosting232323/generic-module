@@ -1,4 +1,3 @@
-import http from '@/utils/http';
 import { defineStore } from 'pinia';
 import { useAddressStore } from '@/stores/address';
 
