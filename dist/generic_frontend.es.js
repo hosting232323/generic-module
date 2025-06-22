@@ -340,7 +340,7 @@ const rl = "https://generic-be-test.replit.app/", Em = "https://fastsite-be-test
       }) : this.updateData(Om);
     },
     initDataByJson(t) {
-      this.updateData(t), console.log(this.data);
+      this.updateData(t);
     },
     updateData(t) {
       this.data = t, this.ready = !0;
@@ -41095,7 +41095,7 @@ const e1 = $({
       backgroundColor: a.value.info.secondaryColor
     });
     return it(() => {
-      console.log(r.json), i.initDataByJson(r.json);
+      i.initDataByJson(r.json);
     }), J(o, (l) => {
       if (!l)
         return;

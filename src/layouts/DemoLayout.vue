@@ -51,7 +51,6 @@ const backgroundStyle = computed(() => {
 
 
 onMounted(() => {
-  console.log(props.json);
   dataStore.initDataByJson(props.json);
 });
 
