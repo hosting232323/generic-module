@@ -17,6 +17,10 @@ export const useDataStore = defineStore('data', {
       else 
         this.updateData(productionData);
     },
+    initDataByJson(json) {
+      this.updateData(json)
+      console.log(this.data);
+    },
     updateData(data) {
       this.data = data;
       this.ready = true;

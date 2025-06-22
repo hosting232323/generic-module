@@ -29,13 +29,10 @@ const showBubbles = ref(false);
 const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
-const props = defineProps({
-  id: {
-    type: [String, Number],
-    default: null,
-  }
-});
 
+const props = defineProps({
+  json: Object
+})
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage) {
@@ -52,11 +49,10 @@ const backgroundStyle = computed(() => {
   }
 });
 
-onMounted(() => {
-  let dataId = props.id ?? (route.name === 'Demo' ? route.params.id : null);
 
-  if (dataId) dataStore.initData(dataId);
-  else dataStore.initData();
+onMounted(() => {
+  console.log(props.json);
+  dataStore.initDataByJson(props.json);
 });
 
 watch(ready, (newValue) => {
