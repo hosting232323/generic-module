@@ -20,13 +20,11 @@ import SocialBubbles from './SocialBubbles.vue';
 import { defineProps } from 'vue';
 
 import { storeToRefs } from 'pinia';
-import { useRoute } from 'vue-router';
 import { onMounted, watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
 
 const showChatty = ref(false);
 const showBubbles = ref(false);
-const route = useRoute();
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
 
@@ -48,7 +46,6 @@ const backgroundStyle = computed(() => {
     };
   }
 });
-
 
 onMounted(() => {
   dataStore.initDataByJson(props.json);
