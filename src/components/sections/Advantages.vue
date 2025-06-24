@@ -43,7 +43,7 @@ const { content, info } = defineProps(['content', 'info']);
   object-fit: cover;
   display: block;
 }
-.carousel--mobile >>> .v-btn.v-btn--icon {
+.carousel--mobile :deep(.v-btn.v-btn--icon) {
   width: 35px !important;
   height: 35px !important;
   font-size: 14px !important;
