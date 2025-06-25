@@ -8,10 +8,24 @@
           <div v-if="info.iva">P. IVA {{ info.iva }}</div>
         </v-col>
         <v-col cols="6" class="text-right">
-          <a href="/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>
+          <a
+            href="/PrivacyPolicyForm.pdf"
+            target="_blank"
+            style="color: #42b983; font-weight: bold; transition: color 0.3s ease;"
+            @mouseover="e => e.target.style.color = '#2c3e50'"
+            @mouseleave="e => e.target.style.color = '#42b983'"
+          >
+            Privacy Policy
+          </a>
           <div>
             Powered by 
-            <a href="https://fastsite.it" class="fast-site-link" target="_blank">
+            <a
+              href="https://fastsite.it"
+              target="_blank"
+              style="color: #42b983; font-weight: bold; transition: color 0.3s ease;"
+              @mouseover="e => e.target.style.color = '#2c3e50'"
+              @mouseleave="e => e.target.style.color = '#42b983'"
+            >
               Fast-Site
               <v-icon right>mdi-web</v-icon>
             </a>
