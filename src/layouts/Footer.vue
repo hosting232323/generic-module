@@ -43,35 +43,5 @@ import { useDataStore } from '@/stores/data';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
-const props = defineProps({
-  info: {
-    default: null,
-  }
-});
-
-const info = props.info ? props.info : data.value.info;
+const info = data.value.info;
 </script>
-
-<style scoped>
-.footer-link {
-  color: #42b983;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-  color: #2c3e50;
-  text-decoration: underline;
-}
-
-.fast-site-link {
-  color: #42b983;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.fast-site-link:hover {
-  color: #2c3e50;
-  text-decoration: underline;
-}
-</style>
