@@ -11,7 +11,7 @@
         <v-card
           :height="isMobile ? 150 : 300"
           :width="isMobile ? 150 : 300"
-          class="brand_item"
+          style="margin-right: 20px; border: 0px;"
         >
           <v-img :src="brand" />
         </v-card>
@@ -26,10 +26,3 @@ import { useMobileUtils } from '@/utils/mobile';
 const { isMobile } = useMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 </script>
-
-<style scoped>
-.brand_item {
-  margin-right: 25px;
-  border: 0px;
-}
-</style>

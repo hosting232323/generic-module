@@ -8,15 +8,18 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  
+
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     <v-app-bar-title>
-      <div v-if="info.logo" class="d-flex align-center">
-        <img :src="info.logo" alt="Logo" class="app-logo">
-        <b style="margin-left: 10px;">{{ info.name }}</b>
+      <div class="d-flex align-center">
+        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo"
+          style="height: 40px; max-width: 150px;">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode"
+          :style="{ marginLeft: info.logoMode === 'both' ? '10px' : '0' }">
+          {{ info.name }}
+        </b>
       </div>
-      <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
     <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
     <Language v-if="multilingualActive" />
@@ -25,14 +28,17 @@
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <v-app-bar-title>
-      <div v-if="info.logo" class="d-flex align-center">
-        <img :src="info.logo" alt="Logo" class="app-logo">
-        <b style="margin-left: 10px;">{{ info.name }}</b>
+      <div class="d-flex align-center">
+        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo"
+          style="height: 40px; max-width: 150px;">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode"
+          :style="{ marginLeft: info.logoMode === 'both' ? '10px' : '0' }">
+          {{ info.name }}
+        </b>
       </div>
-      <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
 
-    <div class="desktop-menu d-flex justify-center align-center" >
+    <div class="desktop-menu d-flex justify-center align-center">
       <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
         {{ item.title }}
       </v-btn>
@@ -119,10 +125,3 @@ const getCartQuantity = computed(() => {
   return orderStore.products.reduce((total, product) => total + product.quantity, 0);
 });
 </script>
-
-<style scoped>
-.app-logo {
-  height: 40px;
-  max-width: 150px;
-}
-</style>
