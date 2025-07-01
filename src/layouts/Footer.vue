@@ -9,7 +9,7 @@
         </v-col>
         <v-col cols="6" class="text-right">
           <a
-            href="/PrivacyPolicyForm.pdf"
+            href="/"
             target="_blank"
             style="color: #42b983; font-weight: bold; transition: color 0.3s ease;"
             @mouseover="e => e.target.style.color = '#2c3e50'"
