@@ -2,11 +2,24 @@
   <div
     v-for="(social, index) in content"
     :key="index"
-    class="social-container shadown"
     :style="{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'fixed',
+      right: '20px',
+      borderRadius: '100%',
+      zIndex: 999,
+      cursor: 'pointer',
       bottom: `${(props.chattyActive ? 100 : 20) + index * 70}px`,
+      boxShadow: hoveredIndex === index
+        ? '0px 10px 14px 0px rgba(0, 0, 0, 0.2)'
+        : '0px 4px 4px 0px rgb(0 0 0 / 20%)',
+      transition: 'box-shadow 225ms',
       backgroundColor: 'transparent'
     }"
+    @mouseenter="hoveredIndex = index"
+    @mouseleave="hoveredIndex = null"
   >
     <a :href="social.url" target="_blank" rel="noopener noreferrer">
       <v-btn
@@ -19,6 +32,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
@@ -26,37 +40,11 @@ const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
 const props = defineProps({
-  chattyActive: Boolean,
-  info: {
-    default: null,
-  },
-  components: {
-    default: null,
-  }
+  chattyActive: Boolean
 });
 
-const info = props.info ? props.info : data.value.info;
+const info = data.value.info;
 const content = info.socialBubbles;
+
+const hoveredIndex = ref(null);
 </script>
-
-<style scoped>
-.social-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  right: 20px;
-  border-radius: 100%;
-  z-index: 999;
-  cursor: pointer;
-}
-
-.shadown {
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 20%);
-  transition: box-shadow 225ms;
-}
-
-.shadown:hover {
-  box-shadow: 0px 10px 14px 0px rgba(0, 0, 0, 0.2);
-}
-</style>
