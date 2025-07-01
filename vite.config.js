@@ -6,7 +6,9 @@ import dotenv from "dotenv";
 import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 
+
 dotenv.config();
+
 
 export default defineConfig({
   plugins: [
