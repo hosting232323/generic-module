@@ -55,10 +55,11 @@
 </template>
 
 <script setup>
-import { useMobileUtils } from '@/utils/mobile';
+import { setupMobileUtils, resolveImg } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 
 const { getText } = useLanguageStore();
-const { isMobile, resolveImg } = useMobileUtils();
+
+const isMobile = setupMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 </script>

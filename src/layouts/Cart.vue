@@ -68,7 +68,7 @@
 
 <script setup>
 import http from '@/utils/http';
-import { useMobileUtils } from '@/utils/mobile';
+import { setupMobileUtils } from '@/utils/mobile';
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 
@@ -84,7 +84,7 @@ const orderStore = useOrderStore();
 const products = ref([]);
 const isCheckout = ref(false);
 const isMenuVisible = ref(false);
-const { isMobile } = useMobileUtils();
+const isMobile = setupMobileUtils();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);

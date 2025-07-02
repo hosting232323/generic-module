@@ -54,7 +54,7 @@ import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
-import { useMobileUtils } from '@/utils/mobile';
+import { setupMobileUtils } from '@/utils/mobile';
 
 import Cart from './Cart.vue';
 import Language from '@/components/sections/Language.vue';
@@ -76,7 +76,8 @@ const addOn = data.value.addOn;
 
 const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
-const { isMobile } = useMobileUtils();
+
+const isMobile = setupMobileUtils();
 
 const link = (item) => {
   if (item.type === 'ancor') {

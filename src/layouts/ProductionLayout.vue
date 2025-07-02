@@ -15,7 +15,6 @@ import UpArrow from './UpArrow.vue';
 import AppBar from './AppBar.vue';
 import Footer from './Footer.vue';
 import SocialBubbles from './SocialBubbles.vue';
-import { defineProps } from 'vue';
 
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';

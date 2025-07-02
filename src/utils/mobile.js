@@ -1,12 +1,12 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-export function useMobileUtils() {
-  const isMobile = ref(false);
+const isMobile = ref(false);
 
-  const checkMobile = () => {
-    isMobile.value = window.innerWidth < 600;
-  };
+const checkMobile = () => {
+  isMobile.value = window.innerWidth < 600;
+};
 
+const setupMobileUtils = () => {
   onMounted(() => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -15,12 +15,13 @@ export function useMobileUtils() {
   onBeforeUnmount(() => {
     window.removeEventListener('resize', checkMobile);
   });
+  return isMobile;
+};
 
-  const resolveImg = (slide) => {
-    if (typeof slide === 'string') return slide;
-    if (typeof slide === 'object') return isMobile.value ? slide.mobile : slide.desktop;
-    return '';
-  };
+const resolveImg = (slide) => {
+  if (typeof slide === 'string') return slide;
+  if (typeof slide === 'object') return isMobile.value ? slide.mobile : slide.desktop;
+  return '';
+};
 
-  return { isMobile, resolveImg };
-}
+export { setupMobileUtils, resolveImg };
