@@ -17,7 +17,7 @@ export const useShopStore = defineStore('shop', {
         console.error('No store data found');
     },
     initDataByProject(data, func) {
-      http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data, func));
+      http.getRequest(`payment/${data}`, {}, (res) => this.initDataFromJson(res.data, func));
     },
     initDataFromJson(products, func) {
       this.products = products;
