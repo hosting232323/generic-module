@@ -7,7 +7,7 @@
         <div ref="popupContainer" class="ol-popup">
           <v-icon icon="mdi-window-close" class="popup-close-btn" @click="closePopup"/>
           <div ref="popupContent" class="d-flex flex-column align-start" >
-            <v-img :src="info.logo" width="80" height="auto" object-fit style="margin-bottom: 10px;"/>
+            <v-img src="/logo-01.png" width="100" height="auto" object-fit/>
             <p style="font-size: 14px; font-weight: bold;" class="mb-1">{{ info.name }}</p>
             <p style="font-size: 13px;" class="mb-1">{{ content.address }}</p>
             <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.primaryColor }">
@@ -61,7 +61,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKEND}/colorize-image?color=%23${info.primaryColor.substring(1)}`
+      src: `image.png`
     })
   });
 
@@ -96,7 +96,7 @@ onMounted(async () => {
       duration: 250
     },
     positioning: 'bottom-center',
-    offset: [0, -235]
+    offset: [0, -205]
   });
 
   map.addOverlay(overlay);
