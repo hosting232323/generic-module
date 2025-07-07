@@ -79,6 +79,7 @@
 import Address from '@/layouts/Address';
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
+import { getImageForProduct, addToCart, getPrice } from '@/utils/shop'
 
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
