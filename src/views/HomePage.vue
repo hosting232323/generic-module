@@ -12,6 +12,7 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useHead } from '@unhead/vue';
+import { head } from '@/utils/seo.home.js';
 import { useDataStore } from '@/stores/data';
 import { ref, computed, onMounted} from 'vue';
 
@@ -20,7 +21,6 @@ import BaseText from '@/components/sections/BaseText';
 import LineDivider from '@/components/sections/LineDivider';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import GallerySection from '@/components/sections/GallerySection';
-import ServicesSection from '@/components/sections/ServicesSection';
 import ContactsSection from '@/components/sections/ContactsSection';
 import BrandList from '@/components/sections/BrandList';
 import ShopSummary from '@/components/sections/ShopSummary';
@@ -32,6 +32,8 @@ import AdvantagesBusiness from '@/components/sections/advantages/AdvantagesBusin
 import AdvantagesCreative from '@/components/sections/advantages/AdvantagesCreative';
 import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcommerce';
 
+import ServicesSectionCustoms from '@/components/customs/ServicesSection';
+
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -41,7 +43,7 @@ const componentMap = {
   line: LineDivider,
   reviews: ReviewsSection,
   gallery: GallerySection,
-  services: ServicesSection,
+  services: ServicesSectionCustoms,
   contacts: ContactsSection,
   brandlist: BrandList,
   advantages: {
@@ -77,12 +79,7 @@ const sections = computed(() => {
   });
 });
 
-useHead({
-  title: 'FastSite',
-  meta: [
-    { name: 'FastSite', content: 'This is the home page' }
-  ]
-});
+useHead(head);
 
 const preloadedSections = ref([]);
 

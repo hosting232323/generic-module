@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import AppBar from '@/layouts/AppBar.vue';
+import AppBar from '@/layouts/customs/AppBar.vue';
 import AppFooter from '@/layouts/AppFooter.vue';
 import UpArrow from '@/layouts/UpArrow.vue';
 import SocialBubbles from '@/layouts/SocialBubbles.vue';

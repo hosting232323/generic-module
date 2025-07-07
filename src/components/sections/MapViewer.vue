@@ -24,7 +24,7 @@
             class="d-flex flex-column align-start"
           >
             <v-img
-              :src="info.logo"
+              src="/logo-01.png"
               width="80"
               height="auto"
               object-fit
@@ -113,7 +113,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: '/map.png'
+      src: 'image.png'
     })
   });
 
@@ -148,7 +148,7 @@ onMounted(async () => {
       duration: 250
     },
     positioning: 'bottom-center',
-    offset: [0, -155]
+    offset: [0, -205]
   });
 
   map.addOverlay(overlay);

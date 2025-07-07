@@ -113,4 +113,3 @@ info: {
 
 Se vuoi, posso prepararti una bozza dell’intero README con sezione introduttiva, requisiti, modalità di utilizzo e contributi. Fammi sapere!
 
-

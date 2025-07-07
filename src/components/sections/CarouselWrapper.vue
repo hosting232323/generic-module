@@ -20,7 +20,7 @@
 
     <div
       v-if="totalGroups > 1"
-      class="controls-with-indicators mt-4"
+      class="controls-with-indicators"
     >
       <v-btn
         icon

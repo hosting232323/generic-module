@@ -2,16 +2,15 @@
   <v-container style="padding-top: 0 !important; padding-bottom: 0 !important;">
     <div v-if="variants && variants.length > 0">
       <v-divider class="mb-3" />
-
       <strong style="font-size: 14px;">{{ getText(store.content?.size) || 'Taglie' }}</strong>
 
       <div class="d-flex flex-wrap mt-3">
         <v-chip
-          v-for="variant in variants"
+          v-for="variant in [...variants].sort((a, b) => a.name.localeCompare(b.name))"
           :key="variant.name"
           class="ma-1"
           pill
-          :disabled="!variant.quantity"
+          :disabled="variant.quantity == 0"
           :color="selectedVariant === variant ? info.primaryColor : info.secondaryColor"
           @click="selectVariant(variant)"
         >
@@ -35,7 +34,7 @@ const { getText } = useLanguageStore();
 const info = data.value.info;
 const store = data.value.store;
 
-const variants = defineProps({
+const { variants } = defineProps({
   variants: { type: Array, required: true }
 });
 
