@@ -32,7 +32,7 @@
               <v-divider class="mb-3" />
               <strong>{{ getText(store.content?.size) || 'Taglie' }}</strong>
               <div class="d-flex mt-2">
-                <div v-for="value in product.variant">
+                <div v-for="value in product.variant" class="mr-4">
                   <v-btn v-if="value.quantity" @click="addToCart(Number(route.params.id), value)" :color="info.primaryColor">{{ value.name }}</v-btn>
                 </div>
               </div>
@@ -40,14 +40,14 @@
             </div>
           </v-card-text>
           <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart(Number(route.params.id))" :disabled="product.variant > 0">
+            <!-- <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart(Number(route.params.id))" :disabled="product.variant > 0">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
-            </v-btn>
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="fastCheckout">
+            </v-btn> -->
+            <!-- <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="fastCheckout">
               <v-icon icon="mdi-credit-card-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
-            </v-btn>
+            </v-btn> -->
           </v-card-actions>
         </v-card>
       </v-col>
