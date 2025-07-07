@@ -32,7 +32,7 @@
 deploy_test:
   <<: *deploy_template
   tags:
-    - deploy-zubat
+    - "${CARPEDIEM_SERVER_NAME}-deploy"
   when: manual
   variables:
     PJ_NAME: "${CARPEDIEM_PROJECT_NAME}-test"
@@ -46,7 +46,7 @@ deploy_test:
 deploy_prod:
   <<: *deploy_template
   tags:
-    - deploy-zubat
+    - "${CARPEDIEM_SERVER_NAME}-deploy"
   when: manual
   variables:
     PJ_NAME: $CARPEDIEM_PROJECT_NAME

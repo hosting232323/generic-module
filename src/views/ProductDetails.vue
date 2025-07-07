@@ -151,7 +151,7 @@
 import AddressForm from '@/layouts/AddressForm';
 import AppLoading from '@/layouts/AppLoading';
 import PopUpAlert from '@/components/sections/PopUpAlert';
-import ProductVariantSelector from '@/components/shop/ProductVariantSelector';
+import ProductVariantSelector from '@/components/ProductVariantSelector';
 
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
