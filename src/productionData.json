@@ -1,831 +1,207 @@
 {
   "addOn": [
-    "Multilingual",
-    "Menu",
-    "Shop",
-    "Blog"
+    "Shop"
   ],
-  "info": {
-    "name": "Trattoria Bella Napoli",
-    "primaryColor": "#D63447",
-    "secondaryColor": "#FFF2E8",
-    "logo": "logo.png",
-    "backgroundImage": "/restaurant-bg.jpg",
-    "locales": [
-      "it",
-      "gb"
-    ],
-    "socialBubbles": [
-      {
-        "icon": "mdi-whatsapp",
-        "url": "/demo/"
-      },
-      {
-        "icon": "mdi-instagram",
-        "url": "/demo/"
-      },
-      {
-        "icon": "mdi-facebook",
-        "url": "/demo/"
-      }
-    ]
-  },
-  "store": {
-    "addressMode": 1,
-    "content": {
-      "name": {
-        "it": "Carrello",
-        "gb": "Cart"
-      },
-      "orderSummary": {
-        "it": "Riepilogo Ordini",
-        "gb": "Order Summary"
-      },
-      "shippingAddress": {
-        "it": "Indirizzo di Spedizione",
-        "gb": "Shipping Address"
-      },
-      "amount": {
-        "it": "Quantità",
-        "gb": "Amount"
-      },
-      "totalPrice": {
-        "it": "Prezzo Totale",
-        "gb": "Total Price"
-      },
-      "sendOrder": {
-        "it": "Invia Ordine",
-        "gb": "Send Order"
-      },
-      "proceedCheckout": {
-        "it": "Procedi al Checkout",
-        "gb": "Proceed to Checkout"
-      },
-      "goBack": {
-        "it": "Torna Indietro",
-        "gb": "Go back"
-      },
-      "emptyCart": {
-        "it": "Svuota Carrello",
-        "gb": "Empty Cart"
-      },
-      "price": {
-        "it": "Prezzo",
-        "gb": "Price"
-      },
-      "details": {
-        "it": "Dettagli",
-        "gb": "Details"
-      },
-      "addToCart": {
-        "it": "Aggiungi al carrello",
-        "gb": "Add to cart"
-      },
-      "description": {
-        "it": "Descrizione",
-        "gb": "Description"
-      },
-      "category": {
-        "it": "Categoria",
-        "gb": "Category"
-      }
-    },
-    "products": [
-      {
-        "id": 1,
-        "name": "Pizza Margherita",
-        "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico fresco",
-        "price": 700,
-        "quantity": 2,
-        "highlight": true,
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-        "product_type": "Pizze Classiche"
-      },
-      {
-        "id": 2,
-        "name": "Pizza Diavola",
-        "description": "Mozzarella, salame piccante e pomodoro",
-        "highlight": true,
-        "price": 800,
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-        "product_type": "Pizze Classiche"
-      },
-      {
-        "id": 3,
-        "name": "Pizza Capricciosa",
-        "description": "Mozzarella, prosciutto cotto, funghi, carciofi e olive",
-        "highlight": true,
-        "price": 900,
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-        "product_type": "Pizze Classiche"
-      },
-      {
-        "id": 4,
-        "name": "Pizza Gourmet - La Melone",
-        "description": "Focaccina croccante, prosciutto crudo di Parma, burrata artigianale, velo di melone",
-        "price": 1500,
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-        "product_type": "Pizze Gourmet"
-      },
-      {
-        "id": 5,
-        "name": "Bruschette Pomodoro",
-        "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-        "price": 600,
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-        "product_type": "Antipasti"
-      },
-      {
-        "id": 6,
-        "name": "Birra Artigianale IPA",
-        "description": "India Pale Ale luppolata e agrumata, 6.5%",
-        "price": 600,
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-        "product_type": "Bevande"
-      },
-      {
-        "id": 7,
-        "name": "Acqua Naturale",
-        "description": "Bottiglia da 50cl",
-        "price": 150,
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-        "product_type": "Bevande"
-      }
-    ]
-  },
   "components": [
     {
       "type": "gallery",
       "content": {
         "type": "automatic",
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
+          "gallery/1.png",
+          "gallery/2.png",
+          "gallery/3.png",
+          "gallery/4.png"
         ]
       }
     },
     {
       "type": "dualSection",
       "content": {
-        "title": {
-          "it": "Chi Siamo",
-          "gb": "About Us"
-        },
-        "subtitle": {
-          "it": "Tradizione e passione dalla cucina napoletana",
-          "gb": "Tradition and passion from Neapolitan cuisine"
-        },
-        "description": {
-          "it": "La Trattoria Bella Napoli nasce nel cuore di Napoli, con l’obiettivo di portare i sapori autentici della cucina partenopea direttamente sulla tua tavola. Ogni piatto è preparato con ingredienti freschi e di alta qualità, seguendo ricette tramandate da generazioni.",
-          "gb": "Trattoria Bella Napoli was born in the heart of Naples, aiming to bring the authentic flavors of Neapolitan cuisine straight to your table. Every dish is made with fresh, high-quality ingredients following recipes passed down for generations."
-        },
-        "button": {
-          "it": "Il nostro shop!",
-          "gb": "Our shop!"
-        },
-        "url": "/shop",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
-        "orientationDesktop": "left",
-        "orientationMobile": "top"
-      },
-      "menu": {
-        "it": "Chi Siamo",
-        "gb": "About Us"
-      }
-    },
-    {
-      "type": "dualSection",
-      "content": {
-        "title": {
-          "it": "Esplora il nostro menu",
-          "gb": "Explore our menu"
-        },
-        "subtitle": {
-          "it": "Piatti tradizionali e creazioni gourmet",
-          "gb": "Traditional dishes and gourmet creations"
-        },
-        "description": {
-          "it": "Dalla pizza margherita ai piatti gourmet, ogni preparazione viene curata con passione per offrirti un’esperienza unica.",
-          "gb": "From Margherita pizza to gourmet dishes, every preparation is crafted with passion to give you a unique experience."
-        },
-        "image": "menu-section.png",
+        "description": "Dal 2001 Carpe Diem è cresciuta da semplice negozio di calzature a realtà specializzata nel mondo dei bambini. Ci siamo dedicati al “primo passo”, offrendo scarpe studiate per accompagnare i più piccoli nella loro crescita. Con gli anni abbiamo ampliato la gamma, abbracciato il mondo vegan e sostenibile, e reso la qualità il nostro punto fermo.",
+        "image": "lanostrastoria.png",
         "orientationDesktop": "right",
         "orientationMobile": "top",
-        "button": "Vai al menu!",
-        "url": "/menu"
+        "title": "La nostra storia"
       }
     },
     {
       "type": "advantages",
       "variant": "default",
-      "menu": {
-        "it": "Vantaggi",
-        "gb": "Advantages"
-      },
+      "menu": "Cosa Facciamo",
       "content": {
+        "title": "Il nostro assortimento",
         "advantages": [
           {
-            "name": {
-              "it": "Ingredienti Freschi",
-              "gb": "Fresh Ingredients"
-            },
-            "description": {
-              "it": "Utilizziamo solo prodotti di alta qualità, selezionati quotidianamente dai migliori fornitori locali.",
-              "gb": "We use only high-quality products, selected daily from the best local suppliers."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png"
-          },
-          {
-            "name": {
-              "it": "Servizio Accogliente",
-              "gb": "Friendly Service"
-            },
-            "description": {
-              "it": "Il nostro staff è sempre pronto ad accoglierti con un sorriso e consigliarti al meglio.",
-              "gb": "Our staff is always ready to welcome you with a smile and provide the best advice."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png"
+            "description": "Ogni piede è diverso, <span style=\"color: #416342; font-weight: bold;\">ogni bambino ha le sue esigenze</span>.<br>Ecco perché offriamo una <span style=\"color: #416342; font-weight: bold;\">consulenza personalizzata in negozio</span>, guidata da <span style=\"color: #416342; font-weight: bold;\">anni di esperienza</span> e da una <span style=\"color: #416342; font-weight: bold;\">conoscenza approfondita</span> dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di <span style=\"color: #416342; font-weight: bold;\">primi passi</span>, <span style=\"color: #416342; font-weight: bold;\">piedini delicati</span> o semplicemente <span style=\"color: #416342; font-weight: bold;\">esigenze particolari</span>, siamo qui per aiutarti a scegliere il <span style=\"color: #416342; font-weight: bold;\">modello giusto</span>, senza fretta e con tutta la disponibilità possibile.<br><br><span style=\"color: #416342; font-weight: bold;\">Carpe Diem non è solo un punto vendita</span>: è <span style=\"color: #416342; font-weight: bold;\">un luogo di fiducia</span>.",
+            "image": [
+              "advantages/1.png",
+              "advantages/2.png"
+            ],
+            "name": ""
           }
         ]
       }
     },
     {
-      "type": "contacts",
-      "menu": {
-        "it": "Contatti",
-        "gb": "Contacts"
-      },
       "content": {
-        "title": {
-          "it": "I nostri contatti",
-          "gb": "Our contacts"
-        },
-        "subtitle": {
-          "it": "Contattaci direttamente",
-          "gb": "Contact us directly"
-        },
+        "title": "I nostri partner",
+        "services": [
+          {
+            "name": "<strong>Biomecanics</strong>",
+            "image": "services/biomecanics.png",
+            "description": "Progettate in collaborazione con il Collegio Ufficiale dei Podologi di Spagna, le scarpe Biomecanics sono pensate per seguire lo sviluppo del piede del bambino in ogni fase. Libertà di movimento, stabilità e sicurezza: il mix perfetto per i primi passi e oltre."
+          },
+          {
+            "name": "<strong>Natural World Eco</strong>",
+            "image": "services/naturalworldeco.jpg",
+            "description": "Una scelta etica e sostenibile, prodotta in Spagna con materiali naturali e processi ecologici. Le scarpe Natural World Eco sono 100% vegan, realizzate con cotone organico e colori enzimatici, ideali per chi vuole unire stile e rispetto per l’ambiente."
+          },
+          {
+            "name": "<strong>ShopArt</strong>",
+            "image": "services/shopart.png",
+            "description": "Colore, energia e uno stile deciso. ShopArt propone scarpe dal design contemporaneo, perfette per bambini e ragazzi che vogliono esprimere la propria personalità attraverso ogni dettaglio del loro outfit."
+          },
+          {
+            "name": "<strong>Garvalín</strong>",
+            "image": "services/garvalin.png",
+            "description": "Comfort, design e qualità si incontrano in ogni modello Garvalín. Con linee allegre e materiali sicuri, è il brand perfetto per accompagnare la crescita con calzature affidabili e attente al benessere del piede."
+          }
+        ]
+      },
+      "menu": "Vantaggi",
+      "type": "services"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "content": {
+        "brands": [
+          "brandlist/adidas.png",
+          "brandlist/bullboys.png",
+          "brandlist/gianfrancoferre.png",
+          "brandlist/paciotti.png",
+          "brandlist/puma.png",
+          "brandlist/pablosky.png",
+          "brandlist/lellikelly.png",
+          "brandlist/nike.png",
+          "brandlist/gaelle.jpg",
+          "brandlist/levis.png"
+        ]
+      },
+      "menu": "Brandlist",
+      "type": "brandlist"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "content": {
+        "title": "Consulenza personalizzata",
+        "orientationTitle": "left",
+        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
+        "orientationDescription": "left"
+      },
+      "type": "text"
+    },
+    {
+      "content": {
+        "reviews": [
+          {
+            "description": "Servizio impeccabile. Consigliatissimo!",
+            "stars": 5,
+            "name": "Anna"
+          },
+          {
+            "description": "Esperienza molto positiva! Il team si è mostrato disponibile e competente in ogni fase del progetto. Grazie a loro sono riuscita a realizzare esattamente ciò che avevo in mente.",
+            "stars": 4,
+            "name": "Luca"
+          },
+          {
+            "description": "Collaborare con questo team è stato entusiasmante sin dall'inizio. Hanno ascoltato con attenzione ogni mia esigenza e hanno trasformato le mie idee in soluzioni concrete e ben strutturate. La loro professionalità e l’attenzione ai dettagli hanno davvero fatto la differenza. Non potrei essere più soddisfatto del risultato finale.",
+            "stars": 3,
+            "name": "Chiara"
+          },
+          {
+            "description": "Staff molto gentile e preparato. Mi hanno guidato nella scelta della scarpa perfetta per mio figlio con pazienza e professionalità. Ottima esperienza!",
+            "stars": 5,
+            "name": "Marco"
+          },
+          {
+            "description": "Negozio ben organizzato e personale disponibile. Ho ricevuto consigli utili e dettagliati su come scegliere le scarpe più adatte. Tornerò sicuramente.",
+            "stars": 4,
+            "name": "Elena"
+          },
+          {
+            "description": "Grande attenzione al cliente e prodotti di alta qualità. Il team sa ascoltare e consigliare in maniera efficace, rendendo l’acquisto semplice e piacevole.",
+            "stars": 5,
+            "name": "Federico"
+          },
+          {
+            "description": "Ambiente accogliente e servizio professionale. Le scarpe scelte sono perfette e mio figlio le adora. Consiglio a tutti di provare questo negozio.",
+            "stars": 4,
+            "name": "Valentina"
+          },
+          {
+            "description": "Consulenza eccellente e prodotti di qualità. Il personale è gentile e competente, pronto a rispondere a ogni domanda. Esperienza altamente positiva.",
+            "stars": 5,
+            "name": "Giovanni"
+          }
+        ],
+        "title": " ",
+        "orientationTitle": "left",
+        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
+        "orientationDescription": "left"
+      },
+      "type": "reviews"
+    },
+    {
+      "content": {
+        "title": "I nostri contatti",
+        "subtitle": "Contattaci direttamente con questo form",
         "contacts": [
           {
+            "icon": "mdi-map-marker",
+            "title": "Via XXIV Maggio, 9, 76011 Bisceglie BT"
+          },
+          {
             "icon": "mdi-phone",
-            "title": {
-              "it": "+39 081 123 4567",
-              "gb": "+39 081 123 4567"
-            }
-          },
-          {
-            "icon": "mdi-email",
-            "title": "info@bellanapoli.it"
-          },
-          {
-            "icon": "mdi-facebook",
-            "title": {
-              "it": "Seguici su Facebook",
-              "gb": "Follow us on Facebook"
-            },
-            "url": "https://www.facebook.com/bellanapoli"
-          },
-          {
-            "icon": "mdi-instagram",
-            "title": {
-              "it": "Seguici su Instagram",
-              "gb": "Follow us on Instagram"
-            },
-            "url": "https://www.instagram.com/bellanapoli"
+            "title": "+39 393 563 9468"
           }
         ]
-      }
+      },
+      "menu": "Contatti",
+      "type": "contacts"
     },
     {
-      "type": "map",
       "content": {
-        "title": {
-          "it": "Puoi venirci a trovare qui",
-          "gb": "You can visit us here"
-        },
-        "address": "Via Napoli, 15, 80100 Napoli NA, Italy",
+        "title": "Puoi venirci a conoscere qui",
+        "address": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy",
         "coordinates": [
-          14.2681,
-          40.8518
+          "16.50320",
+          "41.23951"
         ],
         "zoom": 15
-      }
+      },
+      "type": "map"
     }
   ],
-  "blog": {
-    "projectName": "string",
-    "content": [
-      {
-        "content": "La nostra Pizza Margherita è un classico intramontabile: pomodoro San Marzano, mozzarella fior di latte e basilico fresco per un sapore autentico e genuino.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-        "id": 1,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 1,
-        "project_id": 3,
-        "title": "Pizza Margherita"
-      },
-      {
-        "content": "La Pizza Diavola è perfetta per chi ama i sapori decisi: mozzarella, salame piccante e pomodoro creano una combinazione irresistibile.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-        "id": 2,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 2,
-        "project_id": 3,
-        "title": "Pizza Diavola"
-      },
-      {
-        "content": "La Pizza Capricciosa è un trionfo di gusto: mozzarella, prosciutto cotto, funghi, carciofi e olive per soddisfare tutti i palati.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-        "id": 3,
-        "ordinal": 3,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "project_id": 3,
-        "title": "Pizza Capricciosa"
-      },
-      {
-        "content": "La Pizza Gourmet 'La Melone' unisce tradizione e creatività: focaccina croccante, prosciutto crudo di Parma, burrata artigianale e un delicato velo di melone.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-        "id": 4,
-        "ordinal": 4,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "project_id": 3,
-        "title": "Pizza Gourmet - La Melone"
-      },
-      {
-        "content": "Le Bruschette Pomodoro sono un antipasto semplice ma delizioso: pane tostato con pomodorini freschi, aglio e basilico.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-        "id": 5,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 5,
-        "project_id": 3,
-        "title": "Bruschette Pomodoro"
-      },
-      {
-        "content": "La Birra Artigianale IPA è un’esplosione di aromi luppolati e agrumati, con 6.5% di gradazione alcolica, ideale per accompagnare le nostre pizze.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-        "id": 6,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 6,
-        "project_id": 3,
-        "title": "Birra Artigianale IPA"
-      },
-      {
-        "content": "L'Acqua Naturale da 50cl è perfetta per rinfrescare il palato durante il pasto, semplice e naturale.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-        "id": 7,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 7,
-        "project_id": 3,
-        "title": "Acqua Naturale"
-      }
-    ]
+  "info": {
+    "name": "CarpeDiem",
+    "iva": "IT05665730726",
+    "logo": "logo.png",
+    "logoMode": "logo",
+    "primaryColor": "#2E4D29",
+    "secondaryColor": "#9CAF88"
   },
-  "menu": {
-    "products": [
-      {
-        "name": {
-          "it": "Antipasti",
-          "gb": "Appetizers"
-        },
-        "icon": "mdi-food",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/antipasti.png",
-        "items": [
-          {
-            "name": {
-              "it": "Bruschette Pomodoro",
-              "gb": "Tomato Bruschetta"
-            },
-            "description": {
-              "it": "Pane tostato con pomodorini freschi, aglio e basilico",
-              "gb": "Toasted bread with fresh cherry tomatoes, garlic and basil"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-            "price": 6,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Tagliere di Salumi",
-              "gb": "Cured Meats Board"
-            },
-            "description": {
-              "it": "Selezione di salumi italiani, accompagnati da focaccia",
-              "gb": "Selection of Italian cured meats, served with focaccia"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/salumi.png",
-            "price": 12,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Mozzarella in Carrozza",
-              "gb": "Fried Mozzarella Sandwich"
-            },
-            "description": {
-              "it": "Mozzarella fritta con crosta dorata di pane",
-              "gb": "Fried mozzarella with a golden bread crust"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/mozzarella.png",
-            "price": 7,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "uova",
-                "gb": "eggs"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Frittura Mista",
-              "gb": "Mixed Fry"
-            },
-            "description": {
-              "it": "Verdure e pesce pastellati croccanti",
-              "gb": "Crispy battered vegetables and fish"
-            },
-            "price": 9,
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/frittura.png",
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "uova",
-                "gb": "eggs"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              },
-              {
-                "it": "pesce",
-                "gb": "fish"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": {
-          "it": "Pizze classiche",
-          "gb": "Classic Pizzas"
-        },
-        "icon": "mdi-pizza",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_classiche.jpg",
-        "items": [
-          {
-            "name": {
-              "it": "Margherita",
-              "gb": "Margherita"
-            },
-            "description": {
-              "it": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-              "gb": "San Marzano tomato, fior di latte mozzarella, basil"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-            "price": 7,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Marinara",
-              "gb": "Marinara"
-            },
-            "description": {
-              "it": "Pomodoro, aglio fresco, origano e olio EVO",
-              "gb": "Tomato, fresh garlic, oregano and extra virgin olive oil"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_marinara.png",
-            "price": 6,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Diavola",
-              "gb": "Diavola (Spicy Salami)"
-            },
-            "description": {
-              "it": "Mozzarella, salame piccante, pomodoro",
-              "gb": "Mozzarella, spicy salami, tomato"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-            "price": 8,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Capricciosa",
-              "gb": "Capricciosa"
-            },
-            "description": {
-              "it": "Mozzarella, prosciutto, funghi, carciofi e olive",
-              "gb": "Mozzarella, ham, mushrooms, artichokes and olives"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-            "price": 9,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": {
-          "it": "Pizze Gourmet",
-          "gb": "Gourmet Pizzas"
-        },
-        "icon": "mdi-star",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_gourmet.png",
-        "items": [
-          {
-            "name": {
-              "it": "La Melone",
-              "gb": "The Melon"
-            },
-            "description": {
-              "it": "Focaccina croccante, Prosciutto crudo di Parma, Burrata artigianale in crema, Velo di melone",
-              "gb": "Crispy focaccina, Parma ham, artisan burrata cream, thin slices of melon"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-            "price": 15,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "O Fiore Mio",
-              "gb": "O Fiore Mio"
-            },
-            "description": {
-              "it": "Fiori di zucca, mozzarella fior di latte e della burratina artigianale",
-              "gb": "Zucchini flowers, fior di latte mozzarella and artisan burratina"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_ofioremio.png",
-            "price": 13,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "TAHINA",
-              "gb": "TAHINA"
-            },
-            "description": {
-              "it": "Mozzarella fior di latte, Babaganoush, Porchetta Trevigiana di nostra produzione, Pomodorini confit, Sesamo nero tostato",
-              "gb": "Fior di latte mozzarella, babaganoush, our homemade Treviso porchetta, confit cherry tomatoes, toasted black sesame"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_tahina.png",
-            "price": 14,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              },
-              {
-                "it": "lattosio",
-                "gb": "lactose"
-              },
-              {
-                "it": "sesamo",
-                "gb": "sesame"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": {
-          "it": "Beverage",
-          "gb": "Beverages"
-        },
-        "icon": "mdi-cup-water",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bevande.png",
-        "items": [
-          {
-            "name": {
-              "it": "Acqua Naturale",
-              "gb": "Still Water"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-            "description": {
-              "it": "Bottiglia da 50cl",
-              "gb": "50cl bottle"
-            },
-            "price": 1.5,
-            "allergens": []
-          },
-          {
-            "name": {
-              "it": "Acqua Frizzante",
-              "gb": "Sparkling Water"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-            "description": {
-              "it": "Bottiglia da 50cl",
-              "gb": "50cl bottle"
-            },
-            "price": 1.5,
-            "allergens": []
-          },
-          {
-            "name": {
-              "it": "Coca Cola",
-              "gb": "Coca Cola"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/cocacola.png",
-            "description": {
-              "it": "Lattina da 33cl",
-              "gb": "33cl can"
-            },
-            "price": 2.5,
-            "allergens": []
-          },
-          {
-            "name": {
-              "it": "Fanta",
-              "gb": "Fanta"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/fanta.png",
-            "description": {
-              "it": "Lattina da 33cl",
-              "gb": "33cl can"
-            },
-            "price": 2.5,
-            "allergens": []
-          },
-          {
-            "name": {
-              "it": "Tè al Limone",
-              "gb": "Lemon Iced Tea"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/estathe.png",
-            "description": {
-              "it": "Bottiglietta fredda da 50cl",
-              "gb": "Cold 50cl bottle"
-            },
-            "price": 3,
-            "allergens": []
-          }
-        ]
-      },
-      {
-        "name": {
-          "it": "Birre artigianali",
-          "gb": "Craft Beers"
-        },
-        "icon": "mdi-beer",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/birre.png",
-        "items": [
-          {
-            "name": {
-              "it": "IPA Artigianale",
-              "gb": "Craft IPA"
-            },
-            "description": {
-              "it": "India Pale Ale luppolata e agrumata, 6.5%",
-              "gb": "Hoppy and citrusy India Pale Ale, 6.5%"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-            "price": 6,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Stout Nera",
-              "gb": "Dark Stout"
-            },
-            "description": {
-              "it": "Birra scura con note di caffè, 7%",
-              "gb": "Dark beer with coffee notes, 7%"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/stout.png",
-            "price": 6.5,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Weiss",
-              "gb": "Weissbier"
-            },
-            "description": {
-              "it": "Birra di frumento, dolce e leggermente fruttata",
-              "gb": "Wheat beer, sweet and slightly fruity"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/weiss.png",
-            "price": 6,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              }
-            ]
-          },
-          {
-            "name": {
-              "it": "Blonde Ale",
-              "gb": "Blonde Ale"
-            },
-            "description": {
-              "it": "Birra chiara, leggera e rinfrescante",
-              "gb": "Light, refreshing pale beer"
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/blondale.png",
-            "price": 5.5,
-            "allergens": [
-              {
-                "it": "glutine",
-                "gb": "gluten"
-              }
-            ]
-          }
-        ]
-      }
+  "store": {
+    "projectName": "carpediembisceglie.it",
+    "stripeProduct": false,
+    "province": "Barletta-Andria-Trani",
+    "cities": [
+      "Lanzo Torinese",
+      "Cafasse"
     ]
   }
 }

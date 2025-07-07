@@ -24,9 +24,9 @@
                 <v-btn class="text-none" :to="`/product/${product.id}`" variant="flat" :color="info.primaryColor">
                   {{ getText(store.content?.details) || 'Dettagli' }}
                 </v-btn>
-                <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)">
+                <!-- <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)">
                   {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
-                </v-btn>
+                </v-btn> -->
               </v-card-actions>
             </v-card>
           </v-col>
