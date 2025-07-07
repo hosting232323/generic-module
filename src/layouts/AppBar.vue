@@ -19,9 +19,10 @@
       <div class="bar"></div>
     </div>
     <v-app-bar-title>
-      <div class="d-flex align-center" @click="goHome">
-        <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo cursor-pointer">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;" class="cursor-pointer">{{ info.name }}</b>
+      <div class="d-flex align-center" style="cursor: pointer;" @click="goHome">
+        <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
+        <b style="margin-left: 10px;" class="logo-text"><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
       </div>
     </v-app-bar-title>
     <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
@@ -30,9 +31,10 @@
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
     <v-app-bar-title>
-      <div class="d-flex align-center" @click="goHome">
-        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo cursor-pointer">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;" class="cursor-pointer">{{ info.name }}</b>
+      <div class="d-flex align-center" style="cursor: pointer;" @click="goHome">
+        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
+        <b style="margin-left: 10px;" class="logo-text"><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
       </div>
     </v-app-bar-title>
 
@@ -122,7 +124,6 @@ const items = computed(() => {
     }));
 
   return [
-    { title: 'Home', type: 'home' },
     ...anchorItems, 
     ...menuItems
   ];
@@ -138,9 +139,6 @@ const link = (item) => {
     case 'internalLink':
       router.push(item.path);
       break;
-    case 'home':
-      goHome();
-      break;
   }
 };
 
@@ -150,6 +148,10 @@ const goHome = () => {
 
   if (currentPath === targetPath) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (window.location.hash) {
+      history.replaceState(null, '', currentPath);
+    }
   } else {
     router.push(targetPath);
   }
@@ -171,6 +173,21 @@ watch(drawer, (newVal) => {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap');
+
+.logo-text {
+  font-family: "Chau Philomene One", sans-serif;
+  font-style: normal;
+  text-transform: u;
+  text-shadow: 
+  -1px -1px 0 #000,  
+   1px -1px 0 #000,
+  -1px  1px 0 #000,
+   1px  1px 0 #000;
+  font-size: 23px;
+  letter-spacing: 4px;
+}
+
 .app-logo {
   height: 40px;
   max-width: 150px;

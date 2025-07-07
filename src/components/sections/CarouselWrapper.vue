@@ -15,7 +15,7 @@
       </v-col>
     </transition-group>
 
-    <div v-if="totalGroups > 1" class="controls-with-indicators mt-4">
+    <div v-if="totalGroups > 1" class="controls-with-indicators">
       <v-btn icon @click="prevGroup" variant="text" class="nav-arrow">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
