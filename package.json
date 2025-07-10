@@ -19,6 +19,7 @@
     "pinia-plugin-persistedstate": "^4.2.0",
     "roboto-fontface": "*",
     "uuid": "10.0.0",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
     "vue": "^3.3.4",
     "vue-i18n": "^9.10.1",
     "vue-router": "^4.0.0",

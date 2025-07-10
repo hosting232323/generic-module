@@ -16,12 +16,12 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import { useMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 import http from '@/utils/http';
+import { resolveImg } from '@/utils/mobile';
+
 
 const { getText } = useLanguageStore();
-const { resolveImg } = useMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 
 const articles = ref([]);

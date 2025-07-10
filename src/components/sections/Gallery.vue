@@ -13,9 +13,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { useMobileUtils } from '@/utils/mobile';
+import { setupMobileUtils, resolveImg } from '@/utils/mobile';
 
-const { isMobile, resolveImg } = useMobileUtils();
+const isMobile = setupMobileUtils();
 const { id, content, info } = defineProps(['id', 'content', 'info']);
 
 const selected = ref(0);

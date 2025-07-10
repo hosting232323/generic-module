@@ -1,6 +1,7 @@
 import vue from '@vitejs/plugin-vue';
 import ViteFonts from 'unplugin-fonts/vite';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 import dotenv from "dotenv";
 import { defineConfig } from 'vite';
@@ -30,7 +31,8 @@ export default defineConfig({
           }
         ]
       }
-    })
+    }),
+    cssInjectedByJsPlugin()
   ],
   resolve: {
     alias: {
@@ -42,6 +44,22 @@ export default defineConfig({
     port: 3000
   },
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    lib: {
+      entry: fileURLToPath(new URL('./src/components/index.js', import.meta.url)),
+      name: 'generic_frontend',
+      fileName: (format) => `generic_frontend.${format}.js`,
+      formats: ['es', 'cjs']
+    },
+    rollupOptions: {
+      external: ['vue', 'vuetify', 'pinia'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          vuetify: 'Vuetify',
+          pinia: 'Pinia'
+        }
+      }
+    }
   }
 });
