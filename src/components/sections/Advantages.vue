@@ -63,3 +63,26 @@ const { getText } = useLanguageStore();
 const isMobile = setupMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 </script>
+
+<style scoped>
+.img-wrapper {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+.img-wrapper.mobile-height {
+  height: 400px !important;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel--mobile >>> .v-btn.v-btn--icon {
+  width: 35px !important;
+  height: 35px !important;
+  font-size: 14px !important;
+}
+</style>
