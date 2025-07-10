@@ -9,7 +9,7 @@
               <v-icon :icon="contact.icon" :color="info.primaryColor" />
             </template>
             <v-list-item-title style="white-space: normal;">
-              <a :href="contact.url" target="_blank" style="text-decoration: none; color: inherit;" v-html="getText(contact.title)"/>
+              <a :href="contact.url" target="_blank" class="contact__text" v-html="getText(contact.title)"/>
             </v-list-item-title>
           </v-list-item>
         </v-list><br>
@@ -70,3 +70,9 @@ const sendMail = () => {
   }
 };
 </script>
+
+<style scoped>
+.contact__text {
+  white-space: normal;
+}
+</style>

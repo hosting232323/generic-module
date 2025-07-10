@@ -1,6 +1,7 @@
 import vue from '@vitejs/plugin-vue';
 import ViteFonts from 'unplugin-fonts/vite';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 import dotenv from "dotenv";
 import { defineConfig } from 'vite';
@@ -30,7 +31,8 @@ export default defineConfig({
           }
         ]
       }
-    })
+    }),
+    cssInjectedByJsPlugin()
   ],
   resolve: {
     alias: {
