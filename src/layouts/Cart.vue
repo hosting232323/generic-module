@@ -117,10 +117,15 @@ const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
   const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
+  const payload = {
+    user_id: store.userId,
+    products: products.value
+  };
+
   const response = await fetch(`${hostname}stripe-session`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(products.value)
+    body: JSON.stringify(payload)
   });
 
   const data = await response.json();
