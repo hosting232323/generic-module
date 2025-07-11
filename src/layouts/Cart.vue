@@ -129,8 +129,8 @@ const placeOrder = async () => {
   });
 
   const data = await response.json();
-  if (data.url)
-    window.location.href = data.url;
+  if (data.checkout_url)
+    window.location.href = data.checkout_url;
   else if (data.status == 'ko')
     alert(data.message);
 };
