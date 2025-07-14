@@ -5,7 +5,7 @@
         <h3 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Puoi venirci a conoscere qui'" />
         <div ref="mapContainer" style="width: 100%; height: 400px; position: relative;" />
         <div id="popup" ref="popup" class="map-popup" v-show="showPopup">
-          <a :href="`https://www.google.com/maps/dir/?api=1&destination=${content.coordinates[1]},${content.coordinates[0]}`" target="_blank">
+          <a :href="`https://www.google.com/maps/dir/?api=1&destination=${content.coordinates[1]},${content.coordinates[0]}`" target="_blank" class="btn-directions">
             🧭 Ottieni indicazioni
           </a>
         </div>
@@ -49,7 +49,7 @@ onMounted(() => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKEND}/colorize-image?color=%23${info.primaryColor.substring(1)}`
+      src: 'https://openlayers.org/en/latest/examples/data/icon.png'
     })
   });
 
@@ -93,6 +93,18 @@ onMounted(() => {
       popupOverlay.setPosition(undefined);
     }
   });
+
+  // Per gestire anche il click
+  map.on('click', function (evt) {
+    const feature = map.forEachFeatureAtPixel(evt.pixel, f => f);
+    if (feature === iconFeature) {
+      showPopup.value = true;
+      popupOverlay.setPosition(fromLonLat(content.coordinates));
+    } else {
+      showPopup.value = false;
+      popupOverlay.setPosition(undefined);
+    }
+  });
 });
 </script>
 
@@ -111,4 +123,17 @@ onMounted(() => {
   z-index: 1000;
   white-space: nowrap;
 }
+
+.map-popup::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;  /* posizione sotto il popup */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 10px 0 10px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1));
+}
+
 </style>
