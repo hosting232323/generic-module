@@ -25,10 +25,10 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
+import { setupMobileUtils, resolveImg } from '@/utils/mobile';
 
-const { isMobile, resolveImg } = useMobileUtils();
+const isMobile = setupMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 const{ getText } = useLanguageStore();
 
