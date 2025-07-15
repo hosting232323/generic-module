@@ -21,9 +21,9 @@
 </template>
 
 <script setup>
-import { useMobileUtils } from '@/utils/mobile';
+import { setupMobileUtils } from '@/utils/mobile';
 
-const { isMobile } = useMobileUtils();
+const isMobile = setupMobileUtils()
 const { content, info } = defineProps(['content', 'info']);
 </script>
 

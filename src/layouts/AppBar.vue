@@ -12,11 +12,10 @@
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     <v-app-bar-title>
-      <div v-if="info.logo" class="d-flex align-center">
-        <img :src="info.logo" alt="Logo" class="app-logo">
-        <b style="margin-left: 10px;">{{ info.name }}</b>
+      <div class="d-flex align-center">
+        <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
       </div>
-      <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
     <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
     <Language v-if="multilingualActive" />
@@ -25,11 +24,10 @@
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
     <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <v-app-bar-title>
-      <div v-if="info.logo" class="d-flex align-center">
-        <img :src="info.logo" alt="Logo" class="app-logo">
-        <b style="margin-left: 10px;">{{ info.name }}</b>
+      <div class="d-flex align-center">
+        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
       </div>
-      <b v-else>{{ info.name }}</b>
     </v-app-bar-title>
 
     <div class="desktop-menu d-flex justify-center align-center" >
@@ -48,30 +46,26 @@ import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
-import { useMobileUtils } from '@/utils/mobile';
-import { useRouter, useRoute } from 'vue-router';
+import { setupMobileUtils } from '@/utils/mobile';
 
 import Cart from './Cart.vue';
 import Language from '@/components/sections/Language.vue';
 import { useLanguageStore } from '@/stores/language';
 
 const { getText, getAncor } = useLanguageStore();
-
-
 const orderStore = useOrderStore();
 
 const drawer = ref(null);
-const route = useRoute();
-const router = ref(useRouter());
-
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+
 const info = data.value.info;
 const content = data.value.components;
 const addOn = data.value.addOn;
+
 const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
-const { isMobile } = useMobileUtils();
+const isMobile = setupMobileUtils();
 
 const link = (item) => {
   if (item.type === 'ancor') {
@@ -85,7 +79,7 @@ const link = (item) => {
   } else if (item.type === 'externalLink') {
     window.open(item.path, '_blank');
   } else if (item.type === 'internalLink') {
-    router.value.push(item.path);
+    window.location.href = item.path;
   }
 }
 

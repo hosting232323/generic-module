@@ -11,7 +11,6 @@
 <script setup>
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useHead } from '@vueuse/head';
 import { useDataStore } from '@/stores/data';
 import { useLanguageStore } from '@/stores/language';
 
@@ -51,12 +50,5 @@ const sections = computed(() => {
     }
     return true;
   });
-});
-
-useHead({
-  title: 'Home Page',
-  meta: [
-    { name: 'Fast Site', content: 'This is the home page' }
-  ]
 });
 </script>

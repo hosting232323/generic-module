@@ -251,9 +251,10 @@
   ],
   "info": {
     "name": "FastSite",
+    "logo": "https://imgur.com/mNAxeqq.png",
+    "logoMode": "both",
     "primaryColor": "#2F4F4F",
     "secondaryColor": "#D2B48C",
-    "logo": "https://imgur.com/mNAxeqq.png",
     "chattyId": 10,
     "locales": [
       "it", "gb"

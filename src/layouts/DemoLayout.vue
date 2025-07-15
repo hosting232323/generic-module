@@ -4,7 +4,7 @@
     <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
     <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
     <v-main :style="backgroundStyle">
-      <router-view />
+      <Home />
     </v-main>
     <Footer />
   </v-app>
@@ -14,7 +14,10 @@
 import UpArrow from './UpArrow.vue';
 import AppBar from './AppBar.vue';
 import Footer from './Footer.vue';
+import Home from '../views/Home.vue';
+
 import SocialBubbles from './SocialBubbles.vue';
+import { defineProps } from 'vue';
 
 import { storeToRefs } from 'pinia';
 import { onMounted, watch, ref, computed } from 'vue';
@@ -24,6 +27,10 @@ const showChatty = ref(false);
 const showBubbles = ref(false);
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
+
+const props = defineProps({
+  json: Object
+})
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage) {
@@ -41,7 +48,7 @@ const backgroundStyle = computed(() => {
 });
 
 onMounted(() => {
-  dataStore.initData();
+  dataStore.initDataByJson(props.json);
 });
 
 watch(ready, (newValue) => {
