@@ -5,11 +5,14 @@
         <h3 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Puoi venirci a conoscere qui'"/>
         <div ref="mapContainer" style="width: 100%; height: 400px;" />
         <div ref="popupContainer" class="ol-popup">
+          <v-icon icon="mdi-window-close" class="popup-close-btn" @click="closePopup"/>
           <div ref="popupContent" class="d-flex flex-column align-start" >
-            <p style="font-size: 13px;" class="mb-2">{{ content.address }}</p>
-            <a :href="link" target="_blank" rel="noopener noreferrer" :color="info.primaryColor" style="text-decoration: none; font-size: 13px;">
-              <v-icon icon="mdi-directions" :color="info.primaryColor" />
-                Navigazione
+            <v-img :src="info.logo" width="80" height="auto" object-fit style="margin-bottom: 10px;"/>
+            <p style="font-size: 14px; font-weight: bold;" class="mb-1">{{ info.name }}</p>
+            <p style="font-size: 13px;" class="mb-1">{{ content.address }}</p>
+            <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.primaryColor }">
+              <v-icon icon="mdi-directions" :color="info.primaryColor" style="font-size: 16px;" class="mr-1"/>
+              Navigazione
             </a>
           </div>
           <div class="ol-popup-arrow"></div>
@@ -58,7 +61,7 @@ onMounted(async () => {
       anchor: [0.5, 46],
       anchorXUnits: 'fraction',
       anchorYUnits: 'pixels',
-      src: 'https://openlayers.org/en/latest/examples/data/icon.png'
+      src: `${import.meta.env.VITE_HOSTNAME_GENERICBACKEND}/colorize-image?color=%23${info.primaryColor.substring(1)}`
     })
   });
 
@@ -93,7 +96,7 @@ onMounted(async () => {
       duration: 250
     },
     positioning: 'bottom-center',
-    offset: [0, -100]
+    offset: [0, -235]
   });
 
   map.addOverlay(overlay);
@@ -111,17 +114,27 @@ onMounted(async () => {
     }
   });
 });
+
+function closePopup() {
+  overlay.setPosition(undefined);
+}
 </script>
 
 <style scoped>
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 13px;
+}
 .ol-popup {
   position: absolute;
   background: white;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 8px 12px;
-  border: 1px solid #ccc;
   min-width: 220px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, .2);
   pointer-events: auto;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -143,5 +156,24 @@ onMounted(async () => {
   transform: translateX(-50%);
   filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
   z-index: 1001;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  color: #999;
+  transition: color 0.2s;
+  z-index: 1002;
+}
+
+.popup-close-btn:hover {
+  color: #333;
 }
 </style>
