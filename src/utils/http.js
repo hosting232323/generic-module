@@ -20,6 +20,23 @@ const getRequest = (endpoint, params, func) => {
   });
 };
 
+const getRequestDemo = (hostname, endpoint, params, func) => {
+  const url = new URL(`${hostname}${endpoint}`);
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+  fetch(url, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
+  }).then(response => {
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    func(data);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
+  });
+};
 
 const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = undefined) => {
   fetch(`${hostnameGenericBackend}${endpoint}`, {
@@ -102,5 +119,6 @@ export default {
   getRequest,
   postRequestGenericBE,
   postRequestFileGenericBE,
-  getRequestGenericBE
+  getRequestGenericBE,
+  getRequestDemo
 };

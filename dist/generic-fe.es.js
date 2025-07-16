@@ -18,7 +18,21 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
   }).catch((a) => {
     console.error("Errore nella richiesta:", a);
   });
-}, Cm = (t, e, n, i = "POST", a = void 0) => {
+}, Cm = (t, e, n, i) => {
+  const a = new URL(`${t}${e}`);
+  Object.keys(n).forEach((o) => a.searchParams.append(o, n[o])), fetch(a, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+  }).then((o) => {
+    if (!o.ok)
+      throw new Error(`Errore nella risposta del server: ${o.status} - ${o.statusText}`);
+    return o.json();
+  }).then((o) => {
+    i(o);
+  }).catch((o) => {
+    console.error("Errore nella richiesta:", o);
+  });
+}, ym = (t, e, n, i = "POST", a = void 0) => {
   fetch(`${ul}${t}`, {
     method: i,
     headers: dl(),
@@ -32,7 +46,7 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
   }).catch((o) => {
     console.error("Errore nella richiesta:", o);
   });
-}, ym = (t, e, n, i = "POST", a = void 0) => {
+}, pm = (t, e, n, i = "POST", a = void 0) => {
   const o = new FormData();
   o.append("file", e), fetch(`${ul}${t}`, {
     method: i,
@@ -47,7 +61,7 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
   }).catch((r) => {
     console.error("Errore nella richiesta:", r);
   });
-}, pm = (t, e, n, i = "GET", a = void 0) => {
+}, _m = (t, e, n, i = "GET", a = void 0) => {
   const o = new URL(`${ul}${t}`);
   Object.keys(e).forEach((r) => o.searchParams.append(r, e[r])), fetch(o, {
     method: i,
@@ -68,26 +82,32 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
   return t ? e.Accept = "*/*" : e["Content-Type"] = "application/json", e;
 }, hl = (t, e, n) => {
   t.status == "session" ? (alert("Sessione scaduta"), n.push("/")) : e(t);
-}, br = {
+}, Ya = {
   getRequest: vm,
-  postRequestGenericBE: Cm,
-  postRequestFileGenericBE: ym,
-  getRequestGenericBE: pm
-}, _m = ["Chatty", "VirtualTour", "Multilingual", "Blog"], Sm = [{ content: { type: "static", title: { it: "Il mio blog", gb: "My blog" }, url: "Scopri di più...", articles: [{ title: "Titolo articolo 1", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 2", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 3", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }] }, type: "blog", menu: "Blog" }, { content: { type: "automatic", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: { it: "Carosello", gb: "Carusel" }, type: "gallery" }, { content: { type: "manual", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: "Galleria", type: "gallery" }, { content: { brands: ["img-01.png", "img-02.png", "img-03.png", "img-04.png"] }, menu: "Brandlist", type: "brandlist" }, { content: { title: { it: "Vantaggi", gb: "Advantages" }, advantages: [{ description: { it: "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.", gb: "We create unique and personalized websites for each client, ensuring a distinctive and professional image." }, image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, name: { it: "Design Personalizzato", gb: "Pers Design" } }, { description: { it: "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.", gb: "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png", name: "SEO Ottimizzato" }, { description: { it: "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.", gb: "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", name: "Responsive Design" }, { description: { it: "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.", gb: "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking." }, image: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"], name: "Velocità di Caricamento Ottimale" }] }, menu: "Vantaggi", type: "advantages" }, { type: "line" }, { content: { title: "Servizi", services: [{ description: "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.", name: "Sito Web Vetrina" }, { description: "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.", name: "Sito Web E-commerce" }, { description: "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.", name: "Ottimizzazione SEO" }, { description: "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.", name: "Gestione Contenuti" }, { description: "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.", name: "Sviluppo Web Personalizzato" }] }, menu: "Servizi", type: "services" }, { type: "line" }, { content: { button: { it: "Cliccami!", gb: "Click on me!" }, description: "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.", image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, orientationDesktop: "left", orientationMobile: "top", subtitle: "Da siti statici a piattaforme complesse", title: "Servizi di Sviluppo Web", url: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png" }, menu: "Sezione doppia", type: "dualSection" }, { content: { title: "I nostri contatti", subtitle: "Contattaci direttamente con questo form", contacts: [{ icon: "mdi-email", title: "giovanni.colasanto@fastsite.it" }, { icon: "mdi-phone", title: "+39 347 876 8340" }, { icon: "mdi-facebook", title: { it: "Seguici su Facebook", gb: "Follow us on Facebook" }, url: "https://www.facebook.com/" }, { icon: "mdi-instagram", title: "Seguici su Instagram", url: "https://www.instagram.com/" }, { icon: "mdi-linkedin", title: "Seguici su LinkedIn", url: "https://www.linkedin.com/in/nomeprofilo" }, { icon: "mdi-twitter", title: "Seguici su X (Twitter)", url: "https://twitter.com/profilo" }, { icon: "mdi-youtube", title: "Guarda il nostro canale YouTube", url: "https://www.youtube.com/@canale" }, { icon: "mdi-music", title: "Seguici su TikTok", url: "https://www.tiktok.com/@utente" }] }, menu: "Contatti", type: "contacts" }, { content: { title: "Puoi venirci a conoscere qui", coordinates: [16.882818, 41.09665], zoom: 9 }, type: "map" }], bm = { name: "FastSite", logo: "https://imgur.com/mNAxeqq.png", logoMode: "both", primaryColor: "#2F4F4F", secondaryColor: "#D2B48C", chattyId: 10, locales: ["it", "gb"], socialBubbles: [{ icon: "mdi-whatsapp", url: "https://twitter.com/profilo" }, { icon: "mdi-instagram", url: "https://twitter.com/profilo" }, { icon: "mdi-facebook", url: "https://twitter.com/profilo" }] }, Mm = { username: "bro.users.info@gmail.com", password: "Ciao1234", addressMode: 1, province: "Barletta-Andria-Trani", cities: ["Lanzo Torinese", "Cafasse"] }, xm = {
-  addOn: _m,
-  components: Sm,
-  info: bm,
-  store: Mm
-}, _n = fo("data", {
+  postRequestGenericBE: ym,
+  postRequestFileGenericBE: pm,
+  getRequestGenericBE: _m,
+  getRequestDemo: Cm
+}, Sm = ["Chatty", "VirtualTour", "Multilingual", "Blog"], bm = [{ content: { type: "static", title: { it: "Il mio blog", gb: "My blog" }, url: "Scopri di più...", articles: [{ title: "Titolo articolo 1", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 2", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 3", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }] }, type: "blog", menu: "Blog" }, { content: { type: "automatic", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: { it: "Carosello", gb: "Carusel" }, type: "gallery" }, { content: { type: "manual", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: "Galleria", type: "gallery" }, { content: { brands: ["img-01.png", "img-02.png", "img-03.png", "img-04.png"] }, menu: "Brandlist", type: "brandlist" }, { content: { title: { it: "Vantaggi", gb: "Advantages" }, advantages: [{ description: { it: "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.", gb: "We create unique and personalized websites for each client, ensuring a distinctive and professional image." }, image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, name: { it: "Design Personalizzato", gb: "Pers Design" } }, { description: { it: "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.", gb: "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png", name: "SEO Ottimizzato" }, { description: { it: "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.", gb: "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", name: "Responsive Design" }, { description: { it: "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.", gb: "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking." }, image: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"], name: "Velocità di Caricamento Ottimale" }] }, menu: "Vantaggi", type: "advantages" }, { type: "line" }, { content: { title: "Servizi", services: [{ description: "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.", name: "Sito Web Vetrina" }, { description: "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.", name: "Sito Web E-commerce" }, { description: "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.", name: "Ottimizzazione SEO" }, { description: "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.", name: "Gestione Contenuti" }, { description: "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.", name: "Sviluppo Web Personalizzato" }] }, menu: "Servizi", type: "services" }, { type: "line" }, { content: { button: { it: "Cliccami!", gb: "Click on me!" }, description: "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.", image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, orientationDesktop: "left", orientationMobile: "top", subtitle: "Da siti statici a piattaforme complesse", title: "Servizi di Sviluppo Web", url: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png" }, menu: "Sezione doppia", type: "dualSection" }, { content: { title: "I nostri contatti", subtitle: "Contattaci direttamente con questo form", contacts: [{ icon: "mdi-email", title: "giovanni.colasanto@fastsite.it" }, { icon: "mdi-phone", title: "+39 347 876 8340" }, { icon: "mdi-facebook", title: { it: "Seguici su Facebook", gb: "Follow us on Facebook" }, url: "https://www.facebook.com/" }, { icon: "mdi-instagram", title: "Seguici su Instagram", url: "https://www.instagram.com/" }, { icon: "mdi-linkedin", title: "Seguici su LinkedIn", url: "https://www.linkedin.com/in/nomeprofilo" }, { icon: "mdi-twitter", title: "Seguici su X (Twitter)", url: "https://twitter.com/profilo" }, { icon: "mdi-youtube", title: "Guarda il nostro canale YouTube", url: "https://www.youtube.com/@canale" }, { icon: "mdi-music", title: "Seguici su TikTok", url: "https://www.tiktok.com/@utente" }] }, menu: "Contatti", type: "contacts" }, { content: { title: "Puoi venirci a conoscere qui", coordinates: [16.882818, 41.09665], zoom: 9 }, type: "map" }], Mm = { name: "FastSite", logo: "https://imgur.com/mNAxeqq.png", logoMode: "both", primaryColor: "#2F4F4F", secondaryColor: "#D2B48C", chattyId: 10, locales: ["it", "gb"], socialBubbles: [{ icon: "mdi-whatsapp", url: "https://twitter.com/profilo" }, { icon: "mdi-instagram", url: "https://twitter.com/profilo" }, { icon: "mdi-facebook", url: "https://twitter.com/profilo" }] }, xm = { username: "bro.users.info@gmail.com", password: "Ciao1234", addressMode: 1, province: "Barletta-Andria-Trani", cities: ["Lanzo Torinese", "Cafasse"] }, Pm = {
+  addOn: Sm,
+  components: bm,
+  info: Mm,
+  store: xm
+}, _n = go("data", {
   state: () => ({
     data: {},
     ready: !1
   }),
   actions: {
     initData(t = void 0) {
-      t ? br.getRequest(`get-data/${t}`, {}, (e) => {
+      t ? Ya.getRequest(`get-data/${t}`, {}, (e) => {
         this.updateData(e.data);
-      }) : this.updateData(xm);
+      }) : this.updateData(Pm);
+    },
+    initDataByDemoLayout(t, e) {
+      Ya.getRequestDemo(t, `get-data/${e}`, {}, (n) => {
+        this.updateData(n.data);
+      });
     },
     initDataByJson(t) {
       this.updateData(t);
@@ -101,7 +121,7 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
   for (const [i, a] of e)
     n[i] = a;
   return n;
-}, Pm = {
+}, Tm = {
   __name: "UpArrow",
   props: {
     bottomOffset: {
@@ -136,7 +156,7 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
       }, null, -1)
     ]), 4));
   }
-}, Bd = /* @__PURE__ */ tn(Pm, [["__scopeId", "data-v-17d069bb"]]), Fd = fo("address", {
+}, Bd = /* @__PURE__ */ tn(Tm, [["__scopeId", "data-v-17d069bb"]]), Fd = go("address", {
   state: () => ({
     firstname: "",
     lastname: "",
@@ -161,7 +181,7 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
     enabled: !0,
     storage: localStorage
   }
-}), kd = fo("order", {
+}), kd = go("order", {
   state: () => ({
     products: []
   }),
@@ -185,40 +205,40 @@ const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) =>
   is(), window.addEventListener("resize", is);
 }), vt(() => {
   window.removeEventListener("resize", is);
-}), fl), Li = (t) => typeof t == "string" ? t : typeof t == "object" ? fl.value ? t.mobile : t.desktop : "", Tm = /* @__PURE__ */ JSON.parse(`{"Torino":["Reano","Usseaux","Salassa","Brandizzo","Pertusio","Cavour","Ivrea","Azeglio","Rivarossa","Salbertrand","Ciconio","Villastellone","Borgiallo","Alpignano","Torre Canavese","Cintano","Cuorgnè","Rivoli","Cantalupa","Brosso","Cafasse","Lanzo Torinese","Romano Canavese","Novalesa","San Carlo Canavese","Rueglio","San Martino Canavese","Lessolo","Rocca Canavese","San Pietro Val Lemina","Giaglione","Orio Canavese","Ceres","Chiaverano","Cumiana","Osasio","Scalenghe","Mercenasco","Candia Canavese","Isolabella","Noasca","Groscavallo","Ribordone","Druento","Cossano Canavese","Villar Perosa","Locana","Piverone","Front","Levone","Settimo Torinese","Alpette","San Giusto Canavese","Bardonecchia","Verolengo","Fenestrelle","Sauze d'Oulx","Colleretto Castelnuovo","Rivara","Macello","Barbania","Gravere","Corio","Valprato Soana","Chianocco","Sestriere","Montalto Dora","Coazze","Meana di Susa","None","Cantoira","Chialamberto","Settimo Rottaro","Arignano","Mombello di Torino","Prali","Busano","Lemie","Val di Chy","Moncalieri","Banchette","Chiesanuova","Borgaro Torinese","Favria","Grosso","San Maurizio Canavese","Albiano d'Ivrea","Rorà","Garzigliana","Exilles","Buriasco","Villar Focchiardo","Castagneto Po","Agliè","Sant'Ambrogio di Torino","Balangero","Rivarolo Canavese","Rivalta di Torino","Andezeno","Cambiano","Beinasco","Valperga","Prarostino","Pinerolo","Vische","Bobbio Pellice","Mattie","Valchiusa","Lombriasco","Baldissero Torinese","Virle Piemonte","Venaria Reale","Mappano","Bollengo","Lusernetta","San Benigno Canavese","Borgone Susa","Balme","Borgofranco d'Ivrea","Montalenghe","Rubiana","Villar Pellice","Ala di Stura","Carignano","Castagnole Piemonte","Villafranca Piemonte","Casalborgone","Perrero","Mathi","Barone Canavese","Mazzè","Brozolo","Roletto","Carema","Germagnano","Trofarello","Issiglio","Perosa Canavese","Montaldo Torinese","Mompantero","Bruino","Villar Dora","Rivalba","Vialfrè","Tavagnasco","Luserna San Giovanni","San Francesco al Campo","Lombardore","Brusasco","Mezzenile","Salza di Pinerolo","Verrua Savoia","Leini","Caselette","Pratiglione","Bibiana","Traves","Condove","Castellamonte","Gassino Torinese","Sauze di Cesana","Givoletto","Carmagnola","Usseglio","Ronco Canavese","Caluso","Loranzè","Forno Canavese","Canischio","Bairo","Sant'Antonino di Susa","Moriondo Torinese","Settimo Vittone","Airasca","Lauriano","Piscina","Andrate","Inverso Pinasca","Rosta","San Giorgio Canavese","Colleretto Giacosa","Caprie","Samone","Roure","Volpiano","Vaie","Grugliasco","Pomaretto","San Germano Chisone","Ceresole Reale","Vallo Torinese","Fiano","San Giorio di Susa","Caravino","Cesana Torinese","Varisella","Bosconero","Monteu da Po","Burolo","Cascinette d'Ivrea","Sciolze","Borgomasino","Pecetto Torinese","Massello","La Loggia","Ozegna","Sparone","Pessinetto","San Gillio","Feletto","Pralormo","Maglione","Caselle Torinese","Torrazza Piemonte","Oglianico","Coassolo Torinese","Viù","Chiomonte","Strambinello","Susa","Frossasco","Porte","Vinovo","Vauda Canavese","Pragelato","Parella","Villarbasse","Traversella","Vigone","Chivasso","Cercenasco","Santena","Giaveno","Pianezza","Riva presso Chieri","Cinzano","Fiorano Canavese","Volvera","Cuceglio","Candiolo","Torre Pellice","Almese","Castiglione Torinese","Piobesi Torinese","Quincinetto","Vistrorio","San Didero","Collegno","Villareggia","Pavone Canavese","Venaus","San Colombano Belmonte","Bussoleno","Oulx","Nichelino","Foglizzo","Baldissero Canavese","San Secondo di Pinerolo","Ingria","Scarmagno","Bruzolo","Quassolo","Moncenisio","Trana","Cavagnolo","San Sebastiano da Po","Poirino","Nomaglio","Chiusa di San Michele","Nole","Vestignè","Angrogna","Robassomero","Vidracco","Val della Torre","Avigliana","Bricherasio","Strambino","Castelnuovo Nigra","Montanaro","Salerano Canavese","Valgioie","Marentino","Ciriè","Campiglione Fenile","Osasco","Orbassano","Prascorsano","Torino","Perosa Argentina","Pont Canavese","Monastero di Lanzo","La Cassa","Pinasca","San Mauro Torinese","Sangano","Pavarolo","Buttigliera Alta","Palazzo Canavese","Quagliuzzo","Claviere","Villanova Canavese","Piossasco","Lusigliè","Pino Torinese","Pancalieri","Chieri","Frassinetto","Pramollo","San Ponso","San Raffaele Cimena","Rondissone"],"Vercelli":["Albano Vercellese","Moncrivello","Villata","Asigliano Vercellese","Alice Castello","Cellio con Breia","Lenta","Mollia","Vocca","Desana","Varallo","Bianzè","Palazzolo Vercellese","Ronsecco","Collobiano","Balmuccia","Campertogno","Valduggia","Cravagliana","Rovasenda","Casanova Elvo","Balocco","Salasco","Formigliana","Pezzana","Gattinara","Olcenengo","Roasio","Crova","Arborio","Rimella","Alagna Valsesia","Piode","Scopello","Costanzana","Carisio","Ghislarengo","Quarona","Villarboit","Boccioleto","Lozzolo","Borgo d'Ale","Prarolo","Serravalle Sesia","Trino","San Giacomo Vercellese","Caresana","Civiasco","Caresanablot","Santhià","Scopa","Fontanetto Po","Cervatto","Buronzo","Carcoforo","Saluggia","Greggio","Alto Sermenza","Oldenico","Quinto Vercellese","Pertengo","Sali Vercellese","Crescentino","Motta de' Conti","Cigliano","Rassa","Lignana","Rossa","Vercelli","Rive","Livorno Ferraris","Tricerro","Tronzano Vercellese","Borgosesia","San Germano Vercellese","Fobello","Pila","Lamporo","Borgo Vercelli","Stroppiana","Guardabosone","Postua"],"Novara":["Fara Novarese","Vaprio d'Agogna","Mandello Vitta","Invorio","Landiona","Divignano","Mezzomerico","Caltignaga","Castellazzo Novarese","Soriso","Vespolate","Cavaglio d'Agogna","Cureggio","Borgolavezzaro","Pella","Casalbeltrame","Pettenasco","Biandrate","Cavallirio","Meina","Casalvolone","Nebbiuno","Oleggio","Varallo Pombia","Casalino","San Pietro Mosezzo","Boca","Ameno","Miasino","Trecate","Carpignano Sesia","Garbagna Novarese","Pogno","Briga Novarese","Grignasco","Gargallo","Vinzaglio","Agrate Conturbia","Vicolungo","Bogogno","Cerano","Marano Ticino","Gattico-Veruno","Barengo","Cameri","Paruzzaro","Suno","Massino Visconti","Prato Sesia","Armeno","Ghemme","Bolzano Novarese","Dormelletto","San Maurizio d'Opaglio","Borgo Ticino","Oleggio Castello","Nibbiola","Colazza","Recetto","Gozzano","Sizzano","Pombia","Fontaneto d'Agogna","Romentino","Comignago","Bellinzago Novarese","Momo","Castelletto sopra Ticino","Lesa","Arona","Romagnano Sesia","Borgomanero","Maggiora","Sillavengo","Briona","Casaleggio Novara","Cressa","Cavaglietto","Pisano","Granozzo con Monticello","Novara","Sozzago","Galliate","Tornaco","Terdobbiate","San Nazzaro Sesia","Orta San Giulio"],"Cuneo":["Baldissero d'Alba","Bergolo","Mango","Margarita","Pamparato","Neviglie","Montelupo Albese","Govone","Farigliano","Castiglione Tinella","Lesegno","Villar San Costanzo","Castellinaldo d'Alba","Venasca","Oncino","Limone Piemonte","Rocca Cigliè","Torre San Giorgio","Sambuco","Rodello","Santo Stefano Roero","Battifollo","Torre Bormida","Cuneo","Casteldelfino","Castelletto Stura","Serralunga d'Alba","Genola","Perletto","Barge","Entracque","Robilante","Busca","Corneliano d'Alba","Canosio","Castellino Tanaro","Guarene","Garessio","Cardè","Lisio","Neive","Niella Tanaro","Rittana","Roccavione","Carrù","Canale","Rossana","Mondovì","Bagnolo Piemonte","Treiso","Vicoforte","Roccabruna","Cigliè","Monasterolo di Savigliano","Monasterolo Casotto","Crissolo","Bra","Pezzolo Valle Uzzone","Scagnello","Prazzo","Sale delle Langhe","Frassino","Pietraporzio","Rocca de' Baldi","Rocchetta Belbo","Valloriate","Villanova Solaro","Boves","Pontechianale","Pianfei","Revello","Montezemolo","Polonghera","Villafalletto","Moretta","Paesana","Sanfrè","Racconigi","Saliceto","Tarantasca","Barolo","Gottasecca","Fossano","Narzole","Montà","Prunetto","Alba","Castelletto Uzzone","Morozzo","Belvedere Langhe","Costigliole Saluzzo","Briga Alta","Monterosso Grana","Piasco","Cervasca","San Michele Mondovì","Moiola","Albaretto della Torre","Borgomale","Roascio","Gaiola","Magliano Alpi","Saluzzo","Trezzo Tinella","Cavallerleone","Nucetto","Lagnasco","Isasca","Bene Vagienna","Verzuolo","Monesiglio","Martiniana Po","Argentera","Valdieri","Marene","Villanova Mondovì","Ceva","Frabosa Sottana","Cossano Belbo","Cortemilia","Montemale di Cuneo","Santa Vittoria d'Alba","Gambasca","Casalgrasso","Ceresole Alba","Frabosa Soprana","Perlo","Bellino","Aisone","Macra","Montaldo di Mondovì","Chiusa di Pesio","Arguello","Piozzo","Stroppo","Caprauna","Elva","Priola","Santo Stefano Belbo","Cravanzana","Brondello","Demonte","Mombasiglio","La Morra","Roccasparvera","Sommariva Perno","Sale San Giovanni","Grinzane Cavour","Savigliano","Murazzano","Verduno","Acceglio","Monchiero","Cherasco","Roburent","Melle","Vernante","Sant'Albano Stura","Monastero di Vasco","Castiglione Falletto","Montaldo Roero","Roccaforte Mondovì","Vottignasco","Sinio","Viola","Borgo San Dalmazzo","Scarnafigi","Niella Belbo","Bagnasco","Cartignano","Envie","Gorzegno","Murello","Lequio Berria","Cavallermaggiore","Marsaglia","Manta","Barbaresco","Camerana","Sampeyre","Sanfront","Rifreddo","Vignolo","Beinette","Benevello","Feisoglio","Cervere","Cerretto Langhe","San Damiano Macra","Caramagna Piemonte","Roddi","Roaschia","Serravalle Langhe","Valgrana","Vinadio","Lequio Tanaro","Dronero","Ostana","Salmour","Mombarcaro","Bossolasco","Castagnito","Centallo","Magliano Alfieri","Torresina","Pradleves","Igliano","Priero","Pocapaglia","Marmora","Dogliani","Alto","Bernezzo","Bonvicino","Monforte d'Alba","Castelnuovo di Ceva","Vezza d'Alba","Novello","Sommariva del Bosco","Briaglia","Torre Mondovì","Bastia Mondovì","Roddino","Monticello d'Alba","Caraglio","Castelmagno","Faule","Diano d'Alba","Monteu Roero","Castino","Somano","Pagno","Piobesi d'Alba","Ruffia","Brossasco","Priocca","Cissone","Bosia","Paroldo","Levice","Clavesana","Montanera","San Benedetto Belbo","Peveragno","Trinità","Celle di Macra","Ormea"],"Asti":["Incisa Scapaccino","Scurzolengo","Villa San Secondo","Cerro Tanaro","Montiglio Monferrato","Cortanze","Baldichieri d'Asti","Belveglio","Villanova d'Asti","Isola d'Asti","San Paolo Solbrito","Quaranti","Grazzano Badoglio","Cocconato","Serole","Sessame","Cassinasco","Moasca","Moransengo-Tonengo","Calosso","Passerano Marmorito","Camerano Casasco","Corsione","Bruno","Celle Enomondo","Cerreto d'Asti","Vinchio","Coazzolo","Cortiglione","Cossombrato","Monastero Bormida","Castell'Alfero","Asti","Cellarengo","Cantarana","Dusino San Michele","Roccaverano","Berzano di San Pietro","Montabone","San Giorgio Scarampi","Montegrosso d'Asti","Fontanile","Frinco","Vaglio Serra","Buttigliera d'Asti","Tonco","Montemagno Monferrato","Capriglio","Bubbio","Villafranca d'Asti","Viarigi","Penango","Maranzana","Rocca d'Arazzo","San Martino Alfieri","Aramengo","Costigliole d'Asti","Rocchetta Palafea","Castelnuovo Belbo","Soglio","Cisterna d'Asti","Castelnuovo Don Bosco","Castello di Annone","Refrancore","Revigliasco d'Asti","Rocchetta Tanaro","Nizza Monferrato","Piea","Cunico","Ferrere","Montafia","Robella","Canelli","Grana Monferrato","Calamandrana","Calliano Monferrato","Albugnano","Montaldo Scarampi","Olmo Gentile","Castel Boglione","Mombercelli","Antignano","Mongardino","Portacomaro","San Marzano Oliveto","Azzano d'Asti","Castellero","Roatto","Maretto","Cortazzone","Casorzo Monferrato","Castelnuovo Calcea","Tigliole","Moncucco Torinese","Settime","Moncalvo","Castelletto Molina","Cinaglio","Castagnole Monferrato","Pino d'Asti","Piovà Massaia","Cessole","Valfenera","Mombaldone","Mombaruzzo","Montechiaro d'Asti","Chiusano d'Asti","Vigliano d'Asti","Loazzolo","Vesime","Monale","Viale","Castagnole delle Lanze","Agliano Terme","Cortandone","Castel Rocchero","San Damiano d'Asti"],"Alessandria":["Cereseto","Malvicino","Volpeglino","Avolasca","Fubine Monferrato","Vignole Borbera","Alice Bel Colle","Pareto","Gamalero","Melazzo","Bosco Marengo","Montegioco","Conzano","Alluvioni Piovera","Felizzano","Sala Monferrato","Acqui Terme","Prasco","Tagliolo Monferrato","Borgo San Martino","Gremiasco","Masio","Castelnuovo Scrivia","Casale Monferrato","Fabbrica Curone","Valmacca","Morsasco","Valenza","Pomaro Monferrato","Dernice","Molare","Borghetto di Borbera","Basaluzzo","Carrosio","Castelletto Merli","Monleale","Ponti","Trisobbio","Cerreto Grue","Montechiaro d'Acqui","Cella Monte","Merana","Cavatore","Spigno Monferrato","Orsara Bormida","Bozzole","San Giorgio Monferrato","Occimiano","Villamiroglio","Carentino","Pontestura","Oviglio","Terzo","Balzola","Voltaggio","Carbonara Scrivia","Rocchetta Ligure","Sarezzano","Rocca Grimalda","Morano sul Po","Ticineto","Stazzano","Fresonara","Strevi","Berzano di Tortona","Serralunga di Crea","Terruggia","Ponzano Monferrato","Arquata Scrivia","Tassarolo","Solero","Cantalupo Ligure","Cremolino","Bassignana","Frugarolo","Ponzone","Silvano d'Orba","Denice","Casal Cermelli","Rivarone","Solonghello","Brignano-Frascata","Montaldeo","Castelletto d'Erro","Francavilla Bisio","Pozzolo Formigaro","Molino dei Torti","Villalvernia","Volpedo","Capriata d'Orba","Carrega Ligure","Momperone","Viguzzolo","Mornese","Villanova Monferrato","Cartosio","Fraconalto","Grognardo","Montecastello","Pecetto di Valenza","Lu e Cuccaro Monferrato","Albera Ligure","Bistagno","Belforte Monferrato","Frassineto Po","Guazzora","Ozzano Monferrato","Visone","Casaleggio Boiro","Cassinelle","Grondona","Altavilla Monferrato","Garbagna","Sezzadio","Murisengo","Castelspina","Ricaldone","Castelnuovo Bormida","Isola Sant'Antonio","Castelletto d'Orba","Montacuto","Sant'Agata Fossili","Villadeati","Vignale Monferrato","Tortona","Castellar Guidobono","Ovada","Bergamasco","Pozzol Groppo","Quattordio","Rivalta Bormida","Quargnento","Alessandria","Alzano Scrivia","Treville","Villaromagnano","Camino","Novi Ligure","Rosignano Monferrato","Montaldo Bormida","Carezzano","Montemarzino","Serravalle Scrivia","Coniolo","San Salvatore Monferrato","Roccaforte Ligure","Predosa","Spineto Scrivia","Odalengo Piccolo","San Sebastiano Curone","Cassano Spinola","Giarole","Cabella Ligure","Moncestino","Carpeneto","Gavi","Sardigliano","Olivola","Frascaro","Ottiglio","Costa Vescovato","Casalnoceto","Gabiano","Odalengo Grande","Casasco","Castellazzo Bormida","Paderna","Bosio","San Cristoforo","Mirabello Monferrato","Frassinello Monferrato","Mongiardino Ligure","Sale","Castellania Coppi","Borgoratto Alessandrino","Pontecurone","Camagna Monferrato","Castelletto Monferrato","Pietra Marazzi","Cerrina Monferrato","Lerma","Cassine","Mombello Monferrato","Alfiano Natta","Parodi Ligure","Morbello","Pasturana"],"Biella":["Crevacuore","Cavaglià","Ponderano","Viverone","Quaregna Cerreto","Sagliano Micca","Miagliano","Vigliano Biellese","Camandona","Piatto","Massazza","Campiglia Cervo","Bioglio","Rosazza","Veglio","Salussola","Vallanzengo","Graglia","Zubiena","Benna","Camburzano","Portula","Coggiola","Verrone","Strona","Ailoche","Sala Biellese","Muzzano","Cossato","Andorno Micca","Castelletto Cervo","Dorzano","Villa del Bosco","Magnano","Sandigliano","Zumaglia","Brusnengo","Biella","Gifflenga","Zimone","Mongrando","Sordevolo","Donato","Valle San Nicolao","Villanova Biellese","Candelo","Caprile","Pettinengo","Curino","Tollegno","Valdengo","Cerrione","Occhieppo Inferiore","Pralungo","Ronco Biellese","Netro","Callabiana","Roppolo","Masserano","Mezzana Mortigliengo","Tavigliano","Occhieppo Superiore","Lessona","Piedicavallo","Mottalciata","Valdilana","Torrazzo","Ternengo","Casapinta","Sostegno","Gaglianico","Borriana","Pollone","Pray"],"Verbano-Cusio-Ossola":["Belgirate","Domodossola","Bognanco","Macugnaga","Ornavasso","Nonio","Premia","Vignone","Santa Maria Maggiore","Beura-Cardezza","Caprezzo","Villadossola","Valstrona","Omegna","Trontano","Formazza","Germagno","Toceno","Bannio Anzino","Stresa","Madonna del Sasso","Arola","Cossogno","Oggebbio","Piedimulera","Aurano","Druogno","Pieve Vergonte","Anzola d'Ossola","Craveggia","Gravellona Toce","Intragna","Cannero Riviera","Baceno","Quarna Sotto","Varzo","Masera","Verbania","Crodo","Gurro","Crevoladossola","Miazzina","Premosello-Chiovenda","Cannobio","Massiola","Quarna Sopra","Montescheno","Pallanzeno","Vogogna","Gignese","Mergozzo","Premeno","Ceppo Morelli","Cambiasca","Arizzano","Montecrestese","Re","Valle Cannobina","Antrona Schieranco","Ghiffa","Loreglia","Trasquera","Villette","Bee","Trarego Viggiona","Malesco","Baveno","Borgomezzavalle","Brovello-Carpugnino","Cesara","San Bernardino Verbano","Casale Corte Cerro","Vanzone con San Carlo","Calasca-Castiglione"]}`), wm = { Imperia: ["Mendatica", "Borghetto d'Arroscia", "Montalto Carpasio", "Vallebona", "Aurigo", "Perinaldo", "Diano Castello", "Rezzo", "Borgomaro", "Civezza", "Ventimiglia", "Pietrabruna", "Chiusavecchia", "Dolceacqua", "Cervo", "Villa Faraldi", "San Biagio della Cima", "Molini di Triora", "Diano Marina", "Vallecrosia", "Diano Arentino", "Imperia", "Dolcedo", "Pontedassio", "Pieve di Teco", "Pornassio", "Airole", "Camporosso", "Bordighera", "Isolabona", "Vessalico", "Ceriana", "Triora", "Cesio", "Caravonica", "Taggia", "San Lorenzo al Mare", "Ranzo", "Armo", "Pompeiana", "Cosio d'Arroscia", "Montegrosso Pian Latte", "Riva Ligure", "Rocchetta Nervina", "San Bartolomeo al Mare", "Chiusanico", "Sanremo", "Prelà", "Ospedaletti", "Castel Vittorio", "Santo Stefano al Mare", "Costarainera", "Apricale", "Aquila d'Arroscia", "Castellaro", "Cipressa", "Seborga", "Lucinasco", "Diano San Pietro", "Soldano", "Terzorio", "Vasia", "Pigna", "Badalucco", "Bajardo", "Olivetta San Michele"], Savona: ["Piana Crixia", "Balestrino", "Osiglia", "Spotorno", "Calice Ligure", "Varazze", "Vezzi Portio", "Cengio", "Albissola Marina", "Alassio", "Noli", "Roccavignale", "Ceriale", "Murialdo", "Villanova d'Albenga", "Zuccarello", "Bormida", "Andora", "Boissano", "Borgio Verezzi", "Plodio", "Rialto", "Vado Ligure", "Bergeggi", "Orco Feglino", "Urbe", "Erli", "Savona", "Giusvalla", "Laigueglia", "Testico", "Cairo Montenotte", "Altare", "Nasino", "Onzo", "Quiliano", "Bardineto", "Mioglia", "Tovo San Giacomo", "Casanova Lerrone", "Borghetto Santo Spirito", "Arnasco", "Pontinvrea", "Calizzano", "Giustenice", "Cosseria", "Garlenda", "Mallare", "Millesimo", "Toirano", "Albisola Superiore", "Stella", "Celle Ligure", "Castelbianco", "Magliolo", "Sassello", "Pietra Ligure", "Vendone", "Carcare", "Castelvecchio di Rocca Barbena", "Finale Ligure", "Loano", "Albenga", "Massimino", "Cisano sul Neva", "Pallare", "Stellanello", "Ortovero", "Dego"], Genova: ["Rapallo", "Santa Margherita Ligure", "Lumarzo", "Moneglia", "Rondanina", "Sori", "Isola del Cantone", "Favale di Malvaro", "Propata", "Fascia", "Mezzanego", "Borzonasca", "Campo Ligure", "San Colombano Certenoli", "Campomorone", "Pieve Ligure", "Montoggio", "Carasco", "Rezzoaglio", "Ronco Scrivia", "Rossiglione", "Chiavari", "Gorreto", "Tribogna", "Arenzano", "Masone", "Bargagli", "Sant'Olcese", "Genova", "Cogoleto", "Serra Riccò", "Savignone", "Valbrevenna", "Lorsica", "Moconesi", "Uscio", "Coreglia Ligure", "Davagna", "Orero", "Cogorno", "Tiglieto", "Mignanego", "Casella", "Castiglione Chiavarese", "Recco", "Torriglia", "Montebruno", "Leivi", "Sestri Levante", "Ceranesi", "Zoagli", "Santo Stefano d'Aveto", "Ne", "Lavagna", "Rovegno", "Mele", "Avegno", "Vobbia", "Neirone", "Casarza Ligure", "Busalla", "Portofino", "Cicagna", "Camogli", "Fontanigorda", "Bogliasco", "Crocefieschi"], "La Spezia": ["Calice al Cornoviglio", "Lerici", "Ameglia", "Carro", "Framura", "La Spezia", "Zignago", "Santo Stefano di Magra", "Castelnuovo Magra", "Carrodano", "Rocchetta di Vara", "Borghetto di Vara", "Beverino", "Follo", "Riomaggiore", "Luni", "Pignone", "Portovenere", "Bolano", "Sarzana", "Maissana", "Riccò del Golfo di Spezia", "Vezzano Ligure", "Bonassola", "Levanto", "Vernazza", "Deiva Marina", "Varese Ligure", "Sesta Godano", "Arcola", "Monterosso al Mare", "Brugnato"] }, Em = /* @__PURE__ */ JSON.parse(`{"Varese":["Castronno","Lavena Ponte Tresa","Olgiate Olona","Cassano Valcuvia","Gallarate","Leggiuno","Caronno Pertusella","Sangiano","Origgio","Casciago","Lonate Ceppino","Bardello con Malgesso e Bregano","Cadegliano-Viconago","Cavaria con Premezzo","Cuvio","Cazzago Brabbia","Venegono Inferiore","Albizzate","Buguggiate","Cadrezzate con Osmate","Bisuschio","Varese","Busto Arsizio","Luino","Gazzada Schianno","Vedano Olona","Cantello","Arcisate","Bedero Valcuvia","Agra","Orino","Uboldo","Brezzo di Bedero","Marnate","Masciago Primo","Angera","Gavirate","Jerago con Orago","Brunello","Crosio della Valle","Carnago","Mercallo","Montegrino Valtravaglia","Cocquio-Trevisago","Comerio","Venegono Superiore","Cugliate-Fabiasco","Induno Olona","Cuveglio","Cairate","Valganna","Cunardo","Castello Cabiaglio","Saronno","Morazzone","Mesenzana","Sesto Calende","Luvinate","Besozzo","Caronno Varesino","Mornago","Brinzio","Besnate","Cittiglio","Dumenza","Brusimpiano","Curiglia con Monteviasco","Ranco","Ferno","Samarate","Vergiate","Clivio","Gerenzano","Gorla Minore","Lonate Pozzolo","Maccagno con Pino e Veddasca","Marzio","Golasecca","Cassano Magnago","Brebbia","Ispra","Biandronno","Gemonio","Marchirolo","Tronzano Lago Maggiore","Fagnano Olona","Gornate Olona","Duno","Brissago-Valtravaglia","Sumirago","Azzio","Castelseprio","Viggiù","Inarzo","Cislago","Taino","Solbiate Olona","Casorate Sempione","Casale Litta","Azzate","Oggiona con Santo Stefano","Gorla Maggiore","Besano","Barasso","Ferrera di Varese","Castiglione Olona","Varano Borghi","Comabbio","Cremenaga","Ternate","Castelveccana","Germignaga","Castellanza","Somma Lombardo","Brenta","Saltrio","Monvalle","Laveno-Mombello","Malnate","Porto Valtravaglia","Tradate","Vizzola Ticino","Grantola","Cuasso al Monte","Daverio","Arsago Seprio","Bodio Lomnago","Porto Ceresio","Casalzuigno","Lozza","Solbiate Arno","Travedona-Monate","Cardano al Campo","Rancio Valcuvia","Caravate","Galliate Lombardo"],"Como":["Trezzone","Stazzona","Como","Cusino","Merone","Uggiate con Ronago","Grandate","Appiano Gentile","Maslianico","Eupilio","Lurate Caccivio","Canzo","Brienno","Faggeto Lario","Albese con Cassano","Sorico","Bulgarograsso","Livo","Mariano Comense","Fenegrò","Lomazzo","Solbiate con Cagno","Guanzate","Veleso","Gera Lario","Caslino d'Erba","Ponna","Colverde","Casnate con Bernate","Colonno","Centro Valle Intelvi","Limido Comasco","Monguzzo","Pusiano","Campione d'Italia","Vercana","Luisago","Vertemate con Minoprio","Valbrona","Orsenigo","San Nazzaro Val Cavargna","Albiolo","Griante","Oltrona di San Mamette","Rezzago","Corrido","Cremia","Rodero","Erba","Asso","Moltrasio","Nesso","Bene Lario","Figino Serenza","Turate","Tremezzina","Sala Comacina","Pianello del Lario","Fino Mornasco","Rovellasca","Capiago Intimiano","Castelmarte","Bregnano","Sormano","Brunate","Cabiate","Carlazzo","Menaggio","Montano Lucino","Porlezza","Veniano","Carate Urio","Bizzarone","Valsolda","San Fermo della Battaglia","Claino con Osteno","Anzano del Parco","Torno","Proserpio","Cadorago","Faloppio","Peglio","Olgiate Comasco","Barni","Cermenate","Arosio","Carugo","Bellagio","Val Rezzo","Cernobbio","Novedrate","Cerano d'Intelvi","Cirimido","Villa Guardia","Garzeno","Domaso","San Bartolomeo Val Cavargna","Blevio","Caglio","Rovello Porro","Lasnigo","Laino","Alta Valle Intelvi","Longone al Segrino","Carimate","Cassina Rizzardi","Beregazzo con Figliaro","Lambrugo","Lezzeno","Dongo","Argegno","Schignano","Binago","Lurago Marinone","Cucciago","Alzate Brianza","Locate Varesino","Montemezzo","Lurago d'Erba","Carbonate","Mozzate","Alserio","Pigra","Lipomo","Castelnuovo Bozzente","Cavargna","Blessagno","Magreglio","Dizzasco","Ponte Lambro","Tavernerio","Zelbio","Grandola ed Uniti","Gravedona ed Uniti","Dosso del Liro","Albavilla","Cantù","Brenna","San Siro","Laglio","Inverigo","Montorfano","Musso","Pognana Lario","Plesio","Senna Comasco","Valmorea"],"Sondrio":["Pedesina","Montagna in Valtellina","Gordona","Berbenno di Valtellina","Tirano","Mazzo di Valtellina","Villa di Tirano","Sondrio","Vervio","Chiuro","Delebio","Livigno","Mese","Caiolo","Rasura","Andalo Valtellino","Prata Camportaccio","Piateda","Samolaco","Postalesio","Lanzada","Bianzone","Colorina","Bema","Talamona","Castione Andevenno","Campodolcino","Mello","Ardenno","Valdidentro","Fusine","Grosotto","Tovo di Sant'Agata","Castello dell'Acqua","Morbegno","Poggiridenti","Gerola Alta","Verceia","Cosio Valtellino","Bormio","Albosaggia","Dazio","Tresivio","Civo","Spriana","Cedrasco","Aprica","San Giacomo Filippo","Villa di Chiavenna","Teglio","Tartano","Albaredo per San Marco","Sondalo","Chiavenna","Forcola","Dubino","Faedo Valtellino","Rogolo","Sernio","Novate Mezzola","Chiesa in Valmalenco","Lovero","Traona","Caspoggio","Valfurva","Cino","Madesimo","Valdisotto","Ponte in Valtellina","Val Masino","Piuro","Torre di Santa Maria","Grosio","Cercino","Mantello","Piantedo","Buglio in Monte"],"Milano":["Bellinzago Lombardo","Boffalora sopra Ticino","Mediglia","Busto Garolfo","Motta Visconti","Solaro","Lainate","Albairate","Colturano","Noviglio","Arluno","Dresano","Vizzolo Predabissi","Castano Primo","Cuggiono","Calvignasco","Cesate","Tribiano","Nerviano","Inzago","Locate di Triulzi","Vimodrone","Liscate","Trezzano Rosa","Cassinetta di Lugagnano","Basiglio","Binasco","Pozzo d'Adda","Abbiategrasso","Corbetta","Dairago","Gudo Visconti","Pieve Emanuele","Nosate","Milano","Carugate","Cerro al Lambro","Rho","Pogliano Milanese","Buscate","Ozzero","Settimo Milanese","Morimondo","Sedriano","Peschiera Borromeo","Vermezzo con Zelo","Segrate","Mesero","Vittuone","Cornaredo","Magenta","Rodano","Rosate","San Giorgio su Legnano","Cusano Milanino","Bubbiano","Turbigo","Arconate","Senago","Lacchiarella","Magnago","Settala","Ossona","Cassano d'Adda","San Colombano al Lambro","Cinisello Balsamo","Opera","Robecchetto con Induno","Legnano","Casorezzo","Bareggio","Baranzate","Cesano Boscone","Trezzano sul Naviglio","Marcallo con Casone","Vernate","Cusago","Cormano","Cologno Monzese","Grezzago","Bollate","Rozzano","Cisliano","San Giuliano Milanese","Sesto San Giovanni","Pozzuolo Martesana","Gorgonzola","Santo Stefano Ticino","Bresso","Gessate","Parabiago","Pantigliate","Canegrate","Casarile","Bernate Ticino","Rescaldina","Melegnano","Pregnana Milanese","Truccazzano","Vignate","Besate","Vanzago","Pioltello","Corsico","Bussero","Garbagnate Milanese","San Vittore Olona","Paderno Dugnano","Vaprio d'Adda","Gaggiano","Assago","Novate Milanese","Inveruno","Zibido San Giacomo","Carpiano","Cassina de' Pecchi","Robecco sul Naviglio","Basiano","Cambiago","San Donato Milanese","Cerro Maggiore","Masate","San Zenone al Lambro","Trezzo sull'Adda","Pessano con Bornago","Pero","Villa Cortese","Buccinasco","Vanzaghello","Arese","Paullo","Cernusco sul Naviglio","Melzo"],"Bergamo":["Stezzano","Castro","Verdellino","Sant'Omobono Terme","Zogno","Pognano","Chiuduno","Torre Boldone","Urgnano","Madone","Piazzolo","Arcene","Taleggio","Lovere","Bossico","Bedulita","Carvico","Fara Olivana con Sola","Roncobello","Castelli Calepio","Selvino","Predore","Brembate","Almenno San Salvatore","Filago","Pontida","Treviolo","Zandobbio","Ghisalba","Lallio","Pagazzano","Brumano","Bonate Sotto","Ardesio","Ranzanico","Telgate","Sedrina","Ponteranica","Costa Serina","Cene","Calcinate","Gorlago","Ambivere","San Paolo d'Argon","Leffe","Ranica","Sovere","Pumenengo","Branzi","Fino del Monte","Gazzaniga","Palosco","Albino","Sarnico","Casirate d'Adda","Parre","Valbondione","Albano Sant'Alessandro","Fornovo San Giovanni","Vigano San Martino","Fontanella","Oneta","Mozzo","Solto Collina","Almenno San Bartolomeo","Brignano Gera d'Adda","Gromo","Antegnate","Verdello","Cornalba","Scanzorosciate","Romano di Lombardia","Costa di Mezzate","Spinone al Lago","Corna Imagna","Grone","Clusone","Trescore Balneario","Pontirolo Nuovo","Serina","San Pellegrino Terme","Almè","Moio de' Calvi","Borgo di Terzo","Torre de' Roveri","Presezzo","Gorno","Onore","Dalmine","Paladina","Montello","Lenna","Rota d'Imagna","San Giovanni Bianco","Bergamo","Carona","Casazza","Lurano","Brembate di Sopra","Mozzanica","Gandellino","Pedrengo","Parzanica","Cenate Sopra","Strozza","Colere","Ponte Nossa","Roncola","Villa d'Adda","Bottanuco","Villa d'Ogna","Schilpario","Cusio","Cividate al Piano","Seriate","Alzano Lombardo","Piario","Fonteno","Orio al Serio","Calvenzano","Ubiale Clanezzo","Valtorta","Vilminore di Scalve","Blello","Adrara San Martino","Fuipiano Valle Imagna","Isso","Dossena","Arzago d'Adda","Barzana","Levate","Ornica","Capizzone","Capriate San Gervasio","Palazzago","Valleve","Averara","Bariano","Val Brembilla","Premolo","Comun Nuovo","Cerete","Rovetta","Mezzoldo","Morengo","Olmo al Brembo","Camerata Cornello","Bonate Sopra","Endine Gaiano","Medolago","Pianico","Ciserano","Cavernago","Castel Rozzone","Isola di Fondra","Algua","Caravaggio","Gorle","Cologno al Serio","Fara Gera d'Adda","Treviglio","Cenate Sotto","Curno","Bracca","Cortenuova","Cisano Bergamasco","Credaro","Costa Valle Imagna","Monasterolo del Castello","Songavazzo","Sotto il Monte Giovanni XXIII","Torre Pallavicina","Valgoglio","Chignolo d'Isola","Oltressenda Alta","Rogno","Mapello","Valnegra","Canonica d'Adda","Barbata","Berbenno","Castione della Presolana","Zanica","Entratico","Vedeseta","Gandino","Misano di Gera d'Adda","Cazzano Sant'Andrea","Villa di Serio","Viadanica","Calcio","Calusco d'Adda","Grassobbio","Osio Sopra","Torre de' Busi","Caprino Bergamasco","Villongo","Foppolo","Peia","Gaverina Terme","Colzate","Oltre il Colle","Fiorano al Serio","Cassiglio","Vertova","Aviatico","Adrara San Rocco","Locatello","Santa Brigida","Spirano","Riva di Solto","Osio Sotto","Vigolo","Terno d'Isola","Brusaporto","Sorisole","Carobbio degli Angeli","Azzone","Berzo San Fermo","Villa d'Almè","Bianzano","Piazzatorre","Ponte San Pietro","Casnigo","Grumello del Monte","Suisio","Piazza Brembana","Bolgare","Covo","Luzzana","Gandosso","Nembro","Pradalunga","Valbrembo","Costa Volpino","Martinengo","Azzano San Paolo","Boltiere","Bagnatica","Mornico al Serio","Tavernola Bergamasca","Solza","Foresto Sparso"],"Brescia":["Castel Mella","Provaglio d'Iseo","Coccaglio","Sabbio Chiese","Muscoline","Botticino","Brescia","Odolo","Paisco Loveno","Puegnago del Garda","Bovezzo","Villachiara","Passirano","Darfo Boario Terme","Flero","Orzivecchi","Irma","Pezzaze","Pompiano","Azzano Mella","Urago d'Oglio","Casto","Pontevico","Ospitaletto","Pertica Alta","Monte Isola","Verolavecchia","Marmentino","Caino","Erbusco","Collebeato","Anfo","Marone","Cigole","Manerba del Garda","Orzinuovi","Polaveno","Gussago","Cevo","Magasa","Villa Carcina","Idro","Angolo Terme","Chiari","Gianico","Manerbio","Corzano","Fiesse","Nuvolento","Pavone del Mella","Cellatica","Rezzato","Villanuova sul Clisi","Comezzano-Cizzago","Capriolo","Borno","Milzano","Brione","Lonato del Garda","Pontoglio","Vallio Terme","San Paolo","Palazzolo sull'Oglio","San Felice del Benaco","Niardo","Pralboino","Corteno Golgi","Borgo San Giacomo","Castenedolo","Sarezzo","Mairano","Lodrino","Collio","Alfianello","Monticelli Brusati","Sale Marasino","Bione","Bovegno","Gardone Val Trompia","Montichiari","Castrezzato","Lozio","Sonico","Berlingo","Carpenedolo","Acquafredda","Ceto","Maclodio","Tavernole sul Mella","Cedegolo","Ossimo","Capo di Ponte","Vestone","Vezza d'Oglio","Nuvolera","Barbariga","Sulzano","Bagnolo Mella","Rovato","Limone sul Garda","Pian Camuno","Poncarale","Castegnato","Ponte di Legno","Pertica Bassa","Dello","San Gervasio Bresciano","Desenzano del Garda","Berzo Inferiore","Barghe","Calcinato","Offlaga","Leno","Capriano del Colle","Brandico","Preseglie","Ome","Iseo","Padenghe sul Garda","Gambara","Breno","Lavenone","Ono San Pietro","Piancogno","Tremosine sul Garda","Malonno","Monno","Toscolano-Maderno","Provaglio Val Sabbia","Isorella","Borgosatollo","Edolo","Travagliato","Visano","Lograto","Berzo Demo","Temù","Mazzano","Vobarno","Treviso Bresciano","Longhena","Lumezzane","Gottolengo","Concesio","Malegno","Gardone Riviera","Ghedi","Cerveno","Braone","Montirone","Soiano del Lago","Losine","Remedello","Agnosine","Capovalle","Castelcovati","Valvestino","Gargnano","Cazzago San Martino","Calvagese della Riviera","Paspardo","Salò","Sellero","Trenzano","Torbole Casaglia","Corte Franca","Nave","Polpenazze del Garda","Marcheno","Esine","Incudine","Paratico","Serle","Pisogne","Paitone","Bassano Bresciano","Mura","Cimbergo","Roè Volciano","Prevalle","Cividate Camuno","Vione","Calvisano","Roncadelle","Rodengo Saiano","Seniga","Roccafranca","Verolanuova","Rudiano","Gavardo","Moniga del Garda","Quinzano d'Oglio","Saviore dell'Adamello","Bienno","Cologne","Pozzolengo","Sirmione","Zone","Artogne","Bedizzole","Tignale","San Zeno Naviglio","Bagolino","Paderno Franciacorta","Adro"],"Pavia":["Montalto Pavese","Cilavegna","Casteggio","Valle Salimbene","Albuzzano","Corvino San Quirico","Gambarana","Certosa di Pavia","Pieve del Cairo","Santa Margherita di Staffora","Velezzo Lomellina","Suardi","Spessa","Cassolnovo","Robbio","Giussago","Romagnese","Zenevredo","Corana","Mede","Costa de' Nobili","Montù Beccaria","Rea","Casei Gerola","San Zenone al Po","Battuda","Nicorvo","Lirio","Oliva Gessi","Bastida Pancarana","Rocca Susella","Bagnaria","San Genesio ed Uniti","Godiasco Salice Terme","San Cipriano Po","Zeccone","Santa Maria della Versa","Voghera","Golferenzo","Badia Pavese","Broni","Cecima","Pinarolo Po","Roncaro","Lardirago","Fortunago","Zerbolò","Vistarino","Rovescala","Ponte Nizza","Sartirana Lomellina","Marzano","Confienza","Castelnovetto","Canneto Pavese","Garlasco","Marcignago","Sommo","Varzi","San Damiano al Colle","Borgoratto Mormorolo","Langosco","Vellezzo Bellini","Scaldasole","Colli Verdi","Verretto","Santa Cristina e Bissone","Verrua Po","Olevano di Lomellina","Lomello","Zeme","Bascapè","Brallo di Pregola","Ceranova","Gravellona Lomellina","Cozzo","Semiana","Albonese","Siziano","Borgo Priolo","Trivolzio","Rivanazzano Terme","Barbianello","Villanterio","Galliavola","Silvano Pietra","Menconico","Montesegale","Frascarolo","Magherno","Montescano","Torre d'Arese","Trovo","Castelletto di Branduzzo","Ferrera Erbognone","Candia Lomellina","Torricella Verzate","Tromello","Castana","Inverno e Monteleone","Arena Po","Cervesina","Mezzana Rabattone","Bosnasco","Zinasco","Bereguardo","Casorate Primo","Sannazzaro de' Burgondi","Stradella","Vigevano","Gambolò","Castello d'Agogna","Portalbera","Pancarana","Val di Nizza","Pietra de' Giorgi","Landriano","Valle Lomellina","Volpara","Pavia","Santa Giuletta","Retorbido","Redavalle","Torrevecchia Pia","Robecco Pavese","Cava Manara","Palestro","Dorno","Codevilla","Casatisma","Zerbo","Montebello della Battaglia","Sant'Angelo Lomellina","Pieve Albignola","Monticelli Pavese","Torre Beretti e Castellaro","Mezzana Bigli","Cigognola","Borgarello","Lungavilla","Corteolona e Genzone","Bressana Bottarone","Borgo San Siro","Cura Carpignano","Chignolo Po","Rosasco","Montecalvo Versiggia","Calvignano","Mornico Losana","Cornale e Bastida","Parona","Mezzanino","Breme","Copiano","Casanova Lonati","Sant'Alessio con Vialone","Rognano","San Martino Siccomario","Pizzale","Vidigulfo","Travacò Siccomario","Miradolo Terme","Campospinoso Albaredo","Gerenzago","Alagna","Torre de' Negri","Cergnago","Villa Biscossi","Torre d'Isola","Belgioioso","Torrazza Coste","Zavattarello","Rocca de' Giorgi","Villanova d'Ardenghi","Valeggio","Mortara","San Giorgio di Lomellina","Carbonara al Ticino","Bornasco","Pieve Porto Morone","Ceretto Lomellina","Linarolo","Gropello Cairoli","Filighera","Ottobiano"],"Cremona":["Cumignano sul Naviglio","Casalmorano","Quintano","Gombito","Spineda","Pozzaglio ed Uniti","Agnadello","Chieve","Camisano","Casaletto di Sopra","Casalbuttano ed Uniti","Pianengo","Robecco d'Oglio","Gussola","Sesto ed Uniti","Corte de' Cortesi con Cignone","Vescovato","Castelleone","Trigolo","Pieranica","Torlino Vimercati","Crema","Martignana di Po","Cappella Cantone","Casalmaggiore","Ostiano","Cella Dati","Trescore Cremasco","Spinadesco","Torre de' Picenardi","Offanengo","Casaletto Vaprio","Formigara","Rivarolo del Re ed Uniti","Capralba","Campagnola Cremasca","San Giovanni in Croce","Cappella de' Picenardi","Gerre de' Caprioli","Crotta d'Adda","Voltido","Sospiro","San Daniele Po","Bonemerse","Calvatone","Paderno Ponchielli","Solarolo Rainerio","Bagnolo Cremasco","Capergnanica","Vailate","Izano","Cicognolo","Pizzighettone","Dovera","San Bassano","Castel Gabbiano","Soresina","Rivolta d'Adda","Sergnano","Pessina Cremonese","Casale Cremasco-Vidolasco","Spino d'Adda","Ripalta Guerina","San Martino del Lago","Gadesco-Pieve Delmona","Corte de' Frati","Volongo","Ripalta Cremasca","Cremosano","Ricengo","Grumello Cremonese ed Uniti","Romanengo","Persico Dosimo","Pescarolo ed Uniti","Montodine","Azzanello","Salvirola","Scandolara Ripa d'Oglio","Moscazzano","Castelvisconti","Motta Baluffi","Piadena Drizzona","Annicco","Isola Dovarese","Genivolta","Credera Rubbiano","Scandolara Ravara","Pieve San Giacomo","Madignano","Ripalta Arpina","Casaletto Ceredano","Castelverde","Stagno Lombardo","Gabbioneta-Binanuova","Derovere","Cingia de' Botti","Torricella del Pizzo","Soncino","Casteldidone","Pieve d'Olmi","Tornata","Fiesco","Pandino","Ticengo","Vaiano Cremasco","Cremona","Bordolano","Olmeneta","Grontardo","Palazzo Pignano","Acquanegra Cremonese","Monte Cremasco","Malagnino"],"Mantova":["San Giorgio Bigarello","Curtatone","Volta Mantovana","Monzambano","Castel Goffredo","Castiglione delle Stiviere","Mantova","Roncoferraro","San Giacomo delle Segnate","Cavriana","Suzzara","Casalmoro","Commessaggio","Rodigo","Quistello","Sabbioneta","Gazoldo degli Ippoliti","Borgo Virgilio","Goito","Pegognaga","Moglia","Villimpenta","Acquanegra sul Chiese","Ceresara","Quingentole","San Giovanni del Dosso","Ostiglia","Mariana Mantovana","Medole","Gazzuolo","Schivenoglia","Asola","Poggio Rusco","Casaloldo","Ponti sul Mincio","Bagnolo San Vito","Solferino","Pomponesco","Castel d'Ario","Guidizzolo","Bozzolo","Castellucchio","Marcaria","Magnacavallo","Casalromano","Porto Mantovano","Redondesco","San Martino dall'Argine","Sustinente","Canneto sull'Oglio","Castelbelforte","Sermide e Felonica","Viadana","Gonzaga","Piubega","Borgo Mantovano","Serravalle a Po","Dosolo","Borgocarbonara","Marmirolo","Roverbella","Rivarolo Mantovano","San Benedetto Po","Motteggiana"],"Lecco":["Margno","Costa Masnaga","Garlate","Calco","Valgreghentino","Nibionno","Premana","Barzanò","Oliveto Lario","Ballabio","Cremeno","Garbagnate Monastero","Pagnona","Dolzago","Brivio","Vercurago","Airuno","Colico","Esino Lario","Primaluna","Valvarrone","Cassago Brianza","Colle Brianza","Monticello Brianza","Missaglia","Suello","Castello di Brianza","Cesana Brianza","Pasturo","Malgrate","Valmadrera","Montevecchia","Molteno","Bellano","Carenno","Dervio","Casargo","Monte Marenzo","Bulciago","Cassina Valsassina","Rogeno","Cernusco Lombardone","Varenna","Verderio","Lierna","Olgiate Molgora","Casatenovo","Santa Maria Hoè","Cortenova","Moggio","Robbiate","Merate","Crandola Valsassina","Galbiate","Lecco","Parlasco","Annone di Brianza","Sueglio","Oggiono","La Valletta Brianza","Olginate","Morterone","Erve","Ello","Calolziocorte","Dorio","Imbersago","Paderno d'Adda","Taceno","Sirone","Mandello del Lario","Pescate","Bosisio Parini","Perledo","Osnago","Sirtori","Barzio","Civate","Abbadia Lariana","Barzago","Lomagna","Viganò","Cremella","Introbio"],"Lodi":["Maccastorna","Brembio","Borgo San Giovanni","Castelnuovo Bocca d'Adda","Tavazzano con Villavesco","Caselle Landi","Marudo","San Rocco al Porto","Caselle Lurani","Cavenago d'Adda","Meleti","Comazzo","Valera Fratta","San Fiorano","Salerano sul Lambro","Boffalora d'Adda","Castiraga Vidardo","Terranova dei Passerini","Bertonico","Cornovecchio","Somaglia","Crespiatica","Livraga","Villanova del Sillaro","San Martino in Strada","Orio Litta","Abbadia Cerreto","Cornegliano Laudense","Fombio","Lodi","Ospedaletto Lodigiano","Massalengo","Corno Giovine","Mairago","Mulazzano","Merlino","Borghetto Lodigiano","Galgagnano","Senna Lodigiana","Secugnago","Zelo Buon Persico","Turano Lodigiano","Cervignano d'Adda","Sant'Angelo Lodigiano","Castiglione d'Adda","Pieve Fissiraga","Casalmaiocco","Lodi Vecchio","Casalpusterlengo","Castelgerundo","Guardamiglio","Montanaso Lombardo","Corte Palasio","Graffignana","Ossago Lodigiano","Santo Stefano Lodigiano","Codogno","Sordio","Maleo","Casaletto Lodigiano"],"Monza e della Brianza":["Lentate sul Seveso","Bernareggio","Roncello","Albiate","Usmate Velate","Barlassina","Cesano Maderno","Aicurzio","Vimercate","Limbiate","Monza","Lazzate","Cornate d'Adda","Mezzago","Briosco","Correzzana","Burago di Molgora","Vedano al Lambro","Ornago","Carate Brianza","Giussano","Concorezzo","Bellusco","Arcore","Besana in Brianza","Brugherio","Camparada","Nova Milanese","Lissone","Seregno","Sulbiate","Ronco Briantino","Ceriano Laghetto","Carnate","Cavenago di Brianza","Seveso","Triuggio","Cogliate","Caponago","Agrate Brianza","Verano Brianza","Macherio","Lesmo","Misinto","Muggiò","Varedo","Bovisio-Masciago","Biassono","Meda","Renate","Sovico","Desio","Veduggio con Colzano","Villasanta","Busnago"]}`), Am = { Verona: ["Erbezzo", "Sanguinetto", "Villa Bartolomea", "San Giovanni Ilarione", "Caldiero", "Nogara", "Mezzane di Sotto", "Castel d'Azzano", "Lazise", "Pescantina", "Bonavigo", "Cerro Veronese", "Verona", "Boschi Sant'Anna", "Fumane", "Oppeano", "Povegliano Veronese", "Cerea", "Bardolino", "Isola della Scala", "Castelnuovo del Garda", "Nogarole Rocca", "Bussolengo", "San Pietro in Cariano", "Affi", "Angiari", "San Bonifacio", "Badia Calavena", "Valeggio sul Mincio", "Zevio", "Castagnaro", "Soave", "Terrazzo", "Velo Veronese", "Lavagno", "Rivoli Veronese", "Bevilacqua", "Erbè", "Isola Rizza", "Montecchia di Crosara", "Ronco all'Adige", "Torri del Benaco", "Selva di Progno", "Veronella", "Arcole", "Colognola ai Colli", "Casaleone", "Legnago", "Vestenanova", "San Martino Buon Albergo", "Ferrara di Monte Baldo", "San Giovanni Lupatoto", "Dolcè", "Brentino Belluno", "Palù", "Roverchiara", "Pastrengo", "Peschiera del Garda", "Brenzone sul Garda", "Sona", "San Zeno di Montagna", "Vigasio", "Roverè Veronese", "Monteforte d'Alpone", "Concamarise", "Albaredo d'Adige", "Sant'Ambrogio di Valpolicella", "Sorgà", "Caprino Veronese", "Gazzo Veronese", "Illasi", "Malcesine", "Garda", "Cologna Veneta", "Pressana", "Tregnago", "Grezzana", "Zimella", "Belfiore", "Sant'Anna d'Alfaedo", "Roncà", "San Mauro di Saline", "Sommacampagna", "Trevenzuolo", "Minerbe", "Villafranca di Verona", "Roveredo di Guà", "Salizzole", "Cavaion Veronese", "Marano di Valpolicella", "Mozzecane", "Costermano sul Garda", "Negrar di Valpolicella", "Cazzano di Tramigna", "Bosco Chiesanuova", "Bovolone", "Buttapietra", "San Pietro di Morubio"], Vicenza: ["Asigliano Veneto", "Val Liona", "Sandrigo", "Posina", "Carrè", "Barbarano Mossano", "Montegaldella", "Costabissara", "Grumolo delle Abbadesse", "Lonigo", "Sovizzo", "San Pietro Mussolino", "Nanto", "Solagna", "Marano Vicentino", "Foza", "Altissimo", "Bressanvido", "Dueville", "Longare", "Caldogno", "Roana", "Orgiano", "Agugliaro", "Valli del Pasubio", "Villaga", "Bolzano Vicentino", "Arzignano", "Mussolente", "Monticello Conte Otto", "Breganze", "Chiampo", "Zanè", "Malo", "Schiavon", "Romano d'Ezzelino", "Castegnero", "Grisignano di Zocco", "Zugliano", "Noventa Vicentina", "Brendola", "Valdagno", "Albettone", "Vicenza", "Asiago", "Creazzo", "Cornedo Vicentino", "Rosà", "Arsiero", "Montecchio Maggiore", "Cartigliano", "Crespadoro", "Lastebasse", "Villaverla", "Montorso Vicentino", "Camisano Vicentino", "Isola Vicentina", "Pojana Maggiore", "Tezze sul Brenta", "Valbrenta", "Gambellara", "Brogliano", "Piovene Rocchette", "Arcugnano", "Castelgomberto", "Gallio", "Pove del Grappa", "Valdastico", "Montecchio Precalcino", "Schio", "Cassola", "Montegalda", "Thiene", "Marostica", "Sarcedo", "Zermeghedo", "Santorso", "Lusiana Conco", "Calvene", "Pozzoleone", "Bassano del Grappa", "Caltrano", "Salcedo", "Rossano Veneto", "Recoaro Terme", "Monteviale", "Chiuppano", "Nove", "Pianezze", "Cogollo del Cengio", "Colceresa", "Velo d'Astico", "Campiglia dei Berici", "Montebello Vicentino", "Trissino", "Torri di Quartesolo", "Alonte", "Sossano", "Laghi", "Nogarole Vicentino", "Altavilla Vicentina", "San Vito di Leguzzano", "Quinto Vicentino", "Zovencedo", "Fara Vicentino", "Tonezza del Cimone", "Sarego", "Torrebelvicino", "Rotzo", "Monte di Malo", "Pedemonte", "Lugo di Vicenza", "Enego"], Belluno: ["Cesiomaggiore", "Lamon", "La Valle Agordina", "Perarolo di Cadore", "Calalzo di Cadore", "Canale d'Agordo", "Pieve di Cadore", "Taibon Agordino", "Sospirolo", "Tambre", "Vallada Agordina", "Gosaldo", "Val di Zoldo", "Seren del Grappa", "Livinallongo del Col di Lana", "Valle di Cadore", "Alpago", "San Gregorio nelle Alpi", "Soverzene", "Falcade", "Arsiè", "Cibiana di Cadore", "Ospitale di Cadore", "Alleghe", "Pedavena", "Rocca Pietore", "Comelico Superiore", "Feltre", "Fonzaso", "Borca di Cadore", "San Vito di Cadore", "Sovramonte", "Ponte nelle Alpi", "Borgo Valbelluna", "Santa Giustina", "Rivamonte Agordino", "Limana", "Sedico", "San Nicolò di Comelico", "Cencenighe Agordino", "Vodo Cadore", "Zoppè di Cadore", "Cortina d'Ampezzo", "Voltago Agordino", "Agordo", "Chies d'Alpago", "Auronzo di Cadore", "Lorenzago di Cadore", "San Tomaso Agordino", "Longarone", "Belluno", "Colle Santa Lucia", "Selva di Cadore", "Vigo di Cadore", "Domegge di Cadore", "Setteville", "Lozzo di Cadore", "Danta di Cadore", "Santo Stefano di Cadore", "San Pietro di Cadore"], Treviso: ["Treviso", "Gaiarine", "Segusino", "Sernaglia della Battaglia", "Vedelago", "Ponte di Piave", "Maserada sul Piave", "Povegliano", "San Vendemiano", "Codognè", "Possagno", "Riese Pio X", "Silea", "Motta di Livenza", "Roncade", "Borso del Grappa", "Sarmede", "Villorba", "Susegana", "San Pietro di Feletto", "Vazzola", "Castelfranco Veneto", "Casale sul Sile", "Salgareda", "Vidor", "Pieve di Soligo", "Ponzano Veneto", "Portobuffolè", "Casier", "Revine Lago", "San Fior", "Follina", "Farra di Soligo", "Caerano di San Marco", "Godega di Sant'Urbano", "Resana", "Morgano", "Meduna di Livenza", "Spresiano", "Colle Umberto", "Cappella Maggiore", "Orsago", "Mogliano Veneto", "Zenson di Piave", "San Biagio di Callalta", "Paese", "Preganziol", "Maser", "Ormelle", "Cornuda", "Gorgo al Monticano", "Cavaso del Tomba", "Fontanelle", "Cimadolmo", "Conegliano", "Vittorio Veneto", "Breda di Piave", "Oderzo", "Nervesa della Battaglia", "San Zenone degli Ezzelini", "Zero Branco", "Chiarano", "Arcade", "Trevignano", "Fregona", "Cordignano", "Montebelluna", "Santa Lucia di Piave", "Monastier di Treviso", "Asolo", "Istrana", "Mareno di Piave", "Refrontolo", "Pederobba", "Valdobbiadene", "Altivole", "Mansuè", "Tarzo", "Cessalto", "Giavera del Montello", "Castello di Godego", "Castelcucco", "San Polo di Piave", "Quinto di Treviso", "Pieve del Grappa", "Monfumo", "Moriago della Battaglia", "Crocetta del Montello", "Cison di Valmarino", "Loria", "Miane", "Volpago del Montello", "Carbonera", "Fonte"], Venezia: ["Jesolo", "Meolo", "Cavallino-Treporti", "Dolo", "Cona", "Mira", "Pianiga", "San Donà di Piave", "Pramaggiore", "Mirano", "Noventa di Piave", "Stra", "Gruaro", "Teglio Veneto", "Martellago", "Ceggia", "Musile di Piave", "Santa Maria di Sala", "Venezia", "Quarto d'Altino", "Campagna Lupia", "Eraclea", "Annone Veneto", "Portogruaro", "San Stino di Livenza", "San Michele al Tagliamento", "Fossalta di Portogruaro", "Camponogara", "Concordia Sagittaria", "Cavarzere", "Caorle", "Campolongo Maggiore", "Fiesso d'Artico", "Vigonovo", "Chioggia", "Scorzè", "Fossò", "Spinea", "Cinto Caomaggiore", "Noale", "Salzano", "Fossalta di Piave", "Torre di Mosto", "Marcon"], Padova: ["Casalserugo", "Cartura", "Arzergrande", "Castelbaldo", "Stanghella", "Mestrino", "Ponso", "Camposampiero", "Legnaro", "Vo'", "Piove di Sacco", "Arre", "Campo San Martino", "Noventa Padovana", "Due Carrare", "Montagnana", "Arquà Petrarca", "San Martino di Lupari", "Vigonza", "Carmignano di Brenta", "Lozzo Atestino", "Tombolo", "Campodoro", "San Pietro in Gu", "Ospedaletto Euganeo", "Este", "Barbona", "Baone", "Sant'Elena", "Borgo Veneto", "Battaglia Terme", "Cervarese Santa Croce", "Correzzola", "Boara Pisani", "Veggiano", "Torreglia", "Piombino Dese", "Casale di Scodosia", "Villanova di Camposampiero", "Gazzo", "Trebaseleghe", "Villa Estense", "Galzignano Terme", "Montegrotto Terme", "Ponte San Nicolò", "Saonara", "Villafranca Padovana", "Piacenza d'Adige", "Tribano", "Solesino", "Megliadino San Vitale", "Masi", "Rubano", "Granze", "Bovolenta", "Merlara", "Teolo", "Codevigo", "Vigodarzere", "Sant'Urbano", "Bagnoli di Sopra", "Conselve", "Cinto Euganeo", "Albignasego", "Terrassa Padovana", "Borgoricco", "Villa del Conte", "Anguillara Veneta", "Urbana", "Curtarolo", "Saccolongo", "Vescovana", "Brugine", "Pontelongo", "San Pietro Viminario", "Maserà di Padova", "Limena", "Polverara", "Cadoneghe", "Padova", "Campodarsego", "Pozzonovo", "Massanzago", "Agna", "Loreggia", "Grantorto", "Rovolon", "Fontaniva", "Abano Terme", "Sant'Angelo di Piove di Sacco", "Pernumia", "Santa Caterina d'Este", "Candiana", "Piazzola sul Brenta", "Cittadella", "San Giorgio delle Pertiche", "Galliera Veneta", "Santa Giustina in Colle", "Selvazzano Dentro", "Monselice", "San Giorgio in Bosco"], Rovigo: ["Arquà Polesine", "Polesella", "Costa di Rovigo", "Ariano nel Polesine", "Porto Viro", "Papozze", "Stienta", "Occhiobello", "Canda", "Castelnovo Bariano", "San Bellino", "Villadose", "Ceneselli", "Ceregnano", "Salara", "Castelmassa", "Porto Tolle", "Guarda Veneta", "Bergantino", "Villanova del Ghebbo", "Pettorazza Grimani", "Canaro", "Castelguglielmo", "Villamarzana", "Badia Polesine", "Gavello", "Adria", "Ficarolo", "Bagnolo di Po", "Bosaro", "Corbola", "Giacciano con Baruchella", "Calto", "Fratta Polesine", "Lusia", "Melara", "San Martino di Venezze", "Pontecchio Polesine", "Pincara", "Lendinara", "Taglio di Po", "Trecenta", "Frassinelle Polesine", "Rovigo", "Loreo", "Fiesso Umbertiano", "Rosolina", "Crespino", "Gaiba", "Villanova Marchesana"] }, Rm = { "Pesaro e Urbino": ["Fermignano", "Borgo Pace", "Pergola", "Serra Sant'Abbondio", "Urbania", "San Costanzo", "Mercatino Conca", "Piandimeleto", "Pesaro", "Gabicce Mare", "Mondolfo", "Gradara", "Urbino", "Sassocorvaro Auditore", "Petriano", "Lunano", "Frontone", "Tavullia", "Fratte Rosa", "Peglio", "Montelabbate", "Cantiano", "Sant'Ippolito", "Vallefoglia", "Sant'Angelo in Vado", "San Lorenzo in Campo", "Fano", "Montecalvo in Foglia", "Monte Grimano Terme", "Fossombrone", "Piobbico", "Terre Roveresche", "Monte Porzio", "Monte Cerignone", "Mombaroccio", "Belforte all'Isauro", "Mercatello sul Metauro", "Apecchio", "Pietrarubbia", "Isola del Piano", "Carpegna", "Montefelcino", "Tavoleto", "Colli al Metauro", "Macerata Feltria", "Cartoceto", "Cagli", "Acqualagna", "Frontino", "Mondavio"], Ancona: ["Ancona", "Agugliano", "Monsano", "Polverigi", "Sirolo", "Cerreto d'Esi", "Chiaravalle", "Arcevia", "Monte San Vito", "Filottrano", "Santa Maria Nuova", "Staffolo", "Fabriano", "Poggio San Marcello", "Mergo", "Falconara Marittima", "Osimo", "Castelleone di Suasa", "San Paolo di Jesi", "Castelbellino", "Jesi", "Camerano", "Belvedere Ostrense", "Serra de' Conti", "Morro d'Alba", "Castelplanio", "Maiolati Spontini", "Camerata Picena", "Sassoferrato", "Corinaldo", "Ostra", "Genga", "Monte Roberto", "Castelfidardo", "Rosora", "Trecastelli", "Cupramontana", "Montemarciano", "Serra San Quirico", "Numana", "Montecarotto", "Loreto", "Ostra Vetere", "San Marcello", "Senigallia", "Barbara", "Offagna"], Macerata: ["Corridonia", "Sarnano", "Valfornace", "Pollenza", "Pioraco", "Macerata", "Ussita", "Appignano", "Apiro", "Mogliano", "Muccia", "Poggio San Vicino", "Penna San Giovanni", "Sant'Angelo in Pontano", "Camporotondo di Fiastrone", "San Severino Marche", "Fiuminata", "Tolentino", "Recanati", "Ripe San Ginesio", "Urbisaglia", "Montefano", "Montecosaro", "Belforte del Chienti", "Treia", "Fiastra", "Sefro", "Potenza Picena", "Bolognola", "Pieve Torina", "Morrovalle", "Castelraimondo", "Loro Piceno", "Monte Cavallo", "Serrapetrona", "Porto Recanati", "Gagliole", "Cessapalombo", "Matelica", "Montecassiano", "Monte San Giusto", "Monte San Martino", "Esanatoglia", "Montelupone", "Visso", "Cingoli", "Gualdo", "Caldarola", "Camerino", "Petriolo", "Colmurano", "San Ginesio", "Civitanova Marche", "Castelsantangelo sul Nera", "Serravalle di Chienti"], "Ascoli Piceno": ["Carassai", "Monteprandone", "Castorano", "Arquata del Tronto", "Grottammare", "Cupra Marittima", "Montalto delle Marche", "Maltignano", "Appignano del Tronto", "Roccafluvione", "Acquaviva Picena", "Castignano", "Montedinove", "Montegallo", "Force", "Montemonaco", "Rotella", "Montefiore dell'Aso", "Cossignano", "Monsampolo del Tronto", "Massignano", "Palmiano", "Colli del Tronto", "Spinetoli", "Folignano", "San Benedetto del Tronto", "Venarotta", "Ripatransone", "Comunanza", "Offida", "Acquasanta Terme", "Castel di Lama", "Ascoli Piceno"], Fermo: ["Monte San Pietrangeli", "Amandola", "Montottone", "Monsampietro Morico", "Monterubbiano", "Sant'Elpidio a Mare", "Rapagnano", "Monte Vidon Combatte", "Pedaso", "Montefalcone Appennino", "Belmonte Piceno", "Montefortino", "Fermo", "Montelparo", "Servigliano", "Santa Vittoria in Matenano", "Monteleone di Fermo", "Lapedona", "Falerone", "Porto Sant'Elpidio", "Monte Urano", "Petritoli", "Moresco", "Montappone", "Porto San Giorgio", "Montegranaro", "Monte Rinaldo", "Monte Giberto", "Ortezzano", "Torre San Patrizio", "Francavilla d'Ete", "Magliano di Tenna", "Montegiorgio", "Massa Fermana", "Campofilone", "Monte Vidon Corrado", "Altidona", "Grottazzolina", "Ponzano di Fermo", "Smerillo"] }, Im = { "Massa-Carrara": ["Bagnone", "Montignoso", "Aulla", "Podenzana", "Fosdinovo", "Licciana Nardi", "Pontremoli", "Villafranca in Lunigiana", "Zeri", "Comano", "Tresana", "Mulazzo", "Massa", "Casola in Lunigiana", "Fivizzano", "Filattiera", "Carrara"], Lucca: ["Camaiore", "Castelnuovo di Garfagnana", "Lucca", "San Romano in Garfagnana", "Fosciandora", "Sillano Giuncugnano", "Altopascio", "Coreglia Antelminelli", "Piazza al Serchio", "Pescaglia", "Pietrasanta", "Gallicano", "Borgo a Mozzano", "Pieve Fosciana", "Molazzana", "Barga", "Castiglione di Garfagnana", "Massarosa", "Villa Basilica", "Careggine", "Vagli Sotto", "Bagni di Lucca", "Camporgiano", "Montecarlo", "Viareggio", "Capannori", "Stazzema", "Forte dei Marmi", "Minucciano", "Fabbriche di Vergemoli", "Seravezza", "Villa Collemandina", "Porcari"], Pistoia: ["Lamporecchio", "Marliana", "Agliana", "Pieve a Nievole", "Quarrata", "Sambuca Pistoiese", "Pistoia", "Larciano", "Ponte Buggianese", "Serravalle Pistoiese", "Pescia", "Uzzano", "Monsummano Terme", "Buggiano", "Abetone Cutigliano", "Montecatini-Terme", "Chiesina Uzzanese", "Montale", "San Marcello Piteglio", "Massa e Cozzile"], Firenze: ["Signa", "San Godenzo", "Greve in Chianti", "Vicchio", "Palazzuolo sul Senio", "Empoli", "Capraia e Limite", "Montespertoli", "Londa", "Firenze", "Barberino Tavarnelle", "Castelfiorentino", "Dicomano", "Gambassi Terme", "Rufina", "Cerreto Guidi", "Rignano sull'Arno", "Pontassieve", "Figline e Incisa Valdarno", "Certaldo", "Bagno a Ripoli", "San Casciano in Val di Pesa", "Scandicci", "Calenzano", "Barberino di Mugello", "Impruneta", "Montelupo Fiorentino", "Fiesole", "Sesto Fiorentino", "Vinci", "Borgo San Lorenzo", "Firenzuola", "Pelago", "Scarperia e San Piero", "Campi Bisenzio", "Vaglia", "Fucecchio", "Montaione", "Reggello", "Lastra a Signa", "Marradi"], Livorno: ["Porto Azzurro", "Marciana Marina", "Capoliveri", "Capraia Isola", "Campo nell'Elba", "Sassetta", "Collesalvetti", "Portoferraio", "Suvereto", "Campiglia Marittima", "Livorno", "Piombino", "Bibbona", "San Vincenzo", "Castagneto Carducci", "Rosignano Marittimo", "Cecina", "Rio", "Marciana"], Pisa: ["San Giuliano Terme", "Pontedera", "Palaia", "Castelnuovo di Val di Cecina", "Lajatico", "Vecchiano", "Peccioli", "Monteverdi Marittimo", "Castellina Marittima", "Buti", "Pisa", "Santa Croce sull'Arno", "Riparbella", "Fauglia", "Calci", "Terricciola", "Casale Marittimo", "Pomarance", "Santa Luce", "Chianni", "Bientina", "Castelfranco di Sotto", "Vicopisano", "Montopoli in Val d'Arno", "Santa Maria a Monte", "Cascina", "Volterra", "Montecatini Val di Cecina", "Capannoli", "Crespina Lorenzana", "Casciana Terme Lari", "Guardistallo", "Montescudaio", "San Miniato", "Calcinaia", "Ponsacco", "Orciano Pisano"], Arezzo: ["Foiano della Chiana", "Montevarchi", "Sansepolcro", "Civitella in Val di Chiana", "Chiusi della Verna", "Caprese Michelangelo", "Montemignaio", "Bucine", "Arezzo", "Sestino", "Ortignano Raggiolo", "Cavriglia", "San Giovanni Valdarno", "Marciano della Chiana", "Poppi", "Talla", "Capolona", "Terranuova Bracciolini", "Castiglion Fibocchi", "Castel San Niccolò", "Cortona", "Laterina Pergine Valdarno", "Chitignano", "Monterchi", "Loro Ciuffenna", "Anghiari", "Badia Tedalda", "Subbiano", "Pratovecchio Stia", "Castel Focognano", "Castiglion Fiorentino", "Castelfranco Piandiscò", "Monte San Savino", "Lucignano", "Pieve Santo Stefano", "Bibbiena"], Siena: ["Monteriggioni", "Sinalunga", "Chiusi", "Sarteano", "Montalcino", "Rapolano Terme", "Radda in Chianti", "Chiusdino", "Gaiole in Chianti", "Castellina in Chianti", "Torrita di Siena", "Pienza", "Casole d'Elsa", "Piancastagnaio", "Abbadia San Salvatore", "Monticiano", "Siena", "San Quirico d'Orcia", "Chianciano Terme", "San Gimignano", "Radicondoli", "Radicofani", "Cetona", "Sovicille", "Castelnuovo Berardenga", "Buonconvento", "Castiglione d'Orcia", "Montepulciano", "Trequanda", "Asciano", "Murlo", "Poggibonsi", "San Casciano dei Bagni", "Colle di Val d'Elsa", "Monteroni d'Arbia"], Grosseto: ["Monte Argentario", "Roccastrada", "Monterotondo Marittimo", "Castell'Azzara", "Arcidosso", "Campagnatico", "Civitella Paganico", "Capalbio", "Pitigliano", "Sorano", "Seggiano", "Gavorrano", "Castel del Piano", "Montieri", "Scarlino", "Santa Fiora", "Roccalbegna", "Scansano", "Isola del Giglio", "Cinigiano", "Massa Marittima", "Grosseto", "Orbetello", "Semproniano", "Manciano", "Castiglione della Pescaia", "Magliano in Toscana", "Follonica"], Prato: ["Cantagallo", "Poggio a Caiano", "Vaiano", "Vernio", "Montemurlo", "Carmignano", "Prato"] }, zm = { Perugia: ["Monte Santa Maria Tiberina", "Passignano sul Trasimeno", "Valtopina", "Marsciano", "Cerreto di Spoleto", "Cannara", "Bettona", "Piegaro", "Sant'Anatolia di Narco", "Preci", "Scheggino", "Torgiano", "Magione", "Bastia Umbra", "Assisi", "Spello", "Campello sul Clitunno", "Collazzone", "Foligno", "Nocera Umbra", "Massa Martana", "Montone", "Panicale", "Trevi", "Corciano", "San Giustino", "Costacciaro", "Pietralunga", "Norcia", "Paciano", "Gualdo Cattaneo", "Todi", "Monte Castello di Vibio", "Montefalco", "Bevagna", "Gualdo Tadino", "Monteleone di Spoleto", "Castiglione del Lago", "Cascia", "Scheggia e Pascelupo", "Fossato di Vico", "Castel Ritaldi", "Sellano", "Tuoro sul Trasimeno", "Perugia", "Citerna", "Città di Castello", "Fratta Todina", "Giano dell'Umbria", "Gubbio", "Lisciano Niccone", "Città della Pieve", "Spoleto", "Poggiodomo", "Deruta", "Vallo di Nera", "Valfabbrica", "Umbertide", "Sigillo"], Terni: ["Parrano", "Ferentillo", "Montecastrilli", "Attigliano", "Calvi dell'Umbria", "Guardea", "San Venanzo", "Narni", "Monteleone d'Orvieto", "Montegabbione", "Alviano", "Orvieto", "Castel Viscardo", "Montefranco", "Arrone", "Polino", "Otricoli", "Ficulle", "San Gemini", "Fabro", "Amelia", "Penna in Teverina", "Castel Giorgio", "Lugnano in Teverina", "Baschi", "Porano", "Avigliano Umbro", "Montecchio", "Allerona", "Acquasparta", "Stroncone", "Giove", "Terni"] }, Lm = { Viterbo: ["Civitella d'Agliano", "Cellere", "Canepina", "Piansano", "Soriano nel Cimino", "Gradoli", "Castiglione in Teverina", "Carbognano", "Ronciglione", "Orte", "Civita Castellana", "Tuscania", "Valentano", "Vignanello", "Fabrica di Roma", "Capranica", "Barbarano Romano", "Celleno", "Latera", "Villa San Giovanni in Tuscia", "Tarquinia", "Vallerano", "Tessennano", "Arlena di Castro", "Blera", "Bassano in Teverina", "Castel Sant'Elia", "Montalto di Castro", "Nepi", "Vetralla", "Gallese", "Oriolo Romano", "Marta", "Monterosi", "Bolsena", "Grotte di Castro", "Vasanello", "Montefiascone", "Bomarzo", "Onano", "Viterbo", "Bassano Romano", "Caprarola", "Corchiano", "Lubriano", "Proceno", "Vitorchiano", "Acquapendente", "San Lorenzo Nuovo", "Sutri", "Bagnoregio", "Faleria", "Ischia di Castro", "Vejano", "Canino", "Capodimonte", "Monte Romano", "Calcata", "Farnese", "Graffignano"], Rieti: ["Fara in Sabina", "Fiamignano", "Castelnuovo di Farfa", "Rocca Sinibalda", "Labro", "Vacone", "Rivodutri", "Montopoli di Sabina", "Greccio", "Pescorocchiano", "Poggio San Lorenzo", "Borbona", "Salisano", "Poggio Bustone", "Poggio Mirteto", "Tarano", "Borgorose", "Monteleone Sabino", "Frasso Sabino", "Morro Reatino", "Cottanello", "Leonessa", "Roccantica", "Selci", "Belmonte in Sabina", "Montasola", "Pozzaglia Sabina", "Antrodoco", "Collegiove", "Forano", "Montebuono", "Casperia", "Castel Sant'Angelo", "Poggio Nativo", "Cittareale", "Colle di Tora", "Poggio Moiano", "Magliano Sabina", "Stimigliano", "Monte San Giovanni in Sabina", "Torricella in Sabina", "Borgo Velino", "Mompeo", "Colli sul Velino", "Nespolo", "Longone Sabino", "Casaprota", "Paganico Sabino", "Scandriglia", "Varco Sabino", "Montenero Sabino", "Marcetelli", "Collalto Sabino", "Contigliano", "Poggio Catino", "Torri in Sabina", "Orvinio", "Castel di Tora", "Concerviano", "Cantalupo in Sabina", "Cantalice", "Cittaducale", "Toffia", "Posta", "Amatrice", "Collevecchio", "Configni", "Micigliano", "Rieti", "Accumoli", "Turania", "Petrella Salto", "Ascrea"], Roma: ["San Polo dei Cavalieri", "Bellegra", "Filacciano", "Nettuno", "Palombara Sabina", "Vallinfreda", "Cineto Romano", "Lariano", "Nemi", "Affile", "Rocca Canterano", "Poli", "Grottaferrata", "Marcellina", "Monterotondo", "Montelanico", "Pisoniano", "Riofreddo", "Mazzano Romano", "Fiano Romano", "Anticoli Corrado", "Ponzano Romano", "Montorio Romano", "Gerano", "Mandela", "Bracciano", "Roccagiovine", "Roma", "Palestrina", "Casape", "Carpineto Romano", "Roviano", "Tolfa", "Formello", "Ariccia", "Cerveteri", "Allumiere", "Subiaco", "Gavignano", "Lanuvio", "Rocca Priora", "Mentana", "Valmontone", "Colonna", "Monte Compatri", "Ardea", "Castel San Pietro Romano", "Zagarolo", "Civitella San Paolo", "Cervara di Roma", "Marano Equo", "Magliano Romano", "Moricone", "Monteflavio", "Torrita Tiberina", "San Cesareo", "Anzio", "Civitavecchia", "Rignano Flaminio", "Artena", "Jenne", "Arsoli", "Percile", "Rocca Santo Stefano", "Sambuci", "Agosta", "Saracinesco", "Sant'Angelo Romano", "Cerreto Laziale", "Castel Madama", "Sant'Oreste", "Arcinazzo Romano", "Ciciliano", "Vivaro Romano", "Vicovaro", "Velletri", "Olevano Romano", "Ladispoli", "Pomezia", "Rocca di Cave", "San Vito Romano", "Nerola", "Sacrofano", "Albano Laziale", "Morlupo", "Nazzano", "Monte Porzio Catone", "Castel Gandolfo", "Rocca di Papa", "Fiumicino", "Castelnuovo di Porto", "Santa Marinella", "Colleferro", "Canterano", "Tivoli", "Capena", "Cave", "Genzano di Roma", "Trevignano Romano", "Camerata Nuova", "Frascati", "Vallepietra", "Roiate", "Genazzano", "San Gregorio da Sassola", "Campagnano di Roma", "Guidonia Montecelio", "Fonte Nuova", "Montelibretti", "Ciampino", "Canale Monterano", "Gorga", "Gallicano nel Lazio", "Labico", "Manziana", "Capranica Prenestina", "Licenza", "Marino", "Anguillara Sabazia", "Riano", "Segni"], Latina: ["Castelforte", "Maenza", "Prossedi", "Minturno", "Formia", "Sabaudia", "Aprilia", "Campodimele", "Rocca Massima", "Lenola", "Cori", "Roccasecca dei Volsci", "Latina", "Pontinia", "Cisterna di Latina", "Terracina", "Santi Cosma e Damiano", "Roccagorga", "Sonnino", "Norma", "Sezze", "Ponza", "Spigno Saturnia", "Sermoneta", "Itri", "San Felice Circeo", "Fondi", "Ventotene", "Bassiano", "Priverno", "Gaeta", "Monte San Biagio", "Sperlonga"], Frosinone: ["Pignataro Interamna", "Torre Cajetani", "Viticuso", "Ripi", "Paliano", "Sant'Elia Fiumerapido", "Vico nel Lazio", "Boville Ernica", "Rocca d'Arce", "Villa Santa Lucia", "Alvito", "Fumone", "San Biagio Saracinisco", "Picinisco", "Ausonia", "Aquino", "Campoli Appennino", "Pofi", "San Giovanni Incarico", "Supino", "Villa Santo Stefano", "Piedimonte San Germano", "Castro dei Volsci", "Esperia", "Cassino", "Villa Latina", "Roccasecca", "Pontecorvo", "Ferentino", "Posta Fibreno", "Vicalvi", "Arce", "Santopadre", "Broccostella", "Coreno Ausonio", "Sgurgola", "Piglio", "Acuto", "Sant'Apollinare", "Casalattico", "Colfelice", "Vallerotonda", "Belmonte Castello", "Collepardo", "Sant'Ambrogio sul Garigliano", "Arpino", "Sora", "Gallinaro", "Trivigliano", "Castelliri", "Casalvieri", "Monte San Giovanni Campano", "Ceprano", "Settefrati", "Pico", "Castelnuovo Parano", "Trevi nel Lazio", "Vallemaio", "Morolo", "Amaseno", "San Donato Val di Comino", "Acquafondata", "Atina", "Filettino", "Vallecorsa", "Torrice", "Castrocielo", "Isola del Liri", "Cervaro", "Veroli", "Fontechiari", "San Vittore del Lazio", "Ceccano", "Alatri", "Giuliano di Roma", "Arnara", "Serrone", "Fontana Liri", "Falvaterra", "Sant'Andrea del Garigliano", "Anagni", "Colle San Magno", "Pastena", "Patrica", "Terelle", "Fiuggi", "Guarcino", "San Giorgio a Liri", "Frosinone", "Pescosolido", "Strangolagalli"] }, Vm = { Caserta: ["Cervino", "Marcianise", "Cesa", "Ailano", "Rocchetta e Croce", "Valle di Maddaloni", "Alvignano", "Capriati a Volturno", "Santa Maria la Fossa", "Casal di Principe", "Riardo", "Sant'Arpino", "Frignano", "Liberi", "Gallo Matese", "Castel Volturno", "Aversa", "Succivo", "Teano", "Roccamonfina", "Grazzanise", "Presenzano", "Castel Morrone", "San Marco Evangelista", "San Prisco", "Vairano Patenora", "Carinaro", "Villa di Briano", "Letino", "Marzano Appio", "Sparanise", "Casagiove", "Ruviano", "San Gregorio Matese", "Sant'Angelo d'Alife", "Valle Agricola", "Arienzo", "Curti", "Cellole", "Piedimonte Matese", "Piana di Monte Verna", "San Pietro Infine", "Castello del Matese", "Pontelatone", "Falciano del Massico", "Caserta", "Calvi Risorta", "Pastorano", "Casapesenna", "Mondragone", "Casapulla", "Cancello ed Arnone", "Pignataro Maggiore", "San Felice a Cancello", "Castel di Sasso", "Baia e Latina", "Santa Maria a Vico", "San Nicola la Strada", "Formicola", "Parete", "Roccaromana", "Galluccio", "Alife", "Dragoni", "Orta di Atella", "Pratella", "Caianello", "Lusciano", "San Potito Sannitico", "Pietravairano", "Ciorlano", "Mignano Monte Lungo", "Casaluce", "Capua", "San Tammaro", "Tora e Piccilli", "Portico di Caserta", "Recale", "Macerata Campania", "Gioia Sannitica", "San Cipriano d'Aversa", "Trentola Ducenta", "Villa Literno", "Gricignano di Aversa", "Teverola", "Giano Vetusto", "Rocca d'Evandro", "Conca della Campania", "San Marcellino", "Sessa Aurunca", "Fontegreca", "Carinola", "Prata Sannita", "Pietramelara", "Bellona", "Vitulazio", "Castel Campagnano", "Caiazzo", "Camigliano", "Capodrise", "Santa Maria Capua Vetere", "Francolise", "Maddaloni", "Raviscanina"], Benevento: ["Foglianise", "Circello", "Ponte", "Forchia", "Sant'Agata de' Goti", "Fragneto Monforte", "Limatola", "Molinara", "Cusano Mutri", "Reino", "San Giorgio del Sannio", "Vitulano", "Paupisi", "Calvi", "San Lupo", "Castelpoto", "San Leucio del Sannio", "Montesarchio", "Solopaca", "San Lorenzo Maggiore", "Airola", "Pannarano", "Colle Sannita", "Arpaise", "Durazzano", "Tocco Caudio", "Fragneto l'Abate", "Paolisi", "San Nazzaro", "Santa Croce del Sannio", "Guardia Sanframondi", "Castelfranco in Miscano", "Montefalcone di Val Fortore", "San Giorgio La Molara", "San Lorenzello", "Buonalbergo", "Puglianello", "San Bartolomeo in Galdo", "Telese Terme", "Frasso Telesino", "Moiano", "Casalduni", "San Nicola Manfredi", "Benevento", "Paduli", "San Marco dei Cavoti", "Cautano", "Arpaia", "Baselice", "Cerreto Sannita", "Ginestra degli Schiavoni", "Castelpagano", "Morcone", "Bucciano", "Pietrelcina", "Pago Veiano", "Amorosi", "Torrecuso", "Sant'Arcangelo Trimonte", "Castelvetere in Val Fortore", "Apollosa", "San Martino Sannita", "San Salvatore Telesino", "Campoli del Monte Taburno", "Pontelandolfo", "Apice", "Bonea", "Castelvenere", "Sant'Angelo a Cupolo", "Pietraroja", "Sassinoro", "Foiano di Val Fortore", "Melizzano", "Faicchio", "Ceppaloni", "Campolattaro", "Pesco Sannita", "Dugenta"], Napoli: ["Scisciano", "Striano", "Pozzuoli", "Castellammare di Stabia", "Frattamaggiore", "Forio", "Frattaminore", "Cicciano", "Sant'Antonio Abate", "San Vitaliano", "Somma Vesuviana", "Pomigliano d'Arco", "Caivano", "Castello di Cisterna", "Cardito", "Gragnano", "Calvizzano", "Casamarciano", "Marano di Napoli", "Roccarainola", "Sant'Anastasia", "Tufino", "Poggiomarino", "Volla", "Casola di Napoli", "Portici", "Villaricca", "Capri", "Anacapri", "Lacco Ameno", "Piano di Sorrento", "Melito di Napoli", "Mariglianella", "Crispano", "Meta", "Pimonte", "Acerra", "Camposano", "Pollena Trocchia", "Boscoreale", "Casamicciola Terme", "Grumo Nevano", "Saviano", "Carbonara di Nola", "San Paolo Bel Sito", "Arzano", "Cercola", "Comiziano", "Mugnano di Napoli", "Afragola", "Torre Annunziata", "San Sebastiano al Vesuvio", "Casavatore", "Massa Lubrense", "Bacoli", "Vico Equense", "Ercolano", "San Giorgio a Cremano", "Serrara Fontana", "Visciano", "Torre del Greco", "Sant'Antimo", "Procida", "Casoria", "Quarto", "Napoli", "San Gennaro Vesuviano", "Ischia", "Terzigno", "Casalnuovo di Napoli", "Brusciano", "San Giuseppe Vesuviano", "Boscotrecase", "Santa Maria la Carità", "Marigliano", "Sant'Agnello", "Nola", "Palma Campania", "Cimitile", "Giugliano in Campania", "Trecase", "Pompei", "Monte di Procida", "Sorrento", "Qualiano", "Casandrino", "Lettere", "Barano d'Ischia", "Ottaviano", "Agerola", "Liveri", "Massa di Somma"], Avellino: ["Castelvetere sul Calore", "Atripalda", "Baiano", "Montoro", "Grottolella", "Tufo", "Fontanarosa", "Santo Stefano del Sole", "Monteforte Irpino", "Teora", "Greci", "Trevico", "Vallata", "Montaguto", "Gesualdo", "Cesinali", "Vallesaccarda", "Conza della Campania", "Venticano", "Moschiano", "Pietrastornina", "Paternopoli", "Pietradefusi", "Torrioni", "Senerchia", "Casalbore", "Montemiletto", "Sirignano", "Zungoli", "Sperone", "Rotondi", "Caposele", "Scampitella", "Guardia Lombardi", "San Potito Ultra", "Domicella", "Calabritto", "Chiusano di San Domenico", "Salza Irpina", "Manocalzati", "Cairano", "Quadrelle", "Cassano Irpino", "Quindici", "San Nicola Baronia", "Sant'Andrea di Conza", "Sant'Angelo dei Lombardi", "Montemarano", "Cervinara", "Ospedaletto d'Alpinolo", "San Sossio Baronia", "Serino", "Solofra", "Chianche", "Montefusco", "Mercogliano", "Sorbo Serpico", "Carife", "Forino", "Mirabella Eclano", "Parolise", "Savignano Irpino", "Bagnoli Irpino", "Roccabascerana", "Contrada", "Lacedonia", "Montefalcione", "Grottaminarda", "Lauro", "Montecalvo Irpino", "Summonte", "Pago del Vallo di Lauro", "Castel Baronia", "Aquilonia", "Taurano", "Castelfranci", "Capriglia Irpina", "Volturara Irpina", "Villanova del Battista", "Prata di Principato Ultra", "Sant'Angelo a Scala", "Santa Paolina", "Ariano Irpino", "Villamaina", "Avella", "Montefredane", "Luogosano", "Aiello del Sabato", "Taurasi", "Nusco", "Monteverde", "Avellino", "Rocca San Felice", "Andretta", "Flumeri", "Frigento", "Bonito", "Melito Irpino", "Sant'Angelo all'Esca", "Pratola Serra", "Santa Lucia di Serino", "Mugnano del Cardinale", "Torella dei Lombardi", "Calitri", "Sturno", "San Mango sul Calore", "San Michele di Serino", "Petruro Irpino", "Lapio", "Montella", "Bisaccia", "San Martino Valle Caudina", "Lioni", "Altavilla Irpina", "Morra De Sanctis", "Marzano di Nola", "Candida", "Torre Le Nocelle"], Salerno: ["Cannalonga", "Castelnuovo Cilento", "Romagnano al Monte", "Prignano Cilento", "Scala", "Castel San Giorgio", "Auletta", "Giungano", "Cava de' Tirreni", "Casal Velino", "Casalbuono", "Laurino", "Ravello", "Casaletto Spartano", "San Cipriano Picentino", "Serre", "Tramonti", "Scafati", "Torraca", "Tortorella", "Bellizzi", "Camerota", "Celle di Bulgheria", "Salento", "Monteforte Cilento", "Baronissi", "Sant'Angelo a Fasanella", "Altavilla Silentina", "Salvitelle", "Omignano", "Furore", "Montesano sulla Marcellana", "Castelcivita", "Buonabitacolo", "Sala Consilina", "Santa Marina", "Pellezzano", "Castiglione del Genovesi", "Monte San Giacomo", "Sessa Cilento", "Colliano", "Valva", "Praiano", "Mercato San Severino", "Caggiano", "Battipaglia", "Campora", "San Valentino Torio", "Aquara", "Castellabate", "Lustra", "Moio della Civitella", "Torchiara", "Giffoni Valle Piana", "Sapri", "Capaccio Paestum", "Fisciano", "Stio", "Bellosguardo", "Novi Velia", "Sarno", "Roscigno", "San Marzano sul Sarno", "Roccadaspide", "Postiglione", "Castel San Lorenzo", "San Giovanni a Piro", "Castelnuovo di Conza", "Ispani", "Piaggine", "Controne", "Ottati", "Positano", "Campagna", "Cetara", "Corleto Monforte", "San Mauro la Bruca", "Sacco", "Caselle in Pittari", "Ricigliano", "Minori", "Acerno", "Siano", "Calvanico", "Ascea", "Contursi Terme", "Felitto", "Morigerati", "Salerno", "Orria", "Valle dell'Angelo", "San Rufo", "Corbara", "San Gregorio Magno", "Pisciotta", "Palomonte", "Teggiano", "Petina", "Rutino", "Olevano sul Tusciano", "Roccagloriosa", "Futani", "Vibonati", "Agropoli", "Bracigliano", "Perdifumo", "Angri", "Nocera Superiore", "Roccapiemonte", "Cicerale", "Atrani", "Pontecagnano Faiano", "Giffoni Sei Casali", "Laureana Cilento", "San Mauro Cilento", "San Pietro al Tanagro", "Albanella", "Pollica", "Sant'Arsenio", "Vietri sul Mare", "Oliveto Citra", "Sanza", "Sicignano degli Alburni", "Trentinara", "Buccino", "Conca dei Marini", "Stella Cilento", "Atena Lucana", "San Mango Piemonte", "Magliano Vetere", "Amalfi", "Centola", "Gioi", "Ogliastro Cilento", "Pertosa", "Serramezzana", "Eboli", "Torre Orsaia", "Pagani", "Santomenna", "Montecorice", "Padula", "Perito", "Cuccaro Vetere", "Ceraso", "Montecorvino Rovella", "Nocera Inferiore", "Laurito", "Maiori", "Vallo della Lucania", "Laviano", "Sant'Egidio del Monte Albino", "Montano Antilia", "Polla", "Alfano", "Sassano", "Montecorvino Pugliano", "Rofrano"] }, Bm = { "L'Aquila": ["Castel di Ieri", "Collelongo", "Capistrello", "Scontrone", "Montereale", "Opi", "San Benedetto in Perillis", "Fontecchio", "Rivisondoli", "Fagnano Alto", "Castellafiume", "Carapelle Calvisio", "Introdacqua", "Cocullo", "Pereto", "Rocca di Cambio", "San Benedetto dei Marsi", "Pettorano sul Gizio", "Rocca di Botte", "Cappadocia", "Rocca di Mezzo", "Villavallelonga", "Caporciano", "Pescasseroli", "Anversa degli Abruzzi", "Bisegna", "Santo Stefano di Sessanio", "Rocca Pia", "Celano", "Scoppito", "Capestrano", "Roccaraso", "Ofena", "Villalago", "San Vincenzo Valle Roveto", "Gioia dei Marsi", "Avezzano", "Ocre", "Collepietro", "Trasacco", "Poggio Picenze", "Barrea", "Ortucchio", "Aielli", "Canistro", "Pacentro", "Villa Sant'Angelo", "Ovindoli", "Prata d'Ansidonia", "Villetta Barrea", "Villa Santa Lucia degli Abruzzi", "Raiano", "Castelvecchio Calvisio", "Bugnara", "Castelvecchio Subequo", "Lecce nei Marsi", "Scanno", "Sulmona", "Capitignano", "Pescocostanzo", "Sante Marie", "Alfedena", "Civitella Roveto", "Cerchio", "Carsoli", "Lucoli", "Balsorano", "Pizzoli", "Fossa", "Acciano", "Ateleta", "Barisciano", "Scurcola Marsicana", "Campo di Giove", "Gagliano Aterno", "L'Aquila", "Roccacasale", "Castel di Sangro", "Civita d'Antino", "Pratola Peligna", "Calascio", "Navelli", "Sant'Eusanio Forconese", "Vittorito", "Magliano de' Marsi", "Castel del Monte", "Molina Aterno", "Tornimparte", "San Demetrio ne' Vestini", "Tagliacozzo", "Barete", "Campotosto", "Tione degli Abruzzi", "Civitella Alfedena", "Pescina", "Collarmele", "San Pio delle Camere", "Prezza", "Massa d'Albe", "Morino", "Cansano", "Secinaro", "Corfinio", "Goriano Sicoli", "Luco dei Marsi", "Cagnano Amiterno", "Ortona dei Marsi", "Oricola"], Teramo: ["Tortoreto", "Giulianova", "Pietracamela", "Civitella del Tronto", "Teramo", "Torricella Sicura", "Rocca Santa Maria", "Campli", "Morro d'Oro", "Tossicia", "Arsita", "Ancarano", "Cortino", "Bisenti", "Atri", "Corropoli", "Sant'Omero", "Pineto", "Basciano", "Cellino Attanasio", "Alba Adriatica", "Mosciano Sant'Angelo", "Silvi", "Castellalto", "Crognaleto", "Montorio al Vomano", "Sant'Egidio alla Vibrata", "Notaresco", "Torano Nuovo", "Montefino", "Colonnella", "Castelli", "Controguerra", "Colledara", "Canzano", "Isola del Gran Sasso d'Italia", "Penna Sant'Andrea", "Martinsicuro", "Roseto degli Abruzzi", "Bellante", "Cermignano", "Castel Castagna", "Fano Adriano", "Valle Castellana", "Nereto", "Castiglione Messer Raimondo", "Castilenti"], Pescara: ["Carpineto della Nora", "Penne", "Salle", "Nocciano", "Pietranico", "Pescosansonesco", "Montebello di Bertona", "Turrivalignani", "Brittoli", "Città Sant'Angelo", "Alanno", "Collecorvino", "Tocco da Casauria", "Torre de' Passeri", "Castiglione a Casauria", "Cepagatti", "Montesilvano", "Caramanico Terme", "Corvara", "Scafa", "Manoppello", "Roccamorice", "Loreto Aprutino", "Moscufo", "Spoltore", "Rosciano", "Bolognano", "San Valentino in Abruzzo Citeriore", "Popoli Terme", "Lettomanoppello", "Picciano", "Elice", "Villa Celiera", "Pescara", "Vicoli", "Serramonacesca", "Sant'Eufemia a Maiella", "Catignano", "Civitaquana", "Abbateggio", "Cappelle sul Tavo", "Pianella", "Farindola", "Bussi sul Tirino", "Civitella Casanova", "Cugnoli"], Chieti: ["Castel Frentano", "Paglieta", "Fara Filiorum Petri", "Casacanditella", "Poggiofiorito", "Villamagna", "San Martino sulla Marrucina", "Carunchio", "Torrebruna", "Roccamontepiano", "Tornareccio", "Atessa", "San Giovanni Lipioni", "Lentella", "San Salvo", "Crecchio", "Palena", "Fossacesia", "Chieti", "Furci", "Fallo", "Sant'Eusanio del Sangro", "Carpineto Sinello", "Roccaspinalveti", "Quadri", "Taranta Peligna", "Fara San Martino", "Cupello", "Casalincontrada", "Rapino", "Scerni", "Treglio", "Mozzagrogna", "Rocca San Giovanni", "Santa Maria Imbaro", "Miglianico", "Gissi", "Colledimezzo", "Monteferrante", "Montebello sul Sangro", "Fresagrandinaria", "Canosa Sannita", "Castelguidone", "Pietraferrazzana", "Torricella Peligna", "Schiavi di Abruzzo", "Pennadomo", "Lettopalena", "Filetto", "Ari", "Pretoro", "Gessopalena", "Civitaluparella", "Montazzoli", "San Buono", "Palombaro", "Civitella Messer Raimondo", "Colledimacine", "Vasto", "Frisa", "Pennapiedimonte", "Borrello", "Giuliano Teatino", "Lanciano", "Ortona", "Tufillo", "Gamberale", "Fraine", "Bucchianico", "Pollutri", "Torino di Sangro", "Montelapiano", "Montenerodomo", "Archi", "Roio del Sangro", "Celenza sul Trigno", "Ripa Teatina", "Monteodorisio", "Dogliola", "Villa Santa Maria", "Guilmi", "Palmoli", "Guardiagrele", "Casalanguida", "Perano", "Francavilla al Mare", "San Giovanni Teatino", "Lama dei Peligni", "Casalbordino", "Roccascalegna", "Casoli", "Vacri", "Villalfonsina", "Pizzoferrato", "Arielli", "Altino", "Liscia", "Rosello", "Torrevecchia Teatina", "Orsogna", "Castiglione Messer Marino", "San Vito Chietino", "Tollo", "Bomba"] }, Fm = { Campobasso: ["Campolieto", "Campochiaro", "Castellino del Biferno", "Spinete", "Bonefro", "Campomarino", "Portocannone", "Toro", "Ripabottoni", "Morrone del Sannio", "Ferrazzano", "Oratino", "Roccavivara", "Guardiaregia", "Mirabello Sannitico", "Vinchiaturo", "Montenero di Bisaccia", "Montorio nei Frentani", "Guardialfiera", "Jelsi", "Cercepiccola", "Pietracatella", "Larino", "Campodipietra", "Pietracupa", "Riccia", "Baranello", "Tavenna", "Lucito", "Matrice", "Provvidenti", "Santa Croce di Magliano", "Campobasso", "Trivento", "Ururi", "Sant'Angelo Limosano", "Cercemaggiore", "San Giacomo degli Schiavoni", "Montefalcone nel Sannio", "Gildone", "Busso", "San Polo Matese", "Montemitro", "Tufara", "Fossalto", "Montelongo", "Palata", "Termoli", "Sepino", "Lupara", "Casacalenda", "San Giuliano di Puglia", "Petrella Tifernina", "Colletorto", "Sant'Elia a Pianisi", "San Martino in Pensilis", "Rotello", "Molise", "Mafalda", "Castropignano", "Ripalimosani", "Macchia Valfortore", "Casalciprano", "Gambatesa", "San Biase", "San Giovanni in Galdo", "Castelmauro", "Petacciato", "Colle d'Anchise", "Limosano", "Civitacampomarano", "Salcito", "Monacilioni", "Bojano", "Montagano", "Torella del Sannio", "Montecilfone", "Guglionesi", "Acquaviva Collecroce", "San Felice del Molise", "San Giuliano del Sannio", "Castelbottaccio", "Duronia", "San Massimo"], Isernia: ["Bagnoli del Trigno", "Carovilli", "Castelpizzuto", "Conca Casale", "Civitanova del Sannio", "Castel San Vincenzo", "Sesto Campano", "Belmonte del Sannio", "Sessano del Molise", "Longano", "Scapoli", "Castel del Giudice", "Isernia", "Acquaviva d'Isernia", "Agnone", "Montaquila", "Carpinone", "Chiauci", "Sant'Agapito", "Miranda", "Pozzilli", "Rionero Sannitico", "Pescopennataro", "Pettoranello del Molise", "Macchiagodena", "Monteroduni", "Pietrabbondante", "Sant'Angelo del Pesco", "Cantalupo nel Sannio", "Colli a Volturno", "Fornelli", "Rocchetta a Volturno", "Pescolanciano", "Sant'Elena Sannita", "Macchia d'Isernia", "Pesche", "Castelverrino", "Frosolone", "Forlì del Sannio", "Montenero Val Cocchiara", "San Pietro Avellana", "Vastogirardi", "Roccamandolfi", "Venafro", "Santa Maria del Molise", "Castelpetroso", "Pizzone", "Roccasicura", "Capracotta", "Poggio Sannita", "Filignano", "Cerro al Volturno"] }, km = { Foggia: ["San Nicandro Garganico", "Carapelle", "Ordona", "Ascoli Satriano", "Peschici", "Chieuti", "Castelnuovo della Daunia", "San Severo", "Poggio Imperiale", "Castelluccio dei Sauri", "Castelluccio Valmaggiore", "Cerignola", "Anzano di Puglia", "Ischitella", "Zapponeta", "Sant'Agata di Puglia", "San Marco la Catola", "Troia", "Lucera", "Cagnano Varano", "Serracapriola", "San Giovanni Rotondo", "Volturara Appula", "Bovino", "Orsara di Puglia", "Torremaggiore", "Biccari", "Carlantino", "Celenza Valfortore", "Vico del Gargano", "Orta Nova", "Lesina", "Pietramontecorvino", "Apricena", "San Marco in Lamis", "Volturino", "Candela", "Carpino", "Casalnuovo Monterotaro", "Isole Tremiti", "Faeto", "Rodi Garganico", "Rignano Garganico", "Monte Sant'Angelo", "Mattinata", "Celle di San Vito", "Motta Montecorvino", "Panni", "Casalvecchio di Puglia", "Vieste", "Stornarella", "Monteleone di Puglia", "Accadia", "Alberona", "Roseto Valfortore", "San Paolo di Civitate", "Manfredonia", "Deliceto", "Rocchetta Sant'Antonio", "Foggia", "Stornara"], Bari: ["Altamura", "Palo del Colle", "Poggiorsini", "Acquaviva delle Fonti", "Modugno", "Molfetta", "Terlizzi", "Polignano a Mare", "Bitritto", "Putignano", "Triggiano", "Sammichele di Bari", "Castellana Grotte", "Cassano delle Murge", "Noicattaro", "Rutigliano", "Conversano", "Gioia del Colle", "Adelfia", "Capurso", "Cellamare", "Ruvo di Puglia", "Gravina in Puglia", "Valenzano", "Locorotondo", "Corato", "Bitetto", "Binetto", "Sannicandro di Bari", "Mola di Bari", "Toritto", "Giovinazzo", "Alberobello", "Bitonto", "Monopoli", "Grumo Appula", "Noci", "Turi", "Bari", "Casamassima", "Santeramo in Colle"], Taranto: ["Martina Franca", "Fragagnano", "Castellaneta", "Sava", "Crispiano", "San Giorgio Ionico", "Pulsano", "Mottola", "Montemesola", "San Marzano di San Giuseppe", "Avetrana", "Lizzano", "Palagianello", "Taranto", "Manduria", "Massafra", "Monteiasi", "Laterza", "Carosino", "Statte", "Monteparano", "Torricella", "Grottaglie", "Roccaforzata", "Faggiano", "Maruggio", "Ginosa", "Leporano", "Palagiano"], Brindisi: ["Mesagne", "Ostuni", "Torre Santa Susanna", "Cisternino", "San Vito dei Normanni", "Erchie", "Francavilla Fontana", "Cellino San Marco", "San Donaci", "San Pietro Vernotico", "Carovigno", "Fasano", "Torchiarolo", "Ceglie Messapica", "Oria", "Brindisi", "San Michele Salentino", "San Pancrazio Salentino", "Villa Castelli", "Latiano"], Lecce: ["Castri di Lecce", "Santa Cesarea Terme", "Castro", "Melpignano", "San Pietro in Lama", "Seclì", "Copertino", "Soleto", "Diso", "Alessano", "Spongano", "Guagnano", "Surano", "Squinzano", "Sternatia", "Arnesano", "Presicce-Acquarica", "Neviano", "Castrignano del Capo", "Casarano", "Leverano", "Ortelle", "Novoli", "Taviano", "Galatina", "Surbo", "Alliste", "Andrano", "Martignano", "Maglie", "Giuggianello", "Veglie", "Ruffano", "Corigliano d'Otranto", "Miggiano", "Carpignano Salentino", "Botrugno", "Minervino di Lecce", "Sogliano Cavour", "Tuglie", "Taurisano", "Monteroni di Lecce", "Lequile", "Salve", "Racale", "Tricase", "Martano", "Castrignano de' Greci", "Ugento", "Matino", "Carmiano", "Vernole", "Cutrofiano", "Salice Salentino", "Scorrano", "San Cassiano", "Cursi", "Bagnolo del Salento", "Specchia", "Nardò", "Morciano di Leuca", "Porto Cesareo", "Patù", "Trepuzzi", "Montesano Salentino", "San Cesario di Lecce", "Corsano", "Caprarica di Lecce", "Lizzanello", "Parabita", "Sannicola", "Aradeo", "Otranto", "Collepasso", "Campi Salentina", "Calimera", "Tiggiano", "Galatone", "Giurdignano", "Poggiardo", "Muro Leccese", "Supersano", "Cavallino", "Lecce", "Sanarica", "Zollino", "Melendugno", "Alezio", "San Donato di Lecce", "Gallipoli", "Cannole", "Uggiano la Chiesa", "Gagliano del Capo", "Palmariggi", "Melissano", "Nociglia"], "Barletta-Andria-Trani": ["Canosa di Puglia", "Trani", "Andria", "Spinazzola", "Trinitapoli", "Barletta", "Margherita di Savoia", "Minervino Murge", "San Ferdinando di Puglia", "Bisceglie"] }, Om = { Potenza: ["San Severino Lucano", "Ruvo del Monte", "Lagonegro", "Calvera", "Carbone", "Satriano di Lucania", "Montemilone", "Rivello", "Moliterno", "Balvano", "Fardella", "Francavilla in Sinni", "Castelmezzano", "Tolve", "Chiaromonte", "Cersosimo", "Tramutola", "Corleto Perticara", "Lavello", "Brienza", "Venosa", "Banzi", "Calvello", "Savoia di Lucania", "Teana", "Pietrapertosa", "Montemurro", "Castelluccio Inferiore", "Avigliano", "Castelluccio Superiore", "Ruoti", "Genzano di Lucania", "San Martino d'Agri", "Potenza", "Episcopia", "Castelgrande", "Vaglio Basilicata", "Viggianello", "Anzi", "Maschito", "Baragiano", "Castelsaraceno", "Rotonda", "Sasso di Castalda", "Albano di Lucania", "Viggiano", "San Paolo Albanese", "Nemoli", "Rapolla", "Paterno", "San Costantino Albanese", "Pietragalla", "Melfi", "Sant'Angelo Le Fratte", "Castronuovo di Sant'Andrea", "Acerenza", "Campomaggiore", "Vietri di Potenza", "Trecchina", "Picerno", "Rapone", "Armento", "Gallicchio", "Pescopagano", "San Chirico Raparo", "Roccanova", "Maratea", "Missanello", "San Chirico Nuovo", "Spinoso", "Ripacandida", "Sarconi", "Tito", "Rionero in Vulture", "Bella", "Latronico", "Palazzo San Gervasio", "Noepoli", "Trivigno", "Barile", "Ginestra", "Sant'Arcangelo", "Atella", "Filiano", "Muro Lucano", "Marsico Nuovo", "Oppido Lucano", "San Fele", "Guardia Perticara", "Brindisi Montagna", "Lauria", "Cancellara", "Forenza", "Laurenzana", "Grumento Nova", "Abriola", "Terranova di Pollino", "Pignola", "Senise", "Marsicovetere"], Matera: ["Calciano", "Montescaglioso", "Montalbano Jonico", "Colobraro", "Pisticci", "Oliveto Lucano", "Accettura", "Garaguso", "Matera", "Grottole", "Irsina", "Tricarico", "San Giorgio Lucano", "Craco", "Pomarico", "Gorgoglione", "San Mauro Forte", "Nova Siri", "Miglionico", "Bernalda", "Ferrandina", "Salandra", "Tursi", "Cirigliano", "Policoro", "Valsinni", "Stigliano", "Aliano", "Rotondella", "Grassano", "Scanzano Jonico"] }, Dm = { Cosenza: ["Fuscaldo", "Amendolara", "Santa Domenica Talao", "Nocara", "Acri", "Mormanno", "Bisignano", "Carolei", "Altilia", "Firmo", "San Fili", "Rota Greca", "Santa Maria del Cedro", "Lago", "Castrolibero", "Aieta", "Plataci", "Cetraro", "San Giorgio Albanese", "Lattarico", "Mendicino", "Pietrapaola", "Marano Principato", "Panettieri", "Bonifati", "Bocchigliero", "Rocca Imperiale", "Santo Stefano di Rogliano", "Roseto Capo Spulico", "Calopezzati", "Casali del Manco", "Paola", "Grimaldi", "Rende", "Cellara", "Campana", "Parenti", "Paterno Calabro", "Sangineto", "Cerisano", "Santa Caterina Albanese", "Falconara Albanese", "Lappano", "Caloveto", "Malvito", "Frascineto", "Oriolo", "San Lorenzo Bellizzi", "Belvedere Marittimo", "Scalea", "Amantea", "Paludi", "Villapiana", "Scigliano", "San Marco Argentano", "San Sosti", "Longobucco", "Carpanzano", "Pietrafitta", "Cropalati", "Alessandria del Carretto", "Zumpano", "San Cosmo Albanese", "Castiglione Cosentino", "San Donato di Ninea", "Civita", "Cerchiara di Calabria", "Altomonte", "Mandatoriccio", "Canna", "Vaccarizzo Albanese", "Fiumefreddo Bruzio", "Fagnano Castello", "Sant'Agata di Esaro", "Terravecchia", "Tortora", "Mangone", "Marzi", "San Pietro in Amantea", "San Vincenzo La Costa", "Verbicaro", "Trebisacce", "Celico", "Praia a Mare", "Belmonte Calabro", "Malito", "Castroregio", "Cervicati", "Torano Castello", "Grisolia", "Morano Calabro", "Bianchi", "Scala Coeli", "Montegiordano", "Aiello Calabro", "Albidona", "Domanico", "San Basile", "Rovito", "Luzzi", "Guardia Piemontese", "San Demetrio Corone", "Aprigliano", "Cassano all'Ionio", "Acquappesa", "Buonvicino", "San Benedetto Ullano", "Crosia", "San Nicola Arcella", "San Martino di Finita", "Roggiano Gravina", "Laino Borgo", "Cosenza", "Serra d'Aiello", "Figline Vegliaturo", "Pedivigliano", "Francavilla Marittima", "San Lucido", "Maierà", "Longobardi", "Cleto", "Castrovillari", "Lungro", "San Pietro in Guarano", "Terranova da Sibari", "Montalto Uffugo", "Santa Sofia d'Epiro", "Diamante", "Orsomarso", "Marano Marchesato", "Cerzeto", "Laino Castello", "Corigliano-Rossano", "Cariati", "Mongrassano", "Piane Crati", "Spezzano Albanese", "Rose", "Mottafollone", "Dipignano", "Tarsia", "Saracena", "Belsito", "Papasidero", "Spezzano della Sila", "San Giovanni in Fiore", "Rogliano", "Acquaformosa", "Colosimi", "San Lorenzo del Vallo"], Catanzaro: ["Settingiano", "Pianopoli", "Stalettì", "Tiriolo", "Cenadi", "Marcellinara", "Amato", "Curinga", "San Pietro a Maida", "Badolato", "Girifalco", "Fossato Serralta", "Miglierina", "Belcastro", "Falerna", "Petronà", "Gagliato", "Carlopoli", "Marcedusa", "Martirano Lombardo", "Platania", "Gizzeria", "Soverato", "Cardinale", "Davoli", "Gasperina", "Cicala", "Soveria Mannelli", "Santa Caterina dello Ionio", "Motta Santa Lucia", "Feroleto Antico", "Petrizzi", "Cortale", "Montauro", "Argusto", "Centrache", "Chiaravalle Centrale", "Taverna", "Montepaone", "Caraffa di Catanzaro", "Amaroni", "Catanzaro", "Soveria Simeri", "Sersale", "Magisano", "Sant'Andrea Apostolo dello Ionio", "San Vito sullo Ionio", "San Mango d'Aquino", "Satriano", "Albi", "Jacurso", "Simeri Crichi", "Conflenti", "Botricello", "Sellia Marina", "Cerva", "Borgia", "San Pietro Apostolo", "Nocera Terinese", "Palermiti", "Maida", "Vallefiorita", "Pentone", "Lamezia Terme", "Isca sullo Ionio", "Torre di Ruggiero", "Cropani", "Decollatura", "Gimigliano", "Martirano", "San Sostene", "Olivadi", "Squillace", "San Floro", "Sorbo San Basile", "Serrastretta", "Andali", "Guardavalle", "Zagarise", "Sellia"], "Reggio Calabria": ["Campo Calabro", "Candidoni", "San Giorgio Morgeto", "Placanica", "Sant'Alessio in Aspromonte", "Laureana di Borrello", "Caulonia", "Ardore", "Grotteria", "Palizzi", "Condofuri", "Pazzano", "Marina di Gioiosa Ionica", "Motta San Giovanni", "Sant'Agata del Bianco", "Gioiosa Ionica", "Varapodio", "Riace", "Sant'Eufemia d'Aspromonte", "Locri", "Laganadi", "San Giovanni di Gerace", "Caraffa del Bianco", "Canolo", "Roccaforte del Greco", "Mammola", "Bianco", "Ferruzzano", "Martone", "Scido", "Cinquefrondi", "Terranova Sappo Minulio", "Bivongi", "Santa Cristina d'Aspromonte", "Seminara", "Sinopoli", "Cosoleto", "Giffone", "Rosarno", "Molochio", "Gioia Tauro", "Maropati", "Monasterace", "Benestare", "Africo", "Samo", "Melicuccà", "Bova", "Cardeto", "San Procopio", "Stignano", "Bagnara Calabra", "Cittanova", "San Lorenzo", "Brancaleone", "Roghudi", "Roccella Ionica", "Polistena", "Oppido Mamertina", "Galatro", "Siderno", "Scilla", "San Luca", "San Roberto", "San Pietro di Caridà", "Careri", "Sant'Ilario dello Ionio", "Rizziconi", "Camini", "Melicucco", "Portigliola", "Bovalino", "Delianuova", "Ciminà", "Gerace", "Santo Stefano in Aspromonte", "Staiti", "Taurianova", "Fiumara", "Platì", "Palmi", "Antonimina", "Bagaladi", "Bova Marina", "Montebello Jonico", "Calanna", "Bruzzano Zeffirio", "Melito di Porto Salvo", "Serrata", "Agnana Calabra", "San Ferdinando", "Stilo", "Feroleto della Chiesa", "Reggio di Calabria", "Casignana", "Anoia", "Villa San Giovanni"], Crotone: ["Roccabernarda", "Verzino", "Scandale", "Cirò", "Isola di Capo Rizzuto", "Savelli", "Castelsilano", "Strongoli", "Rocca di Neto", "Cirò Marina", "Cutro", "San Nicola dell'Alto", "Cerenzia", "Carfizzi", "Belvedere di Spinello", "San Mauro Marchesato", "Crucoli", "Umbriatico", "Mesoraca", "Santa Severina", "Crotone", "Pallagorio", "Petilia Policastro", "Casabona", "Caccuri", "Melissa", "Cotronei"], "Vibo Valentia": ["Filandari", "Pizzo", "Ricadi", "Joppolo", "Vallelonga", "Nardodipace", "Rombiolo", "Brognaturo", "Spadola", "Maierato", "Simbario", "Fabrizia", "Sorianello", "Zungri", "Jonadi", "Soriano Calabro", "Spilinga", "Tropea", "San Calogero", "Vazzano", "Drapia", "Gerocarne", "Briatico", "Cessaniti", "Zaccanopoli", "Limbadi", "Dasà", "Parghelia", "Mileto", "Francica", "Dinami", "Capistrano", "Arena", "Sant'Onofrio", "Pizzoni", "Nicotera", "Polia", "Francavilla Angitola", "Acquaro", "Vibo Valentia", "Stefanaconi", "Zambrone", "San Gregorio d'Ippona", "San Costantino Calabro", "Filadelfia", "Monterosso Calabro", "Serra San Bruno", "San Nicola da Crissa", "Mongiana", "Filogaso"] }, Gm = { Trapani: ["Alcamo", "Buseto Palizzolo", "Paceco", "Salaparuta", "Castelvetrano", "Santa Ninfa", "Custonaci", "Poggioreale", "San Vito Lo Capo", "Petrosino", "Trapani", "Vita", "Salemi", "Mazara del Vallo", "Pantelleria", "Castellammare del Golfo", "Marsala", "Favignana", "Misiliscemi", "Campobello di Mazara", "Erice", "Valderice", "Gibellina", "Partanna", "Calatafimi-Segesta"], Palermo: ["Montemaggiore Belsito", "Lercara Friddi", "Carini", "San Giuseppe Jato", "Termini Imerese", "Campofelice di Roccella", "Vicari", "Palazzo Adriano", "Caltavuturo", "Alia", "Bompietro", "Prizzi", "Isnello", "Campofiorito", "Chiusa Sclafani", "Gratteri", "Balestrate", "Campofelice di Fitalia", "Altavilla Milicia", "Belmonte Mezzagno", "Borgetto", "Pollina", "Santa Flavia", "Alimena", "Cefalà Diana", "Palermo", "Torretta", "Casteldaccia", "Sciara", "Roccapalumba", "Villabate", "Baucina", "San Mauro Castelverde", "Trabia", "Partinico", "Cinisi", "San Cipirello", "Santa Cristina Gela", "Ficarazzi", "Caccamo", "Castronovo di Sicilia", "Cerda", "Valledolmo", "Camporeale", "Bisacquino", "Cefalù", "Capaci", "Corleone", "Villafrati", "Castellana Sicula", "Roccamena", "Terrasini", "Isola delle Femmine", "Misilmeri", "Giuliana", "Bolognetta", "Piana degli Albanesi", "Gangi", "Trappeto", "Sclafani Bagni", "Bagheria", "Petralia Sottana", "Godrano", "Geraci Siculo", "Castelbuono", "Ciminna", "Polizzi Generosa", "Blufi", "Lascari", "Giardinello", "Ustica", "Ventimiglia di Sicilia", "Collesano", "Mezzojuso", "Contessa Entellina", "Marineo", "Scillato", "Petralia Soprana", "Monreale", "Montelepre", "Altofonte", "Aliminusa"], Messina: ["Floresta", "Alì", "Santa Domenica Vittoria", "San Salvatore di Fitalia", "Torrenova", "Valdina", "Tusa", "Messina", "Castel di Lucio", "Malvagna", "Barcellona Pozzo di Gotto", "Caronia", "Itala", "San Marco d'Alunzio", "Motta Camastra", "Saponara", "Pagliara", "Gaggi", "Piraino", "San Filippo del Mela", "Rodì Milici", "Mazzarrà Sant'Andrea", "Rometta", "Scaletta Zanclea", "Santa Teresa di Riva", "Roccafiorita", "Sant'Alessio Siculo", "Naso", "Capizzi", "Militello Rosmarino", "Villafranca Tirrena", "Roccella Valdemone", "Sant'Angelo di Brolo", "Venetico", "Torregrotta", "Casalvecchio Siculo", "Merì", "Furci Siculo", "Gallodoro", "Capri Leone", "Montagnareale", "Francavilla di Sicilia", "Mistretta", "Furnari", "Santa Marina Salina", "Falcone", "Patti", "Librizzi", "Tortorici", "Montalbano Elicona", "Roccavaldina", "Antillo", "Castell'Umberto", "Ficarra", "Novara di Sicilia", "San Piero Patti", "Raccuja", "Motta d'Affermo", "Mandanici", "Nizza di Sicilia", "Ucria", "Savoca", "Condrò", "Capo d'Orlando", "San Fratello", "Forza d'Agrò", "Gualtieri Sicaminò", "Oliveri", "Spadafora", "San Pier Niceto", "Sinagra", "Gioiosa Marea", "Fiumedinisi", "Alcara li Fusi", "Taormina", "Monforte San Giorgio", "Giardini-Naxos", "Leni", "Basicò", "Sant'Agata di Militello", "Terme Vigliatore", "Castroreale", "Santo Stefano di Camastra", "Graniti", "Lipari", "Milazzo", "San Teodoro", "Acquedolci", "Santa Lucia del Mela", "Galati Mamertino", "Reitano", "Frazzanò", "Alì Terme", "Tripi", "Roccalumera", "Moio Alcantara", "Cesarò", "Limina", "Castelmola", "Longi", "Malfa", "Fondachelli-Fantina", "Letojanni", "Mongiuffi Melia", "Pace del Mela", "Brolo", "Mirto", "Pettineo"], Agrigento: ["Licata", "Ribera", "Alessandria della Rocca", "Santa Elisabetta", "Grotte", "Montallegro", "Menfi", "Montevago", "Calamonaci", "San Biagio Platani", "Castrofilippo", "Santa Margherita di Belice", "Ravanusa", "Cianciana", "Lucca Sicula", "Sant'Angelo Muxaro", "Realmonte", "Porto Empedocle", "Lampedusa e Linosa", "Villafranca Sicula", "Canicattì", "Naro", "San Giovanni Gemini", "Santo Stefano Quisquina", "Cammarata", "Comitini", "Raffadali", "Burgio", "Agrigento", "Sciacca", "Siculiana", "Bivona", "Joppolo Giancaxio", "Racalmuto", "Camastra", "Sambuca di Sicilia", "Campobello di Licata", "Caltabellotta", "Casteltermini", "Aragona", "Cattolica Eraclea", "Favara", "Palma di Montechiaro"], Caltanissetta: ["Sommatino", "Delia", "San Cataldo", "Marianopoli", "Mazzarino", "Acquaviva Platani", "Gela", "Mussomeli", "Butera", "Villalba", "Vallelunga Pratameno", "Bompensiere", "Resuttano", "Serradifalco", "Caltanissetta", "Campofranco", "Niscemi", "Montedoro", "Milena", "Sutera", "Santa Caterina Villarmosa", "Riesi"], Enna: ["Aidone", "Valguarnera Caropepe", "Agira", "Pietraperzia", "Gagliano Castelferrato", "Leonforte", "Catenanuova", "Villarosa", "Regalbuto", "Barrafranca", "Centuripe", "Troina", "Enna", "Sperlinga", "Cerami", "Assoro", "Nicosia", "Piazza Armerina", "Nissoria", "Calascibetta"], Catania: ["Aci Sant'Antonio", "Tremestieri Etneo", "Fiumefreddo di Sicilia", "Castiglione di Sicilia", "Gravina di Catania", "Bronte", "Camporotondo Etneo", "San Pietro Clarenza", "Scordia", "Mineo", "Caltagirone", "Giarre", "Mazzarrone", "Palagonia", "Santa Maria di Licodia", "Raddusa", "Riposto", "Milo", "Viagrande", "Licodia Eubea", "Calatabiano", "Nicolosi", "Grammichele", "Mascali", "Belpasso", "Castel di Iudica", "Aci Catena", "Catania", "Biancavilla", "Ragalna", "Piedimonte Etneo", "Trecastagni", "Sant'Agata li Battiati", "San Gregorio di Catania", "San Cono", "Aci Bonaccorsi", "Pedara", "Randazzo", "Paternò", "San Michele di Ganzaria", "Motta Sant'Anastasia", "Zafferana Etnea", "Vizzini", "Acireale", "San Giovanni la Punta", "Linguaglossa", "Misterbianco", "Ramacca", "Valverde", "Sant'Alfio", "Santa Venerina", "Mascalucia", "Militello in Val di Catania", "Aci Castello", "Maletto", "Maniace", "Mirabella Imbaccari", "Adrano"], Ragusa: ["Modica", "Ispica", "Acate", "Ragusa", "Comiso", "Vittoria", "Giarratana", "Chiaramonte Gulfi", "Monterosso Almo", "Pozzallo", "Santa Croce Camerina", "Scicli"], Siracusa: ["Augusta", "Floridia", "Melilli", "Buccheri", "Siracusa", "Cassaro", "Canicattini Bagni", "Rosolini", "Lentini", "Buscemi", "Carlentini", "Sortino", "Ferla", "Palazzolo Acreide", "Avola", "Francofonte", "Priolo Gargallo", "Portopalo di Capo Passero", "Solarino", "Pachino", "Noto"] }, Nm = { Sassari: ["Bonorva", "Bultei", "Mara", "Ozieri", "Illorai", "Chiaramonti", "Ploaghe", "Torralba", "Putifigari", "Stintino", "Codrongianos", "Sorso", "Padria", "Palau", "Nule", "Luras", "Muros", "Anela", "Bottidda", "Uri", "Ittiri", "Borutta", "Mores", "Pozzomaggiore", "Nulvi", "Alà dei Sardi", "Banari", "Usini", "Laerru", "Bonnanaro", "Villanova Monteleone", "Budoni", "Tula", "Florinas", "Bulzi", "Romana", "Ossi", "Tergu", "Cargeghe", "Badesi", "Benetutti", "Tissi", "Aggius", "Luogosanto", "Sassari", "Esporlatu", "Cossoine", "Padru", "Thiesi", "Semestene", "Monteleone Rocca Doria", "Bortigiadas", "La Maddalena", "Arzachena", "Santa Teresa Gallura", "Martis", "Pattada", "Loiri Porto San Paolo", "Erula", "Burgos", "Bono", "Osilo", "Tempio Pausania", "Santa Maria Coghinas", "Aglientu", "Castelsardo", "Cheremule", "Telti", "Siligo", "Nughedu San Nicolò", "Giave", "Viddalba", "Trinità d'Agultu e Vignola", "San Teodoro", "Sedini", "Valledoria", "Olbia", "Porto Torres", "Alghero", "Bessude", "Calangianus", "Ittireddu", "Berchidda", "Golfo Aranci", "Sant'Antonio di Gallura", "Buddusò", "Ardara", "Sennori", "Monti", "Olmedo", "Oschiri", "Perfugas"], Nuoro: ["Dualchi", "Meana Sardo", "Loculi", "Tiana", "Atzara", "Lodine", "Loceri", "Orune", "Orotelli", "Bitti", "Girasole", "Macomer", "Oniferi", "Lotzorai", "Gadoni", "Ovodda", "Tortolì", "Lula", "Galtellì", "Olzai", "Bortigali", "Onifai", "Lei", "Aritzo", "Desulo", "Perdasdefogu", "Baunei", "Gavoi", "Lanusei", "Belvì", "Triei", "Jerzu", "Posada", "Birori", "Lodè", "Teti", "Orani", "Silanus", "Ollolai", "Orgosolo", "Sindia", "Talana", "Noragugume", "Irgoli", "Austis", "Borore", "Gairo", "Nuoro", "Dorgali", "Cardedu", "Tonara", "Ilbono", "Sarule", "Urzulei", "Tertenia", "Osini", "Ussassai", "Mamoiada", "Orosei", "Sorgono", "Torpè", "Villagrande Strisaili", "Elini", "Ulassai", "Ottana", "Oliena", "Bari Sardo", "Arzana", "Onanì", "Siniscola", "Ortueri", "Osidda", "Fonni", "Bolotana"], Cagliari: ["Capoterra", "Sestu", "Maracalagonis", "Villa San Pietro", "Quartucciu", "Settimo San Pietro", "Decimomannu", "Selargius", "Elmas", "Assemini", "Sinnai", "Uta", "Monserrato", "Cagliari", "Quartu Sant'Elena", "Sarroch", "Pula"], Oristano: ["Sedilo", "Morgongiori", "Marrubiu", "Simaxis", "Palmas Arborea", "Simala", "Uras", "Sennariolo", "Pompu", "Tinnura", "Abbasanta", "Albagiara", "Soddì", "Siris", "Milis", "Siamaggiore", "Tramatza", "Senis", "Cabras", "Gonnostramatza", "Bosa", "Seneghe", "Assolo", "Bauladu", "Sorradile", "Ghilarza", "Nughedu Santa Vittoria", "Boroneddu", "Asuni", "Santu Lussurgiu", "Flussio", "Mogoro", "Ulà Tirso", "Ardauli", "San Nicolò d'Arcidano", "Montresta", "Ruinas", "Narbolia", "Zeddiani", "Tadasuni", "Ales", "Scano di Montiferro", "Laconi", "San Vero Milis", "Neoneli", "Norbello", "Ollastra", "Gonnoscodina", "Fordongianus", "Magomadas", "Nureci", "Terralba", "Paulilatino", "Solarussa", "Oristano", "Nurachi", "Suni", "Zerfaliu", "Baratili San Pietro", "Bonarcado", "Allai", "Usellus", "Masullas", "Villa Sant'Antonio", "Baradili", "Busachi", "Curcuris", "Villanova Truschedu", "Sini", "Villaurbana", "Baressa", "Mogorella", "Tresnuraghes", "Bidonì", "Aidomaggiore", "Gonnosnò", "Siapiccia", "Modolo", "Pau", "Riola Sardo", "Arborea", "Cuglieri", "Villa Verde", "Samugheo", "Santa Giusta", "Siamanna", "Sagama"], "Sud Sardegna": ["Ussaramanna", "Escolca", "Donori", "Isili", "Arbus", "Giba", "Segariu", "Guamaggiore", "Carloforte", "Perdaxius", "San Sperate", "Masainas", "Nurri", "Muravera", "Iglesias", "Villaspeciosa", "Burcei", "Pauli Arbarei", "Nuraminis", "San Basilio", "Genuri", "Villanova Tulo", "Nuragus", "Serrenti", "Vallermosa", "Senorbì", "Barumini", "Monastir", "Santadi", "Domus de Maria", "Tratalias", "Nurallao", "Ballao", "Siddi", "Siurgus Donigala", "Sant'Andrea Frius", "Guspini", "Guasila", "Fluminimaggiore", "San Vito", "Silius", "Soleminis", "Villamassargia", "Escalaplano", "Samatzai", "Gonnesa", "San Nicolò Gerrei", "Selegas", "Gergei", "Villaperuccio", "Sardara", "Villamar", "Turri", "Las Plassas", "Teulada", "Nuxis", "Gesturi", "Villacidro", "Setzu", "Domusnovas", "Seui", "Portoscuso", "Sanluri", "Genoni", "Goni", "Villanovaforru", "Musei", "Ortacesus", "Seulo", "Tuili", "Serri", "Serdiana", "Piscinas", "Gonnosfanadiga", "Siliqua", "Villasalto", "Calasetta", "Barrali", "Decimoputzu", "Sant'Anna Arresi", "Collinas", "Narcao", "Serramanna", "Esterzili", "Sant'Antioco", "Mandas", "Buggerru", "Villanovafranca", "Villasor", "Carbonia", "Gesico", "Villasimius", "Sadali", "Samassi", "Pabillonis", "Ussana", "San Gavino Monreale", "Castiadas", "San Giovanni Suergiu", "Furtei", "Lunamatrona", "Villaputzu", "Dolianova", "Armungia", "Orroli", "Suelli", "Pimentel"] }, ln = {
-  Piemonte: Tm,
+}), fl), Li = (t) => typeof t == "string" ? t : typeof t == "object" ? fl.value ? t.mobile : t.desktop : "", wm = /* @__PURE__ */ JSON.parse(`{"Torino":["Reano","Usseaux","Salassa","Brandizzo","Pertusio","Cavour","Ivrea","Azeglio","Rivarossa","Salbertrand","Ciconio","Villastellone","Borgiallo","Alpignano","Torre Canavese","Cintano","Cuorgnè","Rivoli","Cantalupa","Brosso","Cafasse","Lanzo Torinese","Romano Canavese","Novalesa","San Carlo Canavese","Rueglio","San Martino Canavese","Lessolo","Rocca Canavese","San Pietro Val Lemina","Giaglione","Orio Canavese","Ceres","Chiaverano","Cumiana","Osasio","Scalenghe","Mercenasco","Candia Canavese","Isolabella","Noasca","Groscavallo","Ribordone","Druento","Cossano Canavese","Villar Perosa","Locana","Piverone","Front","Levone","Settimo Torinese","Alpette","San Giusto Canavese","Bardonecchia","Verolengo","Fenestrelle","Sauze d'Oulx","Colleretto Castelnuovo","Rivara","Macello","Barbania","Gravere","Corio","Valprato Soana","Chianocco","Sestriere","Montalto Dora","Coazze","Meana di Susa","None","Cantoira","Chialamberto","Settimo Rottaro","Arignano","Mombello di Torino","Prali","Busano","Lemie","Val di Chy","Moncalieri","Banchette","Chiesanuova","Borgaro Torinese","Favria","Grosso","San Maurizio Canavese","Albiano d'Ivrea","Rorà","Garzigliana","Exilles","Buriasco","Villar Focchiardo","Castagneto Po","Agliè","Sant'Ambrogio di Torino","Balangero","Rivarolo Canavese","Rivalta di Torino","Andezeno","Cambiano","Beinasco","Valperga","Prarostino","Pinerolo","Vische","Bobbio Pellice","Mattie","Valchiusa","Lombriasco","Baldissero Torinese","Virle Piemonte","Venaria Reale","Mappano","Bollengo","Lusernetta","San Benigno Canavese","Borgone Susa","Balme","Borgofranco d'Ivrea","Montalenghe","Rubiana","Villar Pellice","Ala di Stura","Carignano","Castagnole Piemonte","Villafranca Piemonte","Casalborgone","Perrero","Mathi","Barone Canavese","Mazzè","Brozolo","Roletto","Carema","Germagnano","Trofarello","Issiglio","Perosa Canavese","Montaldo Torinese","Mompantero","Bruino","Villar Dora","Rivalba","Vialfrè","Tavagnasco","Luserna San Giovanni","San Francesco al Campo","Lombardore","Brusasco","Mezzenile","Salza di Pinerolo","Verrua Savoia","Leini","Caselette","Pratiglione","Bibiana","Traves","Condove","Castellamonte","Gassino Torinese","Sauze di Cesana","Givoletto","Carmagnola","Usseglio","Ronco Canavese","Caluso","Loranzè","Forno Canavese","Canischio","Bairo","Sant'Antonino di Susa","Moriondo Torinese","Settimo Vittone","Airasca","Lauriano","Piscina","Andrate","Inverso Pinasca","Rosta","San Giorgio Canavese","Colleretto Giacosa","Caprie","Samone","Roure","Volpiano","Vaie","Grugliasco","Pomaretto","San Germano Chisone","Ceresole Reale","Vallo Torinese","Fiano","San Giorio di Susa","Caravino","Cesana Torinese","Varisella","Bosconero","Monteu da Po","Burolo","Cascinette d'Ivrea","Sciolze","Borgomasino","Pecetto Torinese","Massello","La Loggia","Ozegna","Sparone","Pessinetto","San Gillio","Feletto","Pralormo","Maglione","Caselle Torinese","Torrazza Piemonte","Oglianico","Coassolo Torinese","Viù","Chiomonte","Strambinello","Susa","Frossasco","Porte","Vinovo","Vauda Canavese","Pragelato","Parella","Villarbasse","Traversella","Vigone","Chivasso","Cercenasco","Santena","Giaveno","Pianezza","Riva presso Chieri","Cinzano","Fiorano Canavese","Volvera","Cuceglio","Candiolo","Torre Pellice","Almese","Castiglione Torinese","Piobesi Torinese","Quincinetto","Vistrorio","San Didero","Collegno","Villareggia","Pavone Canavese","Venaus","San Colombano Belmonte","Bussoleno","Oulx","Nichelino","Foglizzo","Baldissero Canavese","San Secondo di Pinerolo","Ingria","Scarmagno","Bruzolo","Quassolo","Moncenisio","Trana","Cavagnolo","San Sebastiano da Po","Poirino","Nomaglio","Chiusa di San Michele","Nole","Vestignè","Angrogna","Robassomero","Vidracco","Val della Torre","Avigliana","Bricherasio","Strambino","Castelnuovo Nigra","Montanaro","Salerano Canavese","Valgioie","Marentino","Ciriè","Campiglione Fenile","Osasco","Orbassano","Prascorsano","Torino","Perosa Argentina","Pont Canavese","Monastero di Lanzo","La Cassa","Pinasca","San Mauro Torinese","Sangano","Pavarolo","Buttigliera Alta","Palazzo Canavese","Quagliuzzo","Claviere","Villanova Canavese","Piossasco","Lusigliè","Pino Torinese","Pancalieri","Chieri","Frassinetto","Pramollo","San Ponso","San Raffaele Cimena","Rondissone"],"Vercelli":["Albano Vercellese","Moncrivello","Villata","Asigliano Vercellese","Alice Castello","Cellio con Breia","Lenta","Mollia","Vocca","Desana","Varallo","Bianzè","Palazzolo Vercellese","Ronsecco","Collobiano","Balmuccia","Campertogno","Valduggia","Cravagliana","Rovasenda","Casanova Elvo","Balocco","Salasco","Formigliana","Pezzana","Gattinara","Olcenengo","Roasio","Crova","Arborio","Rimella","Alagna Valsesia","Piode","Scopello","Costanzana","Carisio","Ghislarengo","Quarona","Villarboit","Boccioleto","Lozzolo","Borgo d'Ale","Prarolo","Serravalle Sesia","Trino","San Giacomo Vercellese","Caresana","Civiasco","Caresanablot","Santhià","Scopa","Fontanetto Po","Cervatto","Buronzo","Carcoforo","Saluggia","Greggio","Alto Sermenza","Oldenico","Quinto Vercellese","Pertengo","Sali Vercellese","Crescentino","Motta de' Conti","Cigliano","Rassa","Lignana","Rossa","Vercelli","Rive","Livorno Ferraris","Tricerro","Tronzano Vercellese","Borgosesia","San Germano Vercellese","Fobello","Pila","Lamporo","Borgo Vercelli","Stroppiana","Guardabosone","Postua"],"Novara":["Fara Novarese","Vaprio d'Agogna","Mandello Vitta","Invorio","Landiona","Divignano","Mezzomerico","Caltignaga","Castellazzo Novarese","Soriso","Vespolate","Cavaglio d'Agogna","Cureggio","Borgolavezzaro","Pella","Casalbeltrame","Pettenasco","Biandrate","Cavallirio","Meina","Casalvolone","Nebbiuno","Oleggio","Varallo Pombia","Casalino","San Pietro Mosezzo","Boca","Ameno","Miasino","Trecate","Carpignano Sesia","Garbagna Novarese","Pogno","Briga Novarese","Grignasco","Gargallo","Vinzaglio","Agrate Conturbia","Vicolungo","Bogogno","Cerano","Marano Ticino","Gattico-Veruno","Barengo","Cameri","Paruzzaro","Suno","Massino Visconti","Prato Sesia","Armeno","Ghemme","Bolzano Novarese","Dormelletto","San Maurizio d'Opaglio","Borgo Ticino","Oleggio Castello","Nibbiola","Colazza","Recetto","Gozzano","Sizzano","Pombia","Fontaneto d'Agogna","Romentino","Comignago","Bellinzago Novarese","Momo","Castelletto sopra Ticino","Lesa","Arona","Romagnano Sesia","Borgomanero","Maggiora","Sillavengo","Briona","Casaleggio Novara","Cressa","Cavaglietto","Pisano","Granozzo con Monticello","Novara","Sozzago","Galliate","Tornaco","Terdobbiate","San Nazzaro Sesia","Orta San Giulio"],"Cuneo":["Baldissero d'Alba","Bergolo","Mango","Margarita","Pamparato","Neviglie","Montelupo Albese","Govone","Farigliano","Castiglione Tinella","Lesegno","Villar San Costanzo","Castellinaldo d'Alba","Venasca","Oncino","Limone Piemonte","Rocca Cigliè","Torre San Giorgio","Sambuco","Rodello","Santo Stefano Roero","Battifollo","Torre Bormida","Cuneo","Casteldelfino","Castelletto Stura","Serralunga d'Alba","Genola","Perletto","Barge","Entracque","Robilante","Busca","Corneliano d'Alba","Canosio","Castellino Tanaro","Guarene","Garessio","Cardè","Lisio","Neive","Niella Tanaro","Rittana","Roccavione","Carrù","Canale","Rossana","Mondovì","Bagnolo Piemonte","Treiso","Vicoforte","Roccabruna","Cigliè","Monasterolo di Savigliano","Monasterolo Casotto","Crissolo","Bra","Pezzolo Valle Uzzone","Scagnello","Prazzo","Sale delle Langhe","Frassino","Pietraporzio","Rocca de' Baldi","Rocchetta Belbo","Valloriate","Villanova Solaro","Boves","Pontechianale","Pianfei","Revello","Montezemolo","Polonghera","Villafalletto","Moretta","Paesana","Sanfrè","Racconigi","Saliceto","Tarantasca","Barolo","Gottasecca","Fossano","Narzole","Montà","Prunetto","Alba","Castelletto Uzzone","Morozzo","Belvedere Langhe","Costigliole Saluzzo","Briga Alta","Monterosso Grana","Piasco","Cervasca","San Michele Mondovì","Moiola","Albaretto della Torre","Borgomale","Roascio","Gaiola","Magliano Alpi","Saluzzo","Trezzo Tinella","Cavallerleone","Nucetto","Lagnasco","Isasca","Bene Vagienna","Verzuolo","Monesiglio","Martiniana Po","Argentera","Valdieri","Marene","Villanova Mondovì","Ceva","Frabosa Sottana","Cossano Belbo","Cortemilia","Montemale di Cuneo","Santa Vittoria d'Alba","Gambasca","Casalgrasso","Ceresole Alba","Frabosa Soprana","Perlo","Bellino","Aisone","Macra","Montaldo di Mondovì","Chiusa di Pesio","Arguello","Piozzo","Stroppo","Caprauna","Elva","Priola","Santo Stefano Belbo","Cravanzana","Brondello","Demonte","Mombasiglio","La Morra","Roccasparvera","Sommariva Perno","Sale San Giovanni","Grinzane Cavour","Savigliano","Murazzano","Verduno","Acceglio","Monchiero","Cherasco","Roburent","Melle","Vernante","Sant'Albano Stura","Monastero di Vasco","Castiglione Falletto","Montaldo Roero","Roccaforte Mondovì","Vottignasco","Sinio","Viola","Borgo San Dalmazzo","Scarnafigi","Niella Belbo","Bagnasco","Cartignano","Envie","Gorzegno","Murello","Lequio Berria","Cavallermaggiore","Marsaglia","Manta","Barbaresco","Camerana","Sampeyre","Sanfront","Rifreddo","Vignolo","Beinette","Benevello","Feisoglio","Cervere","Cerretto Langhe","San Damiano Macra","Caramagna Piemonte","Roddi","Roaschia","Serravalle Langhe","Valgrana","Vinadio","Lequio Tanaro","Dronero","Ostana","Salmour","Mombarcaro","Bossolasco","Castagnito","Centallo","Magliano Alfieri","Torresina","Pradleves","Igliano","Priero","Pocapaglia","Marmora","Dogliani","Alto","Bernezzo","Bonvicino","Monforte d'Alba","Castelnuovo di Ceva","Vezza d'Alba","Novello","Sommariva del Bosco","Briaglia","Torre Mondovì","Bastia Mondovì","Roddino","Monticello d'Alba","Caraglio","Castelmagno","Faule","Diano d'Alba","Monteu Roero","Castino","Somano","Pagno","Piobesi d'Alba","Ruffia","Brossasco","Priocca","Cissone","Bosia","Paroldo","Levice","Clavesana","Montanera","San Benedetto Belbo","Peveragno","Trinità","Celle di Macra","Ormea"],"Asti":["Incisa Scapaccino","Scurzolengo","Villa San Secondo","Cerro Tanaro","Montiglio Monferrato","Cortanze","Baldichieri d'Asti","Belveglio","Villanova d'Asti","Isola d'Asti","San Paolo Solbrito","Quaranti","Grazzano Badoglio","Cocconato","Serole","Sessame","Cassinasco","Moasca","Moransengo-Tonengo","Calosso","Passerano Marmorito","Camerano Casasco","Corsione","Bruno","Celle Enomondo","Cerreto d'Asti","Vinchio","Coazzolo","Cortiglione","Cossombrato","Monastero Bormida","Castell'Alfero","Asti","Cellarengo","Cantarana","Dusino San Michele","Roccaverano","Berzano di San Pietro","Montabone","San Giorgio Scarampi","Montegrosso d'Asti","Fontanile","Frinco","Vaglio Serra","Buttigliera d'Asti","Tonco","Montemagno Monferrato","Capriglio","Bubbio","Villafranca d'Asti","Viarigi","Penango","Maranzana","Rocca d'Arazzo","San Martino Alfieri","Aramengo","Costigliole d'Asti","Rocchetta Palafea","Castelnuovo Belbo","Soglio","Cisterna d'Asti","Castelnuovo Don Bosco","Castello di Annone","Refrancore","Revigliasco d'Asti","Rocchetta Tanaro","Nizza Monferrato","Piea","Cunico","Ferrere","Montafia","Robella","Canelli","Grana Monferrato","Calamandrana","Calliano Monferrato","Albugnano","Montaldo Scarampi","Olmo Gentile","Castel Boglione","Mombercelli","Antignano","Mongardino","Portacomaro","San Marzano Oliveto","Azzano d'Asti","Castellero","Roatto","Maretto","Cortazzone","Casorzo Monferrato","Castelnuovo Calcea","Tigliole","Moncucco Torinese","Settime","Moncalvo","Castelletto Molina","Cinaglio","Castagnole Monferrato","Pino d'Asti","Piovà Massaia","Cessole","Valfenera","Mombaldone","Mombaruzzo","Montechiaro d'Asti","Chiusano d'Asti","Vigliano d'Asti","Loazzolo","Vesime","Monale","Viale","Castagnole delle Lanze","Agliano Terme","Cortandone","Castel Rocchero","San Damiano d'Asti"],"Alessandria":["Cereseto","Malvicino","Volpeglino","Avolasca","Fubine Monferrato","Vignole Borbera","Alice Bel Colle","Pareto","Gamalero","Melazzo","Bosco Marengo","Montegioco","Conzano","Alluvioni Piovera","Felizzano","Sala Monferrato","Acqui Terme","Prasco","Tagliolo Monferrato","Borgo San Martino","Gremiasco","Masio","Castelnuovo Scrivia","Casale Monferrato","Fabbrica Curone","Valmacca","Morsasco","Valenza","Pomaro Monferrato","Dernice","Molare","Borghetto di Borbera","Basaluzzo","Carrosio","Castelletto Merli","Monleale","Ponti","Trisobbio","Cerreto Grue","Montechiaro d'Acqui","Cella Monte","Merana","Cavatore","Spigno Monferrato","Orsara Bormida","Bozzole","San Giorgio Monferrato","Occimiano","Villamiroglio","Carentino","Pontestura","Oviglio","Terzo","Balzola","Voltaggio","Carbonara Scrivia","Rocchetta Ligure","Sarezzano","Rocca Grimalda","Morano sul Po","Ticineto","Stazzano","Fresonara","Strevi","Berzano di Tortona","Serralunga di Crea","Terruggia","Ponzano Monferrato","Arquata Scrivia","Tassarolo","Solero","Cantalupo Ligure","Cremolino","Bassignana","Frugarolo","Ponzone","Silvano d'Orba","Denice","Casal Cermelli","Rivarone","Solonghello","Brignano-Frascata","Montaldeo","Castelletto d'Erro","Francavilla Bisio","Pozzolo Formigaro","Molino dei Torti","Villalvernia","Volpedo","Capriata d'Orba","Carrega Ligure","Momperone","Viguzzolo","Mornese","Villanova Monferrato","Cartosio","Fraconalto","Grognardo","Montecastello","Pecetto di Valenza","Lu e Cuccaro Monferrato","Albera Ligure","Bistagno","Belforte Monferrato","Frassineto Po","Guazzora","Ozzano Monferrato","Visone","Casaleggio Boiro","Cassinelle","Grondona","Altavilla Monferrato","Garbagna","Sezzadio","Murisengo","Castelspina","Ricaldone","Castelnuovo Bormida","Isola Sant'Antonio","Castelletto d'Orba","Montacuto","Sant'Agata Fossili","Villadeati","Vignale Monferrato","Tortona","Castellar Guidobono","Ovada","Bergamasco","Pozzol Groppo","Quattordio","Rivalta Bormida","Quargnento","Alessandria","Alzano Scrivia","Treville","Villaromagnano","Camino","Novi Ligure","Rosignano Monferrato","Montaldo Bormida","Carezzano","Montemarzino","Serravalle Scrivia","Coniolo","San Salvatore Monferrato","Roccaforte Ligure","Predosa","Spineto Scrivia","Odalengo Piccolo","San Sebastiano Curone","Cassano Spinola","Giarole","Cabella Ligure","Moncestino","Carpeneto","Gavi","Sardigliano","Olivola","Frascaro","Ottiglio","Costa Vescovato","Casalnoceto","Gabiano","Odalengo Grande","Casasco","Castellazzo Bormida","Paderna","Bosio","San Cristoforo","Mirabello Monferrato","Frassinello Monferrato","Mongiardino Ligure","Sale","Castellania Coppi","Borgoratto Alessandrino","Pontecurone","Camagna Monferrato","Castelletto Monferrato","Pietra Marazzi","Cerrina Monferrato","Lerma","Cassine","Mombello Monferrato","Alfiano Natta","Parodi Ligure","Morbello","Pasturana"],"Biella":["Crevacuore","Cavaglià","Ponderano","Viverone","Quaregna Cerreto","Sagliano Micca","Miagliano","Vigliano Biellese","Camandona","Piatto","Massazza","Campiglia Cervo","Bioglio","Rosazza","Veglio","Salussola","Vallanzengo","Graglia","Zubiena","Benna","Camburzano","Portula","Coggiola","Verrone","Strona","Ailoche","Sala Biellese","Muzzano","Cossato","Andorno Micca","Castelletto Cervo","Dorzano","Villa del Bosco","Magnano","Sandigliano","Zumaglia","Brusnengo","Biella","Gifflenga","Zimone","Mongrando","Sordevolo","Donato","Valle San Nicolao","Villanova Biellese","Candelo","Caprile","Pettinengo","Curino","Tollegno","Valdengo","Cerrione","Occhieppo Inferiore","Pralungo","Ronco Biellese","Netro","Callabiana","Roppolo","Masserano","Mezzana Mortigliengo","Tavigliano","Occhieppo Superiore","Lessona","Piedicavallo","Mottalciata","Valdilana","Torrazzo","Ternengo","Casapinta","Sostegno","Gaglianico","Borriana","Pollone","Pray"],"Verbano-Cusio-Ossola":["Belgirate","Domodossola","Bognanco","Macugnaga","Ornavasso","Nonio","Premia","Vignone","Santa Maria Maggiore","Beura-Cardezza","Caprezzo","Villadossola","Valstrona","Omegna","Trontano","Formazza","Germagno","Toceno","Bannio Anzino","Stresa","Madonna del Sasso","Arola","Cossogno","Oggebbio","Piedimulera","Aurano","Druogno","Pieve Vergonte","Anzola d'Ossola","Craveggia","Gravellona Toce","Intragna","Cannero Riviera","Baceno","Quarna Sotto","Varzo","Masera","Verbania","Crodo","Gurro","Crevoladossola","Miazzina","Premosello-Chiovenda","Cannobio","Massiola","Quarna Sopra","Montescheno","Pallanzeno","Vogogna","Gignese","Mergozzo","Premeno","Ceppo Morelli","Cambiasca","Arizzano","Montecrestese","Re","Valle Cannobina","Antrona Schieranco","Ghiffa","Loreglia","Trasquera","Villette","Bee","Trarego Viggiona","Malesco","Baveno","Borgomezzavalle","Brovello-Carpugnino","Cesara","San Bernardino Verbano","Casale Corte Cerro","Vanzone con San Carlo","Calasca-Castiglione"]}`), Em = { Imperia: ["Mendatica", "Borghetto d'Arroscia", "Montalto Carpasio", "Vallebona", "Aurigo", "Perinaldo", "Diano Castello", "Rezzo", "Borgomaro", "Civezza", "Ventimiglia", "Pietrabruna", "Chiusavecchia", "Dolceacqua", "Cervo", "Villa Faraldi", "San Biagio della Cima", "Molini di Triora", "Diano Marina", "Vallecrosia", "Diano Arentino", "Imperia", "Dolcedo", "Pontedassio", "Pieve di Teco", "Pornassio", "Airole", "Camporosso", "Bordighera", "Isolabona", "Vessalico", "Ceriana", "Triora", "Cesio", "Caravonica", "Taggia", "San Lorenzo al Mare", "Ranzo", "Armo", "Pompeiana", "Cosio d'Arroscia", "Montegrosso Pian Latte", "Riva Ligure", "Rocchetta Nervina", "San Bartolomeo al Mare", "Chiusanico", "Sanremo", "Prelà", "Ospedaletti", "Castel Vittorio", "Santo Stefano al Mare", "Costarainera", "Apricale", "Aquila d'Arroscia", "Castellaro", "Cipressa", "Seborga", "Lucinasco", "Diano San Pietro", "Soldano", "Terzorio", "Vasia", "Pigna", "Badalucco", "Bajardo", "Olivetta San Michele"], Savona: ["Piana Crixia", "Balestrino", "Osiglia", "Spotorno", "Calice Ligure", "Varazze", "Vezzi Portio", "Cengio", "Albissola Marina", "Alassio", "Noli", "Roccavignale", "Ceriale", "Murialdo", "Villanova d'Albenga", "Zuccarello", "Bormida", "Andora", "Boissano", "Borgio Verezzi", "Plodio", "Rialto", "Vado Ligure", "Bergeggi", "Orco Feglino", "Urbe", "Erli", "Savona", "Giusvalla", "Laigueglia", "Testico", "Cairo Montenotte", "Altare", "Nasino", "Onzo", "Quiliano", "Bardineto", "Mioglia", "Tovo San Giacomo", "Casanova Lerrone", "Borghetto Santo Spirito", "Arnasco", "Pontinvrea", "Calizzano", "Giustenice", "Cosseria", "Garlenda", "Mallare", "Millesimo", "Toirano", "Albisola Superiore", "Stella", "Celle Ligure", "Castelbianco", "Magliolo", "Sassello", "Pietra Ligure", "Vendone", "Carcare", "Castelvecchio di Rocca Barbena", "Finale Ligure", "Loano", "Albenga", "Massimino", "Cisano sul Neva", "Pallare", "Stellanello", "Ortovero", "Dego"], Genova: ["Rapallo", "Santa Margherita Ligure", "Lumarzo", "Moneglia", "Rondanina", "Sori", "Isola del Cantone", "Favale di Malvaro", "Propata", "Fascia", "Mezzanego", "Borzonasca", "Campo Ligure", "San Colombano Certenoli", "Campomorone", "Pieve Ligure", "Montoggio", "Carasco", "Rezzoaglio", "Ronco Scrivia", "Rossiglione", "Chiavari", "Gorreto", "Tribogna", "Arenzano", "Masone", "Bargagli", "Sant'Olcese", "Genova", "Cogoleto", "Serra Riccò", "Savignone", "Valbrevenna", "Lorsica", "Moconesi", "Uscio", "Coreglia Ligure", "Davagna", "Orero", "Cogorno", "Tiglieto", "Mignanego", "Casella", "Castiglione Chiavarese", "Recco", "Torriglia", "Montebruno", "Leivi", "Sestri Levante", "Ceranesi", "Zoagli", "Santo Stefano d'Aveto", "Ne", "Lavagna", "Rovegno", "Mele", "Avegno", "Vobbia", "Neirone", "Casarza Ligure", "Busalla", "Portofino", "Cicagna", "Camogli", "Fontanigorda", "Bogliasco", "Crocefieschi"], "La Spezia": ["Calice al Cornoviglio", "Lerici", "Ameglia", "Carro", "Framura", "La Spezia", "Zignago", "Santo Stefano di Magra", "Castelnuovo Magra", "Carrodano", "Rocchetta di Vara", "Borghetto di Vara", "Beverino", "Follo", "Riomaggiore", "Luni", "Pignone", "Portovenere", "Bolano", "Sarzana", "Maissana", "Riccò del Golfo di Spezia", "Vezzano Ligure", "Bonassola", "Levanto", "Vernazza", "Deiva Marina", "Varese Ligure", "Sesta Godano", "Arcola", "Monterosso al Mare", "Brugnato"] }, Am = /* @__PURE__ */ JSON.parse(`{"Varese":["Castronno","Lavena Ponte Tresa","Olgiate Olona","Cassano Valcuvia","Gallarate","Leggiuno","Caronno Pertusella","Sangiano","Origgio","Casciago","Lonate Ceppino","Bardello con Malgesso e Bregano","Cadegliano-Viconago","Cavaria con Premezzo","Cuvio","Cazzago Brabbia","Venegono Inferiore","Albizzate","Buguggiate","Cadrezzate con Osmate","Bisuschio","Varese","Busto Arsizio","Luino","Gazzada Schianno","Vedano Olona","Cantello","Arcisate","Bedero Valcuvia","Agra","Orino","Uboldo","Brezzo di Bedero","Marnate","Masciago Primo","Angera","Gavirate","Jerago con Orago","Brunello","Crosio della Valle","Carnago","Mercallo","Montegrino Valtravaglia","Cocquio-Trevisago","Comerio","Venegono Superiore","Cugliate-Fabiasco","Induno Olona","Cuveglio","Cairate","Valganna","Cunardo","Castello Cabiaglio","Saronno","Morazzone","Mesenzana","Sesto Calende","Luvinate","Besozzo","Caronno Varesino","Mornago","Brinzio","Besnate","Cittiglio","Dumenza","Brusimpiano","Curiglia con Monteviasco","Ranco","Ferno","Samarate","Vergiate","Clivio","Gerenzano","Gorla Minore","Lonate Pozzolo","Maccagno con Pino e Veddasca","Marzio","Golasecca","Cassano Magnago","Brebbia","Ispra","Biandronno","Gemonio","Marchirolo","Tronzano Lago Maggiore","Fagnano Olona","Gornate Olona","Duno","Brissago-Valtravaglia","Sumirago","Azzio","Castelseprio","Viggiù","Inarzo","Cislago","Taino","Solbiate Olona","Casorate Sempione","Casale Litta","Azzate","Oggiona con Santo Stefano","Gorla Maggiore","Besano","Barasso","Ferrera di Varese","Castiglione Olona","Varano Borghi","Comabbio","Cremenaga","Ternate","Castelveccana","Germignaga","Castellanza","Somma Lombardo","Brenta","Saltrio","Monvalle","Laveno-Mombello","Malnate","Porto Valtravaglia","Tradate","Vizzola Ticino","Grantola","Cuasso al Monte","Daverio","Arsago Seprio","Bodio Lomnago","Porto Ceresio","Casalzuigno","Lozza","Solbiate Arno","Travedona-Monate","Cardano al Campo","Rancio Valcuvia","Caravate","Galliate Lombardo"],"Como":["Trezzone","Stazzona","Como","Cusino","Merone","Uggiate con Ronago","Grandate","Appiano Gentile","Maslianico","Eupilio","Lurate Caccivio","Canzo","Brienno","Faggeto Lario","Albese con Cassano","Sorico","Bulgarograsso","Livo","Mariano Comense","Fenegrò","Lomazzo","Solbiate con Cagno","Guanzate","Veleso","Gera Lario","Caslino d'Erba","Ponna","Colverde","Casnate con Bernate","Colonno","Centro Valle Intelvi","Limido Comasco","Monguzzo","Pusiano","Campione d'Italia","Vercana","Luisago","Vertemate con Minoprio","Valbrona","Orsenigo","San Nazzaro Val Cavargna","Albiolo","Griante","Oltrona di San Mamette","Rezzago","Corrido","Cremia","Rodero","Erba","Asso","Moltrasio","Nesso","Bene Lario","Figino Serenza","Turate","Tremezzina","Sala Comacina","Pianello del Lario","Fino Mornasco","Rovellasca","Capiago Intimiano","Castelmarte","Bregnano","Sormano","Brunate","Cabiate","Carlazzo","Menaggio","Montano Lucino","Porlezza","Veniano","Carate Urio","Bizzarone","Valsolda","San Fermo della Battaglia","Claino con Osteno","Anzano del Parco","Torno","Proserpio","Cadorago","Faloppio","Peglio","Olgiate Comasco","Barni","Cermenate","Arosio","Carugo","Bellagio","Val Rezzo","Cernobbio","Novedrate","Cerano d'Intelvi","Cirimido","Villa Guardia","Garzeno","Domaso","San Bartolomeo Val Cavargna","Blevio","Caglio","Rovello Porro","Lasnigo","Laino","Alta Valle Intelvi","Longone al Segrino","Carimate","Cassina Rizzardi","Beregazzo con Figliaro","Lambrugo","Lezzeno","Dongo","Argegno","Schignano","Binago","Lurago Marinone","Cucciago","Alzate Brianza","Locate Varesino","Montemezzo","Lurago d'Erba","Carbonate","Mozzate","Alserio","Pigra","Lipomo","Castelnuovo Bozzente","Cavargna","Blessagno","Magreglio","Dizzasco","Ponte Lambro","Tavernerio","Zelbio","Grandola ed Uniti","Gravedona ed Uniti","Dosso del Liro","Albavilla","Cantù","Brenna","San Siro","Laglio","Inverigo","Montorfano","Musso","Pognana Lario","Plesio","Senna Comasco","Valmorea"],"Sondrio":["Pedesina","Montagna in Valtellina","Gordona","Berbenno di Valtellina","Tirano","Mazzo di Valtellina","Villa di Tirano","Sondrio","Vervio","Chiuro","Delebio","Livigno","Mese","Caiolo","Rasura","Andalo Valtellino","Prata Camportaccio","Piateda","Samolaco","Postalesio","Lanzada","Bianzone","Colorina","Bema","Talamona","Castione Andevenno","Campodolcino","Mello","Ardenno","Valdidentro","Fusine","Grosotto","Tovo di Sant'Agata","Castello dell'Acqua","Morbegno","Poggiridenti","Gerola Alta","Verceia","Cosio Valtellino","Bormio","Albosaggia","Dazio","Tresivio","Civo","Spriana","Cedrasco","Aprica","San Giacomo Filippo","Villa di Chiavenna","Teglio","Tartano","Albaredo per San Marco","Sondalo","Chiavenna","Forcola","Dubino","Faedo Valtellino","Rogolo","Sernio","Novate Mezzola","Chiesa in Valmalenco","Lovero","Traona","Caspoggio","Valfurva","Cino","Madesimo","Valdisotto","Ponte in Valtellina","Val Masino","Piuro","Torre di Santa Maria","Grosio","Cercino","Mantello","Piantedo","Buglio in Monte"],"Milano":["Bellinzago Lombardo","Boffalora sopra Ticino","Mediglia","Busto Garolfo","Motta Visconti","Solaro","Lainate","Albairate","Colturano","Noviglio","Arluno","Dresano","Vizzolo Predabissi","Castano Primo","Cuggiono","Calvignasco","Cesate","Tribiano","Nerviano","Inzago","Locate di Triulzi","Vimodrone","Liscate","Trezzano Rosa","Cassinetta di Lugagnano","Basiglio","Binasco","Pozzo d'Adda","Abbiategrasso","Corbetta","Dairago","Gudo Visconti","Pieve Emanuele","Nosate","Milano","Carugate","Cerro al Lambro","Rho","Pogliano Milanese","Buscate","Ozzero","Settimo Milanese","Morimondo","Sedriano","Peschiera Borromeo","Vermezzo con Zelo","Segrate","Mesero","Vittuone","Cornaredo","Magenta","Rodano","Rosate","San Giorgio su Legnano","Cusano Milanino","Bubbiano","Turbigo","Arconate","Senago","Lacchiarella","Magnago","Settala","Ossona","Cassano d'Adda","San Colombano al Lambro","Cinisello Balsamo","Opera","Robecchetto con Induno","Legnano","Casorezzo","Bareggio","Baranzate","Cesano Boscone","Trezzano sul Naviglio","Marcallo con Casone","Vernate","Cusago","Cormano","Cologno Monzese","Grezzago","Bollate","Rozzano","Cisliano","San Giuliano Milanese","Sesto San Giovanni","Pozzuolo Martesana","Gorgonzola","Santo Stefano Ticino","Bresso","Gessate","Parabiago","Pantigliate","Canegrate","Casarile","Bernate Ticino","Rescaldina","Melegnano","Pregnana Milanese","Truccazzano","Vignate","Besate","Vanzago","Pioltello","Corsico","Bussero","Garbagnate Milanese","San Vittore Olona","Paderno Dugnano","Vaprio d'Adda","Gaggiano","Assago","Novate Milanese","Inveruno","Zibido San Giacomo","Carpiano","Cassina de' Pecchi","Robecco sul Naviglio","Basiano","Cambiago","San Donato Milanese","Cerro Maggiore","Masate","San Zenone al Lambro","Trezzo sull'Adda","Pessano con Bornago","Pero","Villa Cortese","Buccinasco","Vanzaghello","Arese","Paullo","Cernusco sul Naviglio","Melzo"],"Bergamo":["Stezzano","Castro","Verdellino","Sant'Omobono Terme","Zogno","Pognano","Chiuduno","Torre Boldone","Urgnano","Madone","Piazzolo","Arcene","Taleggio","Lovere","Bossico","Bedulita","Carvico","Fara Olivana con Sola","Roncobello","Castelli Calepio","Selvino","Predore","Brembate","Almenno San Salvatore","Filago","Pontida","Treviolo","Zandobbio","Ghisalba","Lallio","Pagazzano","Brumano","Bonate Sotto","Ardesio","Ranzanico","Telgate","Sedrina","Ponteranica","Costa Serina","Cene","Calcinate","Gorlago","Ambivere","San Paolo d'Argon","Leffe","Ranica","Sovere","Pumenengo","Branzi","Fino del Monte","Gazzaniga","Palosco","Albino","Sarnico","Casirate d'Adda","Parre","Valbondione","Albano Sant'Alessandro","Fornovo San Giovanni","Vigano San Martino","Fontanella","Oneta","Mozzo","Solto Collina","Almenno San Bartolomeo","Brignano Gera d'Adda","Gromo","Antegnate","Verdello","Cornalba","Scanzorosciate","Romano di Lombardia","Costa di Mezzate","Spinone al Lago","Corna Imagna","Grone","Clusone","Trescore Balneario","Pontirolo Nuovo","Serina","San Pellegrino Terme","Almè","Moio de' Calvi","Borgo di Terzo","Torre de' Roveri","Presezzo","Gorno","Onore","Dalmine","Paladina","Montello","Lenna","Rota d'Imagna","San Giovanni Bianco","Bergamo","Carona","Casazza","Lurano","Brembate di Sopra","Mozzanica","Gandellino","Pedrengo","Parzanica","Cenate Sopra","Strozza","Colere","Ponte Nossa","Roncola","Villa d'Adda","Bottanuco","Villa d'Ogna","Schilpario","Cusio","Cividate al Piano","Seriate","Alzano Lombardo","Piario","Fonteno","Orio al Serio","Calvenzano","Ubiale Clanezzo","Valtorta","Vilminore di Scalve","Blello","Adrara San Martino","Fuipiano Valle Imagna","Isso","Dossena","Arzago d'Adda","Barzana","Levate","Ornica","Capizzone","Capriate San Gervasio","Palazzago","Valleve","Averara","Bariano","Val Brembilla","Premolo","Comun Nuovo","Cerete","Rovetta","Mezzoldo","Morengo","Olmo al Brembo","Camerata Cornello","Bonate Sopra","Endine Gaiano","Medolago","Pianico","Ciserano","Cavernago","Castel Rozzone","Isola di Fondra","Algua","Caravaggio","Gorle","Cologno al Serio","Fara Gera d'Adda","Treviglio","Cenate Sotto","Curno","Bracca","Cortenuova","Cisano Bergamasco","Credaro","Costa Valle Imagna","Monasterolo del Castello","Songavazzo","Sotto il Monte Giovanni XXIII","Torre Pallavicina","Valgoglio","Chignolo d'Isola","Oltressenda Alta","Rogno","Mapello","Valnegra","Canonica d'Adda","Barbata","Berbenno","Castione della Presolana","Zanica","Entratico","Vedeseta","Gandino","Misano di Gera d'Adda","Cazzano Sant'Andrea","Villa di Serio","Viadanica","Calcio","Calusco d'Adda","Grassobbio","Osio Sopra","Torre de' Busi","Caprino Bergamasco","Villongo","Foppolo","Peia","Gaverina Terme","Colzate","Oltre il Colle","Fiorano al Serio","Cassiglio","Vertova","Aviatico","Adrara San Rocco","Locatello","Santa Brigida","Spirano","Riva di Solto","Osio Sotto","Vigolo","Terno d'Isola","Brusaporto","Sorisole","Carobbio degli Angeli","Azzone","Berzo San Fermo","Villa d'Almè","Bianzano","Piazzatorre","Ponte San Pietro","Casnigo","Grumello del Monte","Suisio","Piazza Brembana","Bolgare","Covo","Luzzana","Gandosso","Nembro","Pradalunga","Valbrembo","Costa Volpino","Martinengo","Azzano San Paolo","Boltiere","Bagnatica","Mornico al Serio","Tavernola Bergamasca","Solza","Foresto Sparso"],"Brescia":["Castel Mella","Provaglio d'Iseo","Coccaglio","Sabbio Chiese","Muscoline","Botticino","Brescia","Odolo","Paisco Loveno","Puegnago del Garda","Bovezzo","Villachiara","Passirano","Darfo Boario Terme","Flero","Orzivecchi","Irma","Pezzaze","Pompiano","Azzano Mella","Urago d'Oglio","Casto","Pontevico","Ospitaletto","Pertica Alta","Monte Isola","Verolavecchia","Marmentino","Caino","Erbusco","Collebeato","Anfo","Marone","Cigole","Manerba del Garda","Orzinuovi","Polaveno","Gussago","Cevo","Magasa","Villa Carcina","Idro","Angolo Terme","Chiari","Gianico","Manerbio","Corzano","Fiesse","Nuvolento","Pavone del Mella","Cellatica","Rezzato","Villanuova sul Clisi","Comezzano-Cizzago","Capriolo","Borno","Milzano","Brione","Lonato del Garda","Pontoglio","Vallio Terme","San Paolo","Palazzolo sull'Oglio","San Felice del Benaco","Niardo","Pralboino","Corteno Golgi","Borgo San Giacomo","Castenedolo","Sarezzo","Mairano","Lodrino","Collio","Alfianello","Monticelli Brusati","Sale Marasino","Bione","Bovegno","Gardone Val Trompia","Montichiari","Castrezzato","Lozio","Sonico","Berlingo","Carpenedolo","Acquafredda","Ceto","Maclodio","Tavernole sul Mella","Cedegolo","Ossimo","Capo di Ponte","Vestone","Vezza d'Oglio","Nuvolera","Barbariga","Sulzano","Bagnolo Mella","Rovato","Limone sul Garda","Pian Camuno","Poncarale","Castegnato","Ponte di Legno","Pertica Bassa","Dello","San Gervasio Bresciano","Desenzano del Garda","Berzo Inferiore","Barghe","Calcinato","Offlaga","Leno","Capriano del Colle","Brandico","Preseglie","Ome","Iseo","Padenghe sul Garda","Gambara","Breno","Lavenone","Ono San Pietro","Piancogno","Tremosine sul Garda","Malonno","Monno","Toscolano-Maderno","Provaglio Val Sabbia","Isorella","Borgosatollo","Edolo","Travagliato","Visano","Lograto","Berzo Demo","Temù","Mazzano","Vobarno","Treviso Bresciano","Longhena","Lumezzane","Gottolengo","Concesio","Malegno","Gardone Riviera","Ghedi","Cerveno","Braone","Montirone","Soiano del Lago","Losine","Remedello","Agnosine","Capovalle","Castelcovati","Valvestino","Gargnano","Cazzago San Martino","Calvagese della Riviera","Paspardo","Salò","Sellero","Trenzano","Torbole Casaglia","Corte Franca","Nave","Polpenazze del Garda","Marcheno","Esine","Incudine","Paratico","Serle","Pisogne","Paitone","Bassano Bresciano","Mura","Cimbergo","Roè Volciano","Prevalle","Cividate Camuno","Vione","Calvisano","Roncadelle","Rodengo Saiano","Seniga","Roccafranca","Verolanuova","Rudiano","Gavardo","Moniga del Garda","Quinzano d'Oglio","Saviore dell'Adamello","Bienno","Cologne","Pozzolengo","Sirmione","Zone","Artogne","Bedizzole","Tignale","San Zeno Naviglio","Bagolino","Paderno Franciacorta","Adro"],"Pavia":["Montalto Pavese","Cilavegna","Casteggio","Valle Salimbene","Albuzzano","Corvino San Quirico","Gambarana","Certosa di Pavia","Pieve del Cairo","Santa Margherita di Staffora","Velezzo Lomellina","Suardi","Spessa","Cassolnovo","Robbio","Giussago","Romagnese","Zenevredo","Corana","Mede","Costa de' Nobili","Montù Beccaria","Rea","Casei Gerola","San Zenone al Po","Battuda","Nicorvo","Lirio","Oliva Gessi","Bastida Pancarana","Rocca Susella","Bagnaria","San Genesio ed Uniti","Godiasco Salice Terme","San Cipriano Po","Zeccone","Santa Maria della Versa","Voghera","Golferenzo","Badia Pavese","Broni","Cecima","Pinarolo Po","Roncaro","Lardirago","Fortunago","Zerbolò","Vistarino","Rovescala","Ponte Nizza","Sartirana Lomellina","Marzano","Confienza","Castelnovetto","Canneto Pavese","Garlasco","Marcignago","Sommo","Varzi","San Damiano al Colle","Borgoratto Mormorolo","Langosco","Vellezzo Bellini","Scaldasole","Colli Verdi","Verretto","Santa Cristina e Bissone","Verrua Po","Olevano di Lomellina","Lomello","Zeme","Bascapè","Brallo di Pregola","Ceranova","Gravellona Lomellina","Cozzo","Semiana","Albonese","Siziano","Borgo Priolo","Trivolzio","Rivanazzano Terme","Barbianello","Villanterio","Galliavola","Silvano Pietra","Menconico","Montesegale","Frascarolo","Magherno","Montescano","Torre d'Arese","Trovo","Castelletto di Branduzzo","Ferrera Erbognone","Candia Lomellina","Torricella Verzate","Tromello","Castana","Inverno e Monteleone","Arena Po","Cervesina","Mezzana Rabattone","Bosnasco","Zinasco","Bereguardo","Casorate Primo","Sannazzaro de' Burgondi","Stradella","Vigevano","Gambolò","Castello d'Agogna","Portalbera","Pancarana","Val di Nizza","Pietra de' Giorgi","Landriano","Valle Lomellina","Volpara","Pavia","Santa Giuletta","Retorbido","Redavalle","Torrevecchia Pia","Robecco Pavese","Cava Manara","Palestro","Dorno","Codevilla","Casatisma","Zerbo","Montebello della Battaglia","Sant'Angelo Lomellina","Pieve Albignola","Monticelli Pavese","Torre Beretti e Castellaro","Mezzana Bigli","Cigognola","Borgarello","Lungavilla","Corteolona e Genzone","Bressana Bottarone","Borgo San Siro","Cura Carpignano","Chignolo Po","Rosasco","Montecalvo Versiggia","Calvignano","Mornico Losana","Cornale e Bastida","Parona","Mezzanino","Breme","Copiano","Casanova Lonati","Sant'Alessio con Vialone","Rognano","San Martino Siccomario","Pizzale","Vidigulfo","Travacò Siccomario","Miradolo Terme","Campospinoso Albaredo","Gerenzago","Alagna","Torre de' Negri","Cergnago","Villa Biscossi","Torre d'Isola","Belgioioso","Torrazza Coste","Zavattarello","Rocca de' Giorgi","Villanova d'Ardenghi","Valeggio","Mortara","San Giorgio di Lomellina","Carbonara al Ticino","Bornasco","Pieve Porto Morone","Ceretto Lomellina","Linarolo","Gropello Cairoli","Filighera","Ottobiano"],"Cremona":["Cumignano sul Naviglio","Casalmorano","Quintano","Gombito","Spineda","Pozzaglio ed Uniti","Agnadello","Chieve","Camisano","Casaletto di Sopra","Casalbuttano ed Uniti","Pianengo","Robecco d'Oglio","Gussola","Sesto ed Uniti","Corte de' Cortesi con Cignone","Vescovato","Castelleone","Trigolo","Pieranica","Torlino Vimercati","Crema","Martignana di Po","Cappella Cantone","Casalmaggiore","Ostiano","Cella Dati","Trescore Cremasco","Spinadesco","Torre de' Picenardi","Offanengo","Casaletto Vaprio","Formigara","Rivarolo del Re ed Uniti","Capralba","Campagnola Cremasca","San Giovanni in Croce","Cappella de' Picenardi","Gerre de' Caprioli","Crotta d'Adda","Voltido","Sospiro","San Daniele Po","Bonemerse","Calvatone","Paderno Ponchielli","Solarolo Rainerio","Bagnolo Cremasco","Capergnanica","Vailate","Izano","Cicognolo","Pizzighettone","Dovera","San Bassano","Castel Gabbiano","Soresina","Rivolta d'Adda","Sergnano","Pessina Cremonese","Casale Cremasco-Vidolasco","Spino d'Adda","Ripalta Guerina","San Martino del Lago","Gadesco-Pieve Delmona","Corte de' Frati","Volongo","Ripalta Cremasca","Cremosano","Ricengo","Grumello Cremonese ed Uniti","Romanengo","Persico Dosimo","Pescarolo ed Uniti","Montodine","Azzanello","Salvirola","Scandolara Ripa d'Oglio","Moscazzano","Castelvisconti","Motta Baluffi","Piadena Drizzona","Annicco","Isola Dovarese","Genivolta","Credera Rubbiano","Scandolara Ravara","Pieve San Giacomo","Madignano","Ripalta Arpina","Casaletto Ceredano","Castelverde","Stagno Lombardo","Gabbioneta-Binanuova","Derovere","Cingia de' Botti","Torricella del Pizzo","Soncino","Casteldidone","Pieve d'Olmi","Tornata","Fiesco","Pandino","Ticengo","Vaiano Cremasco","Cremona","Bordolano","Olmeneta","Grontardo","Palazzo Pignano","Acquanegra Cremonese","Monte Cremasco","Malagnino"],"Mantova":["San Giorgio Bigarello","Curtatone","Volta Mantovana","Monzambano","Castel Goffredo","Castiglione delle Stiviere","Mantova","Roncoferraro","San Giacomo delle Segnate","Cavriana","Suzzara","Casalmoro","Commessaggio","Rodigo","Quistello","Sabbioneta","Gazoldo degli Ippoliti","Borgo Virgilio","Goito","Pegognaga","Moglia","Villimpenta","Acquanegra sul Chiese","Ceresara","Quingentole","San Giovanni del Dosso","Ostiglia","Mariana Mantovana","Medole","Gazzuolo","Schivenoglia","Asola","Poggio Rusco","Casaloldo","Ponti sul Mincio","Bagnolo San Vito","Solferino","Pomponesco","Castel d'Ario","Guidizzolo","Bozzolo","Castellucchio","Marcaria","Magnacavallo","Casalromano","Porto Mantovano","Redondesco","San Martino dall'Argine","Sustinente","Canneto sull'Oglio","Castelbelforte","Sermide e Felonica","Viadana","Gonzaga","Piubega","Borgo Mantovano","Serravalle a Po","Dosolo","Borgocarbonara","Marmirolo","Roverbella","Rivarolo Mantovano","San Benedetto Po","Motteggiana"],"Lecco":["Margno","Costa Masnaga","Garlate","Calco","Valgreghentino","Nibionno","Premana","Barzanò","Oliveto Lario","Ballabio","Cremeno","Garbagnate Monastero","Pagnona","Dolzago","Brivio","Vercurago","Airuno","Colico","Esino Lario","Primaluna","Valvarrone","Cassago Brianza","Colle Brianza","Monticello Brianza","Missaglia","Suello","Castello di Brianza","Cesana Brianza","Pasturo","Malgrate","Valmadrera","Montevecchia","Molteno","Bellano","Carenno","Dervio","Casargo","Monte Marenzo","Bulciago","Cassina Valsassina","Rogeno","Cernusco Lombardone","Varenna","Verderio","Lierna","Olgiate Molgora","Casatenovo","Santa Maria Hoè","Cortenova","Moggio","Robbiate","Merate","Crandola Valsassina","Galbiate","Lecco","Parlasco","Annone di Brianza","Sueglio","Oggiono","La Valletta Brianza","Olginate","Morterone","Erve","Ello","Calolziocorte","Dorio","Imbersago","Paderno d'Adda","Taceno","Sirone","Mandello del Lario","Pescate","Bosisio Parini","Perledo","Osnago","Sirtori","Barzio","Civate","Abbadia Lariana","Barzago","Lomagna","Viganò","Cremella","Introbio"],"Lodi":["Maccastorna","Brembio","Borgo San Giovanni","Castelnuovo Bocca d'Adda","Tavazzano con Villavesco","Caselle Landi","Marudo","San Rocco al Porto","Caselle Lurani","Cavenago d'Adda","Meleti","Comazzo","Valera Fratta","San Fiorano","Salerano sul Lambro","Boffalora d'Adda","Castiraga Vidardo","Terranova dei Passerini","Bertonico","Cornovecchio","Somaglia","Crespiatica","Livraga","Villanova del Sillaro","San Martino in Strada","Orio Litta","Abbadia Cerreto","Cornegliano Laudense","Fombio","Lodi","Ospedaletto Lodigiano","Massalengo","Corno Giovine","Mairago","Mulazzano","Merlino","Borghetto Lodigiano","Galgagnano","Senna Lodigiana","Secugnago","Zelo Buon Persico","Turano Lodigiano","Cervignano d'Adda","Sant'Angelo Lodigiano","Castiglione d'Adda","Pieve Fissiraga","Casalmaiocco","Lodi Vecchio","Casalpusterlengo","Castelgerundo","Guardamiglio","Montanaso Lombardo","Corte Palasio","Graffignana","Ossago Lodigiano","Santo Stefano Lodigiano","Codogno","Sordio","Maleo","Casaletto Lodigiano"],"Monza e della Brianza":["Lentate sul Seveso","Bernareggio","Roncello","Albiate","Usmate Velate","Barlassina","Cesano Maderno","Aicurzio","Vimercate","Limbiate","Monza","Lazzate","Cornate d'Adda","Mezzago","Briosco","Correzzana","Burago di Molgora","Vedano al Lambro","Ornago","Carate Brianza","Giussano","Concorezzo","Bellusco","Arcore","Besana in Brianza","Brugherio","Camparada","Nova Milanese","Lissone","Seregno","Sulbiate","Ronco Briantino","Ceriano Laghetto","Carnate","Cavenago di Brianza","Seveso","Triuggio","Cogliate","Caponago","Agrate Brianza","Verano Brianza","Macherio","Lesmo","Misinto","Muggiò","Varedo","Bovisio-Masciago","Biassono","Meda","Renate","Sovico","Desio","Veduggio con Colzano","Villasanta","Busnago"]}`), Rm = { Verona: ["Erbezzo", "Sanguinetto", "Villa Bartolomea", "San Giovanni Ilarione", "Caldiero", "Nogara", "Mezzane di Sotto", "Castel d'Azzano", "Lazise", "Pescantina", "Bonavigo", "Cerro Veronese", "Verona", "Boschi Sant'Anna", "Fumane", "Oppeano", "Povegliano Veronese", "Cerea", "Bardolino", "Isola della Scala", "Castelnuovo del Garda", "Nogarole Rocca", "Bussolengo", "San Pietro in Cariano", "Affi", "Angiari", "San Bonifacio", "Badia Calavena", "Valeggio sul Mincio", "Zevio", "Castagnaro", "Soave", "Terrazzo", "Velo Veronese", "Lavagno", "Rivoli Veronese", "Bevilacqua", "Erbè", "Isola Rizza", "Montecchia di Crosara", "Ronco all'Adige", "Torri del Benaco", "Selva di Progno", "Veronella", "Arcole", "Colognola ai Colli", "Casaleone", "Legnago", "Vestenanova", "San Martino Buon Albergo", "Ferrara di Monte Baldo", "San Giovanni Lupatoto", "Dolcè", "Brentino Belluno", "Palù", "Roverchiara", "Pastrengo", "Peschiera del Garda", "Brenzone sul Garda", "Sona", "San Zeno di Montagna", "Vigasio", "Roverè Veronese", "Monteforte d'Alpone", "Concamarise", "Albaredo d'Adige", "Sant'Ambrogio di Valpolicella", "Sorgà", "Caprino Veronese", "Gazzo Veronese", "Illasi", "Malcesine", "Garda", "Cologna Veneta", "Pressana", "Tregnago", "Grezzana", "Zimella", "Belfiore", "Sant'Anna d'Alfaedo", "Roncà", "San Mauro di Saline", "Sommacampagna", "Trevenzuolo", "Minerbe", "Villafranca di Verona", "Roveredo di Guà", "Salizzole", "Cavaion Veronese", "Marano di Valpolicella", "Mozzecane", "Costermano sul Garda", "Negrar di Valpolicella", "Cazzano di Tramigna", "Bosco Chiesanuova", "Bovolone", "Buttapietra", "San Pietro di Morubio"], Vicenza: ["Asigliano Veneto", "Val Liona", "Sandrigo", "Posina", "Carrè", "Barbarano Mossano", "Montegaldella", "Costabissara", "Grumolo delle Abbadesse", "Lonigo", "Sovizzo", "San Pietro Mussolino", "Nanto", "Solagna", "Marano Vicentino", "Foza", "Altissimo", "Bressanvido", "Dueville", "Longare", "Caldogno", "Roana", "Orgiano", "Agugliaro", "Valli del Pasubio", "Villaga", "Bolzano Vicentino", "Arzignano", "Mussolente", "Monticello Conte Otto", "Breganze", "Chiampo", "Zanè", "Malo", "Schiavon", "Romano d'Ezzelino", "Castegnero", "Grisignano di Zocco", "Zugliano", "Noventa Vicentina", "Brendola", "Valdagno", "Albettone", "Vicenza", "Asiago", "Creazzo", "Cornedo Vicentino", "Rosà", "Arsiero", "Montecchio Maggiore", "Cartigliano", "Crespadoro", "Lastebasse", "Villaverla", "Montorso Vicentino", "Camisano Vicentino", "Isola Vicentina", "Pojana Maggiore", "Tezze sul Brenta", "Valbrenta", "Gambellara", "Brogliano", "Piovene Rocchette", "Arcugnano", "Castelgomberto", "Gallio", "Pove del Grappa", "Valdastico", "Montecchio Precalcino", "Schio", "Cassola", "Montegalda", "Thiene", "Marostica", "Sarcedo", "Zermeghedo", "Santorso", "Lusiana Conco", "Calvene", "Pozzoleone", "Bassano del Grappa", "Caltrano", "Salcedo", "Rossano Veneto", "Recoaro Terme", "Monteviale", "Chiuppano", "Nove", "Pianezze", "Cogollo del Cengio", "Colceresa", "Velo d'Astico", "Campiglia dei Berici", "Montebello Vicentino", "Trissino", "Torri di Quartesolo", "Alonte", "Sossano", "Laghi", "Nogarole Vicentino", "Altavilla Vicentina", "San Vito di Leguzzano", "Quinto Vicentino", "Zovencedo", "Fara Vicentino", "Tonezza del Cimone", "Sarego", "Torrebelvicino", "Rotzo", "Monte di Malo", "Pedemonte", "Lugo di Vicenza", "Enego"], Belluno: ["Cesiomaggiore", "Lamon", "La Valle Agordina", "Perarolo di Cadore", "Calalzo di Cadore", "Canale d'Agordo", "Pieve di Cadore", "Taibon Agordino", "Sospirolo", "Tambre", "Vallada Agordina", "Gosaldo", "Val di Zoldo", "Seren del Grappa", "Livinallongo del Col di Lana", "Valle di Cadore", "Alpago", "San Gregorio nelle Alpi", "Soverzene", "Falcade", "Arsiè", "Cibiana di Cadore", "Ospitale di Cadore", "Alleghe", "Pedavena", "Rocca Pietore", "Comelico Superiore", "Feltre", "Fonzaso", "Borca di Cadore", "San Vito di Cadore", "Sovramonte", "Ponte nelle Alpi", "Borgo Valbelluna", "Santa Giustina", "Rivamonte Agordino", "Limana", "Sedico", "San Nicolò di Comelico", "Cencenighe Agordino", "Vodo Cadore", "Zoppè di Cadore", "Cortina d'Ampezzo", "Voltago Agordino", "Agordo", "Chies d'Alpago", "Auronzo di Cadore", "Lorenzago di Cadore", "San Tomaso Agordino", "Longarone", "Belluno", "Colle Santa Lucia", "Selva di Cadore", "Vigo di Cadore", "Domegge di Cadore", "Setteville", "Lozzo di Cadore", "Danta di Cadore", "Santo Stefano di Cadore", "San Pietro di Cadore"], Treviso: ["Treviso", "Gaiarine", "Segusino", "Sernaglia della Battaglia", "Vedelago", "Ponte di Piave", "Maserada sul Piave", "Povegliano", "San Vendemiano", "Codognè", "Possagno", "Riese Pio X", "Silea", "Motta di Livenza", "Roncade", "Borso del Grappa", "Sarmede", "Villorba", "Susegana", "San Pietro di Feletto", "Vazzola", "Castelfranco Veneto", "Casale sul Sile", "Salgareda", "Vidor", "Pieve di Soligo", "Ponzano Veneto", "Portobuffolè", "Casier", "Revine Lago", "San Fior", "Follina", "Farra di Soligo", "Caerano di San Marco", "Godega di Sant'Urbano", "Resana", "Morgano", "Meduna di Livenza", "Spresiano", "Colle Umberto", "Cappella Maggiore", "Orsago", "Mogliano Veneto", "Zenson di Piave", "San Biagio di Callalta", "Paese", "Preganziol", "Maser", "Ormelle", "Cornuda", "Gorgo al Monticano", "Cavaso del Tomba", "Fontanelle", "Cimadolmo", "Conegliano", "Vittorio Veneto", "Breda di Piave", "Oderzo", "Nervesa della Battaglia", "San Zenone degli Ezzelini", "Zero Branco", "Chiarano", "Arcade", "Trevignano", "Fregona", "Cordignano", "Montebelluna", "Santa Lucia di Piave", "Monastier di Treviso", "Asolo", "Istrana", "Mareno di Piave", "Refrontolo", "Pederobba", "Valdobbiadene", "Altivole", "Mansuè", "Tarzo", "Cessalto", "Giavera del Montello", "Castello di Godego", "Castelcucco", "San Polo di Piave", "Quinto di Treviso", "Pieve del Grappa", "Monfumo", "Moriago della Battaglia", "Crocetta del Montello", "Cison di Valmarino", "Loria", "Miane", "Volpago del Montello", "Carbonera", "Fonte"], Venezia: ["Jesolo", "Meolo", "Cavallino-Treporti", "Dolo", "Cona", "Mira", "Pianiga", "San Donà di Piave", "Pramaggiore", "Mirano", "Noventa di Piave", "Stra", "Gruaro", "Teglio Veneto", "Martellago", "Ceggia", "Musile di Piave", "Santa Maria di Sala", "Venezia", "Quarto d'Altino", "Campagna Lupia", "Eraclea", "Annone Veneto", "Portogruaro", "San Stino di Livenza", "San Michele al Tagliamento", "Fossalta di Portogruaro", "Camponogara", "Concordia Sagittaria", "Cavarzere", "Caorle", "Campolongo Maggiore", "Fiesso d'Artico", "Vigonovo", "Chioggia", "Scorzè", "Fossò", "Spinea", "Cinto Caomaggiore", "Noale", "Salzano", "Fossalta di Piave", "Torre di Mosto", "Marcon"], Padova: ["Casalserugo", "Cartura", "Arzergrande", "Castelbaldo", "Stanghella", "Mestrino", "Ponso", "Camposampiero", "Legnaro", "Vo'", "Piove di Sacco", "Arre", "Campo San Martino", "Noventa Padovana", "Due Carrare", "Montagnana", "Arquà Petrarca", "San Martino di Lupari", "Vigonza", "Carmignano di Brenta", "Lozzo Atestino", "Tombolo", "Campodoro", "San Pietro in Gu", "Ospedaletto Euganeo", "Este", "Barbona", "Baone", "Sant'Elena", "Borgo Veneto", "Battaglia Terme", "Cervarese Santa Croce", "Correzzola", "Boara Pisani", "Veggiano", "Torreglia", "Piombino Dese", "Casale di Scodosia", "Villanova di Camposampiero", "Gazzo", "Trebaseleghe", "Villa Estense", "Galzignano Terme", "Montegrotto Terme", "Ponte San Nicolò", "Saonara", "Villafranca Padovana", "Piacenza d'Adige", "Tribano", "Solesino", "Megliadino San Vitale", "Masi", "Rubano", "Granze", "Bovolenta", "Merlara", "Teolo", "Codevigo", "Vigodarzere", "Sant'Urbano", "Bagnoli di Sopra", "Conselve", "Cinto Euganeo", "Albignasego", "Terrassa Padovana", "Borgoricco", "Villa del Conte", "Anguillara Veneta", "Urbana", "Curtarolo", "Saccolongo", "Vescovana", "Brugine", "Pontelongo", "San Pietro Viminario", "Maserà di Padova", "Limena", "Polverara", "Cadoneghe", "Padova", "Campodarsego", "Pozzonovo", "Massanzago", "Agna", "Loreggia", "Grantorto", "Rovolon", "Fontaniva", "Abano Terme", "Sant'Angelo di Piove di Sacco", "Pernumia", "Santa Caterina d'Este", "Candiana", "Piazzola sul Brenta", "Cittadella", "San Giorgio delle Pertiche", "Galliera Veneta", "Santa Giustina in Colle", "Selvazzano Dentro", "Monselice", "San Giorgio in Bosco"], Rovigo: ["Arquà Polesine", "Polesella", "Costa di Rovigo", "Ariano nel Polesine", "Porto Viro", "Papozze", "Stienta", "Occhiobello", "Canda", "Castelnovo Bariano", "San Bellino", "Villadose", "Ceneselli", "Ceregnano", "Salara", "Castelmassa", "Porto Tolle", "Guarda Veneta", "Bergantino", "Villanova del Ghebbo", "Pettorazza Grimani", "Canaro", "Castelguglielmo", "Villamarzana", "Badia Polesine", "Gavello", "Adria", "Ficarolo", "Bagnolo di Po", "Bosaro", "Corbola", "Giacciano con Baruchella", "Calto", "Fratta Polesine", "Lusia", "Melara", "San Martino di Venezze", "Pontecchio Polesine", "Pincara", "Lendinara", "Taglio di Po", "Trecenta", "Frassinelle Polesine", "Rovigo", "Loreo", "Fiesso Umbertiano", "Rosolina", "Crespino", "Gaiba", "Villanova Marchesana"] }, Im = { "Pesaro e Urbino": ["Fermignano", "Borgo Pace", "Pergola", "Serra Sant'Abbondio", "Urbania", "San Costanzo", "Mercatino Conca", "Piandimeleto", "Pesaro", "Gabicce Mare", "Mondolfo", "Gradara", "Urbino", "Sassocorvaro Auditore", "Petriano", "Lunano", "Frontone", "Tavullia", "Fratte Rosa", "Peglio", "Montelabbate", "Cantiano", "Sant'Ippolito", "Vallefoglia", "Sant'Angelo in Vado", "San Lorenzo in Campo", "Fano", "Montecalvo in Foglia", "Monte Grimano Terme", "Fossombrone", "Piobbico", "Terre Roveresche", "Monte Porzio", "Monte Cerignone", "Mombaroccio", "Belforte all'Isauro", "Mercatello sul Metauro", "Apecchio", "Pietrarubbia", "Isola del Piano", "Carpegna", "Montefelcino", "Tavoleto", "Colli al Metauro", "Macerata Feltria", "Cartoceto", "Cagli", "Acqualagna", "Frontino", "Mondavio"], Ancona: ["Ancona", "Agugliano", "Monsano", "Polverigi", "Sirolo", "Cerreto d'Esi", "Chiaravalle", "Arcevia", "Monte San Vito", "Filottrano", "Santa Maria Nuova", "Staffolo", "Fabriano", "Poggio San Marcello", "Mergo", "Falconara Marittima", "Osimo", "Castelleone di Suasa", "San Paolo di Jesi", "Castelbellino", "Jesi", "Camerano", "Belvedere Ostrense", "Serra de' Conti", "Morro d'Alba", "Castelplanio", "Maiolati Spontini", "Camerata Picena", "Sassoferrato", "Corinaldo", "Ostra", "Genga", "Monte Roberto", "Castelfidardo", "Rosora", "Trecastelli", "Cupramontana", "Montemarciano", "Serra San Quirico", "Numana", "Montecarotto", "Loreto", "Ostra Vetere", "San Marcello", "Senigallia", "Barbara", "Offagna"], Macerata: ["Corridonia", "Sarnano", "Valfornace", "Pollenza", "Pioraco", "Macerata", "Ussita", "Appignano", "Apiro", "Mogliano", "Muccia", "Poggio San Vicino", "Penna San Giovanni", "Sant'Angelo in Pontano", "Camporotondo di Fiastrone", "San Severino Marche", "Fiuminata", "Tolentino", "Recanati", "Ripe San Ginesio", "Urbisaglia", "Montefano", "Montecosaro", "Belforte del Chienti", "Treia", "Fiastra", "Sefro", "Potenza Picena", "Bolognola", "Pieve Torina", "Morrovalle", "Castelraimondo", "Loro Piceno", "Monte Cavallo", "Serrapetrona", "Porto Recanati", "Gagliole", "Cessapalombo", "Matelica", "Montecassiano", "Monte San Giusto", "Monte San Martino", "Esanatoglia", "Montelupone", "Visso", "Cingoli", "Gualdo", "Caldarola", "Camerino", "Petriolo", "Colmurano", "San Ginesio", "Civitanova Marche", "Castelsantangelo sul Nera", "Serravalle di Chienti"], "Ascoli Piceno": ["Carassai", "Monteprandone", "Castorano", "Arquata del Tronto", "Grottammare", "Cupra Marittima", "Montalto delle Marche", "Maltignano", "Appignano del Tronto", "Roccafluvione", "Acquaviva Picena", "Castignano", "Montedinove", "Montegallo", "Force", "Montemonaco", "Rotella", "Montefiore dell'Aso", "Cossignano", "Monsampolo del Tronto", "Massignano", "Palmiano", "Colli del Tronto", "Spinetoli", "Folignano", "San Benedetto del Tronto", "Venarotta", "Ripatransone", "Comunanza", "Offida", "Acquasanta Terme", "Castel di Lama", "Ascoli Piceno"], Fermo: ["Monte San Pietrangeli", "Amandola", "Montottone", "Monsampietro Morico", "Monterubbiano", "Sant'Elpidio a Mare", "Rapagnano", "Monte Vidon Combatte", "Pedaso", "Montefalcone Appennino", "Belmonte Piceno", "Montefortino", "Fermo", "Montelparo", "Servigliano", "Santa Vittoria in Matenano", "Monteleone di Fermo", "Lapedona", "Falerone", "Porto Sant'Elpidio", "Monte Urano", "Petritoli", "Moresco", "Montappone", "Porto San Giorgio", "Montegranaro", "Monte Rinaldo", "Monte Giberto", "Ortezzano", "Torre San Patrizio", "Francavilla d'Ete", "Magliano di Tenna", "Montegiorgio", "Massa Fermana", "Campofilone", "Monte Vidon Corrado", "Altidona", "Grottazzolina", "Ponzano di Fermo", "Smerillo"] }, zm = { "Massa-Carrara": ["Bagnone", "Montignoso", "Aulla", "Podenzana", "Fosdinovo", "Licciana Nardi", "Pontremoli", "Villafranca in Lunigiana", "Zeri", "Comano", "Tresana", "Mulazzo", "Massa", "Casola in Lunigiana", "Fivizzano", "Filattiera", "Carrara"], Lucca: ["Camaiore", "Castelnuovo di Garfagnana", "Lucca", "San Romano in Garfagnana", "Fosciandora", "Sillano Giuncugnano", "Altopascio", "Coreglia Antelminelli", "Piazza al Serchio", "Pescaglia", "Pietrasanta", "Gallicano", "Borgo a Mozzano", "Pieve Fosciana", "Molazzana", "Barga", "Castiglione di Garfagnana", "Massarosa", "Villa Basilica", "Careggine", "Vagli Sotto", "Bagni di Lucca", "Camporgiano", "Montecarlo", "Viareggio", "Capannori", "Stazzema", "Forte dei Marmi", "Minucciano", "Fabbriche di Vergemoli", "Seravezza", "Villa Collemandina", "Porcari"], Pistoia: ["Lamporecchio", "Marliana", "Agliana", "Pieve a Nievole", "Quarrata", "Sambuca Pistoiese", "Pistoia", "Larciano", "Ponte Buggianese", "Serravalle Pistoiese", "Pescia", "Uzzano", "Monsummano Terme", "Buggiano", "Abetone Cutigliano", "Montecatini-Terme", "Chiesina Uzzanese", "Montale", "San Marcello Piteglio", "Massa e Cozzile"], Firenze: ["Signa", "San Godenzo", "Greve in Chianti", "Vicchio", "Palazzuolo sul Senio", "Empoli", "Capraia e Limite", "Montespertoli", "Londa", "Firenze", "Barberino Tavarnelle", "Castelfiorentino", "Dicomano", "Gambassi Terme", "Rufina", "Cerreto Guidi", "Rignano sull'Arno", "Pontassieve", "Figline e Incisa Valdarno", "Certaldo", "Bagno a Ripoli", "San Casciano in Val di Pesa", "Scandicci", "Calenzano", "Barberino di Mugello", "Impruneta", "Montelupo Fiorentino", "Fiesole", "Sesto Fiorentino", "Vinci", "Borgo San Lorenzo", "Firenzuola", "Pelago", "Scarperia e San Piero", "Campi Bisenzio", "Vaglia", "Fucecchio", "Montaione", "Reggello", "Lastra a Signa", "Marradi"], Livorno: ["Porto Azzurro", "Marciana Marina", "Capoliveri", "Capraia Isola", "Campo nell'Elba", "Sassetta", "Collesalvetti", "Portoferraio", "Suvereto", "Campiglia Marittima", "Livorno", "Piombino", "Bibbona", "San Vincenzo", "Castagneto Carducci", "Rosignano Marittimo", "Cecina", "Rio", "Marciana"], Pisa: ["San Giuliano Terme", "Pontedera", "Palaia", "Castelnuovo di Val di Cecina", "Lajatico", "Vecchiano", "Peccioli", "Monteverdi Marittimo", "Castellina Marittima", "Buti", "Pisa", "Santa Croce sull'Arno", "Riparbella", "Fauglia", "Calci", "Terricciola", "Casale Marittimo", "Pomarance", "Santa Luce", "Chianni", "Bientina", "Castelfranco di Sotto", "Vicopisano", "Montopoli in Val d'Arno", "Santa Maria a Monte", "Cascina", "Volterra", "Montecatini Val di Cecina", "Capannoli", "Crespina Lorenzana", "Casciana Terme Lari", "Guardistallo", "Montescudaio", "San Miniato", "Calcinaia", "Ponsacco", "Orciano Pisano"], Arezzo: ["Foiano della Chiana", "Montevarchi", "Sansepolcro", "Civitella in Val di Chiana", "Chiusi della Verna", "Caprese Michelangelo", "Montemignaio", "Bucine", "Arezzo", "Sestino", "Ortignano Raggiolo", "Cavriglia", "San Giovanni Valdarno", "Marciano della Chiana", "Poppi", "Talla", "Capolona", "Terranuova Bracciolini", "Castiglion Fibocchi", "Castel San Niccolò", "Cortona", "Laterina Pergine Valdarno", "Chitignano", "Monterchi", "Loro Ciuffenna", "Anghiari", "Badia Tedalda", "Subbiano", "Pratovecchio Stia", "Castel Focognano", "Castiglion Fiorentino", "Castelfranco Piandiscò", "Monte San Savino", "Lucignano", "Pieve Santo Stefano", "Bibbiena"], Siena: ["Monteriggioni", "Sinalunga", "Chiusi", "Sarteano", "Montalcino", "Rapolano Terme", "Radda in Chianti", "Chiusdino", "Gaiole in Chianti", "Castellina in Chianti", "Torrita di Siena", "Pienza", "Casole d'Elsa", "Piancastagnaio", "Abbadia San Salvatore", "Monticiano", "Siena", "San Quirico d'Orcia", "Chianciano Terme", "San Gimignano", "Radicondoli", "Radicofani", "Cetona", "Sovicille", "Castelnuovo Berardenga", "Buonconvento", "Castiglione d'Orcia", "Montepulciano", "Trequanda", "Asciano", "Murlo", "Poggibonsi", "San Casciano dei Bagni", "Colle di Val d'Elsa", "Monteroni d'Arbia"], Grosseto: ["Monte Argentario", "Roccastrada", "Monterotondo Marittimo", "Castell'Azzara", "Arcidosso", "Campagnatico", "Civitella Paganico", "Capalbio", "Pitigliano", "Sorano", "Seggiano", "Gavorrano", "Castel del Piano", "Montieri", "Scarlino", "Santa Fiora", "Roccalbegna", "Scansano", "Isola del Giglio", "Cinigiano", "Massa Marittima", "Grosseto", "Orbetello", "Semproniano", "Manciano", "Castiglione della Pescaia", "Magliano in Toscana", "Follonica"], Prato: ["Cantagallo", "Poggio a Caiano", "Vaiano", "Vernio", "Montemurlo", "Carmignano", "Prato"] }, Lm = { Perugia: ["Monte Santa Maria Tiberina", "Passignano sul Trasimeno", "Valtopina", "Marsciano", "Cerreto di Spoleto", "Cannara", "Bettona", "Piegaro", "Sant'Anatolia di Narco", "Preci", "Scheggino", "Torgiano", "Magione", "Bastia Umbra", "Assisi", "Spello", "Campello sul Clitunno", "Collazzone", "Foligno", "Nocera Umbra", "Massa Martana", "Montone", "Panicale", "Trevi", "Corciano", "San Giustino", "Costacciaro", "Pietralunga", "Norcia", "Paciano", "Gualdo Cattaneo", "Todi", "Monte Castello di Vibio", "Montefalco", "Bevagna", "Gualdo Tadino", "Monteleone di Spoleto", "Castiglione del Lago", "Cascia", "Scheggia e Pascelupo", "Fossato di Vico", "Castel Ritaldi", "Sellano", "Tuoro sul Trasimeno", "Perugia", "Citerna", "Città di Castello", "Fratta Todina", "Giano dell'Umbria", "Gubbio", "Lisciano Niccone", "Città della Pieve", "Spoleto", "Poggiodomo", "Deruta", "Vallo di Nera", "Valfabbrica", "Umbertide", "Sigillo"], Terni: ["Parrano", "Ferentillo", "Montecastrilli", "Attigliano", "Calvi dell'Umbria", "Guardea", "San Venanzo", "Narni", "Monteleone d'Orvieto", "Montegabbione", "Alviano", "Orvieto", "Castel Viscardo", "Montefranco", "Arrone", "Polino", "Otricoli", "Ficulle", "San Gemini", "Fabro", "Amelia", "Penna in Teverina", "Castel Giorgio", "Lugnano in Teverina", "Baschi", "Porano", "Avigliano Umbro", "Montecchio", "Allerona", "Acquasparta", "Stroncone", "Giove", "Terni"] }, Vm = { Viterbo: ["Civitella d'Agliano", "Cellere", "Canepina", "Piansano", "Soriano nel Cimino", "Gradoli", "Castiglione in Teverina", "Carbognano", "Ronciglione", "Orte", "Civita Castellana", "Tuscania", "Valentano", "Vignanello", "Fabrica di Roma", "Capranica", "Barbarano Romano", "Celleno", "Latera", "Villa San Giovanni in Tuscia", "Tarquinia", "Vallerano", "Tessennano", "Arlena di Castro", "Blera", "Bassano in Teverina", "Castel Sant'Elia", "Montalto di Castro", "Nepi", "Vetralla", "Gallese", "Oriolo Romano", "Marta", "Monterosi", "Bolsena", "Grotte di Castro", "Vasanello", "Montefiascone", "Bomarzo", "Onano", "Viterbo", "Bassano Romano", "Caprarola", "Corchiano", "Lubriano", "Proceno", "Vitorchiano", "Acquapendente", "San Lorenzo Nuovo", "Sutri", "Bagnoregio", "Faleria", "Ischia di Castro", "Vejano", "Canino", "Capodimonte", "Monte Romano", "Calcata", "Farnese", "Graffignano"], Rieti: ["Fara in Sabina", "Fiamignano", "Castelnuovo di Farfa", "Rocca Sinibalda", "Labro", "Vacone", "Rivodutri", "Montopoli di Sabina", "Greccio", "Pescorocchiano", "Poggio San Lorenzo", "Borbona", "Salisano", "Poggio Bustone", "Poggio Mirteto", "Tarano", "Borgorose", "Monteleone Sabino", "Frasso Sabino", "Morro Reatino", "Cottanello", "Leonessa", "Roccantica", "Selci", "Belmonte in Sabina", "Montasola", "Pozzaglia Sabina", "Antrodoco", "Collegiove", "Forano", "Montebuono", "Casperia", "Castel Sant'Angelo", "Poggio Nativo", "Cittareale", "Colle di Tora", "Poggio Moiano", "Magliano Sabina", "Stimigliano", "Monte San Giovanni in Sabina", "Torricella in Sabina", "Borgo Velino", "Mompeo", "Colli sul Velino", "Nespolo", "Longone Sabino", "Casaprota", "Paganico Sabino", "Scandriglia", "Varco Sabino", "Montenero Sabino", "Marcetelli", "Collalto Sabino", "Contigliano", "Poggio Catino", "Torri in Sabina", "Orvinio", "Castel di Tora", "Concerviano", "Cantalupo in Sabina", "Cantalice", "Cittaducale", "Toffia", "Posta", "Amatrice", "Collevecchio", "Configni", "Micigliano", "Rieti", "Accumoli", "Turania", "Petrella Salto", "Ascrea"], Roma: ["San Polo dei Cavalieri", "Bellegra", "Filacciano", "Nettuno", "Palombara Sabina", "Vallinfreda", "Cineto Romano", "Lariano", "Nemi", "Affile", "Rocca Canterano", "Poli", "Grottaferrata", "Marcellina", "Monterotondo", "Montelanico", "Pisoniano", "Riofreddo", "Mazzano Romano", "Fiano Romano", "Anticoli Corrado", "Ponzano Romano", "Montorio Romano", "Gerano", "Mandela", "Bracciano", "Roccagiovine", "Roma", "Palestrina", "Casape", "Carpineto Romano", "Roviano", "Tolfa", "Formello", "Ariccia", "Cerveteri", "Allumiere", "Subiaco", "Gavignano", "Lanuvio", "Rocca Priora", "Mentana", "Valmontone", "Colonna", "Monte Compatri", "Ardea", "Castel San Pietro Romano", "Zagarolo", "Civitella San Paolo", "Cervara di Roma", "Marano Equo", "Magliano Romano", "Moricone", "Monteflavio", "Torrita Tiberina", "San Cesareo", "Anzio", "Civitavecchia", "Rignano Flaminio", "Artena", "Jenne", "Arsoli", "Percile", "Rocca Santo Stefano", "Sambuci", "Agosta", "Saracinesco", "Sant'Angelo Romano", "Cerreto Laziale", "Castel Madama", "Sant'Oreste", "Arcinazzo Romano", "Ciciliano", "Vivaro Romano", "Vicovaro", "Velletri", "Olevano Romano", "Ladispoli", "Pomezia", "Rocca di Cave", "San Vito Romano", "Nerola", "Sacrofano", "Albano Laziale", "Morlupo", "Nazzano", "Monte Porzio Catone", "Castel Gandolfo", "Rocca di Papa", "Fiumicino", "Castelnuovo di Porto", "Santa Marinella", "Colleferro", "Canterano", "Tivoli", "Capena", "Cave", "Genzano di Roma", "Trevignano Romano", "Camerata Nuova", "Frascati", "Vallepietra", "Roiate", "Genazzano", "San Gregorio da Sassola", "Campagnano di Roma", "Guidonia Montecelio", "Fonte Nuova", "Montelibretti", "Ciampino", "Canale Monterano", "Gorga", "Gallicano nel Lazio", "Labico", "Manziana", "Capranica Prenestina", "Licenza", "Marino", "Anguillara Sabazia", "Riano", "Segni"], Latina: ["Castelforte", "Maenza", "Prossedi", "Minturno", "Formia", "Sabaudia", "Aprilia", "Campodimele", "Rocca Massima", "Lenola", "Cori", "Roccasecca dei Volsci", "Latina", "Pontinia", "Cisterna di Latina", "Terracina", "Santi Cosma e Damiano", "Roccagorga", "Sonnino", "Norma", "Sezze", "Ponza", "Spigno Saturnia", "Sermoneta", "Itri", "San Felice Circeo", "Fondi", "Ventotene", "Bassiano", "Priverno", "Gaeta", "Monte San Biagio", "Sperlonga"], Frosinone: ["Pignataro Interamna", "Torre Cajetani", "Viticuso", "Ripi", "Paliano", "Sant'Elia Fiumerapido", "Vico nel Lazio", "Boville Ernica", "Rocca d'Arce", "Villa Santa Lucia", "Alvito", "Fumone", "San Biagio Saracinisco", "Picinisco", "Ausonia", "Aquino", "Campoli Appennino", "Pofi", "San Giovanni Incarico", "Supino", "Villa Santo Stefano", "Piedimonte San Germano", "Castro dei Volsci", "Esperia", "Cassino", "Villa Latina", "Roccasecca", "Pontecorvo", "Ferentino", "Posta Fibreno", "Vicalvi", "Arce", "Santopadre", "Broccostella", "Coreno Ausonio", "Sgurgola", "Piglio", "Acuto", "Sant'Apollinare", "Casalattico", "Colfelice", "Vallerotonda", "Belmonte Castello", "Collepardo", "Sant'Ambrogio sul Garigliano", "Arpino", "Sora", "Gallinaro", "Trivigliano", "Castelliri", "Casalvieri", "Monte San Giovanni Campano", "Ceprano", "Settefrati", "Pico", "Castelnuovo Parano", "Trevi nel Lazio", "Vallemaio", "Morolo", "Amaseno", "San Donato Val di Comino", "Acquafondata", "Atina", "Filettino", "Vallecorsa", "Torrice", "Castrocielo", "Isola del Liri", "Cervaro", "Veroli", "Fontechiari", "San Vittore del Lazio", "Ceccano", "Alatri", "Giuliano di Roma", "Arnara", "Serrone", "Fontana Liri", "Falvaterra", "Sant'Andrea del Garigliano", "Anagni", "Colle San Magno", "Pastena", "Patrica", "Terelle", "Fiuggi", "Guarcino", "San Giorgio a Liri", "Frosinone", "Pescosolido", "Strangolagalli"] }, Bm = { Caserta: ["Cervino", "Marcianise", "Cesa", "Ailano", "Rocchetta e Croce", "Valle di Maddaloni", "Alvignano", "Capriati a Volturno", "Santa Maria la Fossa", "Casal di Principe", "Riardo", "Sant'Arpino", "Frignano", "Liberi", "Gallo Matese", "Castel Volturno", "Aversa", "Succivo", "Teano", "Roccamonfina", "Grazzanise", "Presenzano", "Castel Morrone", "San Marco Evangelista", "San Prisco", "Vairano Patenora", "Carinaro", "Villa di Briano", "Letino", "Marzano Appio", "Sparanise", "Casagiove", "Ruviano", "San Gregorio Matese", "Sant'Angelo d'Alife", "Valle Agricola", "Arienzo", "Curti", "Cellole", "Piedimonte Matese", "Piana di Monte Verna", "San Pietro Infine", "Castello del Matese", "Pontelatone", "Falciano del Massico", "Caserta", "Calvi Risorta", "Pastorano", "Casapesenna", "Mondragone", "Casapulla", "Cancello ed Arnone", "Pignataro Maggiore", "San Felice a Cancello", "Castel di Sasso", "Baia e Latina", "Santa Maria a Vico", "San Nicola la Strada", "Formicola", "Parete", "Roccaromana", "Galluccio", "Alife", "Dragoni", "Orta di Atella", "Pratella", "Caianello", "Lusciano", "San Potito Sannitico", "Pietravairano", "Ciorlano", "Mignano Monte Lungo", "Casaluce", "Capua", "San Tammaro", "Tora e Piccilli", "Portico di Caserta", "Recale", "Macerata Campania", "Gioia Sannitica", "San Cipriano d'Aversa", "Trentola Ducenta", "Villa Literno", "Gricignano di Aversa", "Teverola", "Giano Vetusto", "Rocca d'Evandro", "Conca della Campania", "San Marcellino", "Sessa Aurunca", "Fontegreca", "Carinola", "Prata Sannita", "Pietramelara", "Bellona", "Vitulazio", "Castel Campagnano", "Caiazzo", "Camigliano", "Capodrise", "Santa Maria Capua Vetere", "Francolise", "Maddaloni", "Raviscanina"], Benevento: ["Foglianise", "Circello", "Ponte", "Forchia", "Sant'Agata de' Goti", "Fragneto Monforte", "Limatola", "Molinara", "Cusano Mutri", "Reino", "San Giorgio del Sannio", "Vitulano", "Paupisi", "Calvi", "San Lupo", "Castelpoto", "San Leucio del Sannio", "Montesarchio", "Solopaca", "San Lorenzo Maggiore", "Airola", "Pannarano", "Colle Sannita", "Arpaise", "Durazzano", "Tocco Caudio", "Fragneto l'Abate", "Paolisi", "San Nazzaro", "Santa Croce del Sannio", "Guardia Sanframondi", "Castelfranco in Miscano", "Montefalcone di Val Fortore", "San Giorgio La Molara", "San Lorenzello", "Buonalbergo", "Puglianello", "San Bartolomeo in Galdo", "Telese Terme", "Frasso Telesino", "Moiano", "Casalduni", "San Nicola Manfredi", "Benevento", "Paduli", "San Marco dei Cavoti", "Cautano", "Arpaia", "Baselice", "Cerreto Sannita", "Ginestra degli Schiavoni", "Castelpagano", "Morcone", "Bucciano", "Pietrelcina", "Pago Veiano", "Amorosi", "Torrecuso", "Sant'Arcangelo Trimonte", "Castelvetere in Val Fortore", "Apollosa", "San Martino Sannita", "San Salvatore Telesino", "Campoli del Monte Taburno", "Pontelandolfo", "Apice", "Bonea", "Castelvenere", "Sant'Angelo a Cupolo", "Pietraroja", "Sassinoro", "Foiano di Val Fortore", "Melizzano", "Faicchio", "Ceppaloni", "Campolattaro", "Pesco Sannita", "Dugenta"], Napoli: ["Scisciano", "Striano", "Pozzuoli", "Castellammare di Stabia", "Frattamaggiore", "Forio", "Frattaminore", "Cicciano", "Sant'Antonio Abate", "San Vitaliano", "Somma Vesuviana", "Pomigliano d'Arco", "Caivano", "Castello di Cisterna", "Cardito", "Gragnano", "Calvizzano", "Casamarciano", "Marano di Napoli", "Roccarainola", "Sant'Anastasia", "Tufino", "Poggiomarino", "Volla", "Casola di Napoli", "Portici", "Villaricca", "Capri", "Anacapri", "Lacco Ameno", "Piano di Sorrento", "Melito di Napoli", "Mariglianella", "Crispano", "Meta", "Pimonte", "Acerra", "Camposano", "Pollena Trocchia", "Boscoreale", "Casamicciola Terme", "Grumo Nevano", "Saviano", "Carbonara di Nola", "San Paolo Bel Sito", "Arzano", "Cercola", "Comiziano", "Mugnano di Napoli", "Afragola", "Torre Annunziata", "San Sebastiano al Vesuvio", "Casavatore", "Massa Lubrense", "Bacoli", "Vico Equense", "Ercolano", "San Giorgio a Cremano", "Serrara Fontana", "Visciano", "Torre del Greco", "Sant'Antimo", "Procida", "Casoria", "Quarto", "Napoli", "San Gennaro Vesuviano", "Ischia", "Terzigno", "Casalnuovo di Napoli", "Brusciano", "San Giuseppe Vesuviano", "Boscotrecase", "Santa Maria la Carità", "Marigliano", "Sant'Agnello", "Nola", "Palma Campania", "Cimitile", "Giugliano in Campania", "Trecase", "Pompei", "Monte di Procida", "Sorrento", "Qualiano", "Casandrino", "Lettere", "Barano d'Ischia", "Ottaviano", "Agerola", "Liveri", "Massa di Somma"], Avellino: ["Castelvetere sul Calore", "Atripalda", "Baiano", "Montoro", "Grottolella", "Tufo", "Fontanarosa", "Santo Stefano del Sole", "Monteforte Irpino", "Teora", "Greci", "Trevico", "Vallata", "Montaguto", "Gesualdo", "Cesinali", "Vallesaccarda", "Conza della Campania", "Venticano", "Moschiano", "Pietrastornina", "Paternopoli", "Pietradefusi", "Torrioni", "Senerchia", "Casalbore", "Montemiletto", "Sirignano", "Zungoli", "Sperone", "Rotondi", "Caposele", "Scampitella", "Guardia Lombardi", "San Potito Ultra", "Domicella", "Calabritto", "Chiusano di San Domenico", "Salza Irpina", "Manocalzati", "Cairano", "Quadrelle", "Cassano Irpino", "Quindici", "San Nicola Baronia", "Sant'Andrea di Conza", "Sant'Angelo dei Lombardi", "Montemarano", "Cervinara", "Ospedaletto d'Alpinolo", "San Sossio Baronia", "Serino", "Solofra", "Chianche", "Montefusco", "Mercogliano", "Sorbo Serpico", "Carife", "Forino", "Mirabella Eclano", "Parolise", "Savignano Irpino", "Bagnoli Irpino", "Roccabascerana", "Contrada", "Lacedonia", "Montefalcione", "Grottaminarda", "Lauro", "Montecalvo Irpino", "Summonte", "Pago del Vallo di Lauro", "Castel Baronia", "Aquilonia", "Taurano", "Castelfranci", "Capriglia Irpina", "Volturara Irpina", "Villanova del Battista", "Prata di Principato Ultra", "Sant'Angelo a Scala", "Santa Paolina", "Ariano Irpino", "Villamaina", "Avella", "Montefredane", "Luogosano", "Aiello del Sabato", "Taurasi", "Nusco", "Monteverde", "Avellino", "Rocca San Felice", "Andretta", "Flumeri", "Frigento", "Bonito", "Melito Irpino", "Sant'Angelo all'Esca", "Pratola Serra", "Santa Lucia di Serino", "Mugnano del Cardinale", "Torella dei Lombardi", "Calitri", "Sturno", "San Mango sul Calore", "San Michele di Serino", "Petruro Irpino", "Lapio", "Montella", "Bisaccia", "San Martino Valle Caudina", "Lioni", "Altavilla Irpina", "Morra De Sanctis", "Marzano di Nola", "Candida", "Torre Le Nocelle"], Salerno: ["Cannalonga", "Castelnuovo Cilento", "Romagnano al Monte", "Prignano Cilento", "Scala", "Castel San Giorgio", "Auletta", "Giungano", "Cava de' Tirreni", "Casal Velino", "Casalbuono", "Laurino", "Ravello", "Casaletto Spartano", "San Cipriano Picentino", "Serre", "Tramonti", "Scafati", "Torraca", "Tortorella", "Bellizzi", "Camerota", "Celle di Bulgheria", "Salento", "Monteforte Cilento", "Baronissi", "Sant'Angelo a Fasanella", "Altavilla Silentina", "Salvitelle", "Omignano", "Furore", "Montesano sulla Marcellana", "Castelcivita", "Buonabitacolo", "Sala Consilina", "Santa Marina", "Pellezzano", "Castiglione del Genovesi", "Monte San Giacomo", "Sessa Cilento", "Colliano", "Valva", "Praiano", "Mercato San Severino", "Caggiano", "Battipaglia", "Campora", "San Valentino Torio", "Aquara", "Castellabate", "Lustra", "Moio della Civitella", "Torchiara", "Giffoni Valle Piana", "Sapri", "Capaccio Paestum", "Fisciano", "Stio", "Bellosguardo", "Novi Velia", "Sarno", "Roscigno", "San Marzano sul Sarno", "Roccadaspide", "Postiglione", "Castel San Lorenzo", "San Giovanni a Piro", "Castelnuovo di Conza", "Ispani", "Piaggine", "Controne", "Ottati", "Positano", "Campagna", "Cetara", "Corleto Monforte", "San Mauro la Bruca", "Sacco", "Caselle in Pittari", "Ricigliano", "Minori", "Acerno", "Siano", "Calvanico", "Ascea", "Contursi Terme", "Felitto", "Morigerati", "Salerno", "Orria", "Valle dell'Angelo", "San Rufo", "Corbara", "San Gregorio Magno", "Pisciotta", "Palomonte", "Teggiano", "Petina", "Rutino", "Olevano sul Tusciano", "Roccagloriosa", "Futani", "Vibonati", "Agropoli", "Bracigliano", "Perdifumo", "Angri", "Nocera Superiore", "Roccapiemonte", "Cicerale", "Atrani", "Pontecagnano Faiano", "Giffoni Sei Casali", "Laureana Cilento", "San Mauro Cilento", "San Pietro al Tanagro", "Albanella", "Pollica", "Sant'Arsenio", "Vietri sul Mare", "Oliveto Citra", "Sanza", "Sicignano degli Alburni", "Trentinara", "Buccino", "Conca dei Marini", "Stella Cilento", "Atena Lucana", "San Mango Piemonte", "Magliano Vetere", "Amalfi", "Centola", "Gioi", "Ogliastro Cilento", "Pertosa", "Serramezzana", "Eboli", "Torre Orsaia", "Pagani", "Santomenna", "Montecorice", "Padula", "Perito", "Cuccaro Vetere", "Ceraso", "Montecorvino Rovella", "Nocera Inferiore", "Laurito", "Maiori", "Vallo della Lucania", "Laviano", "Sant'Egidio del Monte Albino", "Montano Antilia", "Polla", "Alfano", "Sassano", "Montecorvino Pugliano", "Rofrano"] }, Fm = { "L'Aquila": ["Castel di Ieri", "Collelongo", "Capistrello", "Scontrone", "Montereale", "Opi", "San Benedetto in Perillis", "Fontecchio", "Rivisondoli", "Fagnano Alto", "Castellafiume", "Carapelle Calvisio", "Introdacqua", "Cocullo", "Pereto", "Rocca di Cambio", "San Benedetto dei Marsi", "Pettorano sul Gizio", "Rocca di Botte", "Cappadocia", "Rocca di Mezzo", "Villavallelonga", "Caporciano", "Pescasseroli", "Anversa degli Abruzzi", "Bisegna", "Santo Stefano di Sessanio", "Rocca Pia", "Celano", "Scoppito", "Capestrano", "Roccaraso", "Ofena", "Villalago", "San Vincenzo Valle Roveto", "Gioia dei Marsi", "Avezzano", "Ocre", "Collepietro", "Trasacco", "Poggio Picenze", "Barrea", "Ortucchio", "Aielli", "Canistro", "Pacentro", "Villa Sant'Angelo", "Ovindoli", "Prata d'Ansidonia", "Villetta Barrea", "Villa Santa Lucia degli Abruzzi", "Raiano", "Castelvecchio Calvisio", "Bugnara", "Castelvecchio Subequo", "Lecce nei Marsi", "Scanno", "Sulmona", "Capitignano", "Pescocostanzo", "Sante Marie", "Alfedena", "Civitella Roveto", "Cerchio", "Carsoli", "Lucoli", "Balsorano", "Pizzoli", "Fossa", "Acciano", "Ateleta", "Barisciano", "Scurcola Marsicana", "Campo di Giove", "Gagliano Aterno", "L'Aquila", "Roccacasale", "Castel di Sangro", "Civita d'Antino", "Pratola Peligna", "Calascio", "Navelli", "Sant'Eusanio Forconese", "Vittorito", "Magliano de' Marsi", "Castel del Monte", "Molina Aterno", "Tornimparte", "San Demetrio ne' Vestini", "Tagliacozzo", "Barete", "Campotosto", "Tione degli Abruzzi", "Civitella Alfedena", "Pescina", "Collarmele", "San Pio delle Camere", "Prezza", "Massa d'Albe", "Morino", "Cansano", "Secinaro", "Corfinio", "Goriano Sicoli", "Luco dei Marsi", "Cagnano Amiterno", "Ortona dei Marsi", "Oricola"], Teramo: ["Tortoreto", "Giulianova", "Pietracamela", "Civitella del Tronto", "Teramo", "Torricella Sicura", "Rocca Santa Maria", "Campli", "Morro d'Oro", "Tossicia", "Arsita", "Ancarano", "Cortino", "Bisenti", "Atri", "Corropoli", "Sant'Omero", "Pineto", "Basciano", "Cellino Attanasio", "Alba Adriatica", "Mosciano Sant'Angelo", "Silvi", "Castellalto", "Crognaleto", "Montorio al Vomano", "Sant'Egidio alla Vibrata", "Notaresco", "Torano Nuovo", "Montefino", "Colonnella", "Castelli", "Controguerra", "Colledara", "Canzano", "Isola del Gran Sasso d'Italia", "Penna Sant'Andrea", "Martinsicuro", "Roseto degli Abruzzi", "Bellante", "Cermignano", "Castel Castagna", "Fano Adriano", "Valle Castellana", "Nereto", "Castiglione Messer Raimondo", "Castilenti"], Pescara: ["Carpineto della Nora", "Penne", "Salle", "Nocciano", "Pietranico", "Pescosansonesco", "Montebello di Bertona", "Turrivalignani", "Brittoli", "Città Sant'Angelo", "Alanno", "Collecorvino", "Tocco da Casauria", "Torre de' Passeri", "Castiglione a Casauria", "Cepagatti", "Montesilvano", "Caramanico Terme", "Corvara", "Scafa", "Manoppello", "Roccamorice", "Loreto Aprutino", "Moscufo", "Spoltore", "Rosciano", "Bolognano", "San Valentino in Abruzzo Citeriore", "Popoli Terme", "Lettomanoppello", "Picciano", "Elice", "Villa Celiera", "Pescara", "Vicoli", "Serramonacesca", "Sant'Eufemia a Maiella", "Catignano", "Civitaquana", "Abbateggio", "Cappelle sul Tavo", "Pianella", "Farindola", "Bussi sul Tirino", "Civitella Casanova", "Cugnoli"], Chieti: ["Castel Frentano", "Paglieta", "Fara Filiorum Petri", "Casacanditella", "Poggiofiorito", "Villamagna", "San Martino sulla Marrucina", "Carunchio", "Torrebruna", "Roccamontepiano", "Tornareccio", "Atessa", "San Giovanni Lipioni", "Lentella", "San Salvo", "Crecchio", "Palena", "Fossacesia", "Chieti", "Furci", "Fallo", "Sant'Eusanio del Sangro", "Carpineto Sinello", "Roccaspinalveti", "Quadri", "Taranta Peligna", "Fara San Martino", "Cupello", "Casalincontrada", "Rapino", "Scerni", "Treglio", "Mozzagrogna", "Rocca San Giovanni", "Santa Maria Imbaro", "Miglianico", "Gissi", "Colledimezzo", "Monteferrante", "Montebello sul Sangro", "Fresagrandinaria", "Canosa Sannita", "Castelguidone", "Pietraferrazzana", "Torricella Peligna", "Schiavi di Abruzzo", "Pennadomo", "Lettopalena", "Filetto", "Ari", "Pretoro", "Gessopalena", "Civitaluparella", "Montazzoli", "San Buono", "Palombaro", "Civitella Messer Raimondo", "Colledimacine", "Vasto", "Frisa", "Pennapiedimonte", "Borrello", "Giuliano Teatino", "Lanciano", "Ortona", "Tufillo", "Gamberale", "Fraine", "Bucchianico", "Pollutri", "Torino di Sangro", "Montelapiano", "Montenerodomo", "Archi", "Roio del Sangro", "Celenza sul Trigno", "Ripa Teatina", "Monteodorisio", "Dogliola", "Villa Santa Maria", "Guilmi", "Palmoli", "Guardiagrele", "Casalanguida", "Perano", "Francavilla al Mare", "San Giovanni Teatino", "Lama dei Peligni", "Casalbordino", "Roccascalegna", "Casoli", "Vacri", "Villalfonsina", "Pizzoferrato", "Arielli", "Altino", "Liscia", "Rosello", "Torrevecchia Teatina", "Orsogna", "Castiglione Messer Marino", "San Vito Chietino", "Tollo", "Bomba"] }, km = { Campobasso: ["Campolieto", "Campochiaro", "Castellino del Biferno", "Spinete", "Bonefro", "Campomarino", "Portocannone", "Toro", "Ripabottoni", "Morrone del Sannio", "Ferrazzano", "Oratino", "Roccavivara", "Guardiaregia", "Mirabello Sannitico", "Vinchiaturo", "Montenero di Bisaccia", "Montorio nei Frentani", "Guardialfiera", "Jelsi", "Cercepiccola", "Pietracatella", "Larino", "Campodipietra", "Pietracupa", "Riccia", "Baranello", "Tavenna", "Lucito", "Matrice", "Provvidenti", "Santa Croce di Magliano", "Campobasso", "Trivento", "Ururi", "Sant'Angelo Limosano", "Cercemaggiore", "San Giacomo degli Schiavoni", "Montefalcone nel Sannio", "Gildone", "Busso", "San Polo Matese", "Montemitro", "Tufara", "Fossalto", "Montelongo", "Palata", "Termoli", "Sepino", "Lupara", "Casacalenda", "San Giuliano di Puglia", "Petrella Tifernina", "Colletorto", "Sant'Elia a Pianisi", "San Martino in Pensilis", "Rotello", "Molise", "Mafalda", "Castropignano", "Ripalimosani", "Macchia Valfortore", "Casalciprano", "Gambatesa", "San Biase", "San Giovanni in Galdo", "Castelmauro", "Petacciato", "Colle d'Anchise", "Limosano", "Civitacampomarano", "Salcito", "Monacilioni", "Bojano", "Montagano", "Torella del Sannio", "Montecilfone", "Guglionesi", "Acquaviva Collecroce", "San Felice del Molise", "San Giuliano del Sannio", "Castelbottaccio", "Duronia", "San Massimo"], Isernia: ["Bagnoli del Trigno", "Carovilli", "Castelpizzuto", "Conca Casale", "Civitanova del Sannio", "Castel San Vincenzo", "Sesto Campano", "Belmonte del Sannio", "Sessano del Molise", "Longano", "Scapoli", "Castel del Giudice", "Isernia", "Acquaviva d'Isernia", "Agnone", "Montaquila", "Carpinone", "Chiauci", "Sant'Agapito", "Miranda", "Pozzilli", "Rionero Sannitico", "Pescopennataro", "Pettoranello del Molise", "Macchiagodena", "Monteroduni", "Pietrabbondante", "Sant'Angelo del Pesco", "Cantalupo nel Sannio", "Colli a Volturno", "Fornelli", "Rocchetta a Volturno", "Pescolanciano", "Sant'Elena Sannita", "Macchia d'Isernia", "Pesche", "Castelverrino", "Frosolone", "Forlì del Sannio", "Montenero Val Cocchiara", "San Pietro Avellana", "Vastogirardi", "Roccamandolfi", "Venafro", "Santa Maria del Molise", "Castelpetroso", "Pizzone", "Roccasicura", "Capracotta", "Poggio Sannita", "Filignano", "Cerro al Volturno"] }, Om = { Foggia: ["San Nicandro Garganico", "Carapelle", "Ordona", "Ascoli Satriano", "Peschici", "Chieuti", "Castelnuovo della Daunia", "San Severo", "Poggio Imperiale", "Castelluccio dei Sauri", "Castelluccio Valmaggiore", "Cerignola", "Anzano di Puglia", "Ischitella", "Zapponeta", "Sant'Agata di Puglia", "San Marco la Catola", "Troia", "Lucera", "Cagnano Varano", "Serracapriola", "San Giovanni Rotondo", "Volturara Appula", "Bovino", "Orsara di Puglia", "Torremaggiore", "Biccari", "Carlantino", "Celenza Valfortore", "Vico del Gargano", "Orta Nova", "Lesina", "Pietramontecorvino", "Apricena", "San Marco in Lamis", "Volturino", "Candela", "Carpino", "Casalnuovo Monterotaro", "Isole Tremiti", "Faeto", "Rodi Garganico", "Rignano Garganico", "Monte Sant'Angelo", "Mattinata", "Celle di San Vito", "Motta Montecorvino", "Panni", "Casalvecchio di Puglia", "Vieste", "Stornarella", "Monteleone di Puglia", "Accadia", "Alberona", "Roseto Valfortore", "San Paolo di Civitate", "Manfredonia", "Deliceto", "Rocchetta Sant'Antonio", "Foggia", "Stornara"], Bari: ["Altamura", "Palo del Colle", "Poggiorsini", "Acquaviva delle Fonti", "Modugno", "Molfetta", "Terlizzi", "Polignano a Mare", "Bitritto", "Putignano", "Triggiano", "Sammichele di Bari", "Castellana Grotte", "Cassano delle Murge", "Noicattaro", "Rutigliano", "Conversano", "Gioia del Colle", "Adelfia", "Capurso", "Cellamare", "Ruvo di Puglia", "Gravina in Puglia", "Valenzano", "Locorotondo", "Corato", "Bitetto", "Binetto", "Sannicandro di Bari", "Mola di Bari", "Toritto", "Giovinazzo", "Alberobello", "Bitonto", "Monopoli", "Grumo Appula", "Noci", "Turi", "Bari", "Casamassima", "Santeramo in Colle"], Taranto: ["Martina Franca", "Fragagnano", "Castellaneta", "Sava", "Crispiano", "San Giorgio Ionico", "Pulsano", "Mottola", "Montemesola", "San Marzano di San Giuseppe", "Avetrana", "Lizzano", "Palagianello", "Taranto", "Manduria", "Massafra", "Monteiasi", "Laterza", "Carosino", "Statte", "Monteparano", "Torricella", "Grottaglie", "Roccaforzata", "Faggiano", "Maruggio", "Ginosa", "Leporano", "Palagiano"], Brindisi: ["Mesagne", "Ostuni", "Torre Santa Susanna", "Cisternino", "San Vito dei Normanni", "Erchie", "Francavilla Fontana", "Cellino San Marco", "San Donaci", "San Pietro Vernotico", "Carovigno", "Fasano", "Torchiarolo", "Ceglie Messapica", "Oria", "Brindisi", "San Michele Salentino", "San Pancrazio Salentino", "Villa Castelli", "Latiano"], Lecce: ["Castri di Lecce", "Santa Cesarea Terme", "Castro", "Melpignano", "San Pietro in Lama", "Seclì", "Copertino", "Soleto", "Diso", "Alessano", "Spongano", "Guagnano", "Surano", "Squinzano", "Sternatia", "Arnesano", "Presicce-Acquarica", "Neviano", "Castrignano del Capo", "Casarano", "Leverano", "Ortelle", "Novoli", "Taviano", "Galatina", "Surbo", "Alliste", "Andrano", "Martignano", "Maglie", "Giuggianello", "Veglie", "Ruffano", "Corigliano d'Otranto", "Miggiano", "Carpignano Salentino", "Botrugno", "Minervino di Lecce", "Sogliano Cavour", "Tuglie", "Taurisano", "Monteroni di Lecce", "Lequile", "Salve", "Racale", "Tricase", "Martano", "Castrignano de' Greci", "Ugento", "Matino", "Carmiano", "Vernole", "Cutrofiano", "Salice Salentino", "Scorrano", "San Cassiano", "Cursi", "Bagnolo del Salento", "Specchia", "Nardò", "Morciano di Leuca", "Porto Cesareo", "Patù", "Trepuzzi", "Montesano Salentino", "San Cesario di Lecce", "Corsano", "Caprarica di Lecce", "Lizzanello", "Parabita", "Sannicola", "Aradeo", "Otranto", "Collepasso", "Campi Salentina", "Calimera", "Tiggiano", "Galatone", "Giurdignano", "Poggiardo", "Muro Leccese", "Supersano", "Cavallino", "Lecce", "Sanarica", "Zollino", "Melendugno", "Alezio", "San Donato di Lecce", "Gallipoli", "Cannole", "Uggiano la Chiesa", "Gagliano del Capo", "Palmariggi", "Melissano", "Nociglia"], "Barletta-Andria-Trani": ["Canosa di Puglia", "Trani", "Andria", "Spinazzola", "Trinitapoli", "Barletta", "Margherita di Savoia", "Minervino Murge", "San Ferdinando di Puglia", "Bisceglie"] }, Dm = { Potenza: ["San Severino Lucano", "Ruvo del Monte", "Lagonegro", "Calvera", "Carbone", "Satriano di Lucania", "Montemilone", "Rivello", "Moliterno", "Balvano", "Fardella", "Francavilla in Sinni", "Castelmezzano", "Tolve", "Chiaromonte", "Cersosimo", "Tramutola", "Corleto Perticara", "Lavello", "Brienza", "Venosa", "Banzi", "Calvello", "Savoia di Lucania", "Teana", "Pietrapertosa", "Montemurro", "Castelluccio Inferiore", "Avigliano", "Castelluccio Superiore", "Ruoti", "Genzano di Lucania", "San Martino d'Agri", "Potenza", "Episcopia", "Castelgrande", "Vaglio Basilicata", "Viggianello", "Anzi", "Maschito", "Baragiano", "Castelsaraceno", "Rotonda", "Sasso di Castalda", "Albano di Lucania", "Viggiano", "San Paolo Albanese", "Nemoli", "Rapolla", "Paterno", "San Costantino Albanese", "Pietragalla", "Melfi", "Sant'Angelo Le Fratte", "Castronuovo di Sant'Andrea", "Acerenza", "Campomaggiore", "Vietri di Potenza", "Trecchina", "Picerno", "Rapone", "Armento", "Gallicchio", "Pescopagano", "San Chirico Raparo", "Roccanova", "Maratea", "Missanello", "San Chirico Nuovo", "Spinoso", "Ripacandida", "Sarconi", "Tito", "Rionero in Vulture", "Bella", "Latronico", "Palazzo San Gervasio", "Noepoli", "Trivigno", "Barile", "Ginestra", "Sant'Arcangelo", "Atella", "Filiano", "Muro Lucano", "Marsico Nuovo", "Oppido Lucano", "San Fele", "Guardia Perticara", "Brindisi Montagna", "Lauria", "Cancellara", "Forenza", "Laurenzana", "Grumento Nova", "Abriola", "Terranova di Pollino", "Pignola", "Senise", "Marsicovetere"], Matera: ["Calciano", "Montescaglioso", "Montalbano Jonico", "Colobraro", "Pisticci", "Oliveto Lucano", "Accettura", "Garaguso", "Matera", "Grottole", "Irsina", "Tricarico", "San Giorgio Lucano", "Craco", "Pomarico", "Gorgoglione", "San Mauro Forte", "Nova Siri", "Miglionico", "Bernalda", "Ferrandina", "Salandra", "Tursi", "Cirigliano", "Policoro", "Valsinni", "Stigliano", "Aliano", "Rotondella", "Grassano", "Scanzano Jonico"] }, Gm = { Cosenza: ["Fuscaldo", "Amendolara", "Santa Domenica Talao", "Nocara", "Acri", "Mormanno", "Bisignano", "Carolei", "Altilia", "Firmo", "San Fili", "Rota Greca", "Santa Maria del Cedro", "Lago", "Castrolibero", "Aieta", "Plataci", "Cetraro", "San Giorgio Albanese", "Lattarico", "Mendicino", "Pietrapaola", "Marano Principato", "Panettieri", "Bonifati", "Bocchigliero", "Rocca Imperiale", "Santo Stefano di Rogliano", "Roseto Capo Spulico", "Calopezzati", "Casali del Manco", "Paola", "Grimaldi", "Rende", "Cellara", "Campana", "Parenti", "Paterno Calabro", "Sangineto", "Cerisano", "Santa Caterina Albanese", "Falconara Albanese", "Lappano", "Caloveto", "Malvito", "Frascineto", "Oriolo", "San Lorenzo Bellizzi", "Belvedere Marittimo", "Scalea", "Amantea", "Paludi", "Villapiana", "Scigliano", "San Marco Argentano", "San Sosti", "Longobucco", "Carpanzano", "Pietrafitta", "Cropalati", "Alessandria del Carretto", "Zumpano", "San Cosmo Albanese", "Castiglione Cosentino", "San Donato di Ninea", "Civita", "Cerchiara di Calabria", "Altomonte", "Mandatoriccio", "Canna", "Vaccarizzo Albanese", "Fiumefreddo Bruzio", "Fagnano Castello", "Sant'Agata di Esaro", "Terravecchia", "Tortora", "Mangone", "Marzi", "San Pietro in Amantea", "San Vincenzo La Costa", "Verbicaro", "Trebisacce", "Celico", "Praia a Mare", "Belmonte Calabro", "Malito", "Castroregio", "Cervicati", "Torano Castello", "Grisolia", "Morano Calabro", "Bianchi", "Scala Coeli", "Montegiordano", "Aiello Calabro", "Albidona", "Domanico", "San Basile", "Rovito", "Luzzi", "Guardia Piemontese", "San Demetrio Corone", "Aprigliano", "Cassano all'Ionio", "Acquappesa", "Buonvicino", "San Benedetto Ullano", "Crosia", "San Nicola Arcella", "San Martino di Finita", "Roggiano Gravina", "Laino Borgo", "Cosenza", "Serra d'Aiello", "Figline Vegliaturo", "Pedivigliano", "Francavilla Marittima", "San Lucido", "Maierà", "Longobardi", "Cleto", "Castrovillari", "Lungro", "San Pietro in Guarano", "Terranova da Sibari", "Montalto Uffugo", "Santa Sofia d'Epiro", "Diamante", "Orsomarso", "Marano Marchesato", "Cerzeto", "Laino Castello", "Corigliano-Rossano", "Cariati", "Mongrassano", "Piane Crati", "Spezzano Albanese", "Rose", "Mottafollone", "Dipignano", "Tarsia", "Saracena", "Belsito", "Papasidero", "Spezzano della Sila", "San Giovanni in Fiore", "Rogliano", "Acquaformosa", "Colosimi", "San Lorenzo del Vallo"], Catanzaro: ["Settingiano", "Pianopoli", "Stalettì", "Tiriolo", "Cenadi", "Marcellinara", "Amato", "Curinga", "San Pietro a Maida", "Badolato", "Girifalco", "Fossato Serralta", "Miglierina", "Belcastro", "Falerna", "Petronà", "Gagliato", "Carlopoli", "Marcedusa", "Martirano Lombardo", "Platania", "Gizzeria", "Soverato", "Cardinale", "Davoli", "Gasperina", "Cicala", "Soveria Mannelli", "Santa Caterina dello Ionio", "Motta Santa Lucia", "Feroleto Antico", "Petrizzi", "Cortale", "Montauro", "Argusto", "Centrache", "Chiaravalle Centrale", "Taverna", "Montepaone", "Caraffa di Catanzaro", "Amaroni", "Catanzaro", "Soveria Simeri", "Sersale", "Magisano", "Sant'Andrea Apostolo dello Ionio", "San Vito sullo Ionio", "San Mango d'Aquino", "Satriano", "Albi", "Jacurso", "Simeri Crichi", "Conflenti", "Botricello", "Sellia Marina", "Cerva", "Borgia", "San Pietro Apostolo", "Nocera Terinese", "Palermiti", "Maida", "Vallefiorita", "Pentone", "Lamezia Terme", "Isca sullo Ionio", "Torre di Ruggiero", "Cropani", "Decollatura", "Gimigliano", "Martirano", "San Sostene", "Olivadi", "Squillace", "San Floro", "Sorbo San Basile", "Serrastretta", "Andali", "Guardavalle", "Zagarise", "Sellia"], "Reggio Calabria": ["Campo Calabro", "Candidoni", "San Giorgio Morgeto", "Placanica", "Sant'Alessio in Aspromonte", "Laureana di Borrello", "Caulonia", "Ardore", "Grotteria", "Palizzi", "Condofuri", "Pazzano", "Marina di Gioiosa Ionica", "Motta San Giovanni", "Sant'Agata del Bianco", "Gioiosa Ionica", "Varapodio", "Riace", "Sant'Eufemia d'Aspromonte", "Locri", "Laganadi", "San Giovanni di Gerace", "Caraffa del Bianco", "Canolo", "Roccaforte del Greco", "Mammola", "Bianco", "Ferruzzano", "Martone", "Scido", "Cinquefrondi", "Terranova Sappo Minulio", "Bivongi", "Santa Cristina d'Aspromonte", "Seminara", "Sinopoli", "Cosoleto", "Giffone", "Rosarno", "Molochio", "Gioia Tauro", "Maropati", "Monasterace", "Benestare", "Africo", "Samo", "Melicuccà", "Bova", "Cardeto", "San Procopio", "Stignano", "Bagnara Calabra", "Cittanova", "San Lorenzo", "Brancaleone", "Roghudi", "Roccella Ionica", "Polistena", "Oppido Mamertina", "Galatro", "Siderno", "Scilla", "San Luca", "San Roberto", "San Pietro di Caridà", "Careri", "Sant'Ilario dello Ionio", "Rizziconi", "Camini", "Melicucco", "Portigliola", "Bovalino", "Delianuova", "Ciminà", "Gerace", "Santo Stefano in Aspromonte", "Staiti", "Taurianova", "Fiumara", "Platì", "Palmi", "Antonimina", "Bagaladi", "Bova Marina", "Montebello Jonico", "Calanna", "Bruzzano Zeffirio", "Melito di Porto Salvo", "Serrata", "Agnana Calabra", "San Ferdinando", "Stilo", "Feroleto della Chiesa", "Reggio di Calabria", "Casignana", "Anoia", "Villa San Giovanni"], Crotone: ["Roccabernarda", "Verzino", "Scandale", "Cirò", "Isola di Capo Rizzuto", "Savelli", "Castelsilano", "Strongoli", "Rocca di Neto", "Cirò Marina", "Cutro", "San Nicola dell'Alto", "Cerenzia", "Carfizzi", "Belvedere di Spinello", "San Mauro Marchesato", "Crucoli", "Umbriatico", "Mesoraca", "Santa Severina", "Crotone", "Pallagorio", "Petilia Policastro", "Casabona", "Caccuri", "Melissa", "Cotronei"], "Vibo Valentia": ["Filandari", "Pizzo", "Ricadi", "Joppolo", "Vallelonga", "Nardodipace", "Rombiolo", "Brognaturo", "Spadola", "Maierato", "Simbario", "Fabrizia", "Sorianello", "Zungri", "Jonadi", "Soriano Calabro", "Spilinga", "Tropea", "San Calogero", "Vazzano", "Drapia", "Gerocarne", "Briatico", "Cessaniti", "Zaccanopoli", "Limbadi", "Dasà", "Parghelia", "Mileto", "Francica", "Dinami", "Capistrano", "Arena", "Sant'Onofrio", "Pizzoni", "Nicotera", "Polia", "Francavilla Angitola", "Acquaro", "Vibo Valentia", "Stefanaconi", "Zambrone", "San Gregorio d'Ippona", "San Costantino Calabro", "Filadelfia", "Monterosso Calabro", "Serra San Bruno", "San Nicola da Crissa", "Mongiana", "Filogaso"] }, Nm = { Trapani: ["Alcamo", "Buseto Palizzolo", "Paceco", "Salaparuta", "Castelvetrano", "Santa Ninfa", "Custonaci", "Poggioreale", "San Vito Lo Capo", "Petrosino", "Trapani", "Vita", "Salemi", "Mazara del Vallo", "Pantelleria", "Castellammare del Golfo", "Marsala", "Favignana", "Misiliscemi", "Campobello di Mazara", "Erice", "Valderice", "Gibellina", "Partanna", "Calatafimi-Segesta"], Palermo: ["Montemaggiore Belsito", "Lercara Friddi", "Carini", "San Giuseppe Jato", "Termini Imerese", "Campofelice di Roccella", "Vicari", "Palazzo Adriano", "Caltavuturo", "Alia", "Bompietro", "Prizzi", "Isnello", "Campofiorito", "Chiusa Sclafani", "Gratteri", "Balestrate", "Campofelice di Fitalia", "Altavilla Milicia", "Belmonte Mezzagno", "Borgetto", "Pollina", "Santa Flavia", "Alimena", "Cefalà Diana", "Palermo", "Torretta", "Casteldaccia", "Sciara", "Roccapalumba", "Villabate", "Baucina", "San Mauro Castelverde", "Trabia", "Partinico", "Cinisi", "San Cipirello", "Santa Cristina Gela", "Ficarazzi", "Caccamo", "Castronovo di Sicilia", "Cerda", "Valledolmo", "Camporeale", "Bisacquino", "Cefalù", "Capaci", "Corleone", "Villafrati", "Castellana Sicula", "Roccamena", "Terrasini", "Isola delle Femmine", "Misilmeri", "Giuliana", "Bolognetta", "Piana degli Albanesi", "Gangi", "Trappeto", "Sclafani Bagni", "Bagheria", "Petralia Sottana", "Godrano", "Geraci Siculo", "Castelbuono", "Ciminna", "Polizzi Generosa", "Blufi", "Lascari", "Giardinello", "Ustica", "Ventimiglia di Sicilia", "Collesano", "Mezzojuso", "Contessa Entellina", "Marineo", "Scillato", "Petralia Soprana", "Monreale", "Montelepre", "Altofonte", "Aliminusa"], Messina: ["Floresta", "Alì", "Santa Domenica Vittoria", "San Salvatore di Fitalia", "Torrenova", "Valdina", "Tusa", "Messina", "Castel di Lucio", "Malvagna", "Barcellona Pozzo di Gotto", "Caronia", "Itala", "San Marco d'Alunzio", "Motta Camastra", "Saponara", "Pagliara", "Gaggi", "Piraino", "San Filippo del Mela", "Rodì Milici", "Mazzarrà Sant'Andrea", "Rometta", "Scaletta Zanclea", "Santa Teresa di Riva", "Roccafiorita", "Sant'Alessio Siculo", "Naso", "Capizzi", "Militello Rosmarino", "Villafranca Tirrena", "Roccella Valdemone", "Sant'Angelo di Brolo", "Venetico", "Torregrotta", "Casalvecchio Siculo", "Merì", "Furci Siculo", "Gallodoro", "Capri Leone", "Montagnareale", "Francavilla di Sicilia", "Mistretta", "Furnari", "Santa Marina Salina", "Falcone", "Patti", "Librizzi", "Tortorici", "Montalbano Elicona", "Roccavaldina", "Antillo", "Castell'Umberto", "Ficarra", "Novara di Sicilia", "San Piero Patti", "Raccuja", "Motta d'Affermo", "Mandanici", "Nizza di Sicilia", "Ucria", "Savoca", "Condrò", "Capo d'Orlando", "San Fratello", "Forza d'Agrò", "Gualtieri Sicaminò", "Oliveri", "Spadafora", "San Pier Niceto", "Sinagra", "Gioiosa Marea", "Fiumedinisi", "Alcara li Fusi", "Taormina", "Monforte San Giorgio", "Giardini-Naxos", "Leni", "Basicò", "Sant'Agata di Militello", "Terme Vigliatore", "Castroreale", "Santo Stefano di Camastra", "Graniti", "Lipari", "Milazzo", "San Teodoro", "Acquedolci", "Santa Lucia del Mela", "Galati Mamertino", "Reitano", "Frazzanò", "Alì Terme", "Tripi", "Roccalumera", "Moio Alcantara", "Cesarò", "Limina", "Castelmola", "Longi", "Malfa", "Fondachelli-Fantina", "Letojanni", "Mongiuffi Melia", "Pace del Mela", "Brolo", "Mirto", "Pettineo"], Agrigento: ["Licata", "Ribera", "Alessandria della Rocca", "Santa Elisabetta", "Grotte", "Montallegro", "Menfi", "Montevago", "Calamonaci", "San Biagio Platani", "Castrofilippo", "Santa Margherita di Belice", "Ravanusa", "Cianciana", "Lucca Sicula", "Sant'Angelo Muxaro", "Realmonte", "Porto Empedocle", "Lampedusa e Linosa", "Villafranca Sicula", "Canicattì", "Naro", "San Giovanni Gemini", "Santo Stefano Quisquina", "Cammarata", "Comitini", "Raffadali", "Burgio", "Agrigento", "Sciacca", "Siculiana", "Bivona", "Joppolo Giancaxio", "Racalmuto", "Camastra", "Sambuca di Sicilia", "Campobello di Licata", "Caltabellotta", "Casteltermini", "Aragona", "Cattolica Eraclea", "Favara", "Palma di Montechiaro"], Caltanissetta: ["Sommatino", "Delia", "San Cataldo", "Marianopoli", "Mazzarino", "Acquaviva Platani", "Gela", "Mussomeli", "Butera", "Villalba", "Vallelunga Pratameno", "Bompensiere", "Resuttano", "Serradifalco", "Caltanissetta", "Campofranco", "Niscemi", "Montedoro", "Milena", "Sutera", "Santa Caterina Villarmosa", "Riesi"], Enna: ["Aidone", "Valguarnera Caropepe", "Agira", "Pietraperzia", "Gagliano Castelferrato", "Leonforte", "Catenanuova", "Villarosa", "Regalbuto", "Barrafranca", "Centuripe", "Troina", "Enna", "Sperlinga", "Cerami", "Assoro", "Nicosia", "Piazza Armerina", "Nissoria", "Calascibetta"], Catania: ["Aci Sant'Antonio", "Tremestieri Etneo", "Fiumefreddo di Sicilia", "Castiglione di Sicilia", "Gravina di Catania", "Bronte", "Camporotondo Etneo", "San Pietro Clarenza", "Scordia", "Mineo", "Caltagirone", "Giarre", "Mazzarrone", "Palagonia", "Santa Maria di Licodia", "Raddusa", "Riposto", "Milo", "Viagrande", "Licodia Eubea", "Calatabiano", "Nicolosi", "Grammichele", "Mascali", "Belpasso", "Castel di Iudica", "Aci Catena", "Catania", "Biancavilla", "Ragalna", "Piedimonte Etneo", "Trecastagni", "Sant'Agata li Battiati", "San Gregorio di Catania", "San Cono", "Aci Bonaccorsi", "Pedara", "Randazzo", "Paternò", "San Michele di Ganzaria", "Motta Sant'Anastasia", "Zafferana Etnea", "Vizzini", "Acireale", "San Giovanni la Punta", "Linguaglossa", "Misterbianco", "Ramacca", "Valverde", "Sant'Alfio", "Santa Venerina", "Mascalucia", "Militello in Val di Catania", "Aci Castello", "Maletto", "Maniace", "Mirabella Imbaccari", "Adrano"], Ragusa: ["Modica", "Ispica", "Acate", "Ragusa", "Comiso", "Vittoria", "Giarratana", "Chiaramonte Gulfi", "Monterosso Almo", "Pozzallo", "Santa Croce Camerina", "Scicli"], Siracusa: ["Augusta", "Floridia", "Melilli", "Buccheri", "Siracusa", "Cassaro", "Canicattini Bagni", "Rosolini", "Lentini", "Buscemi", "Carlentini", "Sortino", "Ferla", "Palazzolo Acreide", "Avola", "Francofonte", "Priolo Gargallo", "Portopalo di Capo Passero", "Solarino", "Pachino", "Noto"] }, Wm = { Sassari: ["Bonorva", "Bultei", "Mara", "Ozieri", "Illorai", "Chiaramonti", "Ploaghe", "Torralba", "Putifigari", "Stintino", "Codrongianos", "Sorso", "Padria", "Palau", "Nule", "Luras", "Muros", "Anela", "Bottidda", "Uri", "Ittiri", "Borutta", "Mores", "Pozzomaggiore", "Nulvi", "Alà dei Sardi", "Banari", "Usini", "Laerru", "Bonnanaro", "Villanova Monteleone", "Budoni", "Tula", "Florinas", "Bulzi", "Romana", "Ossi", "Tergu", "Cargeghe", "Badesi", "Benetutti", "Tissi", "Aggius", "Luogosanto", "Sassari", "Esporlatu", "Cossoine", "Padru", "Thiesi", "Semestene", "Monteleone Rocca Doria", "Bortigiadas", "La Maddalena", "Arzachena", "Santa Teresa Gallura", "Martis", "Pattada", "Loiri Porto San Paolo", "Erula", "Burgos", "Bono", "Osilo", "Tempio Pausania", "Santa Maria Coghinas", "Aglientu", "Castelsardo", "Cheremule", "Telti", "Siligo", "Nughedu San Nicolò", "Giave", "Viddalba", "Trinità d'Agultu e Vignola", "San Teodoro", "Sedini", "Valledoria", "Olbia", "Porto Torres", "Alghero", "Bessude", "Calangianus", "Ittireddu", "Berchidda", "Golfo Aranci", "Sant'Antonio di Gallura", "Buddusò", "Ardara", "Sennori", "Monti", "Olmedo", "Oschiri", "Perfugas"], Nuoro: ["Dualchi", "Meana Sardo", "Loculi", "Tiana", "Atzara", "Lodine", "Loceri", "Orune", "Orotelli", "Bitti", "Girasole", "Macomer", "Oniferi", "Lotzorai", "Gadoni", "Ovodda", "Tortolì", "Lula", "Galtellì", "Olzai", "Bortigali", "Onifai", "Lei", "Aritzo", "Desulo", "Perdasdefogu", "Baunei", "Gavoi", "Lanusei", "Belvì", "Triei", "Jerzu", "Posada", "Birori", "Lodè", "Teti", "Orani", "Silanus", "Ollolai", "Orgosolo", "Sindia", "Talana", "Noragugume", "Irgoli", "Austis", "Borore", "Gairo", "Nuoro", "Dorgali", "Cardedu", "Tonara", "Ilbono", "Sarule", "Urzulei", "Tertenia", "Osini", "Ussassai", "Mamoiada", "Orosei", "Sorgono", "Torpè", "Villagrande Strisaili", "Elini", "Ulassai", "Ottana", "Oliena", "Bari Sardo", "Arzana", "Onanì", "Siniscola", "Ortueri", "Osidda", "Fonni", "Bolotana"], Cagliari: ["Capoterra", "Sestu", "Maracalagonis", "Villa San Pietro", "Quartucciu", "Settimo San Pietro", "Decimomannu", "Selargius", "Elmas", "Assemini", "Sinnai", "Uta", "Monserrato", "Cagliari", "Quartu Sant'Elena", "Sarroch", "Pula"], Oristano: ["Sedilo", "Morgongiori", "Marrubiu", "Simaxis", "Palmas Arborea", "Simala", "Uras", "Sennariolo", "Pompu", "Tinnura", "Abbasanta", "Albagiara", "Soddì", "Siris", "Milis", "Siamaggiore", "Tramatza", "Senis", "Cabras", "Gonnostramatza", "Bosa", "Seneghe", "Assolo", "Bauladu", "Sorradile", "Ghilarza", "Nughedu Santa Vittoria", "Boroneddu", "Asuni", "Santu Lussurgiu", "Flussio", "Mogoro", "Ulà Tirso", "Ardauli", "San Nicolò d'Arcidano", "Montresta", "Ruinas", "Narbolia", "Zeddiani", "Tadasuni", "Ales", "Scano di Montiferro", "Laconi", "San Vero Milis", "Neoneli", "Norbello", "Ollastra", "Gonnoscodina", "Fordongianus", "Magomadas", "Nureci", "Terralba", "Paulilatino", "Solarussa", "Oristano", "Nurachi", "Suni", "Zerfaliu", "Baratili San Pietro", "Bonarcado", "Allai", "Usellus", "Masullas", "Villa Sant'Antonio", "Baradili", "Busachi", "Curcuris", "Villanova Truschedu", "Sini", "Villaurbana", "Baressa", "Mogorella", "Tresnuraghes", "Bidonì", "Aidomaggiore", "Gonnosnò", "Siapiccia", "Modolo", "Pau", "Riola Sardo", "Arborea", "Cuglieri", "Villa Verde", "Samugheo", "Santa Giusta", "Siamanna", "Sagama"], "Sud Sardegna": ["Ussaramanna", "Escolca", "Donori", "Isili", "Arbus", "Giba", "Segariu", "Guamaggiore", "Carloforte", "Perdaxius", "San Sperate", "Masainas", "Nurri", "Muravera", "Iglesias", "Villaspeciosa", "Burcei", "Pauli Arbarei", "Nuraminis", "San Basilio", "Genuri", "Villanova Tulo", "Nuragus", "Serrenti", "Vallermosa", "Senorbì", "Barumini", "Monastir", "Santadi", "Domus de Maria", "Tratalias", "Nurallao", "Ballao", "Siddi", "Siurgus Donigala", "Sant'Andrea Frius", "Guspini", "Guasila", "Fluminimaggiore", "San Vito", "Silius", "Soleminis", "Villamassargia", "Escalaplano", "Samatzai", "Gonnesa", "San Nicolò Gerrei", "Selegas", "Gergei", "Villaperuccio", "Sardara", "Villamar", "Turri", "Las Plassas", "Teulada", "Nuxis", "Gesturi", "Villacidro", "Setzu", "Domusnovas", "Seui", "Portoscuso", "Sanluri", "Genoni", "Goni", "Villanovaforru", "Musei", "Ortacesus", "Seulo", "Tuili", "Serri", "Serdiana", "Piscinas", "Gonnosfanadiga", "Siliqua", "Villasalto", "Calasetta", "Barrali", "Decimoputzu", "Sant'Anna Arresi", "Collinas", "Narcao", "Serramanna", "Esterzili", "Sant'Antioco", "Mandas", "Buggerru", "Villanovafranca", "Villasor", "Carbonia", "Gesico", "Villasimius", "Sadali", "Samassi", "Pabillonis", "Ussana", "San Gavino Monreale", "Castiadas", "San Giovanni Suergiu", "Furtei", "Lunamatrona", "Villaputzu", "Dolianova", "Armungia", "Orroli", "Suelli", "Pimentel"] }, ln = {
+  Piemonte: wm,
   "Valle d'Aosta": { Aosta: ["Pollein", "Bard", "Saint-Nicolas", "Cogne", "Gignod", "Saint-Christophe", "Challand-Saint-Victor", "Saint-Rhémy-en-Bosses", "Valgrisenche", "Sarre", "Valsavarenche", "Gressan", "Allein", "Torgnon", "Nus", "Bionaz", "Pont-Saint-Martin", "Introd", "Villeneuve", "Valtournenche", "Saint-Denis", "Pontey", "Arvier", "Jovençan", "Fontainemore", "La Salle", "Emarèse", "Saint-Pierre", "Aosta", "Montjovet", "Pontboset", "Brissogne", "Verrès", "Chamois", "Donnas", "Champdepraz", "Gressoney-La-Trinité", "Rhêmes-Saint-Georges", "Gaby", "Saint-Vincent", "Champorcher", "Châtillon", "Avise", "Charvensod", "Fénis", "La Magdeleine", "Saint-Marcel", "Aymavilles", "Ollomont", "Gressoney-Saint-Jean", "Chambave", "Brusson", "Doues", "Rhêmes-Notre-Dame", "Challand-Saint-Anselme", "La Thuile", "Morgex", "Issogne", "Antey-Saint-André", "Perloz", "Ayas", "Roisan", "Valpelline", "Pré-Saint-Didier", "Quart", "Lillianes", "Oyace", "Verrayes", "Saint-Oyen", "Courmayeur", "Etroubles", "Arnad", "Hône", "Issime"] },
-  Liguria: wm,
-  Lombardia: Em,
+  Liguria: Em,
+  Lombardia: Am,
   "Trentino-Alto Adige": { Bolzano: ["San Genesio Atesino", "Scena", "Varna", "Bronzolo", "Castelrotto", "Martello", "Proves", "Campo di Trens", "Prato allo Stelvio", "Racines", "Terlano", "Brunico", "Cortaccia sulla strada del vino", "Parcines", "Perca", "Cermes", "Ponte Gardena", "Montagna sulla Strada del Vino", "Senales", "Bressanone", "Nova Ponente", "Chienes", "Merano", "Trodena nel parco naturale", "Nova Levante", "Gais", "Caldaro sulla strada del vino", "Naz-Sciaves", "Marebbe", "Selva dei Molini", "Sluderno", "Ora", "Laion", "Aldino", "San Lorenzo di Sebato", "Magrè sulla strada del vino", "Meltina", "Salorno sulla strada del vino", "Plaus", "La Valle", "Villabassa", "Avelengo", "Senale-San Felice", "Malles Venosta", "Postal", "Bolzano", "Braies", "Marlengo", "Rasun-Anterselva", "Lana", "Vandoies", "San Pancrazio", "Silandro", "Sesto", "Villandro", "San Martino in Passiria", "Rio di Pusteria", "Egna", "Tubre", "Lauregno", "Chiusa", "Vipiteno", "Nalles", "Lagundo", "Tirolo", "Funes", "Badia", "San Candido", "Valle Aurina", "Tires", "San Martino in Badia", "Sarentino", "Cornedo all'Isarco", "Laces", "Anterivo", "Gargazzone", "Renon", "Selva di Val Gardena", "San Leonardo in Passiria", "Cortina sulla strada del vino", "Terento", "Brennero", "Corvara in Badia", "Ultimo", "Fiè allo Sciliar", "Lasa", "Caines", "Velturno", "Luson", "Vadena", "Glorenza", "Stelvio", "Laives", "Valdaora", "Santa Cristina Valgardena", "Monguelfo-Tesido", "Barbiano", "Falzes", "Rifiano", "Termeno sulla strada del vino", "Ortisei", "Fortezza", "Curon Venosta", "Dobbiaco", "Val di Vizze", "Predoi", "Castelbello-Ciardes", "Moso in Passiria", "Campo Tures", "Rodengo", "Tesimo", "Verano", "Naturno", "Valle di Casies", "Andriano", "Appiano sulla strada del vino"], Trento: ["Sover", "Sporminore", "Tesero", "Ruffrè-Mendola", "Lavarone", "Ville di Fiemme", "Albiano", "San Lorenzo Dorsino", "Cavizzana", "Terre d'Adige", "Peio", "Pieve Tesino", "Pellizzano", "Stenico", "Canal San Bovo", "Cavedine", "Croviana", "San Giovanni di Fassa", "Livo", "Trento", "Sella Giudicarie", "Valfloriana", "Volano", "Cles", "Avio", "Roverè della Luna", "Carzano", "Mezzolombardo", "Borgo Chiese", "Cavalese", "Caderzone Terme", "Mori", "Pieve di Bono-Prezzo", "Tione di Trento", "Campodenno", "Molveno", "Spormaggiore", "Calceranica al Lago", "Spiazzo", "Storo", "Borgo d'Anaunia", "Fierozzo", "Pomarolo", "Capriana", "Castelnuovo", "Castel Condino", "Dambel", "Giovo", "Massimeno", "Soraga di Fassa", "Aldeno", "Vallarsa", "Predaia", "Ossana", "Drena", "Ronchi Valsugana", "Tre Ville", "Bresimo", "Palù del Fersina", "Luserna", "Bocenago", "Caldonazzo", "Sanzeno", "Cimone", "Samone", "Vermiglio", "Ziano di Fiemme", "Moena", "Pinzolo", "Sarnonico", "Besenello", "Grigno", "Contà", "Bondone", "Terragnolo", "Torcegno", "Madruzzo", "Ledro", "Cembra Lisignago", "Bieno", "Porte di Rendena", "Fiavè", "Panchià", "Sagron Mis", "Terzolas", "Carisolo", "Mezzocorona", "Nago-Torbole", "Riva del Garda", "Primiero San Martino di Castrozza", "Amblar-Don", "Ala", "Borgo Valsugana", "Villa Lagarina", "Nogaredo", "Fornace", "Garniga Terme", "Vallelaghi", "Altavalle", "Ronzo-Chienis", "Malé", "Sfruz", "Tenno", "Trambileno", "Commezzadura", "Folgaria", "Ton", "Pelugo", "Levico Terme", "Pergine Valsugana", "Novaledo", "Ospedaletto", "Segonzano", "Ville d'Anaunia", "Civezzano", "Comano Terme", "Mezzano", "Mezzana", "Lavis", "Giustino", "Mazzin", "Telve", "Tenna", "Dro", "Imer", "Predazzo", "San Michele all'Adige", "Isera", "Dimaro Folgarida", "Castello-Molina di Fiemme", "Borgo Lares", "Arco", "Baselga di Pinè", "Calliano", "Castello Tesino", "Cis", "Canazei", "Bedollo", "Cavareno", "Denno", "Fai della Paganella", "Romeno", "Valdaone", "Rabbi", "Vignola-Falesina", "Altopiano della Vigolana", "Castel Ivano", "Brentonico", "Rumo", "Roncegno Terme", "Telve di Sopra", "Andalo", "Ronzone", "Strembo", "Cinte Tesino", "Nomi", "Rovereto", "Cavedago", "Lona-Lases", "Sant'Orsola Terme", "Bleggio Superiore", "Novella", "Frassilongo", "Campitello di Fassa", "Caldes", "Scurelle"] },
-  Veneto: Am,
+  Veneto: Rm,
   "Friuli-Venezia Giulia": { Udine: ["Pradamano", "Forni di Sotto", "Venzone", "Pontebba", "Forni di Sopra", "Bagnaria Arsa", "Resia", "Povoletto", "Savogna", "Fagagna", "Malborghetto Valbruna", "Flaibano", "Aquileia", "Drenchia", "Chiusaforte", "Taipana", "Torreano", "Trivignano Udinese", "Pavia di Udine", "Precenicco", "Cervignano del Friuli", "Mereto di Tomba", "Marano Lagunare", "Trasaghis", "Resiutta", "Palazzolo dello Stella", "Castions di Strada", "Ampezzo", "Remanzacco", "San Giovanni al Natisone", "Visco", "Gonars", "Montenars", "Cavazzo Carnico", "Prato Carnico", "Buttrio", "San Vito di Fagagna", "Dogna", "Ronchis", "Ruda", "Grimacco", "Sauris", "Majano", "Bordano", "Santa Maria la Longa", "Rivignano Teor", "Ragogna", "Socchieve", "Moggio Udinese", "Arta Terme", "Camino al Tagliamento", "Dignano", "Sappada", "Pagnacco", "Enemonzo", "Rive d'Arcano", "Bicinicco", "Rigolato", "Muzzana del Turgnano", "Basiliano", "Amaro", "Corno di Rosazzo", "Carlino", "Pocenia", "Cercivento", "Campolongo Tapogliano", "Tarcento", "Manzano", "Tavagnacco", "Premariacco", "Udine", "Verzegnis", "Zuglio", "Gemona del Friuli", "Pulfero", "Reana del Rojale", "Buja", "Preone", "Pasian di Prato", "Artegna", "Aiello del Friuli", "Moruzzo", "Coseano", "Cividale del Friuli", "Terzo d'Aquileia", "Lestizza", "San Pietro al Natisone", "Bertiolo", "Torviscosa", "Moimacco", "Osoppo", "San Giorgio di Nogaro", "Chiopris-Viscone", "Faedis", "Paluzza", "Magnano in Riviera", "Lignano Sabbiadoro", "Codroipo", "Latisana", "Porpetto", "Tricesimo", "Pozzuolo del Friuli", "San Daniele del Friuli", "Lauco", "Attimis", "Talmassons", "Nimis", "Forni Avoltri", "Fiumicello Villa Vicentina", "Comeglians", "Ovaro", "Paularo", "Varmo", "Raveo", "Prepotto", "Lusevera", "San Leonardo", "San Vito al Torre", "Forgaria nel Friuli", "Sedegliano", "Tolmezzo", "Palmanova", "Treppo Ligosullo", "Ravascletto", "Sutrio", "Tarvisio", "Cassacco", "Mortegliano", "Martignacco", "Villa Santina", "Colloredo di Monte Albano", "Treppo Grande", "Stregna", "Campoformido"], Gorizia: ["Mossa", "Staranzano", "Moraro", "Mariano del Friuli", "San Lorenzo Isontino", "Grado", "Capriva del Friuli", "San Pier d'Isonzo", "Farra d'Isonzo", "Fogliano Redipuglia", "Turriaco", "Cormons", "San Canzian d'Isonzo", "Ronchi dei Legionari", "Savogna d'Isonzo", "Romans d'Isonzo", "Sagrado", "Medea", "Doberdò del Lago", "Gradisca d'Isonzo", "San Floriano del Collio", "Gorizia", "Dolegna del Collio", "Villesse", "Monfalcone"], Trieste: ["Muggia", "Monrupino", "Sgonico", "Duino Aurisina", "Trieste", "San Dorligo della Valle"], Pordenone: ["Porcia", "Caneva", "Fontanafredda", "Aviano", "Cimolais", "Pravisdomini", "Meduno", "Brugnera", "Polcenigo", "Pordenone", "Zoppola", "Arba", "Clauzetto", "Cavasso Nuovo", "Pasiano di Pordenone", "Tramonti di Sotto", "Castelnovo del Friuli", "Spilimbergo", "Budoia", "Roveredo in Piano", "San Giorgio della Richinvelda", "Vivaro", "Fiume Veneto", "Chions", "San Martino al Tagliamento", "Barcis", "Pinzano al Tagliamento", "Azzano Decimo", "Cordenons", "Casarsa della Delizia", "Prata di Pordenone", "Vajont", "Valvasone Arzene", "Maniago", "Montereale Valcellina", "San Quirino", "San Vito al Tagliamento", "Erto e Casso", "Claut", "Morsano al Tagliamento", "Andreis", "Frisanco", "Sacile", "Tramonti di Sopra", "Sesto al Reghena", "Fanna", "Vito d'Asio", "Sequals", "Travesio", "Cordovado"] },
   "Emilia-Romagna": { Piacenza: ["Vigolzone", "Cortemaggiore", "Rivergaro", "Gazzola", "Borgonovo Val Tidone", "Monticelli d'Ongina", "Piacenza", "Ponte dell'Olio", "Ferriere", "Bobbio", "Morfasso", "Ziano Piacentino", "Caorso", "Farini", "Pianello Val Tidone", "Calendasco", "Alseno", "Vernasca", "Agazzano", "Castell'Arquato", "Sarmato", "San Giorgio Piacentino", "Rottofreno", "Alta Val Tidone", "Castelvetro Piacentino", "Besenzone", "Castel San Giovanni", "Gragnano Trebbiense", "Travo", "Lugagnano Val d'Arda", "San Pietro in Cerro", "Carpaneto Piacentino", "Cadeo", "Corte Brugnatella", "Zerba", "Fiorenzuola d'Arda", "Podenzano", "Coli", "Bettola", "Pontenure", "Ottone", "Villanova sull'Arda", "Gropparello", "Piozzano", "Gossolengo", "Cerignale"], Parma: ["Tornolo", "Bore", "Borgo Val di Taro", "Sorbolo Mezzani", "Fidenza", "Collecchio", "Busseto", "Terenzo", "Varano de' Melegari", "Bardi", "Pellegrino Parmense", "Corniglio", "Felino", "Roccabianca", "Montechiarugolo", "Compiano", "Fontanellato", "Salsomaggiore Terme", "Berceto", "San Secondo Parmense", "Traversetolo", "Fontevivo", "Fornovo di Taro", "Neviano degli Arduini", "Palanzano", "Colorno", "Calestano", "Noceto", "Sala Baganza", "Lesignano de' Bagni", "Langhirano", "Sissa Trecasali", "Torrile", "Valmozzola", "Albareto", "Medesano", "Bedonia", "Parma", "Monchio delle Corti", "Tizzano Val Parma", "Polesine Zibello", "Varsi", "Solignano", "Soragna"], "Reggio nell'Emilia": ["Bagnolo in Piano", "Vetto", "Campagnola Emilia", "San Polo d'Enza", "Toano", "Gualtieri", "Canossa", "Scandiano", "Cadelbosco di Sopra", "Rubiera", "Guastalla", "Castelnovo di Sotto", "Vezzano sul Crostolo", "Casina", "Campegine", "Cavriago", "Brescello", "Luzzara", "Rolo", "Correggio", "Carpineti", "Gattatico", "Poviglio", "Rio Saliceto", "Boretto", "Villa Minozzo", "Castelnovo ne' Monti", "Reggio nell'Emilia", "Albinea", "Quattro Castella", "Novellara", "San Martino in Rio", "Bibbiano", "Ventasso", "Casalgrande", "Montecchio Emilia", "Viano", "Sant'Ilario d'Enza", "Baiso", "Fabbrico", "Reggiolo", "Castellarano"], Modena: ["Campogalliano", "Montecreto", "Bomporto", "Soliera", "Fiorano Modenese", "Ravarino", "Lama Mocogno", "Frassinoro", "Modena", "San Felice sul Panaro", "San Prospero", "Medolla", "Sassuolo", "Riolunato", "Pavullo nel Frignano", "Zocca", "Formigine", "Cavezzo", "Nonantola", "Serramazzoni", "Mirandola", "Bastiglia", "Prignano sulla Secchia", "Finale Emilia", "Guiglia", "Fiumalbo", "Fanano", "Spilamberto", "Polinago", "Castelnuovo Rangone", "Carpi", "Palagano", "San Cesario sul Panaro", "San Possidonio", "Castelfranco Emilia", "Pievepelago", "Montese", "Montefiorino", "Novi di Modena", "Sestola", "Vignola", "Camposanto", "Concordia sulla Secchia", "Savignano sul Panaro", "Marano sul Panaro", "Maranello", "Castelvetro di Modena"], Bologna: ["Casalfiumanese", "San Benedetto Val di Sambro", "San Giorgio di Piano", "Castiglione dei Pepoli", "Budrio", "Gaggio Montano", "Loiano", "Grizzana Morandi", "Medicina", "Ozzano dell'Emilia", "Pieve di Cento", "San Lazzaro di Savena", "San Pietro in Casale", "Zola Predosa", "Castel Guelfo di Bologna", "Castel del Rio", "Bentivoglio", "Argelato", "Sasso Marconi", "Casalecchio di Reno", "Camugnano", "Lizzano in Belvedere", "San Giovanni in Persiceto", "Castel di Casio", "Fontanelice", "Castenaso", "Monte San Pietro", "Castel d'Aiano", "Pianoro", "Galliera", "Malalbergo", "Sala Bolognese", "Calderara di Reno", "Valsamoggia", "Monzuno", "Alto Reno Terme", "Dozza", "Mordano", "Monterenzio", "Bologna", "Imola", "Vergato", "Castello d'Argile", "Castel San Pietro Terme", "Molinella", "Marzabotto", "Baricella", "Crevalcore", "Minerbio", "Anzola dell'Emilia", "Castel Maggiore", "Sant'Agata Bolognese", "Granarolo dell'Emilia", "Monghidoro", "Borgo Tossignano"], Ferrara: ["Cento", "Comacchio", "Bondeno", "Riva del Po", "Voghiera", "Lagosanto", "Mesola", "Portomaggiore", "Ferrara", "Goro", "Masi Torello", "Poggio Renatico", "Terre del Reno", "Fiscaglia", "Jolanda di Savoia", "Argenta", "Ostellato", "Tresignana", "Copparo", "Codigoro", "Vigarano Mainarda"], Ravenna: ["Bagnacavallo", "Massa Lombarda", "Conselice", "Ravenna", "Casola Valsenio", "Bagnara di Romagna", "Lugo", "Solarolo", "Castel Bolognese", "Cotignola", "Alfonsine", "Riolo Terme", "Russi", "Cervia", "Faenza", "Fusignano", "Brisighella", "Sant'Agata sul Santerno"], "Forlì-Cesena": ["Cesenatico", "Modigliana", "Portico e San Benedetto", "Sarsina", "Roncofreddo", "Meldola", "Gatteo", "Castrocaro Terme e Terra del Sole", "Rocca San Casciano", "Santa Sofia", "Predappio", "Sogliano al Rubicone", "Longiano", "Verghereto", "Borghi", "Civitella di Romagna", "Forlì", "Bagno di Romagna", "Galeata", "Montiano", "Tredozio", "Savignano sul Rubicone", "San Mauro Pascoli", "Forlimpopoli", "Premilcuore", "Bertinoro", "Gambettola", "Dovadola", "Cesena", "Mercato Saraceno"], Rimini: ["Montefiore Conca", "Saludecio", "Mondaino", "Pennabilli", "Montegridolfo", "Poggio Torriana", "Sassofeltrio", "Bellaria-Igea Marina", "Verucchio", "Misano Adriatico", "Casteldelci", "Gemmano", "Cattolica", "San Leo", "Sant'Agata Feltria", "Montecopiolo", "Montescudo-Monte Colombo", "Talamello", "Riccione", "San Clemente", "Santarcangelo di Romagna", "Morciano di Romagna", "Coriano", "Rimini", "Maiolo", "Novafeltria", "San Giovanni in Marignano"] },
-  Marche: Rm,
-  Toscana: Im,
-  Umbria: zm,
-  Lazio: Lm,
-  Campania: Vm,
-  Abruzzo: Bm,
-  Molise: Fm,
-  Puglia: km,
-  Basilicata: Om,
-  Calabria: Dm,
-  Sicilia: Gm,
-  Sardegna: Nm
+  Marche: Im,
+  Toscana: zm,
+  Umbria: Lm,
+  Lazio: Vm,
+  Campania: Bm,
+  Abruzzo: Fm,
+  Molise: km,
+  Puglia: Om,
+  Basilicata: Dm,
+  Calabria: Gm,
+  Sicilia: Nm,
+  Sardegna: Wm
 }, dt = typeof window < "u", gl = dt && "IntersectionObserver" in window;
 function Vc(t, e, n) {
-  Wm(t, e), e.set(t, n);
+  $m(t, e), e.set(t, n);
 }
-function Wm(t, e) {
+function $m(t, e) {
   if (e.has(t))
     throw new TypeError("Cannot initialize the same private elements twice on an object");
 }
-function $m(t, e, n) {
-  var i = Od(t, e, "set");
-  return Xm(t, i, n), n;
-}
 function Xm(t, e, n) {
+  var i = Od(t, e, "set");
+  return Um(t, i, n), n;
+}
+function Um(t, e, n) {
   if (e.set)
     e.set.call(t, n);
   else {
@@ -229,14 +249,14 @@ function Xm(t, e, n) {
 }
 function bi(t, e) {
   var n = Od(t, e, "get");
-  return Um(t, n);
+  return Ym(t, n);
 }
 function Od(t, e, n) {
   if (!e.has(t))
     throw new TypeError("attempted to " + n + " private field on non-instance");
   return e.get(t);
 }
-function Um(t, e) {
+function Ym(t, e) {
   return e.get ? e.get.call(t) : e.value;
 }
 function Dd(t, e, n) {
@@ -256,7 +276,7 @@ function pa(t, e) {
   const n = Object.keys(t);
   return n.length !== Object.keys(e).length ? !1 : n.every((i) => pa(t[i], e[i]));
 }
-function Ym(t, e, n) {
+function jm(t, e, n) {
   return t == null || !e || typeof e != "string" ? n : t[e] !== void 0 ? t[e] : (e = e.replace(/\[(\w+)\]/g, ".$1"), e = e.replace(/^\./, ""), Dd(t, e.split("."), n));
 }
 function cn(t, e, n) {
@@ -267,7 +287,7 @@ function cn(t, e, n) {
     const a = e(t, n);
     return typeof a > "u" ? n : a;
   }
-  if (typeof e == "string") return Ym(t, e, n);
+  if (typeof e == "string") return jm(t, e, n);
   if (Array.isArray(e)) return Dd(t, e, n);
   if (typeof e != "function") return n;
   const i = e(t, n);
@@ -281,7 +301,7 @@ function re(t) {
 function Is(t) {
   return t !== null && typeof t == "object" && !Array.isArray(t);
 }
-function Qo(t) {
+function er(t) {
   if (t && "$el" in t) {
     const e = t.$el;
     return (e == null ? void 0 : e.nodeType) === Node.TEXT_NODE ? e.nextElementSibling : e;
@@ -331,15 +351,15 @@ function Fi(t, e) {
   };
   return e.forEach((i) => delete n[i]), n;
 }
-const Wd = /^on[^a-z]/, ml = (t) => Wd.test(t), jm = ["onAfterscriptexecute", "onAnimationcancel", "onAnimationend", "onAnimationiteration", "onAnimationstart", "onAuxclick", "onBeforeinput", "onBeforescriptexecute", "onChange", "onClick", "onCompositionend", "onCompositionstart", "onCompositionupdate", "onContextmenu", "onCopy", "onCut", "onDblclick", "onFocusin", "onFocusout", "onFullscreenchange", "onFullscreenerror", "onGesturechange", "onGestureend", "onGesturestart", "onGotpointercapture", "onInput", "onKeydown", "onKeypress", "onKeyup", "onLostpointercapture", "onMousedown", "onMousemove", "onMouseout", "onMouseover", "onMouseup", "onMousewheel", "onPaste", "onPointercancel", "onPointerdown", "onPointerenter", "onPointerleave", "onPointermove", "onPointerout", "onPointerover", "onPointerup", "onReset", "onSelect", "onSubmit", "onTouchcancel", "onTouchend", "onTouchmove", "onTouchstart", "onTransitioncancel", "onTransitionend", "onTransitionrun", "onTransitionstart", "onWheel"];
+const Wd = /^on[^a-z]/, ml = (t) => Wd.test(t), Hm = ["onAfterscriptexecute", "onAnimationcancel", "onAnimationend", "onAnimationiteration", "onAnimationstart", "onAuxclick", "onBeforeinput", "onBeforescriptexecute", "onChange", "onClick", "onCompositionend", "onCompositionstart", "onCompositionupdate", "onContextmenu", "onCopy", "onCut", "onDblclick", "onFocusin", "onFocusout", "onFullscreenchange", "onFullscreenerror", "onGesturechange", "onGestureend", "onGesturestart", "onGotpointercapture", "onInput", "onKeydown", "onKeypress", "onKeyup", "onLostpointercapture", "onMousedown", "onMousemove", "onMouseout", "onMouseover", "onMouseup", "onMousewheel", "onPaste", "onPointercancel", "onPointerdown", "onPointerenter", "onPointerleave", "onPointermove", "onPointerout", "onPointerover", "onPointerup", "onReset", "onSelect", "onSubmit", "onTouchcancel", "onTouchend", "onTouchmove", "onTouchstart", "onTransitioncancel", "onTransitionend", "onTransitionrun", "onTransitionstart", "onWheel"];
 function vl(t) {
-  const [e, n] = Fc(t, [Wd]), i = Fi(e, jm), [a, o] = Fc(n, ["class", "style", "id", /^data-/]);
+  const [e, n] = Fc(t, [Wd]), i = Fi(e, Hm), [a, o] = Fc(n, ["class", "style", "id", /^data-/]);
   return Object.assign(a, e), Object.assign(o, i), [a, o];
 }
 function Gt(t) {
   return t == null ? [] : Array.isArray(t) ? t : [t];
 }
-function Hm(t, e) {
+function Zm(t, e) {
   let n = 0;
   const i = function() {
     for (var a = arguments.length, o = new Array(a), r = 0; r < a; r++)
@@ -358,7 +378,7 @@ function kc(t, e) {
   let n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "0";
   return t + n.repeat(Math.max(0, e - t.length));
 }
-function Zm(t) {
+function Km(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 1;
   const n = [];
   let i = 0;
@@ -409,10 +429,10 @@ function Na(t, e) {
   }
   return [];
 }
-var Vo = /* @__PURE__ */ new WeakMap(), Ni = /* @__PURE__ */ new WeakMap();
-class Km {
+var Bo = /* @__PURE__ */ new WeakMap(), Ni = /* @__PURE__ */ new WeakMap();
+class qm {
   constructor(e) {
-    Vc(this, Vo, {
+    Vc(this, Bo, {
       writable: !0,
       value: []
     }), Vc(this, Ni, {
@@ -421,10 +441,10 @@ class Km {
     }), this.size = e;
   }
   push(e) {
-    bi(this, Vo)[bi(this, Ni)] = e, $m(this, Ni, (bi(this, Ni) + 1) % this.size);
+    bi(this, Bo)[bi(this, Ni)] = e, Xm(this, Ni, (bi(this, Ni) + 1) % this.size);
   }
   values() {
-    return bi(this, Vo).slice(bi(this, Ni)).concat(bi(this, Vo).slice(0, bi(this, Ni)));
+    return bi(this, Bo).slice(bi(this, Ni)).concat(bi(this, Bo).slice(0, bi(this, Ni)));
   }
 }
 function Cl(t) {
@@ -436,7 +456,7 @@ function Cl(t) {
     flush: "sync"
   }), zd(e);
 }
-function er(t, e) {
+function tr(t, e) {
   return t.includes(e);
 }
 function Xd(t) {
@@ -444,7 +464,7 @@ function Xd(t) {
 }
 const jt = () => [Function, Array];
 function Oc(t, e) {
-  return e = "on" + uo(e), !!(t[e] || t[`${e}Once`] || t[`${e}Capture`] || t[`${e}OnceCapture`] || t[`${e}CaptureOnce`]);
+  return e = "on" + ho(e), !!(t[e] || t[`${e}Once`] || t[`${e}Capture`] || t[`${e}OnceCapture`] || t[`${e}CaptureOnce`]);
 }
 function Ud(t) {
   for (var e = arguments.length, n = new Array(e > 1 ? e - 1 : 0), i = 1; i < e; i++)
@@ -454,7 +474,7 @@ function Ud(t) {
       a(...n);
   else typeof t == "function" && t(...n);
 }
-function tr(t) {
+function nr(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !0;
   const n = ["button", "[href]", 'input:not([type="hidden"])', "select", "textarea", "[tabindex]"].map((i) => `${i}${e ? ':not([tabindex="-1"])' : ""}:not([disabled])`).join(", ");
   return [...t.querySelectorAll(n)];
@@ -467,9 +487,9 @@ function Yd(t, e, n) {
   while ((!i || i.offsetParent == null || !((n == null ? void 0 : n(i)) ?? !0)) && a < t.length && a >= 0);
   return i;
 }
-function nr(t, e) {
+function ir(t, e) {
   var i, a, o, r;
-  const n = tr(t);
+  const n = nr(t);
   if (!e)
     (t === document.activeElement || !t.contains(document.activeElement)) && ((i = n[0]) == null || i.focus());
   else if (e === "first")
@@ -480,10 +500,10 @@ function nr(t, e) {
     (r = n[e]) == null || r.focus();
   else {
     const s = Yd(n, e);
-    s ? s.focus() : nr(t, e === "next" ? "first" : "last");
+    s ? s.focus() : ir(t, e === "next" ? "first" : "last");
   }
 }
-function qm() {
+function Jm() {
 }
 function ca(t, e) {
   if (!(dt && typeof CSS < "u" && typeof CSS.supports < "u" && CSS.supports(`selector(${e})`))) return null;
@@ -496,17 +516,17 @@ function ca(t, e) {
 function yl(t) {
   return t.some((e) => am(e) ? e.type === om ? !1 : e.type !== fe || yl(e.children) : !0) ? t : null;
 }
-function Jm(t, e) {
+function Qm(t, e) {
   if (!dt || t === 0)
     return e(), () => {
     };
   const n = window.setTimeout(e, t);
   return () => window.clearTimeout(n);
 }
-const jd = ["top", "bottom"], Qm = ["start", "end", "left", "right"];
+const jd = ["top", "bottom"], ev = ["start", "end", "left", "right"];
 function zs(t, e) {
   let [n, i] = t.split(" ");
-  return i || (i = er(jd, n) ? "start" : er(Qm, n) ? "top" : "center"), {
+  return i || (i = tr(jd, n) ? "start" : tr(ev, n) ? "top" : "center"), {
     side: Ls(n, e),
     align: Ls(i, e)
   };
@@ -545,7 +565,7 @@ function Dc(t) {
   };
 }
 function Gc(t) {
-  return er(jd, t.side) ? "y" : "x";
+  return tr(jd, t.side) ? "y" : "x";
 }
 class Ii {
   constructor(e) {
@@ -628,11 +648,11 @@ function ta(t, e, n) {
     };
   })), i;
 }
-const Zo = /* @__PURE__ */ new WeakMap();
-function ev(t, e) {
+const Ko = /* @__PURE__ */ new WeakMap();
+function tv(t, e) {
   Object.keys(e).forEach((n) => {
     if (ml(n)) {
-      const i = Xd(n), a = Zo.get(t);
+      const i = Xd(n), a = Ko.get(t);
       if (e[n] == null)
         a == null || a.forEach((o) => {
           const [r, s] = o;
@@ -641,16 +661,16 @@ function ev(t, e) {
       else if (!a || ![...a].some((o) => o[0] === i && o[1] === e[n])) {
         t.addEventListener(i, e[n]);
         const o = a || /* @__PURE__ */ new Set();
-        o.add([i, e[n]]), Zo.has(t) || Zo.set(t, o);
+        o.add([i, e[n]]), Ko.has(t) || Ko.set(t, o);
       }
     } else
       e[n] == null ? t.removeAttribute(n) : t.setAttribute(n, e[n]);
   });
 }
-function tv(t, e) {
+function nv(t, e) {
   Object.keys(e).forEach((n) => {
     if (ml(n)) {
-      const i = Xd(n), a = Zo.get(t);
+      const i = Xd(n), a = Ko.get(t);
       a == null || a.forEach((o) => {
         const [r, s] = o;
         r === i && (t.removeEventListener(i, s), a.delete(o));
@@ -659,37 +679,37 @@ function tv(t, e) {
       t.removeAttribute(n);
   });
 }
-const Wi = 2.4, Wc = 0.2126729, $c = 0.7151522, Xc = 0.072175, nv = 0.55, iv = 0.58, av = 0.57, ov = 0.62, Bo = 0.03, Uc = 1.45, rv = 5e-4, sv = 1.25, lv = 1.25, Yc = 0.078, jc = 12.82051282051282, Fo = 0.06, Hc = 1e-3;
+const Wi = 2.4, Wc = 0.2126729, $c = 0.7151522, Xc = 0.072175, iv = 0.55, av = 0.58, ov = 0.57, rv = 0.62, Fo = 0.03, Uc = 1.45, sv = 5e-4, lv = 1.25, cv = 1.25, Yc = 0.078, jc = 12.82051282051282, ko = 0.06, Hc = 1e-3;
 function Zc(t, e) {
   const n = (t.r / 255) ** Wi, i = (t.g / 255) ** Wi, a = (t.b / 255) ** Wi, o = (e.r / 255) ** Wi, r = (e.g / 255) ** Wi, s = (e.b / 255) ** Wi;
   let l = n * Wc + i * $c + a * Xc, c = o * Wc + r * $c + s * Xc;
-  if (l <= Bo && (l += (Bo - l) ** Uc), c <= Bo && (c += (Bo - c) ** Uc), Math.abs(c - l) < rv) return 0;
+  if (l <= Fo && (l += (Fo - l) ** Uc), c <= Fo && (c += (Fo - c) ** Uc), Math.abs(c - l) < sv) return 0;
   let u;
   if (c > l) {
-    const d = (c ** nv - l ** iv) * sv;
-    u = d < Hc ? 0 : d < Yc ? d - d * jc * Fo : d - Fo;
+    const d = (c ** iv - l ** av) * lv;
+    u = d < Hc ? 0 : d < Yc ? d - d * jc * ko : d - ko;
   } else {
-    const d = (c ** ov - l ** av) * lv;
-    u = d > -Hc ? 0 : d > -Yc ? d - d * jc * Fo : d + Fo;
+    const d = (c ** rv - l ** ov) * cv;
+    u = d > -Hc ? 0 : d > -Yc ? d - d * jc * ko : d + ko;
   }
   return u * 100;
 }
 function zi(t) {
-  Sr(`Vuetify: ${t}`);
+  br(`Vuetify: ${t}`);
 }
-function cv(t) {
-  Sr(`Vuetify error: ${t}`);
+function uv(t) {
+  br(`Vuetify error: ${t}`);
 }
-function uv(t, e) {
-  e = Array.isArray(e) ? e.slice(0, -1).map((n) => `'${n}'`).join(", ") + ` or '${e.at(-1)}'` : `'${e}'`, Sr(`[Vuetify UPGRADE] '${t}' is deprecated, use ${e} instead.`);
+function dv(t, e) {
+  e = Array.isArray(e) ? e.slice(0, -1).map((n) => `'${n}'`).join(", ") + ` or '${e.at(-1)}'` : `'${e}'`, br(`[Vuetify UPGRADE] '${t}' is deprecated, use ${e} instead.`);
 }
 function Vs(t) {
   return !!t && /^(#|var\(--|(rgb|hsl)a?\()/.test(t);
 }
-function dv(t) {
+function hv(t) {
   return Vs(t) && !/^((rgb|hsl)a?\()?var\(--/.test(t);
 }
-const Kc = /^(?<fn>(?:rgb|hsl)a?)\((?<values>.+)\)/, hv = {
+const Kc = /^(?<fn>(?:rgb|hsl)a?)\((?<values>.+)\)/, fv = {
   rgb: (t, e, n, i) => ({
     r: t,
     g: e,
@@ -714,13 +734,13 @@ const Kc = /^(?<fn>(?:rgb|hsl)a?)\((?<values>.+)\)/, hv = {
     l: n,
     a: i
   }),
-  hsv: (t, e, n, i) => Ya({
+  hsv: (t, e, n, i) => ja({
     h: t,
     s: e,
     v: n,
     a: i
   }),
-  hsva: (t, e, n, i) => Ya({
+  hsva: (t, e, n, i) => ja({
     h: t,
     s: e,
     v: n,
@@ -741,24 +761,24 @@ function ka(t) {
       fn: n,
       values: i
     } = e, a = i.split(/,\s*/).map((o) => o.endsWith("%") && ["hsl", "hsla", "hsv", "hsva"].includes(n) ? parseFloat(o) / 100 : parseFloat(o));
-    return hv[n](...a);
+    return fv[n](...a);
   } else if (typeof t == "string") {
     let e = t.startsWith("#") ? t.slice(1) : t;
     [3, 4].includes(e.length) ? e = e.split("").map((i) => i + i).join("") : [6, 8].includes(e.length) || zi(`'${t}' is not a valid hex(a) color`);
     const n = parseInt(e, 16);
-    return (isNaN(n) || n < 0 || n > 4294967295) && zi(`'${t}' is not a valid hex(a) color`), fv(e);
+    return (isNaN(n) || n < 0 || n > 4294967295) && zi(`'${t}' is not a valid hex(a) color`), gv(e);
   } else if (typeof t == "object") {
     if (as(t, ["r", "g", "b"]))
       return t;
     if (as(t, ["h", "s", "l"]))
-      return Ya(Zd(t));
+      return ja(Zd(t));
     if (as(t, ["h", "s", "v"]))
-      return Ya(t);
+      return ja(t);
   }
   throw new TypeError(`Invalid color: ${t == null ? t : String(t) || t.constructor.name}
 Expected #hex, #hexa, rgb(), rgba(), hsl(), hsla(), object or number`);
 }
-function Ya(t) {
+function ja(t) {
   const {
     h: e,
     s: n,
@@ -776,7 +796,7 @@ function Ya(t) {
   };
 }
 function qc(t) {
-  return Ya(Zd(t));
+  return ja(Zd(t));
 }
 function Zd(t) {
   const {
@@ -792,9 +812,9 @@ function Zd(t) {
     a
   };
 }
-function fv(t) {
-  t = gv(t);
-  let [e, n, i, a] = Zm(t, 2).map((o) => parseInt(o, 16));
+function gv(t) {
+  t = mv(t);
+  let [e, n, i, a] = Km(t, 2).map((o) => parseInt(o, 16));
   return a = a === void 0 ? a : a / 255, {
     r: e,
     g: n,
@@ -802,10 +822,10 @@ function fv(t) {
     a
   };
 }
-function gv(t) {
+function mv(t) {
   return t.startsWith("#") && (t = t.slice(1)), t = t.replace(/([^0-9a-f])/gi, "F"), (t.length === 3 || t.length === 4) && (t = t.split("").map((e) => e + e).join("")), t.length !== 6 && (t = kc(kc(t, 6), 8, "F")), t;
 }
-function mv(t) {
+function vv(t) {
   const e = Math.abs(Zc(ka(0), ka(t)));
   return Math.abs(Zc(ka(16777215), ka(t))) > Math.min(e, 50) ? "#fff" : "#000";
 }
@@ -826,9 +846,9 @@ const ue = W({
     type: [String, Array, Object],
     default: null
   }
-}, "component"), ir = Symbol.for("vuetify:defaults");
+}, "component"), ar = Symbol.for("vuetify:defaults");
 function _l() {
-  const t = Ne(ir);
+  const t = Ne(ar);
   if (!t) throw new Error("[Vuetify] Could not find defaults instance");
   return t;
 }
@@ -851,13 +871,13 @@ function Sn(t, e) {
     }
     return c.prev ? ea(c.prev, c) : c;
   });
-  return at(ir, a), a;
+  return at(ar, a), a;
 }
-function vv(t, e) {
+function Cv(t, e) {
   var n, i;
   return typeof ((n = t.props) == null ? void 0 : n[e]) < "u" || typeof ((i = t.props) == null ? void 0 : i[Ri(e)]) < "u";
 }
-function Cv() {
+function yv() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, e = arguments.length > 1 ? arguments[1] : void 0, n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : _l();
   const i = qe("useDefaults");
   if (e = e ?? i.type.name ?? i.type.__name, !e)
@@ -869,7 +889,7 @@ function Cv() {
     get(l, c) {
       var d, h, f, g;
       const u = Reflect.get(l, c);
-      return c === "class" || c === "style" ? [(d = a.value) == null ? void 0 : d[c], u].filter((m) => m != null) : typeof c == "string" && !vv(i.vnode, c) ? ((h = a.value) == null ? void 0 : h[c]) ?? ((g = (f = n.value) == null ? void 0 : f.global) == null ? void 0 : g[c]) ?? u : u;
+      return c === "class" || c === "style" ? [(d = a.value) == null ? void 0 : d[c], u].filter((m) => m != null) : typeof c == "string" && !Cv(i.vnode, c) ? ((h = a.value) == null ? void 0 : h[c]) ?? ((g = (f = n.value) == null ? void 0 : f.global) == null ? void 0 : g[c]) ?? u : u;
     }
   }), r = q();
   qt(() => {
@@ -883,15 +903,15 @@ function Cv() {
       r.value = void 0;
   });
   function s() {
-    const l = Sv(ir, i);
-    at(ir, x(() => r.value ? ea((l == null ? void 0 : l.value) ?? {}, r.value) : l == null ? void 0 : l.value));
+    const l = bv(ar, i);
+    at(ar, x(() => r.value ? ea((l == null ? void 0 : l.value) ?? {}, r.value) : l == null ? void 0 : l.value));
   }
   return {
     props: o,
     provideSubDefaults: s
   };
 }
-function go(t) {
+function mo(t) {
   if (t._setup = t._setup ?? t.setup, !t.name)
     return zi("The component is missing an explicit name, unable to generate default prop value"), t;
   if (t._setup) {
@@ -905,7 +925,7 @@ function go(t) {
       const {
         props: r,
         provideSubDefaults: s
-      } = Cv(i, i._as ?? t.name, o), l = t._setup(r, a);
+      } = yv(i, i._as ?? t.name, o), l = t._setup(r, a);
       return s(), l;
     };
   }
@@ -913,12 +933,12 @@ function go(t) {
 }
 function K() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !0;
-  return (e) => (t ? go : rm)(e);
+  return (e) => (t ? mo : rm)(e);
 }
-function mo(t) {
+function vo(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "div", n = arguments.length > 2 ? arguments[2] : void 0;
   return K()({
-    name: n ?? uo(Ld(t.replace(/__/g, "-"))),
+    name: n ?? ho(Ld(t.replace(/__/g, "-"))),
     props: {
       tag: {
         type: String,
@@ -950,7 +970,7 @@ function Kd(t) {
     composed: !0
   }) !== document ? null : e;
 }
-const ar = "cubic-bezier(0.4, 0, 0.2, 1)", yv = "cubic-bezier(0.0, 0, 0.2, 1)", pv = "cubic-bezier(0.4, 0, 1, 1)";
+const or = "cubic-bezier(0.4, 0, 0.2, 1)", pv = "cubic-bezier(0.0, 0, 0.2, 1)", _v = "cubic-bezier(0.4, 0, 1, 1)";
 function qe(t, e) {
   const n = sm();
   if (!n)
@@ -962,27 +982,27 @@ function bn() {
   const e = qe(t).type;
   return Ri((e == null ? void 0 : e.aliasName) || (e == null ? void 0 : e.name));
 }
-let qd = 0, Ko = /* @__PURE__ */ new WeakMap();
+let qd = 0, qo = /* @__PURE__ */ new WeakMap();
 function Mn() {
   const t = qe("getUid");
-  if (Ko.has(t)) return Ko.get(t);
+  if (qo.has(t)) return qo.get(t);
   {
     const e = qd++;
-    return Ko.set(t, e), e;
+    return qo.set(t, e), e;
   }
 }
 Mn.reset = () => {
-  qd = 0, Ko = /* @__PURE__ */ new WeakMap();
+  qd = 0, qo = /* @__PURE__ */ new WeakMap();
 };
 function Jd(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1;
   for (; t; ) {
-    if (e ? _v(t) : Sl(t)) return t;
+    if (e ? Sv(t) : Sl(t)) return t;
     t = t.parentElement;
   }
   return document.scrollingElement;
 }
-function or(t, e) {
+function rr(t, e) {
   const n = [];
   if (e && t && !e.contains(t)) return n;
   for (; t && (Sl(t) && n.push(t), t !== e); )
@@ -994,12 +1014,12 @@ function Sl(t) {
   const e = window.getComputedStyle(t);
   return e.overflowY === "scroll" || e.overflowY === "auto" && t.scrollHeight > t.clientHeight;
 }
-function _v(t) {
+function Sv(t) {
   if (!t || t.nodeType !== Node.ELEMENT_NODE) return !1;
   const e = window.getComputedStyle(t);
   return ["scroll", "auto"].includes(e.overflowY);
 }
-function Sv(t) {
+function bv(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : qe("injectSelf");
   const {
     provides: n
@@ -1007,7 +1027,7 @@ function Sv(t) {
   if (n && t in n)
     return n[t];
 }
-function bv(t) {
+function Mv(t) {
   for (; t; ) {
     if (window.getComputedStyle(t).position === "fixed")
       return !0;
@@ -1024,10 +1044,10 @@ function bl(t) {
     const e = [], n = {};
     if (t.value.background)
       if (Vs(t.value.background)) {
-        if (n.backgroundColor = t.value.background, !t.value.text && dv(t.value.background)) {
+        if (n.backgroundColor = t.value.background, !t.value.text && hv(t.value.background)) {
           const i = ka(t.value.background);
           if (i.a == null || i.a === 1) {
-            const a = mv(i);
+            const a = vv(i);
             n.color = a, n.caretColor = a;
           }
         }
@@ -1041,7 +1061,7 @@ function bl(t) {
 }
 function vn(t, e) {
   const n = x(() => ({
-    text: ho(t) ? t.value : e ? t[e] : null
+    text: fo(t) ? t.value : e ? t[e] : null
   })), {
     colorClasses: i,
     colorStyles: a
@@ -1053,7 +1073,7 @@ function vn(t, e) {
 }
 function Tt(t, e) {
   const n = x(() => ({
-    background: ho(t) ? t.value : e ? t[e] : null
+    background: fo(t) ? t.value : e ? t[e] : null
   })), {
     colorClasses: i,
     colorStyles: a
@@ -1063,7 +1083,7 @@ function Tt(t, e) {
     backgroundColorStyles: a
   };
 }
-const Te = [String, Function, Object, Array], Mv = Symbol.for("vuetify:icons"), Mr = W({
+const Te = [String, Function, Object, Array], xv = Symbol.for("vuetify:icons"), Mr = W({
   icon: {
     type: Te
   },
@@ -1089,7 +1109,7 @@ const Te = [String, Function, Object, Array], Mv = Symbol.for("vuetify:icons"), 
       });
     };
   }
-}), xv = go({
+}), Pv = mo({
   name: "VSvgIcon",
   inheritAttrs: !1,
   props: Mr(),
@@ -1117,7 +1137,7 @@ const Te = [String, Function, Object, Array], Mv = Symbol.for("vuetify:icons"), 
     });
   }
 });
-go({
+mo({
   name: "VLigatureIcon",
   props: Mr(),
   setup(t) {
@@ -1126,7 +1146,7 @@ go({
     });
   }
 });
-go({
+mo({
   name: "VClassIcon",
   props: Mr(),
   setup(t) {
@@ -1135,8 +1155,8 @@ go({
     }, null);
   }
 });
-const Pv = (t) => {
-  const e = Ne(Mv);
+const Tv = (t) => {
+  const e = Ne(xv);
   if (!e) throw new Error("Missing Vuetify Icons provide!");
   return {
     iconData: x(() => {
@@ -1149,7 +1169,7 @@ const Pv = (t) => {
       if (typeof a == "string" && (a = a.trim(), a.startsWith("$") && (a = (l = e.aliases) == null ? void 0 : l[a.slice(1)])), !a) throw new Error(`Could not find aliased icon "${i}"`);
       if (Array.isArray(a))
         return {
-          component: xv,
+          component: Pv,
           icon: a
         };
       if (typeof a != "string")
@@ -1164,17 +1184,17 @@ const Pv = (t) => {
       };
     })
   };
-}, Tv = ["x-small", "small", "default", "large", "x-large"], vo = W({
+}, wv = ["x-small", "small", "default", "large", "x-large"], Co = W({
   size: {
     type: [String, Number],
     default: "default"
   }
 }, "size");
-function Co(t) {
+function yo(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : bn();
   return Cl(() => {
     let n, i;
-    return er(Tv, t.size) ? n = `${e}--size-${t.size}` : t.size && (i = {
+    return tr(wv, t.size) ? n = `${e}--size-${t.size}` : t.size && (i = {
       width: re(t.size),
       height: re(t.size)
     }), {
@@ -1203,20 +1223,20 @@ function We(t) {
   };
   return at(Qc, o), o;
 }
-const wv = W({
+const Ev = W({
   color: String,
   start: Boolean,
   end: Boolean,
   icon: Te,
   ...ue(),
-  ...vo(),
+  ...Co(),
   ...Le({
     tag: "i"
   }),
   ...ke()
 }, "VIcon"), Ie = K()({
   name: "VIcon",
-  props: wv(),
+  props: Ev(),
   setup(t, e) {
     let {
       attrs: n,
@@ -1226,9 +1246,9 @@ const wv = W({
       themeClasses: o
     } = We(t), {
       iconData: r
-    } = Pv(x(() => a.value || t.icon)), {
+    } = Tv(x(() => a.value || t.icon)), {
       sizeClasses: s
-    } = Co(t), {
+    } = yo(t), {
       textColorClasses: l,
       textColorStyles: c
     } = vn(te(t, "color"));
@@ -1275,7 +1295,7 @@ function Ci(t) {
     }))
   };
 }
-function Ev(t) {
+function Av(t) {
   return {
     aspectStyles: x(() => {
       const e = Number(t.aspectRatio);
@@ -1300,7 +1320,7 @@ const Qd = W({
     } = e;
     const {
       aspectStyles: i
-    } = Ev(t), {
+    } = Av(t), {
       dimensionStyles: a
     } = Ci(t);
     return ie(() => {
@@ -1328,7 +1348,7 @@ function yt(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : bn();
   return {
     roundedClasses: x(() => {
-      const i = ho(t) ? t.value : t.rounded, a = [];
+      const i = fo(t) ? t.value : t.rounded, a = [];
       if (i === !0 || i === "")
         a.push(`${e}--rounded`);
       else if (typeof i == "string" || i === 0)
@@ -1362,7 +1382,7 @@ const _a = W({
     disabled: a
   }), n);
 };
-function Av(t, e) {
+function Rv(t, e) {
   if (!gl) return;
   const n = e.modifiers || {}, i = e.value, {
     handler: a,
@@ -1389,7 +1409,7 @@ function eh(t, e) {
   n && (n.observer.unobserve(t), delete t._observe[e.instance.$.uid]);
 }
 const Ml = {
-  mounted: Av,
+  mounted: Rv,
   unmounted: eh
 }, th = W({
   alt: String,
@@ -1613,11 +1633,11 @@ const Ml = {
       naturalHeight: h
     };
   }
-}), Rv = [null, "default", "comfortable", "compact"], xn = W({
+}), Iv = [null, "default", "comfortable", "compact"], xn = W({
   density: {
     type: String,
     default: "default",
-    validator: (t) => Rv.includes(t)
+    validator: (t) => Iv.includes(t)
   }
 }, "density");
 function Yn(t) {
@@ -1626,8 +1646,8 @@ function Yn(t) {
     densityClasses: x(() => `${e}--density-${t.density}`)
   };
 }
-const Iv = ["elevated", "flat", "tonal", "outlined", "text", "plain"];
-function yo(t, e) {
+const zv = ["elevated", "flat", "tonal", "outlined", "text", "plain"];
+function po(t, e) {
   return v(fe, null, [t && v("span", {
     key: "overlay",
     class: `${e}__overlay`
@@ -1641,10 +1661,10 @@ const yi = W({
   variant: {
     type: String,
     default: "elevated",
-    validator: (t) => Iv.includes(t)
+    validator: (t) => zv.includes(t)
   }
 }, "variant");
-function po(t) {
+function _o(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : bn();
   const n = x(() => {
     const {
@@ -1669,7 +1689,7 @@ function po(t) {
     variantClasses: n
   };
 }
-const zv = W({
+const Lv = W({
   start: Boolean,
   end: Boolean,
   icon: Te,
@@ -1678,7 +1698,7 @@ const zv = W({
   ...ue(),
   ...xn(),
   ...Ct(),
-  ...vo(),
+  ...Co(),
   ...Le(),
   ...ke(),
   ...yi({
@@ -1686,7 +1706,7 @@ const zv = W({
   })
 }, "VAvatar"), di = K()({
   name: "VAvatar",
-  props: zv(),
+  props: Lv(),
   setup(t, e) {
     let {
       slots: n
@@ -1697,14 +1717,14 @@ const zv = W({
       colorClasses: a,
       colorStyles: o,
       variantClasses: r
-    } = po(t), {
+    } = _o(t), {
       densityClasses: s
     } = Yn(t), {
       roundedClasses: l
     } = yt(t), {
       sizeClasses: c,
       sizeStyles: u
-    } = Co(t);
+    } = yo(t);
     return ie(() => v(t.tag, {
       class: ["v-avatar", {
         "v-avatar--start": t.start,
@@ -1722,18 +1742,18 @@ const zv = W({
         }, null) : t.icon ? v(Ie, {
           key: "icon",
           icon: t.icon
-        }, null) : ((d = n.default) == null ? void 0 : d.call(n)) ?? t.text, yo(!1, "v-avatar")];
+        }, null) : ((d = n.default) == null ? void 0 : d.call(n)) ?? t.text, po(!1, "v-avatar")];
       }
     })), {};
   }
-}), Lv = W({
+}), Vv = W({
   text: String,
   onClick: jt(),
   ...ue(),
   ...ke()
 }, "VLabel"), nh = K()({
   name: "VLabel",
-  props: Lv(),
+  props: Vv(),
   setup(t, e) {
     let {
       slots: n
@@ -1827,14 +1847,14 @@ const ih = Symbol.for("vuetify:selection-control-group"), ah = W({
   ...ue(),
   ...xn(),
   ...ke()
-}, "SelectionControlGroup"), Vv = W({
+}, "SelectionControlGroup"), Bv = W({
   ...ah({
     defaultsTarget: "VSelectionControl"
   })
 }, "VSelectionControlGroup");
 K()({
   name: "VSelectionControlGroup",
-  props: Vv(),
+  props: Bv(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -1882,7 +1902,7 @@ K()({
     }), {};
   }
 });
-const Bs = Symbol("rippleStop"), Bv = 80;
+const Bs = Symbol("rippleStop"), Fv = 80;
 function tu(t, e) {
   t.style.transform = e, t.style.webkitTransform = e;
 }
@@ -1892,7 +1912,7 @@ function Fs(t) {
 function oh(t) {
   return t.constructor.name === "KeyboardEvent";
 }
-const Fv = function(t, e) {
+const kv = function(t, e) {
   var d;
   let n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, i = 0, a = 0;
   if (!oh(t)) {
@@ -1910,7 +1930,7 @@ const Fv = function(t, e) {
     centerX: s,
     centerY: l
   };
-}, rr = {
+}, sr = {
   /* eslint-disable max-statements */
   show(t, e) {
     var f;
@@ -1926,7 +1946,7 @@ const Fv = function(t, e) {
       y: l,
       centerX: c,
       centerY: u
-    } = Fv(t, e, n), d = `${o * 2}px`;
+    } = kv(t, e, n), d = `${o * 2}px`;
     a.className = "v-ripple__animation", a.style.width = d, a.style.height = d, e.appendChild(i);
     const h = window.getComputedStyle(e);
     h && h.position === "static" && (e.style.position = "relative", e.dataset.previousPosition = "static"), a.classList.add("v-ripple__animation--enter"), a.classList.add("v-ripple__animation--visible"), tu(a, `translate(${s}, ${l}) scale3d(${r},${r},${r})`), a.dataset.activated = String(performance.now()), setTimeout(() => {
@@ -1953,7 +1973,7 @@ const Fv = function(t, e) {
 function rh(t) {
   return typeof t > "u" || !!t;
 }
-function ja(t) {
+function Ha(t) {
   const e = {}, n = t.currentTarget;
   if (!(!(n != null && n._ripple) || n._ripple.touched || t[Bs])) {
     if (t[Bs] = !0, Fs(t))
@@ -1962,13 +1982,13 @@ function ja(t) {
     if (e.center = n._ripple.centered || oh(t), n._ripple.class && (e.class = n._ripple.class), Fs(t)) {
       if (n._ripple.showTimerCommit) return;
       n._ripple.showTimerCommit = () => {
-        rr.show(t, n, e);
+        sr.show(t, n, e);
       }, n._ripple.showTimer = window.setTimeout(() => {
         var i;
         (i = n == null ? void 0 : n._ripple) != null && i.showTimerCommit && (n._ripple.showTimerCommit(), n._ripple.showTimerCommit = null);
-      }, Bv);
+      }, Fv);
     } else
-      rr.show(t, n, e);
+      sr.show(t, n, e);
   }
 }
 function nu(t) {
@@ -1985,65 +2005,65 @@ function At(t) {
     }
     window.setTimeout(() => {
       e._ripple && (e._ripple.touched = !1);
-    }), rr.hide(e);
+    }), sr.hide(e);
   }
 }
 function sh(t) {
   const e = t.currentTarget;
   e != null && e._ripple && (e._ripple.showTimerCommit && (e._ripple.showTimerCommit = null), window.clearTimeout(e._ripple.showTimer));
 }
-let Ha = !1;
+let Za = !1;
 function lh(t) {
-  !Ha && (t.keyCode === Bc.enter || t.keyCode === Bc.space) && (Ha = !0, ja(t));
+  !Za && (t.keyCode === Bc.enter || t.keyCode === Bc.space) && (Za = !0, Ha(t));
 }
 function ch(t) {
-  Ha = !1, At(t);
+  Za = !1, At(t);
 }
 function uh(t) {
-  Ha && (Ha = !1, At(t));
+  Za && (Za = !1, At(t));
 }
 function dh(t, e, n) {
   const {
     value: i,
     modifiers: a
   } = e, o = rh(i);
-  if (o || rr.hide(t), t._ripple = t._ripple ?? {}, t._ripple.enabled = o, t._ripple.centered = a.center, t._ripple.circle = a.circle, Is(i) && i.class && (t._ripple.class = i.class), o && !n) {
+  if (o || sr.hide(t), t._ripple = t._ripple ?? {}, t._ripple.enabled = o, t._ripple.centered = a.center, t._ripple.circle = a.circle, Is(i) && i.class && (t._ripple.class = i.class), o && !n) {
     if (a.stop) {
       t.addEventListener("touchstart", nu, {
         passive: !0
       }), t.addEventListener("mousedown", nu);
       return;
     }
-    t.addEventListener("touchstart", ja, {
+    t.addEventListener("touchstart", Ha, {
       passive: !0
     }), t.addEventListener("touchend", At, {
       passive: !0
     }), t.addEventListener("touchmove", sh, {
       passive: !0
-    }), t.addEventListener("touchcancel", At), t.addEventListener("mousedown", ja), t.addEventListener("mouseup", At), t.addEventListener("mouseleave", At), t.addEventListener("keydown", lh), t.addEventListener("keyup", ch), t.addEventListener("blur", uh), t.addEventListener("dragstart", At, {
+    }), t.addEventListener("touchcancel", At), t.addEventListener("mousedown", Ha), t.addEventListener("mouseup", At), t.addEventListener("mouseleave", At), t.addEventListener("keydown", lh), t.addEventListener("keyup", ch), t.addEventListener("blur", uh), t.addEventListener("dragstart", At, {
       passive: !0
     });
   } else !o && n && hh(t);
 }
 function hh(t) {
-  t.removeEventListener("mousedown", ja), t.removeEventListener("touchstart", ja), t.removeEventListener("touchend", At), t.removeEventListener("touchmove", sh), t.removeEventListener("touchcancel", At), t.removeEventListener("mouseup", At), t.removeEventListener("mouseleave", At), t.removeEventListener("keydown", lh), t.removeEventListener("keyup", ch), t.removeEventListener("dragstart", At), t.removeEventListener("blur", uh);
+  t.removeEventListener("mousedown", Ha), t.removeEventListener("touchstart", Ha), t.removeEventListener("touchend", At), t.removeEventListener("touchmove", sh), t.removeEventListener("touchcancel", At), t.removeEventListener("mouseup", At), t.removeEventListener("mouseleave", At), t.removeEventListener("keydown", lh), t.removeEventListener("keyup", ch), t.removeEventListener("dragstart", At), t.removeEventListener("blur", uh);
 }
-function kv(t, e) {
+function Ov(t, e) {
   dh(t, e, !1);
 }
-function Ov(t) {
+function Dv(t) {
   delete t._ripple, hh(t);
 }
-function Dv(t, e) {
+function Gv(t, e) {
   if (e.value === e.oldValue)
     return;
   const n = rh(e.oldValue);
   dh(t, e, n);
 }
 const Sa = {
-  mounted: kv,
-  unmounted: Ov,
-  updated: Dv
+  mounted: Ov,
+  unmounted: Dv,
+  updated: Gv
 }, fh = W({
   label: String,
   baseColor: String,
@@ -2053,7 +2073,7 @@ const Sa = {
   ...ue(),
   ...ah()
 }, "VSelectionControl");
-function Gv(t) {
+function Nv(t) {
   const e = Ne(ih, void 0), {
     densityClasses: n
   } = Yn(t), i = Be(t, "modelValue"), a = x(() => t.trueValue !== void 0 ? t.trueValue : t.value !== void 0 ? t.value : !0), o = x(() => t.falseValue !== void 0 ? t.falseValue : !1), r = x(() => !!t.multiple || t.multiple == null && Array.isArray(i.value)), s = x({
@@ -2115,7 +2135,7 @@ const iu = K()({
       backgroundColorClasses: u,
       backgroundColorStyles: d,
       trueValue: h
-    } = Gv(t), f = Mn(), g = q(!1), m = q(!1), C = H(), y = x(() => t.id || `input-${f}`), p = x(() => !t.disabled && !t.readonly);
+    } = Nv(t), f = Mn(), g = q(!1), m = q(!1), C = H(), y = x(() => t.id || `input-${f}`), p = x(() => !t.disabled && !t.readonly);
     a == null || a.onForceUpdate(() => {
       C.value && (C.value.checked = s.value);
     });
@@ -2198,7 +2218,7 @@ const iu = K()({
       input: C
     };
   }
-}), Nv = W({
+}), Wv = W({
   indeterminate: Boolean,
   indeterminateIcon: {
     type: Te,
@@ -2210,7 +2230,7 @@ const iu = K()({
   })
 }, "VCheckboxBtn"), gh = K()({
   name: "VCheckboxBtn",
-  props: Nv(),
+  props: Wv(),
   emits: {
     "update:modelValue": (t) => !0,
     "update:indeterminate": (t) => !0
@@ -2277,7 +2297,7 @@ function vh(t) {
     InputIcon: n
   };
 }
-const Wv = W({
+const $v = W({
   disabled: Boolean,
   group: Boolean,
   hideOnLeave: Boolean,
@@ -2288,7 +2308,7 @@ const Wv = W({
 function It(t, e, n) {
   return K()({
     name: t,
-    props: Wv({
+    props: $v({
       mode: n,
       origin: e
     }),
@@ -2408,11 +2428,11 @@ function yh() {
     r.style.overflow = r._initialStyle.overflow, s != null && (r.style[n] = s), delete r._initialStyle;
   }
 }
-const $v = W({
+const Xv = W({
   target: [Object, Array]
 }, "v-dialog-transition"), ph = K()({
   name: "VDialogTransition",
-  props: $v(),
+  props: Xv(),
   setup(t, e) {
     let {
       slots: n
@@ -2435,7 +2455,7 @@ const $v = W({
           opacity: 0
         }, {}], {
           duration: 225 * u,
-          easing: yv
+          easing: pv
         });
         (h = au(a)) == null || h.forEach((f) => {
           ta(f, [{
@@ -2445,7 +2465,7 @@ const $v = W({
             offset: 0.33
           }, {}], {
             duration: 225 * 2 * u,
-            easing: ar
+            easing: or
           });
         }), d.finished.then(() => o());
       },
@@ -2470,7 +2490,7 @@ const $v = W({
           opacity: 0
         }], {
           duration: 125 * u,
-          easing: pv
+          easing: _v
         }).finished.then(() => o()), (h = au(a)) == null || h.forEach((f) => {
           ta(f, [{}, {
             opacity: 0,
@@ -2479,7 +2499,7 @@ const $v = W({
             opacity: 0
           }], {
             duration: 125 * 2 * u,
-            easing: ar
+            easing: or
           });
         });
       },
@@ -2529,7 +2549,7 @@ It("slide-x-transition");
 It("slide-x-reverse-transition");
 const _h = It("slide-y-transition");
 It("slide-y-reverse-transition");
-const xl = Ch("expand-transition", yh()), Sh = Ch("expand-x-transition", yh("", !0)), Xv = W({
+const xl = Ch("expand-transition", yh()), Sh = Ch("expand-x-transition", yh("", !0)), Uv = W({
   active: Boolean,
   color: String,
   messages: {
@@ -2544,9 +2564,9 @@ const xl = Ch("expand-transition", yh()), Sh = Ch("expand-x-transition", yh("", 
       group: !0
     }
   })
-}, "VMessages"), Uv = K()({
+}, "VMessages"), Yv = K()({
   name: "VMessages",
-  props: Xv(),
+  props: Uv(),
   setup(t, e) {
     let {
       slots: n
@@ -2593,7 +2613,7 @@ function Pl(t) {
     blur: o
   };
 }
-const Mh = Symbol.for("vuetify:form"), Yv = W({
+const Mh = Symbol.for("vuetify:form"), jv = W({
   disabled: Boolean,
   fastFail: Boolean,
   readonly: Boolean,
@@ -2606,7 +2626,7 @@ const Mh = Symbol.for("vuetify:form"), Yv = W({
     default: "input"
   }
 }, "form");
-function jv(t) {
+function Hv(t) {
   const e = Be(t, "modelValue"), n = x(() => t.disabled), i = x(() => t.readonly), a = q(!1), o = H([]), r = H([]);
   async function s() {
     const u = [];
@@ -2686,7 +2706,7 @@ function jv(t) {
 function Tl() {
   return Ne(Mh, null);
 }
-const Hv = W({
+const Zv = W({
   disabled: {
     type: Boolean,
     default: null
@@ -2715,7 +2735,7 @@ const Hv = W({
   validationValue: null,
   ...bh()
 }, "validation");
-function Zv(t) {
+function Kv(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : bn(), n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : Mn();
   const i = Be(t, "modelValue"), a = x(() => t.validationValue === void 0 ? i.value : t.validationValue), o = Tl(), r = H([]), s = q(!0), l = x(() => !!(Gt(i.value === "" ? null : i.value).length || Gt(a.value === "" ? null : a.value).length)), c = x(() => !!(t.disabled ?? (o == null ? void 0 : o.isDisabled.value))), u = x(() => !!(t.readonly ?? (o == null ? void 0 : o.isReadonly.value))), d = x(() => {
     var S;
@@ -2830,8 +2850,8 @@ const wl = W({
   "onClick:append": jt(),
   ...ue(),
   ...xn(),
-  ...Hv()
-}, "VInput"), sr = K()({
+  ...Zv()
+}, "VInput"), lr = K()({
   name: "VInput",
   props: {
     ...wl()
@@ -2863,7 +2883,7 @@ const wl = W({
       resetValidation: M,
       validate: S,
       validationClasses: b
-    } = Zv(t, "v-input", c), T = x(() => ({
+    } = Kv(t, "v-input", c), T = x(() => ({
       id: c,
       messagesId: u,
       isDirty: h,
@@ -2904,7 +2924,7 @@ const wl = W({
         name: "append"
       }, null), (V = i.append) == null ? void 0 : V.call(i, T.value)]), z && v("div", {
         class: "v-input__details"
-      }, [v(Uv, {
+      }, [v(Yv, {
         id: u.value,
         active: I,
         messages: _.value
@@ -2919,12 +2939,12 @@ const wl = W({
       errorMessages: d
     };
   }
-}), xr = ["sm", "md", "lg", "xl", "xxl"], Kv = Symbol.for("vuetify:display"), xh = W({
+}), xr = ["sm", "md", "lg", "xl", "xxl"], qv = Symbol.for("vuetify:display"), xh = W({
   mobileBreakpoint: [Number, String]
 }, "display");
 function Pr() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : bn();
-  const n = Ne(Kv);
+  const n = Ne(qv);
   if (!n) throw new Error("Could not find Vuetify display injection");
   const i = x(() => {
     if (!t.mobileBreakpoint) return n.mobile.value;
@@ -2949,12 +2969,12 @@ const Tr = W({
   max: Number,
   selectedClass: String,
   disabled: Boolean
-}, "group"), _o = W({
+}, "group"), So = W({
   value: null,
   disabled: Boolean,
   selectedClass: String
 }, "group-item");
-function So(t, e) {
+function bo(t, e) {
   let n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : !0;
   const i = qe("useGroupItem");
   if (!i)
@@ -2990,10 +3010,10 @@ function So(t, e) {
     group: o
   };
 }
-function bo(t, e) {
+function Mo(t, e) {
   let n = !1;
   const i = Dn([]), a = Be(t, "modelValue", [], (h) => h == null ? [] : Ph(i, Gt(h)), (h) => {
-    const f = Jv(i, h);
+    const f = Qv(i, h);
     return t.multiple ? f : f[0];
   }), o = qe("useGroup");
   function r(h, f) {
@@ -3052,11 +3072,11 @@ function bo(t, e) {
     isSelected: (h) => a.value.includes(h),
     selectedClass: x(() => t.selectedClass),
     items: x(() => i),
-    getItemIndex: (h) => qv(i, h)
+    getItemIndex: (h) => Jv(i, h)
   };
   return at(e, d), d;
 }
-function qv(t, e) {
+function Jv(t, e) {
   const n = Ph(t, [e]);
   return n.length ? t.findIndex((i) => i.id === n[0]) : -1;
 }
@@ -3067,7 +3087,7 @@ function Ph(t, e) {
     (a == null ? void 0 : a.value) != null ? n.push(a.id) : o != null && n.push(o.id);
   }), n;
 }
-function Jv(t, e) {
+function Qv(t, e) {
   const n = [];
   return e.forEach((i) => {
     const a = t.findIndex((o) => o.id === i);
@@ -3087,7 +3107,7 @@ function Vi(t) {
     vt(() => {
       a.disconnect();
     }), J(n, (o, r) => {
-      r && (a.unobserve(Qo(r)), i.value = void 0), o && a.observe(Qo(o));
+      r && (a.unobserve(er(r)), i.value = void 0), o && a.observe(er(o));
     }, {
       flush: "post"
     });
@@ -3113,7 +3133,7 @@ function lu(t) {
   const s = r ? e.clientWidth : e.clientHeight, l = r ? e.offsetLeft : e.offsetTop, c = a && r ? i - l - s : l, u = n + o, d = s + c, h = s * 0.4;
   return c <= o ? o = Math.max(c - h, 0) : u <= d && (o = Math.min(o - (u - d - h), i - n)), o;
 }
-function Qv(t) {
+function eC(t) {
   let {
     selectedElement: e,
     containerSize: n,
@@ -3167,7 +3187,7 @@ const Th = Symbol.for("vuetify:v-slide-group"), wh = W({
     } = nn(), {
       displayClasses: a,
       mobile: o
-    } = Pr(t), r = bo(t, t.symbol), s = q(!1), l = q(0), c = q(0), u = q(0), d = x(() => t.direction === "horizontal"), {
+    } = Pr(t), r = Mo(t, t.symbol), s = q(!1), l = q(0), c = q(0), u = q(0), d = x(() => t.direction === "horizontal"), {
       resizeRef: h,
       contentRect: f
     } = Vi(), {
@@ -3184,7 +3204,7 @@ const Th = Symbol.for("vuetify:v-slide-group"), wh = W({
           }
           if (C.value >= 0 && g.value) {
             const $ = g.value.children[y.value];
-            C.value === 0 || !s.value ? l.value = 0 : t.centerActive ? l.value = Qv({
+            C.value === 0 || !s.value ? l.value = 0 : t.centerActive ? l.value = eC({
               selectedElement: $,
               containerSize: c.value,
               contentSize: u.value,
@@ -3252,7 +3272,7 @@ const Th = Symbol.for("vuetify:v-slide-group"), wh = W({
       var $, X, L, ee, Q;
       if (g.value)
         if (!k)
-          ($ = tr(g.value)[0]) == null || $.focus();
+          ($ = nr(g.value)[0]) == null || $.focus();
         else if (k === "next") {
           const ae = (X = g.value.querySelector(":focus")) == null ? void 0 : X.nextElementSibling;
           ae ? ae.focus() : V("first");
@@ -3357,7 +3377,7 @@ const Th = Symbol.for("vuetify:v-slide-group"), wh = W({
       focus: V
     };
   }
-}), Eh = Symbol.for("vuetify:v-chip-group"), eC = W({
+}), Eh = Symbol.for("vuetify:v-chip-group"), tC = W({
   column: Boolean,
   filter: Boolean,
   valueComparator: {
@@ -3377,7 +3397,7 @@ const Th = Symbol.for("vuetify:v-slide-group"), wh = W({
 }, "VChipGroup");
 K()({
   name: "VChipGroup",
-  props: eC(),
+  props: tC(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -3393,7 +3413,7 @@ K()({
       next: r,
       prev: s,
       selected: l
-    } = bo(t, Eh);
+    } = Mo(t, Eh);
     return Sn({
       VChip: {
         color: te(t, "color"),
@@ -3423,7 +3443,7 @@ K()({
     }), {};
   }
 });
-const tC = W({
+const nC = W({
   defaults: Object,
   disabled: Boolean,
   reset: [Number, String],
@@ -3431,7 +3451,7 @@ const tC = W({
   scoped: Boolean
 }, "VDefaultsProvider"), Ye = K(!1)({
   name: "VDefaultsProvider",
-  props: tC(),
+  props: nC(),
   setup(t, e) {
     let {
       slots: n
@@ -3460,7 +3480,7 @@ function Tn(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : bn();
   return {
     borderClasses: x(() => {
-      const i = ho(t) ? t.value : t.border, a = [];
+      const i = fo(t) ? t.value : t.border, a = [];
       if (i === !0 || i === "")
         a.push(`${e}--border`);
       else if (typeof i == "string" || i === 0)
@@ -3484,12 +3504,12 @@ const an = W({
 function on(t) {
   return {
     elevationClasses: x(() => {
-      const n = ho(t) ? t.value : t.elevation, i = [];
+      const n = fo(t) ? t.value : t.elevation, i = [];
       return n == null || i.push(`elevation-${n}`), i;
     })
   };
 }
-function nC() {
+function iC() {
   const t = qe("useRoute");
   return x(() => {
     var e;
@@ -3508,7 +3528,7 @@ function wr(t, e) {
       isClickable: a,
       href: te(t, "href")
     };
-  const o = t.to ? n.useLink(t) : void 0, r = nC();
+  const o = t.to ? n.useLink(t) : void 0, r = iC();
   return {
     isLink: i,
     isClickable: a,
@@ -3528,7 +3548,7 @@ const Er = W({
   exact: Boolean
 }, "router");
 let ss = !1;
-function iC(t, e) {
+function aC(t, e) {
   let n = !1, i, a;
   dt && (He(() => {
     window.addEventListener("popstate", o), i = t == null ? void 0 : t.beforeEach((r, s, l) => {
@@ -3544,7 +3564,7 @@ function iC(t, e) {
     (s = r.state) != null && s.replaced || (n = !0, setTimeout(() => n = !1));
   }
 }
-const aC = W({
+const oC = W({
   activeClass: String,
   appendAvatar: String,
   appendIcon: Te,
@@ -3586,10 +3606,10 @@ const aC = W({
   ...ue(),
   ...xn(),
   ...an(),
-  ..._o(),
+  ...So(),
   ...Ct(),
   ...Er(),
-  ...vo(),
+  ...Co(),
   ...Le({
     tag: "span"
   }),
@@ -3602,7 +3622,7 @@ const aC = W({
   directives: {
     Ripple: Sa
   },
-  props: aC(),
+  props: oC(),
   emits: {
     "click:close": (t) => !0,
     "update:modelValue": (t) => !0,
@@ -3623,7 +3643,7 @@ const aC = W({
       colorClasses: s,
       colorStyles: l,
       variantClasses: c
-    } = po(t), {
+    } = _o(t), {
       densityClasses: u
     } = Yn(t), {
       elevationClasses: d
@@ -3631,9 +3651,9 @@ const aC = W({
       roundedClasses: h
     } = yt(t), {
       sizeClasses: f
-    } = Co(t), {
+    } = yo(t), {
       themeClasses: g
-    } = We(t), m = Be(t, "modelValue"), C = So(t, Eh, !1), y = wr(t, n), p = x(() => t.link !== !1 && y.isLink.value), M = x(() => !t.disabled && t.link !== !1 && (!!C || t.link || y.isClickable.value)), S = x(() => ({
+    } = We(t), m = Be(t, "modelValue"), C = bo(t, Eh, !1), y = wr(t, n), p = x(() => t.link !== !1 && y.isLink.value), M = x(() => !t.disabled && t.link !== !1 && (!!C || t.link || y.isClickable.value)), S = x(() => ({
       "aria-label": o(t.closeLabel),
       onClick(_) {
         _.stopPropagation(), m.value = !1, i("click:close", _);
@@ -3666,7 +3686,7 @@ const aC = W({
       }, {
         default: () => {
           var N;
-          return [yo(M.value, "v-chip"), z && v(Sh, {
+          return [po(M.value, "v-chip"), z && v(Sh, {
             key: "filter"
           }, {
             default: () => [Ze(v("div", {
@@ -3777,7 +3797,7 @@ function Ih() {
 function zh() {
   return Ne(Os, null);
 }
-const oC = {
+const rC = {
   open: (t) => {
     let {
       id: e,
@@ -3814,7 +3834,7 @@ const oC = {
     return i;
   },
   select: () => null
-}, rC = {
+}, sC = {
   open: Lh.open,
   select: (t) => {
     let {
@@ -3890,7 +3910,7 @@ const oC = {
     },
     out: (i, a, o) => e.out(i, a, o)
   };
-}, sC = (t) => {
+}, lC = (t) => {
   const e = El(t);
   return {
     select: (i) => {
@@ -3910,7 +3930,7 @@ const oC = {
     in: e.in,
     out: e.out
   };
-}, lC = (t) => {
+}, cC = (t) => {
   const e = Vh(t);
   return {
     select: (i) => {
@@ -3930,7 +3950,7 @@ const oC = {
     in: e.in,
     out: e.out
   };
-}, cC = (t) => {
+}, uC = (t) => {
   const e = {
     select: (n) => {
       let {
@@ -3976,7 +3996,7 @@ const oC = {
     }
   };
   return e;
-}, Za = Symbol.for("vuetify:nested"), Bh = {
+}, Ka = Symbol.for("vuetify:nested"), Bh = {
   id: q(),
   root: {
     register: () => null,
@@ -3990,36 +4010,36 @@ const oC = {
     selected: H(/* @__PURE__ */ new Map()),
     selectedValues: H([])
   }
-}, uC = W({
+}, dC = W({
   selectStrategy: [String, Function],
   openStrategy: [String, Object],
   opened: Array,
   selected: Array,
   mandatory: Boolean
-}, "nested"), dC = (t) => {
+}, "nested"), hC = (t) => {
   let e = !1;
   const n = H(/* @__PURE__ */ new Map()), i = H(/* @__PURE__ */ new Map()), a = Be(t, "opened", t.opened, (d) => new Set(d), (d) => [...d.values()]), o = x(() => {
     if (typeof t.selectStrategy == "object") return t.selectStrategy;
     switch (t.selectStrategy) {
       case "single-leaf":
-        return lC(t.mandatory);
+        return cC(t.mandatory);
       case "leaf":
-        return sC(t.mandatory);
+        return lC(t.mandatory);
       case "independent":
         return El(t.mandatory);
       case "single-independent":
         return Vh(t.mandatory);
       case "classic":
       default:
-        return cC(t.mandatory);
+        return uC(t.mandatory);
     }
   }), r = x(() => {
     if (typeof t.openStrategy == "object") return t.openStrategy;
     switch (t.openStrategy) {
       case "list":
-        return rC;
+        return sC;
       case "single":
-        return oC;
+        return rC;
       case "multiple":
       default:
         return Lh;
@@ -4109,9 +4129,9 @@ const oC = {
       parents: i
     }
   };
-  return at(Za, u), u.root;
+  return at(Ka, u), u.root;
 }, Fh = (t, e) => {
-  const n = Ne(Za, Bh), i = Symbol(Mn()), a = x(() => t.value !== void 0 ? t.value : i), o = {
+  const n = Ne(Ka, Bh), i = Symbol(Mn()), a = x(() => t.value !== void 0 ? t.value : i), o = {
     ...n,
     id: a,
     open: (r, s) => n.root.open(a.value, r, s),
@@ -4126,15 +4146,15 @@ const oC = {
   };
   return !n.isGroupActivator && n.root.register(a.value, n.id.value, e), vt(() => {
     !n.isGroupActivator && n.root.unregister(a.value);
-  }), e && at(Za, o), o;
-}, hC = () => {
-  const t = Ne(Za, Bh);
-  at(Za, {
+  }), e && at(Ka, o), o;
+}, fC = () => {
+  const t = Ne(Ka, Bh);
+  at(Ka, {
     ...t,
     isGroupActivator: !0
   });
 };
-function Mo() {
+function xo() {
   const t = q(!1);
   return Ke(() => {
     window.requestAnimationFrame(() => {
@@ -4147,18 +4167,18 @@ function Mo() {
     isBooted: cl(t)
   };
 }
-const fC = go({
+const gC = mo({
   name: "VListGroupActivator",
   setup(t, e) {
     let {
       slots: n
     } = e;
-    return hC(), () => {
+    return fC(), () => {
       var i;
       return (i = n.default) == null ? void 0 : i.call(n);
     };
   }
-}), gC = W({
+}), mC = W({
   /* @deprecated */
   activeColor: String,
   baseColor: String,
@@ -4181,7 +4201,7 @@ const fC = go({
   ...Le()
 }, "VListGroup"), cu = K()({
   name: "VListGroup",
-  props: gC(),
+  props: mC(),
   setup(t, e) {
     let {
       slots: n
@@ -4192,7 +4212,7 @@ const fC = go({
       id: o
     } = Fh(te(t, "value"), !0), r = x(() => `v-list-group--id-${String(o.value)}`), s = zh(), {
       isBooted: l
-    } = Mo();
+    } = xo();
     function c(f) {
       a(!i.value, f);
     }
@@ -4224,7 +4244,7 @@ const fC = go({
       default: () => [n.activator && v(Ye, {
         defaults: h.value
       }, {
-        default: () => [v(fC, null, {
+        default: () => [v(gC, null, {
           default: () => [n.activator({
             props: u.value,
             isOpen: i.value
@@ -4247,7 +4267,7 @@ const fC = go({
       })]
     })), {};
   }
-}), mC = mo("v-list-item-subtitle"), kh = mo("v-list-item-title"), vC = W({
+}), vC = vo("v-list-item-subtitle"), kh = vo("v-list-item-title"), CC = W({
   active: {
     type: Boolean,
     default: void 0
@@ -4294,7 +4314,7 @@ const fC = go({
   directives: {
     Ripple: Sa
   },
-  props: vC(),
+  props: CC(),
   emits: {
     click: (t) => !0
   },
@@ -4335,7 +4355,7 @@ const fC = go({
       colorClasses: _,
       colorStyles: P,
       variantClasses: w
-    } = po(S), {
+    } = _o(S), {
       densityClasses: I
     } = Yn(t), {
       dimensionStyles: z
@@ -4358,7 +4378,7 @@ const fC = go({
     }
     return ie(() => {
       const E = C.value ? "a" : t.tag, B = i.title || t.title != null, D = i.subtitle || t.subtitle != null, k = !!(t.appendAvatar || t.appendIcon), $ = !!(k || i.append), X = !!(t.prependAvatar || t.prependIcon), L = !!(X || i.prepend);
-      return g == null || g.updateHasPrepend(L), t.activeColor && uv("active-color", ["color", "base-color"]), Ze(v(E, {
+      return g == null || g.updateHasPrepend(L), t.activeColor && dv("active-color", ["color", "base-color"]), Ze(v(E, {
         class: ["v-list-item", {
           "v-list-item--active": m.value,
           "v-list-item--disabled": t.disabled,
@@ -4376,7 +4396,7 @@ const fC = go({
       }, {
         default: () => {
           var ee;
-          return [yo(y.value || m.value, "v-list-item"), L && v("div", {
+          return [po(y.value || m.value, "v-list-item"), L && v("div", {
             key: "prepend",
             class: "v-list-item__prepend"
           }, [i.prepend ? v(Ye, {
@@ -4422,7 +4442,7 @@ const fC = go({
                 title: t.title
               })) ?? t.title];
             }
-          }), D && v(mC, {
+          }), D && v(vC, {
             key: "subtitle"
           }, {
             default: () => {
@@ -4470,16 +4490,16 @@ const fC = go({
       }), [[en("ripple"), y.value && t.ripple]]);
     }), {};
   }
-}), CC = W({
+}), yC = W({
   color: String,
   inset: Boolean,
   sticky: Boolean,
   title: String,
   ...ue(),
   ...Le()
-}, "VListSubheader"), yC = K()({
+}, "VListSubheader"), pC = K()({
   name: "VListSubheader",
-  props: CC(),
+  props: yC(),
   setup(t, e) {
     let {
       slots: n
@@ -4508,7 +4528,7 @@ const fC = go({
       });
     }), {};
   }
-}), pC = W({
+}), _C = W({
   color: String,
   inset: Boolean,
   length: [Number, String],
@@ -4516,9 +4536,9 @@ const fC = go({
   vertical: Boolean,
   ...ue(),
   ...ke()
-}, "VDivider"), _C = K()({
+}, "VDivider"), SC = K()({
   name: "VDivider",
-  props: pC(),
+  props: _C(),
   setup(t, e) {
     let {
       attrs: n
@@ -4543,12 +4563,12 @@ const fC = go({
       role: `${n.role || "separator"}`
     }, null)), {};
   }
-}), SC = W({
+}), bC = W({
   items: Array,
   returnObject: Boolean
 }, "VListChildren"), Oh = K()({
   name: "VListChildren",
-  props: SC(),
+  props: bC(),
   setup(t, e) {
     let {
       slots: n
@@ -4566,11 +4586,11 @@ const fC = go({
         if (l === "divider")
           return ((h = n.divider) == null ? void 0 : h.call(n, {
             props: s
-          })) ?? v(_C, s, null);
+          })) ?? v(SC, s, null);
         if (l === "subheader")
           return ((f = n.subheader) == null ? void 0 : f.call(n, {
             props: s
-          })) ?? v(yC, s, null);
+          })) ?? v(pC, s, null);
         const u = {
           subtitle: n.subtitle ? (g) => {
             var m;
@@ -4699,11 +4719,11 @@ function Nh(t) {
     transformOut: a
   };
 }
-function bC(t) {
+function MC(t) {
   return typeof t == "string" || typeof t == "number" || typeof t == "boolean";
 }
-function MC(t, e) {
-  const n = cn(e, t.itemType, "item"), i = bC(e) ? e : cn(e, t.itemTitle), a = cn(e, t.itemValue, void 0), o = cn(e, t.itemChildren), r = t.itemProps === !0 ? Fi(e, ["children"]) : cn(e, t.itemProps), s = {
+function xC(t, e) {
+  const n = cn(e, t.itemType, "item"), i = MC(e) ? e : cn(e, t.itemTitle), a = cn(e, t.itemValue, void 0), o = cn(e, t.itemChildren), r = t.itemProps === !0 ? Fi(e, ["children"]) : cn(e, t.itemProps), s = {
     title: i,
     value: a,
     ...r
@@ -4720,15 +4740,15 @@ function MC(t, e) {
 function Wh(t, e) {
   const n = [];
   for (const i of e)
-    n.push(MC(t, i));
+    n.push(xC(t, i));
   return n;
 }
-function xC(t) {
+function PC(t) {
   return {
     items: x(() => Wh(t, t.items))
   };
 }
-const PC = W({
+const TC = W({
   baseColor: String,
   /* @deprecated */
   activeColor: String,
@@ -4743,7 +4763,7 @@ const PC = W({
   },
   slim: Boolean,
   nav: Boolean,
-  ...uC({
+  ...dC({
     selectStrategy: "single-leaf",
     openStrategy: "list"
   }),
@@ -4765,7 +4785,7 @@ const PC = W({
   })
 }, "VList"), Ma = K()({
   name: "VList",
-  props: PC(),
+  props: TC(),
   emits: {
     "update:selected": (t) => !0,
     "update:opened": (t) => !0,
@@ -4778,7 +4798,7 @@ const PC = W({
     } = e;
     const {
       items: i
-    } = xC(t), {
+    } = PC(t), {
       themeClasses: a
     } = We(t), {
       backgroundColorClasses: o,
@@ -4796,7 +4816,7 @@ const PC = W({
     } = yt(t), {
       open: h,
       select: f
-    } = dC(t), g = x(() => t.lines ? `v-list--${t.lines}-line` : void 0), m = te(t, "activeColor"), C = te(t, "baseColor"), y = te(t, "color");
+    } = hC(t), g = x(() => t.lines ? `v-list--${t.lines}-line` : void 0), m = te(t, "activeColor"), C = te(t, "baseColor"), y = te(t, "color");
     Ih(), Sn({
       VListGroup: {
         activeColor: m,
@@ -4849,7 +4869,7 @@ const PC = W({
     }
     function w(I) {
       if (M.value)
-        return nr(M.value, I);
+        return ir(M.value, I);
     }
     return ie(() => v(t.tag, {
       ref: M,
@@ -4885,7 +4905,7 @@ function ls(t, e) {
     y: t.y + e.y
   };
 }
-function TC(t, e) {
+function wC(t, e) {
   return {
     x: t.x - e.x,
     y: t.y - e.y
@@ -4917,11 +4937,11 @@ function uu(t, e) {
   }, e);
 }
 const $h = {
-  static: AC,
+  static: RC,
   // specific viewport position, usually centered
-  connected: IC
+  connected: zC
   // connected to a certain element
-}, wC = W({
+}, EC = W({
   locationStrategy: {
     type: [String, Function],
     default: "static",
@@ -4937,7 +4957,7 @@ const $h = {
   },
   offset: [Number, String, Array]
 }, "VOverlay-location-strategies");
-function EC(t, e) {
+function AC(t, e) {
   const n = H({}), i = H();
   dt && Ht(() => !!(e.isActive.value && t.locationStrategy), (o) => {
     var r, s;
@@ -4956,15 +4976,15 @@ function EC(t, e) {
     updateLocation: i
   };
 }
-function AC() {
+function RC() {
 }
-function RC(t, e) {
+function IC(t, e) {
   e ? t.style.removeProperty("left") : t.style.removeProperty("right");
   const n = pl(t);
   return e ? n.x += parseFloat(t.style.right || 0) : n.x -= parseFloat(t.style.left || 0), n.y -= parseFloat(t.style.top || 0), n;
 }
-function IC(t, e, n) {
-  (Array.isArray(t.target.value) || bv(t.target.value)) && Object.assign(n.value, {
+function zC(t, e, n) {
+  (Array.isArray(t.target.value) || Mv(t.target.value)) && Object.assign(n.value, {
     position: "fixed",
     top: 0,
     [t.isRtl.value ? "right" : "left"]: 0
@@ -5007,7 +5027,7 @@ function IC(t, e, n) {
   });
   function f() {
     if (d = !1, requestAnimationFrame(() => d = !0), !t.target.value || !t.contentEl.value) return;
-    const g = Hd(t.target.value), m = RC(t.contentEl.value, t.isRtl.value), C = or(t.contentEl.value), y = 12;
+    const g = Hd(t.target.value), m = IC(t.contentEl.value, t.isRtl.value), C = rr(t.contentEl.value), y = 12;
     C.length || (C.push(document.documentElement), t.contentEl.value.style.top && t.contentEl.value.style.left || (m.x -= parseFloat(document.documentElement.style.getPropertyValue("--v-body-scroll-x") || 0), m.y -= parseFloat(document.documentElement.style.getPropertyValue("--v-body-scroll-y") || 0)));
     const p = C.reduce((z, A) => {
       const R = A.getBoundingClientRect(), V = new Ii({
@@ -5033,7 +5053,7 @@ function IC(t, e, n) {
       let {
         x: N,
         y: G
-      } = TC(R, V);
+      } = wC(R, V);
       switch (z.anchor.side) {
         case "top":
           G -= u.value[0];
@@ -5079,7 +5099,7 @@ function IC(t, e, n) {
     let w = -1;
     for (; ; ) {
       if (w++ > 10) {
-        cv("Infinite loop detected in connectedLocationStrategy");
+        uv("Infinite loop detected in connectedLocationStrategy");
         break;
       }
       const {
@@ -5155,50 +5175,50 @@ function du(t) {
   return Math.ceil(t * devicePixelRatio) / devicePixelRatio;
 }
 let Gs = !0;
-const lr = [];
-function zC(t) {
-  !Gs || lr.length ? (lr.push(t), Ns()) : (Gs = !1, t(), Ns());
+const cr = [];
+function LC(t) {
+  !Gs || cr.length ? (cr.push(t), Ns()) : (Gs = !1, t(), Ns());
 }
 let hu = -1;
 function Ns() {
   cancelAnimationFrame(hu), hu = requestAnimationFrame(() => {
-    const t = lr.shift();
-    t && t(), lr.length ? Ns() : Gs = !0;
+    const t = cr.shift();
+    t && t(), cr.length ? Ns() : Gs = !0;
   });
 }
-const qo = {
+const Jo = {
   none: null,
-  close: BC,
-  block: FC,
-  reposition: kC
-}, LC = W({
+  close: FC,
+  block: kC,
+  reposition: OC
+}, VC = W({
   scrollStrategy: {
     type: [String, Function],
     default: "block",
-    validator: (t) => typeof t == "function" || t in qo
+    validator: (t) => typeof t == "function" || t in Jo
   }
 }, "VOverlay-scroll-strategies");
-function VC(t, e) {
+function BC(t, e) {
   if (!dt) return;
   let n;
   qt(async () => {
     n == null || n.stop(), e.isActive.value && t.scrollStrategy && (n = ll(), await He(), n.active && n.run(() => {
       var i;
-      typeof t.scrollStrategy == "function" ? t.scrollStrategy(e, t, n) : (i = qo[t.scrollStrategy]) == null || i.call(qo, e, t, n);
+      typeof t.scrollStrategy == "function" ? t.scrollStrategy(e, t, n) : (i = Jo[t.scrollStrategy]) == null || i.call(Jo, e, t, n);
     }));
   }), wt(() => {
     n == null || n.stop();
   });
 }
-function BC(t) {
+function FC(t) {
   function e(n) {
     t.isActive.value = !1;
   }
   Xh(t.targetEl.value ?? t.contentEl.value, e);
 }
-function FC(t, e) {
+function kC(t, e) {
   var r;
-  const n = (r = t.root.value) == null ? void 0 : r.offsetParent, i = [.../* @__PURE__ */ new Set([...or(t.targetEl.value, e.contained ? n : void 0), ...or(t.contentEl.value, e.contained ? n : void 0)])].filter((s) => !s.classList.contains("v-overlay-scroll-blocked")), a = window.innerWidth - document.documentElement.offsetWidth, o = ((s) => Sl(s) && s)(n || document.documentElement);
+  const n = (r = t.root.value) == null ? void 0 : r.offsetParent, i = [.../* @__PURE__ */ new Set([...rr(t.targetEl.value, e.contained ? n : void 0), ...rr(t.contentEl.value, e.contained ? n : void 0)])].filter((s) => !s.classList.contains("v-overlay-scroll-blocked")), a = window.innerWidth - document.documentElement.offsetWidth, o = ((s) => Sl(s) && s)(n || document.documentElement);
   o && t.root.value.classList.add("v-overlay--scroll-blocked"), i.forEach((s, l) => {
     s.style.setProperty("--v-body-scroll-x", re(-s.scrollLeft)), s.style.setProperty("--v-body-scroll-y", re(-s.scrollTop)), s !== document.documentElement && s.style.setProperty("--v-scrollbar-offset", re(a)), s.classList.add("v-overlay-scroll-blocked");
   }), wt(() => {
@@ -5208,10 +5228,10 @@ function FC(t, e) {
     }), o && t.root.value.classList.remove("v-overlay--scroll-blocked");
   });
 }
-function kC(t, e, n) {
+function OC(t, e, n) {
   let i = !1, a = -1, o = -1;
   function r(s) {
-    zC(() => {
+    LC(() => {
       var u, d;
       const l = performance.now();
       (d = (u = t.updateLocation).value) == null || d.call(u, s), i = (performance.now() - l) / (1e3 / 60) > 2;
@@ -5232,7 +5252,7 @@ function kC(t, e, n) {
   });
 }
 function Xh(t, e) {
-  const n = [document, ...or(t)];
+  const n = [document, ...rr(t)];
   n.forEach((i) => {
     i.addEventListener("scroll", e, {
       passive: !0
@@ -5243,18 +5263,18 @@ function Xh(t, e) {
     });
   });
 }
-const Ws = Symbol.for("vuetify:v-menu"), OC = W({
+const Ws = Symbol.for("vuetify:v-menu"), DC = W({
   closeDelay: [Number, String],
   openDelay: [Number, String]
 }, "delay");
-function DC(t, e) {
+function GC(t, e) {
   let n = () => {
   };
   function i(r) {
     n == null || n();
     const s = Number(r ? t.openDelay : t.closeDelay);
     return new Promise((l) => {
-      n = Jm(s, () => {
+      n = Qm(s, () => {
         e == null || e(r), l(r);
       });
     });
@@ -5271,7 +5291,7 @@ function DC(t, e) {
     runCloseDelay: o
   };
 }
-const GC = W({
+const NC = W({
   target: [String, Object],
   activator: [String, Object],
   activatorProps: {
@@ -5288,9 +5308,9 @@ const GC = W({
     default: void 0
   },
   closeOnContentClick: Boolean,
-  ...OC()
+  ...DC()
 }, "VOverlay-activator");
-function NC(t, e) {
+function WC(t, e) {
   let {
     isActive: n,
     isTop: i
@@ -5300,7 +5320,7 @@ function NC(t, e) {
   const c = x(() => t.openOnFocus || t.openOnFocus == null && t.openOnHover), u = x(() => t.openOnClick || t.openOnClick == null && !t.openOnHover && !c.value), {
     runOpenDelay: d,
     runCloseDelay: h
-  } = DC(t, (_) => {
+  } = GC(t, (_) => {
     _ === (t.openOnHover && r || c.value && s) && !(t.openOnHover && n.value && !i.value) && (n.value !== _ && (l = !0), n.value = _);
   }), f = H(), g = {
     onClick: (_) => {
@@ -5359,14 +5379,14 @@ function NC(t, e) {
   const p = H();
   qt(() => {
     p.value && He(() => {
-      o.value = Qo(p.value);
+      o.value = er(p.value);
     });
   });
-  const M = H(), S = x(() => t.target === "cursor" && f.value ? f.value : M.value ? Qo(M.value) : Uh(t.target, a) || o.value), b = x(() => Array.isArray(S.value) ? void 0 : S.value);
+  const M = H(), S = x(() => t.target === "cursor" && f.value ? f.value : M.value ? er(M.value) : Uh(t.target, a) || o.value), b = x(() => Array.isArray(S.value) ? void 0 : S.value);
   let T;
   return J(() => !!t.activator, (_) => {
     _ && dt ? (T = ll(), T.run(() => {
-      WC(t, a, {
+      $C(t, a, {
         activatorEl: o,
         activatorEvents: m
       });
@@ -5387,7 +5407,7 @@ function NC(t, e) {
     scrimEvents: y
   };
 }
-function WC(t, e, n) {
+function $C(t, e, n) {
   let {
     activatorEl: i,
     activatorEvents: a
@@ -5407,11 +5427,11 @@ function WC(t, e, n) {
   });
   function o() {
     let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : s(), c = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t.activatorProps;
-    l && ev(l, le(a.value, c));
+    l && tv(l, le(a.value, c));
   }
   function r() {
     let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : s(), c = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t.activatorProps;
-    l && tv(l, le(a.value, c));
+    l && nv(l, le(a.value, c));
   }
   function s() {
     let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : t.activator;
@@ -5431,7 +5451,7 @@ function Uh(t, e) {
   } else typeof t == "string" ? n = document.querySelector(t) : "$el" in t ? n = t.$el : n = t;
   return n;
 }
-function $C() {
+function XC() {
   if (!dt) return q(!1);
   const {
     ssr: t
@@ -5468,7 +5488,7 @@ function Rl() {
   };
 }
 const fu = Symbol.for("vuetify:stack"), za = Dn([]);
-function XC(t, e, n) {
+function UC(t, e, n) {
   const i = qe("useStack"), a = !n, o = Ne(fu, void 0), r = Dn({
     activeChildren: /* @__PURE__ */ new Set()
   });
@@ -5500,14 +5520,14 @@ function XC(t, e, n) {
     }))
   };
 }
-function UC(t) {
+function YC(t) {
   return {
     teleportTarget: x(() => {
       const n = t.value;
       if (n === !0 || !dt) return;
       const i = n === !1 ? document.body : typeof n == "string" ? document.querySelector(n) : n;
       if (i == null) {
-        Sr(`Unable to locate target ${n}`);
+        br(`Unable to locate target ${n}`);
         return;
       }
       let a = i.querySelector(":scope > .v-overlay-container");
@@ -5515,7 +5535,7 @@ function UC(t) {
     })
   };
 }
-function YC() {
+function jC() {
   return !0;
 }
 function Yh(t, e, n) {
@@ -5526,9 +5546,9 @@ function Yh(t, e, n) {
   return a.push(e), !a.some((o) => o == null ? void 0 : o.contains(t.target));
 }
 function jh(t, e) {
-  return (typeof e.value == "object" && e.value.closeConditional || YC)(t);
+  return (typeof e.value == "object" && e.value.closeConditional || jC)(t);
 }
-function jC(t, e, n) {
+function HC(t, e, n) {
   const i = typeof n.value == "function" ? n.value : n.value.handler;
   e._clickOutside.lastMousedownWasOutside && Yh(t, e, n) && setTimeout(() => {
     jh(t, n) && i && i(t);
@@ -5538,14 +5558,14 @@ function gu(t, e) {
   const n = Kd(t);
   e(document), typeof ShadowRoot < "u" && n instanceof ShadowRoot && e(n);
 }
-const HC = {
+const ZC = {
   // [data-app] may not be found
   // if using bind, inserted makes
   // sure that the root element is
   // available, iOS does not support
   // clicks on body
   mounted(t, e) {
-    const n = (a) => jC(a, t, e), i = (a) => {
+    const n = (a) => HC(a, t, e), i = (a) => {
       t._clickOutside.lastMousedownWasOutside = Yh(a, t, e);
     };
     gu(t, (a) => {
@@ -5569,7 +5589,7 @@ const HC = {
     }), delete t._clickOutside[e.instance.$.uid]);
   }
 };
-function ZC(t) {
+function KC(t) {
   const {
     modelValue: e,
     color: n,
@@ -5607,18 +5627,18 @@ const Hh = W({
     type: [Number, String],
     default: 2e3
   },
-  ...GC(),
+  ...NC(),
   ...ue(),
   ...vi(),
   ...Ar(),
-  ...wC(),
-  ...LC(),
+  ...EC(),
+  ...VC(),
   ...ke(),
   ..._a()
 }, "VOverlay"), mu = K()({
   name: "VOverlay",
   directives: {
-    ClickOutside: HC
+    ClickOutside: ZC
   },
   inheritAttrs: !1,
   props: {
@@ -5643,7 +5663,7 @@ const Hh = W({
       }
     }), {
       teleportTarget: s
-    } = UC(x(() => t.attach || t.contained)), {
+    } = YC(x(() => t.attach || t.contained)), {
       themeClasses: l
     } = We(t), {
       rtlClasses: c,
@@ -5655,7 +5675,7 @@ const Hh = W({
       globalTop: g,
       localTop: m,
       stackStyles: C
-    } = XC(r, te(t, "zIndex"), t._disableGlobalStack), {
+    } = UC(r, te(t, "zIndex"), t._disableGlobalStack), {
       activatorEl: y,
       activatorRef: p,
       target: M,
@@ -5664,12 +5684,12 @@ const Hh = W({
       activatorEvents: T,
       contentEvents: _,
       scrimEvents: P
-    } = NC(t, {
+    } = WC(t, {
       isActive: r,
       isTop: m
     }), {
       dimensionStyles: w
-    } = Ci(t), I = $C(), {
+    } = Ci(t), I = XC(), {
       scopeId: z
     } = Rl();
     J(() => t.disabled, (X) => {
@@ -5678,13 +5698,13 @@ const Hh = W({
     const A = H(), R = H(), {
       contentStyles: V,
       updateLocation: N
-    } = EC(t, {
+    } = AC(t, {
       isRtl: u,
       contentEl: R,
       target: M,
       isActive: r
     });
-    VC(t, {
+    BC(t, {
       root: A,
       contentEl: R,
       targetEl: S,
@@ -5710,7 +5730,7 @@ const Hh = W({
     }
     const B = Ah();
     Ht(() => t.closeOnBack, () => {
-      iC(B, (X) => {
+      aC(B, (X) => {
         g.value && r.value ? (X(!1), t.persistent ? k() : r.value = !1) : X();
       });
     });
@@ -5730,7 +5750,7 @@ const Hh = W({
         transformOrigin: "center"
       }], {
         duration: 150,
-        easing: ar
+        easing: or
       });
     }
     function $() {
@@ -5758,7 +5778,7 @@ const Hh = W({
             top: re(D.value)
           }, t.style],
           ref: A
-        }, z, i), [v(ZC, le({
+        }, z, i), [v(KC, le({
           color: f,
           modelValue: !!t.scrim && r.value
         }, P.value), null), v(Gn, {
@@ -5861,7 +5881,7 @@ function xa(t) {
     }
   });
 }
-const KC = W({
+const qC = W({
   // TODO
   // disableKeys: Boolean,
   id: String,
@@ -5878,7 +5898,7 @@ const KC = W({
   }), ["absolute"])
 }, "VMenu"), Rr = K()({
   name: "VMenu",
-  props: KC(),
+  props: qC(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -5908,7 +5928,7 @@ const KC = W({
       await He(), i.value && C !== y && ((p = s.value) != null && p.contentEl) && // We're the topmost menu
       ((M = s.value) != null && M.globalTop) && // It isn't the document or the menu body
       ![document, s.value.contentEl].includes(y) && // It isn't inside the menu body
-      !s.value.contentEl.contains(y) && ((S = tr(s.value.contentEl)[0]) == null || S.focus());
+      !s.value.contentEl.contains(y) && ((S = nr(s.value.contentEl)[0]) == null || S.focus());
     }
     J(i, (m) => {
       m ? (l == null || l.register(), document.addEventListener("focusin", u, {
@@ -5920,13 +5940,13 @@ const KC = W({
     }
     function h(m) {
       var C, y, p;
-      t.disabled || m.key === "Tab" && (Yd(tr((C = s.value) == null ? void 0 : C.contentEl, !1), m.shiftKey ? "prev" : "next", (S) => S.tabIndex >= 0) || (i.value = !1, (p = (y = s.value) == null ? void 0 : y.activatorEl) == null || p.focus()));
+      t.disabled || m.key === "Tab" && (Yd(nr((C = s.value) == null ? void 0 : C.contentEl, !1), m.shiftKey ? "prev" : "next", (S) => S.tabIndex >= 0) || (i.value = !1, (p = (y = s.value) == null ? void 0 : y.activatorEl) == null || p.focus()));
     }
     function f(m) {
       var y;
       if (t.disabled) return;
       const C = (y = s.value) == null ? void 0 : y.contentEl;
-      C && i.value ? m.key === "ArrowDown" ? (m.preventDefault(), nr(C, "next")) : m.key === "ArrowUp" && (m.preventDefault(), nr(C, "prev")) : ["ArrowDown", "ArrowUp"].includes(m.key) && (i.value = !0, m.preventDefault(), setTimeout(() => setTimeout(() => f(m))));
+      C && i.value ? m.key === "ArrowDown" ? (m.preventDefault(), ir(C, "next")) : m.key === "ArrowUp" && (m.preventDefault(), ir(C, "prev")) : ["ArrowDown", "ArrowUp"].includes(m.key) && (i.value = !0, m.preventDefault(), setTimeout(() => setTimeout(() => f(m))));
     }
     const g = x(() => le({
       "aria-haspopup": "menu",
@@ -5968,7 +5988,7 @@ const KC = W({
       ΨopenChildren: c
     }, s);
   }
-}), qC = W({
+}), JC = W({
   active: Boolean,
   max: [Number, String],
   value: {
@@ -5984,7 +6004,7 @@ const KC = W({
 }, "VCounter"), Zh = K()({
   name: "VCounter",
   functional: !0,
-  props: qC(),
+  props: JC(),
   setup(t, e) {
     let {
       slots: n
@@ -6003,12 +6023,12 @@ const KC = W({
       }) : i.value]), [[gi, t.active]])]
     })), {};
   }
-}), JC = W({
+}), QC = W({
   floating: Boolean,
   ...ue()
-}, "VFieldLabel"), ko = K()({
+}, "VFieldLabel"), Oo = K()({
   name: "VFieldLabel",
-  props: JC(),
+  props: QC(),
   setup(t, e) {
     let {
       slots: n
@@ -6081,7 +6101,7 @@ function zr(t) {
     })
   };
 }
-const QC = W({
+const ey = W({
   absolute: Boolean,
   active: {
     type: Boolean,
@@ -6121,7 +6141,7 @@ const QC = W({
   ...ke()
 }, "VProgressLinear"), qh = K()({
   name: "VProgressLinear",
-  props: QC(),
+  props: ey(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -6254,7 +6274,7 @@ function Jh(t, e) {
     indeterminate: !0
   }, null)]);
 }
-const ey = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-filled", "plain"], Ll = W({
+const ty = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-filled", "plain"], Ll = W({
   appendInnerIcon: Te,
   bgColor: String,
   clearable: Boolean,
@@ -6284,7 +6304,7 @@ const ey = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
   variant: {
     type: String,
     default: "filled",
-    validator: (t) => ey.includes(t)
+    validator: (t) => ty.includes(t)
   },
   "onClick:clear": jt(),
   "onClick:appendInner": jt(),
@@ -6346,7 +6366,7 @@ const ey = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
             ...k
           }, {
             duration: L,
-            easing: ar,
+            easing: or,
             direction: R ? "normal" : "reverse"
           }).finished.then(() => {
             V.style.removeProperty("visibility"), N.style.removeProperty("visibility");
@@ -6411,7 +6431,7 @@ const ey = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
       }, null), (E = a["prepend-inner"]) == null ? void 0 : E.call(a, z.value)]), v("div", {
         class: "v-field__field",
         "data-no-activator": ""
-      }, [["filled", "solo", "solo-inverted", "solo-filled"].includes(t.variant) && m.value && v(ko, {
+      }, [["filled", "solo", "solo-inverted", "solo-filled"].includes(t.variant) && m.value && v(Oo, {
         key: "floating-label",
         ref: S,
         class: [w.value],
@@ -6420,7 +6440,7 @@ const ey = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
         style: I.value
       }, {
         default: () => [U()]
-      }), v(ko, {
+      }), v(Oo, {
         ref: M,
         for: y.value
       }, {
@@ -6458,7 +6478,7 @@ const ey = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
         class: "v-field__outline__start"
       }, null), m.value && v("div", {
         class: "v-field__outline__notch"
-      }, [v(ko, {
+      }, [v(Oo, {
         ref: S,
         floating: !0,
         for: y.value
@@ -6466,7 +6486,7 @@ const ey = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
         default: () => [U()]
       })]), v("div", {
         class: "v-field__outline__end"
-      }, null)]), T.value && m.value && v(ko, {
+      }, null)]), T.value && m.value && v(Oo, {
         ref: S,
         floating: !0,
         for: y.value
@@ -6482,7 +6502,7 @@ function Qh(t) {
   const e = Object.keys(Vl.props).filter((n) => !ml(n) && n !== "class" && n !== "style");
   return Nd(t, e);
 }
-const ty = ["color", "file", "time", "date", "datetime-local", "week", "month"], Bl = W({
+const ny = ["color", "file", "time", "date", "datetime-local", "week", "month"], Bl = W({
   autofocus: Boolean,
   counter: [Boolean, Number, String],
   counterValue: [Number, Function],
@@ -6531,7 +6551,7 @@ const ty = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       var P, w;
       !t.autofocus || !T || (w = (P = _[0].target) == null ? void 0 : P.focus) == null || w.call(P);
     }
-    const f = H(), g = H(), m = H(), C = x(() => ty.includes(t.type) || t.persistentPlaceholder || r.value || t.active);
+    const f = H(), g = H(), m = H(), C = x(() => ny.includes(t.type) || t.persistentPlaceholder || r.value || t.active);
     function y() {
       var T;
       m.value !== document.activeElement && ((T = m.value) == null || T.focus()), r.value || s();
@@ -6561,8 +6581,8 @@ const ty = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       const T = !!(a.counter || t.counter !== !1 && t.counter != null), _ = !!(T || a.details), [P, w] = vl(n), {
         modelValue: I,
         ...z
-      } = sr.filterProps(t), A = Qh(t);
-      return v(sr, le({
+      } = lr.filterProps(t), A = Qh(t);
+      return v(lr, le({
         ref: f,
         modelValue: o.value,
         "onUpdate:modelValue": (R) => o.value = R,
@@ -6655,13 +6675,13 @@ const ty = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       });
     }), xa({}, f, g, m);
   }
-}), ny = W({
+}), iy = W({
   renderless: Boolean,
   ...ue()
-}, "VVirtualScrollItem"), iy = K()({
+}, "VVirtualScrollItem"), ay = K()({
   name: "VVirtualScrollItem",
   inheritAttrs: !1,
-  props: ny(),
+  props: iy(),
   emits: {
     "update:height": (t) => !0
   },
@@ -6691,14 +6711,14 @@ const ty = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       }, n), [(l = a.default) == null ? void 0 : l.call(a)]);
     });
   }
-}), ay = -1, oy = 1, hs = 100, ry = W({
+}), oy = -1, ry = 1, hs = 100, sy = W({
   itemHeight: {
     type: [Number, String],
     default: null
   },
   height: [Number, String]
 }, "virtual");
-function sy(t, e) {
+function ly(t, e) {
   const n = Pr(), i = q(0);
   qt(() => {
     i.value = parseFloat(t.itemHeight || 0);
@@ -6732,7 +6752,7 @@ function sy(t, e) {
   function M(B) {
     return m[B] || i.value;
   }
-  const S = Hm(() => {
+  const S = Zm(() => {
     const B = performance.now();
     C[0] = 0;
     const D = e.value.length;
@@ -6759,7 +6779,7 @@ function sy(t, e) {
     return B = si(B, 0, e.value.length - 1), C[B] || 0;
   }
   function P(B) {
-    return ly(C, B);
+    return cy(C, B);
   }
   let w = 0, I = 0, z = 0;
   function A() {
@@ -6780,7 +6800,7 @@ function sy(t, e) {
     if (
       // Only update the side we're scrolling towards,
       // the other side will be updated incidentally
-      (D !== ay || $ < a.value) && (D !== oy || L > o.value)
+      (D !== oy || $ < a.value) && (D !== ry || L > o.value)
     ) {
       const ee = _(a.value) - _($), Q = _(L) - _(o.value);
       Math.max(ee, Q) > hs ? (a.value = $, o.value = L) : ($ <= 0 && (a.value = $), L >= e.value.length && (o.value = L));
@@ -6815,7 +6835,7 @@ function sy(t, e) {
     handleItemResize: T
   };
 }
-function ly(t, e) {
+function cy(t, e) {
   let n = t.length - 1, i = 0, a = 0, o = null, r = -1;
   if (t[n] < e)
     return n;
@@ -6827,18 +6847,18 @@ function ly(t, e) {
     else return o === e ? a : i;
   return r;
 }
-const cy = W({
+const uy = W({
   items: {
     type: Array,
     default: () => []
   },
   renderless: Boolean,
-  ...ry(),
+  ...sy(),
   ...ue(),
   ...vi()
 }, "VVirtualScroll"), ef = K()({
   name: "VVirtualScroll",
-  props: cy(),
+  props: uy(),
   setup(t, e) {
     let {
       slots: n
@@ -6855,7 +6875,7 @@ const cy = W({
       paddingTop: d,
       paddingBottom: h,
       computedItems: f
-    } = sy(t, te(t, "items"));
+    } = ly(t, te(t, "items"));
     return Ht(() => t.renderless, () => {
       function g() {
         var y, p;
@@ -6870,7 +6890,7 @@ const cy = W({
         o.value = Jd(i.vnode.el, !0), g(!0);
       }), wt(g);
     }), ie(() => {
-      const g = f.value.map((m) => v(iy, {
+      const g = f.value.map((m) => v(ay, {
         key: m.index,
         renderless: t.renderless,
         "onUpdate:height": (C) => c(m.index, C)
@@ -6999,7 +7019,7 @@ const nf = W({
   ...Dh({
     itemChildren: !1
   })
-}, "Select"), uy = W({
+}, "Select"), dy = W({
   ...nf(),
   ...Fi(Bl({
     modelValue: null,
@@ -7013,7 +7033,7 @@ const nf = W({
 }, "VSelect");
 K()({
   name: "VSelect",
-  props: uy(),
+  props: dy(),
   emits: {
     "update:focused": (t) => !0,
     "update:modelValue": (t) => !0,
@@ -7282,7 +7302,7 @@ K()({
     }, a);
   }
 });
-const dy = (t, e, n) => t == null || e == null ? -1 : t.toString().toLocaleLowerCase().indexOf(e.toString().toLocaleLowerCase()), hy = W({
+const hy = (t, e, n) => t == null || e == null ? -1 : t.toString().toLocaleLowerCase().indexOf(e.toString().toLocaleLowerCase()), fy = W({
   customFilter: Function,
   customKeyFilter: Object,
   filterKeys: [Array, String],
@@ -7292,9 +7312,9 @@ const dy = (t, e, n) => t == null || e == null ? -1 : t.toString().toLocaleLower
   },
   noFilter: Boolean
 }, "filter");
-function fy(t, e, n) {
+function gy(t, e, n) {
   var s;
-  const i = [], a = (n == null ? void 0 : n.default) ?? dy, o = n != null && n.filterKeys ? Gt(n.filterKeys) : !1, r = Object.keys((n == null ? void 0 : n.customKeyFilter) ?? {}).length;
+  const i = [], a = (n == null ? void 0 : n.default) ?? hy, o = n != null && n.filterKeys ? Gt(n.filterKeys) : !1, r = Object.keys((n == null ? void 0 : n.customKeyFilter) ?? {}).length;
   if (!(t != null && t.length)) return i;
   e: for (let l = 0; l < t.length; l++) {
     const [c, u = c] = Gt(t[l]), d = {}, h = {};
@@ -7324,10 +7344,10 @@ function fy(t, e, n) {
   }
   return i;
 }
-function gy(t, e, n, i) {
+function my(t, e, n, i) {
   const a = H([]), o = H(/* @__PURE__ */ new Map()), r = x(() => O(e));
   qt(() => {
-    const l = typeof n == "function" ? n() : O(n), c = typeof l != "string" && typeof l != "number" ? "" : String(l), u = fy(r.value, c, {
+    const l = typeof n == "function" ? n() : O(n), c = typeof l != "string" && typeof l != "number" ? "" : String(l), u = gy(r.value, c, {
       customKeyFilter: {
         ...t.customKeyFilter,
         ...O(i == null ? void 0 : i.customKeyFilter)
@@ -7355,7 +7375,7 @@ function gy(t, e, n, i) {
     getMatches: s
   };
 }
-function my(t, e, n) {
+function vy(t, e, n) {
   if (e == null) return t;
   if (Array.isArray(e)) throw new Error("Multiple matches is not implemented");
   return typeof e == "number" && ~e ? v(fe, null, [v("span", {
@@ -7366,13 +7386,13 @@ function my(t, e, n) {
     class: "v-autocomplete__unmask"
   }, [t.substr(e + n)])]) : t;
 }
-const vy = W({
+const Cy = W({
   autoSelectFirst: {
     type: [Boolean, String]
   },
   clearOnSelect: Boolean,
   search: String,
-  ...hy({
+  ...fy({
     filterKeys: ["title"]
   }),
   ...nf(),
@@ -7385,7 +7405,7 @@ const vy = W({
   })
 }, "VAutocomplete"), fs = K()({
   name: "VAutocomplete",
-  props: vy(),
+  props: Cy(),
   emits: {
     "update:focused": (t) => !0,
     "update:search": (t) => !0,
@@ -7420,7 +7440,7 @@ const vy = W({
     }), T = x(() => typeof t.counterValue == "function" ? t.counterValue(b.value) : typeof t.counterValue == "number" ? t.counterValue : b.value.length), _ = Tl(), {
       filteredItems: P,
       getMatches: w
-    } = gy(t, m, () => r.value ? "" : S.value), I = x(() => t.hideSelected ? P.value.filter((j) => !b.value.some((ce) => ce.value === j.value)) : P.value), z = x(() => b.value.map((j) => j.props.value)), A = x(() => {
+    } = my(t, m, () => r.value ? "" : S.value), I = x(() => t.hideSelected ? P.value.filter((j) => !b.value.some((ce) => ce.value === j.value)) : P.value), z = x(() => b.value.map((j) => j.props.value)), A = x(() => {
       var ce;
       return (t.autoSelectFirst === !0 || t.autoSelectFirst === "exact" && S.value === ((ce = I.value[0]) == null ? void 0 : ce.title)) && I.value.length > 0 && !r.value && !s.value;
     }), R = x(() => t.hideNoData && !I.value.length || t.readonly || (_ == null ? void 0 : _.isReadonly.value)), V = H(), {
@@ -7616,7 +7636,7 @@ const vy = W({
                     },
                     title: () => {
                       var En, Je;
-                      return r.value ? ze.title : my(ze.title, (En = w(ze)) == null ? void 0 : En.title, ((Je = S.value) == null ? void 0 : Je.length) ?? 0);
+                      return r.value ? ze.title : vy(ze.title, (En = w(ze)) == null ? void 0 : En.title, ((Je = S.value) == null ? void 0 : Je.length) ?? 0);
                     }
                   });
                 }
@@ -7678,7 +7698,7 @@ const vy = W({
             class: "v-autocomplete__menu-icon",
             icon: t.menuIcon,
             onMousedown: B,
-            onClick: qm,
+            onClick: Jm,
             "aria-label": i(g.value),
             title: i(g.value)
           }, null) : void 0]);
@@ -7693,7 +7713,7 @@ const vy = W({
       select: ae
     }, a);
   }
-}), Cy = W({
+}), yy = W({
   fluid: {
     type: Boolean,
     default: !1
@@ -7702,7 +7722,7 @@ const vy = W({
   ...Le()
 }, "VContainer"), Jt = K()({
   name: "VContainer",
-  props: Cy(),
+  props: yy(),
   setup(t, e) {
     let {
       slots: n
@@ -7721,13 +7741,13 @@ const vy = W({
   type: [Boolean, String, Number],
   default: !1
 }, t), {}), of = xr.reduce((t, e) => {
-  const n = "offset" + uo(e);
+  const n = "offset" + ho(e);
   return t[n] = {
     type: [String, Number],
     default: null
   }, t;
 }, {}), rf = xr.reduce((t, e) => {
-  const n = "order" + uo(e);
+  const n = "order" + ho(e);
   return t[n] = {
     type: [String, Number],
     default: null
@@ -7737,7 +7757,7 @@ const vy = W({
   offset: Object.keys(of),
   order: Object.keys(rf)
 };
-function yy(t, e, n) {
+function py(t, e, n) {
   let i = t;
   if (!(n == null || n === !1)) {
     if (e) {
@@ -7747,7 +7767,7 @@ function yy(t, e, n) {
     return t === "col" && (i = "v-" + i), t === "col" && (n === "" || n === !0) || (i += `-${n}`), i.toLowerCase();
   }
 }
-const py = ["auto", "start", "end", "center", "baseline", "stretch"], _y = W({
+const _y = ["auto", "start", "end", "center", "baseline", "stretch"], Sy = W({
   cols: {
     type: [Boolean, String, Number],
     default: !1
@@ -7766,13 +7786,13 @@ const py = ["auto", "start", "end", "center", "baseline", "stretch"], _y = W({
   alignSelf: {
     type: String,
     default: null,
-    validator: (t) => py.includes(t)
+    validator: (t) => _y.includes(t)
   },
   ...ue(),
   ...Le()
 }, "VCol"), Zt = K()({
   name: "VCol",
-  props: _y(),
+  props: Sy(),
   setup(t, e) {
     let {
       slots: n
@@ -7782,7 +7802,7 @@ const py = ["auto", "start", "end", "center", "baseline", "stretch"], _y = W({
       let o;
       for (o in Cu)
         Cu[o].forEach((s) => {
-          const l = t[s], c = yy(o, s, l);
+          const l = t[s], c = py(o, s, l);
           c && a.push(c);
         });
       const r = a.some((s) => s.startsWith("v-col-"));
@@ -7806,19 +7826,19 @@ const py = ["auto", "start", "end", "center", "baseline", "stretch"], _y = W({
 }), Fl = ["start", "end", "center"], sf = ["space-between", "space-around", "space-evenly"];
 function kl(t, e) {
   return xr.reduce((n, i) => {
-    const a = t + uo(i);
+    const a = t + ho(i);
     return n[a] = e(), n;
   }, {});
 }
-const Sy = [...Fl, "baseline", "stretch"], lf = (t) => Sy.includes(t), cf = kl("align", () => ({
+const by = [...Fl, "baseline", "stretch"], lf = (t) => by.includes(t), cf = kl("align", () => ({
   type: String,
   default: null,
   validator: lf
-})), by = [...Fl, ...sf], uf = (t) => by.includes(t), df = kl("justify", () => ({
+})), My = [...Fl, ...sf], uf = (t) => My.includes(t), df = kl("justify", () => ({
   type: String,
   default: null,
   validator: uf
-})), My = [...Fl, ...sf, "stretch"], hf = (t) => My.includes(t), ff = kl("alignContent", () => ({
+})), xy = [...Fl, ...sf, "stretch"], hf = (t) => xy.includes(t), ff = kl("alignContent", () => ({
   type: String,
   default: null,
   validator: hf
@@ -7826,13 +7846,13 @@ const Sy = [...Fl, "baseline", "stretch"], lf = (t) => Sy.includes(t), cf = kl("
   align: Object.keys(cf),
   justify: Object.keys(df),
   alignContent: Object.keys(ff)
-}, xy = {
+}, Py = {
   align: "align",
   justify: "justify",
   alignContent: "align-content"
 };
-function Py(t, e, n) {
-  let i = xy[t];
+function Ty(t, e, n) {
+  let i = Py[t];
   if (n != null) {
     if (e) {
       const a = e.replace(t, "");
@@ -7841,7 +7861,7 @@ function Py(t, e, n) {
     return i += `-${n}`, i.toLowerCase();
   }
 }
-const Ty = W({
+const wy = W({
   dense: Boolean,
   noGutters: Boolean,
   align: {
@@ -7866,7 +7886,7 @@ const Ty = W({
   ...Le()
 }, "VRow"), ua = K()({
   name: "VRow",
-  props: Ty(),
+  props: wy(),
   setup(t, e) {
     let {
       slots: n
@@ -7876,7 +7896,7 @@ const Ty = W({
       let o;
       for (o in yu)
         yu[o].forEach((r) => {
-          const s = t[r], l = Py(o, r, s);
+          const s = t[r], l = Ty(o, r, s);
           l && a.push(l);
         });
       return a.push({
@@ -7895,7 +7915,7 @@ const Ty = W({
       }, (a = n.default) == null ? void 0 : a.call(n));
     };
   }
-}), wy = {
+}), Ey = {
   __name: "Address",
   setup(t) {
     const e = _n(), { data: n } = Nt(e), i = n.value.store, a = i.addressMode, o = Fd(), r = H([]), s = H([]), l = H([]), c = (g = !1) => {
@@ -8012,7 +8032,7 @@ const Ty = W({
       }, null, 8, ["modelValue", "rules"])
     ]));
   }
-}, Ey = fo("popup", {
+}, Ay = go("popup", {
   state: () => ({
     message: "",
     type: ""
@@ -8067,13 +8087,13 @@ const Ty = W({
       style: t.style
     }, n));
   }
-}), mf = Symbol.for("vuetify:v-btn-toggle"), Ay = W({
+}), mf = Symbol.for("vuetify:v-btn-toggle"), Ry = W({
   ...gf(),
   ...Tr()
 }, "VBtnToggle");
 K()({
   name: "VBtnToggle",
-  props: Ay(),
+  props: Ry(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -8087,7 +8107,7 @@ K()({
       prev: o,
       select: r,
       selected: s
-    } = bo(t, mf);
+    } = Mo(t, mf);
     return ie(() => {
       const l = pu.filterProps(t);
       return v(pu, le({
@@ -8113,7 +8133,7 @@ K()({
     };
   }
 });
-const Ry = W({
+const Iy = W({
   bgColor: String,
   color: String,
   indeterminate: [Boolean, String],
@@ -8130,14 +8150,14 @@ const Ry = W({
     default: 4
   },
   ...ue(),
-  ...vo(),
+  ...Co(),
   ...Le({
     tag: "div"
   }),
   ...ke()
-}, "VProgressCircular"), Iy = K()({
+}, "VProgressCircular"), zy = K()({
   name: "VProgressCircular",
-  props: Ry(),
+  props: Iy(),
   setup(t, e) {
     let {
       slots: n
@@ -8147,7 +8167,7 @@ const Ry = W({
     } = We(t), {
       sizeClasses: s,
       sizeStyles: l
-    } = Co(t), {
+    } = yo(t), {
       textColorClasses: c,
       textColorStyles: u
     } = vn(te(t, "color")), {
@@ -8207,12 +8227,12 @@ const Ry = W({
       })])]
     })), {};
   }
-}), zy = ["static", "relative", "fixed", "absolute", "sticky"], Ol = W({
+}), Ly = ["static", "relative", "fixed", "absolute", "sticky"], Ol = W({
   position: {
     type: String,
     validator: (
       /* istanbul ignore next */
-      (t) => zy.includes(t)
+      (t) => Ly.includes(t)
     )
   }
 }, "position");
@@ -8222,7 +8242,7 @@ function Dl(t) {
     positionClasses: x(() => t.position ? `${e}--${t.position}` : void 0)
   };
 }
-function Ly(t, e) {
+function Vy(t, e) {
   J(() => {
     var n;
     return (n = t.isActive) == null ? void 0 : n.value;
@@ -8260,13 +8280,13 @@ const vf = W({
   ...xn(),
   ...vi(),
   ...an(),
-  ..._o(),
+  ...So(),
   ...Il(),
   ...Ir(),
   ...Ol(),
   ...Ct(),
   ...Er(),
-  ...vo(),
+  ...Co(),
   ...Le({
     tag: "button"
   }),
@@ -8296,7 +8316,7 @@ const vf = W({
       colorClasses: r,
       colorStyles: s,
       variantClasses: l
-    } = po(t), {
+    } = _o(t), {
       densityClasses: c
     } = Yn(t), {
       dimensionStyles: u
@@ -8313,7 +8333,7 @@ const vf = W({
     } = yt(t), {
       sizeClasses: C,
       sizeStyles: y
-    } = Co(t), p = So(t, t.symbol, !1), M = wr(t, n), S = x(() => {
+    } = yo(t), p = bo(t, t.symbol, !1), M = wr(t, n), S = x(() => {
       var w;
       return t.active !== void 0 ? t.active : M.isLink.value ? (w = M.isActive) == null ? void 0 : w.value : p == null ? void 0 : p.isSelected.value;
     }), b = x(() => (p == null ? void 0 : p.disabled.value) || t.disabled), T = x(() => t.variant === "elevated" && !(t.disabled || t.flat || t.border)), _ = x(() => {
@@ -8324,7 +8344,7 @@ const vf = W({
       var I;
       b.value || M.isLink.value && (w.metaKey || w.ctrlKey || w.shiftKey || w.button !== 0 || n.target === "_blank") || ((I = M.navigate) == null || I.call(M, w), p == null || p.toggle());
     }
-    return Ly(M, p == null ? void 0 : p.select), ie(() => {
+    return Vy(M, p == null ? void 0 : p.select), ie(() => {
       var V, N;
       const w = M.isLink.value ? "a" : t.tag, I = !!(t.prependIcon || i.prepend), z = !!(t.appendIcon || i.append), A = !!(t.icon && t.icon !== !0), R = (p == null ? void 0 : p.isSelected.value) && (!M.isLink.value || ((V = M.isActive) == null ? void 0 : V.value)) || !p || ((N = M.isActive) == null ? void 0 : N.value);
       return Ze(v(w, {
@@ -8348,7 +8368,7 @@ const vf = W({
       }, {
         default: () => {
           var G;
-          return [yo(!0, "v-btn"), !t.icon && I && v("span", {
+          return [po(!0, "v-btn"), !t.icon && I && v("span", {
             key: "prepend",
             class: "v-btn__prepend"
           }, [i.prepend ? v(Ye, {
@@ -8398,7 +8418,7 @@ const vf = W({
           }, null)]), !!t.loading && v("span", {
             key: "loader",
             class: "v-btn__loader"
-          }, [((G = i.loader) == null ? void 0 : G.call(i)) ?? v(Iy, {
+          }, [((G = i.loader) == null ? void 0 : G.call(i)) ?? v(zy, {
             color: typeof t.loading == "boolean" ? void 0 : t.loading,
             indeterminate: !0,
             size: "23",
@@ -8430,7 +8450,7 @@ const vf = W({
       }, [(i = n.default) == null ? void 0 : i.call(n)]);
     }), {};
   }
-}), yf = mo("v-card-subtitle"), Gl = mo("v-card-title"), Vy = W({
+}), yf = vo("v-card-subtitle"), Gl = vo("v-card-title"), By = W({
   appendAvatar: String,
   appendIcon: Te,
   prependAvatar: String,
@@ -8439,9 +8459,9 @@ const vf = W({
   title: [String, Number],
   ...ue(),
   ...xn()
-}, "VCardItem"), By = K()({
+}, "VCardItem"), Fy = K()({
   name: "VCardItem",
-  props: Vy(),
+  props: By(),
   setup(t, e) {
     let {
       slots: n
@@ -8519,7 +8539,7 @@ const vf = W({
       }, null)])])]);
     }), {};
   }
-}), Nl = mo("v-card-text"), Fy = W({
+}), Nl = vo("v-card-text"), ky = W({
   appendAvatar: String,
   appendIcon: Te,
   disabled: Boolean,
@@ -8554,12 +8574,12 @@ const vf = W({
   ...yi({
     variant: "elevated"
   })
-}, "VCard"), xo = K()({
+}, "VCard"), Po = K()({
   name: "VCard",
   directives: {
     Ripple: Sa
   },
-  props: Fy(),
+  props: ky(),
   setup(t, e) {
     let {
       attrs: n,
@@ -8573,7 +8593,7 @@ const vf = W({
       colorClasses: r,
       colorStyles: s,
       variantClasses: l
-    } = po(t), {
+    } = _o(t), {
       densityClasses: c
     } = Yn(t), {
       dimensionStyles: u
@@ -8626,7 +8646,7 @@ const vf = W({
             color: typeof t.loading == "boolean" ? void 0 : t.loading
           }, {
             default: i.loader
-          }), I && v(By, {
+          }), I && v(Fy, {
             key: "item",
             prependAvatar: t.prependAvatar,
             prependIcon: t.prependIcon,
@@ -8649,16 +8669,16 @@ const vf = W({
             }
           }), (A = i.default) == null ? void 0 : A.call(i), i.actions && v(Cf, null, {
             default: i.actions
-          }), yo(p.value, "v-card")];
+          }), po(p.value, "v-card")];
         }
       }), [[en("ripple"), p.value && t.ripple]]);
     }), {};
   }
-}), ky = { class: "font-weight-bold" }, Oy = { style: { "flex-grow": "1" } }, Dy = { style: { "font-size": "16px", "font-weight": "bold" } }, Gy = { style: { display: "flex", "align-items": "center" } }, Ny = { style: { "font-size": "15px", "font-weight": "bold" } }, Wy = {
+}), Oy = { class: "font-weight-bold" }, Dy = { style: { "flex-grow": "1" } }, Gy = { style: { "font-size": "16px", "font-weight": "bold" } }, Ny = { style: { display: "flex", "align-items": "center" } }, Wy = { style: { "font-size": "15px", "font-weight": "bold" } }, $y = {
   __name: "Cart",
   setup(t) {
-    const e = Ey(), n = kd(), i = H([]), a = H(!1), o = H(!1), r = ya(), s = _n(), { data: l } = Nt(s), c = l.value.store;
-    br.getRequestGenericBE("products", {}, function(_) {
+    const e = Ay(), n = kd(), i = H([]), a = H(!1), o = H(!1), r = ya(), s = _n(), { data: l } = Nt(s), c = l.value.store;
+    Ya.getRequestGenericBE("products", {}, function(_) {
       i.value = _;
     });
     const u = x(() => n.products.reduce((_, P) => _ + P.quantity, 0)), d = x(() => n.products.reduce((_, P) => {
@@ -8729,20 +8749,20 @@ const vf = W({
         }, 1040))
       ]),
       default: Y(() => [
-        v(xo, {
+        v(Po, {
           class: "mt-4",
           style: { width: "400px", "background-color": "#f5f5f5" }
         }, {
           default: Y(() => [
             v(Gl, null, {
               default: Y(() => [
-                de("span", ky, Ue(a.value ? "Indirizzo di Spedizione" : "Riepilogo Ordini"), 1)
+                de("span", Oy, Ue(a.value ? "Indirizzo di Spedizione" : "Riepilogo Ordini"), 1)
               ]),
               _: 1
             }),
             v(Nl, null, {
               default: Y(() => [
-                a.value ? (Z(), he(O(wy), { key: 0 })) : (Z(), he(Ma, { key: 1 }, {
+                a.value ? (Z(), he(O(Ey), { key: 0 })) : (Z(), he(Ma, { key: 1 }, {
                   default: Y(() => [
                     (Z(!0), Pe(fe, null, Pt(O(n).products, (w) => (Z(), he(yn, { class: "py-4" }, {
                       default: Y(() => [
@@ -8759,9 +8779,9 @@ const vf = W({
                                   width: "40",
                                   class: "mr-3"
                                 }, null, 8, ["src"]),
-                                de("div", Oy, [
-                                  de("p", Dy, Ue(y(w.product)), 1),
-                                  de("div", Gy, [
+                                de("div", Dy, [
+                                  de("p", Gy, Ue(y(w.product)), 1),
+                                  de("div", Ny, [
                                     P[4] || (P[4] = de("p", { class: "text-caption" }, "Quantità:", -1)),
                                     v(_t, {
                                       onClick: Ua((I) => b(w), ["stop"]),
@@ -8778,7 +8798,7 @@ const vf = W({
                                     }, null, 8, ["onClick"])
                                   ])
                                 ]),
-                                de("p", Ny, Ue(M(w.product) + " €"), 1)
+                                de("p", Wy, Ue(M(w.product) + " €"), 1)
                               ]),
                               _: 2
                             }, 1024)
@@ -8834,7 +8854,7 @@ const vf = W({
       _: 1
     }, 8, ["modelValue"]));
   }
-}, _u = /* @__PURE__ */ tn(Wy, [["__scopeId", "data-v-73ef1449"]]), jn = fo("language", {
+}, _u = /* @__PURE__ */ tn($y, [["__scopeId", "data-v-73ef1449"]]), jn = go("language", {
   state: () => ({
     locale: "it"
   }),
@@ -8852,7 +8872,7 @@ const vf = W({
   persist: {
     storage: localStorage
   }
-}), $y = ["src"], Xy = ["src"], Uy = ["src"], Yy = {
+}), Xy = ["src"], Uy = ["src"], Yy = ["src"], jy = {
   __name: "Language",
   setup(t) {
     const e = _n(), n = jn(), { data: i } = Nt(e), { locale: a } = Nt(n), o = i.value.info.locales, r = x(() => o.length === 2 ? o.find((u) => u !== a.value) : null), s = (u) => `https://flagcdn.com/w40/${u}.png`, l = () => {
@@ -8867,7 +8887,7 @@ const vf = W({
         class: "flag",
         onClick: l,
         style: { margin: "16px" }
-      }, null, 8, $y)) : be("", !0),
+      }, null, 8, Xy)) : be("", !0),
       O(o).length > 2 ? (Z(), he(Rr, { key: 1 }, {
         activator: Y(({ props: h }) => [
           de("div", le(h, { class: "flag-wrapper" }), [
@@ -8875,7 +8895,7 @@ const vf = W({
               src: s(O(a)),
               class: "flag",
               style: { width: "20px", height: "20px" }
-            }, null, 8, Xy),
+            }, null, 8, Uy),
             v(Ie, { class: "arrow" }, {
               default: Y(() => d[0] || (d[0] = [
                 ct("mdi-menu-down")
@@ -8900,7 +8920,7 @@ const vf = W({
                     src: s(h),
                     style: { width: "20px", height: "20px" },
                     class: "flag"
-                  }, null, 8, Uy)
+                  }, null, 8, Yy)
                 ]),
                 _: 2
               }, 1032, ["onClick"]))), 128))
@@ -8912,7 +8932,7 @@ const vf = W({
       })) : be("", !0)
     ], 64));
   }
-}, Su = /* @__PURE__ */ tn(Yy, [["__scopeId", "data-v-d1ce1a9a"]]), pf = W({
+}, Su = /* @__PURE__ */ tn(jy, [["__scopeId", "data-v-d1ce1a9a"]]), pf = W({
   text: String,
   ...ue(),
   ...Le()
@@ -8938,14 +8958,14 @@ const vf = W({
       });
     }), {};
   }
-}), jy = [null, "prominent", "default", "comfortable", "compact"], Sf = W({
+}), Hy = [null, "prominent", "default", "comfortable", "compact"], Sf = W({
   absolute: Boolean,
   collapse: Boolean,
   color: String,
   density: {
     type: String,
     default: "default",
-    validator: (t) => jy.includes(t)
+    validator: (t) => Hy.includes(t)
   },
   extended: Boolean,
   extensionHeight: {
@@ -9070,7 +9090,7 @@ const vf = W({
       extensionHeight: h
     };
   }
-}), cr = Symbol.for("vuetify:layout"), bf = Symbol.for("vuetify:layout-item"), Mu = 1e3, Hy = W({
+}), ur = Symbol.for("vuetify:layout"), bf = Symbol.for("vuetify:layout-item"), Mu = 1e3, Zy = W({
   overlaps: {
     type: Array,
     default: () => []
@@ -9086,8 +9106,8 @@ const vf = W({
   },
   absolute: Boolean
 }, "layout-item");
-function Zy() {
-  const t = Ne(cr);
+function Ky() {
+  const t = Ne(ur);
   if (!t) throw new Error("[Vuetify] Could not find injected layout");
   return {
     getLayoutItem: t.getLayoutItem,
@@ -9096,7 +9116,7 @@ function Zy() {
   };
 }
 function $l(t) {
-  const e = Ne(cr);
+  const e = Ne(ur);
   if (!e) throw new Error("[Vuetify] Could not find injected layout");
   const n = t.id ?? `layout-item-${Mn()}`, i = qe("useLayoutItem");
   at(bf, {
@@ -9118,7 +9138,7 @@ function $l(t) {
     layoutItemScrimStyles: r
   };
 }
-const Ky = (t, e, n, i) => {
+const qy = (t, e, n, i) => {
   let a = {
     top: 0,
     left: 0,
@@ -9145,8 +9165,8 @@ const Ky = (t, e, n, i) => {
   }
   return o;
 };
-function qy(t) {
-  const e = Ne(cr, null), n = x(() => e ? e.rootZIndex.value - 100 : Mu), i = H([]), a = Dn(/* @__PURE__ */ new Map()), o = Dn(/* @__PURE__ */ new Map()), r = Dn(/* @__PURE__ */ new Map()), s = Dn(/* @__PURE__ */ new Map()), l = Dn(/* @__PURE__ */ new Map()), {
+function Jy(t) {
+  const e = Ne(ur, null), n = x(() => e ? e.rootZIndex.value - 100 : Mu), i = H([]), a = Dn(/* @__PURE__ */ new Map()), o = Dn(/* @__PURE__ */ new Map()), r = Dn(/* @__PURE__ */ new Map()), s = Dn(/* @__PURE__ */ new Map()), l = Dn(/* @__PURE__ */ new Map()), {
     resizeRef: c,
     contentRect: u
   } = Vi(), d = x(() => {
@@ -9173,7 +9193,7 @@ function qy(t) {
       });
       _.push(...w);
     }
-    return Ky(_, a, o, s);
+    return qy(_, a, o, s);
   }), f = x(() => !Array.from(l.values()).some((T) => T.value)), g = x(() => h.value[h.value.length - 1].layer), m = x(() => ({
     "--v-layout-left": re(g.value.left),
     "--v-layout-right": re(g.value.right),
@@ -9198,7 +9218,7 @@ function qy(t) {
   })), y = (T) => C.value.find((_) => _.id === T), p = qe("createLayout"), M = q(!1);
   Ke(() => {
     M.value = !0;
-  }), at(cr, {
+  }), at(ur, {
     register: (T, _) => {
       let {
         id: P,
@@ -9271,7 +9291,7 @@ function qy(t) {
     layoutRef: c
   };
 }
-const Jy = W({
+const Qy = W({
   scrollTarget: {
     type: String
   },
@@ -9280,7 +9300,7 @@ const Jy = W({
     default: 300
   }
 }, "scroll");
-function Qy(t) {
+function ep(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
   const {
     canScroll: n
@@ -9326,7 +9346,7 @@ function Qy(t) {
     savedScroll: r
   };
 }
-const ep = W({
+const tp = W({
   scrollBehavior: String,
   modelValue: {
     type: Boolean,
@@ -9339,14 +9359,14 @@ const ep = W({
   },
   ...Sf(),
   ...Wl(),
-  ...Jy(),
+  ...Qy(),
   height: {
     type: [Number, String],
     default: 64
   }
 }, "VAppBar"), xu = K()({
   name: "VAppBar",
-  props: ep(),
+  props: tp(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -9376,7 +9396,7 @@ const ep = W({
       scrollThreshold: l,
       isScrollingUp: c,
       scrollRatio: u
-    } = Qy(t, {
+    } = ep(t, {
       canScroll: r
     }), d = x(() => t.collapse || o.value.collapse && (o.value.inverted ? u.value > 0 : u.value === 0)), h = x(() => t.flat || o.value.elevate && (o.value.inverted ? s.value > 0 : s.value === 0)), f = x(() => o.value.fadeImage ? o.value.inverted ? 1 - u.value : u.value : void 0), g = x(() => {
       var M, S;
@@ -9391,7 +9411,7 @@ const ep = W({
     });
     const {
       ssrBootStyles: m
-    } = Mo(), {
+    } = xo(), {
       layoutItemStyles: C
     } = $l({
       id: t.name,
@@ -9421,14 +9441,14 @@ const ep = W({
       }), n);
     }), {};
   }
-}), tp = W({
+}), np = W({
   ...vf({
     icon: "$menu",
     variant: "text"
   })
 }, "VAppBarNavIcon"), Pu = K()({
   name: "VAppBarNavIcon",
-  props: tp(),
+  props: np(),
   setup(t, e) {
     let {
       slots: n
@@ -9449,7 +9469,7 @@ const ep = W({
     }), n)), {};
   }
 });
-function np(t) {
+function ip(t) {
   let {
     rootEl: e,
     isSticky: n,
@@ -9488,7 +9508,7 @@ function np(t) {
     stickyStyles: r
   };
 }
-const ip = 100, ap = 20;
+const ap = 100, op = 20;
 function wu(t) {
   return (t < 0 ? -1 : 1) * Math.sqrt(Math.abs(t)) * 1.41421356237;
 }
@@ -9506,11 +9526,11 @@ function Eu(t) {
   }
   return wu(e) * 1e3;
 }
-function op() {
+function rp() {
   const t = {};
   function e(a) {
     Array.from(a.changedTouches).forEach((o) => {
-      (t[o.identifier] ?? (t[o.identifier] = new Km(ap))).push([a.timeStamp, o]);
+      (t[o.identifier] ?? (t[o.identifier] = new qm(op))).push([a.timeStamp, o]);
     });
   }
   function n(a) {
@@ -9525,7 +9545,7 @@ function op() {
       throw new Error(`No samples for touch id ${a}`);
     const r = o[0], s = [], l = [];
     for (const u of o) {
-      if (r[0] - u[0] > ip) break;
+      if (r[0] - u[0] > ap) break;
       s.push({
         t: u[0],
         d: u[1].clientX
@@ -9542,7 +9562,7 @@ function op() {
           x: u,
           y: d
         } = this, [h, f] = [Math.abs(u), Math.abs(d)];
-        return h > f && u >= 0 ? "right" : h > f && u <= 0 ? "left" : f > h && d >= 0 ? "down" : f > h && d <= 0 ? "up" : rp();
+        return h > f && u >= 0 ? "right" : h > f && u <= 0 ? "left" : f > h && d >= 0 ? "down" : f > h && d <= 0 ? "up" : sp();
       }
     };
   }
@@ -9552,10 +9572,10 @@ function op() {
     getVelocity: i
   };
 }
-function rp() {
+function sp() {
   throw new Error();
 }
-function sp(t) {
+function lp(t) {
   let {
     isActive: e,
     isTemporary: n,
@@ -9578,7 +9598,7 @@ function sp(t) {
     addMovement: s,
     endTouch: l,
     getVelocity: c
-  } = op();
+  } = rp();
   let u = !1;
   const d = q(!1), h = q(0), f = q(0);
   let g;
@@ -9634,7 +9654,7 @@ function sp(t) {
 function $i() {
   throw new Error();
 }
-const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
+const cp = ["start", "end", "left", "right", "top", "bottom"], up = W({
   color: String,
   disableResizeWatcher: Boolean,
   disableRouteWatcher: Boolean,
@@ -9667,7 +9687,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
   location: {
     type: String,
     default: "start",
-    validator: (t) => lp.includes(t)
+    validator: (t) => cp.includes(t)
   },
   sticky: Boolean,
   ...Pn(),
@@ -9680,9 +9700,9 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
     tag: "nav"
   }),
   ...ke()
-}, "VNavigationDrawer"), up = K()({
+}, "VNavigationDrawer"), dp = K()({
   name: "VNavigationDrawer",
-  props: cp(),
+  props: up(),
   emits: {
     "update:modelValue": (t) => !0,
     "update:rail": (t) => !0
@@ -9711,7 +9731,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
       roundedClasses: f
     } = yt(t), g = Ah(), m = Be(t, "modelValue", null, (D) => !!D), {
       ssrBootStyles: C
-    } = Mo(), {
+    } = xo(), {
       scopeId: y
     } = Rl(), p = H(), M = q(!1), S = x(() => t.rail && t.expandOnHover && M.value ? Number(t.width) : Number(t.rail ? t.railWidth : t.width)), b = x(() => Ls(t.location, o.value)), T = x(() => !t.permanent && (h.value || t.temporary)), _ = x(() => t.sticky && !T.value && b.value !== "bottom");
     Ht(() => t.expandOnHover && t.rail != null, () => {
@@ -9729,7 +9749,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
       isDragging: P,
       dragProgress: w,
       dragStyles: I
-    } = sp({
+    } = lp({
       isActive: m,
       isTemporary: T,
       width: S,
@@ -9756,7 +9776,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
     }), {
       isStuck: V,
       stickyStyles: N
-    } = np({
+    } = ip({
       rootEl: p,
       isSticky: _,
       layoutItemStyles: A
@@ -9826,13 +9846,13 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
       isStuck: V
     };
   }
-}), dp = ["onClick"], hp = { class: "d-flex align-center" }, fp = ["src"], gp = {
+}), hp = ["onClick"], fp = { class: "d-flex align-center" }, gp = ["src"], mp = {
   key: 1,
   style: { "margin-left": "10px" }
-}, mp = { class: "d-flex align-center" }, vp = ["src"], Cp = {
+}, vp = { class: "d-flex align-center" }, Cp = ["src"], yp = {
   key: 1,
   style: { "margin-left": "10px" }
-}, yp = { class: "desktop-menu d-flex justify-center align-center" }, pp = {
+}, pp = { class: "desktop-menu d-flex justify-center align-center" }, _p = {
   __name: "AppBar",
   setup(t) {
     const { getText: e, getAncor: n } = jn(), i = kd(), a = H(null), o = _n(), { data: r } = Nt(o), s = r.value.info, l = r.value.components, c = r.value.addOn, u = c && c.includes("Shop"), d = c && c.includes("Multilingual") && s.locales.length > 1, h = ya(), f = (C) => {
@@ -9860,7 +9880,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
       }))), s.menuHomeLink ? [{ title: "Home", path: "/", type: "internalLink" }, ...C] : C;
     }), m = x(() => i.products.reduce((C, y) => C + y.quantity, 0));
     return (C, y) => (Z(), Pe(fe, null, [
-      v(up, {
+      v(dp, {
         modelValue: a.value,
         "onUpdate:modelValue": y[0] || (y[0] = (p) => a.value = p),
         location: "bottom",
@@ -9876,7 +9896,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
                 default: Y(() => [
                   de("div", {
                     onClick: (M) => f(p)
-                  }, Ue(p.title), 9, dp)
+                  }, Ue(p.title), 9, hp)
                 ]),
                 _: 2
               }, 1024))), 128))
@@ -9897,14 +9917,14 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
           }),
           v(Tu, null, {
             default: Y(() => [
-              de("div", hp, [
+              de("div", fp, [
                 O(s).logo && (O(s).logoMode === "logo" || O(s).logoMode === "both") ? (Z(), Pe("img", {
                   key: 0,
                   src: O(s).logo,
                   alt: "Logo",
                   class: "app-logo"
-                }, null, 8, fp)) : be("", !0),
-                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", gp, Ue(O(s).name), 1)) : be("", !0)
+                }, null, 8, gp)) : be("", !0),
+                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", mp, Ue(O(s).name), 1)) : be("", !0)
               ])
             ]),
             _: 1
@@ -9926,19 +9946,19 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
           })) : be("", !0),
           v(Tu, null, {
             default: Y(() => [
-              de("div", mp, [
+              de("div", vp, [
                 O(s).logo && (O(s).logoMode === "logo" || O(s).logoMode === "both") ? (Z(), Pe("img", {
                   key: 0,
                   src: O(s).logo,
                   alt: "Logo",
                   class: "app-logo"
-                }, null, 8, vp)) : be("", !0),
-                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", Cp, Ue(O(s).name), 1)) : be("", !0)
+                }, null, 8, Cp)) : be("", !0),
+                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", yp, Ue(O(s).name), 1)) : be("", !0)
               ])
             ]),
             _: 1
           }),
-          de("div", yp, [
+          de("div", pp, [
             (Z(!0), Pe(fe, null, Pt(g.value, (p) => (Z(), he(_t, {
               key: p.path,
               variant: "text",
@@ -9957,7 +9977,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
       }, 8, ["color"]))
     ], 64));
   }
-}, Mf = /* @__PURE__ */ tn(pp, [["__scopeId", "data-v-f9d3029e"]]), _p = W({
+}, Mf = /* @__PURE__ */ tn(_p, [["__scopeId", "data-v-f9d3029e"]]), Sp = W({
   app: Boolean,
   color: String,
   height: {
@@ -9973,9 +9993,9 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
     tag: "footer"
   }),
   ...ke()
-}, "VFooter"), Sp = K()({
+}, "VFooter"), bp = K()({
   name: "VFooter",
-  props: _p(),
+  props: Sp(),
   setup(t, e) {
     let {
       slots: n
@@ -10014,15 +10034,15 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
       }, t.style]
     }, n)), {};
   }
-}), bp = { key: 0 }, Mp = {
+}), Mp = { key: 0 }, xp = {
   href: "https://fastsite.it",
   class: "fast-site-link",
   target: "_blank"
-}, xp = {
+}, Pp = {
   __name: "Footer",
   setup(t) {
     const e = _n(), { data: n } = Nt(e);
-    return (i, a) => (Z(), he(Sp, {
+    return (i, a) => (Z(), he(bp, {
       elevation: "2",
       color: O(n).info.primaryColor
     }, {
@@ -10035,7 +10055,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
                   default: Y(() => [
                     ct(Ue((/* @__PURE__ */ new Date()).getFullYear()) + " — ", 1),
                     de("strong", null, Ue(O(n).info.name), 1),
-                    O(n).info.iva ? (Z(), Pe("div", bp, "P. IVA " + Ue(O(n).info.iva), 1)) : be("", !0)
+                    O(n).info.iva ? (Z(), Pe("div", Mp, "P. IVA " + Ue(O(n).info.iva), 1)) : be("", !0)
                   ]),
                   _: 1
                 }),
@@ -10051,7 +10071,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
                     }, "Privacy Policy", -1)),
                     de("div", null, [
                       a[2] || (a[2] = ct(" Powered by ")),
-                      de("a", Mp, [
+                      de("a", xp, [
                         a[1] || (a[1] = ct(" Fast-Site ")),
                         v(Ie, { right: "" }, {
                           default: Y(() => a[0] || (a[0] = [
@@ -10074,7 +10094,7 @@ const lp = ["start", "end", "left", "right", "top", "bottom"], cp = W({
       _: 1
     }, 8, ["color"]));
   }
-}, xf = /* @__PURE__ */ tn(xp, [["__scopeId", "data-v-5d96d66f"]]);
+}, xf = /* @__PURE__ */ tn(Pp, [["__scopeId", "data-v-5d96d66f"]]);
 class Hn {
   /**
    * @param {string} type Type.
@@ -10123,7 +10143,7 @@ class Xl {
   disposeInternal() {
   }
 }
-function Pp(t, e, n) {
+function Tp(t, e, n) {
   let i, a;
   n = n || Wn;
   let o = 0, r = t.length, s = !1;
@@ -10170,7 +10190,7 @@ function Ul(t, e, n) {
   }
   return i - 1;
 }
-function Tp(t, e, n) {
+function wp(t, e, n) {
   for (; e < n; ) {
     const i = t[e];
     t[e] = t[n], t[n] = i, ++e, --n;
@@ -10190,7 +10210,7 @@ function pi(t, e) {
       return !1;
   return !0;
 }
-function wp(t, e, n) {
+function Ep(t, e, n) {
   const i = e || Wn;
   return t.every(function(a, o) {
     if (o === 0)
@@ -10199,7 +10219,7 @@ function wp(t, e, n) {
     return !(r > 0 || r === 0);
   });
 }
-function Ka() {
+function qa() {
   return !0;
 }
 function Lr() {
@@ -10214,7 +10234,7 @@ function Pf(t) {
     return (!e || this !== a || !pi(o, i)) && (e = !0, a = this, i = o, n = t.apply(this, arguments)), n;
   };
 }
-function Ep(t) {
+function Ap(t) {
   function e() {
     let n;
     try {
@@ -10226,7 +10246,7 @@ function Ep(t) {
   }
   return e();
 }
-function Po(t) {
+function To(t) {
   for (const e in t)
     delete t[e];
 }
@@ -10294,7 +10314,7 @@ class Vr extends Xl {
    * Clean up.
    */
   disposeInternal() {
-    this.listeners_ && Po(this.listeners_);
+    this.listeners_ && To(this.listeners_);
   }
   /**
    * Get the listeners for a specified event type. Listeners are returned in the
@@ -10364,13 +10384,13 @@ function xe(t, e, n, i, a) {
   };
   return t.addEventListener(e, n), o;
 }
-function ur(t, e, n, i) {
+function dr(t, e, n, i) {
   return xe(t, e, n, i, !0);
 }
 function Ve(t) {
-  t && t.target && (t.target.removeEventListener(t.type, t.listener), Po(t));
+  t && t.target && (t.target.removeEventListener(t.type, t.listener), To(t));
 }
-class To extends Vr {
+class wo extends Vr {
   constructor() {
     super(), this.on = /** @type {ObservableOnSignature<import("./events").EventsKey>} */
     this.onInternal, this.once = /** @type {ObservableOnSignature<import("./events").EventsKey>} */
@@ -10425,9 +10445,9 @@ class To extends Vr {
       const a = e.length;
       i = new Array(a);
       for (let o = 0; o < a; ++o)
-        i[o] = ur(this, e[o], n);
+        i[o] = dr(this, e[o], n);
     } else
-      i = ur(
+      i = dr(
         this,
         /** @type {string} */
         e,
@@ -10447,7 +10467,7 @@ class To extends Vr {
       n.ol_key
     );
     if (i)
-      Ap(i);
+      Rp(i);
     else if (Array.isArray(e))
       for (let a = 0, o = e.length; a < o; ++a)
         this.removeEventListener(e[a], n);
@@ -10455,10 +10475,10 @@ class To extends Vr {
       this.removeEventListener(e, n);
   }
 }
-To.prototype.on;
-To.prototype.once;
-To.prototype.un;
-function Ap(t) {
+wo.prototype.on;
+wo.prototype.once;
+wo.prototype.un;
+function Rp(t) {
   if (Array.isArray(t))
     for (let e = 0, n = t.length; e < n; ++e)
       Ve(t[e]);
@@ -10471,9 +10491,9 @@ function Ap(t) {
 function Me() {
   throw new Error("Unimplemented abstract method.");
 }
-let Rp = 0;
+let Ip = 0;
 function Ee(t) {
-  return t.ol_uid || (t.ol_uid = String(++Rp));
+  return t.ol_uid || (t.ol_uid = String(++Ip));
 }
 class Au extends Hn {
   /**
@@ -10485,7 +10505,7 @@ class Au extends Hn {
     super(e), this.key = n, this.oldValue = i;
   }
 }
-class wn extends To {
+class wn extends wo {
   /**
    * @param {Object<string, *>} [values] An object with key-value pairs.
    */
@@ -10617,7 +10637,7 @@ const St = {
 }, Ru = {
   LENGTH: "length"
 };
-class Oo extends Hn {
+class Do extends Hn {
   /**
    * @param {import("./CollectionEventType.js").default} type Type.
    * @param {T} element Element.
@@ -10709,7 +10729,7 @@ class hn extends wn {
     if (e < 0 || e > this.getLength())
       throw new Error("Index out of bounds: " + e);
     this.unique_ && this.assertUnique_(n), this.array_.splice(e, 0, n), this.updateLength_(), this.dispatchEvent(
-      new Oo(St.ADD, n, e)
+      new Do(St.ADD, n, e)
     );
   }
   /**
@@ -10757,7 +10777,7 @@ class hn extends wn {
     const n = this.array_[e];
     return this.array_.splice(e, 1), this.updateLength_(), this.dispatchEvent(
       /** @type {CollectionEvent<T>} */
-      new Oo(St.REMOVE, n, e)
+      new Do(St.REMOVE, n, e)
     ), n;
   }
   /**
@@ -10778,10 +10798,10 @@ class hn extends wn {
     const a = this.array_[e];
     this.array_[e] = n, this.dispatchEvent(
       /** @type {CollectionEvent<T>} */
-      new Oo(St.REMOVE, a, e)
+      new Do(St.REMOVE, a, e)
     ), this.dispatchEvent(
       /** @type {CollectionEvent<T>} */
-      new Oo(St.ADD, n, e)
+      new Do(St.ADD, n, e)
     );
   }
   /**
@@ -10820,7 +10840,7 @@ function Se(t, e) {
 function je(t, e, n) {
   return Math.min(Math.max(t, e), n);
 }
-function Ip(t, e, n, i, a, o) {
+function zp(t, e, n, i, a, o) {
   const r = a - n, s = o - i;
   if (r !== 0 || s !== 0) {
     const l = ((t - n) * r + (e - i) * s) / (r * r + s * s);
@@ -10832,7 +10852,7 @@ function oa(t, e, n, i) {
   const a = n - t, o = i - e;
   return a * a + o * o;
 }
-function zp(t) {
+function Lp(t) {
   const e = t.length;
   for (let i = 0; i < e; i++) {
     let a = i, o = Math.abs(t[i][i]);
@@ -10858,7 +10878,7 @@ function zp(t) {
   }
   return n;
 }
-function Jo(t) {
+function Qo(t) {
   return t * Math.PI / 180;
 }
 function ra(t, e) {
@@ -10872,10 +10892,10 @@ function jl(t, e) {
   const n = Math.pow(10, e);
   return Math.round(t * n) / n;
 }
-function Do(t, e) {
+function Go(t, e) {
   return Math.floor(jl(t, e));
 }
-function Go(t, e) {
+function No(t, e) {
   return Math.ceil(jl(t, e));
 }
 class Tf extends wn {
@@ -11182,7 +11202,7 @@ const Dt = {
   CENTER: "center",
   RESOLUTION: "resolution",
   ROTATION: "rotation"
-}, Lp = 42, Hl = 256, Zl = {
+}, Vp = 42, Hl = 256, Zl = {
   // use the radius of the Normal sphere
   radians: 6370997 / (2 * Math.PI),
   degrees: 2 * Math.PI * 6370997 / 360,
@@ -11323,7 +11343,7 @@ class wf {
     return this.getPointResolutionFunc_;
   }
 }
-const wo = 6378137, na = Math.PI * wo, Vp = [-na, -na, na, na], Bp = [-180, -85, 180, 85], No = wo * Math.log(Math.tan(Math.PI / 2));
+const Eo = 6378137, na = Math.PI * Eo, Bp = [-na, -na, na, na], Fp = [-180, -85, 180, 85], Wo = Eo * Math.log(Math.tan(Math.PI / 2));
 class Xi extends wf {
   /**
    * @param {string} code Code.
@@ -11332,11 +11352,11 @@ class Xi extends wf {
     super({
       code: e,
       units: "m",
-      extent: Vp,
+      extent: Bp,
       global: !0,
-      worldExtent: Bp,
+      worldExtent: Fp,
       getPointResolution: function(n, i) {
-        return n / Math.cosh(i[1] / wo);
+        return n / Math.cosh(i[1] / Eo);
       }
     });
   }
@@ -11349,24 +11369,24 @@ const Iu = [
   new Xi("http://www.opengis.net/def/crs/EPSG/0/3857"),
   new Xi("http://www.opengis.net/gml/srs/epsg.xml#3857")
 ];
-function Fp(t, e, n) {
+function kp(t, e, n) {
   const i = t.length;
   n = n > 1 ? n : 2, e === void 0 && (n > 2 ? e = t.slice() : e = new Array(i));
   for (let a = 0; a < i; a += n) {
     e[a] = na * t[a] / 180;
-    let o = wo * Math.log(Math.tan(Math.PI * (+t[a + 1] + 90) / 360));
-    o > No ? o = No : o < -No && (o = -No), e[a + 1] = o;
+    let o = Eo * Math.log(Math.tan(Math.PI * (+t[a + 1] + 90) / 360));
+    o > Wo ? o = Wo : o < -Wo && (o = -Wo), e[a + 1] = o;
   }
   return e;
 }
-function kp(t, e, n) {
+function Op(t, e, n) {
   const i = t.length;
   n = n > 1 ? n : 2, e === void 0 && (n > 2 ? e = t.slice() : e = new Array(i));
   for (let a = 0; a < i; a += n)
-    e[a] = 180 * t[a] / na, e[a + 1] = 360 * Math.atan(Math.exp(t[a + 1] / wo)) / Math.PI - 90;
+    e[a] = 180 * t[a] / na, e[a + 1] = 360 * Math.atan(Math.exp(t[a + 1] / Eo)) / Math.PI - 90;
   return e;
 }
-const Op = 6378137, zu = [-180, -90, 180, 90], Dp = Math.PI * Op / 180;
+const Dp = 6378137, zu = [-180, -90, 180, 90], Gp = Math.PI * Dp / 180;
 class Mi extends wf {
   /**
    * @param {string} code Code.
@@ -11379,7 +11399,7 @@ class Mi extends wf {
       extent: zu,
       axisOrientation: n,
       global: !0,
-      metersPerUnit: Dp,
+      metersPerUnit: Gp,
       worldExtent: zu
     });
   }
@@ -11394,18 +11414,18 @@ const Lu = [
   new Mi("http://www.opengis.net/def/crs/EPSG/0/4326", "neu")
 ];
 let $s = {};
-function Gp(t) {
+function Np(t) {
   return $s[t] || $s[t.replace(/urn:(x-)?ogc:def:crs:EPSG:(.*:)?(\w+)$/, "EPSG:$3")] || null;
 }
-function Np(t, e) {
+function Wp(t, e) {
   $s[t] = e;
 }
 let sa = {};
-function dr(t, e, n) {
+function hr(t, e, n) {
   const i = t.getCode(), a = e.getCode();
   i in sa || (sa[i] = {}), sa[i][a] = n;
 }
-function Wp(t, e) {
+function $p(t, e) {
   let n;
   return t in sa && e in sa[t] && (n = sa[t][e]), n;
 }
@@ -11469,10 +11489,10 @@ function ql(t, e, n, i, a) {
   const o = Br(a);
   return zf(o, t, e, n, i);
 }
-function qa(t, e) {
+function Ja(t, e) {
   return t[0] == e[0] && t[2] == e[2] && t[1] == e[1] && t[3] == e[3];
 }
-function $p(t, e) {
+function Xp(t, e) {
   return e[0] < t[0] && (t[0] = e[0]), e[2] > t[2] && (t[2] = e[2]), e[1] < t[1] && (t[1] = e[1]), e[3] > t[3] && (t[3] = e[3]), t;
 }
 function Wa(t, e) {
@@ -11480,10 +11500,10 @@ function Wa(t, e) {
 }
 function zf(t, e, n, i, a) {
   for (; n < i; n += a)
-    Xp(t, e[n], e[n + 1]);
+    Up(t, e[n], e[n + 1]);
   return t;
 }
-function Xp(t, e, n) {
+function Up(t, e, n) {
   t[0] = Math.min(t[0], e), t[1] = Math.min(t[1], n), t[2] = Math.max(t[2], e), t[3] = Math.max(t[3], n);
 }
 function Lf(t, e) {
@@ -11503,7 +11523,7 @@ function kr(t) {
 function Bi(t) {
   return [(t[0] + t[2]) / 2, (t[1] + t[3]) / 2];
 }
-function Up(t, e) {
+function Yp(t, e) {
   let n;
   if (e === "bottom-left")
     n = Fr(t);
@@ -11569,10 +11589,10 @@ function Mt(t, e) {
 function Dr(t) {
   return t[2] < t[0] || t[3] < t[1];
 }
-function Yp(t, e) {
+function jp(t, e) {
   return e ? (e[0] = t[0], e[1] = t[1], e[2] = t[2], e[3] = t[3], e) : t;
 }
-function jp(t, e, n) {
+function Hp(t, e, n) {
   let i = !1;
   const a = Xs(t, e), o = Xs(t, n);
   if (a === Qe.INTERSECTING || o === Qe.INTERSECTING)
@@ -11594,7 +11614,7 @@ function Vf(t, e) {
   }
   return t;
 }
-function Hp(t, e) {
+function Zp(t, e) {
   if (e.canWrapX()) {
     const n = e.getExtent();
     if (!isFinite(t[0]) || !isFinite(t[2]))
@@ -11616,10 +11636,10 @@ function Hp(t, e) {
   }
   return [t];
 }
-function Zp(t, e) {
+function Kp(t, e) {
   return t[0] += +e[0], t[1] += +e[1], t;
 }
-function hr(t, e) {
+function fr(t, e) {
   let n = !0;
   for (let i = t.length - 1; i >= 0; --i)
     if (t[i] != e[i]) {
@@ -11632,27 +11652,27 @@ function Jl(t, e) {
   const n = Math.cos(e), i = Math.sin(e), a = t[0] * n - t[1] * i, o = t[1] * n + t[0] * i;
   return t[0] = a, t[1] = o, t;
 }
-function Kp(t, e) {
+function qp(t, e) {
   return t[0] *= e, t[1] *= e, t;
 }
 function Bf(t, e) {
   if (e.canWrapX()) {
-    const n = Re(e.getExtent()), i = qp(t, e, n);
+    const n = Re(e.getExtent()), i = Jp(t, e, n);
     i && (t[0] -= i * n);
   }
   return t;
 }
-function qp(t, e, n) {
+function Jp(t, e, n) {
   const i = e.getExtent();
   let a = 0;
   return e.canWrapX() && (t[0] < i[0] || t[0] > i[2]) && (n = n || Re(i), a = Math.floor(
     (t[0] - i[0]) / n
   )), a;
 }
-const Jp = 63710088e-1;
+const Qp = 63710088e-1;
 function Bu(t, e, n) {
-  n = n || Jp;
-  const i = Jo(t[1]), a = Jo(e[1]), o = (a - i) / 2, r = Jo(e[0] - t[0]) / 2, s = Math.sin(o) * Math.sin(o) + Math.sin(r) * Math.sin(r) * Math.cos(i) * Math.cos(a);
+  n = n || Qp;
+  const i = Qo(t[1]), a = Qo(e[1]), o = (a - i) / 2, r = Qo(e[0] - t[0]) / 2, s = Math.sin(o) * Math.sin(o) + Math.sin(r) * Math.sin(r) * Math.cos(i) * Math.cos(a);
   return 2 * n * Math.atan2(Math.sqrt(s), Math.sqrt(1 - s));
 }
 function Ff(...t) {
@@ -11679,14 +11699,14 @@ function Of(t, e) {
   }
   return t;
 }
-function Qp(t) {
-  Np(t.getCode(), t), dr(t, t, Ql);
-}
 function e_(t) {
-  t.forEach(Qp);
+  Wp(t.getCode(), t), hr(t, t, Ql);
+}
+function t_(t) {
+  t.forEach(e_);
 }
 function $t(t) {
-  return typeof t == "string" ? Gp(
+  return typeof t == "string" ? Np(
     /** @type {string} */
     t
   ) : (
@@ -11733,16 +11753,16 @@ function Fu(t, e, n, i) {
   return a;
 }
 function ku(t) {
-  e_(t), t.forEach(function(e) {
+  t_(t), t.forEach(function(e) {
     t.forEach(function(n) {
-      e !== n && dr(e, n, Ql);
+      e !== n && hr(e, n, Ql);
     });
   });
 }
-function t_(t, e, n, i) {
+function n_(t, e, n, i) {
   t.forEach(function(a) {
     e.forEach(function(o) {
-      dr(a, o, n), dr(o, a, i);
+      hr(a, o, n), hr(o, a, i);
     });
   });
 }
@@ -11767,21 +11787,21 @@ function Zi(t, e) {
 }
 function tc(t, e) {
   const n = t.getCode(), i = e.getCode();
-  let a = Wp(n, i);
+  let a = $p(n, i);
   return a || (a = Of), a;
 }
-function fr(t, e) {
+function gr(t, e) {
   const n = $t(t), i = $t(e);
   return tc(n, i);
 }
 function Df(t, e, n) {
-  return fr(e, n)(t, void 0, t.length);
+  return gr(e, n)(t, void 0, t.length);
 }
 function Zs(t, e) {
   return t;
 }
 function Fn(t, e) {
-  return Hs && !hr(t, [0, 0]) && t[0] >= -180 && t[0] <= 180 && t[1] >= -90 && t[1] <= 90 && (Hs = !1, Ff(
+  return Hs && !fr(t, [0, 0]) && t[0] >= -180 && t[0] <= 180 && t[1] >= -90 && t[1] <= 90 && (Hs = !1, Ff(
     "Call useGeographic() from ol/proj once to work with [longitude, latitude] coordinates."
   )), t;
 }
@@ -11791,15 +11811,15 @@ function Gf(t, e) {
 function Ti(t, e) {
   return t;
 }
-function n_() {
-  ku(Iu), ku(Lu), t_(
+function i_() {
+  ku(Iu), ku(Lu), n_(
     Lu,
     Iu,
-    Fp,
-    kp
+    kp,
+    Op
   );
 }
-n_();
+i_();
 function Du(t, e, n) {
   return (
     /**
@@ -11827,7 +11847,7 @@ function Du(t, e, n) {
     }
   );
 }
-function i_(t) {
+function a_(t) {
   return t;
 }
 function nc(t, e, n, i) {
@@ -11839,7 +11859,7 @@ function ic(t, e, n) {
   const a = 50;
   return i *= Math.log(1 + a * Math.max(0, t / e - 1)) / a + 1, n && (i = Math.max(i, n), i /= Math.log(1 + a * Math.max(0, n / t - 1)) / a + 1), je(i, n / 2, e * 2);
 }
-function a_(t, e, n, i) {
+function o_(t, e, n, i) {
   return e = e !== void 0 ? e : !0, /**
    * @param {number|undefined} resolution Resolution.
    * @param {number} direction Direction.
@@ -11866,7 +11886,7 @@ function a_(t, e, n, i) {
     }
   };
 }
-function o_(t, e, n, i, a, o) {
+function r_(t, e, n, i, a, o) {
   return i = i !== void 0 ? i : !0, n = n !== void 0 ? n : 0, /**
    * @param {number|undefined} resolution Resolution.
    * @param {number} direction Direction.
@@ -11929,7 +11949,7 @@ function Nu(t) {
   if (t !== void 0)
     return t;
 }
-function r_(t) {
+function s_(t) {
   const e = 2 * Math.PI / t;
   return (
     /**
@@ -11945,8 +11965,8 @@ function r_(t) {
     }
   );
 }
-function s_(t) {
-  const e = Jo(5);
+function l_(t) {
+  const e = Qo(5);
   return (
     /**
      * @param {number|undefined} rotation Rotation.
@@ -11964,17 +11984,17 @@ function Nf(t) {
 function Pa(t) {
   return 1 - Nf(1 - t);
 }
-function l_(t) {
+function c_(t) {
   return 3 * t * t - 2 * t * t * t;
 }
-function c_(t) {
+function u_(t) {
   return t;
 }
 new Array(6);
 function Kt() {
   return [1, 0, 0, 1, 0, 0];
 }
-function u_(t, e) {
+function d_(t, e) {
   return t[0] = e[0], t[1] = e[1], t[2] = e[2], t[3] = e[3], t[4] = e[4], t[5] = e[5], t;
 }
 function et(t, e) {
@@ -11986,12 +12006,12 @@ function pn(t, e, n, i, a, o, r, s) {
   return t[0] = i * c, t[1] = a * l, t[2] = -i * l, t[3] = a * c, t[4] = r * i * c - s * i * l + e, t[5] = r * a * l + s * a * c + n, t;
 }
 function oc(t, e) {
-  const n = d_(e);
+  const n = h_(e);
   Se(n !== 0, "Transformation matrix cannot be inverted");
   const i = e[0], a = e[1], o = e[2], r = e[3], s = e[4], l = e[5];
   return t[0] = r / n, t[1] = -a / n, t[2] = -o / n, t[3] = i / n, t[4] = (o * l - r * s) / n, t[5] = -(i * l - a * s) / n, t;
 }
-function d_(t) {
+function h_(t) {
   return t[0] * t[3] - t[1] * t[2];
 }
 const Wu = [1e6, 1e6, 1e6, 1e6, 2, 2];
@@ -12021,7 +12041,7 @@ function $f(t, e, n, i, a, o, r) {
   }
   return r && r.length != d && (r.length = d), r;
 }
-function h_(t, e, n, i, a, o, r, s) {
+function f_(t, e, n, i, a, o, r, s) {
   s = s || [];
   const l = r[0], c = r[1];
   let u = 0;
@@ -12033,7 +12053,7 @@ function h_(t, e, n, i, a, o, r, s) {
   }
   return s && s.length != u && (s.length = u), s;
 }
-function f_(t, e, n, i, a, o, r) {
+function g_(t, e, n, i, a, o, r) {
   r = r || [];
   let s = 0;
   for (let l = e; l < n; l += i) {
@@ -12044,7 +12064,7 @@ function f_(t, e, n, i, a, o, r) {
   return r && r.length != s && (r.length = s), r;
 }
 const $u = Kt();
-class g_ extends wn {
+class m_ extends wn {
   constructor() {
     super(), this.extent_ = Wt(), this.extentRevision_ = -1, this.simplifiedGeometryMaxMinSquaredTolerance = 0, this.simplifiedGeometryRevision = 0, this.simplifyTransformedInternal = Pf(
       (e, n, i) => {
@@ -12138,7 +12158,7 @@ class g_ extends wn {
       const n = this.computeExtent(this.extent_);
       (isNaN(n[0]) || isNaN(n[1])) && Br(n), this.extentRevision_ = this.getRevision();
     }
-    return Yp(this.extent_, e);
+    return jp(this.extent_, e);
   }
   /**
    * Rotate the geometry around a given coordinate. This modifies the geometry
@@ -12261,16 +12281,16 @@ class g_ extends wn {
         s,
         $u,
         r
-      ), fr(i, n)(
+      ), gr(i, n)(
         o,
         r,
         s
       );
-    } : fr(i, n);
+    } : gr(i, n);
     return this.applyTransform(a), this;
   }
 }
-class rc extends g_ {
+class rc extends m_ {
   constructor() {
     super(), this.layout = "XY", this.stride = 2, this.flatCoordinates;
   }
@@ -12386,7 +12406,7 @@ class rc extends g_ {
         n = /** @type {Array<unknown>} */
         n[0];
       }
-      a = n.length, e = m_(a);
+      a = n.length, e = v_(a);
     }
     this.layout = e, this.stride = a;
   }
@@ -12438,7 +12458,7 @@ class rc extends g_ {
     const a = this.getFlatCoordinates();
     if (a) {
       const o = this.getStride();
-      h_(
+      f_(
         a,
         0,
         a.length,
@@ -12461,7 +12481,7 @@ class rc extends g_ {
     const i = this.getFlatCoordinates();
     if (i) {
       const a = this.getStride();
-      f_(
+      g_(
         i,
         0,
         i.length,
@@ -12473,7 +12493,7 @@ class rc extends g_ {
     }
   }
 }
-function m_(t) {
+function v_(t) {
   let e;
   return t == 2 ? e = "XY" : t == 3 ? e = "XYZ" : t == 4 && (e = "XYZM"), /** @type {import("./Geometry.js").GeometryLayout} */
   e;
@@ -12483,7 +12503,7 @@ function Xu(t) {
   return t == "XY" ? e = 2 : t == "XYZ" || t == "XYM" ? e = 3 : t == "XYZM" && (e = 4), /** @type {number} */
   e;
 }
-function v_(t, e, n) {
+function C_(t, e, n) {
   const i = t.getFlatCoordinates();
   if (!i)
     return null;
@@ -12530,7 +12550,7 @@ function Xf(t, e, n, i, a) {
   }
   return a;
 }
-function C_(t, e, n, i, a) {
+function y_(t, e, n, i, a) {
   for (let o = 0, r = n.length; o < r; ++o) {
     const s = n[o];
     a = Xf(t, e, s, i, a), e = s;
@@ -12589,7 +12609,7 @@ function Uf(t, e, n, i, a, o, r, s, l, c, u) {
   }
   return c;
 }
-function y_(t, e, n, i, a, o, r, s, l, c, u) {
+function p_(t, e, n, i, a, o, r, s, l, c, u) {
   u = u || [NaN, NaN];
   for (let d = 0, h = n.length; d < h; ++d) {
     const f = n[d];
@@ -12609,7 +12629,7 @@ function y_(t, e, n, i, a, o, r, s, l, c, u) {
   }
   return c;
 }
-function p_(t, e, n, i) {
+function __(t, e, n, i) {
   for (let a = 0, o = n.length; a < o; ++a)
     t[e++] = n[a];
   return e;
@@ -12622,7 +12642,7 @@ function Yf(t, e, n, i) {
   }
   return e;
 }
-function __(t, e, n, i, a) {
+function S_(t, e, n, i, a) {
   a = a || [];
   let o = 0;
   for (let r = 0, s = n.length; r < s; ++r) {
@@ -12652,7 +12672,7 @@ function sc(t, e, n, i, a, o, r) {
     let f = 0;
     const g = t[h], m = t[h + 1], C = t[d], y = t[d + 1];
     for (let p = h + i; p < d; p += i) {
-      const M = t[p], S = t[p + 1], b = Ip(M, S, g, m, C, y);
+      const M = t[p], S = t[p + 1], b = zp(M, S, g, m, C, y);
       b > f && (u = p, f = b);
     }
     f > a && (l[(u - e) / i] = 1, h + i < u && c.push(h, u), u + i < d && c.push(u, d));
@@ -12661,7 +12681,7 @@ function sc(t, e, n, i, a, o, r) {
     l[d] && (o[r++] = t[e + d * i], o[r++] = t[e + d * i + 1]);
   return r;
 }
-function S_(t, e, n, i, a, o, r, s) {
+function b_(t, e, n, i, a, o, r, s) {
   for (let l = 0, c = n.length; l < c; ++l) {
     const u = n[l];
     r = sc(
@@ -12679,7 +12699,7 @@ function S_(t, e, n, i, a, o, r, s) {
 function Pi(t, e) {
   return e * Math.round(t / e);
 }
-function b_(t, e, n, i, a, o, r) {
+function M_(t, e, n, i, a, o, r) {
   if (e == n)
     return r;
   let s = Pi(t[e], a), l = Pi(t[e + 1], a);
@@ -12705,7 +12725,7 @@ function b_(t, e, n, i, a, o, r) {
 function jf(t, e, n, i, a, o, r, s) {
   for (let l = 0, c = n.length; l < c; ++l) {
     const u = n[l];
-    r = b_(
+    r = M_(
       t,
       e,
       u,
@@ -12724,7 +12744,7 @@ function aa(t, e, n, i, a) {
     a[o++] = t.slice(r, r + i);
   return a.length = o, a;
 }
-function gr(t, e, n, i, a) {
+function mr(t, e, n, i, a) {
   a = a !== void 0 ? a : [];
   let o = 0;
   for (let r = 0, s = n.length; r < s; ++r) {
@@ -12744,7 +12764,7 @@ function Yu(t, e, n, i, a) {
   let o = 0;
   for (let r = 0, s = n.length; r < s; ++r) {
     const l = n[r];
-    a[o++] = l.length === 1 && l[0] === e ? [] : gr(
+    a[o++] = l.length === 1 && l[0] === e ? [] : mr(
       t,
       e,
       l,
@@ -12762,7 +12782,7 @@ function Hf(t, e, n, i) {
   }
   return a / 2;
 }
-function M_(t, e, n, i) {
+function x_(t, e, n, i) {
   let a = 0;
   for (let o = 0, r = n.length; o < r; ++o) {
     const s = n[o];
@@ -12770,7 +12790,7 @@ function M_(t, e, n, i) {
   }
   return a;
 }
-class Ja extends rc {
+class Qa extends rc {
   /**
    * @param {Array<import("../coordinate.js").Coordinate>|Array<number>} coordinates Coordinates.
    *     For internal use, flat coordinates in combination with `layout` are also accepted.
@@ -12793,7 +12813,7 @@ class Ja extends rc {
    * @api
    */
   clone() {
-    return new Ja(this.flatCoordinates.slice(), this.layout);
+    return new Qa(this.flatCoordinates.slice(), this.layout);
   }
   /**
    * @param {number} x X.
@@ -12865,7 +12885,7 @@ class Ja extends rc {
       e,
       n,
       0
-    ), new Ja(n, "XY");
+    ), new Qa(n, "XY");
   }
   /**
    * Get the type of this geometry.
@@ -12977,7 +12997,7 @@ class Gr extends rc {
    * @api
    */
   setCoordinates(e, n) {
-    this.setLayout(n, e, 0), this.flatCoordinates || (this.flatCoordinates = []), this.flatCoordinates.length = p_(
+    this.setLayout(n, e, 0), this.flatCoordinates || (this.flatCoordinates = []), this.flatCoordinates.length = __(
       this.flatCoordinates,
       0,
       e,
@@ -12985,7 +13005,7 @@ class Gr extends rc {
     ), this.changed();
   }
 }
-function x_(t, e, n, i, a) {
+function P_(t, e, n, i, a) {
   return !Lf(
     a,
     /**
@@ -13036,7 +13056,7 @@ function lc(t, e, n, i, a, o, r) {
   }
   return isNaN(C) && (C = a[o]), r ? (r.push(C, g, y), r) : [C, g, y];
 }
-function P_(t, e, n, i, a) {
+function T_(t, e, n, i, a) {
   let o = [];
   for (let r = 0, s = n.length; r < s; ++r) {
     const l = n[r];
@@ -13052,7 +13072,7 @@ function P_(t, e, n, i, a) {
   }
   return o;
 }
-function T_(t, e, n, i, a) {
+function w_(t, e, n, i, a) {
   let o;
   for (e += i; e < n; e += i)
     if (o = a(
@@ -13070,7 +13090,7 @@ function Kf(t, e, n, i, a) {
     n,
     i
   );
-  return Mt(a, o) ? ia(a, o) || o[0] >= a[0] && o[2] <= a[2] || o[1] >= a[1] && o[3] <= a[3] ? !0 : T_(
+  return Mt(a, o) ? ia(a, o) || o[0] >= a[0] && o[2] <= a[2] || o[1] >= a[1] && o[3] <= a[3] ? !0 : w_(
     t,
     e,
     n,
@@ -13082,7 +13102,7 @@ function Kf(t, e, n, i, a) {
      *     `false` otherwise.
      */
     function(r, s) {
-      return jp(a, r, s);
+      return Hp(a, r, s);
     }
   ) : !1;
 }
@@ -13117,13 +13137,13 @@ function qf(t, e, n, i, a) {
     a[3]
   ));
 }
-function w_(t, e, n, i, a) {
+function E_(t, e, n, i, a) {
   if (!qf(t, e, n[0], i, a))
     return !1;
   if (n.length === 1)
     return !0;
   for (let o = 1, r = n.length; o < r; ++o)
-    if (x_(
+    if (P_(
       t,
       n[o - 1],
       n[o],
@@ -13139,7 +13159,7 @@ function w_(t, e, n, i, a) {
       return !1;
   return !0;
 }
-function E_(t, e, n, i) {
+function A_(t, e, n, i) {
   for (; e < n - i; ) {
     for (let a = 0; a < i; ++a) {
       const o = t[e + a];
@@ -13156,7 +13176,7 @@ function cc(t, e, n, i) {
   }
   return a === 0 ? void 0 : a > 0;
 }
-function A_(t, e, n, i, a) {
+function R_(t, e, n, i, a) {
   a = a !== void 0 ? a : !1;
   for (let o = 0, r = n.length; o < r; ++o) {
     const s = n[o], l = cc(
@@ -13183,11 +13203,11 @@ function ju(t, e, n, i, a) {
       s,
       i
     );
-    (o === 0 ? a && l || !a && !l : a && !l || !a && l) && E_(t, e, s, i), e = s;
+    (o === 0 ? a && l || !a && !l : a && !l || !a && l) && A_(t, e, s, i), e = s;
   }
   return e;
 }
-function R_(t, e) {
+function I_(t, e) {
   const n = [];
   let i = 0, a = 0, o;
   for (let r = 0, s = e.length; r < s; ++r) {
@@ -13203,7 +13223,7 @@ function R_(t, e) {
   }
   return n;
 }
-class Qa extends rc {
+class eo extends rc {
   /**
    * @param {!Array<Array<import("../coordinate.js").Coordinate>>|!Array<number>} coordinates
    *     Array of linear rings that define the polygon. The first linear ring of the
@@ -13240,7 +13260,7 @@ class Qa extends rc {
    * @api
    */
   clone() {
-    const e = new Qa(
+    const e = new eo(
       this.flatCoordinates.slice(),
       this.layout,
       this.ends_.slice()
@@ -13256,14 +13276,14 @@ class Qa extends rc {
    */
   closestPointXY(e, n, i, a) {
     return a < Af(this.getExtent(), e, n) ? a : (this.maxDeltaRevision_ != this.getRevision() && (this.maxDelta_ = Math.sqrt(
-      C_(
+      y_(
         this.flatCoordinates,
         0,
         this.ends_,
         this.stride,
         0
       )
-    ), this.maxDeltaRevision_ = this.getRevision()), y_(
+    ), this.maxDeltaRevision_ = this.getRevision()), p_(
       this.flatCoordinates,
       0,
       this.ends_,
@@ -13297,7 +13317,7 @@ class Qa extends rc {
    * @api
    */
   getArea() {
-    return M_(
+    return x_(
       this.getOrientedFlatCoordinates(),
       0,
       this.ends_,
@@ -13319,7 +13339,7 @@ class Qa extends rc {
    */
   getCoordinates(e) {
     let n;
-    return e !== void 0 ? (n = this.getOrientedFlatCoordinates().slice(), ju(n, 0, this.ends_, this.stride, e)) : n = this.flatCoordinates, gr(n, 0, this.ends_, this.stride);
+    return e !== void 0 ? (n = this.getOrientedFlatCoordinates().slice(), ju(n, 0, this.ends_, this.stride, e)) : n = this.flatCoordinates, mr(n, 0, this.ends_, this.stride);
   }
   /**
    * @return {Array<number>} Ends.
@@ -13377,7 +13397,7 @@ class Qa extends rc {
    * @api
    */
   getLinearRing(e) {
-    return e < 0 || this.ends_.length <= e ? null : new Ja(
+    return e < 0 || this.ends_.length <= e ? null : new Qa(
       this.flatCoordinates.slice(
         e === 0 ? 0 : this.ends_[e - 1],
         this.ends_[e]
@@ -13394,7 +13414,7 @@ class Qa extends rc {
     const e = this.layout, n = this.flatCoordinates, i = this.ends_, a = [];
     let o = 0;
     for (let r = 0, s = i.length; r < s; ++r) {
-      const l = i[r], c = new Ja(
+      const l = i[r], c = new Qa(
         n.slice(o, l),
         e
       );
@@ -13408,7 +13428,7 @@ class Qa extends rc {
   getOrientedFlatCoordinates() {
     if (this.orientedRevision_ != this.getRevision()) {
       const e = this.flatCoordinates;
-      A_(e, 0, this.ends_, this.stride) ? this.orientedFlatCoordinates_ = e : (this.orientedFlatCoordinates_ = e.slice(), this.orientedFlatCoordinates_.length = ju(
+      R_(e, 0, this.ends_, this.stride) ? this.orientedFlatCoordinates_ = e : (this.orientedFlatCoordinates_ = e.slice(), this.orientedFlatCoordinates_.length = ju(
         this.orientedFlatCoordinates_,
         0,
         this.ends_,
@@ -13436,7 +13456,7 @@ class Qa extends rc {
       n,
       0,
       i
-    ), new Qa(n, "XY", i);
+    ), new eo(n, "XY", i);
   }
   /**
    * Get the type of this geometry.
@@ -13453,7 +13473,7 @@ class Qa extends rc {
    * @api
    */
   intersectsExtent(e) {
-    return w_(
+    return E_(
       this.getOrientedFlatCoordinates(),
       0,
       this.ends_,
@@ -13469,7 +13489,7 @@ class Qa extends rc {
    */
   setCoordinates(e, n) {
     this.setLayout(n, e, 2), this.flatCoordinates || (this.flatCoordinates = []);
-    const i = __(
+    const i = S_(
       this.flatCoordinates,
       0,
       e,
@@ -13494,7 +13514,7 @@ function Hu(t) {
     e,
     n
   ];
-  return new Qa(o, "XY", [o.length]);
+  return new eo(o, "XY", [o.length]);
 }
 const gs = 0;
 class un extends wn {
@@ -13513,9 +13533,9 @@ class un extends wn {
     for (const s in Yt)
       delete n[s];
     this.setProperties(n, !0);
-    const i = z_(e);
+    const i = L_(e);
     this.maxResolution_ = i.maxResolution, this.minResolution_ = i.minResolution, this.zoomFactor_ = i.zoomFactor, this.resolutions_ = e.resolutions, this.padding_ = e.padding, this.minZoom_ = i.minZoom;
-    const a = I_(e), o = i.constraint, r = L_(e);
+    const a = z_(e), o = i.constraint, r = V_(e);
     this.constraints_ = {
       center: a,
       resolution: o,
@@ -13619,7 +13639,7 @@ class un extends wn {
       u.center && this.setCenterInternal(u.center), u.zoom !== void 0 ? this.setZoom(u.zoom) : u.resolution && this.setResolution(u.resolution), u.rotation !== void 0 && this.setRotation(u.rotation);
     }
     if (a === n) {
-      i && Wo(i, !0);
+      i && $o(i, !0);
       return;
     }
     let o = Date.now(), r = this.targetCenter_.slice(), s = this.targetResolution_, l = this.targetRotation_;
@@ -13633,7 +13653,7 @@ class un extends wn {
         complete: !1,
         anchor: u.anchor,
         duration: u.duration !== void 0 ? u.duration : 1e3,
-        easing: u.easing || l_,
+        easing: u.easing || c_,
         callback: i
       };
       if (u.center && (d.sourceCenter = r, d.targetCenter = u.center.slice(), r = d.targetCenter), u.zoom !== void 0 ? (d.sourceResolution = s, d.targetResolution = this.getResolutionForZoom(u.zoom), s = d.targetResolution) : u.resolution && (d.sourceResolution = s, d.targetResolution = u.resolution, s = d.targetResolution), u.rotation !== void 0) {
@@ -13641,7 +13661,7 @@ class un extends wn {
         const h = ra(u.rotation - l + Math.PI, 2 * Math.PI) - Math.PI;
         d.targetRotation = l + h, l = d.targetRotation;
       }
-      V_(d) ? d.complete = !0 : o += d.duration, c.push(d);
+      B_(d) ? d.complete = !0 : o += d.duration, c.push(d);
     }
     this.animations_.push(c), this.setHint(lt.ANIMATING, 1), this.updateAnimations_();
   }
@@ -13670,7 +13690,7 @@ class un extends wn {
     let e;
     for (let n = 0, i = this.animations_.length; n < i; ++n) {
       const a = this.animations_[n];
-      if (a[0].callback && Wo(a[0].callback, !1), !e)
+      if (a[0].callback && $o(a[0].callback, !1), !e)
         for (let o = 0, r = a.length; o < r; ++o) {
           const s = a[o];
           if (!s.complete) {
@@ -13742,7 +13762,7 @@ class un extends wn {
       if (o) {
         this.animations_[i] = null, this.setHint(lt.ANIMATING, -1), this.nextCenter_ = null, this.nextResolution_ = NaN, this.nextRotation_ = NaN;
         const r = a[0].callback;
-        r && Wo(r, !0);
+        r && $o(r, !0);
       }
     }
     this.animations_ = this.animations_.filter(Boolean), n && this.updateAnimationKey_ === void 0 && (this.updateAnimationKey_ = requestAnimationFrame(
@@ -13757,7 +13777,7 @@ class un extends wn {
   calculateCenterRotate(e, n) {
     let i;
     const a = this.getCenterInternal();
-    return a !== void 0 && (i = [a[0] - n[0], a[1] - n[1]], Jl(i, e - this.getRotation()), Zp(i, n)), i;
+    return a !== void 0 && (i = [a[0] - n[0], a[1] - n[1]], Jl(i, e - this.getRotation()), Kp(i, n)), i;
   }
   /**
    * @param {number} resolution Target resolution.
@@ -14217,7 +14237,7 @@ class un extends wn {
         easing: n.easing
       },
       C
-    ) : (this.targetResolution_ = l, this.targetCenter_ = m, this.applyTargetState_(!1, !0), Wo(C, !0));
+    ) : (this.targetResolution_ = l, this.targetCenter_ = m, this.applyTargetState_(!1, !0), $o(C, !0));
   }
   /**
    * Center on coordinate and view position.
@@ -14441,7 +14461,7 @@ class un extends wn {
         o
       )
     );
-    this.get(Yt.ROTATION) !== a && this.set(Yt.ROTATION, a), this.get(Yt.RESOLUTION) !== r && (this.set(Yt.RESOLUTION, r), this.set("zoom", this.getZoom(), !0)), (!s || !this.get(Yt.CENTER) || !hr(this.get(Yt.CENTER), s)) && this.set(Yt.CENTER, s), this.getAnimating() && !e && this.cancelAnimations(), this.cancelAnchor_ = void 0;
+    this.get(Yt.ROTATION) !== a && this.set(Yt.ROTATION, a), this.get(Yt.RESOLUTION) !== r && (this.set(Yt.RESOLUTION, r), this.set("zoom", this.getZoom(), !0)), (!s || !this.get(Yt.CENTER) || !fr(this.get(Yt.CENTER), s)) && this.set(Yt.CENTER, s), this.getAnimating() && !e && this.cancelAnimations(), this.cancelAnchor_ = void 0;
   }
   /**
    * If any constraints need to be applied, an animation will be triggered.
@@ -14474,7 +14494,7 @@ class un extends wn {
       this.targetResolution_ = s, this.targetRotation_ = o, this.targetCenter_ = l, this.applyTargetState_();
       return;
     }
-    i = i || (e === 0 ? this.cancelAnchor_ : void 0), this.cancelAnchor_ = void 0, (this.getResolution() !== s || this.getRotation() !== o || !this.getCenterInternal() || !hr(this.getCenterInternal(), l)) && (this.getAnimating() && this.cancelAnimations(), this.animateInternal({
+    i = i || (e === 0 ? this.cancelAnchor_ : void 0), this.cancelAnchor_ = void 0, (this.getResolution() !== s || this.getRotation() !== o || !this.getCenterInternal() || !fr(this.getCenterInternal(), l)) && (this.getAnimating() && this.cancelAnimations(), this.animateInternal({
       rotation: o,
       center: l,
       resolution: s,
@@ -14558,12 +14578,12 @@ class un extends wn {
     return this.constraints_.resolution(e, n, i);
   }
 }
-function Wo(t, e) {
+function $o(t, e) {
   setTimeout(function() {
     t(e);
   }, 0);
 }
-function I_(t) {
+function z_(t) {
   if (t.extent !== void 0) {
     const n = t.smoothExtentConstraint !== void 0 ? t.smoothExtentConstraint : !0;
     return Du(t.extent, t.constrainOnlyCenter, n);
@@ -14573,15 +14593,15 @@ function I_(t) {
     const n = e.getExtent().slice();
     return n[0] = -1 / 0, n[2] = 1 / 0, Du(n, !1, !1);
   }
-  return i_;
+  return a_;
 }
-function z_(t) {
+function L_(t) {
   let e, n, i, r = t.minZoom !== void 0 ? t.minZoom : gs, s = t.maxZoom !== void 0 ? t.maxZoom : 28;
   const l = t.zoomFactor !== void 0 ? t.zoomFactor : 2, c = t.multiWorld !== void 0 ? t.multiWorld : !1, u = t.smoothResolutionConstraint !== void 0 ? t.smoothResolutionConstraint : !0, d = t.showFullExtent !== void 0 ? t.showFullExtent : !1, h = ec(t.projection, "EPSG:3857"), f = h.getExtent();
   let g = t.constrainOnlyCenter, m = t.extent;
   if (!c && !m && h.isGlobal() && (g = !1, m = f), t.resolutions !== void 0) {
     const C = t.resolutions;
-    n = C[r], i = C[s] !== void 0 ? C[s] : C[C.length - 1], t.constrainResolution ? e = a_(
+    n = C[r], i = C[s] !== void 0 ? C[s] : C[C.length - 1], t.constrainResolution ? e = o_(
       C,
       u,
       !g && m,
@@ -14600,7 +14620,7 @@ function z_(t) {
     )) / Hl / Math.pow(2, gs), p = y / Math.pow(2, 28 - gs);
     n = t.maxResolution, n !== void 0 ? r = 0 : n = y / Math.pow(l, r), i = t.minResolution, i === void 0 && (t.maxZoom !== void 0 ? t.maxResolution !== void 0 ? i = n / Math.pow(l, s) : i = y / Math.pow(l, s) : i = p), s = r + Math.floor(
       Math.log(n / i) / Math.log(l)
-    ), i = n / Math.pow(l, s - r), t.constrainResolution ? e = o_(
+    ), i = n / Math.pow(l, s - r), t.constrainResolution ? e = r_(
       l,
       n,
       i,
@@ -14623,15 +14643,15 @@ function z_(t) {
     zoomFactor: l
   };
 }
-function L_(t) {
+function V_(t) {
   if (t.enableRotation !== void 0 ? t.enableRotation : !0) {
     const n = t.constrainRotation;
-    return n === void 0 || n === !0 ? s_() : n === !1 ? Nu : typeof n == "number" ? r_(n) : Nu;
+    return n === void 0 || n === !0 ? l_() : n === !1 ? Nu : typeof n == "number" ? s_(n) : Nu;
   }
   return ac;
 }
-function V_(t) {
-  return !(t.sourceCenter && t.targetCenter && !hr(t.sourceCenter, t.targetCenter) || t.sourceResolution !== t.targetResolution || t.sourceRotation !== t.targetRotation);
+function B_(t) {
+  return !(t.sourceCenter && t.targetCenter && !fr(t.sourceCenter, t.targetCenter) || t.sourceResolution !== t.targetResolution || t.sourceRotation !== t.targetRotation);
 }
 function ms(t, e, n, i, a) {
   const o = Math.cos(-a);
@@ -14894,8 +14914,8 @@ function uc(t, e) {
   const i = e.zoom;
   return i > t.minZoom && i <= t.maxZoom;
 }
-function B_(t, e, n, i, a) {
-  Jf(t, e, n || 0, i || t.length - 1, a || F_);
+function F_(t, e, n, i, a) {
+  Jf(t, e, n || 0, i || t.length - 1, a || k_);
 }
 function Jf(t, e, n, i, a) {
   for (; i > n; ) {
@@ -14915,7 +14935,7 @@ function La(t, e, n) {
   var i = t[e];
   t[e] = t[n], t[n] = i;
 }
-function F_(t, e) {
+function k_(t, e) {
   return t < e ? -1 : t > e ? 1 : 0;
 }
 let Qf = class {
@@ -14928,12 +14948,12 @@ let Qf = class {
   search(e) {
     let n = this.data;
     const i = [];
-    if (!Xo(e, n)) return i;
+    if (!Uo(e, n)) return i;
     const a = this.toBBox, o = [];
     for (; n; ) {
       for (let r = 0; r < n.children.length; r++) {
         const s = n.children[r], l = n.leaf ? a(s) : s;
-        Xo(e, l) && (n.leaf ? i.push(s) : Cs(e, l) ? this._all(s, i) : o.push(s));
+        Uo(e, l) && (n.leaf ? i.push(s) : Cs(e, l) ? this._all(s, i) : o.push(s));
       }
       n = o.pop();
     }
@@ -14941,12 +14961,12 @@ let Qf = class {
   }
   collides(e) {
     let n = this.data;
-    if (!Xo(e, n)) return !1;
+    if (!Uo(e, n)) return !1;
     const i = [];
     for (; n; ) {
       for (let a = 0; a < n.children.length; a++) {
         const o = n.children[a], r = n.leaf ? this.toBBox(o) : o;
-        if (Xo(e, r)) {
+        if (Uo(e, r)) {
           if (n.leaf || Cs(e, r)) return !0;
           i.push(o);
         }
@@ -14989,7 +15009,7 @@ let Qf = class {
     let s, l, c;
     for (; i || o.length; ) {
       if (i || (i = o.pop(), l = o[o.length - 1], s = r.pop(), c = !0), i.leaf) {
-        const u = k_(e, i.children, n);
+        const u = O_(e, i.children, n);
         if (u !== -1)
           return i.children.splice(u, 1), o.push(i), this._condense(o), this;
       }
@@ -15040,7 +15060,7 @@ let Qf = class {
     for (; a.push(n), !(n.leaf || a.length - 1 === i); ) {
       let o = 1 / 0, r = 1 / 0, s;
       for (let l = 0; l < n.children.length; l++) {
-        const c = n.children[l], u = vs(c), d = G_(e, c) - u;
+        const c = n.children[l], u = vs(c), d = N_(e, c) - u;
         d < r ? (r = d, o = u < o ? u : o, s = c) : d === r && u < o && (o = u, s = c);
       }
       n = s || n.children[0];
@@ -15066,28 +15086,28 @@ let Qf = class {
   _chooseSplitIndex(e, n, i) {
     let a, o = 1 / 0, r = 1 / 0;
     for (let s = n; s <= i - n; s++) {
-      const l = Oa(e, 0, s, this.toBBox), c = Oa(e, s, i, this.toBBox), u = N_(l, c), d = vs(l) + vs(c);
+      const l = Oa(e, 0, s, this.toBBox), c = Oa(e, s, i, this.toBBox), u = W_(l, c), d = vs(l) + vs(c);
       u < o ? (o = u, a = s, r = d < r ? d : r) : u === o && d < r && (r = d, a = s);
     }
     return a || i - n;
   }
   // sorts node children by the best axis for split
   _chooseSplitAxis(e, n, i) {
-    const a = e.leaf ? this.compareMinX : O_, o = e.leaf ? this.compareMinY : D_, r = this._allDistMargin(e, n, i, a), s = this._allDistMargin(e, n, i, o);
+    const a = e.leaf ? this.compareMinX : D_, o = e.leaf ? this.compareMinY : G_, r = this._allDistMargin(e, n, i, a), s = this._allDistMargin(e, n, i, o);
     r < s && e.children.sort(a);
   }
   // total margin of all possible split distributions where each node is at least m full
   _allDistMargin(e, n, i, a) {
     e.children.sort(a);
     const o = this.toBBox, r = Oa(e, 0, n, o), s = Oa(e, i - n, i, o);
-    let l = $o(r) + $o(s);
+    let l = Xo(r) + Xo(s);
     for (let c = n; c < i - n; c++) {
       const u = e.children[c];
-      Da(r, e.leaf ? o(u) : u), l += $o(r);
+      Da(r, e.leaf ? o(u) : u), l += Xo(r);
     }
     for (let c = i - n - 1; c >= n; c--) {
       const u = e.children[c];
-      Da(s, e.leaf ? o(u) : u), l += $o(s);
+      Da(s, e.leaf ? o(u) : u), l += Xo(s);
     }
     return l;
   }
@@ -15100,7 +15120,7 @@ let Qf = class {
       e[n].children.length === 0 ? n > 0 ? (i = e[n - 1].children, i.splice(i.indexOf(e[n]), 1)) : this.clear() : Ui(e[n], this.toBBox);
   }
 };
-function k_(t, e, n) {
+function O_(t, e, n) {
   if (!n) return e.indexOf(t);
   for (let i = 0; i < e.length; i++)
     if (n(t, e[i])) return i;
@@ -15120,29 +15140,29 @@ function Oa(t, e, n, i, a) {
 function Da(t, e) {
   return t.minX = Math.min(t.minX, e.minX), t.minY = Math.min(t.minY, e.minY), t.maxX = Math.max(t.maxX, e.maxX), t.maxY = Math.max(t.maxY, e.maxY), t;
 }
-function O_(t, e) {
+function D_(t, e) {
   return t.minX - e.minX;
 }
-function D_(t, e) {
+function G_(t, e) {
   return t.minY - e.minY;
 }
 function vs(t) {
   return (t.maxX - t.minX) * (t.maxY - t.minY);
 }
-function $o(t) {
+function Xo(t) {
   return t.maxX - t.minX + (t.maxY - t.minY);
 }
-function G_(t, e) {
+function N_(t, e) {
   return (Math.max(e.maxX, t.maxX) - Math.min(e.minX, t.minX)) * (Math.max(e.maxY, t.maxY) - Math.min(e.minY, t.minY));
 }
-function N_(t, e) {
+function W_(t, e) {
   const n = Math.max(t.minX, e.minX), i = Math.max(t.minY, e.minY), a = Math.min(t.maxX, e.maxX), o = Math.min(t.maxY, e.maxY);
   return Math.max(0, a - n) * Math.max(0, o - i);
 }
 function Cs(t, e) {
   return t.minX <= e.minX && t.minY <= e.minY && e.maxX <= t.maxX && e.maxY <= t.maxY;
 }
-function Xo(t, e) {
+function Uo(t, e) {
   return e.minX <= t.maxX && e.minY <= t.maxY && e.maxX >= t.minX && e.maxY >= t.minY;
 }
 function Ki(t) {
@@ -15161,7 +15181,7 @@ function Zu(t, e, n, i, a) {
   for (; o.length; ) {
     if (n = o.pop(), e = o.pop(), n - e <= i) continue;
     const r = e + Math.ceil((n - e) / i / 2) * i;
-    B_(t, r, e, n, a), o.push(e, r, r, n);
+    F_(t, r, e, n, a), o.push(e, r, r, n);
   }
 }
 const Ce = {
@@ -15173,7 +15193,7 @@ const Ce = {
 function Ku(t) {
   return t[0] > 0 && t[1] > 0;
 }
-function W_(t, e, n) {
+function $_(t, e, n) {
   return n === void 0 && (n = [0, 0]), n[0] = t[0] * e + 0.5 | 0, n[1] = t[1] * e + 0.5 | 0, n;
 }
 function Rt(t, e) {
@@ -15393,7 +15413,7 @@ class Wr {
     return Promise.resolve();
   }
 }
-const eo = {
+const to = {
   name: "rgb",
   min: [0, 0, 0],
   max: [255, 255, 255],
@@ -15456,7 +15476,7 @@ nt.rgb = function(t, e) {
   var n = t[0] / e[0], i = t[1] / e[1], a = t[2] / e[2], o, r, s;
   return o = n * 3.240969941904521 + i * -1.537383177570093 + a * -0.498610760293, r = n * -0.96924363628087 + i * 1.87596750150772 + a * 0.041555057407175, s = n * 0.055630079696993 + i * -0.20397695888897 + a * 1.056971514242878, o = o > 31308e-7 ? 1.055 * Math.pow(o, 1 / 2.4) - 0.055 : o = o * 12.92, r = r > 31308e-7 ? 1.055 * Math.pow(r, 1 / 2.4) - 0.055 : r = r * 12.92, s = s > 31308e-7 ? 1.055 * Math.pow(s, 1 / 2.4) - 0.055 : s = s * 12.92, o = Math.min(Math.max(0, o), 1), r = Math.min(Math.max(0, r), 1), s = Math.min(Math.max(0, s), 1), [o * 255, r * 255, s * 255];
 };
-eo.xyz = function(t, e) {
+to.xyz = function(t, e) {
   var n = t[0] / 255, i = t[1] / 255, a = t[2] / 255;
   n = n > 0.04045 ? Math.pow((n + 0.055) / 1.055, 2.4) : n / 12.92, i = i > 0.04045 ? Math.pow((i + 0.055) / 1.055, 2.4) : i / 12.92, a = a > 0.04045 ? Math.pow((a + 0.055) / 1.055, 2.4) : a / 12.92;
   var o = n * 0.41239079926595 + i * 0.35758433938387 + a * 0.18048078840183, r = n * 0.21263900587151 + i * 0.71516867876775 + a * 0.072192315360733, s = n * 0.019330818715591 + i * 0.11919477979462 + a * 0.95053215224966;
@@ -15664,7 +15684,7 @@ var Ju = {
   blue: 240,
   purple: 300
 };
-function $_(t) {
+function X_(t) {
   var u, d;
   var e, n = [], i = 1, a;
   if (typeof t == "number")
@@ -15724,45 +15744,45 @@ const ys = {
     return s;
   }
 };
-eo.hsl = function(t) {
+to.hsl = function(t) {
   var e = t[0] / 255, n = t[1] / 255, i = t[2] / 255, a = Math.min(e, n, i), o = Math.max(e, n, i), r = o - a, s, l, c;
   return o === a ? s = 0 : e === o ? s = (n - i) / r : n === o ? s = 2 + (i - e) / r : i === o && (s = 4 + (e - n) / r), s = Math.min(s * 60, 360), s < 0 && (s += 360), c = (a + o) / 2, o === a ? l = 0 : c <= 0.5 ? l = r / (o + a) : l = r / (2 - o - a), [s, l * 100, c * 100];
 };
-function X_(t) {
+function U_(t) {
   Array.isArray(t) && t.raw && (t = String.raw(...arguments)), t instanceof Number && (t = +t);
-  var e, n = $_(t);
+  var e, n = X_(t);
   if (!n.space) return [];
-  const i = n.space[0] === "h" ? ys.min : eo.min, a = n.space[0] === "h" ? ys.max : eo.max;
+  const i = n.space[0] === "h" ? ys.min : to.min, a = n.space[0] === "h" ? ys.max : to.max;
   return e = Array(3), e[0] = Math.min(Math.max(n.values[0], i[0]), a[0]), e[1] = Math.min(Math.max(n.values[1], i[1]), a[1]), e[2] = Math.min(Math.max(n.values[2], i[2]), a[2]), n.space[0] === "h" && (e = ys.rgb(e)), e.push(Math.min(Math.max(n.alpha, 0), 1)), e;
 }
-function U_(t) {
+function Y_(t) {
   return typeof t == "string" ? t : fc(t);
 }
-const Y_ = 1024, Va = {};
+const j_ = 1024, Va = {};
 let ps = 0;
-function j_(t) {
+function H_(t) {
   if (t.length === 4)
     return t;
   const e = t.slice();
   return e[3] = 1, e;
 }
 function Qu(t) {
-  const e = nt.lchuv(eo.xyz(t));
+  const e = nt.lchuv(to.xyz(t));
   return e[3] = t[3], e;
 }
-function H_(t) {
+function Z_(t) {
   const e = nt.rgb(eg.xyz(t));
   return e[3] = t[3], e;
 }
 function hc(t) {
   if (Va.hasOwnProperty(t))
     return Va[t];
-  if (ps >= Y_) {
+  if (ps >= j_) {
     let n = 0;
     for (const i in Va)
       (n++ & 3) === 0 && (delete Va[i], --ps);
   }
-  const e = X_(t);
+  const e = U_(t);
   if (e.length !== 4)
     throw new Error('Failed to parse "' + t + '" as color');
   for (const n of e)
@@ -15770,7 +15790,7 @@ function hc(t) {
       throw new Error('Failed to parse "' + t + '" as color');
   return tg(e), Va[t] = e, ++ps, e;
 }
-function to(t) {
+function no(t) {
   return Array.isArray(t) ? t : hc(t);
 }
 function tg(t) {
@@ -15786,16 +15806,16 @@ function fc(t) {
   const a = t[3] === void 0 ? 1 : Math.round(t[3] * 1e3) / 1e3;
   return "rgba(" + e + "," + n + "," + i + "," + a + ")";
 }
-function Z_(t) {
+function K_(t) {
   try {
     return hc(t), !0;
   } catch {
     return !1;
   }
 }
-const fi = typeof navigator < "u" && typeof navigator.userAgent < "u" ? navigator.userAgent.toLowerCase() : "", K_ = fi.includes("firefox"), q_ = fi.includes("safari") && !fi.includes("chrom");
-q_ && (fi.includes("version/15.4") || /cpu (os|iphone os) 15_4 like mac os x/.test(fi));
-const J_ = fi.includes("webkit") && !fi.includes("edge"), ng = fi.includes("macintosh"), ig = typeof devicePixelRatio < "u" ? devicePixelRatio : 1, ag = typeof WorkerGlobalScope < "u" && typeof OffscreenCanvas < "u" && self instanceof WorkerGlobalScope, og = typeof Image < "u" && Image.prototype.decode, rg = function() {
+const fi = typeof navigator < "u" && typeof navigator.userAgent < "u" ? navigator.userAgent.toLowerCase() : "", q_ = fi.includes("firefox"), J_ = fi.includes("safari") && !fi.includes("chrom");
+J_ && (fi.includes("version/15.4") || /cpu (os|iphone os) 15_4 like mac os x/.test(fi));
+const Q_ = fi.includes("webkit") && !fi.includes("edge"), ng = fi.includes("macintosh"), ig = typeof devicePixelRatio < "u" ? devicePixelRatio : 1, ag = typeof WorkerGlobalScope < "u" && typeof OffscreenCanvas < "u" && self instanceof WorkerGlobalScope, og = typeof Image < "u" && Image.prototype.decode, rg = function() {
   let t = !1;
   try {
     const e = Object.defineProperty({}, "passive", {
@@ -15829,11 +15849,11 @@ function ed(t, e) {
 function qs(t) {
   return t && t.parentNode ? t.parentNode.removeChild(t) : null;
 }
-function Q_(t) {
+function eS(t) {
   for (; t.lastChild; )
     t.removeChild(t.lastChild);
 }
-function eS(t, e) {
+function tS(t, e) {
   const n = t.childNodes;
   for (let i = 0; ; ++i) {
     const a = n[i], o = e[i];
@@ -15852,14 +15872,14 @@ function eS(t, e) {
     }
   }
 }
-function tS(t, e, n) {
+function nS(t, e, n) {
   const i = (
     /** @type {HTMLImageElement} */
     t
   );
   let a = !0, o = !1, r = !1;
   const s = [
-    ur(i, me.LOAD, function() {
+    dr(i, me.LOAD, function() {
       r = !0, o || e();
     })
   ];
@@ -15867,11 +15887,11 @@ function tS(t, e, n) {
     a && e();
   }).catch(function(l) {
     a && (r ? e() : n());
-  })) : s.push(ur(i, me.ERROR, n)), function() {
+  })) : s.push(dr(i, me.ERROR, n)), function() {
     a = !1, s.forEach(Ve);
   };
 }
-function nS(t, e) {
+function iS(t, e) {
   return new Promise((n, i) => {
     function a() {
       r(), n(t);
@@ -15885,14 +15905,14 @@ function nS(t, e) {
     t.addEventListener("load", a), t.addEventListener("error", o);
   });
 }
-function iS(t, e) {
+function aS(t, e) {
   return e && (t.src = e), t.src && og ? new Promise(
     (n, i) => t.decode().then(() => n(t)).catch(
       (a) => t.complete && t.width ? n(t) : i(a)
     )
-  ) : nS(t);
+  ) : iS(t);
 }
-class aS {
+class oS {
   constructor() {
     this.cache_ = {}, this.patternCache_ = {}, this.cacheSize_ = 0, this.maxCacheSize_ = 32;
   }
@@ -15971,12 +15991,12 @@ class aS {
   }
 }
 function Ss(t, e, n) {
-  const i = n ? to(n) : "null";
+  const i = n ? no(n) : "null";
   return e + ":" + t + ":" + i;
 }
-const fn = new aS();
+const fn = new oS();
 let Ba = null;
-class oS extends Vr {
+class rS extends Vr {
   /**
    * @param {HTMLImageElement|HTMLCanvasElement|ImageBitmap|null} image Image.
    * @param {string|undefined} src Src.
@@ -16084,7 +16104,7 @@ class oS extends Vr {
       } catch {
         this.handleImageError_();
       }
-      this.image_ instanceof HTMLImageElement && iS(this.image_, this.src_).then((e) => {
+      this.image_ instanceof HTMLImageElement && aS(this.image_, this.src_).then((e) => {
         this.image_ = e, this.handleImageLoad_();
       }).catch(this.handleImageError_.bind(this));
     }
@@ -16099,7 +16119,7 @@ class oS extends Vr {
     const n = this.image_, i = document.createElement("canvas");
     i.width = Math.ceil(n.width * e), i.height = Math.ceil(n.height * e);
     const a = i.getContext("2d");
-    a.scale(e, e), a.drawImage(n, 0, 0), a.globalCompositeOperation = "multiply", a.fillStyle = U_(this.color_), a.fillRect(0, 0, i.width / e, i.height / e), a.globalCompositeOperation = "destination-in", a.drawImage(n, 0, 0), this.canvas_[e] = i;
+    a.scale(e, e), a.drawImage(n, 0, 0), a.globalCompositeOperation = "multiply", a.fillStyle = Y_(this.color_), a.fillRect(0, 0, i.width / e, i.height / e), a.globalCompositeOperation = "destination-in", a.drawImage(n, 0, 0), this.canvas_[e] = i;
   }
   /**
    * @return {Promise<void>} Promise that resolves when the image is loaded.
@@ -16114,7 +16134,7 @@ class oS extends Vr {
 }
 function gc(t, e, n, i, a, o) {
   let r = e === void 0 ? void 0 : fn.get(e, n, a);
-  return r || (r = new oS(
+  return r || (r = new rS(
     t,
     t instanceof HTMLImageElement ? t.src || void 0 : e,
     n,
@@ -16123,9 +16143,9 @@ function gc(t, e, n, i, a, o) {
   ), fn.set(e, n, a, r, o)), o && r && !fn.getPattern(e, n, a) && fn.set(e, n, a, r, o), r;
 }
 function gn(t) {
-  return t ? Array.isArray(t) ? fc(t) : typeof t == "object" && "src" in t ? rS(t) : t : null;
+  return t ? Array.isArray(t) ? fc(t) : typeof t == "object" && "src" in t ? sS(t) : t : null;
 }
-function rS(t) {
+function sS(t) {
   if (!t.offset || !t.size)
     return fn.getPattern(t.src, "anonymous", t.color);
   const e = t.src + ":" + t.offset, n = fn.getPattern(
@@ -16161,7 +16181,7 @@ function rS(t) {
     !0
   ), fn.getPattern(e, void 0, t.color);
 }
-const Uo = "ol-hidden", Xr = "ol-unselectable", mc = "ol-control", td = "ol-collapsed", sS = new RegExp(
+const Yo = "ol-hidden", Xr = "ol-unselectable", mc = "ol-control", td = "ol-collapsed", lS = new RegExp(
   [
     "^\\s*(?=(?:(?:[-a-z]+\\s*){0,2}(italic|oblique))?)",
     "(?=(?:(?:[-a-z]+\\s*){0,2}(small-caps))?)",
@@ -16180,7 +16200,7 @@ const Uo = "ol-hidden", Xr = "ol-unselectable", mc = "ol-control", td = "ol-coll
   "lineHeight",
   "family"
 ], sg = function(t) {
-  const e = t.match(sS);
+  const e = t.match(lS);
   if (!e)
     return null;
   const n = (
@@ -16198,20 +16218,20 @@ const Uo = "ol-hidden", Xr = "ol-unselectable", mc = "ol-control", td = "ol-coll
     o !== void 0 && (n[nd[i]] = o);
   }
   return n.families = n.family.split(/,\s?/), n;
-}, lg = "10px sans-serif", bt = "#000", ma = "round", $n = [], Xn = 0, va = "round", no = 10, io = "#000", ao = "center", mr = "middle", Ei = [0, 0, 0, 0], oo = 1, kn = new wn();
+}, lg = "10px sans-serif", bt = "#000", ma = "round", $n = [], Xn = 0, va = "round", io = 10, ao = "#000", oo = "center", vr = "middle", Ei = [0, 0, 0, 0], ro = 1, kn = new wn();
 let qi = null, Js;
-const Qs = {}, lS = function() {
+const Qs = {}, cS = function() {
   const e = "32px ", n = ["monospace", "serif"], i = n.length, a = "wmytzilWMYTZIL@#/&?$%10";
   let o, r;
   function s(c, u, d) {
     let h = !0;
     for (let f = 0; f < i; ++f) {
       const g = n[f];
-      if (r = vr(
+      if (r = Cr(
         c + " " + u + " " + e + g,
         a
       ), d != g) {
-        const m = vr(
+        const m = Cr(
           c + " " + u + " " + e + d + "," + g,
           a
         );
@@ -16226,7 +16246,7 @@ const Qs = {}, lS = function() {
     for (let d = 0, h = u.length; d < h; ++d) {
       const f = u[d];
       kn.get(f) < 100 && (s.apply(this, f.split(`
-`)) ? (Po(Qs), qi = null, Js = void 0, kn.set(f, 100)) : (kn.set(f, kn.get(f) + 1, !0), c = !1));
+`)) ? (To(Qs), qi = null, Js = void 0, kn.set(f, 100)) : (kn.set(f, kn.get(f) + 1, !0), c = !1));
     }
     c && (clearInterval(o), o = void 0);
   }
@@ -16242,7 +16262,7 @@ const Qs = {}, lS = function() {
       kn.get(m) === void 0 && (kn.set(m, 100, !0), s(u.style, u.weight, g) || (kn.set(m, 0, !0), o === void 0 && (o = setInterval(l, 32))));
     }
   };
-}(), cS = /* @__PURE__ */ function() {
+}(), uS = /* @__PURE__ */ function() {
   let t;
   return function(e) {
     let n = Qs[e];
@@ -16260,17 +16280,17 @@ const Qs = {}, lS = function() {
 function cg(t, e) {
   return qi || (qi = it(1, 1)), t != Js && (qi.font = t, Js = qi.font), qi.measureText(e);
 }
-function vr(t, e) {
+function Cr(t, e) {
   return cg(t, e).width;
 }
 function id(t, e, n) {
   if (e in n)
     return n[e];
   const i = e.split(`
-`).reduce((a, o) => Math.max(a, vr(t, o)), 0);
+`).reduce((a, o) => Math.max(a, Cr(t, o)), 0);
   return n[e] = i, i;
 }
-function uS(t, e) {
+function dS(t, e) {
   const n = [], i = [], a = [];
   let o = 0, r = 0, s = 0, l = 0;
   for (let c = 0, u = e.length; c <= u; c += 2) {
@@ -16280,16 +16300,16 @@ function uS(t, e) {
       o = Math.max(o, r), a.push(r), r = 0, s += l;
       continue;
     }
-    const h = e[c + 1] || t.font, f = vr(h, d);
+    const h = e[c + 1] || t.font, f = Cr(h, d);
     n.push(f), r += f;
-    const g = cS(h);
+    const g = uS(h);
     i.push(g), l = Math.max(l, g);
   }
   return { width: o, height: s, widths: n, heights: i, lineWidths: a };
 }
-function dS(t, e, n, i, a, o, r, s, l, c, u) {
+function hS(t, e, n, i, a, o, r, s, l, c, u) {
   t.save(), n !== 1 && (t.globalAlpha === void 0 ? t.globalAlpha = (d) => d.globalAlpha *= n : t.globalAlpha *= n), e && t.transform.apply(t, e), /** @type {*} */
-  i.contextInstructions ? (t.translate(l, c), t.scale(u[0], u[1]), hS(
+  i.contextInstructions ? (t.translate(l, c), t.scale(u[0], u[1]), fS(
     /** @type {Label} */
     i,
     t
@@ -16317,7 +16337,7 @@ function dS(t, e, n, i, a, o, r, s, l, c, u) {
     s * u[1]
   ), t.restore();
 }
-function hS(t, e) {
+function fS(t, e) {
   const n = t.contextInstructions;
   for (let i = 0, a = n.length; i < a; i += 2)
     Array.isArray(n[i + 1]) ? e[n[i]].apply(
@@ -16548,7 +16568,7 @@ class Ur extends Wr {
    */
   createRenderOptions() {
     let e = ma, n = va, i = 0, a = null, o = 0, r, s = 0;
-    this.stroke_ && (r = gn(this.stroke_.getColor() ?? io), s = this.stroke_.getWidth() ?? oo, a = this.stroke_.getLineDash(), o = this.stroke_.getLineDashOffset() ?? 0, n = this.stroke_.getLineJoin() ?? va, e = this.stroke_.getLineCap() ?? ma, i = this.stroke_.getMiterLimit() ?? no);
+    this.stroke_ && (r = gn(this.stroke_.getColor() ?? ao), s = this.stroke_.getWidth() ?? ro, a = this.stroke_.getLineDash(), o = this.stroke_.getLineDashOffset() ?? 0, n = this.stroke_.getLineJoin() ?? va, e = this.stroke_.getLineCap() ?? ma, i = this.stroke_.getMiterLimit() ?? io);
     const l = this.calculateLineJoinSize_(n, s, i), c = Math.max(this.radius_, this.radius2_ || 0), u = Math.ceil(2 * c + l);
     return {
       strokeStyle: r,
@@ -16591,7 +16611,7 @@ class Ur extends Wr {
     let n;
     if (this.fill_) {
       let i = this.fill_.getColor(), a = 0;
-      typeof i == "string" && (i = to(i)), i === null ? a = 1 : Array.isArray(i) && (a = i.length === 4 ? i[3] : 1), a === 0 && (n = it(e.size, e.size), this.drawHitDetectionCanvas_(e, n));
+      typeof i == "string" && (i = no(i)), i === null ? a = 1 : Array.isArray(i) && (a = i.length === 4 ? i[3] : 1), a === 0 && (n = it(e.size, e.size), this.drawHitDetectionCanvas_(e, n));
     }
     return n ? n.canvas : this.getImage(1);
   }
@@ -16672,7 +16692,7 @@ class Yr extends Ur {
     this.radius_ = e, this.render();
   }
 }
-class Eo {
+class Ao {
   /**
    * @param {Options} [options] Options.
    */
@@ -16686,7 +16706,7 @@ class Eo {
    */
   clone() {
     const e = this.getColor();
-    return new Eo({
+    return new Ao({
       color: Array.isArray(e) ? e.slice() : e || void 0
     });
   }
@@ -17060,7 +17080,7 @@ class ci {
     this.zIndex_ = e;
   }
 }
-function fS(t) {
+function gS(t) {
   let e;
   if (typeof t == "function")
     e = t;
@@ -17080,9 +17100,9 @@ function fS(t) {
   return e;
 }
 let bs = null;
-function gS(t, e) {
+function mS(t, e) {
   if (!bs) {
-    const n = new Eo({
+    const n = new Ao({
       color: "rgba(255,255,255,0.4)"
     }), i = new jr({
       color: "#3399CC",
@@ -17108,7 +17128,7 @@ function ad(t) {
 function od(t, e, n, i) {
   return n !== void 0 && i !== void 0 ? [n / t, i / e] : n !== void 0 ? n / t : i !== void 0 ? i / e : 1;
 }
-class Ao extends Wr {
+class Ro extends Wr {
   /**
    * @param {Options} [options] Options.
    */
@@ -17137,7 +17157,7 @@ class Ao extends Wr {
       "`width` or `height` cannot be provided together with `scale`"
     );
     let l;
-    if (e.src !== void 0 ? l = Ce.IDLE : r !== void 0 && (r instanceof HTMLImageElement ? r.complete ? l = r.src ? Ce.LOADED : Ce.IDLE : l = Ce.LOADING : l = Ce.LOADED), this.color_ = e.color !== void 0 ? to(e.color) : null, this.iconImage_ = gc(
+    if (e.src !== void 0 ? l = Ce.IDLE : r !== void 0 && (r instanceof HTMLImageElement ? r.complete ? l = r.src ? Ce.LOADED : Ce.IDLE : l = Ce.LOADING : l = Ce.LOADED), this.color_ = e.color !== void 0 ? no(e.color) : null, this.iconImage_ = gc(
       r,
       /** @type {string} */
       s,
@@ -17183,7 +17203,7 @@ class Ao extends Wr {
    */
   clone() {
     let e, n, i;
-    return this.initialOptions_ ? (n = this.initialOptions_.width, i = this.initialOptions_.height) : (e = this.getScale(), e = Array.isArray(e) ? e.slice() : e), new Ao({
+    return this.initialOptions_ ? (n = this.initialOptions_.width, i = this.initialOptions_.height) : (e = this.getScale(), e = Array.isArray(e) ? e.slice() : e), new Ro({
       anchor: this.anchor_.slice(),
       anchorOrigin: this.anchorOrigin_,
       anchorXUnits: this.anchorXUnits_,
@@ -17380,13 +17400,13 @@ class Ao extends Wr {
     return this.iconImage_.ready();
   }
 }
-const mS = "#333";
+const vS = "#333";
 class vc {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
-    e = e || {}, this.font_ = e.font, this.rotation_ = e.rotation, this.rotateWithView_ = e.rotateWithView, this.scale_ = e.scale, this.scaleArray_ = Rt(e.scale !== void 0 ? e.scale : 1), this.text_ = e.text, this.textAlign_ = e.textAlign, this.justify_ = e.justify, this.repeat_ = e.repeat, this.textBaseline_ = e.textBaseline, this.fill_ = e.fill !== void 0 ? e.fill : new Eo({ color: mS }), this.maxAngle_ = e.maxAngle !== void 0 ? e.maxAngle : Math.PI / 4, this.placement_ = e.placement !== void 0 ? e.placement : "point", this.overflow_ = !!e.overflow, this.stroke_ = e.stroke !== void 0 ? e.stroke : null, this.offsetX_ = e.offsetX !== void 0 ? e.offsetX : 0, this.offsetY_ = e.offsetY !== void 0 ? e.offsetY : 0, this.backgroundFill_ = e.backgroundFill ? e.backgroundFill : null, this.backgroundStroke_ = e.backgroundStroke ? e.backgroundStroke : null, this.padding_ = e.padding === void 0 ? null : e.padding, this.declutterMode_ = e.declutterMode;
+    e = e || {}, this.font_ = e.font, this.rotation_ = e.rotation, this.rotateWithView_ = e.rotateWithView, this.scale_ = e.scale, this.scaleArray_ = Rt(e.scale !== void 0 ? e.scale : 1), this.text_ = e.text, this.textAlign_ = e.textAlign, this.justify_ = e.justify, this.repeat_ = e.repeat, this.textBaseline_ = e.textBaseline, this.fill_ = e.fill !== void 0 ? e.fill : new Ao({ color: vS }), this.maxAngle_ = e.maxAngle !== void 0 ? e.maxAngle : Math.PI / 4, this.placement_ = e.placement !== void 0 ? e.placement : "point", this.overflow_ = !!e.overflow, this.stroke_ = e.stroke !== void 0 ? e.stroke : null, this.offsetX_ = e.offsetX !== void 0 ? e.offsetX : 0, this.offsetY_ = e.offsetY !== void 0 ? e.offsetY : 0, this.backgroundFill_ = e.backgroundFill ? e.backgroundFill : null, this.backgroundStroke_ = e.backgroundStroke ? e.backgroundStroke : null, this.padding_ = e.padding === void 0 ? null : e.padding, this.declutterMode_ = e.declutterMode;
   }
   /**
    * Clones the style.
@@ -17763,14 +17783,14 @@ const wa = 0, De = 1 << Ta++, ne = 1 << Ta++, Et = 1 << Ta++, tt = 1 << Ta++, Un
   [Et]: "string",
   [tt]: "color",
   [Un]: "number[]"
-}, vS = Object.keys(ug).map(Number).sort(Wn);
+}, CS = Object.keys(ug).map(Number).sort(Wn);
 function ut(t) {
   const e = [];
-  for (const n of vS)
-    CS(t, n) && e.push(ug[n]);
+  for (const n of CS)
+    yS(t, n) && e.push(ug[n]);
   return e.length === 0 ? "untyped" : e.length < 3 ? e.join(" or ") : e.slice(0, -1).join(", ") + ", or " + e[e.length - 1];
 }
-function CS(t, e) {
+function yS(t, e) {
   return (t & e) === e;
 }
 function mn(t, e) {
@@ -17788,7 +17808,7 @@ class oi {
     this.type = e, this.value = n;
   }
 }
-class yS {
+class pS {
   /**
    * @param {number} type The return type.
    * @param {string} operator The operator.
@@ -17807,7 +17827,7 @@ function dg() {
     style: {}
   };
 }
-function pS(t) {
+function _S(t) {
   switch (t) {
     case "string":
       return Et;
@@ -17831,7 +17851,7 @@ function we(t, e, n) {
       return new oi(ne, t);
     case "string": {
       let a = Et;
-      return Z_(t) && (a |= tt), Hr(a & n, wa) || (a &= n), new oi(a, t);
+      return K_(t) && (a |= tt), Hr(a & n, wa) || (a &= n), new oi(a, t);
     }
   }
   if (!Array.isArray(t))
@@ -17839,7 +17859,7 @@ function we(t, e, n) {
   if (t.length === 0)
     throw new Error("Empty expression");
   if (typeof t[0] == "string")
-    return IS(t, e, n);
+    return zS(t, e, n);
   for (const a of t)
     if (typeof a != "number")
       throw new Error("Expected an array of numbers");
@@ -17892,28 +17912,28 @@ const F = {
   Band: "band",
   Palette: "palette",
   ToString: "to-string"
-}, _S = {
+}, SS = {
   [F.Get]: ge(
-    ([t, e]) => e !== void 0 ? pS(
+    ([t, e]) => e !== void 0 ? _S(
       /** @type {string} */
       /** @type {LiteralExpression} */
       e.value
     ) : rt,
     ve(1, 2),
-    SS
+    bS
   ),
   [F.Var]: ge(
     ([t]) => t.type,
     ve(1, 1),
-    bS
+    MS
   ),
-  [F.Id]: ge(ne | Et, Fa, MS),
+  [F.Id]: ge(ne | Et, Fa, xS),
   [F.Concat]: ge(
     Et,
     ve(2, 1 / 0),
     _e(rt)
   ),
-  [F.GeometryType]: ge(Et, Fa, xS),
+  [F.GeometryType]: ge(Et, Fa, PS),
   [F.Resolution]: ge(ne, Fa),
   [F.Zoom]: ge(ne, Fa),
   [F.Time]: ge(ne, Fa),
@@ -18069,7 +18089,7 @@ const F = {
     },
     ve(4, 1 / 0),
     rd,
-    TS
+    wS
   ),
   [F.Between]: ge(
     De,
@@ -18085,7 +18105,7 @@ const F = {
     },
     ve(6, 1 / 0),
     rd,
-    wS
+    ES
   ),
   [F.Case]: ge(
     (t) => {
@@ -18095,10 +18115,10 @@ const F = {
       return e &= t[t.length - 1].type, e;
     },
     ve(3, 1 / 0),
-    PS,
-    ES
+    TS,
+    AS
   ),
-  [F.In]: ge(De, ve(2, 2), AS),
+  [F.In]: ge(De, ve(2, 2), RS),
   [F.Number]: ge(
     ne,
     ve(1, 1 / 0),
@@ -18124,14 +18144,14 @@ const F = {
     ve(1, 3),
     _e(ne)
   ),
-  [F.Palette]: ge(tt, ve(2, 2), RS),
+  [F.Palette]: ge(tt, ve(2, 2), IS),
   [F.ToString]: ge(
     Et,
     ve(1, 1),
     _e(De | ne | Et | tt)
   )
 };
-function SS(t, e) {
+function bS(t, e) {
   const n = we(t[1], e);
   if (!(n instanceof oi))
     throw new Error("Expected a literal argument for get operation");
@@ -18143,7 +18163,7 @@ function SS(t, e) {
   }
   return [n];
 }
-function bS(t, e, n, i) {
+function MS(t, e, n, i) {
   const a = t[1];
   if (typeof a != "string")
     throw new Error("Expected a string argument for var operation");
@@ -18161,10 +18181,10 @@ function bS(t, e, n, i) {
     );
   return [r];
 }
-function MS(t, e) {
+function xS(t, e) {
   e.featureId = !0;
 }
-function xS(t, e) {
+function PS(t, e) {
   e.geometryType = !0;
 }
 function Fa(t, e) {
@@ -18221,7 +18241,7 @@ function qn(t, e, n) {
     r[s] = we(t[s + 1], e, o);
   return r;
 }
-function PS(t, e) {
+function TS(t, e) {
   const n = t[0], i = t.length - 1;
   if (i % 2 === 0)
     throw new Error(
@@ -18239,7 +18259,7 @@ function rd(t, e) {
       )} instead`
     );
 }
-function TS(t, e, n, i) {
+function wS(t, e, n, i) {
   const a = t.length - 1;
   let r = we(t[1], e).type;
   const s = we(t[t.length - 1], e);
@@ -18270,7 +18290,7 @@ function TS(t, e, n, i) {
     we(t[t.length - 1], e, l)
   ];
 }
-function wS(t, e, n, i) {
+function ES(t, e, n, i) {
   const a = t[1];
   let o;
   switch (a[0]) {
@@ -18313,7 +18333,7 @@ function wS(t, e, n, i) {
   }
   return [o, r, ...s];
 }
-function ES(t, e, n, i) {
+function AS(t, e, n, i) {
   const a = we(t[t.length - 1], e);
   let o = i !== void 0 ? i & a.type : a.type;
   const r = new Array(t.length - 1);
@@ -18337,7 +18357,7 @@ function ES(t, e, n, i) {
     o
   ), r;
 }
-function AS(t, e) {
+function RS(t, e) {
   let n = (
     /** @type {any} */
     t[2]
@@ -18369,7 +18389,7 @@ function AS(t, e) {
     );
   return [we(t[1], e, i), ...a];
 }
-function RS(t, e) {
+function IS(t, e) {
   const n = we(t[1], e, ne);
   if (n.type !== ne)
     throw new Error(
@@ -18421,11 +18441,11 @@ function ge(t, ...e) {
           n
         )}`
       );
-    return new yS(s, o, ...r);
+    return new pS(s, o, ...r);
   };
 }
-function IS(t, e, n) {
-  const i = t[0], a = _S[i];
+function zS(t, e, n) {
+  const i = t[0], a = SS[i];
   if (!a)
     throw new Error(`Unknown operator: ${i}`);
   return a(t, e, n);
@@ -18493,10 +18513,10 @@ function Qt(t, e) {
     case F.Number:
     case F.String:
     case F.Coalesce:
-      return zS(t);
+      return LS(t);
     case F.Get:
     case F.Var:
-      return LS(t);
+      return VS(t);
     case F.Id:
       return (i) => i.featureId;
     case F.GeometryType:
@@ -18512,14 +18532,14 @@ function Qt(t, e) {
     case F.Between:
     case F.In:
     case F.Not:
-      return BS(t);
+      return FS(t);
     case F.Equal:
     case F.NotEqual:
     case F.LessThan:
     case F.LessThanOrEqualTo:
     case F.GreaterThan:
     case F.GreaterThanOrEqualTo:
-      return VS(t);
+      return BS(t);
     case F.Multiply:
     case F.Divide:
     case F.Add:
@@ -18535,20 +18555,20 @@ function Qt(t, e) {
     case F.Cos:
     case F.Atan:
     case F.Sqrt:
-      return FS(t);
-    case F.Case:
       return kS(t);
-    case F.Match:
+    case F.Case:
       return OS(t);
-    case F.Interpolate:
+    case F.Match:
       return DS(t);
-    case F.ToString:
+    case F.Interpolate:
       return GS(t);
+    case F.ToString:
+      return NS(t);
     default:
       throw new Error(`Unsupported operator ${n}`);
   }
 }
-function zS(t, e) {
+function LS(t, e) {
   const n = t.operator, i = t.args.length, a = new Array(i);
   for (let o = 0; o < i; ++o)
     a[o] = Qt(t.args[o]);
@@ -18576,7 +18596,7 @@ function zS(t, e) {
       throw new Error(`Unsupported assertion operator ${n}`);
   }
 }
-function LS(t, e) {
+function VS(t, e) {
   const i = (
     /** @type {string} */
     /** @type {LiteralExpression} */
@@ -18591,7 +18611,7 @@ function LS(t, e) {
       throw new Error(`Unsupported accessor operator ${t.operator}`);
   }
 }
-function VS(t, e) {
+function BS(t, e) {
   const n = t.operator, i = Qt(t.args[0]), a = Qt(t.args[1]);
   switch (n) {
     case F.Equal:
@@ -18610,7 +18630,7 @@ function VS(t, e) {
       throw new Error(`Unsupported comparison operator ${n}`);
   }
 }
-function BS(t, e) {
+function FS(t, e) {
   const n = t.operator, i = t.args.length, a = new Array(i);
   for (let o = 0; o < i; ++o)
     a[o] = Qt(t.args[o]);
@@ -18648,7 +18668,7 @@ function BS(t, e) {
       throw new Error(`Unsupported logical operator ${n}`);
   }
 }
-function FS(t, e) {
+function kS(t, e) {
   const n = t.operator, i = t.args.length, a = new Array(i);
   for (let o = 0; o < i; ++o)
     a[o] = Qt(t.args[o]);
@@ -18703,7 +18723,7 @@ function FS(t, e) {
       throw new Error(`Unsupported numeric operator ${n}`);
   }
 }
-function kS(t, e) {
+function OS(t, e) {
   const n = t.args.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
     i[a] = Qt(t.args[a]);
@@ -18714,7 +18734,7 @@ function kS(t, e) {
     return i[n - 1](a);
   };
 }
-function OS(t, e) {
+function DS(t, e) {
   const n = t.args.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
     i[a] = Qt(t.args[a]);
@@ -18726,7 +18746,7 @@ function OS(t, e) {
     return i[n - 1](a);
   };
 }
-function DS(t, e) {
+function GS(t, e) {
   const n = t.args.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
     i[a] = Qt(t.args[a]);
@@ -18737,8 +18757,8 @@ function DS(t, e) {
       const u = i[c](a);
       let d = i[c + 1](a);
       const h = Array.isArray(d);
-      if (h && (d = j_(d)), u >= r)
-        return c === 2 ? d : h ? NS(
+      if (h && (d = H_(d)), u >= r)
+        return c === 2 ? d : h ? WS(
           o,
           r,
           s,
@@ -18758,7 +18778,7 @@ function DS(t, e) {
     return l;
   };
 }
-function GS(t, e) {
+function NS(t, e) {
   const n = t.operator, i = t.args.length, a = new Array(i);
   for (let o = 0; o < i; ++o)
     a[o] = Qt(t.args[o]);
@@ -18779,7 +18799,7 @@ function Ga(t, e, n, i, a, o) {
   const s = e - n, l = t === 1 ? s / r : (Math.pow(t, s) - 1) / (Math.pow(t, r) - 1);
   return i + l * (o - i);
 }
-function NS(t, e, n, i, a, o) {
+function WS(t, e, n, i, a, o) {
   if (a - n === 0)
     return i;
   const s = Qu(i), l = Qu(o);
@@ -18791,13 +18811,13 @@ function NS(t, e, n, i, a, o) {
     s[2] + Ga(t, e, n, 0, a, c),
     Ga(t, e, n, i[3], a, o[3])
   ];
-  return tg(H_(u));
-}
-function WS(t) {
-  return !0;
+  return tg(Z_(u));
 }
 function $S(t) {
-  const e = dg(), n = XS(t, e), i = fg();
+  return !0;
+}
+function XS(t) {
+  const e = dg(), n = US(t, e), i = fg();
   return function(a, o) {
     if (i.properties = a.getPropertiesInternal(), i.resolution = o, e.featureId) {
       const r = a.getId();
@@ -18826,10 +18846,10 @@ function sd(t) {
     return o.length = l, o;
   };
 }
-function XS(t, e) {
+function US(t, e) {
   const n = t.length, i = new Array(n);
   for (let a = 0; a < n; ++a) {
-    const o = t[a], r = "filter" in o ? Zn(o.filter, De, e) : WS;
+    const o = t[a], r = "filter" in o ? Zn(o.filter, De, e) : $S;
     let s;
     if (Array.isArray(o.style)) {
       const l = o.style.length;
@@ -18857,7 +18877,7 @@ function XS(t, e) {
   };
 }
 function el(t, e) {
-  const n = ro(t, "", e), i = so(t, "", e), a = US(t, e), o = YS(t, e), r = xt(t, "z-index", e);
+  const n = so(t, "", e), i = lo(t, "", e), a = YS(t, e), o = jS(t, e), r = xt(t, "z-index", e);
   if (!n && !i && !a && !o && !fa(t))
     throw new Error(
       "No fill, stroke, point, or text symbolizer properties in style: " + JSON.stringify(t)
@@ -18884,21 +18904,21 @@ function el(t, e) {
     return r && s.setZIndex(r(l)), c ? null : s;
   };
 }
-function ro(t, e, n) {
+function so(t, e, n) {
   let i;
-  if (e + "fill-pattern-src" in t ? i = KS(t, e + "fill-", n) : i = Cc(
+  if (e + "fill-pattern-src" in t ? i = qS(t, e + "fill-", n) : i = Cc(
     t,
     e + "fill-color",
     n
   ), !i)
     return null;
-  const a = new Eo();
+  const a = new Ao();
   return function(o) {
     const r = i(o);
     return r === "none" ? null : (a.setColor(r), a);
   };
 }
-function so(t, e, n) {
+function lo(t, e, n) {
   const i = xt(
     t,
     e + "stroke-width",
@@ -18953,15 +18973,15 @@ function so(t, e, n) {
     return s && u.setLineDash(s(d)), l && u.setLineDashOffset(l(d)), c && u.setMiterLimit(c(d)), u;
   };
 }
-function US(t, e) {
+function YS(t, e) {
   const n = "text-", i = On(t, n + "value", e);
   if (!i)
     return null;
-  const a = ro(t, n, e), o = ro(
+  const a = so(t, n, e), o = so(
     t,
     n + "background-",
     e
-  ), r = so(t, n, e), s = so(
+  ), r = lo(t, n, e), s = lo(
     t,
     n + "background-",
     e
@@ -18977,7 +18997,7 @@ function US(t, e) {
     t,
     n + "offset-y",
     e
-  ), h = lo(
+  ), h = co(
     t,
     n + "overflow",
     e
@@ -18985,7 +19005,7 @@ function US(t, e) {
     t,
     n + "placement",
     e
-  ), g = xt(t, n + "repeat", e), m = Zr(t, n + "scale", e), C = lo(
+  ), g = xt(t, n + "repeat", e), m = Zr(t, n + "scale", e), C = co(
     t,
     n + "rotate-with-view",
     e
@@ -19041,11 +19061,11 @@ function US(t, e) {
     return b && _.setPadding(b(P)), _;
   };
 }
-function YS(t, e) {
-  return "icon-src" in t ? jS(t, e) : "shape-points" in t ? HS(t, e) : "circle-radius" in t ? ZS(t, e) : null;
-}
 function jS(t, e) {
-  const n = "icon-", i = n + "src", a = mg(t[i], i), o = Cr(
+  return "icon-src" in t ? HS(t, e) : "shape-points" in t ? ZS(t, e) : "circle-radius" in t ? KS(t, e) : null;
+}
+function HS(t, e) {
+  const n = "icon-", i = n + "src", a = mg(t[i], i), o = yr(
     t,
     n + "anchor",
     e
@@ -19053,7 +19073,7 @@ function jS(t, e) {
     t,
     n + "opacity",
     e
-  ), l = Cr(
+  ), l = yr(
     t,
     n + "displacement",
     e
@@ -19061,7 +19081,7 @@ function jS(t, e) {
     t,
     n + "rotation",
     e
-  ), u = lo(
+  ), u = co(
     t,
     n + "rotate-with-view",
     e
@@ -19071,10 +19091,10 @@ function jS(t, e) {
   ), f = ud(
     t,
     n + "anchor-y-units"
-  ), g = e0(t, n + "color"), m = JS(t, n + "cross-origin"), C = QS(t, n + "offset"), y = cd(t, n + "offset-origin"), p = yr(t, n + "width"), M = yr(t, n + "height"), S = qS(t, n + "size"), b = Kr(
+  ), g = t0(t, n + "color"), m = QS(t, n + "cross-origin"), C = e0(t, n + "offset"), y = cd(t, n + "offset-origin"), p = pr(t, n + "width"), M = pr(t, n + "height"), S = JS(t, n + "size"), b = Kr(
     t,
     n + "declutter-mode"
-  ), T = new Ao({
+  ), T = new Ro({
     src: a,
     anchorOrigin: d,
     anchorXUnits: h,
@@ -19092,8 +19112,8 @@ function jS(t, e) {
     return s && T.setOpacity(s(_)), l && T.setDisplacement(l(_)), c && T.setRotation(c(_)), u && T.setRotateWithView(u(_)), r && T.setScale(r(_)), o && T.setAnchor(o(_)), T;
   };
 }
-function HS(t, e) {
-  const n = "shape-", i = n + "points", a = n + "radius", o = tl(t[i], i), r = tl(t[a], a), s = ro(t, n, e), l = so(t, n, e), c = Zr(t, n + "scale", e), u = Cr(
+function ZS(t, e) {
+  const n = "shape-", i = n + "points", a = n + "radius", o = tl(t[i], i), r = tl(t[a], a), s = so(t, n, e), l = lo(t, n, e), c = Zr(t, n + "scale", e), u = yr(
     t,
     n + "displacement",
     e
@@ -19101,11 +19121,11 @@ function HS(t, e) {
     t,
     n + "rotation",
     e
-  ), h = lo(
+  ), h = co(
     t,
     n + "rotate-with-view",
     e
-  ), f = yr(t, n + "radius2"), g = yr(t, n + "angle"), m = Kr(
+  ), f = pr(t, n + "radius2"), g = pr(t, n + "angle"), m = Kr(
     t,
     n + "declutter-mode"
   ), C = new Ur({
@@ -19119,8 +19139,8 @@ function HS(t, e) {
     return s && C.setFill(s(y)), l && C.setStroke(l(y)), u && C.setDisplacement(u(y)), d && C.setRotation(d(y)), h && C.setRotateWithView(h(y)), c && C.setScale(c(y)), C;
   };
 }
-function ZS(t, e) {
-  const n = "circle-", i = ro(t, n, e), a = so(t, n, e), o = xt(t, n + "radius", e), r = Zr(t, n + "scale", e), s = Cr(
+function KS(t, e) {
+  const n = "circle-", i = so(t, n, e), a = lo(t, n, e), o = xt(t, n + "radius", e), r = Zr(t, n + "scale", e), s = yr(
     t,
     n + "displacement",
     e
@@ -19128,7 +19148,7 @@ function ZS(t, e) {
     t,
     n + "rotation",
     e
-  ), c = lo(
+  ), c = co(
     t,
     n + "rotate-with-view",
     e
@@ -19160,7 +19180,7 @@ function On(t, e, n) {
     return mg(i(a), e);
   };
 }
-function KS(t, e, n) {
+function qS(t, e, n) {
   const i = On(
     t,
     e + "pattern-src",
@@ -19187,7 +19207,7 @@ function KS(t, e, n) {
     };
   };
 }
-function lo(t, e, n) {
+function co(t, e, n) {
   if (!(e in t))
     return null;
   const i = Zn(t[e], De, n);
@@ -19215,15 +19235,15 @@ function gg(t, e, n) {
     return null;
   const i = Zn(t[e], Un, n);
   return function(a) {
-    return Ro(i(a), e);
+    return Io(i(a), e);
   };
 }
-function Cr(t, e, n) {
+function yr(t, e, n) {
   if (!(e in t))
     return null;
   const i = Zn(t[e], Un, n);
   return function(a) {
-    const o = Ro(i(a), e);
+    const o = Io(i(a), e);
     if (o.length !== 2)
       throw new Error(`Expected two numbers for ${e}`);
     return o;
@@ -19246,10 +19266,10 @@ function Zr(t, e, n) {
     n
   );
   return function(a) {
-    return t0(i(a), e);
+    return n0(i(a), e);
   };
 }
-function yr(t, e) {
+function pr(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (typeof n != "number")
@@ -19257,7 +19277,7 @@ function yr(t, e) {
     return n;
   }
 }
-function qS(t, e) {
+function JS(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (typeof n == "number")
@@ -19269,7 +19289,7 @@ function qS(t, e) {
     return n;
   }
 }
-function JS(t, e) {
+function QS(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (typeof n != "string")
@@ -19295,10 +19315,10 @@ function ud(t, e) {
     return n;
   }
 }
-function QS(t, e) {
+function e0(t, e) {
   const n = t[e];
   if (n !== void 0)
-    return Ro(n, e);
+    return Io(n, e);
 }
 function Kr(t, e) {
   const n = t[e];
@@ -19310,12 +19330,12 @@ function Kr(t, e) {
     return n;
   }
 }
-function e0(t, e) {
+function t0(t, e) {
   const n = t[e];
   if (n !== void 0)
     return vg(n, e);
 }
-function Ro(t, e) {
+function Io(t, e) {
   if (!Array.isArray(t))
     throw new Error(`Expected an array for ${e}`);
   const n = t.length;
@@ -19337,18 +19357,18 @@ function tl(t, e) {
 function vg(t, e) {
   if (typeof t == "string")
     return t;
-  const n = Ro(t, e), i = n.length;
+  const n = Io(t, e), i = n.length;
   if (i < 3 || i > 4)
     throw new Error(`Expected a color with 3 or 4 values for ${e}`);
   return n;
 }
 function Cg(t, e) {
-  const n = Ro(t, e);
+  const n = Io(t, e);
   if (n.length !== 2)
     throw new Error(`Expected an array of two numbers for ${e}`);
   return n;
 }
-function t0(t, e) {
+function n0(t, e) {
   return typeof t == "number" ? t : Cg(t, e);
 }
 const dd = {
@@ -19471,12 +19491,12 @@ class yg extends Nr {
    * @api
    */
   setStyle(e) {
-    this.style_ = n0(e), this.styleFunction_ = e === null ? void 0 : fS(this.style_), this.changed();
+    this.style_ = i0(e), this.styleFunction_ = e === null ? void 0 : gS(this.style_), this.changed();
   }
 }
-function n0(t) {
+function i0(t) {
   if (t === void 0)
-    return gS;
+    return mS;
   if (!t)
     return null;
   if (typeof t == "function" || t instanceof ci)
@@ -19504,14 +19524,14 @@ function n0(t) {
         throw new Error("Expected a list of rules with a style property");
       a[o] = r;
     }
-    return $S(a);
+    return XS(a);
   }
   return sd(
     /** @type {Array<import("../style/flat.js").FlatStyle>} */
     t
   );
 }
-class i0 extends Xl {
+class a0 extends Xl {
   /**
    * @param {import("../Map.js").default} map Map.
    */
@@ -19619,7 +19639,7 @@ class i0 extends Xl {
       n,
       i,
       a,
-      Ka,
+      qa,
       this,
       o,
       r
@@ -19644,10 +19664,10 @@ class i0 extends Xl {
    * @protected
    */
   scheduleExpireIconCache(e) {
-    fn.canExpireCache() && e.postRenderFunctions.push(a0);
+    fn.canExpireCache() && e.postRenderFunctions.push(o0);
   }
 }
-function a0(t, e) {
+function o0(t, e) {
   fn.expire();
 }
 class pg extends Hn {
@@ -19662,7 +19682,7 @@ class pg extends Hn {
     super(e), this.inversePixelTransform = n, this.frameState = i, this.context = a;
   }
 }
-class o0 extends i0 {
+class r0 extends a0 {
   /**
    * @param {import("../Map.js").default} map Map.
    */
@@ -19722,7 +19742,7 @@ class o0 extends i0 {
       const h = u.render(e, r);
       h && (h !== r && (this.children_.push(h), r = h), o.push(c));
     }
-    this.declutter(e, o), eS(this.element_, this.children_), this.dispatchRenderEvent(Dt.POSTCOMPOSE, e), this.renderedVisible_ || (this.element_.style.display = "", this.renderedVisible_ = !0), this.scheduleExpireIconCache(e);
+    this.declutter(e, o), tS(this.element_, this.children_), this.dispatchRenderEvent(Dt.POSTCOMPOSE, e), this.renderedVisible_ || (this.element_.style.display = "", this.renderedVisible_ = !0), this.scheduleExpireIconCache(e);
   }
   /**
    * @param {import("../Map.js").FrameState} frameState Frame state.
@@ -19791,7 +19811,7 @@ class Ea extends Tf {
     );
     for (const i in this.listenerKeys_)
       this.listenerKeys_[i].forEach(Ve);
-    Po(this.listenerKeys_);
+    To(this.listenerKeys_);
     const n = e.getArray();
     for (let i = 0, a = n.length; i < a; i++) {
       const o = n[i];
@@ -20030,7 +20050,7 @@ const Ge = {
   POINTERMOVE: "pointermove",
   POINTERDOWN: "pointerdown"
 };
-class r0 extends Vr {
+class s0 extends Vr {
   /**
    * @param {import("./Map.js").default} map The map with the viewport to listen to events on.
    * @param {number} [moveTolerance] The minimal distance the pointer must travel to trigger a move.
@@ -20285,8 +20305,8 @@ const ii = {
   SIZE: "size",
   TARGET: "target",
   VIEW: "view"
-}, pr = 1 / 0;
-class s0 {
+}, _r = 1 / 0;
+class l0 {
   /**
    * @param {function(T): number} priorityFunction Priority function.
    * @param {function(T): string} keyFunction Key function.
@@ -20298,7 +20318,7 @@ class s0 {
    * FIXME empty description for jsdoc
    */
   clear() {
-    this.elements_.length = 0, this.priorities_.length = 0, Po(this.queuedElements_);
+    this.elements_.length = 0, this.priorities_.length = 0, To(this.queuedElements_);
   }
   /**
    * Remove and return the highest-priority element. O(log N).
@@ -20323,7 +20343,7 @@ class s0 {
       "Tried to enqueue an `element` that was already added to the queue"
     );
     const n = this.priorityFunction_(e);
-    return n != pr ? (this.elements_.push(e), this.priorities_.push(n), this.queuedElements_[this.keyFunction_(e)] = !0, this.siftDown_(0, this.elements_.length - 1), !0) : !1;
+    return n != _r ? (this.elements_.push(e), this.priorities_.push(n), this.queuedElements_[this.keyFunction_(e)] = !0, this.siftDown_(0, this.elements_.length - 1), !0) : !1;
   }
   /**
    * @return {number} Count.
@@ -20424,7 +20444,7 @@ class s0 {
     const o = n.length;
     let r, s, l;
     for (s = 0; s < o; ++s)
-      r = n[s], l = e(r), l == pr ? delete this.queuedElements_[this.keyFunction_(r)] : (i[a] = l, n[a++] = r);
+      r = n[s], l = e(r), l == _r ? delete this.queuedElements_[this.keyFunction_(r)] : (i[a] = l, n[a++] = r);
     n.length = a, i.length = a, this.heapify_();
   }
 }
@@ -20439,7 +20459,7 @@ const se = {
   ERROR: 3,
   EMPTY: 4
 };
-class l0 extends s0 {
+class c0 extends l0 {
   /**
    * @param {PriorityFunction} tilePriorityFunction Tile priority function.
    * @param {function(): ?} tileChangeCallback Function called on each tile change event.
@@ -20505,9 +20525,9 @@ class l0 extends s0 {
       this.dequeue()[0], r = o.getKey(), a = o.getState(), a === se.IDLE && !(r in this.tilesLoadingKeys_) && (this.tilesLoadingKeys_[r] = !0, ++this.tilesLoading_, ++i, o.load());
   }
 }
-function c0(t, e, n, i, a) {
+function u0(t, e, n, i, a) {
   if (!t || !(n in t.wantedTiles) || !t.wantedTiles[n][e.getKey()])
-    return pr;
+    return _r;
   const o = t.viewState.center, r = i[0] - o[0], s = i[1] - o[1];
   return 65536 * Math.log(a) + Math.sqrt(r * r + s * s) / a;
 }
@@ -20570,7 +20590,7 @@ class yc extends wn {
     this.target_ = typeof e == "string" ? document.getElementById(e) : e;
   }
 }
-class u0 extends yc {
+class d0 extends yc {
   /**
    * @param {Options} [options] Attribution options.
    */
@@ -20620,11 +20640,11 @@ class u0 extends yc {
     }
     const n = await Promise.all(
       this.collectSourceAttributions_(e).map(
-        (a) => Ep(() => a)
+        (a) => Ap(() => a)
       )
     ), i = n.length > 0;
     if (this.renderedVisible_ != i && (this.element.style.display = i ? "" : "none", this.renderedVisible_ = i), !pi(n, this.renderedAttributions_)) {
-      Q_(this.ulElement_);
+      eS(this.ulElement_);
       for (let a = 0, o = n.length; a < o; ++a) {
         const r = document.createElement("li");
         r.innerHTML = n[a], this.ulElement_.appendChild(r);
@@ -20689,7 +20709,7 @@ class u0 extends yc {
     this.updateElement_(e.frameState);
   }
 }
-class d0 extends yc {
+class h0 extends yc {
   /**
    * @param {Options} [options] Rotate options.
    */
@@ -20708,7 +20728,7 @@ class d0 extends yc {
       !1
     );
     const s = n + " " + Xr + " " + mc, l = this.element;
-    l.className = s, l.appendChild(r), this.callResetNorth_ = e.resetNorth ? e.resetNorth : void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250, this.autoHide_ = e.autoHide !== void 0 ? e.autoHide : !0, this.rotation_ = void 0, this.autoHide_ && this.element.classList.add(Uo);
+    l.className = s, l.appendChild(r), this.callResetNorth_ = e.resetNorth ? e.resetNorth : void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250, this.autoHide_ = e.autoHide !== void 0 ? e.autoHide : !0, this.rotation_ = void 0, this.autoHide_ && this.element.classList.add(Yo);
   }
   /**
    * @param {MouseEvent} event The event to handle
@@ -20744,15 +20764,15 @@ class d0 extends yc {
     if (i != this.rotation_) {
       const a = "rotate(" + i + "rad)";
       if (this.autoHide_) {
-        const o = this.element.classList.contains(Uo);
-        !o && i === 0 ? this.element.classList.add(Uo) : o && i !== 0 && this.element.classList.remove(Uo);
+        const o = this.element.classList.contains(Yo);
+        !o && i === 0 ? this.element.classList.add(Yo) : o && i !== 0 && this.element.classList.remove(Yo);
       }
       this.label_.style.transform = a;
     }
     this.rotation_ = i;
   }
 }
-class h0 extends yc {
+class f0 extends yc {
   /**
    * @param {Options} [options] Zoom options.
    */
@@ -20807,15 +20827,15 @@ class h0 extends yc {
     }
   }
 }
-function f0(t) {
+function g0(t) {
   t = t || {};
   const e = new hn();
-  return (t.zoom !== void 0 ? t.zoom : !0) && e.push(new h0(t.zoomOptions)), (t.rotate !== void 0 ? t.rotate : !0) && e.push(new d0(t.rotateOptions)), (t.attribution !== void 0 ? t.attribution : !0) && e.push(new u0(t.attributionOptions)), e;
+  return (t.zoom !== void 0 ? t.zoom : !0) && e.push(new f0(t.zoomOptions)), (t.rotate !== void 0 ? t.rotate : !0) && e.push(new h0(t.rotateOptions)), (t.attribution !== void 0 ? t.attribution : !0) && e.push(new d0(t.attributionOptions)), e;
 }
 const hd = {
   ACTIVE: "active"
 };
-class Io extends wn {
+class zo extends wn {
   /**
    * @param {InteractionOptions} [options] Options.
    */
@@ -20870,13 +20890,13 @@ class Io extends wn {
     this.map_ = e;
   }
 }
-function g0(t, e, n) {
+function m0(t, e, n) {
   const i = t.getCenterInternal();
   if (i) {
     const a = [i[0] + e[0], i[1] + e[1]];
     t.animateInternal({
       duration: n !== void 0 ? n : 250,
-      easing: c_,
+      easing: u_,
       center: t.getConstrainedCenter(a)
     });
   }
@@ -20893,7 +20913,7 @@ function pc(t, e, n, i) {
     easing: Pa
   });
 }
-class m0 extends Io {
+class v0 extends zo {
   /**
    * @param {Options} [options] Options.
    */
@@ -20918,7 +20938,7 @@ class m0 extends Io {
     return !n;
   }
 }
-class zo extends Io {
+class Lo extends zo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21027,36 +21047,36 @@ function il(t) {
     return i;
   };
 }
-const v0 = function(t) {
+const C0 = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
   );
   return e.altKey && !(e.metaKey || e.ctrlKey) && e.shiftKey;
-}, C0 = function(t) {
+}, y0 = function(t) {
   const e = t.map.getTargetElement(), n = t.map.getOwnerDocument().activeElement;
   return e.contains(n);
 }, _g = function(t) {
-  return t.map.getTargetElement().hasAttribute("tabindex") ? C0(t) : !0;
-}, y0 = Ka, Sg = function(t) {
+  return t.map.getTargetElement().hasAttribute("tabindex") ? y0(t) : !0;
+}, p0 = qa, Sg = function(t) {
   const e = (
     /** @type {MouseEvent} */
     t.originalEvent
   );
-  return e.button == 0 && !(J_ && ng && e.ctrlKey);
+  return e.button == 0 && !(Q_ && ng && e.ctrlKey);
 }, bg = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
   );
   return !e.altKey && !(e.metaKey || e.ctrlKey) && !e.shiftKey;
-}, p0 = function(t) {
+}, _0 = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
   );
   return ng ? e.metaKey : e.ctrlKey;
-}, _0 = function(t) {
+}, S0 = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
@@ -21083,7 +21103,7 @@ const v0 = function(t) {
     e !== void 0,
     "mapBrowserEvent must originate from a pointer event"
   ), e.pointerType == "mouse";
-}, S0 = function(t) {
+}, b0 = function(t) {
   const e = (
     /** @type {import("../MapBrowserEvent").default} */
     t.originalEvent
@@ -21093,7 +21113,7 @@ const v0 = function(t) {
     "mapBrowserEvent must originate from a pointer event"
   ), e.isPrimary && e.button === 0;
 };
-class b0 extends zo {
+class M0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21101,7 +21121,7 @@ class b0 extends zo {
     super({
       stopDown: Lr
     }), e = e || {}, this.kinetic_ = e.kinetic, this.lastCentroid = null, this.lastPointersCount_, this.panning_ = !1;
-    const n = e.condition ? e.condition : il(bg, S0);
+    const n = e.condition ? e.condition : il(bg, b0);
     this.condition_ = e.onFocusOnly ? il(_g, n) : n, this.noKinetic_ = !1;
   }
   /**
@@ -21118,7 +21138,7 @@ class b0 extends zo {
           this.lastCentroid[0] - a[0],
           a[1] - this.lastCentroid[1]
         ], s = e.map.getView();
-        Kp(o, s.getResolution()), Jl(o, s.getRotation()), s.adjustCenterInternal(o);
+        qp(o, s.getResolution()), Jl(o, s.getRotation()), s.adjustCenterInternal(o);
       }
     } else this.kinetic_ && this.kinetic_.begin();
     this.lastCentroid = a, this.lastPointersCount_ = i.length, e.originalEvent.preventDefault();
@@ -21159,14 +21179,14 @@ class b0 extends zo {
     return !1;
   }
 }
-class M0 extends zo {
+class x0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
     e = e || {}, super({
       stopDown: Lr
-    }), this.condition_ = e.condition ? e.condition : v0, this.lastAngle_ = void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250;
+    }), this.condition_ = e.condition ? e.condition : C0, this.lastAngle_ = void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250;
   }
   /**
    * Handle pointer drag events.
@@ -21202,7 +21222,7 @@ class M0 extends zo {
     return xs(e) && Sg(e) && this.condition_(e) ? (e.map.getView().beginInteraction(), this.lastAngle_ = void 0, !0) : !1;
   }
 }
-class x0 extends Xl {
+class P0 extends Xl {
   /**
    * @param {string} className CSS class name.
    */
@@ -21253,7 +21273,7 @@ class x0 extends Xl {
       this.map_.getCoordinateFromPixelInternal,
       this.map_
     );
-    a[4] = a[0].slice(), this.geometry_ ? this.geometry_.setCoordinates([a]) : this.geometry_ = new Qa([a]);
+    a[4] = a[0].slice(), this.geometry_ ? this.geometry_.setCoordinates([a]) : this.geometry_ = new eo([a]);
   }
   /**
    * @return {import("../geom/Polygon.js").default} Geometry.
@@ -21262,7 +21282,7 @@ class x0 extends Xl {
     return this.geometry_;
   }
 }
-const Yo = {
+const jo = {
   /**
    * Triggered upon drag box start.
    * @event DragBoxEvent#boxstart
@@ -21298,12 +21318,12 @@ class Ps extends Hn {
     super(e), this.coordinate = n, this.mapBrowserEvent = i;
   }
 }
-class P0 extends zo {
+class T0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
-    super(), this.on, this.once, this.un, e = e || {}, this.box_ = new x0(e.className || "ol-dragbox"), this.minArea_ = e.minArea !== void 0 ? e.minArea : 64, e.onBoxEnd && (this.onBoxEnd = e.onBoxEnd), this.startPixel_ = null, this.condition_ = e.condition ? e.condition : Sg, this.boxEndCondition_ = e.boxEndCondition ? e.boxEndCondition : this.defaultBoxEndCondition;
+    super(), this.on, this.once, this.un, e = e || {}, this.box_ = new P0(e.className || "ol-dragbox"), this.minArea_ = e.minArea !== void 0 ? e.minArea : 64, e.onBoxEnd && (this.onBoxEnd = e.onBoxEnd), this.startPixel_ = null, this.condition_ = e.condition ? e.condition : Sg, this.boxEndCondition_ = e.boxEndCondition ? e.boxEndCondition : this.defaultBoxEndCondition;
   }
   /**
    * The default condition for determining whether the boxend event
@@ -21333,7 +21353,7 @@ class P0 extends zo {
   handleDragEvent(e) {
     this.box_.setPixels(this.startPixel_, e.pixel), this.dispatchEvent(
       new Ps(
-        Yo.BOXDRAG,
+        jo.BOXDRAG,
         e.coordinate,
         e
       )
@@ -21353,7 +21373,7 @@ class P0 extends zo {
     );
     return n && this.onBoxEnd(e), this.dispatchEvent(
       new Ps(
-        n ? Yo.BOXEND : Yo.BOXCANCEL,
+        n ? jo.BOXEND : jo.BOXCANCEL,
         e.coordinate,
         e
       )
@@ -21367,7 +21387,7 @@ class P0 extends zo {
   handleDownEvent(e) {
     return this.condition_(e) ? (this.startPixel_ = e.pixel, this.box_.setMap(e.map), this.box_.setPixels(this.startPixel_, this.startPixel_), this.dispatchEvent(
       new Ps(
-        Yo.BOXSTART,
+        jo.BOXSTART,
         e.coordinate,
         e
       )
@@ -21380,13 +21400,13 @@ class P0 extends zo {
   onBoxEnd(e) {
   }
 }
-class T0 extends P0 {
+class w0 extends T0 {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
     e = e || {};
-    const n = e.condition ? e.condition : _0;
+    const n = e.condition ? e.condition : S0;
     super({
       condition: n,
       className: e.className || "ol-dragzoom",
@@ -21419,7 +21439,7 @@ const xi = {
   RIGHT: "ArrowRight",
   DOWN: "ArrowDown"
 };
-class w0 extends Io {
+class E0 extends zo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21447,19 +21467,19 @@ class w0 extends Io {
         let l = 0, c = 0;
         a == xi.DOWN ? c = -s : a == xi.LEFT ? l = -s : a == xi.RIGHT ? l = s : c = s;
         const u = [l, c];
-        Jl(u, r.getRotation()), g0(r, u, this.duration_), i.preventDefault(), n = !0;
+        Jl(u, r.getRotation()), m0(r, u, this.duration_), i.preventDefault(), n = !0;
       }
     }
     return !n;
   }
 }
-class E0 extends Io {
+class A0 extends zo {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
     super(), e = e || {}, this.condition_ = e.condition ? e.condition : function(n) {
-      return !p0(n) && Mg(n);
+      return !_0(n) && Mg(n);
     }, this.delta_ = e.delta ? e.delta : 1, this.duration_ = e.duration !== void 0 ? e.duration : 100;
   }
   /**
@@ -21484,7 +21504,7 @@ class E0 extends Io {
     return !n;
   }
 }
-class A0 {
+class R0 {
   /**
    * @param {number} decay Rate of decay (must be negative).
    * @param {number} minVelocity Minimum velocity (pixels/millisecond).
@@ -21538,7 +21558,7 @@ class A0 {
     return this.angle_;
   }
 }
-class R0 extends Io {
+class I0 extends zo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21547,7 +21567,7 @@ class R0 extends Io {
       /** @type {import("./Interaction.js").InteractionOptions} */
       e
     ), this.totalDelta_ = 0, this.lastDelta_ = 0, this.maxDelta_ = e.maxDelta !== void 0 ? e.maxDelta : 1, this.duration_ = e.duration !== void 0 ? e.duration : 250, this.timeout_ = e.timeout !== void 0 ? e.timeout : 80, this.useAnchor_ = e.useAnchor !== void 0 ? e.useAnchor : !0, this.constrainResolution_ = e.constrainResolution !== void 0 ? e.constrainResolution : !1;
-    const n = e.condition ? e.condition : y0;
+    const n = e.condition ? e.condition : p0;
     this.condition_ = e.onFocusOnly ? il(_g, n) : n, this.lastAnchor_ = null, this.startTime_ = void 0, this.timeoutId_, this.mode_ = void 0, this.trackpadEventGap_ = 400, this.trackpadTimeoutId_, this.deltaPerZoom_ = 300;
   }
   /**
@@ -21579,7 +21599,7 @@ class R0 extends Io {
     );
     a.preventDefault(), this.useAnchor_ && (this.lastAnchor_ = e.coordinate);
     let o;
-    if (e.type == me.WHEEL && (o = a.deltaY, K_ && a.deltaMode === WheelEvent.DOM_DELTA_PIXEL && (o /= ig), a.deltaMode === WheelEvent.DOM_DELTA_LINE && (o *= 40)), o === 0)
+    if (e.type == me.WHEEL && (o = a.deltaY, q_ && a.deltaMode === WheelEvent.DOM_DELTA_PIXEL && (o /= ig), a.deltaMode === WheelEvent.DOM_DELTA_LINE && (o *= 40)), o === 0)
       return !1;
     this.lastDelta_ = o;
     const r = Date.now();
@@ -21621,7 +21641,7 @@ class R0 extends Io {
     this.useAnchor_ = e, e || (this.lastAnchor_ = null);
   }
 }
-class I0 extends zo {
+class z0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21674,7 +21694,7 @@ class I0 extends zo {
     return !1;
   }
 }
-class z0 extends zo {
+class L0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21724,35 +21744,35 @@ class z0 extends zo {
     return !1;
   }
 }
-function L0(t) {
+function V0(t) {
   t = t || {};
-  const e = new hn(), n = new A0(-5e-3, 0.05, 100);
-  return (t.altShiftDragRotate !== void 0 ? t.altShiftDragRotate : !0) && e.push(new M0()), (t.doubleClickZoom !== void 0 ? t.doubleClickZoom : !0) && e.push(
-    new m0({
+  const e = new hn(), n = new R0(-5e-3, 0.05, 100);
+  return (t.altShiftDragRotate !== void 0 ? t.altShiftDragRotate : !0) && e.push(new x0()), (t.doubleClickZoom !== void 0 ? t.doubleClickZoom : !0) && e.push(
+    new v0({
       delta: t.zoomDelta,
       duration: t.zoomDuration
     })
   ), (t.dragPan !== void 0 ? t.dragPan : !0) && e.push(
-    new b0({
+    new M0({
       onFocusOnly: t.onFocusOnly,
       kinetic: n
     })
-  ), (t.pinchRotate !== void 0 ? t.pinchRotate : !0) && e.push(new I0()), (t.pinchZoom !== void 0 ? t.pinchZoom : !0) && e.push(
-    new z0({
+  ), (t.pinchRotate !== void 0 ? t.pinchRotate : !0) && e.push(new z0()), (t.pinchZoom !== void 0 ? t.pinchZoom : !0) && e.push(
+    new L0({
       duration: t.zoomDuration
     })
-  ), (t.keyboard !== void 0 ? t.keyboard : !0) && (e.push(new w0()), e.push(
-    new E0({
+  ), (t.keyboard !== void 0 ? t.keyboard : !0) && (e.push(new E0()), e.push(
+    new A0({
       delta: t.zoomDelta,
       duration: t.zoomDuration
     })
   )), (t.mouseWheelZoom !== void 0 ? t.mouseWheelZoom : !0) && e.push(
-    new R0({
+    new I0({
       onFocusOnly: t.onFocusOnly,
       duration: t.zoomDuration
     })
   ), (t.shiftDragZoom !== void 0 ? t.shiftDragZoom : !0) && e.push(
-    new T0({
+    new w0({
       duration: t.zoomDuration
     })
   ), e;
@@ -21775,16 +21795,16 @@ function Pg(t, e) {
       Pg(n[i], e);
   }
 }
-let V0 = class extends wn {
+let B0 = class extends wn {
   /**
    * @param {MapOptions} [options] Map options.
    */
   constructor(e) {
     super(), e = e || {}, this.on, this.once, this.un;
-    const n = B0(e);
-    this.renderComplete_, this.loaded_ = !0, this.boundHandleBrowserEvent_ = this.handleBrowserEvent.bind(this), this.maxTilesLoading_ = e.maxTilesLoading !== void 0 ? e.maxTilesLoading : 16, this.pixelRatio_ = e.pixelRatio !== void 0 ? e.pixelRatio : ig, this.postRenderTimeoutHandle_, this.animationDelayKey_, this.animationDelay_ = this.animationDelay_.bind(this), this.coordinateToPixelTransform_ = Kt(), this.pixelToCoordinateTransform_ = Kt(), this.frameIndex_ = 0, this.frameState_ = null, this.previousExtent_ = null, this.viewPropertyListenerKey_ = null, this.viewChangeListenerKey_ = null, this.layerGroupPropertyListenerKeys_ = null, this.viewport_ = document.createElement("div"), this.viewport_.className = "ol-viewport" + ("ontouchstart" in window ? " ol-touch" : ""), this.viewport_.style.position = "relative", this.viewport_.style.overflow = "hidden", this.viewport_.style.width = "100%", this.viewport_.style.height = "100%", this.overlayContainer_ = document.createElement("div"), this.overlayContainer_.style.position = "absolute", this.overlayContainer_.style.zIndex = "0", this.overlayContainer_.style.width = "100%", this.overlayContainer_.style.height = "100%", this.overlayContainer_.style.pointerEvents = "none", this.overlayContainer_.className = "ol-overlaycontainer", this.viewport_.appendChild(this.overlayContainer_), this.overlayContainerStopEvent_ = document.createElement("div"), this.overlayContainerStopEvent_.style.position = "absolute", this.overlayContainerStopEvent_.style.zIndex = "0", this.overlayContainerStopEvent_.style.width = "100%", this.overlayContainerStopEvent_.style.height = "100%", this.overlayContainerStopEvent_.style.pointerEvents = "none", this.overlayContainerStopEvent_.className = "ol-overlaycontainer-stopevent", this.viewport_.appendChild(this.overlayContainerStopEvent_), this.mapBrowserEventHandler_ = null, this.moveTolerance_ = e.moveTolerance, this.keyboardEventTarget_ = n.keyboardEventTarget, this.targetChangeHandlerKeys_ = null, this.targetElement_ = null, this.resizeObserver_ = new ResizeObserver(() => this.updateSize()), this.controls = n.controls || f0(), this.interactions = n.interactions || L0({
+    const n = F0(e);
+    this.renderComplete_, this.loaded_ = !0, this.boundHandleBrowserEvent_ = this.handleBrowserEvent.bind(this), this.maxTilesLoading_ = e.maxTilesLoading !== void 0 ? e.maxTilesLoading : 16, this.pixelRatio_ = e.pixelRatio !== void 0 ? e.pixelRatio : ig, this.postRenderTimeoutHandle_, this.animationDelayKey_, this.animationDelay_ = this.animationDelay_.bind(this), this.coordinateToPixelTransform_ = Kt(), this.pixelToCoordinateTransform_ = Kt(), this.frameIndex_ = 0, this.frameState_ = null, this.previousExtent_ = null, this.viewPropertyListenerKey_ = null, this.viewChangeListenerKey_ = null, this.layerGroupPropertyListenerKeys_ = null, this.viewport_ = document.createElement("div"), this.viewport_.className = "ol-viewport" + ("ontouchstart" in window ? " ol-touch" : ""), this.viewport_.style.position = "relative", this.viewport_.style.overflow = "hidden", this.viewport_.style.width = "100%", this.viewport_.style.height = "100%", this.overlayContainer_ = document.createElement("div"), this.overlayContainer_.style.position = "absolute", this.overlayContainer_.style.zIndex = "0", this.overlayContainer_.style.width = "100%", this.overlayContainer_.style.height = "100%", this.overlayContainer_.style.pointerEvents = "none", this.overlayContainer_.className = "ol-overlaycontainer", this.viewport_.appendChild(this.overlayContainer_), this.overlayContainerStopEvent_ = document.createElement("div"), this.overlayContainerStopEvent_.style.position = "absolute", this.overlayContainerStopEvent_.style.zIndex = "0", this.overlayContainerStopEvent_.style.width = "100%", this.overlayContainerStopEvent_.style.height = "100%", this.overlayContainerStopEvent_.style.pointerEvents = "none", this.overlayContainerStopEvent_.className = "ol-overlaycontainer-stopevent", this.viewport_.appendChild(this.overlayContainerStopEvent_), this.mapBrowserEventHandler_ = null, this.moveTolerance_ = e.moveTolerance, this.keyboardEventTarget_ = n.keyboardEventTarget, this.targetChangeHandlerKeys_ = null, this.targetElement_ = null, this.resizeObserver_ = new ResizeObserver(() => this.updateSize()), this.controls = n.controls || g0(), this.interactions = n.interactions || V0({
       onFocusOnly: !0
-    }), this.overlays_ = n.overlays, this.overlayIdIndex_ = {}, this.renderer_ = null, this.postRenderFunctions_ = [], this.tileQueue_ = new l0(
+    }), this.overlays_ = n.overlays, this.overlayIdIndex_ = {}, this.renderer_ = null, this.postRenderFunctions_ = [], this.tileQueue_ = new c0(
       this.getTilePriority.bind(this),
       this.handleTileChange_.bind(this)
     ), this.addChangeListener(
@@ -21943,7 +21963,7 @@ let V0 = class extends wn {
       return;
     const a = this.getCoordinateFromPixelInternal(e);
     i = i !== void 0 ? i : {};
-    const o = i.hitTolerance !== void 0 ? i.hitTolerance : 0, r = i.layerFilter !== void 0 ? i.layerFilter : Ka, s = i.checkWrapped !== !1;
+    const o = i.hitTolerance !== void 0 ? i.hitTolerance : 0, r = i.layerFilter !== void 0 ? i.layerFilter : qa, s = i.checkWrapped !== !1;
     return this.renderer_.forEachFeatureAtCoordinate(
       a,
       this.frameState_,
@@ -22000,7 +22020,7 @@ let V0 = class extends wn {
       return !1;
     const i = this.getCoordinateFromPixelInternal(e);
     n = n !== void 0 ? n : {};
-    const a = n.layerFilter !== void 0 ? n.layerFilter : Ka, o = n.hitTolerance !== void 0 ? n.hitTolerance : 0, r = n.checkWrapped !== !1;
+    const a = n.layerFilter !== void 0 ? n.layerFilter : qa, o = n.hitTolerance !== void 0 ? n.hitTolerance : 0, r = n.checkWrapped !== !1;
     return this.renderer_.hasFeatureAtCoordinate(
       i,
       this.frameState_,
@@ -22292,7 +22312,7 @@ let V0 = class extends wn {
    * @return {number} Tile priority.
    */
   getTilePriority(e, n, i, a) {
-    return c0(
+    return u0(
       this.frameState_,
       e,
       n,
@@ -22405,7 +22425,7 @@ let V0 = class extends wn {
     if (this.targetElement_ = n, !n)
       this.renderer_ && (clearTimeout(this.postRenderTimeoutHandle_), this.postRenderTimeoutHandle_ = void 0, this.postRenderFunctions_.length = 0, this.renderer_.dispose(), this.renderer_ = null), this.animationDelayKey_ && (cancelAnimationFrame(this.animationDelayKey_), this.animationDelayKey_ = void 0);
     else {
-      n.appendChild(this.viewport_), this.renderer_ || (this.renderer_ = new o0(this)), this.mapBrowserEventHandler_ = new r0(
+      n.appendChild(this.viewport_), this.renderer_ || (this.renderer_ = new r0(this)), this.mapBrowserEventHandler_ = new s0(
         this,
         this.moveTolerance_
       );
@@ -22618,9 +22638,9 @@ let V0 = class extends wn {
     this.frameState_ = o, this.renderer_.renderFrame(o), o && (o.animate && this.render(), Array.prototype.push.apply(
       this.postRenderFunctions_,
       o.postRenderFunctions
-    ), a && (!this.previousExtent_ || !Dr(this.previousExtent_) && !qa(o.extent, this.previousExtent_)) && (this.dispatchEvent(
+    ), a && (!this.previousExtent_ || !Dr(this.previousExtent_) && !Ja(o.extent, this.previousExtent_)) && (this.dispatchEvent(
       new Ji(ii.MOVESTART, this, a)
-    ), this.previousExtent_ = Br(this.previousExtent_)), this.previousExtent_ && !o.viewHints[lt.ANIMATING] && !o.viewHints[lt.INTERACTING] && !qa(o.extent, this.previousExtent_) && (this.dispatchEvent(
+    ), this.previousExtent_ = Br(this.previousExtent_)), this.previousExtent_ && !o.viewHints[lt.ANIMATING] && !o.viewHints[lt.INTERACTING] && !Ja(o.extent, this.previousExtent_) && (this.dispatchEvent(
       new Ji(ii.MOVEEND, this, o)
     ), Ef(o.extent, this.previousExtent_))), this.dispatchEvent(new Ji(ii.POSTRENDER, this, o)), this.renderComplete_ = this.hasListener(ii.LOADSTART) || this.hasListener(ii.LOADEND) || this.hasListener(Dt.RENDERCOMPLETE) ? !this.tileQueue_.getTilesLoading() && !this.tileQueue_.getCount() && !this.getLoadingOrNotReady() : void 0, this.postRenderTimeoutHandle_ || (this.postRenderTimeoutHandle_ = setTimeout(() => {
       this.postRenderTimeoutHandle_ = void 0, this.handlePostRender();
@@ -22702,7 +22722,7 @@ let V0 = class extends wn {
     n && n.setViewportSize(e);
   }
 };
-function B0(t) {
+function F0(t) {
   let e = null;
   t.keyboardEventTarget !== void 0 && (e = typeof t.keyboardEventTarget == "string" ? document.getElementById(t.keyboardEventTarget) : t.keyboardEventTarget);
   const n = {}, i = t.layers && typeof /** @type {?} */
@@ -22907,7 +22927,7 @@ class wg extends Tg {
    * @private
    */
   handleImageError_() {
-    this.state = se.ERROR, this.unlistenImage_(), this.image_ = F0(), this.changed();
+    this.state = se.ERROR, this.unlistenImage_(), this.image_ = k0(), this.changed();
   }
   /**
    * Tracks successful image load.
@@ -22959,7 +22979,7 @@ class wg extends Tg {
    * @api
    */
   load() {
-    this.state == se.ERROR && (this.state = se.IDLE, this.image_ = new Image(), this.crossOrigin_ !== null && (this.image_.crossOrigin = this.crossOrigin_)), this.state == se.IDLE && (this.state = se.LOADING, this.changed(), this.tileLoadFunction_(this, this.src_), this.unlisten_ = tS(
+    this.state == se.ERROR && (this.state = se.IDLE, this.image_ = new Image(), this.crossOrigin_ !== null && (this.image_.crossOrigin = this.crossOrigin_)), this.state == se.IDLE && (this.state = se.LOADING, this.changed(), this.tileLoadFunction_(this, this.src_), this.unlisten_ = nS(
       this.image_,
       this.handleImageLoad_.bind(this),
       this.handleImageError_.bind(this)
@@ -22974,12 +22994,12 @@ class wg extends Tg {
     this.unlisten_ && (this.unlisten_(), this.unlisten_ = null);
   }
 }
-function F0() {
+function k0() {
   const t = it(1, 1);
   return t.fillStyle = "rgba(0,0,0,0)", t.fillRect(0, 0, 1, 1), t.canvas;
 }
-const k0 = 0.5, O0 = 10, fd = 0.25;
-class D0 {
+const O0 = 0.5, D0 = 10, fd = 0.25;
+class G0 {
   /**
    * @param {import("../proj/Projection.js").default} sourceProj Source projection.
    * @param {import("../proj/Projection.js").default} targetProj Target projection.
@@ -22991,12 +23011,12 @@ class D0 {
   constructor(e, n, i, a, o, r) {
     this.sourceProj_ = e, this.targetProj_ = n;
     let s = {};
-    const l = fr(this.targetProj_, this.sourceProj_);
+    const l = gr(this.targetProj_, this.sourceProj_);
     this.transformInv_ = function(p) {
       const M = p[0] + "/" + p[1];
       return s[M] || (s[M] = l(p)), s[M];
     }, this.maxSourceExtent_ = a, this.errorThresholdSquared_ = o * o, this.triangles_ = [], this.wrapsXInSource_ = !1, this.canWrapXInSource_ = this.sourceProj_.canWrapX() && !!a && !!this.sourceProj_.getExtent() && Re(a) >= Re(this.sourceProj_.getExtent()), this.sourceWorldWidth_ = this.sourceProj_.getExtent() ? Re(this.sourceProj_.getExtent()) : null, this.targetWorldWidth_ = this.targetProj_.getExtent() ? Re(this.targetProj_.getExtent()) : null;
-    const c = ki(i), u = Or(i), d = kr(i), h = Fr(i), f = this.transformInv_(c), g = this.transformInv_(u), m = this.transformInv_(d), C = this.transformInv_(h), y = O0 + (r ? Math.max(
+    const c = ki(i), u = Or(i), d = kr(i), h = Fr(i), f = this.transformInv_(c), g = this.transformInv_(u), m = this.transformInv_(d), C = this.transformInv_(h), y = D0 + (r ? Math.max(
       0,
       Math.ceil(
         Math.log2(
@@ -23197,7 +23217,7 @@ function gd(t, e, n, i, a) {
 function ws(t, e) {
   return Math.abs(t[e * 4] - 210) > 2 || Math.abs(t[e * 4 + 3] - 0.75 * 255) > 2;
 }
-function G0() {
+function N0() {
   if (Ts === void 0) {
     const t = it(6, 6, la);
     t.globalCompositeOperation = "lighter", t.fillStyle = "rgba(210, 0, 0, 0.75)", gd(t, 4, 5, 4, 0), gd(t, 4, 5, 0, 5);
@@ -23224,7 +23244,7 @@ function md(t, e, n, i) {
   }
   return o;
 }
-function N0(t, e, n, i) {
+function W0(t, e, n, i) {
   const a = Bi(n);
   let o = md(
     t,
@@ -23241,7 +23261,7 @@ function N0(t, e, n, i) {
     ), isFinite(o) && o > 0;
   }), o;
 }
-function W0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
+function $0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
   const g = it(
     Math.round(n * t),
     Math.round(n * e),
@@ -23256,7 +23276,7 @@ function W0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
   g.globalCompositeOperation = "lighter";
   const C = Wt();
   l.forEach(function(b, T, _) {
-    $p(C, b.extent);
+    Xp(C, b.extent);
   });
   let y;
   const p = n / i, M = (d ? 1 : 1 + Math.pow(2, -24)) / p;
@@ -23295,10 +23315,10 @@ function W0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
       [V, N, 0, 0, D - G],
       [0, 0, A, R, B - U],
       [0, 0, V, N, k - U]
-    ], ee = zp(L);
+    ], ee = Lp(L);
     if (!ee)
       return;
-    if (g.save(), g.beginPath(), G0() || !d) {
+    if (g.save(), g.beginPath(), N0() || !d) {
       g.moveTo(E, B);
       const ae = 4, j = G - E, ce = U - B;
       for (let pe = 0; pe < ae; pe++)
@@ -23370,7 +23390,7 @@ class al extends Tg {
     y && (m ? m = $a(m, y) : m = y);
     const p = a.getResolution(
       this.wrappedTileCoord_[0]
-    ), M = N0(
+    ), M = W0(
       e,
       i,
       C,
@@ -23380,8 +23400,8 @@ class al extends Tg {
       this.state = se.EMPTY;
       return;
     }
-    const S = u !== void 0 ? u : k0;
-    if (this.triangulation_ = new D0(
+    const S = u !== void 0 ? u : O0;
+    if (this.triangulation_ = new G0(
       e,
       i,
       C,
@@ -23442,7 +23462,7 @@ class al extends Tg {
       ), l = this.targetTileGrid_.getTileCoordExtent(
         this.wrappedTileCoord_
       );
-      this.canvas_ = W0(
+      this.canvas_ = $0(
         a,
         o,
         this.pixelRatio_,
@@ -23499,7 +23519,7 @@ class al extends Tg {
     this.canvas_ && ($r(this.canvas_.getContext("2d")), la.push(this.canvas_), this.canvas_ = null), super.release();
   }
 }
-class $0 {
+class X0 {
   /**
    * @param {number} [highWaterMark] High water mark.
    */
@@ -23675,20 +23695,20 @@ function qr(t, e, n) {
 function Eg(t) {
   return qr(t[0], t[1], t[2]);
 }
-function X0(t) {
+function U0(t) {
   return t.split("/").map(Number);
 }
-function U0(t) {
+function Y0(t) {
   return (t[1] << t[0]) + t[2];
 }
-function Y0(t, e) {
+function j0(t, e) {
   const n = t[0], i = t[1], a = t[2];
   if (e.getMinZoom() > n || n > e.getMaxZoom())
     return !1;
   const o = e.getFullTileRange(n);
   return o ? o.containsXY(i, a) : !0;
 }
-class Ag extends $0 {
+class Ag extends X0 {
   clear() {
     for (; this.getCount() > 0; )
       this.pop().release();
@@ -23707,7 +23727,7 @@ class Ag extends $0 {
   pruneExceptNewestZ() {
     if (this.getCount() === 0)
       return;
-    const e = this.peekFirstKey(), i = X0(e)[0];
+    const e = this.peekFirstKey(), i = U0(e)[0];
     this.forEach((a) => {
       a.tileCoord[0] !== i && (this.remove(Eg(a.tileCoord)), a.release());
     });
@@ -23916,7 +23936,7 @@ class Ig {
    */
   constructor(e) {
     this.minZoom = e.minZoom !== void 0 ? e.minZoom : 0, this.resolutions_ = e.resolutions, Se(
-      wp(
+      Ep(
         this.resolutions_,
         /**
          * @param {number} a First resolution
@@ -24180,7 +24200,7 @@ class Ig {
   getTileCoordForXYAndResolution_(e, n, i, a, o) {
     const r = this.getZForResolution(i), s = i / this.getResolution(r), l = this.getOrigin(r), c = Rt(this.getTileSize(r), this.tmpSize_);
     let u = s * (e - l[0]) / i / c[0], d = s * (l[1] - n) / i / c[1];
-    return a ? (u = Go(u, Jn) - 1, d = Go(d, Jn) - 1) : (u = Do(u, Jn), d = Do(d, Jn)), vd(r, u, d, o);
+    return a ? (u = No(u, Jn) - 1, d = No(d, Jn) - 1) : (u = Go(u, Jn), d = Go(d, Jn)), vd(r, u, d, o);
   }
   /**
    * Although there is repetition between this method and `getTileCoordForXYAndResolution_`,
@@ -24200,7 +24220,7 @@ class Ig {
   getTileCoordForXYAndZ_(e, n, i, a, o) {
     const r = this.getOrigin(i), s = this.getResolution(i), l = Rt(this.getTileSize(i), this.tmpSize_);
     let c = (e - r[0]) / s / l[0], u = (r[1] - n) / s / l[1];
-    return a ? (c = Go(c, Jn) - 1, u = Go(u, Jn) - 1) : (c = Do(c, Jn), u = Do(u, Jn)), vd(i, c, u, o);
+    return a ? (c = No(c, Jn) - 1, u = No(u, Jn) - 1) : (c = Go(c, Jn), u = Go(u, Jn)), vd(i, c, u, o);
   }
   /**
    * Get a tile coordinate given a map coordinate and zoom level.
@@ -24297,9 +24317,9 @@ class Ig {
 }
 function zg(t) {
   let e = t.getDefaultTileGrid();
-  return e || (e = K0(t), t.setDefaultTileGrid(e)), e;
+  return e || (e = q0(t), t.setDefaultTileGrid(e)), e;
 }
-function j0(t, e, n) {
+function H0(t, e, n) {
   const i = e[0], a = t.getTileCoordCenter(e), o = bc(n);
   if (!ga(o, a)) {
     const r = Re(o), s = Math.ceil(
@@ -24309,17 +24329,17 @@ function j0(t, e, n) {
   }
   return e;
 }
-function H0(t, e, n, i) {
+function Z0(t, e, n, i) {
   i = i !== void 0 ? i : "top-left";
   const a = Lg(t, e, n);
   return new Ig({
     extent: t,
-    origin: Up(t, i),
+    origin: Yp(t, i),
     resolutions: a,
     tileSize: n
   });
 }
-function Z0(t) {
+function K0(t) {
   const e = t || {}, n = e.extent || $t("EPSG:3857").getExtent(), i = {
     extent: n,
     minZoom: e.minZoom,
@@ -24334,7 +24354,7 @@ function Z0(t) {
   return new Ig(i);
 }
 function Lg(t, e, n, i) {
-  e = e !== void 0 ? e : Lp, n = Rt(n !== void 0 ? n : Hl);
+  e = e !== void 0 ? e : Vp, n = Rt(n !== void 0 ? n : Hl);
   const a = mt(t), o = Re(t);
   i = i > 0 ? i : Math.max(o / n[0], a / n[1]);
   const r = e + 1, s = new Array(r);
@@ -24342,9 +24362,9 @@ function Lg(t, e, n, i) {
     s[l] = i / Math.pow(2, l);
   return s;
 }
-function K0(t, e, n, i) {
+function q0(t, e, n, i) {
   const a = bc(t);
-  return H0(a, e, n, i);
+  return Z0(a, e, n, i);
 }
 function bc(t) {
   t = $t(t);
@@ -24355,7 +24375,7 @@ function bc(t) {
   }
   return e;
 }
-class q0 extends Rg {
+class J0 extends Rg {
   /**
    * @param {Options} options SourceTile source options.
    */
@@ -24502,7 +24522,7 @@ class q0 extends Rg {
    */
   getTilePixelSize(e, n, i) {
     const a = this.getTileGridForProjection(i), o = this.getTilePixelRatio(n), r = Rt(a.getTileSize(e), this.tmpSize);
-    return o == 1 ? r : W_(r, o, this.tmpSize);
+    return o == 1 ? r : $_(r, o, this.tmpSize);
   }
   /**
    * Returns a tile coordinate wrapped around the x-axis. When the tile coordinate
@@ -24516,7 +24536,7 @@ class q0 extends Rg {
   getTileCoordForTileUrlFunction(e, n) {
     n = n !== void 0 ? n : this.getProjection();
     const i = this.getTileGridForProjection(n);
-    return this.getWrapX() && n.isGlobal() && (e = j0(i, e, n)), Y0(e, i) ? e : null;
+    return this.getWrapX() && n.isGlobal() && (e = H0(i, e, n)), j0(e, i) ? e : null;
   }
   /**
    * Remove all cached tiles from the source. The next render cycle will fetch new tiles.
@@ -24548,7 +24568,7 @@ class q0 extends Rg {
   useTile(e, n, i, a) {
   }
 }
-class J0 extends Hn {
+class Q0 extends Hn {
   /**
    * @param {string} type Type.
    * @param {import("../Tile.js").default} tile The tile.
@@ -24557,7 +24577,7 @@ class J0 extends Hn {
     super(e), this.tile = n;
   }
 }
-function Q0(t, e) {
+function eb(t, e) {
   const n = /\{z\}/g, i = /\{x\}/g, a = /\{y\}/g, o = /\{-y\}/g;
   return (
     /**
@@ -24579,13 +24599,13 @@ function Q0(t, e) {
     }
   );
 }
-function eb(t, e) {
+function tb(t, e) {
   const n = t.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
-    i[a] = Q0(t[a], e);
-  return tb(i);
+    i[a] = eb(t[a], e);
+  return nb(i);
 }
-function tb(t) {
+function nb(t) {
   return t.length === 1 ? t[0] : (
     /**
      * @param {import("./tilecoord.js").TileCoord} tileCoord Tile Coordinate.
@@ -24596,12 +24616,12 @@ function tb(t) {
     function(e, n, i) {
       if (!e)
         return;
-      const a = U0(e), o = ra(a, t.length);
+      const a = Y0(e), o = ra(a, t.length);
       return t[o](e, n, i);
     }
   );
 }
-function nb(t) {
+function ib(t) {
   const e = [];
   let n = /\{([a-z])-([a-z])\}/.exec(t);
   if (n) {
@@ -24619,7 +24639,7 @@ function nb(t) {
   }
   return e.push(t), e;
 }
-class Mc extends q0 {
+class Mc extends J0 {
   /**
    * @param {Options} options Image tile options.
    */
@@ -24677,7 +24697,7 @@ class Mc extends q0 {
       e.target
     ), i = Ee(n), a = n.getState();
     let o;
-    a == se.LOADING ? (this.tileLoadingKeys_[i] = !0, o = Es.TILELOADSTART) : i in this.tileLoadingKeys_ && (delete this.tileLoadingKeys_[i], o = a == se.ERROR ? Es.TILELOADERROR : a == se.LOADED ? Es.TILELOADEND : void 0), o != null && this.dispatchEvent(new J0(o, n));
+    a == se.LOADING ? (this.tileLoadingKeys_[i] = !0, o = Es.TILELOADSTART) : i in this.tileLoadingKeys_ && (delete this.tileLoadingKeys_[i], o = a == se.ERROR ? Es.TILELOADERROR : a == se.LOADED ? Es.TILELOADEND : void 0), o != null && this.dispatchEvent(new Q0(o, n));
   }
   /**
    * Set the tile load function of the source.
@@ -24702,7 +24722,7 @@ class Mc extends q0 {
    * @api
    */
   setUrl(e) {
-    const n = nb(e);
+    const n = ib(e);
     this.urls = n, this.setUrls(n);
   }
   /**
@@ -24714,7 +24734,7 @@ class Mc extends q0 {
     this.urls = e;
     const n = e.join(`
 `);
-    this.generateTileUrlFunction_ ? this.setTileUrlFunction(eb(e, this.tileGrid), n) : this.setKey(n);
+    this.generateTileUrlFunction_ ? this.setTileUrlFunction(tb(e, this.tileGrid), n) : this.setKey(n);
   }
   /**
    * @param {import("../tilecoord.js").TileCoord} tileCoord Tile coordinate.
@@ -24735,7 +24755,7 @@ class Mc extends q0 {
     this.tileCache.containsKey(a) && this.tileCache.get(a);
   }
 }
-class ib extends Mc {
+class ab extends Mc {
   /**
    * @param {!Options} options Image tile options.
    */
@@ -24747,7 +24767,7 @@ class ib extends Mc {
       projection: e.projection,
       state: e.state,
       tileGrid: e.tileGrid,
-      tileLoadFunction: e.tileLoadFunction ? e.tileLoadFunction : ab,
+      tileLoadFunction: e.tileLoadFunction ? e.tileLoadFunction : ob,
       tilePixelRatio: e.tilePixelRatio,
       tileUrlFunction: e.tileUrlFunction,
       url: e.url,
@@ -24963,16 +24983,16 @@ class ib extends Mc {
       this.tileCacheForProjection[e].clear();
   }
 }
-function ab(t, e) {
+function ob(t, e) {
   t.getImage().src = e;
 }
-class ob extends ib {
+class rb extends ab {
   /**
    * @param {Options} [options] XYZ options.
    */
   constructor(e) {
     e = e || {};
-    const n = e.projection !== void 0 ? e.projection : "EPSG:3857", i = e.tileGrid !== void 0 ? e.tileGrid : Z0({
+    const n = e.projection !== void 0 ? e.projection : "EPSG:3857", i = e.tileGrid !== void 0 ? e.tileGrid : K0({
       extent: bc(n),
       maxResolution: e.maxResolution,
       maxZoom: e.maxZoom,
@@ -25006,15 +25026,15 @@ class ob extends ib {
     return this.gutter_;
   }
 }
-const rb = '&#169; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.';
-class sb extends ob {
+const sb = '&#169; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.';
+class lb extends rb {
   /**
    * @param {Options} [options] Open Street Map options.
    */
   constructor(e) {
     e = e || {};
     let n;
-    e.attributions !== void 0 ? n = e.attributions : n = [rb];
+    e.attributions !== void 0 ? n = e.attributions : n = [sb];
     const i = e.crossOrigin !== void 0 ? e.crossOrigin : "anonymous", a = e.url !== void 0 ? e.url : "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
     super({
       attributions: n,
@@ -25165,7 +25185,7 @@ class xc extends wn {
    * @fires module:ol/events/Event~BaseEvent#event:change
    */
   setStyle(e) {
-    this.style_ = e, this.styleFunction_ = e ? lb(e) : void 0, this.changed();
+    this.style_ = e, this.styleFunction_ = e ? cb(e) : void 0, this.changed();
   }
   /**
    * Set the feature id.  The feature id is considered stable and may be used when
@@ -25190,7 +25210,7 @@ class xc extends wn {
     this.removeChangeListener(this.geometryName_, this.handleGeometryChanged_), this.geometryName_ = e, this.addChangeListener(this.geometryName_, this.handleGeometryChanged_), this.handleGeometryChanged_();
   }
 }
-function lb(t) {
+function cb(t) {
   if (typeof t == "function")
     return t;
   let e;
@@ -25205,11 +25225,11 @@ function lb(t) {
     return e;
   };
 }
-const jo = {
+const Ho = {
   PRELOAD: "preload",
   USE_INTERIM_TILES_ON_ERROR: "useInterimTilesOnError"
 };
-class cb extends Nr {
+class ub extends Nr {
   /**
    * @param {Options<TileSourceType>} [options] Tile layer options.
    */
@@ -25229,7 +25249,7 @@ class cb extends Nr {
   getPreload() {
     return (
       /** @type {number} */
-      this.get(jo.PRELOAD)
+      this.get(Ho.PRELOAD)
     );
   }
   /**
@@ -25239,7 +25259,7 @@ class cb extends Nr {
    * @api
    */
   setPreload(e) {
-    this.set(jo.PRELOAD, e);
+    this.set(Ho.PRELOAD, e);
   }
   /**
    * Whether we use interim tiles on error.
@@ -25250,7 +25270,7 @@ class cb extends Nr {
   getUseInterimTilesOnError() {
     return (
       /** @type {boolean} */
-      this.get(jo.USE_INTERIM_TILES_ON_ERROR)
+      this.get(Ho.USE_INTERIM_TILES_ON_ERROR)
     );
   }
   /**
@@ -25260,7 +25280,7 @@ class cb extends Nr {
    * @api
    */
   setUseInterimTilesOnError(e) {
-    this.set(jo.USE_INTERIM_TILES_ON_ERROR, e);
+    this.set(Ho.USE_INTERIM_TILES_ON_ERROR, e);
   }
   /**
    * Get data for a pixel location.  The return type depends on the source data.  For image tiles,
@@ -25282,7 +25302,7 @@ class cb extends Nr {
     return super.getData(e);
   }
 }
-class ub extends To {
+class db extends wo {
   /**
    * @param {LayerType} layer Layer.
    */
@@ -25482,12 +25502,12 @@ class Vg {
 }
 const yd = [];
 let Qi = null;
-function db() {
+function hb() {
   Qi = it(1, 1, void 0, {
     willReadFrequently: !0
   });
 }
-class Bg extends ub {
+class Bg extends db {
   /**
    * @param {LayerType} layer Layer.
    */
@@ -25501,7 +25521,7 @@ class Bg extends ub {
    * @return {Uint8ClampedArray|null} The image data.
    */
   getImageData(e, n, i) {
-    Qi || db(), Qi.clearRect(0, 0, 1, 1);
+    Qi || hb(), Qi.clearRect(0, 0, 1, 1);
     let a;
     try {
       Qi.drawImage(e, n, i, 1, 1, 0, 0, 1, 1), a = Qi.getImageData(0, 0, 1, 1).data;
@@ -25528,8 +25548,8 @@ class Bg extends ub {
     const a = this.getLayer().getClassName();
     let o, r;
     if (e && e.className === a && (!i || e && e.style.backgroundColor && pi(
-      to(e.style.backgroundColor),
-      to(i)
+      no(e.style.backgroundColor),
+      no(i)
     ))) {
       const s = e.firstElementChild;
       s instanceof HTMLCanvasElement && (r = s.getContext("2d"));
@@ -25648,7 +25668,7 @@ class Bg extends ub {
     delete this.frameState, super.disposeInternal();
   }
 }
-class hb extends Bg {
+class fb extends Bg {
   /**
    * @param {LayerType} tileLayer Tile layer.
    */
@@ -25864,7 +25884,7 @@ class hb extends Bg {
         ), D && !Gi ? (Kn && U.restore(), this.renderedTiles.unshift(ze)) : this.renderedTiles.push(ze), this.updateUsedTiles(e.usedTiles, d, ze);
       }
     }
-    return this.renderedRevision = h, this.renderedResolution = m, this.extentChanged = !this.renderedExtent_ || !qa(this.renderedExtent_, P), this.renderedExtent_ = P, this.renderedPixelRatio = c, this.renderedProjection = o, this.manageTilePyramid(
+    return this.renderedRevision = h, this.renderedResolution = m, this.extentChanged = !this.renderedExtent_ || !Ja(this.renderedExtent_, P), this.renderedExtent_ = P, this.renderedPixelRatio = c, this.renderedProjection = o, this.manageTilePyramid(
       e,
       d,
       f,
@@ -25988,7 +26008,7 @@ class hb extends Bg {
     n.updateCacheSize(C, o);
   }
 }
-class fb extends cb {
+class gb extends ub {
   /**
    * @param {import("./BaseTile.js").Options<TileSourceType>} [options] Tile layer options.
    */
@@ -25996,7 +26016,7 @@ class fb extends cb {
     super(e);
   }
   createRenderer() {
-    return new hb(this);
+    return new fb(this);
   }
 }
 const oe = {
@@ -26013,7 +26033,7 @@ const oe = {
   SET_FILL_STYLE: 10,
   SET_STROKE_STYLE: 11,
   STROKE: 12
-}, Ho = [oe.FILL], ri = [oe.STROKE], Ai = [oe.BEGIN_PATH], pd = [oe.CLOSE_PATH];
+}, Zo = [oe.FILL], ri = [oe.STROKE], Ai = [oe.BEGIN_PATH], pd = [oe.CLOSE_PATH];
 class Fg {
   /**
    * Render a geometry with a custom renderer.
@@ -26129,7 +26149,7 @@ class Fg {
   setTextStyle(e, n) {
   }
 }
-class Lo extends Fg {
+class Vo extends Fg {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26274,7 +26294,7 @@ class Lo extends Fg {
           d,
           e,
           i,
-          gr,
+          mr,
           o
         ]), this.hitDetectionInstructions.push([
           oe.CUSTOM,
@@ -26282,7 +26302,7 @@ class Lo extends Fg {
           d,
           e,
           a || i,
-          gr,
+          mr,
           o
         ]);
         break;
@@ -26396,7 +26416,7 @@ class Lo extends Fg {
     let a, o, r = -1;
     for (n = 0; n < i; ++n)
       a = e[n], o = /** @type {import("./Instruction.js").default} */
-      a[0], o == oe.END_GEOMETRY ? r = n : o == oe.BEGIN_GEOMETRY && (a[2] = n, Tp(this.hitDetectionInstructions, r, n), r = -1);
+      a[0], o == oe.END_GEOMETRY ? r = n : o == oe.BEGIN_GEOMETRY && (a[2] = n, wp(this.hitDetectionInstructions, r, n), r = -1);
   }
   /**
    * @param {import("../../style/Fill.js").default} fillStyle Fill style.
@@ -26414,7 +26434,7 @@ class Lo extends Fg {
     if (n) {
       const a = n.getColor();
       i.strokeStyle = gn(
-        a || io
+        a || ao
       );
       const o = n.getLineCap();
       i.lineCap = o !== void 0 ? o : ma;
@@ -26425,9 +26445,9 @@ class Lo extends Fg {
       const l = n.getLineJoin();
       i.lineJoin = l !== void 0 ? l : va;
       const c = n.getWidth();
-      i.lineWidth = c !== void 0 ? c : oo;
+      i.lineWidth = c !== void 0 ? c : ro;
       const u = n.getMiterLimit();
-      i.miterLimit = u !== void 0 ? u : no, i.lineWidth > this.maxLineWidth && (this.maxLineWidth = i.lineWidth, this.bufferedMaxExtent_ = null);
+      i.miterLimit = u !== void 0 ? u : io, i.lineWidth > this.maxLineWidth && (this.maxLineWidth = i.lineWidth, this.bufferedMaxExtent_ = null);
     } else
       i.strokeStyle = void 0, i.lineCap = void 0, i.lineDash = null, i.lineDashOffset = void 0, i.lineJoin = void 0, i.lineWidth = void 0, i.miterLimit = void 0;
   }
@@ -26500,7 +26520,7 @@ class Lo extends Fg {
     return this.bufferedMaxExtent_;
   }
 }
-class gb extends Lo {
+class mb extends Vo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26633,7 +26653,7 @@ class gb extends Lo {
     this.imagePixelRatio_ = e.getPixelRatio(this.pixelRatio), this.anchorX_ = i[0], this.anchorY_ = i[1], this.hitDetectionImage_ = e.getHitDetectionImage(), this.image_ = e.getImage(this.pixelRatio), this.height_ = a[1], this.opacity_ = e.getOpacity(), this.originX_ = o[0], this.originY_ = o[1], this.rotateWithView_ = e.getRotateWithView(), this.rotation_ = e.getRotation(), this.scale_ = e.getScaleArray(), this.width_ = a[0], this.declutterMode_ = e.getDeclutterMode(), this.declutterImageWithText_ = n;
   }
 }
-class mb extends Lo {
+class vb extends Vo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26744,7 +26764,7 @@ class mb extends Lo {
     e.lastStroke != null && e.lastStroke != this.coordinates.length && (this.instructions.push(ri), e.lastStroke = this.coordinates.length), e.lastStroke = 0, super.applyStroke(e), this.instructions.push(Ai);
   }
 }
-class _d extends Lo {
+class _d extends Vo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26780,7 +26800,7 @@ class _d extends Lo {
       ];
       this.instructions.push(f), this.hitDetectionInstructions.push(f), s && (this.instructions.push(pd), this.hitDetectionInstructions.push(pd)), n = u;
     }
-    return r && (this.instructions.push(Ho), this.hitDetectionInstructions.push(Ho)), s && (this.instructions.push(ri), this.hitDetectionInstructions.push(ri)), n;
+    return r && (this.instructions.push(Zo), this.hitDetectionInstructions.push(Zo)), s && (this.instructions.push(ri), this.hitDetectionInstructions.push(ri)), n;
   }
   /**
    * @param {import("../../geom/Circle.js").default} circleGeometry Circle geometry.
@@ -26814,7 +26834,7 @@ class _d extends Lo {
       !1
     );
     const u = [oe.CIRCLE, c];
-    this.instructions.push(Ai, u), this.hitDetectionInstructions.push(Ai, u), a.fillStyle !== void 0 && (this.instructions.push(Ho), this.hitDetectionInstructions.push(Ho)), a.strokeStyle !== void 0 && (this.instructions.push(ri), this.hitDetectionInstructions.push(ri)), this.endGeometry(n);
+    this.instructions.push(Ai, u), this.hitDetectionInstructions.push(Ai, u), a.fillStyle !== void 0 && (this.instructions.push(Zo), this.hitDetectionInstructions.push(Zo)), a.strokeStyle !== void 0 && (this.instructions.push(ri), this.hitDetectionInstructions.push(ri)), this.endGeometry(n);
   }
   /**
    * @param {import("../../geom/Polygon.js").default|import("../Feature.js").default} polygonGeometry Polygon geometry.
@@ -26901,7 +26921,7 @@ class _d extends Lo {
     e.fillStyle !== void 0 && this.updateFillStyle(e, this.createFill), e.strokeStyle !== void 0 && this.updateStrokeStyle(e, this.applyStroke);
   }
 }
-function vb(t, e, n, i, a) {
+function Cb(t, e, n, i, a) {
   const o = [];
   let r = n, s = 0, l = e.slice(n, 2);
   for (; s < t && r + a < i; ) {
@@ -26923,7 +26943,7 @@ function vb(t, e, n, i, a) {
   }
   return s > 0 && o.push(l), o;
 }
-function Cb(t, e, n, i, a) {
+function yb(t, e, n, i, a) {
   let o = n, r = n, s = 0, l = 0, c = n, u, d, h, f, g, m, C, y, p, M;
   for (d = n; d < i; d += a) {
     const S = e[d], b = e[d + 1];
@@ -26931,7 +26951,7 @@ function Cb(t, e, n, i, a) {
   }
   return l += f, l > s ? [c, d] : [o, r];
 }
-const _r = {
+const Sr = {
   left: 0,
   center: 0.5,
   right: 1,
@@ -26942,7 +26962,7 @@ const _r = {
   ideographic: 0.8,
   bottom: 1
 };
-class yb extends Lo {
+class pb extends Vo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26999,7 +27019,7 @@ class yb extends Lo {
       let m = 0;
       for (let C = 0, y = h.length; C < y; ++C) {
         let p;
-        f ? p = vb(
+        f ? p = Cb(
           f * this.resolution,
           u,
           m,
@@ -27010,7 +27030,7 @@ class yb extends Lo {
           const b = p[M];
           let T = 0, _ = b.length;
           if (g == null) {
-            const w = Cb(
+            const w = yb(
               r.maxAngle,
               b,
               0,
@@ -27161,9 +27181,9 @@ class yb extends Lo {
     const o = this.textKey_;
     o in this.textStates || (this.textStates[o] = {
       font: n.font,
-      textAlign: n.textAlign || ao,
+      textAlign: n.textAlign || oo,
       justify: n.justify,
-      textBaseline: n.textBaseline || mr,
+      textBaseline: n.textBaseline || vr,
       scale: n.scale
     });
     const r = this.fillKey_;
@@ -27179,7 +27199,7 @@ class yb extends Lo {
   drawChars_(e, n) {
     const i = this.textStrokeState_, a = this.textState_, o = this.strokeKey_, r = this.textKey_, s = this.fillKey_;
     this.saveTextStates_();
-    const l = this.pixelRatio, c = _r[a.textBaseline], u = this.textOffsetY_ * l, d = this.text_, h = i ? i.lineWidth * Math.abs(a.scale[0]) / 2 : 0;
+    const l = this.pixelRatio, c = Sr[a.textBaseline], u = this.textOffsetY_ * l, d = this.text_, h = i ? i.lineWidth * Math.abs(a.scale[0]) / 2 : 0;
     this.instructions.push([
       oe.DRAW_CHARS,
       e,
@@ -27235,30 +27255,30 @@ class yb extends Lo {
         o = this.textStrokeState_, o || (o = /** @type {import("../canvas.js").StrokeState} */
         {}, this.textStrokeState_ = o);
         const g = s.getLineDash(), m = s.getLineDashOffset(), C = s.getWidth(), y = s.getMiterLimit();
-        o.lineCap = s.getLineCap() || ma, o.lineDash = g ? g.slice() : $n, o.lineDashOffset = m === void 0 ? Xn : m, o.lineJoin = s.getLineJoin() || va, o.lineWidth = C === void 0 ? oo : C, o.miterLimit = y === void 0 ? no : y, o.strokeStyle = gn(
-          s.getColor() || io
+        o.lineCap = s.getLineCap() || ma, o.lineDash = g ? g.slice() : $n, o.lineDashOffset = m === void 0 ? Xn : m, o.lineJoin = s.getLineJoin() || va, o.lineWidth = C === void 0 ? ro : C, o.miterLimit = y === void 0 ? io : y, o.strokeStyle = gn(
+          s.getColor() || ao
         );
       }
       i = this.textState_;
       const l = e.getFont() || lg;
-      lS(l);
+      cS(l);
       const c = e.getScaleArray();
-      i.overflow = e.getOverflow(), i.font = l, i.maxAngle = e.getMaxAngle(), i.placement = e.getPlacement(), i.textAlign = e.getTextAlign(), i.repeat = e.getRepeat(), i.justify = e.getJustify(), i.textBaseline = e.getTextBaseline() || mr, i.backgroundFill = e.getBackgroundFill(), i.backgroundStroke = e.getBackgroundStroke(), i.padding = e.getPadding() || Ei, i.scale = c === void 0 ? [1, 1] : c;
+      i.overflow = e.getOverflow(), i.font = l, i.maxAngle = e.getMaxAngle(), i.placement = e.getPlacement(), i.textAlign = e.getTextAlign(), i.repeat = e.getRepeat(), i.justify = e.getJustify(), i.textBaseline = e.getTextBaseline() || vr, i.backgroundFill = e.getBackgroundFill(), i.backgroundStroke = e.getBackgroundStroke(), i.padding = e.getPadding() || Ei, i.scale = c === void 0 ? [1, 1] : c;
       const u = e.getOffsetX(), d = e.getOffsetY(), h = e.getRotateWithView(), f = e.getRotation();
       this.text_ = e.getText() || "", this.textOffsetX_ = u === void 0 ? 0 : u, this.textOffsetY_ = d === void 0 ? 0 : d, this.textRotateWithView_ = h === void 0 ? !1 : h, this.textRotation_ = f === void 0 ? 0 : f, this.strokeKey_ = o ? (typeof o.strokeStyle == "string" ? o.strokeStyle : Ee(o.strokeStyle)) + o.lineCap + o.lineDashOffset + "|" + o.lineWidth + o.lineJoin + o.miterLimit + "[" + o.lineDash.join() + "]" : "", this.textKey_ = i.font + i.scale + (i.textAlign || "?") + (i.repeat || "?") + (i.justify || "?") + (i.textBaseline || "?"), this.fillKey_ = a && a.fillStyle ? typeof a.fillStyle == "string" ? a.fillStyle : "|" + Ee(a.fillStyle) : "";
     }
     this.declutterMode_ = e.getDeclutterMode(), this.declutterImageWithText_ = n;
   }
 }
-const pb = {
+const _b = {
   Circle: _d,
-  Default: Lo,
-  Image: gb,
-  LineString: mb,
+  Default: Vo,
+  Image: mb,
+  LineString: vb,
   Polygon: _d,
-  Text: yb
+  Text: pb
 };
-class _b {
+class Sb {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Max extent.
@@ -27294,7 +27314,7 @@ class _b {
     a === void 0 && (a = {}, this.buildersByZIndex_[i] = a);
     let o = a[n];
     if (o === void 0) {
-      const r = pb[n];
+      const r = _b[n];
       o = new r(
         this.tolerance_,
         this.maxExtent_,
@@ -27305,7 +27325,7 @@ class _b {
     return o;
   }
 }
-function Sb(t, e, n, i, a, o, r, s, l, c, u, d) {
+function bb(t, e, n, i, a, o, r, s, l, c, u, d) {
   let h = t[e], f = t[e + 1], g = 0, m = 0, C = 0, y = 0;
   function p() {
     g = h, m = f, e += i, h = t[e], f = t[e + 1], y += C, C = Math.sqrt((h - g) * (h - g) + (f - m) * (f - m));
@@ -27360,7 +27380,7 @@ function Sb(t, e, n, i, a, o, r, s, l, c, u, d) {
   }
   return R;
 }
-function bb(t, e, n, i) {
+function Mb(t, e, n, i) {
   let a = t[e], o = t[e + 1], r = 0;
   for (let s = e + i; s < n; s += i) {
     const l = t[s], c = t[s + 1];
@@ -27378,13 +27398,13 @@ const bd = new RegExp(
   /* eslint-enable prettier/prettier */
 );
 function As(t, e) {
-  return e === "start" ? e = bd.test(t) ? "right" : "left" : e === "end" && (e = bd.test(t) ? "left" : "right"), _r[e];
+  return e === "start" ? e = bd.test(t) ? "right" : "left" : e === "end" && (e = bd.test(t) ? "left" : "right"), Sr[e];
 }
-function Mb(t, e, n) {
+function xb(t, e, n) {
   return n > 0 && t.push(`
 `, ""), t.push(e, ""), t;
 }
-class xb {
+class Pb {
   /**
    * @param {number} resolution Resolution.
    * @param {number} pixelRatio Pixel ratio.
@@ -27415,11 +27435,11 @@ class xb {
     const r = a ? this.strokeStates[a] : null, s = i ? this.fillStates[i] : null, l = this.textStates[n], c = this.pixelRatio, u = [
       l.scale[0] * c,
       l.scale[1] * c
-    ], d = Array.isArray(e), h = l.justify ? _r[l.justify] : As(
+    ], d = Array.isArray(e), h = l.justify ? Sr[l.justify] : As(
       Array.isArray(e) ? e[0] : e,
-      l.textAlign || ao
+      l.textAlign || oo
     ), f = a && r.lineWidth ? r.lineWidth : 0, g = d ? e : e.split(`
-`).reduce(Mb, []), { width: m, height: C, widths: y, heights: p, lineWidths: M } = uS(
+`).reduce(xb, []), { width: m, height: C, widths: y, heights: p, lineWidths: M } = dS(
       l,
       g
     ), S = m + f, b = [], T = (S + 2) * u[0], _ = (C + f) * u[1], P = {
@@ -27555,7 +27575,7 @@ class xb {
       r,
       /** @type {Array<*>} */
       s
-    ), dS(
+    ), hS(
       e,
       a.canvasTransform,
       o,
@@ -27609,8 +27629,8 @@ class xb {
   drawLabelWithPointPlacement_(e, n, i, a) {
     const o = this.textStates[n], r = this.createLabel(e, n, a, i), s = this.strokeStates[i], l = this.pixelRatio, c = As(
       Array.isArray(e) ? e[0] : e,
-      o.textAlign || ao
-    ), u = _r[o.textBaseline || mr], d = s && s.lineWidth ? s.lineWidth : 0, h = r.width / l - 2 * o.scale[0], f = c * h + 2 * (0.5 - c) * d, g = u * r.height / l + 2 * (0.5 - u) * d;
+      o.textAlign || oo
+    ), u = Sr[o.textBaseline || vr], d = s && s.lineWidth ? s.lineWidth : 0, h = r.width / l - 2 * o.scale[0], f = c * h + 2 * (0.5 - c) * d, g = u * r.height / l + 2 * (0.5 - u) * d;
     return {
       label: r,
       anchorX: f,
@@ -27641,7 +27661,7 @@ class xb {
       2,
       i,
       this.pixelCoordinates_
-    ), u_(this.renderedTransform_, i));
+    ), d_(this.renderedTransform_, i));
     let d = 0;
     const h = a.length;
     let f = 0, g, m, C, y, p, M, S, b, T, _, P, w, I, z = 0, A = 0, R = null, V = null;
@@ -27869,9 +27889,9 @@ class xb {
           ];
           let Ia;
           Aa in this.widths_ ? Ia = this.widths_[Aa] : (Ia = {}, this.widths_[Aa] = Ia);
-          const Ac = bb(u, ht, Pc, 2), Rc = Math.abs(Ra[0]) * id(Aa, _, Ia);
+          const Ac = Mb(u, ht, Pc, 2), Rc = Math.abs(Ra[0]) * id(Aa, _, Ia);
           if (Qg || Rc <= Ac) {
-            const Lt = this.textStates[P].textAlign, Si = (Ac - Rc) * As(_, Lt), Vt = Sb(
+            const Lt = this.textStates[P].textAlign, Si = (Ac - Rc) * As(_, Lt), Vt = bb(
               u,
               ht,
               Pc,
@@ -28054,10 +28074,10 @@ const Xa = [
   "Image",
   "Text",
   "Default"
-], kg = ["Image", "Text"], Pb = Xa.filter(
+], kg = ["Image", "Text"], Tb = Xa.filter(
   (t) => !kg.includes(t)
 );
-class Tb {
+class wb {
   /**
    * @param {import("../../extent.js").Extent} maxExtent Max extent for clipping. When a
    * `maxExtent` was set on the Builder for this executor group, the same `maxExtent`
@@ -28095,7 +28115,7 @@ class Tb {
       const o = e[i];
       for (const r in o) {
         const s = o[r];
-        a[r] = new xb(
+        a[r] = new Pb(
           this.resolution_,
           this.pixelRatio_,
           this.overlaps_,
@@ -28154,7 +28174,7 @@ class Tb {
       n * (this.renderBuffer_ + a),
       d
     ));
-    const h = wb(a);
+    const h = Eb(a);
     let f;
     function g(b, T) {
       const _ = u.getImageData(
@@ -28260,7 +28280,7 @@ class Tb {
   }
 }
 const Rs = {};
-function wb(t) {
+function Eb(t) {
   if (Rs[t] !== void 0)
     return Rs[t];
   const e = t * 2 + 1, n = t * t, i = new Array(n + 1);
@@ -28277,7 +28297,7 @@ function wb(t) {
     i[o] && a.push(...i[o]);
   return Rs[t] = a, a;
 }
-class Eb extends Fg {
+class Ab extends Fg {
   /**
    * @param {CanvasRenderingContext2D} context Context.
    * @param {number} pixelRatio Pixel ratio.
@@ -28434,7 +28454,7 @@ class Eb extends Fg {
     )), !!Mt(this.extent_, e.getExtent())) {
       if (this.fillState_ || this.strokeState_) {
         this.fillState_ && this.setContextFillState_(this.fillState_), this.strokeState_ && this.setContextStrokeState_(this.strokeState_);
-        const n = v_(
+        const n = C_(
           e,
           this.transform_,
           this.pixelCoordinates_
@@ -28739,7 +28759,7 @@ class Eb extends Fg {
    * @private
    */
   setContextTextState_(e) {
-    const n = this.context_, i = this.contextTextState_, a = e.textAlign ? e.textAlign : ao;
+    const n = this.context_, i = this.contextTextState_, a = e.textAlign ? e.textAlign : oo;
     i ? (i.font != e.font && (i.font = e.font, n.font = e.font), i.textAlign != a && (i.textAlign = a, n.textAlign = a), i.textBaseline != e.textBaseline && (i.textBaseline = e.textBaseline, n.textBaseline = e.textBaseline)) : (n.font = e.font, n.textAlign = a, n.textBaseline = e.textBaseline, this.contextTextState_ = {
       font: e.font,
       textAlign: a,
@@ -28773,10 +28793,10 @@ class Eb extends Fg {
         lineDash: this.pixelRatio_ === 1 ? u : u.map((d) => d * this.pixelRatio_),
         lineDashOffset: (r || Xn) * this.pixelRatio_,
         lineJoin: s !== void 0 ? s : va,
-        lineWidth: (l !== void 0 ? l : oo) * this.pixelRatio_,
-        miterLimit: c !== void 0 ? c : no,
+        lineWidth: (l !== void 0 ? l : ro) * this.pixelRatio_,
+        miterLimit: c !== void 0 ? c : io,
         strokeStyle: gn(
-          i || io
+          i || ao
         )
       };
     }
@@ -28832,18 +28852,18 @@ class Eb extends Fg {
           lineDash: m || $n,
           lineDashOffset: C || Xn,
           lineJoin: y !== void 0 ? y : va,
-          lineWidth: p !== void 0 ? p : oo,
-          miterLimit: M !== void 0 ? M : no,
+          lineWidth: p !== void 0 ? p : ro,
+          miterLimit: M !== void 0 ? M : io,
           strokeStyle: gn(
-            f || io
+            f || ao
           )
         };
       }
       const a = e.getFont(), o = e.getOffsetX(), r = e.getOffsetY(), s = e.getRotateWithView(), l = e.getRotation(), c = e.getScaleArray(), u = e.getText(), d = e.getTextAlign(), h = e.getTextBaseline();
       this.textState_ = {
         font: a !== void 0 ? a : lg,
-        textAlign: d !== void 0 ? d : ao,
-        textBaseline: h !== void 0 ? h : mr
+        textAlign: d !== void 0 ? d : oo,
+        textBaseline: h !== void 0 ? h : vr
       }, this.text_ = u !== void 0 ? Array.isArray(u) ? u.reduce((f, g, m) => f += m % 2 ? " " : g, "") : u : "", this.textOffsetX_ = o !== void 0 ? this.pixelRatio_ * o : 0, this.textOffsetY_ = r !== void 0 ? this.pixelRatio_ * r : 0, this.textRotateWithView_ = s !== void 0 ? s : !1, this.textRotation_ = l !== void 0 ? l : 0, this.textScale_ = [
         this.pixelRatio_ * c[0],
         this.pixelRatio_ * c[1]
@@ -28852,10 +28872,10 @@ class Eb extends Fg {
   }
 }
 const dn = 0.5;
-function Ab(t, e, n, i, a, o, r, s, l) {
+function Rb(t, e, n, i, a, o, r, s, l) {
   const c = a, u = t[0] * dn, d = t[1] * dn, h = it(u, d);
   h.imageSmoothingEnabled = !1;
-  const f = h.canvas, g = new Eb(
+  const f = h.canvas, g = new Ab(
     h,
     dn,
     a,
@@ -28893,7 +28913,7 @@ function Ab(t, e, n, i, a, o, r, s, l) {
           { alpha: !1 }
         ), $ = k.canvas;
         k.fillStyle = P, k.fillRect(0, 0, $.width, $.height), R.setImage(
-          new Ao({
+          new Ro({
             img: $,
             anchor: G.getAnchor(),
             anchorXUnits: "pixels",
@@ -28941,7 +28961,7 @@ function Ab(t, e, n, i, a, o, r, s, l) {
   }
   return h.getImageData(0, 0, f.width, f.height);
 }
-function Rb(t, e, n) {
+function Ib(t, e, n) {
   const i = [];
   if (n) {
     const a = Math.floor(Math.round(t[0]) * dn), o = Math.floor(Math.round(t[1]) * dn), r = (je(a, 0, n.width - 1) + je(o, 0, n.height - 1) * n.width) * 4, s = n.data[r], l = n.data[r + 1], u = n.data[r + 2] + 256 * (l + 256 * s), d = Math.floor((256 * 256 * 256 - 1) / e.length);
@@ -28949,17 +28969,17 @@ function Rb(t, e, n) {
   }
   return i;
 }
-const Ib = 0.5, Og = {
-  Point: Db,
-  LineString: Fb,
-  Polygon: Nb,
-  MultiPoint: Gb,
-  MultiLineString: kb,
-  MultiPolygon: Ob,
-  GeometryCollection: Bb,
-  Circle: Lb
+const zb = 0.5, Og = {
+  Point: Gb,
+  LineString: kb,
+  Polygon: Wb,
+  MultiPoint: Nb,
+  MultiLineString: Ob,
+  MultiPolygon: Db,
+  GeometryCollection: Fb,
+  Circle: Vb
 };
-function zb(t, e) {
+function Lb(t, e) {
   return parseInt(Ee(t), 10) - parseInt(Ee(e), 10);
 }
 function Md(t, e) {
@@ -28967,9 +28987,9 @@ function Md(t, e) {
   return n * n;
 }
 function Dg(t, e) {
-  return Ib * t / e;
+  return zb * t / e;
 }
-function Lb(t, e, n, i, a) {
+function Vb(t, e, n, i, a) {
   const o = n.getFill(), r = n.getStroke();
   if (o || r) {
     const l = t.getBuilder(n.getZIndex(), "Circle");
@@ -28991,7 +29011,7 @@ function xd(t, e, n, i, a, o, r, s) {
   const u = n.getFill();
   u && u.loading() && l.push(u.ready());
   const d = l.length > 0;
-  return d && Promise.all(l).then(() => a(null)), Vb(
+  return d && Promise.all(l).then(() => a(null)), Bb(
     t,
     e,
     n,
@@ -29001,7 +29021,7 @@ function xd(t, e, n, i, a, o, r, s) {
     s
   ), d;
 }
-function Vb(t, e, n, i, a, o, r) {
+function Bb(t, e, n, i, a, o, r) {
   const s = n.getGeometryFunction()(e);
   if (!s)
     return;
@@ -29042,7 +29062,7 @@ function Gg(t, e, n, i, a) {
     a
   );
 }
-function Bb(t, e, n, i, a, o) {
+function Fb(t, e, n, i, a, o) {
   const r = e.getGeometriesArray();
   let s, l;
   for (s = 0, l = r.length; s < l; ++s) {
@@ -29057,7 +29077,7 @@ function Bb(t, e, n, i, a, o) {
     );
   }
 }
-function Fb(t, e, n, i, a) {
+function kb(t, e, n, i, a) {
   const o = n.getStroke();
   if (o) {
     const s = t.getBuilder(
@@ -29072,7 +29092,7 @@ function Fb(t, e, n, i, a) {
     s.setTextStyle(r), s.drawText(e, i, a);
   }
 }
-function kb(t, e, n, i, a) {
+function Ob(t, e, n, i, a) {
   const o = n.getStroke();
   if (o) {
     const s = t.getBuilder(
@@ -29087,7 +29107,7 @@ function kb(t, e, n, i, a) {
     s.setTextStyle(r), s.drawText(e, i, a);
   }
 }
-function Ob(t, e, n, i, a) {
+function Db(t, e, n, i, a) {
   const o = n.getFill(), r = n.getStroke();
   if (r || o) {
     const l = t.getBuilder(n.getZIndex(), "Polygon");
@@ -29099,7 +29119,7 @@ function Ob(t, e, n, i, a) {
     l.setTextStyle(s), l.drawText(e, i, a);
   }
 }
-function Db(t, e, n, i, a, o) {
+function Gb(t, e, n, i, a, o) {
   const r = n.getImage(), s = n.getText(), l = s && s.getText(), c = o && r && l ? {} : void 0;
   if (r) {
     if (r.getImageState() != Ce.LOADED)
@@ -29112,7 +29132,7 @@ function Db(t, e, n, i, a, o) {
     u.setTextStyle(s, c), u.drawText(e, i, a);
   }
 }
-function Gb(t, e, n, i, a, o) {
+function Nb(t, e, n, i, a, o) {
   const r = n.getImage(), s = r && r.getOpacity() !== 0, l = n.getText(), c = l && l.getText(), u = o && s && c ? {} : void 0;
   if (s) {
     if (r.getImageState() != Ce.LOADED)
@@ -29125,7 +29145,7 @@ function Gb(t, e, n, i, a, o) {
     d.setTextStyle(l, u), d.drawText(e, i, a);
   }
 }
-function Nb(t, e, n, i, a) {
+function Wb(t, e, n, i, a) {
   const o = n.getFill(), r = n.getStroke();
   if (o || r) {
     const l = t.getBuilder(n.getZIndex(), "Polygon");
@@ -29137,7 +29157,7 @@ function Nb(t, e, n, i, a) {
     l.setTextStyle(s), l.drawText(e, i, a);
   }
 }
-class Wb extends Bg {
+class $b extends Bg {
   /**
    * @param {import("../../layer/BaseVector.js").default} vectorLayer Vector layer.
    */
@@ -29169,7 +29189,7 @@ class Wb extends Bg {
         _,
         c,
         m,
-        i === void 0 ? Xa : i ? kg : Pb,
+        i === void 0 ? Xa : i ? kg : Tb,
         i ? h && n.declutter[h] : void 0
       );
     } while (++T < b);
@@ -29300,7 +29320,7 @@ class Wb extends Bg {
               ).slice()
             ), m -= C;
         }
-        this.hitDetectionImageData_ = Ab(
+        this.hitDetectionImageData_ = Rb(
           i,
           u,
           this.renderedFeatures_,
@@ -29312,7 +29332,7 @@ class Wb extends Bg {
         );
       }
       n(
-        Rb(e, this.renderedFeatures_, this.hitDetectionImageData_)
+        Ib(e, this.renderedFeatures_, this.hitDetectionImageData_)
       );
     });
   }
@@ -29391,7 +29411,7 @@ class Wb extends Bg {
     this.animatingOrInteracting_ = !1;
     const l = e.extent, c = e.viewState, u = c.projection, d = c.resolution, h = e.pixelRatio, f = n.getRevision(), g = n.getRenderBuffer();
     let m = n.getRenderOrder();
-    m === void 0 && (m = zb);
+    m === void 0 && (m = Lb);
     const C = c.center.slice(), y = Kl(
       l,
       g * d
@@ -29415,7 +29435,7 @@ class Wb extends Bg {
     if (this.ready && this.renderedResolution_ == d && this.renderedRevision_ == f && this.renderedRenderOrder_ == m && ia(this.wrappedRenderedExtent_, y))
       return pi(this.renderedExtent_, p) || (this.hitDetectionImageData_ = null, this.renderedExtent_ = p), this.renderedCenter_ = C, this.replayGroupChanged = !1, !0;
     this.replayGroup_ = null;
-    const b = new _b(
+    const b = new Sb(
       Dg(d, h),
       y,
       d,
@@ -29452,7 +29472,7 @@ class Wb extends Bg {
     for (let V = 0, N = z.length; V < N; ++V)
       w(z[V], V);
     this.renderedFeatures_ = z, this.ready = P;
-    const A = b.finish(), R = new Tb(
+    const A = b.finish(), R = new wb(
       y,
       d,
       h,
@@ -29503,7 +29523,7 @@ class Wb extends Bg {
     return l;
   }
 }
-class $b extends yg {
+class Xb extends yg {
   /**
    * @param {import("./BaseVector.js").Options<VectorSourceType>} [options] Options.
    */
@@ -29511,7 +29531,7 @@ class $b extends yg {
     super(e);
   }
   createRenderer() {
-    return new Wb(this);
+    return new $b(this);
   }
 }
 class Pd {
@@ -29571,7 +29591,7 @@ class Pd {
    */
   update(e, n) {
     const i = this.items_[Ee(n)], a = [i.minX, i.minY, i.maxX, i.maxY];
-    qa(a, e) || (this.remove(n), this.insert(e, n));
+    Ja(a, e) || (this.remove(n), this.insert(e, n));
   }
   /**
    * Return all values in the RBush.
@@ -29673,7 +29693,7 @@ function Td(t, e, n, i, a, o, r) {
       const y = t[C], p = t[C + 1];
       h += Math.sqrt((y - u) * (y - u) + (p - d) * (p - d)), f.push(h), u = y, d = p;
     }
-    const g = a * h, m = Pp(f, g);
+    const g = a * h, m = Tp(f, g);
     m < 0 ? (l = (g - f[-m - 2]) / (f[-m - 1] - f[-m - 2]), s = e + (-m - 2) * i) : s = e + m * i;
   }
   r = r > 1 ? r : 2, o = o || new Array(r);
@@ -29681,7 +29701,7 @@ function Td(t, e, n, i, a, o, r) {
     o[u] = s === void 0 ? NaN : l === void 0 ? t[s + u] : Ot(t[s + u], t[s + i + u], l);
   return o;
 }
-function Xb(t, e, n, i) {
+function Ub(t, e, n, i) {
   const a = [];
   let o = Wt();
   for (let r = 0, s = n.length; r < s; ++r) {
@@ -29753,8 +29773,8 @@ class kt {
    */
   getFlatInteriorPoints() {
     if (!this.flatInteriorPoints_) {
-      const e = R_(this.flatCoordinates_, this.ends_), n = Xb(this.flatCoordinates_, 0, e, 2);
-      this.flatInteriorPoints_ = P_(
+      const e = I_(this.flatCoordinates_, this.ends_), n = Ub(this.flatCoordinates_, 0, e, 2);
+      this.flatInteriorPoints_ = T_(
         this.flatCoordinates_,
         0,
         e,
@@ -29954,7 +29974,7 @@ class kt {
           ), a = [i.length];
           break;
         case "MultiLineString":
-          a = [], i.length = S_(
+          a = [], i.length = b_(
             i,
             0,
             this.simplifiedGeometry_.ends_,
@@ -30035,17 +30055,17 @@ const Ft = {
    */
   FEATURESLOADERROR: "featuresloaderror"
 };
-function Ub(t, e) {
+function Yb(t, e) {
   return [[-1 / 0, -1 / 0, 1 / 0, 1 / 0]];
 }
-let Yb = !1;
-function jb(t, e, n, i, a, o, r) {
+let jb = !1;
+function Hb(t, e, n, i, a, o, r) {
   const s = new XMLHttpRequest();
   s.open(
     "GET",
     typeof t == "function" ? t(n, i, a) : t,
     !0
-  ), e.getType() == "arraybuffer" && (s.responseType = "arraybuffer"), s.withCredentials = Yb, s.onload = function(l) {
+  ), e.getType() == "arraybuffer" && (s.responseType = "arraybuffer"), s.withCredentials = jb, s.onload = function(l) {
     if (!s.status || s.status >= 200 && s.status < 300) {
       const c = e.getType();
       let u;
@@ -30071,7 +30091,7 @@ function Ed(t, e) {
       /** @type {import("./source/Vector").default} */
       this
     );
-    jb(
+    Hb(
       t,
       e,
       n,
@@ -30100,7 +30120,7 @@ class ti extends Hn {
     super(e), this.feature = n, this.features = i;
   }
 }
-class Hb extends Rg {
+class Zb extends Rg {
   /**
    * @param {Options<FeatureType>} [options] Vector source options.
    */
@@ -30115,7 +30135,7 @@ class Hb extends Rg {
       this.url_,
       /** @type {import("../format/Feature.js").default} */
       this.format_
-    )), this.strategy_ = e.strategy !== void 0 ? e.strategy : Ub;
+    )), this.strategy_ = e.strategy !== void 0 ? e.strategy : Yb;
     const n = e.useSpatialIndex !== void 0 ? e.useSpatialIndex : !0;
     this.featuresRtree_ = n ? new Pd() : null, this.loadedExtentsRtree_ = new Pd(), this.loadingExtentsCount_ = 0, this.nullGeometryFeatures_ = {}, this.idIndex_ = {}, this.uidIndex_ = {}, this.featureChangeKeys_ = {}, this.featuresCollection_ = null;
     let i, a;
@@ -30441,7 +30461,7 @@ class Hb extends Rg {
     if (this.featuresRtree_) {
       if (!(n && n.canWrapX() && this.getWrapX()))
         return this.featuresRtree_.getInExtent(e);
-      const a = Hp(e, n);
+      const a = Zp(e, n);
       return [].concat(
         ...a.map((o) => this.featuresRtree_.getInExtent(o))
       );
@@ -30467,7 +30487,7 @@ class Hb extends Rg {
     const r = [NaN, NaN];
     let s = 1 / 0;
     const l = [-1 / 0, -1 / 0, 1 / 0, 1 / 0];
-    return n = n || Ka, this.featuresRtree_.forEachInExtent(
+    return n = n || qa, this.featuresRtree_.forEachInExtent(
       l,
       /**
        * @param {FeatureType} feature Feature.
@@ -30646,7 +30666,7 @@ class Hb extends Rg {
     const n = this.loadedExtentsRtree_;
     let i;
     n.forEachInExtent(e, function(a) {
-      if (qa(a.extent, e))
+      if (Ja(a.extent, e))
         return i = a, !0;
     }), i && n.remove(i);
   }
@@ -30733,7 +30753,7 @@ class Hb extends Rg {
     Se(this.format_, "`format` must be set when `url` is set"), this.url_ = e, this.setLoader(Ed(e, this.format_));
   }
 }
-const Zb = ["innerHTML"], Kb = {
+const Kb = ["innerHTML"], qb = {
   __name: "Map",
   props: ["content", "info"],
   setup(t) {
@@ -30743,7 +30763,7 @@ const Zb = ["innerHTML"], Kb = {
       const i = new xc({
         geometry: new Gr(Ou(t.content.coordinates))
       }), a = new ci({
-        image: new Ao({
+        image: new Ro({
           anchor: [0.5, 46],
           anchorXUnits: "fraction",
           anchorYUnits: "pixels",
@@ -30751,16 +30771,16 @@ const Zb = ["innerHTML"], Kb = {
         })
       });
       i.setStyle(a);
-      const o = new Hb({
+      const o = new Zb({
         features: [i]
-      }), r = new $b({
+      }), r = new Xb({
         source: o
       });
-      new V0({
+      new B0({
         target: n.value,
         layers: [
-          new fb({
-            source: new sb()
+          new gb({
+            source: new lb()
           }),
           r
         ],
@@ -30771,14 +30791,14 @@ const Zb = ["innerHTML"], Kb = {
       });
     }), (i, a) => (Z(), he(Jt, null, {
       default: Y(() => [
-        v(xo, { elevation: "20" }, {
+        v(Po, { elevation: "20" }, {
           default: Y(() => [
             v(Jt, null, {
               default: Y(() => [
                 de("h3", {
                   style: gt({ color: t.info.primaryColor }),
                   innerHTML: O(e)(t.content.title) || "Puoi venirci a conoscere qui"
-                }, null, 12, Zb),
+                }, null, 12, Kb),
                 de("div", {
                   ref_key: "mapContainer",
                   ref: n,
@@ -30794,13 +30814,13 @@ const Zb = ["innerHTML"], Kb = {
       _: 1
     }));
   }
-}, qb = { class: "articles-wrapper margin_top__default" }, Jb = ["src"], Qb = { class: "margin_top__default" }, eM = {
+}, Jb = { class: "articles-wrapper margin_top__default" }, Qb = ["src"], eM = { class: "margin_top__default" }, tM = {
   __name: "Blog",
   props: ["content", "info"],
   setup(t) {
     const { getText: e } = jn(), n = H([]), i = x(() => t.content.type === "static"), a = (o) => o ? o.length > 150 ? o.slice(0, 150) + "..." : o : "";
     return Ke(() => {
-      i.value ? n.value = t.content.articles : br.getRequestGenericBE("blog/post", { project: "dorianadinanni.it" }, (o) => {
+      i.value ? n.value = t.content.articles : Ya.getRequestGenericBE("blog/post", { project: "dorianadinanni.it" }, (o) => {
         n.value = o.posts.slice(0, 3).reverse();
       });
     }), (o, r) => (Z(), he(Jt, null, {
@@ -30808,7 +30828,7 @@ const Zb = ["innerHTML"], Kb = {
         de("h1", {
           style: gt({ color: t.info.primaryColor })
         }, Ue(O(e)(t.content.title) || "I miei articoli"), 5),
-        de("div", qb, [
+        de("div", Jb, [
           (Z(!0), Pe(fe, null, Pt(n.value, (s, l) => (Z(), Pe("div", {
             key: l,
             class: "article-item mt-2"
@@ -30816,14 +30836,14 @@ const Zb = ["innerHTML"], Kb = {
             de("img", {
               src: O(Li)(s.cover),
               class: "img"
-            }, null, 8, Jb),
+            }, null, 8, Qb),
             de("p", {
               style: gt({ color: t.info.primaryColor, fontWeight: 700 })
             }, Ue(O(e)(s.title)), 5),
             de("p", null, Ue(a(O(e)(s.content))), 1)
           ]))), 128))
         ]),
-        de("p", Qb, [
+        de("p", eM, [
           de("a", {
             href: "/blog",
             class: "link",
@@ -30834,7 +30854,7 @@ const Zb = ["innerHTML"], Kb = {
       _: 1
     }));
   }
-}, tM = /* @__PURE__ */ tn(eM, [["__scopeId", "data-v-16288117"]]), nM = {
+}, nM = /* @__PURE__ */ tn(tM, [["__scopeId", "data-v-16288117"]]), iM = {
   __name: "Line",
   props: ["info"],
   setup(t) {
@@ -30847,7 +30867,7 @@ const Zb = ["innerHTML"], Kb = {
       _: 1
     }));
   }
-}, iM = (t) => {
+}, aM = (t) => {
   const {
     touchstartX: e,
     touchendX: n,
@@ -30856,7 +30876,7 @@ const Zb = ["innerHTML"], Kb = {
   } = t, o = 0.5, r = 16;
   t.offsetX = n - e, t.offsetY = a - i, Math.abs(t.offsetY) < o * Math.abs(t.offsetX) && (t.left && n < e - r && t.left(t), t.right && n > e + r && t.right(t)), Math.abs(t.offsetX) < o * Math.abs(t.offsetY) && (t.up && a < i - r && t.up(t), t.down && a > i + r && t.down(t));
 };
-function aM(t, e) {
+function oM(t, e) {
   var i;
   const n = t.changedTouches[0];
   e.touchstartX = n.clientX, e.touchstartY = n.clientY, (i = e.start) == null || i.call(e, {
@@ -30864,15 +30884,15 @@ function aM(t, e) {
     ...e
   });
 }
-function oM(t, e) {
+function rM(t, e) {
   var i;
   const n = t.changedTouches[0];
   e.touchendX = n.clientX, e.touchendY = n.clientY, (i = e.end) == null || i.call(e, {
     originalEvent: t,
     ...e
-  }), iM(e);
+  }), aM(e);
 }
-function rM(t, e) {
+function sM(t, e) {
   var i;
   const n = t.changedTouches[0];
   e.touchmoveX = n.clientX, e.touchmoveY = n.clientY, (i = e.move) == null || i.call(e, {
@@ -30880,7 +30900,7 @@ function rM(t, e) {
     ...e
   });
 }
-function sM() {
+function lM() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
   const e = {
     touchstartX: 0,
@@ -30900,23 +30920,23 @@ function sM() {
     end: t.end
   };
   return {
-    touchstart: (n) => aM(n, e),
-    touchend: (n) => oM(n, e),
-    touchmove: (n) => rM(n, e)
+    touchstart: (n) => oM(n, e),
+    touchend: (n) => rM(n, e),
+    touchmove: (n) => sM(n, e)
   };
 }
-function lM(t, e) {
+function cM(t, e) {
   var s;
   const n = e.value, i = n != null && n.parent ? t.parentElement : t, a = (n == null ? void 0 : n.options) ?? {
     passive: !0
   }, o = (s = e.instance) == null ? void 0 : s.$.uid;
   if (!i || !o) return;
-  const r = sM(e.value);
+  const r = lM(e.value);
   i._touchHandlers = i._touchHandlers ?? /* @__PURE__ */ Object.create(null), i._touchHandlers[o] = r, Gd(r).forEach((l) => {
     i.addEventListener(l, r[l], a);
   });
 }
-function cM(t, e) {
+function uM(t, e) {
   var o, r;
   const n = (o = e.value) != null && o.parent ? t.parentElement : t, i = (r = e.instance) == null ? void 0 : r.$.uid;
   if (!(n != null && n._touchHandlers) || !i) return;
@@ -30926,8 +30946,8 @@ function cM(t, e) {
   }), delete n._touchHandlers[i];
 }
 const Ng = {
-  mounted: lM,
-  unmounted: cM
+  mounted: cM,
+  unmounted: uM
 }, Wg = Symbol.for("vuetify:v-window"), $g = Symbol.for("vuetify:v-window-group"), Xg = W({
   continuous: Boolean,
   nextIcon: {
@@ -30984,7 +31004,7 @@ const Ng = {
       isRtl: a
     } = nn(), {
       t: o
-    } = ba(), r = bo(t, $g), s = H(), l = x(() => a.value ? !t.reverse : t.reverse), c = q(!1), u = x(() => {
+    } = ba(), r = Mo(t, $g), s = H(), l = x(() => a.value ? !t.reverse : t.reverse), c = q(!1), u = x(() => {
       const S = t.direction === "vertical" ? "y" : "x", T = (l.value ? !c.value : c.value) ? "-reverse" : "";
       return `v-window-${S}${T}-transition`;
     }), d = q(0), h = H(void 0), f = x(() => r.items.value.findIndex((S) => r.selected.value.includes(S.id)));
@@ -31067,7 +31087,7 @@ const Ng = {
       group: r
     };
   }
-}), uM = W({
+}), dM = W({
   color: String,
   cycle: Boolean,
   delimiterIcon: {
@@ -31094,7 +31114,7 @@ const Ng = {
   })
 }, "VCarousel"), ol = K()({
   name: "VCarousel",
-  props: uM(),
+  props: dM(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -31185,7 +31205,7 @@ const Ng = {
     default: void 0
   },
   ...ue(),
-  ..._o(),
+  ...So(),
   ...Ar()
 }, "VWindowItem"), Rd = K()({
   name: "VWindowItem",
@@ -31200,9 +31220,9 @@ const Ng = {
     let {
       slots: n
     } = e;
-    const i = Ne(Wg), a = So(t, $g), {
+    const i = Ne(Wg), a = bo(t, $g), {
       isBooted: o
-    } = Mo();
+    } = xo();
     if (!i || !a) throw new Error("[Vuetify] VWindowItem must be used inside VWindow");
     const r = q(!1), s = x(() => o.value && (i.isReversed.value ? t.reverseTransition !== !1 : t.transition !== !1));
     function l() {
@@ -31250,13 +31270,13 @@ const Ng = {
       groupItem: a
     };
   }
-}), dM = W({
+}), hM = W({
   ...th(),
   ...Ug()
 }, "VCarouselItem"), rl = K()({
   name: "VCarouselItem",
   inheritAttrs: !1,
-  props: dM(),
+  props: hM(),
   setup(t, e) {
     let {
       slots: n,
@@ -31271,7 +31291,7 @@ const Ng = {
       });
     });
   }
-}), hM = {
+}), fM = {
   __name: "Gallery",
   props: ["id", "content", "info"],
   setup(t) {
@@ -31333,22 +31353,22 @@ const Ng = {
       }, 8, ["id", "modelValue"])) : be("", !0)
     ], 64));
   }
-}, fM = /* @__PURE__ */ tn(hM, [["__scopeId", "data-v-f361fddd"]]), co = Symbol.for("vuetify:v-expansion-panel"), gM = ["default", "accordion", "inset", "popout"], mM = W({
+}, gM = /* @__PURE__ */ tn(fM, [["__scopeId", "data-v-f361fddd"]]), uo = Symbol.for("vuetify:v-expansion-panel"), mM = ["default", "accordion", "inset", "popout"], vM = W({
   color: String,
   static: Boolean,
   variant: {
     type: String,
     default: "default",
-    validator: (t) => gM.includes(t)
+    validator: (t) => mM.includes(t)
   },
   readonly: Boolean,
   ...ue(),
   ...Tr(),
   ...Le(),
   ...ke()
-}, "VExpansionPanels"), vM = K()({
+}, "VExpansionPanels"), CM = K()({
   name: "VExpansionPanels",
-  props: mM(),
+  props: vM(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -31356,7 +31376,7 @@ const Ng = {
     let {
       slots: n
     } = e;
-    bo(t, co);
+    Mo(t, uo);
     const {
       themeClasses: i
     } = We(t), a = x(() => t.variant && `v-expansion-panels--variant-${t.variant}`);
@@ -31371,17 +31391,17 @@ const Ng = {
       style: t.style
     }, n)), {};
   }
-}), CM = W({
+}), yM = W({
   ...ue(),
   ...Ar()
 }, "VExpansionPanelText"), Yg = K()({
   name: "VExpansionPanelText",
-  props: CM(),
+  props: yM(),
   setup(t, e) {
     let {
       slots: n
     } = e;
-    const i = Ne(co);
+    const i = Ne(uo);
     if (!i) throw new Error("[Vuetify] v-expansion-panel-text needs to be placed inside v-expansion-panel");
     const {
       hasContent: a,
@@ -31429,7 +31449,7 @@ const Ng = {
     let {
       slots: n
     } = e;
-    const i = Ne(co);
+    const i = Ne(uo);
     if (!i) throw new Error("[Vuetify] v-expansion-panel-title needs to be placed inside v-expansion-panel");
     const {
       backgroundColorClasses: a,
@@ -31463,20 +31483,20 @@ const Ng = {
       }, null)])]), [[en("ripple"), t.ripple]]);
     }), {};
   }
-}), yM = W({
+}), pM = W({
   title: String,
   text: String,
   bgColor: String,
   ...ue(),
   ...an(),
-  ..._o(),
+  ...So(),
   ...Ar(),
   ...Ct(),
   ...Le(),
   ...jg()
-}, "VExpansionPanel"), pM = K()({
+}, "VExpansionPanel"), _M = K()({
   name: "VExpansionPanel",
-  props: yM(),
+  props: pM(),
   emits: {
     "group:selected": (t) => !0
   },
@@ -31484,7 +31504,7 @@ const Ng = {
     let {
       slots: n
     } = e;
-    const i = So(t, co), {
+    const i = bo(t, uo), {
       backgroundColorClasses: a,
       backgroundColorStyles: o
     } = Tt(t, "bgColor"), {
@@ -31498,7 +31518,7 @@ const Ng = {
       const h = i.group.items.value.findIndex((f) => f.id === i.id);
       return !i.isSelected.value && c.value.some((f) => f - h === -1);
     });
-    return at(co, i), Sn({
+    return at(uo, i), Sn({
       VExpansionPanelText: {
         eager: te(t, "eager")
       },
@@ -31538,7 +31558,7 @@ const Ng = {
       });
     }), {};
   }
-}), _M = ["innerHTML"], SM = ["innerHTML"], bM = ["innerHTML"], MM = {
+}), SM = ["innerHTML"], bM = ["innerHTML"], MM = ["innerHTML"], xM = {
   __name: "Services",
   props: ["content", "info"],
   setup(t) {
@@ -31548,10 +31568,10 @@ const Ng = {
         de("h1", {
           style: gt({ color: t.info.primaryColor }),
           innerHTML: O(e)(t.content.title) || "I nostri servizi"
-        }, null, 12, _M),
-        v(vM, { multiple: "" }, {
+        }, null, 12, SM),
+        v(CM, { multiple: "" }, {
           default: Y(() => [
-            (Z(!0), Pe(fe, null, Pt(t.content.services, (a) => (Z(), he(pM, {
+            (Z(!0), Pe(fe, null, Pt(t.content.services, (a) => (Z(), he(_M, {
               elevation: "20",
               class: "margin_top__default"
             }, {
@@ -31560,7 +31580,7 @@ const Ng = {
                   default: Y(() => [
                     de("b", {
                       innerHTML: O(e)(a.name)
-                    }, null, 8, SM)
+                    }, null, 8, bM)
                   ]),
                   _: 2
                 }, 1024),
@@ -31568,7 +31588,7 @@ const Ng = {
                   default: Y(() => [
                     de("div", {
                       innerHTML: O(e)(a.description)
-                    }, null, 8, bM)
+                    }, null, 8, MM)
                   ]),
                   _: 2
                 }, 1024)
@@ -31584,16 +31604,16 @@ const Ng = {
   }
 }, Jr = [
   (t) => t ? !0 : "Campo obbligatorio"
-], xM = Jr.concat([
+], PM = Jr.concat([
   (t) => /.+@.+\..+/.test(t) ? !0 : "E-mail non valida."
-]), PM = Jr.concat([
-  (t) => /^(https?:\/\/)?([\w-]+\.)+([a-z]{2,})+(\/[\w-]*)*(\?[a-z0-9-]+=[a-z0-9-%]+(&[a-z0-9-]+=[a-z0-9-%]+)*)?$/i.test(t) ? !0 : "Sito non valido."
 ]), TM = Jr.concat([
+  (t) => /^(https?:\/\/)?([\w-]+\.)+([a-z]{2,})+(\/[\w-]*)*(\?[a-z0-9-]+=[a-z0-9-%]+(&[a-z0-9-]+=[a-z0-9-%]+)*)?$/i.test(t) ? !0 : "Sito non valido."
+]), wM = Jr.concat([
   (t) => /[A-Z]/.test(t) ? !0 : "La password deve contenere almeno una lettera maiscola.",
   (t) => /[a-z]/.test(t) ? !0 : "La password deve contenere almeno una lettera minuscola.",
   (t) => /\d/.test(t) ? !0 : "La password deve contenere almeno un numero.",
   (t) => t.length >= 8 ? !0 : "La password deve contenere almeno 8 caratteri."
-]), wM = (t, e) => {
+]), EM = (t, e) => {
   const n = [];
   for (const i of e) {
     const a = i(t);
@@ -31601,17 +31621,17 @@ const Ng = {
   }
   return n.length === 0 ? null : n;
 }, Bn = {
-  validateInput: wM,
+  validateInput: EM,
   requiredRules: Jr,
-  emailRules: xM,
-  siteRules: PM,
-  passwordRules: TM
-}, EM = W({
+  emailRules: PM,
+  siteRules: TM,
+  passwordRules: wM
+}, AM = W({
   ...ue(),
-  ...Yv()
-}, "VForm"), AM = K()({
+  ...jv()
+}, "VForm"), RM = K()({
   name: "VForm",
-  props: EM(),
+  props: AM(),
   emits: {
     "update:modelValue": (t) => !0,
     submit: (t) => !0
@@ -31621,7 +31641,7 @@ const Ng = {
       slots: n,
       emit: i
     } = e;
-    const a = jv(t), o = H();
+    const a = Hv(t), o = H();
     function r(l) {
       l.preventDefault(), a.reset();
     }
@@ -31647,7 +31667,7 @@ const Ng = {
       }, [(l = n.default) == null ? void 0 : l.call(n, a)]);
     }), xa(a, o);
   }
-}), RM = W({
+}), IM = W({
   autoGrow: Boolean,
   autofocus: Boolean,
   counter: [Boolean, Number, String],
@@ -31670,13 +31690,13 @@ const Ng = {
   modelModifiers: Object,
   ...wl(),
   ...Ll()
-}, "VTextarea"), IM = K()({
+}, "VTextarea"), zM = K()({
   name: "VTextarea",
   directives: {
     Intersect: Ml
   },
   inheritAttrs: !1,
-  props: RM(),
+  props: IM(),
   emits: {
     "click:control": (t) => !0,
     "mousedown:control": (t) => !0,
@@ -31749,8 +31769,8 @@ const Ng = {
       const z = !!(a.counter || t.counter || t.counterValue), A = !!(z || a.details), [R, V] = vl(n), {
         modelValue: N,
         ...G
-      } = sr.filterProps(t), U = Qh(t);
-      return v(sr, le({
+      } = lr.filterProps(t), U = Qh(t);
+      return v(lr, le({
         ref: h,
         modelValue: o.value,
         "onUpdate:modelValue": (E) => o.value = E,
@@ -31847,12 +31867,12 @@ const Ng = {
       });
     }), xa({}, h, f, m);
   }
-}), zM = ["innerHTML"], LM = ["href", "innerHTML"], VM = ["innerHTML"], BM = {
+}), LM = ["innerHTML"], VM = ["href", "innerHTML"], BM = ["innerHTML"], FM = {
   __name: "Contacts",
   props: ["content", "info"],
   setup(t) {
     const e = "", { getText: n } = jn(), i = H(""), a = H(""), o = H(""), r = () => {
-      !Bn.validateInput(o.value, Bn.emailRules) && !Bn.validateInput(i.value, Bn.requiredRules) && !Bn.validateInput(a.value, Bn.requiredRules) && br.postRequestGenericBE("send-email", {
+      !Bn.validateInput(o.value, Bn.emailRules) && !Bn.validateInput(i.value, Bn.requiredRules) && !Bn.validateInput(a.value, Bn.requiredRules) && Ya.postRequestGenericBE("send-email", {
         email: e,
         subject: `Qualcuno ho usato il form del sito ${t.info.name}`,
         body: `Buongiorno,
@@ -31870,14 +31890,14 @@ Ti ringraziamo per il contatto`);
     };
     return (s, l) => (Z(), he(Jt, null, {
       default: Y(() => [
-        v(xo, { elevation: "20" }, {
+        v(Po, { elevation: "20" }, {
           default: Y(() => [
             v(Jt, null, {
               default: Y(() => [
                 de("h2", {
                   style: gt({ color: t.info.primaryColor }),
                   innerHTML: O(n)(t.content.title) || "I nostri contatti"
-                }, null, 12, zM),
+                }, null, 12, LM),
                 v(Ma, null, {
                   default: Y(() => [
                     (Z(!0), Pe(fe, null, Pt(t.content.contacts, (c) => (Z(), he(yn, {
@@ -31898,7 +31918,7 @@ Ti ringraziamo per il contatto`);
                               target: "_blank",
                               style: { "text-decoration": "none", color: "inherit" },
                               innerHTML: O(n)(c.title)
-                            }, null, 8, LM)
+                            }, null, 8, VM)
                           ]),
                           _: 2
                         }, 1024)
@@ -31915,10 +31935,10 @@ Ti ringraziamo per il contatto`);
                 l[5] || (l[5] = de("br", null, null, -1)),
                 de("b", {
                   innerHTML: O(n)(t.content.subtitle) || "Contattaci direttamente con questo form"
-                }, null, 8, VM),
+                }, null, 8, BM),
                 l[6] || (l[6] = de("br", null, null, -1)),
                 l[7] || (l[7] = de("br", null, null, -1)),
-                v(AM, {
+                v(RM, {
                   "fast-fail": "",
                   onSubmit: Ua(r, ["prevent"])
                 }, {
@@ -31965,7 +31985,7 @@ Ti ringraziamo per il contatto`);
                           md: "12"
                         }, {
                           default: Y(() => [
-                            v(IM, {
+                            v(zM, {
                               label: "Body",
                               rows: "4",
                               modelValue: a.value,
@@ -31999,9 +32019,9 @@ Ti ringraziamo per il contatto`);
       _: 1
     }));
   }
-}, FM = /* @__PURE__ */ tn(BM, [["__scopeId", "data-v-6c2056c7"]]), kM = K()({
+}, kM = /* @__PURE__ */ tn(FM, [["__scopeId", "data-v-6c2056c7"]]), OM = K()({
   name: "VSlideGroupItem",
-  props: _o(),
+  props: So(),
   emits: {
     "group:selected": (t) => !0
   },
@@ -32009,7 +32029,7 @@ Ti ringraziamo per il contatto`);
     let {
       slots: n
     } = e;
-    const i = So(t, Th);
+    const i = bo(t, Th);
     return () => {
       var a;
       return (a = n.default) == null ? void 0 : a.call(n, {
@@ -32020,7 +32040,7 @@ Ti ringraziamo per il contatto`);
       });
     };
   }
-}), OM = {
+}), DM = {
   __name: "BrandList",
   props: ["content", "info"],
   setup(t) {
@@ -32045,9 +32065,9 @@ Ti ringraziamo per il contatto`);
             })
           ]),
           default: Y(() => [
-            (Z(!0), Pe(fe, null, Pt(t.content.brands, (a, o) => (Z(), he(kM, { key: o }, {
+            (Z(!0), Pe(fe, null, Pt(t.content.brands, (a, o) => (Z(), he(OM, { key: o }, {
               default: Y(() => [
-                v(xo, {
+                v(Po, {
                   height: O(e) ? 150 : 300,
                   width: O(e) ? 150 : 300,
                   class: "brand_item"
@@ -32067,7 +32087,7 @@ Ti ringraziamo per il contatto`);
       _: 1
     }));
   }
-}, DM = /* @__PURE__ */ tn(OM, [["__scopeId", "data-v-c2a41d09"]]), GM = ["innerHTML"], NM = ["src"], WM = ["src"], $M = ["innerHTML"], XM = {
+}, GM = /* @__PURE__ */ tn(DM, [["__scopeId", "data-v-c2a41d09"]]), NM = ["innerHTML"], WM = ["src"], $M = ["src"], XM = ["innerHTML"], UM = {
   __name: "Advantages",
   props: ["content", "info"],
   setup(t) {
@@ -32077,8 +32097,8 @@ Ti ringraziamo per il contatto`);
         de("h1", {
           style: gt({ color: t.info.primaryColor }),
           innerHTML: O(e)(t.content.title) || "I nostri vantaggi"
-        }, null, 12, GM),
-        (Z(!0), Pe(fe, null, Pt(t.content.advantages, (o, r) => (Z(), he(xo, {
+        }, null, 12, NM),
+        (Z(!0), Pe(fe, null, Pt(t.content.advantages, (o, r) => (Z(), he(Po, {
           key: r,
           class: Lc(["margin_top__default", { "carousel--mobile": O(n) }]),
           elevation: "20"
@@ -32099,7 +32119,7 @@ Ti ringraziamo per il contatto`);
                       de("img", {
                         src: O(Li)(s),
                         class: "img"
-                      }, null, 8, NM)
+                      }, null, 8, WM)
                     ]),
                     _: 2
                   }, 1024))), 128))
@@ -32109,7 +32129,7 @@ Ti ringraziamo per il contatto`);
                 key: 1,
                 src: O(Li)(o.image),
                 class: "img"
-              }, null, 8, WM))
+              }, null, 8, $M))
             ], 2),
             v(Gl, {
               style: { "white-space": "normal" },
@@ -32119,7 +32139,7 @@ Ti ringraziamo per il contatto`);
               default: Y(() => [
                 de("div", {
                   innerHTML: O(e)(o.description)
-                }, null, 8, $M)
+                }, null, 8, XM)
               ]),
               _: 2
             }, 1024)) : be("", !0)
@@ -32130,7 +32150,7 @@ Ti ringraziamo per il contatto`);
       _: 1
     }));
   }
-}, UM = /* @__PURE__ */ tn(XM, [["__scopeId", "data-v-8395df3e"]]), YM = W({
+}, YM = /* @__PURE__ */ tn(UM, [["__scopeId", "data-v-8395df3e"]]), jM = W({
   color: String,
   ...Pn(),
   ...ue(),
@@ -32141,9 +32161,9 @@ Ti ringraziamo per il contatto`);
   ...Ct(),
   ...Le(),
   ...ke()
-}, "VSheet"), jM = K()({
+}, "VSheet"), HM = K()({
   name: "VSheet",
-  props: YM(),
+  props: jM(),
   setup(t, e) {
     let {
       slots: n
@@ -32171,11 +32191,11 @@ Ti ringraziamo per il contatto`);
       style: [o.value, s.value, c.value, t.style]
     }, n)), {};
   }
-}), HM = ["innerHTML"], ZM = ["innerHTML"], KM = ["innerHTML"], qM = ["href"], JM = "right", QM = "bottom", ex = {
+}), ZM = ["innerHTML"], KM = ["innerHTML"], qM = ["innerHTML"], JM = ["href"], QM = "right", ex = "bottom", tx = {
   __name: "DualSection",
   props: ["content", "info"],
   setup(t) {
-    const e = ya(), { getText: n } = jn(), i = x(() => (t.content.orientationDesktop || JM) === "left"), a = x(() => (t.content.orientationMobile || QM) === "top"), o = x(() => e.value ? a.value : i.value);
+    const e = ya(), { getText: n } = jn(), i = x(() => (t.content.orientationDesktop || QM) === "left"), a = x(() => (t.content.orientationMobile || ex) === "top"), o = x(() => e.value ? a.value : i.value);
     return (r, s) => (Z(), he(Jt, null, {
       default: Y(() => [
         v(ua, { align: "center" }, {
@@ -32198,24 +32218,24 @@ Ti ringraziamo per il contatto`);
               md: "6"
             }, {
               default: Y(() => [
-                v(jM, { style: { "background-color": "transparent" } }, {
+                v(HM, { style: { "background-color": "transparent" } }, {
                   default: Y(() => [
                     t.content.title ? (Z(), Pe("p", {
                       key: 0,
                       class: "text-h3 font-weight-black",
                       style: gt({ color: t.info.primaryColor + " !important" }),
                       innerHTML: O(n)(t.content.title)
-                    }, null, 12, HM)) : be("", !0),
+                    }, null, 12, ZM)) : be("", !0),
                     s[0] || (s[0] = de("br", null, null, -1)),
                     t.content.subtitle ? (Z(), Pe("p", {
                       key: 1,
                       class: "text-subtitle-1 font-weight-black",
                       innerHTML: O(n)(t.content.subtitle) + "<br>"
-                    }, null, 8, ZM)) : be("", !0),
+                    }, null, 8, KM)) : be("", !0),
                     t.content.description ? (Z(), Pe("p", {
                       key: 2,
                       innerHTML: O(n)(t.content.description)
-                    }, null, 8, KM)) : be("", !0),
+                    }, null, 8, qM)) : be("", !0),
                     s[1] || (s[1] = de("br", null, null, -1)),
                     t.content.url && t.content.button ? (Z(), Pe("a", {
                       key: 3,
@@ -32228,7 +32248,7 @@ Ti ringraziamo per il contatto`);
                         color: t.info.primaryColor,
                         style: { marginTop: "7px" }
                       }, null, 8, ["innerHTML", "color"])
-                    ], 8, qM)) : be("", !0)
+                    ], 8, JM)) : be("", !0)
                   ]),
                   _: 1
                 })
@@ -32259,15 +32279,15 @@ Ti ringraziamo per il contatto`);
   __name: "Home",
   setup(t) {
     const { getAncor: e } = jn(), n = _n(), { data: i } = Nt(n), a = {
-      map: Kb,
-      blog: tM,
-      line: nM,
-      gallery: fM,
-      services: MM,
-      contacts: FM,
-      brandlist: DM,
-      advantages: UM,
-      dualSection: ex
+      map: qb,
+      blog: nM,
+      line: iM,
+      gallery: gM,
+      services: xM,
+      contacts: kM,
+      brandlist: GM,
+      advantages: YM,
+      dualSection: tx
     }, o = i.value.addOn, r = i.value.info, s = x(() => i.value.components.filter((l) => l.type === "blog" ? o == null ? void 0 : o.some((c) => c.toLowerCase() === "blog") : !0));
     return (l, c) => (Z(!0), Pe(fe, null, Pt(s.value, (u) => (Z(), he(Vd(a[u.type]), {
       id: O(e)(u.menu) ? O(e)(u.menu).toLowerCase() : null,
@@ -32275,7 +32295,7 @@ Ti ringraziamo per il contatto`);
       info: O(r)
     }, null, 8, ["id", "content", "info"]))), 256));
   }
-}, tx = ["href"], nx = {
+}, nx = ["href"], ix = {
   __name: "SocialBubbles",
   props: {
     chattyActive: Boolean
@@ -32300,18 +32320,18 @@ Ti ringraziamo per il contatto`);
           style: gt({ backgroundColor: O(i).primaryColor, color: "#fff" }),
           size: "x-large"
         }, null, 8, ["icon", "style"])
-      ], 8, tx)
+      ], 8, nx)
     ], 4))), 128));
   }
-}, Kg = /* @__PURE__ */ tn(nx, [["__scopeId", "data-v-c1c609f0"]]), ix = W({
+}, Kg = /* @__PURE__ */ tn(ix, [["__scopeId", "data-v-c1c609f0"]]), ax = W({
   ...ue(),
-  ...Hy({
+  ...Zy({
     fullHeight: !0
   }),
   ...ke()
 }, "VApp"), qg = K()({
   name: "VApp",
-  props: ix(),
+  props: ax(),
   setup(t, e) {
     let {
       slots: n
@@ -32321,7 +32341,7 @@ Ti ringraziamo per il contatto`);
       getLayoutItem: o,
       items: r,
       layoutRef: s
-    } = qy(t), {
+    } = Jy(t), {
       rtlClasses: l
     } = nn();
     return ie(() => {
@@ -32339,7 +32359,7 @@ Ti ringraziamo per il contatto`);
       theme: i
     };
   }
-}), ax = W({
+}), ox = W({
   scrollable: Boolean,
   ...ue(),
   ...Le({
@@ -32347,16 +32367,16 @@ Ti ringraziamo per il contatto`);
   })
 }, "VMain"), Jg = K()({
   name: "VMain",
-  props: ax(),
+  props: ox(),
   setup(t, e) {
     let {
       slots: n
     } = e;
     const {
       mainStyles: i
-    } = Zy(), {
+    } = Ky(), {
       ssrBootStyles: a
-    } = Mo();
+    } = xo();
     return ie(() => v(t.tag, {
       class: ["v-main", {
         "v-main--scrollable": t.scrollable
@@ -32371,7 +32391,7 @@ Ti ringraziamo per il contatto`);
       }
     })), {};
   }
-}), ux = {
+}), dx = {
   __name: "DemoLayout",
   props: {
     json: Object
@@ -32423,10 +32443,11 @@ Ti ringraziamo per il contatto`);
       _: 1
     })) : be("", !0);
   }
-}, dx = {
+}, hx = {
   __name: "DemoViewLayout",
   props: {
-    id: Int16Array
+    hostname: String,
+    id: Number
   },
   setup(t) {
     const e = H(!1), n = H(!1), i = _n(), { data: a, ready: o } = Nt(i), r = t, s = x(() => a.value.info.backgroundImage ? {
@@ -32438,7 +32459,7 @@ Ti ringraziamo per il contatto`);
       backgroundColor: a.value.info.secondaryColor
     });
     return Ke(() => {
-      i.initData(r.id);
+      i.initDataByDemoLayout(r.hostname, r.id);
     }), J(o, (l) => {
       if (!l) return;
       const c = a.value.addOn;
@@ -32477,6 +32498,6 @@ Ti ringraziamo per il contatto`);
   }
 };
 export {
-  ux as DemoLayout,
-  dx as DemoViewLayout
+  dx as DemoLayout,
+  hx as DemoViewLayout
 };
