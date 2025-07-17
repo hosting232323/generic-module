@@ -39,7 +39,7 @@ defineProps({
   align-items: center;
   justify-content: center;
   position: fixed;
-  right: 20px;
+  right: 15px;
   border-radius: 100%;
   z-index: 999;
   cursor: pointer;

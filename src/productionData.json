@@ -200,6 +200,10 @@
             "title": "+39 347 876 8340"
           },
           {
+            "icon": "mdi-map-marker",
+            "title": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy"
+          },
+          {
             "icon": "mdi-facebook",
             "title": {
               "it": "Seguici su Facebook",
@@ -240,6 +244,7 @@
     {
       "content": {
         "title": "Puoi venirci a conoscere qui",
+        "address": "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy",
         "coordinates": [
           16.882818,
           41.09665

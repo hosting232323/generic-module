@@ -52,7 +52,7 @@ onUnmounted(() => {
   justify-content: center;
   visibility: hidden;
   position: fixed;
-  right: 20px;
+  right: 15px;
   width: 40px;
   height: 40px;
   background-color: rgba(238, 238, 238, 0.8);
