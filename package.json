@@ -1,8 +1,8 @@
 {
-  "name": "generic_frontend",
+  "name": "generic-fe",
   "version": "0.0.0",
-  "main": "dist/generic_frontend.cjs.js",
-  "module": "dist/generic_frontend.es.js",
+  "main": "dist/generic-fe.cjs.js",
+  "module": "dist/generic-fe.es.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

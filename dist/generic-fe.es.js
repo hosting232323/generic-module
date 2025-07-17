@@ -4,7 +4,7 @@ var im = (t, e, n) => e in t ? nm(t, e, { enumerable: !0, configurable: !0, writ
 var Ic = (t, e, n) => im(t, typeof e != "symbol" ? e + "" : e, n);
 import { ref as H, onMounted as Ke, onUnmounted as Id, createElementBlock as Pe, openBlock as Z, normalizeStyle as gt, createElementVNode as de, onBeforeUnmount as vt, Fragment as fe, capitalize as uo, reactive as Dn, computed as x, watchEffect as qt, toRefs as zd, isVNode as am, Comment as om, unref as O, warn as Sr, inject as Ne, shallowRef as q, provide as at, defineComponent as rm, h as Ca, camelize as Ld, getCurrentInstance as sm, isRef as ho, createVNode as v, mergeProps as le, toRef as te, Text as lm, Transition as ui, watch as J, onBeforeMount as sl, nextTick as He, withDirectives as Ze, resolveDirective as en, vShow as gi, onScopeDispose as wt, effectScope as ll, toRaw as mi, TransitionGroup as cm, readonly as cl, resolveDynamicComponent as Vd, Teleport as um, cloneVNode as dm, createTextVNode as ct, withCtx as Y, createBlock as he, createCommentVNode as be, toDisplayString as Ue, renderList as Pt, withModifiers as Ua, normalizeProps as zc, onDeactivated as hm, onActivated as fm, vModelText as gm, normalizeClass as Lc } from "vue";
 import { defineStore as fo, storeToRefs as Nt } from "pinia";
-const ul = "https://generic-be-test.replit.app/", mm = "https://fastsite-be-test.replit.app/", vm = (t, e, n) => {
+const ul = "https://generic-be-test.replit.app/", mm = void 0, vm = (t, e, n) => {
   const i = new URL(`${mm}${t}`);
   Object.keys(e).forEach((a) => i.searchParams.append(a, e[a])), fetch(i, {
     method: "GET",
