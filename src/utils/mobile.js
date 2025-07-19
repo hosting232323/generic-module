@@ -8,6 +8,8 @@ const checkMobile = () => {
 
 const setupMobileUtils = () => {
   onMounted(() => {
+    const el = document.getElementById('generic-fe');
+    console.log(el.clientWidth);
     checkMobile();
     window.addEventListener('resize', checkMobile);
   });
