@@ -47,8 +47,8 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: fileURLToPath(new URL('./src/components/index.js', import.meta.url)),
-      name: 'generic-fe',
-      fileName: (format) => `generic-fe.${format}.js`,
+      name: 'generic-module',
+      fileName: (format) => `generic-module.${format}.js`,
       formats: ['es', 'cjs']
     },
     rollupOptions: {
