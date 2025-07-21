@@ -1,9 +1,7 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
-const hostnameFastSite = import.meta.env.VITE_HOSTNAME_FASTSITE;
 
-
-const getRequest = (endpoint, params, func) => {
-  const url = new URL(`${hostnameFastSite}${endpoint}`);
+const getRequestDemo = (hostname, endpoint, params, func) => {
+  const url = new URL(`${hostname}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
   fetch(url, {
@@ -19,7 +17,6 @@ const getRequest = (endpoint, params, func) => {
     console.error('Errore nella richiesta:', error);
   });
 };
-
 
 const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = undefined) => {
   fetch(`${hostnameGenericBackend}${endpoint}`, {
@@ -99,8 +96,8 @@ const sessionHandler = (data, func, router) => {
 
 
 export default {
-  getRequest,
   postRequestGenericBE,
   postRequestFileGenericBE,
-  getRequestGenericBE
+  getRequestGenericBE,
+  getRequestDemo
 };

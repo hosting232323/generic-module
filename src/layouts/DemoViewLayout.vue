@@ -29,7 +29,8 @@ const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
 
 const props = defineProps({
-  id: Int16Array
+  hostname: String,
+  id: Number
 })
 
 const backgroundStyle = computed(() => {
@@ -48,7 +49,7 @@ const backgroundStyle = computed(() => {
 });
 
 onMounted(() => {
-  dataStore.initData(props.id);
+  dataStore.initDataByDemoLayout(props.hostname, props.id);
 });
 
 watch(ready, (newValue) => {

@@ -9,13 +9,13 @@ export const useDataStore = defineStore('data', {
     ready: false
   }),
   actions: {
-    initData(id = undefined) {
-      if (id)
-        http.getRequest(`get-data/${id}`, {}, (data) => {
-          this.updateData(data.data);
-        });
-      else 
-        this.updateData(productionData);
+    initData() {
+      this.updateData(productionData);
+    },
+    initDataByDemoLayout(hostname, id){
+      http.getRequestDemo(hostname, `get-data/${id}`, {}, (data) => {
+        this.updateData(data.data);
+      });
     },
     initDataByJson(json) {
       this.updateData(json);
