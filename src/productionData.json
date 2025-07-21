@@ -3,7 +3,8 @@
     "Chatty",
     "VirtualTour",
     "Multilingual",
-    "Blog"
+    "Blog",
+    "Shop"
   ],
   "components": [
     {
@@ -280,8 +281,7 @@
     ]
   },
   "store": {
-    "username": "bro.users.info@gmail.com",
-    "password": "Ciao1234",
+    "userId": 3,
     "addressMode": 1,
     "province": "Barletta-Andria-Trani",
     "cities": [

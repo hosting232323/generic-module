@@ -115,19 +115,16 @@ const proceedToCheckout = async () => {
 
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
-  const hostname = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
-  const response = await fetch(`${hostname}stripe-session`, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(products.value)
-  });
-
-  const data = await response.json();
-  if (data.url)
-    window.location.href = data.url;
-  else if (data.status == 'ko')
-    alert(data.message);
+  http.postRequestGenericBE('stripe-session', {
+    user_id: store.userId,
+    products: products.value
+  }, function(data) {
+    if (data.checkout_url)
+      window.location.href = data.checkout_url;
+    else if (data.status == 'ko')
+      alert(data.message);
+  })
 };
 
 const cancelCheckout = () => {
