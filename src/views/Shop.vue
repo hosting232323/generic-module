@@ -80,7 +80,7 @@ const groupProductsByCategory = (productsArray) => {
 };
 
 const fetchProducts = () => {
-  http.getRequestGenericBE('products', {}, function (data) {
+  http.getRequest('products', {}, function (data) {
     groupedProducts.value = groupProductsByCategory(data);
     loading.value = false;
 

@@ -36,7 +36,7 @@ onMounted(() => {
   if (isStatic.value) {
     articles.value = content.articles;
   } else {
-    http.getRequestGenericBE('blog/post', { project: 'dorianadinanni.it' }, (data) => {
+    http.getRequest('blog/post', { project: 'dorianadinanni.it' }, (data) => {
       articles.value = data.posts.slice(0, 3).reverse();
     });
   }

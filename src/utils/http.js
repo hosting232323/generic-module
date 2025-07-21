@@ -18,7 +18,7 @@ const getRequestDemo = (hostname, endpoint, params, func) => {
   });
 };
 
-const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = undefined) => {
+const postRequest = (endpoint, body, func, method = 'POST', router = undefined) => {
   fetch(`${hostnameGenericBackend}${endpoint}`, {
     method: method,
     headers: createHeader(),
@@ -34,28 +34,7 @@ const postRequestGenericBE = (endpoint, body, func, method = 'POST', router = un
   });
 };
 
-
-const postRequestFileGenericBE = (endpoint, file, func, method = 'POST', router = undefined) => {
-  const formData = new FormData();
-  formData.append('file', file);
-
-  fetch(`${hostnameGenericBackend}${endpoint}`, {
-    method: method,
-    headers: createHeader(true),
-    body: formData
-  }).then(response => {
-    if (!response.ok)
-      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-    return response.json();
-  }).then(data => {
-    sessionHandler(data, func, router);
-  }).catch(error => {
-    console.error('Errore nella richiesta:', error);
-  });
-};
-
-
-const getRequestGenericBE = (endpoint, params, func, method = 'GET', router = undefined) => {
+const getRequest = (endpoint, params, func, method = 'GET', router = undefined) => {
   const url = new URL(`${hostnameGenericBackend}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -96,8 +75,7 @@ const sessionHandler = (data, func, router) => {
 
 
 export default {
-  postRequestGenericBE,
-  postRequestFileGenericBE,
-  getRequestGenericBE,
+  postRequest,
+  getRequest,
   getRequestDemo
 };
