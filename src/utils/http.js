@@ -1,6 +1,5 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
-
 const getRequestDemo = (hostname, endpoint, params, func) => {
   const url = new URL(`${hostname}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
