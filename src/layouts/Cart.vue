@@ -90,7 +90,7 @@ const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const store = data.value.store;
 
-http.getRequestGenericBE('products', {}, function (data) {
+http.getRequest('products', {}, function (data) {
   products.value = data;
 });
 
@@ -116,7 +116,7 @@ const proceedToCheckout = async () => {
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
 
-  http.postRequestGenericBE('stripe-session', {
+  http.postRequest('stripe-session', {
     user_id: store.userId,
     products: products.value
   }, function(data) {

@@ -89,7 +89,7 @@ const router = useRouter();
 
 const fetchProductDetails = () => {
   const productId = parseInt(route.params.id);
-  http.getRequestGenericBE('products', {}, function (data) {
+  http.getRequest('products', {}, function (data) {
     product.value = data.find(product => product.id == productId);
     loading.value = false;
   });
