@@ -1,10 +1,10 @@
-(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode('.sup-container[data-v-8abb3880]{display:flex;align-items:center;justify-content:center;visibility:hidden;position:fixed;right:15px;width:40px;height:40px;background-color:#eeec;border-radius:100%;z-index:999;cursor:pointer}.visible[data-v-8abb3880]{visibility:visible}.shadown[data-v-8abb3880]{box-shadow:0 4px 4px #0003;transition:box-shadow 225ms}.shadown[data-v-8abb3880]:hover{box-shadow:0 10px 14px #0003}.v-autocomplete .v-field .v-text-field__prefix,.v-autocomplete .v-field .v-text-field__suffix,.v-autocomplete .v-field .v-field__input,.v-autocomplete .v-field.v-field{cursor:text}.v-autocomplete .v-field .v-field__input>input{flex:1 1}.v-autocomplete .v-field input{min-width:64px}.v-autocomplete .v-field:not(.v-field--focused) input{min-width:0}.v-autocomplete .v-field--dirty .v-autocomplete__selection{margin-inline-end:2px}.v-autocomplete .v-autocomplete__selection-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-autocomplete__content{overflow:hidden;box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:4px}.v-autocomplete__mask{background:rgb(var(--v-theme-surface-light))}.v-autocomplete__selection{display:inline-flex;align-items:center;height:1.5rem;letter-spacing:inherit;line-height:inherit;max-width:calc(100% - 4px)}.v-autocomplete__selection:first-child{margin-inline-start:0}.v-autocomplete--chips.v-input--density-compact .v-field--variant-solo .v-label.v-field-label--floating,.v-autocomplete--chips.v-input--density-compact .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-autocomplete--chips.v-input--density-compact .v-field--variant-filled .v-label.v-field-label--floating,.v-autocomplete--chips.v-input--density-compact .v-field--variant-solo-filled .v-label.v-field-label--floating{top:0}.v-autocomplete--selecting-index .v-autocomplete__selection{opacity:var(--v-medium-emphasis-opacity)}.v-autocomplete--selecting-index .v-autocomplete__selection--selected{opacity:1}.v-autocomplete--selecting-index .v-field__input>input{caret-color:transparent}.v-autocomplete--single.v-text-field .v-field--focused input{flex:1 1;position:absolute;left:0;right:0;width:100%;padding-inline:inherit}.v-autocomplete--single .v-field--active input{transition:none}.v-autocomplete--single .v-field--dirty:not(.v-field--focused) input{opacity:0}.v-autocomplete--single .v-field--focused .v-autocomplete__selection{opacity:0}.v-autocomplete__menu-icon{margin-inline-start:4px;transition:.2s cubic-bezier(.4,0,.2,1)}.v-autocomplete--active-menu .v-autocomplete__menu-icon{opacity:var(--v-high-emphasis-opacity);transform:rotate(180deg)}.v-avatar{flex:none;align-items:center;display:inline-flex;justify-content:center;line-height:normal;overflow:hidden;position:relative;text-align:center;transition:.2s cubic-bezier(.4,0,.2,1);transition-property:width,height;vertical-align:middle;border-radius:50%}.v-avatar.v-avatar--size-x-small{--v-avatar-height: 24px}.v-avatar.v-avatar--size-small{--v-avatar-height: 32px}.v-avatar.v-avatar--size-default{--v-avatar-height: 40px}.v-avatar.v-avatar--size-large{--v-avatar-height: 48px}.v-avatar.v-avatar--size-x-large{--v-avatar-height: 56px}.v-avatar.v-avatar--density-default{height:calc(var(--v-avatar-height) + 0px);width:calc(var(--v-avatar-height) + 0px)}.v-avatar.v-avatar--density-comfortable{height:calc(var(--v-avatar-height) + -4px);width:calc(var(--v-avatar-height) + -4px)}.v-avatar.v-avatar--density-compact{height:calc(var(--v-avatar-height) + -8px);width:calc(var(--v-avatar-height) + -8px)}.v-avatar--variant-plain,.v-avatar--variant-outlined,.v-avatar--variant-text,.v-avatar--variant-tonal{background:transparent;color:inherit}.v-avatar--variant-plain{opacity:.62}.v-avatar--variant-plain:focus,.v-avatar--variant-plain:hover{opacity:1}.v-avatar--variant-plain .v-avatar__overlay{display:none}.v-avatar--variant-elevated,.v-avatar--variant-flat{background:var(--v-theme-surface);color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity))}.v-avatar--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-avatar--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-avatar--variant-outlined{border:thin solid currentColor}.v-avatar--variant-text .v-avatar__overlay{background:currentColor}.v-avatar--variant-tonal .v-avatar__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}.v-avatar--rounded{border-radius:4px}.v-avatar .v-img{height:100%;width:100%}.v-icon{--v-icon-size-multiplier: 1;align-items:center;display:inline-flex;font-feature-settings:"liga";height:1em;justify-content:center;letter-spacing:normal;line-height:1;position:relative;text-indent:0;text-align:center;-webkit-user-select:none;user-select:none;vertical-align:middle;width:1em;min-width:1em}.v-icon--clickable{cursor:pointer}.v-icon--size-x-small{font-size:calc(var(--v-icon-size-multiplier) * 1em)}.v-icon--size-small{font-size:calc(var(--v-icon-size-multiplier) * 1.25em)}.v-icon--size-default{font-size:calc(var(--v-icon-size-multiplier) * 1.5em)}.v-icon--size-large{font-size:calc(var(--v-icon-size-multiplier) * 1.75em)}.v-icon--size-x-large{font-size:calc(var(--v-icon-size-multiplier) * 2em)}.v-icon__svg{fill:currentColor;width:100%;height:100%}.v-icon--start{margin-inline-end:8px}.v-icon--end{margin-inline-start:8px}.v-img{--v-theme-overlay-multiplier: 3;z-index:0}.v-img--booting .v-responsive__sizer{transition:none}.v-img--rounded{border-radius:4px}.v-img__img,.v-img__picture,.v-img__gradient,.v-img__placeholder,.v-img__error{z-index:-1;position:absolute;top:0;left:0;width:100%;height:100%}.v-img__img--preload{filter:blur(4px)}.v-img__img--contain{object-fit:contain}.v-img__img--cover{object-fit:cover}.v-img__gradient{background-repeat:no-repeat}.v-responsive{display:flex;flex:1 0 auto;max-height:100%;max-width:100%;overflow:hidden;position:relative}.v-responsive--inline{display:inline-flex;flex:0 0 auto}.v-responsive__content{flex:1 0 0px;max-width:100%}.v-responsive__sizer~.v-responsive__content{margin-inline-start:-100%}.v-responsive__sizer{flex:1 0 0px;transition:padding-bottom .2s cubic-bezier(.4,0,.2,1);pointer-events:none}.v-selection-control{align-items:center;contain:layout;display:flex;flex:1 0;grid-area:control;position:relative;-webkit-user-select:none;user-select:none}.v-selection-control .v-label{white-space:normal;word-break:break-word;height:100%}.v-selection-control--disabled{opacity:var(--v-disabled-opacity);pointer-events:none}.v-selection-control--error .v-label,.v-selection-control--disabled .v-label{opacity:1}.v-selection-control--error:not(.v-selection-control--disabled) .v-label{color:rgb(var(--v-theme-error))}.v-selection-control--inline{display:inline-flex;flex:0 0 auto;min-width:0;max-width:100%}.v-selection-control--inline .v-label{width:auto}.v-selection-control--density-default{--v-selection-control-size: 40px}.v-selection-control--density-comfortable{--v-selection-control-size: 36px}.v-selection-control--density-compact{--v-selection-control-size: 28px}.v-selection-control__wrapper{width:var(--v-selection-control-size);height:var(--v-selection-control-size);display:inline-flex;align-items:center;position:relative;justify-content:center;flex:none}.v-selection-control__input{width:var(--v-selection-control-size);height:var(--v-selection-control-size);align-items:center;display:flex;flex:none;justify-content:center;position:relative;border-radius:50%}.v-selection-control__input input{cursor:pointer;position:absolute;left:0;top:0;width:100%;height:100%;opacity:0}.v-selection-control__input:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:100%;background-color:currentColor;opacity:0;pointer-events:none}.v-selection-control__input:hover:before{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-selection-control__input>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-selection-control--disabled .v-selection-control__input>.v-icon,.v-selection-control--dirty .v-selection-control__input>.v-icon,.v-selection-control--error .v-selection-control__input>.v-icon{opacity:1}.v-selection-control--error:not(.v-selection-control--disabled) .v-selection-control__input>.v-icon{color:rgb(var(--v-theme-error))}.v-selection-control--focus-visible .v-selection-control__input:before{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}.v-label{align-items:center;color:inherit;display:inline-flex;font-size:1rem;letter-spacing:.009375em;min-width:0;opacity:var(--v-medium-emphasis-opacity);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-label--clickable{cursor:pointer}.v-selection-control-group{grid-area:control;display:flex;flex-direction:column}.v-selection-control-group--inline{flex-direction:row;flex-wrap:wrap}.v-ripple__container{color:inherit;border-radius:inherit;position:absolute;width:100%;height:100%;left:0;top:0;overflow:hidden;z-index:0;pointer-events:none;contain:strict}.v-ripple__animation{color:inherit;position:absolute;top:0;left:0;border-radius:50%;background:currentColor;opacity:0;pointer-events:none;overflow:hidden;will-change:transform,opacity}.v-ripple__animation--enter{transition:none;opacity:0}.v-ripple__animation--in{transition:transform .25s cubic-bezier(0,0,.2,1),opacity .1s cubic-bezier(0,0,.2,1);opacity:calc(.25 * var(--v-theme-overlay-multiplier))}.v-ripple__animation--out{transition:opacity .3s cubic-bezier(0,0,.2,1);opacity:0}.v-input{display:grid;flex:1 1 auto;font-size:1rem;font-weight:400;line-height:1.5}.v-input--disabled{pointer-events:none}.v-input--density-default{--v-input-control-height: 56px;--v-input-padding-top: 16px}.v-input--density-comfortable{--v-input-control-height: 48px;--v-input-padding-top: 12px}.v-input--density-compact{--v-input-control-height: 40px;--v-input-padding-top: 8px}.v-input--vertical{grid-template-areas:"append" "control" "prepend";grid-template-rows:max-content auto max-content;grid-template-columns:min-content}.v-input--vertical .v-input__prepend{margin-block-start:16px}.v-input--vertical .v-input__append{margin-block-end:16px}.v-input--horizontal{grid-template-areas:"prepend control append" "a messages b";grid-template-columns:max-content minmax(0,1fr) max-content;grid-template-rows:auto auto}.v-input--horizontal .v-input__prepend{margin-inline-end:16px}.v-input--horizontal .v-input__append{margin-inline-start:16px}.v-input__details{align-items:flex-end;display:flex;font-size:.75rem;font-weight:400;grid-area:messages;letter-spacing:.0333333333em;line-height:normal;min-height:22px;padding-top:6px;overflow:hidden;justify-content:space-between}.v-input__details>.v-icon,.v-input__prepend>.v-icon,.v-input__append>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-input--disabled .v-input__details>.v-icon,.v-input--disabled .v-input__details .v-messages,.v-input--error .v-input__details>.v-icon,.v-input--error .v-input__details .v-messages,.v-input--disabled .v-input__prepend>.v-icon,.v-input--disabled .v-input__prepend .v-messages,.v-input--error .v-input__prepend>.v-icon,.v-input--error .v-input__prepend .v-messages,.v-input--disabled .v-input__append>.v-icon,.v-input--disabled .v-input__append .v-messages,.v-input--error .v-input__append>.v-icon,.v-input--error .v-input__append .v-messages{opacity:1}.v-input--disabled .v-input__details,.v-input--disabled .v-input__prepend,.v-input--disabled .v-input__append{opacity:var(--v-disabled-opacity)}.v-input--error:not(.v-input--disabled) .v-input__details>.v-icon,.v-input--error:not(.v-input--disabled) .v-input__details .v-messages,.v-input--error:not(.v-input--disabled) .v-input__prepend>.v-icon,.v-input--error:not(.v-input--disabled) .v-input__prepend .v-messages,.v-input--error:not(.v-input--disabled) .v-input__append>.v-icon,.v-input--error:not(.v-input--disabled) .v-input__append .v-messages{color:rgb(var(--v-theme-error))}.v-input__prepend,.v-input__append{display:flex;align-items:flex-start;padding-top:var(--v-input-padding-top)}.v-input--center-affix .v-input__prepend,.v-input--center-affix .v-input__append{align-items:center;padding-top:0}.v-input__prepend{grid-area:prepend}.v-input__append{grid-area:append}.v-input__control{display:flex;grid-area:control}.v-input--hide-spin-buttons input::-webkit-outer-spin-button,.v-input--hide-spin-buttons input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.v-input--hide-spin-buttons input[type=number]{-moz-appearance:textfield}.v-input--plain-underlined .v-input__prepend,.v-input--plain-underlined .v-input__append{align-items:flex-start}.v-input--density-default.v-input--plain-underlined .v-input__prepend,.v-input--density-default.v-input--plain-underlined .v-input__append{padding-top:calc(var(--v-input-padding-top) + 4px)}.v-input--density-comfortable.v-input--plain-underlined .v-input__prepend,.v-input--density-comfortable.v-input--plain-underlined .v-input__append{padding-top:calc(var(--v-input-padding-top) + 2px)}.v-input--density-compact.v-input--plain-underlined .v-input__prepend,.v-input--density-compact.v-input--plain-underlined .v-input__append{padding-top:calc(var(--v-input-padding-top) + 0px)}.v-messages{flex:1 1 auto;font-size:12px;min-height:14px;min-width:1px;opacity:var(--v-medium-emphasis-opacity);position:relative}.v-messages__message{line-height:12px;word-break:break-word;overflow-wrap:break-word;word-wrap:break-word;-webkit-hyphens:auto;hyphens:auto;transition-duration:.15s}.v-chip{align-items:center;cursor:default;display:inline-flex;font-weight:400;max-width:100%;min-width:0;overflow:hidden;position:relative;text-decoration:none;white-space:nowrap;vertical-align:middle;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;border-radius:9999px}.v-chip.v-chip--size-x-small{--v-chip-size: .625rem;--v-chip-height: 20px;font-size:.625rem;padding:0 8px}.v-chip.v-chip--size-x-small .v-avatar{--v-avatar-height: 14px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar{--v-avatar-height: 20px}.v-chip.v-chip--size-x-small .v-avatar--start{margin-inline-start:-5.6px;margin-inline-end:4px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar--start{margin-inline-start:-8px}.v-chip.v-chip--size-x-small .v-avatar--end{margin-inline-start:4px;margin-inline-end:-5.6px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar--end{margin-inline-end:-8px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar--end+.v-chip__close{margin-inline-start:12px}.v-chip.v-chip--size-x-small .v-icon--start,.v-chip.v-chip--size-x-small .v-chip__filter{margin-inline-start:-4px;margin-inline-end:4px}.v-chip.v-chip--size-x-small .v-icon--end,.v-chip.v-chip--size-x-small .v-chip__close{margin-inline-start:4px;margin-inline-end:-4px}.v-chip.v-chip--size-x-small .v-icon--end+.v-chip__close,.v-chip.v-chip--size-x-small .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-x-small .v-chip__append+.v-chip__close{margin-inline-start:8px}.v-chip.v-chip--size-small{--v-chip-size: .75rem;--v-chip-height: 26px;font-size:.75rem;padding:0 10px}.v-chip.v-chip--size-small .v-avatar{--v-avatar-height: 20px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar{--v-avatar-height: 26px}.v-chip.v-chip--size-small .v-avatar--start{margin-inline-start:-7px;margin-inline-end:5px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar--start{margin-inline-start:-10px}.v-chip.v-chip--size-small .v-avatar--end{margin-inline-start:5px;margin-inline-end:-7px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar--end{margin-inline-end:-10px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar--end+.v-chip__close{margin-inline-start:15px}.v-chip.v-chip--size-small .v-icon--start,.v-chip.v-chip--size-small .v-chip__filter{margin-inline-start:-5px;margin-inline-end:5px}.v-chip.v-chip--size-small .v-icon--end,.v-chip.v-chip--size-small .v-chip__close{margin-inline-start:5px;margin-inline-end:-5px}.v-chip.v-chip--size-small .v-icon--end+.v-chip__close,.v-chip.v-chip--size-small .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-small .v-chip__append+.v-chip__close{margin-inline-start:10px}.v-chip.v-chip--size-default{--v-chip-size: .875rem;--v-chip-height: 32px;font-size:.875rem;padding:0 12px}.v-chip.v-chip--size-default .v-avatar{--v-avatar-height: 26px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar{--v-avatar-height: 32px}.v-chip.v-chip--size-default .v-avatar--start{margin-inline-start:-8.4px;margin-inline-end:6px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar--start{margin-inline-start:-12px}.v-chip.v-chip--size-default .v-avatar--end{margin-inline-start:6px;margin-inline-end:-8.4px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar--end{margin-inline-end:-12px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar--end+.v-chip__close{margin-inline-start:18px}.v-chip.v-chip--size-default .v-icon--start,.v-chip.v-chip--size-default .v-chip__filter{margin-inline-start:-6px;margin-inline-end:6px}.v-chip.v-chip--size-default .v-icon--end,.v-chip.v-chip--size-default .v-chip__close{margin-inline-start:6px;margin-inline-end:-6px}.v-chip.v-chip--size-default .v-icon--end+.v-chip__close,.v-chip.v-chip--size-default .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-default .v-chip__append+.v-chip__close{margin-inline-start:12px}.v-chip.v-chip--size-large{--v-chip-size: 1rem;--v-chip-height: 38px;font-size:1rem;padding:0 14px}.v-chip.v-chip--size-large .v-avatar{--v-avatar-height: 32px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar{--v-avatar-height: 38px}.v-chip.v-chip--size-large .v-avatar--start{margin-inline-start:-9.8px;margin-inline-end:7px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar--start{margin-inline-start:-14px}.v-chip.v-chip--size-large .v-avatar--end{margin-inline-start:7px;margin-inline-end:-9.8px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar--end{margin-inline-end:-14px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar--end+.v-chip__close{margin-inline-start:21px}.v-chip.v-chip--size-large .v-icon--start,.v-chip.v-chip--size-large .v-chip__filter{margin-inline-start:-7px;margin-inline-end:7px}.v-chip.v-chip--size-large .v-icon--end,.v-chip.v-chip--size-large .v-chip__close{margin-inline-start:7px;margin-inline-end:-7px}.v-chip.v-chip--size-large .v-icon--end+.v-chip__close,.v-chip.v-chip--size-large .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-large .v-chip__append+.v-chip__close{margin-inline-start:14px}.v-chip.v-chip--size-x-large{--v-chip-size: 1.125rem;--v-chip-height: 44px;font-size:1.125rem;padding:0 17px}.v-chip.v-chip--size-x-large .v-avatar{--v-avatar-height: 38px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar{--v-avatar-height: 44px}.v-chip.v-chip--size-x-large .v-avatar--start{margin-inline-start:-11.9px;margin-inline-end:8.5px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar--start{margin-inline-start:-17px}.v-chip.v-chip--size-x-large .v-avatar--end{margin-inline-start:8.5px;margin-inline-end:-11.9px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar--end{margin-inline-end:-17px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar--end+.v-chip__close{margin-inline-start:25.5px}.v-chip.v-chip--size-x-large .v-icon--start,.v-chip.v-chip--size-x-large .v-chip__filter{margin-inline-start:-8.5px;margin-inline-end:8.5px}.v-chip.v-chip--size-x-large .v-icon--end,.v-chip.v-chip--size-x-large .v-chip__close{margin-inline-start:8.5px;margin-inline-end:-8.5px}.v-chip.v-chip--size-x-large .v-icon--end+.v-chip__close,.v-chip.v-chip--size-x-large .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-x-large .v-chip__append+.v-chip__close{margin-inline-start:17px}.v-chip.v-chip--density-default{height:calc(var(--v-chip-height) + 0px)}.v-chip.v-chip--density-comfortable{height:calc(var(--v-chip-height) + -8px)}.v-chip.v-chip--density-compact{height:calc(var(--v-chip-height) + -12px)}.v-chip:hover>.v-chip__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-chip:focus-visible>.v-chip__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-chip:focus>.v-chip__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-chip--active>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]>.v-chip__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-chip--active:hover>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]:hover>.v-chip__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-chip--active:focus-visible>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-chip__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-chip--active:focus>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]:focus>.v-chip__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-chip--variant-plain,.v-chip--variant-outlined,.v-chip--variant-text,.v-chip--variant-tonal{background:transparent;color:inherit}.v-chip--variant-plain{opacity:.26}.v-chip--variant-plain:focus,.v-chip--variant-plain:hover{opacity:1}.v-chip--variant-plain .v-chip__overlay{display:none}.v-chip--variant-elevated,.v-chip--variant-flat{background:rgb(var(--v-theme-surface-variant));color:rgb(var(--v-theme-on-surface-variant))}.v-chip--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-chip--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-chip--variant-outlined{border:thin solid currentColor}.v-chip--variant-text .v-chip__overlay{background:currentColor}.v-chip--variant-tonal .v-chip__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}.v-chip--border{border-width:thin}.v-chip--link{cursor:pointer}.v-chip--filter{-webkit-user-select:none;user-select:none}.v-chip__content{align-items:center;display:inline-flex}.v-autocomplete__selection .v-chip__content,.v-combobox__selection .v-chip__content,.v-select__selection .v-chip__content{overflow:hidden}.v-chip__filter,.v-chip__prepend,.v-chip__append,.v-chip__close{align-items:center;display:inline-flex}.v-chip__close{cursor:pointer;flex:0 1 auto;font-size:18px;max-height:18px;max-width:18px;-webkit-user-select:none;user-select:none}.v-chip__close .v-icon{font-size:inherit}.v-chip__filter{transition:.15s cubic-bezier(.4,0,.2,1)}.v-chip__overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:currentColor;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .2s ease-in-out}.v-chip--disabled{opacity:.3;pointer-events:none;-webkit-user-select:none;user-select:none}.v-chip--label{border-radius:4px}.v-chip-group{display:flex;max-width:100%;min-width:0;overflow-x:auto;padding:4px 0}.v-chip-group .v-chip{margin:4px 8px 4px 0}.v-chip-group .v-chip.v-chip--selected:not(.v-chip--disabled) .v-chip__overlay{opacity:var(--v-activated-opacity)}.v-chip-group--column .v-slide-group__content{white-space:normal;flex-wrap:wrap;max-width:100%}.v-slide-group{display:flex;overflow:hidden}.v-slide-group__next,.v-slide-group__prev{align-items:center;display:flex;flex:0 1 52px;justify-content:center;min-width:52px;cursor:pointer}.v-slide-group__next--disabled,.v-slide-group__prev--disabled{pointer-events:none;opacity:var(--v-disabled-opacity)}.v-slide-group__content{display:flex;flex:1 0 auto;position:relative;transition:.2s all cubic-bezier(.4,0,.2,1);white-space:nowrap}.v-slide-group__content>*{white-space:initial}.v-slide-group__container{contain:content;display:flex;flex:1 1 auto;overflow:hidden}.v-slide-group--vertical,.v-slide-group--vertical .v-slide-group__container,.v-slide-group--vertical .v-slide-group__content{flex-direction:column}.v-list{overflow:auto;padding:8px 0;position:relative;outline:none;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgba(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-list--border{border-width:thin;box-shadow:none}.v-list--disabled{pointer-events:none;-webkit-user-select:none;user-select:none}.v-list--nav{padding-inline:8px}.v-list--rounded{border-radius:4px}.v-list--subheader{padding-top:0}.v-list-img{border-radius:inherit;display:flex;height:100%;left:0;overflow:hidden;position:absolute;top:0;width:100%;z-index:-1}.v-list-subheader{align-items:center;background:inherit;color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity));display:flex;font-size:.875rem;font-weight:400;line-height:1.375rem;padding-inline-end:16px;min-height:40px;transition:.2s min-height cubic-bezier(.4,0,.2,1)}.v-list-subheader__text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-list--density-default .v-list-subheader{min-height:40px;padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list--density-comfortable .v-list-subheader{min-height:36px;padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list--density-compact .v-list-subheader{min-height:32px;padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list-subheader--inset{--indent-padding: 56px}.v-list--nav .v-list-subheader{font-size:.75rem}.v-list-subheader--sticky{background:inherit;left:0;position:sticky;top:0;z-index:1}.v-list__overlay{background-color:currentColor;border-radius:inherit;bottom:0;left:0;opacity:0;pointer-events:none;position:absolute;right:0;top:0;transition:opacity .2s ease-in-out}.v-list-item{align-items:center;display:grid;flex:none;grid-template-areas:"prepend content append";grid-template-columns:max-content 1fr auto;outline:none;max-width:100%;padding:4px 16px;position:relative;text-decoration:none;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;border-radius:0}.v-list-item--border{border-width:thin;box-shadow:none}.v-list-item:hover>.v-list-item__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-list-item:focus-visible>.v-list-item__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-list-item:focus>.v-list-item__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-list-item--active>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]>.v-list-item__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-list-item--active:hover>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]:hover>.v-list-item__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-list-item--active:focus-visible>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-list-item__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-list-item--active:focus>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]:focus>.v-list-item__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-list-item--variant-plain,.v-list-item--variant-outlined,.v-list-item--variant-text,.v-list-item--variant-tonal{background:transparent;color:inherit}.v-list-item--variant-plain{opacity:.62}.v-list-item--variant-plain:focus,.v-list-item--variant-plain:hover{opacity:1}.v-list-item--variant-plain .v-list-item__overlay{display:none}.v-list-item--variant-elevated,.v-list-item--variant-flat{background:rgba(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-list-item--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-list-item--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-list-item--variant-outlined{border:thin solid currentColor}.v-list-item--variant-text .v-list-item__overlay{background:currentColor}.v-list-item--variant-tonal .v-list-item__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}@supports selector(:focus-visible){.v-list-item:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;border:2px solid currentColor;border-radius:4px;opacity:0;transition:opacity .2s ease-in-out}.v-list-item:focus-visible:after{opacity:calc(.15 * var(--v-theme-overlay-multiplier))}}.v-list-item__prepend>.v-badge .v-icon,.v-list-item__prepend>.v-icon,.v-list-item__append>.v-badge .v-icon,.v-list-item__append>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-list-item--active .v-list-item__prepend>.v-badge .v-icon,.v-list-item--active .v-list-item__prepend>.v-icon,.v-list-item--active .v-list-item__append>.v-badge .v-icon,.v-list-item--active .v-list-item__append>.v-icon{opacity:1}.v-list-item--rounded{border-radius:4px}.v-list-item--disabled{pointer-events:none;-webkit-user-select:none;user-select:none;opacity:.6}.v-list-item--link{cursor:pointer}.v-navigation-drawer--rail:not(.v-navigation-drawer--expand-on-hover) .v-list-item .v-avatar,.v-navigation-drawer--rail.v-navigation-drawer--expand-on-hover:not(.v-navigation-drawer--is-hovering) .v-list-item .v-avatar{--v-avatar-height: 24px}.v-list-item__prepend{align-items:center;align-self:center;display:flex;grid-area:prepend}.v-list-item__prepend>.v-badge~.v-list-item__spacer,.v-list-item__prepend>.v-icon~.v-list-item__spacer,.v-list-item__prepend>.v-tooltip~.v-list-item__spacer{width:32px}.v-list-item__prepend>.v-avatar~.v-list-item__spacer{width:16px}.v-list-item--slim .v-list-item__prepend>.v-badge~.v-list-item__spacer,.v-list-item--slim .v-list-item__prepend>.v-icon~.v-list-item__spacer,.v-list-item--slim .v-list-item__prepend>.v-tooltip~.v-list-item__spacer{width:8px}.v-list-item--slim .v-list-item__prepend>.v-avatar~.v-list-item__spacer{width:4px}.v-list-item--three-line .v-list-item__prepend{align-self:start}.v-list-item__append{align-self:center;display:flex;align-items:center;grid-area:append}.v-list-item__append .v-list-item__spacer{order:-1;transition:.15s width cubic-bezier(.4,0,.2,1)}.v-list-item__append>.v-badge~.v-list-item__spacer,.v-list-item__append>.v-icon~.v-list-item__spacer,.v-list-item__append>.v-tooltip~.v-list-item__spacer{width:32px}.v-list-item__append>.v-avatar~.v-list-item__spacer{width:16px}.v-list-item--slim .v-list-item__append>.v-badge~.v-list-item__spacer,.v-list-item--slim .v-list-item__append>.v-icon~.v-list-item__spacer,.v-list-item--slim .v-list-item__append>.v-tooltip~.v-list-item__spacer{width:8px}.v-list-item--slim .v-list-item__append>.v-avatar~.v-list-item__spacer{width:4px}.v-list-item--three-line .v-list-item__append{align-self:start}.v-list-item__content{align-self:center;grid-area:content;overflow:hidden}.v-list-item-action{align-self:center;display:flex;align-items:center;grid-area:prepend;flex:none;transition:inherit;transition-property:height,width}.v-list-item-action--start{margin-inline-end:12px}.v-list-item-action--end{margin-inline-start:12px}.v-list-item-media{margin-top:0;margin-bottom:0}.v-list-item-media--start{margin-inline-end:16px}.v-list-item-media--end{margin-inline-start:16px}.v-list-item--two-line .v-list-item-media{margin-top:-4px;margin-bottom:-4px}.v-list-item--three-line .v-list-item-media{margin-top:0;margin-bottom:0}.v-list-item-subtitle{-webkit-box-orient:vertical;display:-webkit-box;opacity:var(--v-medium-emphasis-opacity);overflow:hidden;padding:0;text-overflow:ellipsis;word-break:break-all;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;line-height:1rem;text-transform:none}.v-list-item--one-line .v-list-item-subtitle{-webkit-line-clamp:1}.v-list-item--two-line .v-list-item-subtitle{-webkit-line-clamp:2}.v-list-item--three-line .v-list-item-subtitle{-webkit-line-clamp:3}.v-list-item--nav .v-list-item-subtitle{font-size:.75rem;font-weight:400;letter-spacing:.0178571429em;line-height:1rem}.v-list-item-title{-webkit-hyphens:auto;hyphens:auto;overflow-wrap:normal;overflow:hidden;padding:0;white-space:nowrap;text-overflow:ellipsis;word-break:normal;word-wrap:break-word;font-size:1rem;font-weight:400;letter-spacing:.009375em;line-height:1.5rem;text-transform:none}.v-list-item--nav .v-list-item-title{font-size:.8125rem;font-weight:500;letter-spacing:normal;line-height:1rem}.v-list-item--density-default{min-height:40px}.v-list-item--density-default.v-list-item--one-line{min-height:48px;padding-top:4px;padding-bottom:4px}.v-list-item--density-default.v-list-item--two-line{min-height:64px;padding-top:12px;padding-bottom:12px}.v-list-item--density-default.v-list-item--three-line{min-height:88px;padding-top:16px;padding-bottom:16px}.v-list-item--density-default.v-list-item--three-line .v-list-item__prepend,.v-list-item--density-default.v-list-item--three-line .v-list-item__append{padding-top:8px}.v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line{padding-inline:16px}.v-list-item--density-default:not(.v-list-item--nav).v-list-item--two-line{padding-inline:16px}.v-list-item--density-default:not(.v-list-item--nav).v-list-item--three-line{padding-inline:16px}.v-list-item--density-comfortable{min-height:36px}.v-list-item--density-comfortable.v-list-item--one-line{min-height:44px}.v-list-item--density-comfortable.v-list-item--two-line{min-height:60px;padding-top:8px;padding-bottom:8px}.v-list-item--density-comfortable.v-list-item--three-line{min-height:84px;padding-top:12px;padding-bottom:12px}.v-list-item--density-comfortable.v-list-item--three-line .v-list-item__prepend,.v-list-item--density-comfortable.v-list-item--three-line .v-list-item__append{padding-top:6px}.v-list-item--density-comfortable:not(.v-list-item--nav).v-list-item--one-line{padding-inline:16px}.v-list-item--density-comfortable:not(.v-list-item--nav).v-list-item--two-line{padding-inline:16px}.v-list-item--density-comfortable:not(.v-list-item--nav).v-list-item--three-line{padding-inline:16px}.v-list-item--density-compact{min-height:32px}.v-list-item--density-compact.v-list-item--one-line{min-height:40px}.v-list-item--density-compact.v-list-item--two-line{min-height:56px;padding-top:4px;padding-bottom:4px}.v-list-item--density-compact.v-list-item--three-line{min-height:80px;padding-top:8px;padding-bottom:8px}.v-list-item--density-compact.v-list-item--three-line .v-list-item__prepend,.v-list-item--density-compact.v-list-item--three-line .v-list-item__append{padding-top:4px}.v-list-item--density-compact:not(.v-list-item--nav).v-list-item--one-line{padding-inline:16px}.v-list-item--density-compact:not(.v-list-item--nav).v-list-item--two-line{padding-inline:16px}.v-list-item--density-compact:not(.v-list-item--nav).v-list-item--three-line{padding-inline:16px}.v-list-item--nav{padding-inline:8px}.v-list .v-list-item--nav:not(:only-child){margin-bottom:4px}.v-list-item__underlay{position:absolute}.v-list-item__overlay{background-color:currentColor;border-radius:inherit;bottom:0;left:0;opacity:0;pointer-events:none;position:absolute;right:0;top:0;transition:opacity .2s ease-in-out}.v-list-item--active.v-list-item--variant-elevated .v-list-item__overlay{--v-theme-overlay-multiplier: 0}.v-list{--indent-padding: 0px}.v-list--nav{--indent-padding: -8px}.v-list-group{--list-indent-size: 16px;--parent-padding: var(--indent-padding);--prepend-width: 40px}.v-list--slim .v-list-group{--prepend-width: 16px}.v-list-group--fluid{--list-indent-size: 0px}.v-list-group--prepend{--parent-padding: calc(var(--indent-padding) + var(--prepend-width))}.v-list-group--fluid.v-list-group--prepend{--parent-padding: var(--indent-padding)}.v-list-group__items{--indent-padding: calc(var(--parent-padding) + var(--list-indent-size))}.v-list-group__items .v-list-item{padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list-group__header.v-list-item--active:not(:focus-visible) .v-list-item__overlay{opacity:0}.v-list-group__header.v-list-item--active:hover .v-list-item__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-divider{display:block;flex:1 1 100%;height:0px;max-height:0px;opacity:var(--v-border-opacity);transition:inherit;border-style:solid;border-width:thin 0 0 0}.v-divider--vertical{align-self:stretch;border-width:0 thin 0 0;display:inline-flex;height:inherit;margin-left:-1px;max-height:100%;max-width:0px;vertical-align:text-bottom;width:0px}.v-divider--inset:not(.v-divider--vertical){max-width:calc(100% - 72px);margin-inline-start:72px}.v-divider--inset.v-divider--vertical{margin-bottom:8px;margin-top:8px;max-height:calc(100% - 16px)}.v-menu>.v-overlay__content{display:flex;flex-direction:column;border-radius:4px}.v-menu>.v-overlay__content>.v-card,.v-menu>.v-overlay__content>.v-sheet,.v-menu>.v-overlay__content>.v-list{background:rgb(var(--v-theme-surface));border-radius:inherit;overflow:auto;height:100%;box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-overlay-container{contain:layout;left:0;pointer-events:none;position:absolute;top:0;display:contents}.v-overlay-scroll-blocked{padding-inline-end:var(--v-scrollbar-offset)}.v-overlay-scroll-blocked:not(html){overflow-y:hidden!important}html.v-overlay-scroll-blocked{position:fixed;top:var(--v-body-scroll-y);left:var(--v-body-scroll-x);width:100%;height:100%}.v-overlay{border-radius:inherit;display:flex;left:0;pointer-events:none;position:fixed;top:0;bottom:0;right:0}.v-overlay__content{outline:none;position:absolute;pointer-events:auto;contain:layout}.v-overlay__scrim{pointer-events:auto;background:rgb(var(--v-theme-on-surface));border-radius:inherit;bottom:0;left:0;opacity:.32;position:fixed;right:0;top:0}.v-overlay--absolute,.v-overlay--contained .v-overlay__scrim{position:absolute}.v-overlay--scroll-blocked{padding-inline-end:var(--v-scrollbar-offset)}.v-select .v-field .v-text-field__prefix,.v-select .v-field .v-text-field__suffix,.v-select .v-field .v-field__input,.v-select .v-field.v-field{cursor:pointer}.v-select .v-field .v-field__input>input{align-self:flex-start;opacity:1;flex:0 0;position:absolute;width:100%;transition:none;pointer-events:none;caret-color:transparent}.v-select .v-field--dirty .v-select__selection{margin-inline-end:2px}.v-select .v-select__selection-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-select__content{overflow:hidden;box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:4px}.v-select__selection{display:inline-flex;align-items:center;letter-spacing:inherit;line-height:inherit;max-width:100%}.v-select .v-select__selection:first-child{margin-inline-start:0}.v-select--selected .v-field .v-field__input>input{opacity:0}.v-select__menu-icon{margin-inline-start:4px;transition:.2s cubic-bezier(.4,0,.2,1)}.v-select--active-menu .v-select__menu-icon{opacity:var(--v-high-emphasis-opacity);transform:rotate(180deg)}.v-text-field input{color:inherit;opacity:0;flex:1;transition:.15s opacity cubic-bezier(.4,0,.2,1);min-width:0}.v-text-field input:focus,.v-text-field input:active{outline:none}.v-text-field input:invalid{box-shadow:none}.v-text-field .v-field{cursor:text}.v-text-field--prefixed.v-text-field .v-field__input{--v-field-padding-start: 6px}.v-text-field--suffixed.v-text-field .v-field__input{--v-field-padding-end: 0}.v-text-field .v-input__details{padding-inline:16px}.v-input--plain-underlined.v-text-field .v-input__details{padding-inline:0}.v-text-field .v-field--no-label input,.v-text-field .v-field--active input{opacity:1}.v-text-field .v-field--single-line input{transition:none}.v-text-field__prefix,.v-text-field__suffix{align-items:center;color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity));cursor:default;display:flex;opacity:0;transition:inherit;white-space:nowrap;min-height:max(var(--v-input-control-height, 56px),1.5rem + var(--v-field-input-padding-top) + var(--v-field-input-padding-bottom));padding-top:calc(var(--v-field-padding-top, 4px) + var(--v-input-padding-top, 0));padding-bottom:var(--v-field-padding-bottom, 6px)}.v-field--active .v-text-field__prefix,.v-field--active .v-text-field__suffix{opacity:1}.v-field--disabled .v-text-field__prefix,.v-field--disabled .v-text-field__suffix{color:rgba(var(--v-theme-on-surface),var(--v-disabled-opacity))}.v-text-field__prefix{padding-inline-start:var(--v-field-padding-start)}.v-text-field__suffix{padding-inline-end:var(--v-field-padding-end)}.v-counter{color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity));flex:0 1 auto;font-size:12px;transition-duration:.15s}.v-field{display:grid;grid-template-areas:"prepend-inner field clear append-inner";grid-template-columns:min-content minmax(0,1fr) min-content min-content;font-size:16px;letter-spacing:.009375em;max-width:100%;border-radius:4px;contain:layout;flex:1 0;grid-area:control;position:relative;--v-field-padding-start: 16px;--v-field-padding-end: 16px;--v-field-padding-top: 8px;--v-field-padding-bottom: 4px;--v-field-input-padding-top: calc(var(--v-field-padding-top, 8px) + var(--v-input-padding-top, 0));--v-field-input-padding-bottom: var(--v-field-padding-bottom, 4px)}.v-field--disabled{opacity:var(--v-disabled-opacity);pointer-events:none}.v-field .v-chip{--v-chip-height: 24px}.v-field--prepended{padding-inline-start:12px}.v-field--appended{padding-inline-end:12px}.v-field--variant-solo,.v-field--variant-solo-filled,.v-field--variant-solo-inverted{background:rgb(var(--v-theme-surface));border-color:transparent;color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity));box-shadow:0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-field--variant-solo-inverted.v-field--focused{color:rgb(var(--v-theme-on-surface-variant))}.v-field--variant-filled{border-bottom-left-radius:0;border-bottom-right-radius:0}.v-input--density-default .v-field--variant-solo,.v-input--density-default .v-field--variant-solo-inverted,.v-input--density-default .v-field--variant-solo-filled,.v-input--density-default .v-field--variant-filled{--v-input-control-height: 56px;--v-field-padding-bottom: 4px}.v-input--density-comfortable .v-field--variant-solo,.v-input--density-comfortable .v-field--variant-solo-inverted,.v-input--density-comfortable .v-field--variant-solo-filled,.v-input--density-comfortable .v-field--variant-filled{--v-input-control-height: 48px;--v-field-padding-bottom: 0px}.v-input--density-compact .v-field--variant-solo,.v-input--density-compact .v-field--variant-solo-inverted,.v-input--density-compact .v-field--variant-solo-filled,.v-input--density-compact .v-field--variant-filled{--v-input-control-height: 40px;--v-field-padding-bottom: 0px}.v-field--variant-outlined,.v-field--single-line,.v-field--no-label{--v-field-padding-top: 0px}.v-input--density-default .v-field--variant-outlined,.v-input--density-default .v-field--single-line,.v-input--density-default .v-field--no-label{--v-field-padding-bottom: 16px}.v-input--density-comfortable .v-field--variant-outlined,.v-input--density-comfortable .v-field--single-line,.v-input--density-comfortable .v-field--no-label{--v-field-padding-bottom: 12px}.v-input--density-compact .v-field--variant-outlined,.v-input--density-compact .v-field--single-line,.v-input--density-compact .v-field--no-label{--v-field-padding-bottom: 8px}.v-field--variant-plain,.v-field--variant-underlined{border-radius:0;padding:0}.v-field--variant-plain.v-field,.v-field--variant-underlined.v-field{--v-field-padding-start: 0px;--v-field-padding-end: 0px}.v-input--density-default .v-field--variant-plain,.v-input--density-default .v-field--variant-underlined{--v-input-control-height: 48px;--v-field-padding-top: 4px;--v-field-padding-bottom: 4px}.v-input--density-comfortable .v-field--variant-plain,.v-input--density-comfortable .v-field--variant-underlined{--v-input-control-height: 40px;--v-field-padding-top: 2px;--v-field-padding-bottom: 0px}.v-input--density-compact .v-field--variant-plain,.v-input--density-compact .v-field--variant-underlined{--v-input-control-height: 32px;--v-field-padding-top: 0px;--v-field-padding-bottom: 0px}.v-field--flat{box-shadow:none}.v-field--rounded{border-radius:9999px}.v-field.v-field--prepended{--v-field-padding-start: 6px}.v-field.v-field--appended{--v-field-padding-end: 6px}.v-field__input{align-items:center;color:inherit;column-gap:2px;display:flex;flex-wrap:wrap;letter-spacing:.009375em;opacity:var(--v-high-emphasis-opacity);min-height:max(var(--v-input-control-height, 56px),1.5rem + var(--v-field-input-padding-top) + var(--v-field-input-padding-bottom));min-width:0;padding-inline:var(--v-field-padding-start) var(--v-field-padding-end);padding-top:var(--v-field-input-padding-top);padding-bottom:var(--v-field-input-padding-bottom);position:relative;width:100%}.v-input--density-default .v-field__input{row-gap:8px}.v-input--density-comfortable .v-field__input{row-gap:6px}.v-input--density-compact .v-field__input{row-gap:4px}.v-field__input input{letter-spacing:inherit}.v-field__input input::placeholder,input.v-field__input::placeholder,textarea.v-field__input::placeholder{color:currentColor;opacity:var(--v-disabled-opacity)}.v-field__input:focus,.v-field__input:active{outline:none}.v-field__input:invalid{box-shadow:none}.v-field__field{flex:1 0;grid-area:field;position:relative;align-items:flex-start;display:flex}.v-field__prepend-inner{grid-area:prepend-inner;padding-inline-end:var(--v-field-padding-after)}.v-field__clearable{grid-area:clear}.v-field__append-inner{grid-area:append-inner;padding-inline-start:var(--v-field-padding-after)}.v-field__append-inner,.v-field__clearable,.v-field__prepend-inner{display:flex;align-items:flex-start;padding-top:var(--v-input-padding-top, 8px)}.v-field--center-affix .v-field__append-inner,.v-field--center-affix .v-field__clearable,.v-field--center-affix .v-field__prepend-inner{align-items:center;padding-top:0}.v-field.v-field--variant-underlined .v-field__append-inner,.v-field.v-field--variant-underlined .v-field__clearable,.v-field.v-field--variant-underlined .v-field__prepend-inner,.v-field.v-field--variant-plain .v-field__append-inner,.v-field.v-field--variant-plain .v-field__clearable,.v-field.v-field--variant-plain .v-field__prepend-inner{align-items:flex-start;padding-top:calc(var(--v-field-padding-top, 8px) + var(--v-input-padding-top, 0));padding-bottom:var(--v-field-padding-bottom, 4px)}.v-field--focused .v-field__prepend-inner,.v-field--focused .v-field__append-inner{opacity:1}.v-field__prepend-inner>.v-icon,.v-field__append-inner>.v-icon,.v-field__clearable>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-field--disabled .v-field__prepend-inner>.v-icon,.v-field--error .v-field__prepend-inner>.v-icon,.v-field--disabled .v-field__append-inner>.v-icon,.v-field--error .v-field__append-inner>.v-icon,.v-field--disabled .v-field__clearable>.v-icon,.v-field--error .v-field__clearable>.v-icon{opacity:1}.v-field--error:not(.v-field--disabled) .v-field__prepend-inner>.v-icon,.v-field--error:not(.v-field--disabled) .v-field__append-inner>.v-icon,.v-field--error:not(.v-field--disabled) .v-field__clearable>.v-icon{color:rgb(var(--v-theme-error))}.v-field__clearable{cursor:pointer;opacity:0;overflow:hidden;margin-inline:4px;transition:.15s cubic-bezier(.4,0,.2,1);transition-property:opacity,transform,width}.v-field--focused .v-field__clearable,.v-field--persistent-clear .v-field__clearable{opacity:1}@media (hover: hover){.v-field:hover .v-field__clearable{opacity:1}}@media (hover: none){.v-field__clearable{opacity:1}}.v-label.v-field-label{contain:layout paint;display:block;margin-inline-start:var(--v-field-padding-start);margin-inline-end:var(--v-field-padding-end);max-width:calc(100% - var(--v-field-padding-start) - var(--v-field-padding-end));pointer-events:none;position:absolute;top:var(--v-input-padding-top);transform-origin:left center;transition:.15s cubic-bezier(.4,0,.2,1);transition-property:opacity,transform;z-index:1}.v-field--variant-underlined .v-label.v-field-label,.v-field--variant-plain .v-label.v-field-label{top:calc(var(--v-input-padding-top) + var(--v-field-padding-top))}.v-field--center-affix .v-label.v-field-label{top:50%;transform:translateY(-50%)}.v-field--active .v-label.v-field-label{visibility:hidden}.v-field--focused .v-label.v-field-label,.v-field--error .v-label.v-field-label{opacity:1}.v-field--error:not(.v-field--disabled) .v-label.v-field-label{color:rgb(var(--v-theme-error))}.v-label.v-field-label--floating{--v-field-label-scale: .75em;font-size:var(--v-field-label-scale);visibility:hidden;max-width:100%}.v-field--center-affix .v-label.v-field-label--floating{transform:none}.v-field.v-field--active .v-label.v-field-label--floating{visibility:unset}.v-input--density-default .v-field--variant-solo .v-label.v-field-label--floating,.v-input--density-default .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-input--density-default .v-field--variant-filled .v-label.v-field-label--floating,.v-input--density-default .v-field--variant-solo-filled .v-label.v-field-label--floating{top:7px}.v-input--density-comfortable .v-field--variant-solo .v-label.v-field-label--floating,.v-input--density-comfortable .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-input--density-comfortable .v-field--variant-filled .v-label.v-field-label--floating,.v-input--density-comfortable .v-field--variant-solo-filled .v-label.v-field-label--floating{top:5px}.v-input--density-compact .v-field--variant-solo .v-label.v-field-label--floating,.v-input--density-compact .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-input--density-compact .v-field--variant-filled .v-label.v-field-label--floating,.v-input--density-compact .v-field--variant-solo-filled .v-label.v-field-label--floating{top:3px}.v-field--variant-plain .v-label.v-field-label--floating,.v-field--variant-underlined .v-label.v-field-label--floating{transform:translateY(-16px);margin:0;top:var(--v-input-padding-top)}.v-field--variant-outlined .v-label.v-field-label--floating{transform:translateY(-50%);transform-origin:center;position:static;margin:0 4px}.v-field__outline{--v-field-border-width: 1px;--v-field-border-opacity: .38;align-items:stretch;contain:layout;display:flex;height:100%;left:0;pointer-events:none;position:absolute;right:0;width:100%}@media (hover: hover){.v-field:hover .v-field__outline{--v-field-border-opacity: var(--v-high-emphasis-opacity)}}.v-field--error:not(.v-field--disabled) .v-field__outline{color:rgb(var(--v-theme-error))}.v-field.v-field--focused .v-field__outline,.v-input.v-input--error .v-field__outline{--v-field-border-opacity: 1}.v-field--variant-outlined.v-field--focused .v-field__outline{--v-field-border-width: 2px}.v-field--variant-filled .v-field__outline:before,.v-field--variant-underlined .v-field__outline:before{border-color:currentColor;border-style:solid;border-width:0 0 var(--v-field-border-width);opacity:var(--v-field-border-opacity);transition:opacity .25s cubic-bezier(.4,0,.2,1);content:"";position:absolute;top:0;left:0;width:100%;height:100%}.v-field--variant-filled .v-field__outline:after,.v-field--variant-underlined .v-field__outline:after{border-color:currentColor;border-style:solid;border-width:0 0 2px;transform:scaleX(0);transition:transform .15s cubic-bezier(.4,0,.2,1);content:"";position:absolute;top:0;left:0;width:100%;height:100%}.v-field--focused.v-field--variant-filled .v-field__outline:after,.v-field--focused.v-field--variant-underlined .v-field__outline:after{transform:scaleX(1)}.v-field--variant-outlined .v-field__outline{border-radius:inherit}.v-field--variant-outlined .v-field__outline__start,.v-field--variant-outlined .v-field__outline__notch:before,.v-field--variant-outlined .v-field__outline__notch:after,.v-field--variant-outlined .v-field__outline__end{border:0 solid currentColor;opacity:var(--v-field-border-opacity);transition:opacity .25s cubic-bezier(.4,0,.2,1)}.v-field--variant-outlined .v-field__outline__start{flex:0 0 12px;border-top-width:var(--v-field-border-width);border-bottom-width:var(--v-field-border-width);border-inline-start-width:var(--v-field-border-width);border-start-start-radius:inherit;border-start-end-radius:0;border-end-end-radius:0;border-end-start-radius:inherit}.v-field--rounded.v-field--variant-outlined .v-field__outline__start,[class^=rounded-].v-field--variant-outlined .v-field__outline__start,[class*=" rounded-"].v-field--variant-outlined .v-field__outline__start{flex-basis:calc(var(--v-input-control-height) / 2 + 2px)}.v-field--variant-outlined .v-field__outline__notch{flex:none;position:relative;max-width:calc(100% - 12px)}.v-field--variant-outlined .v-field__outline__notch:before,.v-field--variant-outlined .v-field__outline__notch:after{opacity:var(--v-field-border-opacity);transition:opacity .25s cubic-bezier(.4,0,.2,1);content:"";position:absolute;top:0;left:0;width:100%;height:100%}.v-field--variant-outlined .v-field__outline__notch:before{border-width:var(--v-field-border-width) 0 0}.v-field--variant-outlined .v-field__outline__notch:after{bottom:0;border-width:0 0 var(--v-field-border-width)}.v-field--active.v-field--variant-outlined .v-field__outline__notch:before{opacity:0}.v-field--variant-outlined .v-field__outline__end{flex:1;border-top-width:var(--v-field-border-width);border-bottom-width:var(--v-field-border-width);border-inline-end-width:var(--v-field-border-width);border-start-start-radius:0;border-start-end-radius:inherit;border-end-end-radius:inherit;border-end-start-radius:0}.v-field__loader{top:calc(100% - 2px);left:0;position:absolute;right:0;width:100%;border-top-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:inherit;border-bottom-right-radius:inherit;overflow:hidden}.v-field--variant-outlined .v-field__loader{top:calc(100% - 3px)}.v-field__overlay{border-radius:inherit;pointer-events:none;position:absolute;top:0;left:0;width:100%;height:100%}.v-field--variant-filled .v-field__overlay{background-color:currentColor;opacity:.04;transition:opacity .25s cubic-bezier(.4,0,.2,1)}.v-field--variant-filled.v-field--has-background .v-field__overlay{opacity:0}@media (hover: hover){.v-field--variant-filled:hover .v-field__overlay{opacity:calc((.04 + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}}.v-field--variant-filled.v-field--focused .v-field__overlay{opacity:calc((.04 + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}.v-field--variant-solo-filled .v-field__overlay{background-color:currentColor;opacity:.04;transition:opacity .25s cubic-bezier(.4,0,.2,1)}@media (hover: hover){.v-field--variant-solo-filled:hover .v-field__overlay{opacity:calc((.04 + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}}.v-field--variant-solo-filled.v-field--focused .v-field__overlay{opacity:calc((.04 + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}.v-field--variant-solo-inverted .v-field__overlay{transition:opacity .25s cubic-bezier(.4,0,.2,1)}.v-field--variant-solo-inverted.v-field--has-background .v-field__overlay{opacity:0}@media (hover: hover){.v-field--variant-solo-inverted:hover .v-field__overlay{opacity:calc((.04 + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}}.v-field--variant-solo-inverted.v-field--focused .v-field__overlay{background-color:rgb(var(--v-theme-surface-variant));opacity:1}.v-field--reverse .v-field__field,.v-field--reverse .v-field__input{flex-direction:row-reverse}.v-field--reverse .v-field__input,.v-field--reverse input{text-align:end}.v-input--disabled .v-field--variant-filled .v-field__outline:before,.v-input--disabled .v-field--variant-underlined .v-field__outline:before{border-image:repeating-linear-gradient(to right,rgba(var(--v-theme-on-surface),var(--v-disabled-opacity)) 0px,rgba(var(--v-theme-on-surface),var(--v-disabled-opacity)) 2px,transparent 2px,transparent 4px) 1 repeat}.v-field--loading .v-field__outline:after,.v-field--loading .v-field__outline:before{opacity:0}.v-progress-linear{background:transparent;overflow:hidden;position:relative;transition:.2s cubic-bezier(.4,0,.2,1);width:100%}.v-progress-linear__background{background:currentColor;bottom:0;left:0;opacity:var(--v-border-opacity);position:absolute;top:0;transition-property:width,left,right;transition:inherit}.v-progress-linear__content{align-items:center;display:flex;height:100%;justify-content:center;left:0;pointer-events:none;position:absolute;top:0;width:100%}.v-progress-linear__determinate,.v-progress-linear__indeterminate{background:currentColor}.v-progress-linear__determinate{height:inherit;left:0;position:absolute;transition:inherit;transition-property:width,left,right}.v-progress-linear__indeterminate .long,.v-progress-linear__indeterminate .short{animation-play-state:paused;animation-duration:2.2s;animation-iteration-count:infinite;bottom:0;height:inherit;left:0;position:absolute;right:auto;top:0;width:auto;will-change:left,right}.v-progress-linear__indeterminate .long{animation-name:indeterminate-ltr}.v-progress-linear__indeterminate .short{animation-name:indeterminate-short-ltr}.v-progress-linear__stream{animation:stream .25s infinite linear;animation-play-state:paused;bottom:0;left:auto;opacity:.3;pointer-events:none;position:absolute;transition:inherit;transition-property:width,left,right}.v-progress-linear--reverse .v-progress-linear__background,.v-progress-linear--reverse .v-progress-linear__determinate,.v-progress-linear--reverse .v-progress-linear__content,.v-progress-linear--reverse .v-progress-linear__indeterminate .long,.v-progress-linear--reverse .v-progress-linear__indeterminate .short{left:auto;right:0}.v-progress-linear--reverse .v-progress-linear__indeterminate .long{animation-name:indeterminate-rtl}.v-progress-linear--reverse .v-progress-linear__indeterminate .short{animation-name:indeterminate-short-rtl}.v-progress-linear--reverse .v-progress-linear__stream{right:auto}.v-progress-linear--absolute,.v-progress-linear--fixed{left:0;z-index:1}.v-progress-linear--absolute{position:absolute}.v-progress-linear--fixed{position:fixed}.v-progress-linear--rounded{border-radius:9999px}.v-progress-linear--rounded.v-progress-linear--rounded-bar .v-progress-linear__determinate,.v-progress-linear--rounded.v-progress-linear--rounded-bar .v-progress-linear__indeterminate{border-radius:inherit}.v-progress-linear--striped .v-progress-linear__determinate{animation:progress-linear-stripes 1s infinite linear;background-image:linear-gradient(135deg,hsla(0,0%,100%,.25) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,.25) 0,hsla(0,0%,100%,.25) 75%,transparent 0,transparent);background-repeat:repeat;background-size:var(--v-progress-linear-height)}.v-progress-linear--active .v-progress-linear__indeterminate .long,.v-progress-linear--active .v-progress-linear__indeterminate .short,.v-progress-linear--active .v-progress-linear__stream{animation-play-state:running}.v-progress-linear--rounded-bar .v-progress-linear__determinate,.v-progress-linear--rounded-bar .v-progress-linear__indeterminate,.v-progress-linear--rounded-bar .v-progress-linear__stream+.v-progress-linear__background{border-radius:9999px}.v-progress-linear--rounded-bar .v-progress-linear__determinate{border-start-start-radius:0;border-end-start-radius:0}@keyframes indeterminate-ltr{0%{left:-90%;right:100%}60%{left:-90%;right:100%}to{left:100%;right:-35%}}@keyframes indeterminate-rtl{0%{left:100%;right:-90%}60%{left:100%;right:-90%}to{left:-35%;right:100%}}@keyframes indeterminate-short-ltr{0%{left:-200%;right:100%}60%{left:107%;right:-8%}to{left:107%;right:-8%}}@keyframes indeterminate-short-rtl{0%{left:100%;right:-200%}60%{left:-8%;right:107%}to{left:-8%;right:107%}}@keyframes stream{to{transform:translate(var(--v-progress-linear-stream-to))}}@keyframes progress-linear-stripes{0%{background-position-x:var(--v-progress-linear-height)}}.v-virtual-scroll{display:block;flex:1 1 auto;max-width:100%;overflow:auto;position:relative}.v-virtual-scroll__container{display:block}.v-container{width:100%;padding:16px;margin-right:auto;margin-left:auto}@media (min-width: 960px){.v-container{max-width:900px}}@media (min-width: 1280px){.v-container{max-width:1200px}}@media (min-width: 1920px){.v-container{max-width:1800px}}@media (min-width: 2560px){.v-container{max-width:2400px}}.v-container--fluid{max-width:100%}.v-container.fill-height{align-items:center;display:flex;flex-wrap:wrap}.v-row{display:flex;flex-wrap:wrap;flex:1 1 auto;margin:-12px}.v-row+.v-row{margin-top:12px}.v-row+.v-row--dense{margin-top:4px}.v-row--dense{margin:-4px}.v-row--dense>.v-col,.v-row--dense>[class*=v-col-]{padding:4px}.v-row.v-row--no-gutters{margin:0}.v-row.v-row--no-gutters>.v-col,.v-row.v-row--no-gutters>[class*=v-col-]{padding:0}.v-spacer{flex-grow:1}.v-col-xxl,.v-col-xxl-auto,.v-col-xxl-12,.v-col-xxl-11,.v-col-xxl-10,.v-col-xxl-9,.v-col-xxl-8,.v-col-xxl-7,.v-col-xxl-6,.v-col-xxl-5,.v-col-xxl-4,.v-col-xxl-3,.v-col-xxl-2,.v-col-xxl-1,.v-col-xl,.v-col-xl-auto,.v-col-xl-12,.v-col-xl-11,.v-col-xl-10,.v-col-xl-9,.v-col-xl-8,.v-col-xl-7,.v-col-xl-6,.v-col-xl-5,.v-col-xl-4,.v-col-xl-3,.v-col-xl-2,.v-col-xl-1,.v-col-lg,.v-col-lg-auto,.v-col-lg-12,.v-col-lg-11,.v-col-lg-10,.v-col-lg-9,.v-col-lg-8,.v-col-lg-7,.v-col-lg-6,.v-col-lg-5,.v-col-lg-4,.v-col-lg-3,.v-col-lg-2,.v-col-lg-1,.v-col-md,.v-col-md-auto,.v-col-md-12,.v-col-md-11,.v-col-md-10,.v-col-md-9,.v-col-md-8,.v-col-md-7,.v-col-md-6,.v-col-md-5,.v-col-md-4,.v-col-md-3,.v-col-md-2,.v-col-md-1,.v-col-sm,.v-col-sm-auto,.v-col-sm-12,.v-col-sm-11,.v-col-sm-10,.v-col-sm-9,.v-col-sm-8,.v-col-sm-7,.v-col-sm-6,.v-col-sm-5,.v-col-sm-4,.v-col-sm-3,.v-col-sm-2,.v-col-sm-1,.v-col,.v-col-auto,.v-col-12,.v-col-11,.v-col-10,.v-col-9,.v-col-8,.v-col-7,.v-col-6,.v-col-5,.v-col-4,.v-col-3,.v-col-2,.v-col-1{width:100%;padding:12px}.v-col{flex-basis:0;flex-grow:1;max-width:100%}.v-col-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-3{flex:0 0 25%;max-width:25%}.v-col-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-6{flex:0 0 50%;max-width:50%}.v-col-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-9{flex:0 0 75%;max-width:75%}.v-col-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-12{flex:0 0 100%;max-width:100%}.offset-1{margin-inline-start:8.3333333333%}.offset-2{margin-inline-start:16.6666666667%}.offset-3{margin-inline-start:25%}.offset-4{margin-inline-start:33.3333333333%}.offset-5{margin-inline-start:41.6666666667%}.offset-6{margin-inline-start:50%}.offset-7{margin-inline-start:58.3333333333%}.offset-8{margin-inline-start:66.6666666667%}.offset-9{margin-inline-start:75%}.offset-10{margin-inline-start:83.3333333333%}.offset-11{margin-inline-start:91.6666666667%}@media (min-width: 600px){.v-col-sm{flex-basis:0;flex-grow:1;max-width:100%}.v-col-sm-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-sm-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-sm-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-sm-3{flex:0 0 25%;max-width:25%}.v-col-sm-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-sm-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-sm-6{flex:0 0 50%;max-width:50%}.v-col-sm-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-sm-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-sm-9{flex:0 0 75%;max-width:75%}.v-col-sm-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-sm-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-sm-12{flex:0 0 100%;max-width:100%}.offset-sm-0{margin-inline-start:0}.offset-sm-1{margin-inline-start:8.3333333333%}.offset-sm-2{margin-inline-start:16.6666666667%}.offset-sm-3{margin-inline-start:25%}.offset-sm-4{margin-inline-start:33.3333333333%}.offset-sm-5{margin-inline-start:41.6666666667%}.offset-sm-6{margin-inline-start:50%}.offset-sm-7{margin-inline-start:58.3333333333%}.offset-sm-8{margin-inline-start:66.6666666667%}.offset-sm-9{margin-inline-start:75%}.offset-sm-10{margin-inline-start:83.3333333333%}.offset-sm-11{margin-inline-start:91.6666666667%}}@media (min-width: 960px){.v-col-md{flex-basis:0;flex-grow:1;max-width:100%}.v-col-md-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-md-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-md-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-md-3{flex:0 0 25%;max-width:25%}.v-col-md-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-md-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-md-6{flex:0 0 50%;max-width:50%}.v-col-md-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-md-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-md-9{flex:0 0 75%;max-width:75%}.v-col-md-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-md-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-md-12{flex:0 0 100%;max-width:100%}.offset-md-0{margin-inline-start:0}.offset-md-1{margin-inline-start:8.3333333333%}.offset-md-2{margin-inline-start:16.6666666667%}.offset-md-3{margin-inline-start:25%}.offset-md-4{margin-inline-start:33.3333333333%}.offset-md-5{margin-inline-start:41.6666666667%}.offset-md-6{margin-inline-start:50%}.offset-md-7{margin-inline-start:58.3333333333%}.offset-md-8{margin-inline-start:66.6666666667%}.offset-md-9{margin-inline-start:75%}.offset-md-10{margin-inline-start:83.3333333333%}.offset-md-11{margin-inline-start:91.6666666667%}}@media (min-width: 1280px){.v-col-lg{flex-basis:0;flex-grow:1;max-width:100%}.v-col-lg-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-lg-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-lg-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-lg-3{flex:0 0 25%;max-width:25%}.v-col-lg-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-lg-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-lg-6{flex:0 0 50%;max-width:50%}.v-col-lg-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-lg-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-lg-9{flex:0 0 75%;max-width:75%}.v-col-lg-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-lg-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-lg-12{flex:0 0 100%;max-width:100%}.offset-lg-0{margin-inline-start:0}.offset-lg-1{margin-inline-start:8.3333333333%}.offset-lg-2{margin-inline-start:16.6666666667%}.offset-lg-3{margin-inline-start:25%}.offset-lg-4{margin-inline-start:33.3333333333%}.offset-lg-5{margin-inline-start:41.6666666667%}.offset-lg-6{margin-inline-start:50%}.offset-lg-7{margin-inline-start:58.3333333333%}.offset-lg-8{margin-inline-start:66.6666666667%}.offset-lg-9{margin-inline-start:75%}.offset-lg-10{margin-inline-start:83.3333333333%}.offset-lg-11{margin-inline-start:91.6666666667%}}@media (min-width: 1920px){.v-col-xl{flex-basis:0;flex-grow:1;max-width:100%}.v-col-xl-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-xl-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-xl-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-xl-3{flex:0 0 25%;max-width:25%}.v-col-xl-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-xl-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-xl-6{flex:0 0 50%;max-width:50%}.v-col-xl-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-xl-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-xl-9{flex:0 0 75%;max-width:75%}.v-col-xl-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-xl-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-xl-12{flex:0 0 100%;max-width:100%}.offset-xl-0{margin-inline-start:0}.offset-xl-1{margin-inline-start:8.3333333333%}.offset-xl-2{margin-inline-start:16.6666666667%}.offset-xl-3{margin-inline-start:25%}.offset-xl-4{margin-inline-start:33.3333333333%}.offset-xl-5{margin-inline-start:41.6666666667%}.offset-xl-6{margin-inline-start:50%}.offset-xl-7{margin-inline-start:58.3333333333%}.offset-xl-8{margin-inline-start:66.6666666667%}.offset-xl-9{margin-inline-start:75%}.offset-xl-10{margin-inline-start:83.3333333333%}.offset-xl-11{margin-inline-start:91.6666666667%}}@media (min-width: 2560px){.v-col-xxl{flex-basis:0;flex-grow:1;max-width:100%}.v-col-xxl-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-xxl-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-xxl-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-xxl-3{flex:0 0 25%;max-width:25%}.v-col-xxl-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-xxl-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-xxl-6{flex:0 0 50%;max-width:50%}.v-col-xxl-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-xxl-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-xxl-9{flex:0 0 75%;max-width:75%}.v-col-xxl-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-xxl-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-xxl-12{flex:0 0 100%;max-width:100%}.offset-xxl-0{margin-inline-start:0}.offset-xxl-1{margin-inline-start:8.3333333333%}.offset-xxl-2{margin-inline-start:16.6666666667%}.offset-xxl-3{margin-inline-start:25%}.offset-xxl-4{margin-inline-start:33.3333333333%}.offset-xxl-5{margin-inline-start:41.6666666667%}.offset-xxl-6{margin-inline-start:50%}.offset-xxl-7{margin-inline-start:58.3333333333%}.offset-xxl-8{margin-inline-start:66.6666666667%}.offset-xxl-9{margin-inline-start:75%}.offset-xxl-10{margin-inline-start:83.3333333333%}.offset-xxl-11{margin-inline-start:91.6666666667%}}.v-card-title[data-v-73ef1449]{font-size:18px;color:#000}.v-btn[data-v-73ef1449]{border-radius:10px}.v-card[data-v-73ef1449]{border-radius:20px;box-shadow:0 4px 12px #0000001a}.v-list-item[data-v-73ef1449]{border-bottom:1px solid rgba(0,0,0,.1)}.v-btn{align-items:center;border-radius:4px;display:inline-grid;grid-template-areas:"prepend content append";grid-template-columns:max-content auto max-content;font-weight:500;justify-content:center;letter-spacing:.0892857143em;line-height:normal;max-width:100%;outline:none;position:relative;text-decoration:none;text-indent:.0892857143em;text-transform:uppercase;transition-property:box-shadow,transform,opacity,background;transition-duration:.28s;transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-user-select:none;user-select:none;vertical-align:middle;flex-shrink:0;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0}.v-btn--size-x-small{--v-btn-size: .625rem;--v-btn-height: 20px;font-size:var(--v-btn-size);min-width:36px;padding:0 8px}.v-btn--size-small{--v-btn-size: .75rem;--v-btn-height: 28px;font-size:var(--v-btn-size);min-width:50px;padding:0 12px}.v-btn--size-default{--v-btn-size: .875rem;--v-btn-height: 36px;font-size:var(--v-btn-size);min-width:64px;padding:0 16px}.v-btn--size-large{--v-btn-size: 1rem;--v-btn-height: 44px;font-size:var(--v-btn-size);min-width:78px;padding:0 20px}.v-btn--size-x-large{--v-btn-size: 1.125rem;--v-btn-height: 52px;font-size:var(--v-btn-size);min-width:92px;padding:0 24px}.v-btn.v-btn--density-default{height:calc(var(--v-btn-height) + 0px)}.v-btn.v-btn--density-comfortable{height:calc(var(--v-btn-height) + -8px)}.v-btn.v-btn--density-compact{height:calc(var(--v-btn-height) + -12px)}.v-btn--border{border-width:thin;box-shadow:none}.v-btn--absolute{position:absolute}.v-btn--fixed{position:fixed}.v-btn:hover>.v-btn__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-btn:focus-visible>.v-btn__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-btn:focus>.v-btn__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-btn--active>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]>.v-btn__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-btn--active:hover>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]:hover>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-btn--active:focus-visible>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-btn--active:focus>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]:focus>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-btn--variant-plain,.v-btn--variant-outlined,.v-btn--variant-text,.v-btn--variant-tonal{background:transparent;color:inherit}.v-btn--variant-plain{opacity:.62}.v-btn--variant-plain:focus,.v-btn--variant-plain:hover{opacity:1}.v-btn--variant-plain .v-btn__overlay{display:none}.v-btn--variant-elevated,.v-btn--variant-flat{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-btn--variant-elevated{box-shadow:0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--variant-outlined{border:thin solid currentColor}.v-btn--variant-text .v-btn__overlay{background:currentColor}.v-btn--variant-tonal .v-btn__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}@supports selector(:focus-visible){.v-btn:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;border:2px solid currentColor;border-radius:inherit;opacity:0;transition:opacity .2s ease-in-out}.v-btn:focus-visible:after{opacity:calc(.25 * var(--v-theme-overlay-multiplier))}}.v-btn--icon{border-radius:50%;min-width:0;padding:0}.v-btn--icon.v-btn--size-default{--v-btn-size: 1rem}.v-btn--icon.v-btn--density-default{width:calc(var(--v-btn-height) + 12px);height:calc(var(--v-btn-height) + 12px)}.v-btn--icon.v-btn--density-comfortable{width:calc(var(--v-btn-height) + 0px);height:calc(var(--v-btn-height) + 0px)}.v-btn--icon.v-btn--density-compact{width:calc(var(--v-btn-height) + -8px);height:calc(var(--v-btn-height) + -8px)}.v-btn--elevated:hover,.v-btn--elevated:focus{box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--elevated:active{box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--flat{box-shadow:none}.v-btn--block{display:flex;flex:1 0 auto;min-width:100%}.v-btn--disabled{pointer-events:none;opacity:.26}.v-btn--disabled:hover{opacity:.26}.v-btn--disabled.v-btn--variant-elevated,.v-btn--disabled.v-btn--variant-flat{box-shadow:none;opacity:1;color:rgba(var(--v-theme-on-surface),.26);background:rgb(var(--v-theme-surface))}.v-btn--disabled.v-btn--variant-elevated .v-btn__overlay,.v-btn--disabled.v-btn--variant-flat .v-btn__overlay{opacity:.4615384615}.v-btn--loading{pointer-events:none}.v-btn--loading .v-btn__content,.v-btn--loading .v-btn__prepend,.v-btn--loading .v-btn__append{opacity:0}.v-btn--stacked{grid-template-areas:"prepend" "content" "append";grid-template-columns:auto;grid-template-rows:max-content max-content max-content;justify-items:center;align-content:center}.v-btn--stacked .v-btn__content{flex-direction:column;line-height:1.25}.v-btn--stacked .v-btn__prepend,.v-btn--stacked .v-btn__append,.v-btn--stacked .v-btn__content>.v-icon--start,.v-btn--stacked .v-btn__content>.v-icon--end{margin-inline:0}.v-btn--stacked .v-btn__prepend,.v-btn--stacked .v-btn__content>.v-icon--start{margin-bottom:4px}.v-btn--stacked .v-btn__append,.v-btn--stacked .v-btn__content>.v-icon--end{margin-top:4px}.v-btn--stacked.v-btn--size-x-small{--v-btn-size: .625rem;--v-btn-height: 56px;font-size:var(--v-btn-size);min-width:56px;padding:0 12px}.v-btn--stacked.v-btn--size-small{--v-btn-size: .75rem;--v-btn-height: 64px;font-size:var(--v-btn-size);min-width:64px;padding:0 14px}.v-btn--stacked.v-btn--size-default{--v-btn-size: .875rem;--v-btn-height: 72px;font-size:var(--v-btn-size);min-width:72px;padding:0 16px}.v-btn--stacked.v-btn--size-large{--v-btn-size: 1rem;--v-btn-height: 80px;font-size:var(--v-btn-size);min-width:80px;padding:0 18px}.v-btn--stacked.v-btn--size-x-large{--v-btn-size: 1.125rem;--v-btn-height: 88px;font-size:var(--v-btn-size);min-width:88px;padding:0 20px}.v-btn--stacked.v-btn--density-default{height:calc(var(--v-btn-height) + 0px)}.v-btn--stacked.v-btn--density-comfortable{height:calc(var(--v-btn-height) + -16px)}.v-btn--stacked.v-btn--density-compact{height:calc(var(--v-btn-height) + -24px)}.v-btn--slim{padding:0 8px}.v-btn--rounded{border-radius:24px}.v-btn--rounded.v-btn--icon{border-radius:4px}.v-btn .v-icon{--v-icon-size-multiplier: .8571428571}.v-btn--icon .v-icon{--v-icon-size-multiplier: 1}.v-btn--stacked .v-icon{--v-icon-size-multiplier: 1.1428571429}.v-btn__loader{align-items:center;display:flex;height:100%;justify-content:center;left:0;position:absolute;top:0;width:100%}.v-btn__content,.v-btn__prepend,.v-btn__append{align-items:center;display:flex;transition:transform,opacity .2s cubic-bezier(.4,0,.2,1)}.v-btn__prepend{grid-area:prepend;margin-inline:calc(var(--v-btn-height) / -9) calc(var(--v-btn-height) / 4.5)}.v-btn__append{grid-area:append;margin-inline:calc(var(--v-btn-height) / 4.5) calc(var(--v-btn-height) / -9)}.v-btn__content{grid-area:content;justify-content:center;white-space:nowrap}.v-btn__content>.v-icon--start{margin-inline:calc(var(--v-btn-height) / -9) calc(var(--v-btn-height) / 4.5)}.v-btn__content>.v-icon--end{margin-inline:calc(var(--v-btn-height) / 4.5) calc(var(--v-btn-height) / -9)}.v-btn--stacked .v-btn__content{white-space:normal}.v-btn__overlay{background-color:currentColor;border-radius:inherit;opacity:0;transition:opacity .2s ease-in-out}.v-btn__overlay,.v-btn__underlay{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.v-card-actions .v-btn~.v-btn:not(.v-btn-toggle .v-btn){margin-inline-start:.5rem}.v-pagination .v-btn{border-radius:4px}.v-pagination .v-btn--rounded{border-radius:50%}.v-btn__overlay{transition:none}.v-pagination__item--is-active .v-btn__overlay{opacity:var(--v-border-opacity)}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled)>.v-btn__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):hover>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):focus-visible>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):focus>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-btn-group{display:inline-flex;flex-wrap:nowrap;max-width:100%;min-width:0;overflow:hidden;vertical-align:middle;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:4px;background:transparent;color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-btn-group--border{border-width:thin;box-shadow:none}.v-btn-group--density-default.v-btn-group{height:48px}.v-btn-group--density-comfortable.v-btn-group{height:40px}.v-btn-group--density-compact.v-btn-group{height:36px}.v-btn-group .v-btn{border-radius:0;border-color:inherit}.v-btn-group .v-btn:not(:last-child){border-inline-end:none}.v-btn-group .v-btn:not(:first-child){border-inline-start:none}.v-btn-group .v-btn:first-child{border-start-start-radius:inherit;border-end-start-radius:inherit}.v-btn-group .v-btn:last-child{border-start-end-radius:inherit;border-end-end-radius:inherit}.v-btn-group--divided .v-btn:not(:last-child){border-inline-end-width:thin;border-inline-end-style:solid;border-inline-end-color:rgba(var(--v-border-color),var(--v-border-opacity))}.v-btn-group--tile{border-radius:0}.v-progress-circular{align-items:center;display:inline-flex;justify-content:center;position:relative;vertical-align:middle}.v-progress-circular>svg{width:100%;height:100%;margin:auto;position:absolute;top:0;bottom:0;left:0;right:0;z-index:0}.v-progress-circular__content{align-items:center;display:flex;justify-content:center}.v-progress-circular__underlay{color:rgba(var(--v-border-color),var(--v-border-opacity));stroke:currentColor;z-index:1}.v-progress-circular__overlay{stroke:currentColor;transition:all .2s ease-in-out,stroke-width 0s;z-index:2}.v-progress-circular--size-x-small{height:16px;width:16px}.v-progress-circular--size-small{height:24px;width:24px}.v-progress-circular--size-default{height:32px;width:32px}.v-progress-circular--size-large{height:48px;width:48px}.v-progress-circular--size-x-large{height:64px;width:64px}.v-progress-circular--indeterminate>svg{animation:progress-circular-rotate 1.4s linear infinite;transform-origin:center center;transition:all .2s ease-in-out}.v-progress-circular--indeterminate .v-progress-circular__overlay{animation:progress-circular-dash 1.4s ease-in-out infinite,progress-circular-rotate 1.4s linear infinite;stroke-dasharray:25,200;stroke-dashoffset:0;stroke-linecap:round;transform-origin:center center;transform:rotate(-90deg)}.v-progress-circular--disable-shrink>svg{animation-duration:.7s}.v-progress-circular--disable-shrink .v-progress-circular__overlay{animation:none}.v-progress-circular--indeterminate:not(.v-progress-circular--visible)>svg,.v-progress-circular--indeterminate:not(.v-progress-circular--visible) .v-progress-circular__overlay{animation-play-state:paused!important}@keyframes progress-circular-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0px}50%{stroke-dasharray:100,200;stroke-dashoffset:-15px}to{stroke-dasharray:100,200;stroke-dashoffset:-124px}}@keyframes progress-circular-rotate{to{transform:rotate(270deg)}}.v-card{display:block;overflow:hidden;overflow-wrap:break-word;position:relative;padding:0;text-decoration:none;transition-duration:.28s;transition-property:box-shadow,opacity,background;transition-timing-function:cubic-bezier(.4,0,.2,1);z-index:0;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;border-radius:4px}.v-card--border{border-width:thin;box-shadow:none}.v-card--absolute{position:absolute}.v-card--fixed{position:fixed}.v-card:hover>.v-card__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-card:focus-visible>.v-card__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-card:focus>.v-card__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-card--active>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]>.v-card__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-card--active:hover>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:hover>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-card--active:focus-visible>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-card--active:focus>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:focus>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-card--variant-plain,.v-card--variant-outlined,.v-card--variant-text,.v-card--variant-tonal{background:transparent;color:inherit}.v-card--variant-plain{opacity:.62}.v-card--variant-plain:focus,.v-card--variant-plain:hover{opacity:1}.v-card--variant-plain .v-card__overlay{display:none}.v-card--variant-elevated,.v-card--variant-flat{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-card--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--variant-outlined{border:thin solid currentColor}.v-card--variant-text .v-card__overlay{background:currentColor}.v-card--variant-tonal .v-card__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}.v-card--disabled{pointer-events:none;-webkit-user-select:none;user-select:none}.v-card--disabled>:not(.v-card__loader){opacity:.6}.v-card--flat{box-shadow:none}.v-card--hover{cursor:pointer}.v-card--hover:before,.v-card--hover:after{border-radius:inherit;bottom:0;content:"";display:block;left:0;pointer-events:none;position:absolute;right:0;top:0;transition:inherit}.v-card--hover:before{opacity:1;z-index:-1;box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--hover:after{z-index:1;opacity:0;box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--hover:hover:after{opacity:1}.v-card--hover:hover:before{opacity:0}.v-card--hover:hover{box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--link{cursor:pointer}.v-card-actions{align-items:center;display:flex;flex:none;min-height:52px;padding:.5rem}.v-card-item{align-items:center;display:grid;flex:none;grid-template-areas:"prepend content append";grid-template-columns:max-content auto max-content;padding:.625rem 1rem}.v-card-item+.v-card-text{padding-top:0}.v-card-item__prepend,.v-card-item__append{align-items:center;display:flex}.v-card-item__prepend{grid-area:prepend;padding-inline-end:.5rem}.v-card-item__append{grid-area:append;padding-inline-start:.5rem}.v-card-item__content{align-self:center;grid-area:content;overflow:hidden}.v-card-title{display:block;flex:none;font-size:1.25rem;font-weight:500;-webkit-hyphens:auto;hyphens:auto;letter-spacing:.0125em;min-width:0;overflow-wrap:normal;overflow:hidden;padding:.5rem 1rem;text-overflow:ellipsis;text-transform:none;white-space:nowrap;word-break:normal;word-wrap:break-word}.v-card .v-card-title{line-height:2rem}.v-card--density-comfortable .v-card-title{line-height:1.75rem}.v-card--density-compact .v-card-title{line-height:1.55rem}.v-card-item .v-card-title{padding:0}.v-card-title+.v-card-text,.v-card-title+.v-card-actions{padding-top:0}.v-card-subtitle{display:block;flex:none;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;opacity:var(--v-medium-emphasis-opacity);overflow:hidden;padding:0 1rem;text-overflow:ellipsis;text-transform:none;white-space:nowrap}.v-card .v-card-subtitle{line-height:1.25rem}.v-card--density-comfortable .v-card-subtitle{line-height:1.125rem}.v-card--density-compact .v-card-subtitle{line-height:1rem}.v-card-item .v-card-subtitle{padding:0 0 .25rem}.v-card-text{flex:1 1 auto;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;padding:1rem;text-transform:none}.v-card .v-card-text{line-height:1.25rem}.v-card--density-comfortable .v-card-text{line-height:1.2rem}.v-card--density-compact .v-card-text{line-height:1.15rem}.v-card__image{display:flex;height:100%;flex:1 1 auto;left:0;overflow:hidden;position:absolute;top:0;width:100%;z-index:-1}.v-card__content{border-radius:inherit;overflow:hidden;position:relative}.v-card__loader{bottom:auto;top:0;left:0;position:absolute;right:0;width:100%;z-index:1}.v-card__overlay{background-color:currentColor;border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;opacity:0;transition:opacity .2s ease-in-out}.flag[data-v-d1ce1a9a]{width:28px;height:18px;cursor:pointer}.flag-wrapper[data-v-d1ce1a9a]{display:flex;align-items:center;cursor:pointer}.arrow[data-v-d1ce1a9a]{margin-left:4px;transition:transform .3s ease}.arrow[data-v-d1ce1a9a]:active{transform:rotate(90deg)}.app-logo[data-v-f9d3029e]{height:40px;max-width:150px}.v-app-bar{display:flex}.v-app-bar.v-toolbar{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-app-bar.v-toolbar:not(.v-toolbar--flat){box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-app-bar:not(.v-toolbar--absolute){padding-inline-end:var(--v-scrollbar-offset)}.v-toolbar{align-items:flex-start;display:flex;flex:none;flex-direction:column;justify-content:space-between;max-width:100%;overflow:hidden;position:relative;transition:.2s cubic-bezier(.4,0,.2,1);transition-property:height,width,transform,max-width,left,right,top,bottom,box-shadow;width:100%;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgb(var(--v-theme-surface-light));color:rgba(var(--v-theme-on-surface-light),var(--v-high-emphasis-opacity))}.v-toolbar--border{border-width:thin;box-shadow:none}.v-toolbar--absolute{position:absolute}.v-toolbar--collapse{max-width:112px;overflow:hidden;border-end-end-radius:24px}.v-toolbar--collapse .v-toolbar-title{display:none}.v-toolbar--flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-toolbar--floating{display:inline-flex}.v-toolbar--rounded{border-radius:4px}.v-toolbar__content,.v-toolbar__extension{align-items:center;display:flex;flex:0 0 auto;position:relative;transition:inherit;width:100%}.v-toolbar__content>.v-btn:first-child{margin-inline-start:10px}.v-toolbar__content>.v-btn:last-child{margin-inline-end:10px}.v-toolbar__content>.v-toolbar-title{margin-inline-start:16px}.v-toolbar--density-prominent .v-toolbar__content{align-items:flex-start}.v-toolbar__image{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;opacity:var(--v-toolbar-image-opacity, 1);transition-property:opacity}.v-toolbar__prepend,.v-toolbar__append{align-items:center;align-self:stretch;display:flex}.v-toolbar__prepend{margin-inline:10px auto}.v-toolbar__append{margin-inline:auto 10px}.v-toolbar-title{flex:1 1;min-width:0;font-size:1.25rem;font-weight:400;letter-spacing:0;line-height:1.75rem;text-transform:none}.v-toolbar--density-prominent .v-toolbar-title{align-self:flex-end;padding-bottom:6px;font-size:1.5rem;font-weight:400;letter-spacing:0;line-height:2.25rem;text-transform:none}.v-toolbar-title__placeholder{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-toolbar-items{display:flex;height:inherit;align-self:stretch}.v-toolbar-items>.v-btn{border-radius:0}.v-navigation-drawer{-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;height:100%;max-width:100%;pointer-events:auto;transition-duration:.2s;transition-property:box-shadow,transform,visibility,width,height,left,right,top,bottom;transition-timing-function:cubic-bezier(.4,0,.2,1);position:absolute;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-navigation-drawer--border{border-width:thin;box-shadow:none}.v-navigation-drawer--rounded{border-radius:4px}.v-navigation-drawer--top{top:0;border-bottom-width:thin}.v-navigation-drawer--bottom{left:0;border-top-width:thin}.v-navigation-drawer--left{top:0;left:0;right:auto;border-right-width:thin}.v-navigation-drawer--right{top:0;left:auto;right:0;border-left-width:thin}.v-navigation-drawer--floating{border:none}.v-navigation-drawer--temporary{box-shadow:0 8px 10px -5px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 16px 24px 2px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 6px 30px 5px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-navigation-drawer--sticky{height:auto;transition:box-shadow,transform,visibility,width,height,left,right}.v-navigation-drawer .v-list{overflow:hidden}.v-navigation-drawer__content{flex:0 1 auto;height:100%;max-width:100%;overflow-x:hidden;overflow-y:auto}.v-navigation-drawer__img{height:100%;left:0;position:absolute;top:0;width:100%;z-index:-1}.v-navigation-drawer__img img{height:inherit;object-fit:cover;width:inherit}.v-navigation-drawer__scrim{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:.2;transition:opacity .2s cubic-bezier(.4,0,.2,1);z-index:1}.v-navigation-drawer__prepend,.v-navigation-drawer__append{flex:none;overflow:hidden}.footer-link[data-v-5d96d66f]{color:#42b983;font-weight:700;transition:color .3s ease}.footer-link[data-v-5d96d66f]:hover{color:#2c3e50;text-decoration:underline}.fast-site-link[data-v-5d96d66f]{color:#42b983;font-weight:700;transition:color .3s ease}.fast-site-link[data-v-5d96d66f]:hover{color:#2c3e50;text-decoration:underline}.v-footer{align-items:center;display:flex;flex:1 1 auto;padding:8px 16px;position:relative;transition:.2s cubic-bezier(.4,0,.2,1);transition-property:height,width,transform,max-width,left,right,top,bottom;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-footer--border{border-width:thin;box-shadow:none}.v-footer--absolute{position:absolute}.v-footer--fixed{position:fixed}.v-footer--rounded{border-radius:4px}:root,:host{--ol-background-color: white;--ol-accent-background-color: #F5F5F5;--ol-subtle-background-color: rgba(128, 128, 128, .25);--ol-partial-background-color: rgba(255, 255, 255, .75);--ol-foreground-color: #333333;--ol-subtle-foreground-color: #666666;--ol-brand-color: #00AAFF}.ol-box{box-sizing:border-box;border-radius:2px;border:1.5px solid var(--ol-background-color);background-color:var(--ol-partial-background-color)}.ol-mouse-position{top:8px;right:8px;position:absolute}.ol-scale-line{background:var(--ol-partial-background-color);border-radius:4px;bottom:8px;left:8px;padding:2px;position:absolute}.ol-scale-line-inner{border:1px solid var(--ol-subtle-foreground-color);border-top:none;color:var(--ol-foreground-color);font-size:10px;text-align:center;margin:1px;will-change:contents,width;transition:all .25s}.ol-scale-bar{position:absolute;bottom:8px;left:8px}.ol-scale-bar-inner{display:flex}.ol-scale-step-marker{width:1px;height:15px;background-color:var(--ol-foreground-color);float:right;z-index:10}.ol-scale-step-text{position:absolute;bottom:-5px;font-size:10px;z-index:11;color:var(--ol-foreground-color);text-shadow:-1.5px 0 var(--ol-partial-background-color),0 1.5px var(--ol-partial-background-color),1.5px 0 var(--ol-partial-background-color),0 -1.5px var(--ol-partial-background-color)}.ol-scale-text{position:absolute;font-size:12px;text-align:center;bottom:25px;color:var(--ol-foreground-color);text-shadow:-1.5px 0 var(--ol-partial-background-color),0 1.5px var(--ol-partial-background-color),1.5px 0 var(--ol-partial-background-color),0 -1.5px var(--ol-partial-background-color)}.ol-scale-singlebar{position:relative;height:10px;z-index:9;box-sizing:border-box;border:1px solid var(--ol-foreground-color)}.ol-scale-singlebar-even{background-color:var(--ol-subtle-foreground-color)}.ol-scale-singlebar-odd{background-color:var(--ol-background-color)}.ol-unsupported{display:none}.ol-viewport,.ol-unselectable{-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.ol-viewport canvas{all:unset;overflow:hidden}.ol-viewport{touch-action:pan-x pan-y}.ol-selectable{-webkit-touch-callout:default;-webkit-user-select:text;-moz-user-select:text;user-select:text}.ol-grabbing{cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.ol-grab{cursor:move;cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.ol-control{position:absolute;background-color:var(--ol-subtle-background-color);border-radius:4px}.ol-zoom{top:.5em;left:.5em}.ol-rotate{top:.5em;right:.5em;transition:opacity .25s linear,visibility 0s linear}.ol-rotate.ol-hidden{opacity:0;visibility:hidden;transition:opacity .25s linear,visibility 0s linear .25s}.ol-zoom-extent{top:4.643em;left:.5em}.ol-full-screen{right:.5em;top:.5em}.ol-control button{display:block;margin:1px;padding:0;color:var(--ol-subtle-foreground-color);font-weight:700;text-decoration:none;font-size:inherit;text-align:center;height:1.375em;width:1.375em;line-height:.4em;background-color:var(--ol-background-color);border:none;border-radius:2px}.ol-control button::-moz-focus-inner{border:none;padding:0}.ol-zoom-extent button{line-height:1.4em}.ol-compass{display:block;font-weight:400;will-change:transform}.ol-touch .ol-control button{font-size:1.5em}.ol-touch .ol-zoom-extent{top:5.5em}.ol-control button:hover,.ol-control button:focus{text-decoration:none;outline:1px solid var(--ol-subtle-foreground-color);color:var(--ol-foreground-color)}.ol-zoom .ol-zoom-in{border-radius:2px 2px 0 0}.ol-zoom .ol-zoom-out{border-radius:0 0 2px 2px}.ol-attribution{text-align:right;bottom:.5em;right:.5em;max-width:calc(100% - 1.3em);display:flex;flex-flow:row-reverse;align-items:center}.ol-attribution a{color:var(--ol-subtle-foreground-color);text-decoration:none}.ol-attribution ul{margin:0;padding:1px .5em;color:var(--ol-foreground-color);text-shadow:0 0 2px var(--ol-background-color);font-size:12px}.ol-attribution li{display:inline;list-style:none}.ol-attribution li:not(:last-child):after{content:" "}.ol-attribution img{max-height:2em;max-width:inherit;vertical-align:middle}.ol-attribution button{flex-shrink:0}.ol-attribution.ol-collapsed ul{display:none}.ol-attribution:not(.ol-collapsed){background:var(--ol-partial-background-color)}.ol-attribution.ol-uncollapsible{bottom:0;right:0;border-radius:4px 0 0}.ol-attribution.ol-uncollapsible img{margin-top:-.2em;max-height:1.6em}.ol-attribution.ol-uncollapsible button{display:none}.ol-zoomslider{top:4.5em;left:.5em;height:200px}.ol-zoomslider button{position:relative;height:10px}.ol-touch .ol-zoomslider{top:5.5em}.ol-overviewmap{left:.5em;bottom:.5em}.ol-overviewmap.ol-uncollapsible{bottom:0;left:0;border-radius:0 4px 0 0}.ol-overviewmap .ol-overviewmap-map,.ol-overviewmap button{display:block}.ol-overviewmap .ol-overviewmap-map{border:1px solid var(--ol-subtle-foreground-color);height:150px;width:150px}.ol-overviewmap:not(.ol-collapsed) button{bottom:0;left:0;position:absolute}.ol-overviewmap.ol-collapsed .ol-overviewmap-map,.ol-overviewmap.ol-uncollapsible button{display:none}.ol-overviewmap:not(.ol-collapsed){background:var(--ol-subtle-background-color)}.ol-overviewmap-box{border:1.5px dotted var(--ol-subtle-foreground-color)}.ol-overviewmap .ol-overviewmap-box:hover{cursor:move}.nav[data-v-22e77fbc]{display:flex;justify-content:center;align-items:center;text-decoration:none;font-size:13px}.ol-popup[data-v-22e77fbc]{position:absolute;background:#fff;border-radius:8px;padding:8px 12px;min-width:220px;box-shadow:0 3px 14px #0003;pointer-events:auto;transform:translate(-50%);white-space:nowrap;font-size:14px;text-align:center;-webkit-user-select:none;user-select:none;z-index:1000}.ol-popup-arrow[data-v-22e77fbc]{position:absolute;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid white;left:50%;bottom:-10px;transform:translate(-50%);filter:drop-shadow(0 1px 1px rgba(0,0,0,.1));z-index:1001}.popup-close-btn[data-v-22e77fbc]{position:absolute;top:8px;right:10px;background:transparent;border:none;font-size:18px;font-weight:700;cursor:pointer;line-height:1;color:#999;transition:color .2s;z-index:1002}.popup-close-btn[data-v-22e77fbc]:hover{color:#333}.articles-wrapper[data-v-16288117]{display:flex;flex-wrap:wrap;justify-content:space-around}.article-item[data-v-16288117]{width:300px;border-radius:8px}.img[data-v-16288117]{width:100%;height:300px;object-fit:cover;border-radius:4px}.link[data-v-16288117]{cursor:pointer;font-weight:600;text-decoration:none;position:relative;display:inline-block}.link[data-v-16288117]:after{content:"";position:absolute;left:0%;bottom:-2px;width:50%;height:2px;background-color:currentColor;transition:width .3s ease,left .3s ease}.link[data-v-16288117]:hover:after{width:100%;left:0;transform:none}.caption[data-v-f361fddd]{position:absolute;bottom:25px;left:15px;color:#fff;font-size:larger}.caption-mobile[data-v-f361fddd]{position:absolute;bottom:60px;right:25px;text-align:right;color:#fff;font-size:larger}.custom-controls[data-v-f361fddd]{position:absolute;bottom:25px;right:25px;display:flex;align-items:center;justify-content:center}.custom-dot[data-v-f361fddd]{width:10px;height:10px;border-radius:50%;background-color:#fff;cursor:pointer}.v-carousel{overflow:hidden;position:relative;width:100%}.v-carousel__controls{align-items:center;bottom:0;display:flex;height:50px;justify-content:center;list-style-type:none;position:absolute;width:100%;z-index:1;background:rgba(var(--v-theme-surface-variant),.3);color:rgb(var(--v-theme-on-surface-variant))}.v-carousel__controls>.v-item-group{flex:0 1 auto}.v-carousel__controls__item{margin:0 8px}.v-carousel__controls__item .v-icon{opacity:.5}.v-carousel__controls__item--active .v-icon{opacity:1;vertical-align:middle}.v-carousel__controls__item:hover{background:none}.v-carousel__controls__item:hover .v-icon{opacity:.8}.v-carousel__progress{margin:0;position:absolute;bottom:0;left:0;right:0}.v-carousel-item{display:block;height:inherit;text-decoration:none}.v-carousel-item>.v-img{height:inherit}.v-carousel--hide-delimiter-background .v-carousel__controls{background:transparent}.v-carousel--vertical-delimiters .v-carousel__controls{flex-direction:column;height:100%!important;width:50px}.v-window{overflow:hidden}.v-window__container{display:flex;flex-direction:column;height:inherit;position:relative;transition:.3s cubic-bezier(.25,.8,.5,1)}.v-window__controls{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 16px;pointer-events:none}.v-window__controls>*{pointer-events:auto}.v-window--show-arrows-on-hover{overflow:hidden}.v-window--show-arrows-on-hover .v-window__left{transform:translate(-200%)}.v-window--show-arrows-on-hover .v-window__right{transform:translate(200%)}.v-window--show-arrows-on-hover:hover .v-window__left,.v-window--show-arrows-on-hover:hover .v-window__right{transform:translate(0)}.v-window-x-transition-enter-active,.v-window-x-transition-leave-active,.v-window-x-reverse-transition-enter-active,.v-window-x-reverse-transition-leave-active,.v-window-y-transition-enter-active,.v-window-y-transition-leave-active,.v-window-y-reverse-transition-enter-active,.v-window-y-reverse-transition-leave-active{transition:.3s cubic-bezier(.25,.8,.5,1)}.v-window-x-transition-leave-from,.v-window-x-transition-leave-to,.v-window-x-reverse-transition-leave-from,.v-window-x-reverse-transition-leave-to,.v-window-y-transition-leave-from,.v-window-y-transition-leave-to,.v-window-y-reverse-transition-leave-from,.v-window-y-reverse-transition-leave-to{position:absolute!important;top:0;width:100%}.v-window-x-transition-enter-from{transform:translate(100%)}.v-window-x-transition-leave-to,.v-window-x-reverse-transition-enter-from{transform:translate(-100%)}.v-window-x-reverse-transition-leave-to{transform:translate(100%)}.v-window-y-transition-enter-from{transform:translateY(100%)}.v-window-y-transition-leave-to,.v-window-y-reverse-transition-enter-from{transform:translateY(-100%)}.v-window-y-reverse-transition-leave-to{transform:translateY(100%)}.v-expansion-panel{background-color:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-expansion-panel:not(:first-child):after{border-color:rgba(var(--v-border-color),var(--v-border-opacity))}.v-expansion-panel--disabled .v-expansion-panel-title{color:rgba(var(--v-theme-on-surface),.26)}.v-expansion-panel--disabled .v-expansion-panel-title .v-expansion-panel-title__overlay{opacity:.4615384615}.v-expansion-panels{display:flex;flex-wrap:wrap;justify-content:center;list-style-type:none;padding:0;width:100%;position:relative;z-index:1}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:not(:first-child):not(:last-child):not(.v-expansion-panel--active):not(.v-expansion-panel--before-active){border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:not(:first-child):not(:last-child):not(.v-expansion-panel--active):not(.v-expansion-panel--after-active){border-top-left-radius:0!important;border-top-right-radius:0!important}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:first-child:not(:last-child):not(.v-expansion-panel--active):not(.v-expansion-panel--before-active){border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:last-child:not(:first-child):not(.v-expansion-panel--active):not(.v-expansion-panel--after-active){border-top-left-radius:0!important;border-top-right-radius:0!important}.v-expansion-panels--variant-accordion>:first-child{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.v-expansion-panels--variant-accordion>:last-child{border-top-left-radius:0!important;border-top-right-radius:0!important}.v-expansion-panels--variant-accordion>:last-child .v-expansion-panel-title--active{border-bottom-left-radius:initial;border-bottom-right-radius:initial}.v-expansion-panels--variant-accordion>:not(:first-child):not(:last-child){border-radius:0!important}.v-expansion-panels--variant-accordion .v-expansion-panel-title__overlay{transition:.3s border-radius cubic-bezier(.4,0,.2,1)}.v-expansion-panel{flex:1 0 100%;max-width:100%;position:relative;transition:.3s all cubic-bezier(.4,0,.2,1);transition-property:margin-top,border-radius,border,max-width;border-radius:4px}.v-expansion-panel:not(:first-child):after{border-top-style:solid;border-top-width:thin;content:"";left:0;position:absolute;right:0;top:0;transition:.3s opacity cubic-bezier(.4,0,.2,1)}.v-expansion-panel--disabled .v-expansion-panel-title{pointer-events:none}.v-expansion-panel--active:not(:first-child),.v-expansion-panel--active+.v-expansion-panel{margin-top:16px}.v-expansion-panel--active:not(:first-child):after,.v-expansion-panel--active+.v-expansion-panel:after{opacity:0}.v-expansion-panel--active>.v-expansion-panel-title{border-bottom-left-radius:0;border-bottom-right-radius:0}.v-expansion-panel--active>.v-expansion-panel-title:not(.v-expansion-panel-title--static){min-height:64px}.v-expansion-panel__shadow{position:absolute;top:0;left:0;width:100%;height:100%;box-shadow:0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:inherit;z-index:-1}.v-expansion-panel-title{align-items:center;text-align:start;border-radius:inherit;display:flex;font-size:.9375rem;line-height:1;min-height:48px;outline:none;padding:16px 24px;position:relative;transition:.3s min-height cubic-bezier(.4,0,.2,1);width:100%;justify-content:space-between}.v-expansion-panel-title:hover>.v-expansion-panel-title__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-expansion-panel-title:focus-visible>.v-expansion-panel-title__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-expansion-panel-title:focus>.v-expansion-panel-title__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-expansion-panel-title--active>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]>.v-expansion-panel-title__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-expansion-panel-title--active:hover>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]:hover>.v-expansion-panel-title__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-expansion-panel-title--active:focus-visible>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-expansion-panel-title__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-expansion-panel-title--active:focus>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]:focus>.v-expansion-panel-title__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-expansion-panel-title--active:before{opacity:.12}.v-expansion-panel-title__overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:currentColor;border-radius:inherit;opacity:0}.v-expansion-panel-title__icon{display:inline-flex;margin-bottom:-4px;margin-top:-4px;-webkit-user-select:none;user-select:none;margin-inline-start:auto}.v-expansion-panel-text{display:flex}.v-expansion-panel-text__wrapper{padding:8px 24px 16px;flex:1 1 auto;max-width:100%}.v-expansion-panels--variant-accordion>.v-expansion-panel{margin-top:0}.v-expansion-panels--variant-accordion>.v-expansion-panel:after{opacity:1}.v-expansion-panels--variant-popout>.v-expansion-panel{max-width:calc(100% - 32px)}.v-expansion-panels--variant-popout>.v-expansion-panel--active{max-width:calc(100% + 16px)}.v-expansion-panels--variant-inset>.v-expansion-panel{max-width:100%}.v-expansion-panels--variant-inset>.v-expansion-panel--active{max-width:calc(100% - 32px)}.contact__text[data-v-6c2056c7]{white-space:normal}.v-textarea .v-field{--v-textarea-control-height: var(--v-input-control-height)}.v-textarea .v-field__field{--v-input-control-height: var(--v-textarea-control-height)}.v-textarea .v-field__input{flex:1 1 auto;outline:none;-webkit-mask-image:linear-gradient(to bottom,transparent,transparent calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) - 6px),black calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) + 4px));mask-image:linear-gradient(to bottom,transparent,transparent calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) - 6px),black calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) + 4px))}.v-textarea .v-field__input.v-textarea__sizer{visibility:hidden;position:absolute;top:0;left:0;height:0!important;min-height:0!important;pointer-events:none}.v-textarea--no-resize .v-field__input{resize:none}.v-textarea .v-field--no-label textarea,.v-textarea .v-field--active textarea{opacity:1}.v-textarea textarea{opacity:0;flex:1;min-width:0;transition:.15s opacity cubic-bezier(.4,0,.2,1)}.v-textarea textarea:focus,.v-textarea textarea:active{outline:none}.v-textarea textarea:invalid{box-shadow:none}.brand_item[data-v-c2a41d09]{margin-right:25px;border:0px}.img-wrapper[data-v-8395df3e]{width:100%;height:600px;overflow:hidden;position:relative}.img-wrapper.mobile-height[data-v-8395df3e]{height:400px!important}.img[data-v-8395df3e]{width:100%;height:100%;object-fit:cover;display:block}.carousel--mobile[data-v-8395df3e] .v-btn.v-btn--icon{width:35px!important;height:35px!important;font-size:14px!important}.v-sheet{display:block;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-background),var(--v-high-emphasis-opacity))}.v-sheet--border{border-width:thin;box-shadow:none}.v-sheet--absolute{position:absolute}.v-sheet--fixed{position:fixed}.v-sheet--relative{position:relative}.v-sheet--sticky{position:sticky}.v-sheet--rounded{border-radius:4px}.social-container[data-v-8ea47031]{display:flex;align-items:center;justify-content:center;position:fixed;right:15px;border-radius:100%;z-index:999;cursor:pointer}.shadown[data-v-8ea47031]{box-shadow:0 4px 4px #0003;transition:box-shadow 225ms}.shadown[data-v-8ea47031]:hover{box-shadow:0 10px 14px #0003}.v-application{display:flex;background:rgb(var(--v-theme-background));color:rgba(var(--v-theme-on-background),var(--v-high-emphasis-opacity))}.v-application__wrap{backface-visibility:hidden;display:flex;flex-direction:column;flex:1 1 auto;max-width:100%;min-height:100vh;min-height:100dvh;position:relative}.margin_top__default{margin-top:25px}.v-main{flex:1 0 auto;max-width:100%;transition:.2s cubic-bezier(.4,0,.2,1);padding-left:var(--v-layout-left);padding-right:var(--v-layout-right);padding-top:var(--v-layout-top);padding-bottom:var(--v-layout-bottom)}.v-main__scroller{max-width:100%;position:relative}.v-main--scrollable{display:flex;position:absolute;top:0;left:0;width:100%;height:100%}.v-main--scrollable>.v-main__scroller{flex:1 1 auto;overflow-y:auto;--v-layout-left: 0px;--v-layout-right: 0px;--v-layout-top: 0px;--v-layout-bottom: 0px}')),document.head.appendChild(e)}}catch(i){console.error("vite-plugin-css-injected-by-js",i)}})();
+(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode('.sup-container[data-v-8abb3880]{display:flex;align-items:center;justify-content:center;visibility:hidden;position:fixed;right:15px;width:40px;height:40px;background-color:#eeec;border-radius:100%;z-index:999;cursor:pointer}.visible[data-v-8abb3880]{visibility:visible}.shadown[data-v-8abb3880]{box-shadow:0 4px 4px #0003;transition:box-shadow 225ms}.shadown[data-v-8abb3880]:hover{box-shadow:0 10px 14px #0003}.v-autocomplete .v-field .v-text-field__prefix,.v-autocomplete .v-field .v-text-field__suffix,.v-autocomplete .v-field .v-field__input,.v-autocomplete .v-field.v-field{cursor:text}.v-autocomplete .v-field .v-field__input>input{flex:1 1}.v-autocomplete .v-field input{min-width:64px}.v-autocomplete .v-field:not(.v-field--focused) input{min-width:0}.v-autocomplete .v-field--dirty .v-autocomplete__selection{margin-inline-end:2px}.v-autocomplete .v-autocomplete__selection-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-autocomplete__content{overflow:hidden;box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:4px}.v-autocomplete__mask{background:rgb(var(--v-theme-surface-light))}.v-autocomplete__selection{display:inline-flex;align-items:center;height:1.5rem;letter-spacing:inherit;line-height:inherit;max-width:calc(100% - 4px)}.v-autocomplete__selection:first-child{margin-inline-start:0}.v-autocomplete--chips.v-input--density-compact .v-field--variant-solo .v-label.v-field-label--floating,.v-autocomplete--chips.v-input--density-compact .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-autocomplete--chips.v-input--density-compact .v-field--variant-filled .v-label.v-field-label--floating,.v-autocomplete--chips.v-input--density-compact .v-field--variant-solo-filled .v-label.v-field-label--floating{top:0}.v-autocomplete--selecting-index .v-autocomplete__selection{opacity:var(--v-medium-emphasis-opacity)}.v-autocomplete--selecting-index .v-autocomplete__selection--selected{opacity:1}.v-autocomplete--selecting-index .v-field__input>input{caret-color:transparent}.v-autocomplete--single.v-text-field .v-field--focused input{flex:1 1;position:absolute;left:0;right:0;width:100%;padding-inline:inherit}.v-autocomplete--single .v-field--active input{transition:none}.v-autocomplete--single .v-field--dirty:not(.v-field--focused) input{opacity:0}.v-autocomplete--single .v-field--focused .v-autocomplete__selection{opacity:0}.v-autocomplete__menu-icon{margin-inline-start:4px;transition:.2s cubic-bezier(.4,0,.2,1)}.v-autocomplete--active-menu .v-autocomplete__menu-icon{opacity:var(--v-high-emphasis-opacity);transform:rotate(180deg)}.v-avatar{flex:none;align-items:center;display:inline-flex;justify-content:center;line-height:normal;overflow:hidden;position:relative;text-align:center;transition:.2s cubic-bezier(.4,0,.2,1);transition-property:width,height;vertical-align:middle;border-radius:50%}.v-avatar.v-avatar--size-x-small{--v-avatar-height: 24px}.v-avatar.v-avatar--size-small{--v-avatar-height: 32px}.v-avatar.v-avatar--size-default{--v-avatar-height: 40px}.v-avatar.v-avatar--size-large{--v-avatar-height: 48px}.v-avatar.v-avatar--size-x-large{--v-avatar-height: 56px}.v-avatar.v-avatar--density-default{height:calc(var(--v-avatar-height) + 0px);width:calc(var(--v-avatar-height) + 0px)}.v-avatar.v-avatar--density-comfortable{height:calc(var(--v-avatar-height) + -4px);width:calc(var(--v-avatar-height) + -4px)}.v-avatar.v-avatar--density-compact{height:calc(var(--v-avatar-height) + -8px);width:calc(var(--v-avatar-height) + -8px)}.v-avatar--variant-plain,.v-avatar--variant-outlined,.v-avatar--variant-text,.v-avatar--variant-tonal{background:transparent;color:inherit}.v-avatar--variant-plain{opacity:.62}.v-avatar--variant-plain:focus,.v-avatar--variant-plain:hover{opacity:1}.v-avatar--variant-plain .v-avatar__overlay{display:none}.v-avatar--variant-elevated,.v-avatar--variant-flat{background:var(--v-theme-surface);color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity))}.v-avatar--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-avatar--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-avatar--variant-outlined{border:thin solid currentColor}.v-avatar--variant-text .v-avatar__overlay{background:currentColor}.v-avatar--variant-tonal .v-avatar__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}.v-avatar--rounded{border-radius:4px}.v-avatar .v-img{height:100%;width:100%}.v-icon{--v-icon-size-multiplier: 1;align-items:center;display:inline-flex;font-feature-settings:"liga";height:1em;justify-content:center;letter-spacing:normal;line-height:1;position:relative;text-indent:0;text-align:center;-webkit-user-select:none;user-select:none;vertical-align:middle;width:1em;min-width:1em}.v-icon--clickable{cursor:pointer}.v-icon--size-x-small{font-size:calc(var(--v-icon-size-multiplier) * 1em)}.v-icon--size-small{font-size:calc(var(--v-icon-size-multiplier) * 1.25em)}.v-icon--size-default{font-size:calc(var(--v-icon-size-multiplier) * 1.5em)}.v-icon--size-large{font-size:calc(var(--v-icon-size-multiplier) * 1.75em)}.v-icon--size-x-large{font-size:calc(var(--v-icon-size-multiplier) * 2em)}.v-icon__svg{fill:currentColor;width:100%;height:100%}.v-icon--start{margin-inline-end:8px}.v-icon--end{margin-inline-start:8px}.v-img{--v-theme-overlay-multiplier: 3;z-index:0}.v-img--booting .v-responsive__sizer{transition:none}.v-img--rounded{border-radius:4px}.v-img__img,.v-img__picture,.v-img__gradient,.v-img__placeholder,.v-img__error{z-index:-1;position:absolute;top:0;left:0;width:100%;height:100%}.v-img__img--preload{filter:blur(4px)}.v-img__img--contain{object-fit:contain}.v-img__img--cover{object-fit:cover}.v-img__gradient{background-repeat:no-repeat}.v-responsive{display:flex;flex:1 0 auto;max-height:100%;max-width:100%;overflow:hidden;position:relative}.v-responsive--inline{display:inline-flex;flex:0 0 auto}.v-responsive__content{flex:1 0 0px;max-width:100%}.v-responsive__sizer~.v-responsive__content{margin-inline-start:-100%}.v-responsive__sizer{flex:1 0 0px;transition:padding-bottom .2s cubic-bezier(.4,0,.2,1);pointer-events:none}.v-selection-control{align-items:center;contain:layout;display:flex;flex:1 0;grid-area:control;position:relative;-webkit-user-select:none;user-select:none}.v-selection-control .v-label{white-space:normal;word-break:break-word;height:100%}.v-selection-control--disabled{opacity:var(--v-disabled-opacity);pointer-events:none}.v-selection-control--error .v-label,.v-selection-control--disabled .v-label{opacity:1}.v-selection-control--error:not(.v-selection-control--disabled) .v-label{color:rgb(var(--v-theme-error))}.v-selection-control--inline{display:inline-flex;flex:0 0 auto;min-width:0;max-width:100%}.v-selection-control--inline .v-label{width:auto}.v-selection-control--density-default{--v-selection-control-size: 40px}.v-selection-control--density-comfortable{--v-selection-control-size: 36px}.v-selection-control--density-compact{--v-selection-control-size: 28px}.v-selection-control__wrapper{width:var(--v-selection-control-size);height:var(--v-selection-control-size);display:inline-flex;align-items:center;position:relative;justify-content:center;flex:none}.v-selection-control__input{width:var(--v-selection-control-size);height:var(--v-selection-control-size);align-items:center;display:flex;flex:none;justify-content:center;position:relative;border-radius:50%}.v-selection-control__input input{cursor:pointer;position:absolute;left:0;top:0;width:100%;height:100%;opacity:0}.v-selection-control__input:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;border-radius:100%;background-color:currentColor;opacity:0;pointer-events:none}.v-selection-control__input:hover:before{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-selection-control__input>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-selection-control--disabled .v-selection-control__input>.v-icon,.v-selection-control--dirty .v-selection-control__input>.v-icon,.v-selection-control--error .v-selection-control__input>.v-icon{opacity:1}.v-selection-control--error:not(.v-selection-control--disabled) .v-selection-control__input>.v-icon{color:rgb(var(--v-theme-error))}.v-selection-control--focus-visible .v-selection-control__input:before{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}.v-label{align-items:center;color:inherit;display:inline-flex;font-size:1rem;letter-spacing:.009375em;min-width:0;opacity:var(--v-medium-emphasis-opacity);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-label--clickable{cursor:pointer}.v-selection-control-group{grid-area:control;display:flex;flex-direction:column}.v-selection-control-group--inline{flex-direction:row;flex-wrap:wrap}.v-ripple__container{color:inherit;border-radius:inherit;position:absolute;width:100%;height:100%;left:0;top:0;overflow:hidden;z-index:0;pointer-events:none;contain:strict}.v-ripple__animation{color:inherit;position:absolute;top:0;left:0;border-radius:50%;background:currentColor;opacity:0;pointer-events:none;overflow:hidden;will-change:transform,opacity}.v-ripple__animation--enter{transition:none;opacity:0}.v-ripple__animation--in{transition:transform .25s cubic-bezier(0,0,.2,1),opacity .1s cubic-bezier(0,0,.2,1);opacity:calc(.25 * var(--v-theme-overlay-multiplier))}.v-ripple__animation--out{transition:opacity .3s cubic-bezier(0,0,.2,1);opacity:0}.v-input{display:grid;flex:1 1 auto;font-size:1rem;font-weight:400;line-height:1.5}.v-input--disabled{pointer-events:none}.v-input--density-default{--v-input-control-height: 56px;--v-input-padding-top: 16px}.v-input--density-comfortable{--v-input-control-height: 48px;--v-input-padding-top: 12px}.v-input--density-compact{--v-input-control-height: 40px;--v-input-padding-top: 8px}.v-input--vertical{grid-template-areas:"append" "control" "prepend";grid-template-rows:max-content auto max-content;grid-template-columns:min-content}.v-input--vertical .v-input__prepend{margin-block-start:16px}.v-input--vertical .v-input__append{margin-block-end:16px}.v-input--horizontal{grid-template-areas:"prepend control append" "a messages b";grid-template-columns:max-content minmax(0,1fr) max-content;grid-template-rows:auto auto}.v-input--horizontal .v-input__prepend{margin-inline-end:16px}.v-input--horizontal .v-input__append{margin-inline-start:16px}.v-input__details{align-items:flex-end;display:flex;font-size:.75rem;font-weight:400;grid-area:messages;letter-spacing:.0333333333em;line-height:normal;min-height:22px;padding-top:6px;overflow:hidden;justify-content:space-between}.v-input__details>.v-icon,.v-input__prepend>.v-icon,.v-input__append>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-input--disabled .v-input__details>.v-icon,.v-input--disabled .v-input__details .v-messages,.v-input--error .v-input__details>.v-icon,.v-input--error .v-input__details .v-messages,.v-input--disabled .v-input__prepend>.v-icon,.v-input--disabled .v-input__prepend .v-messages,.v-input--error .v-input__prepend>.v-icon,.v-input--error .v-input__prepend .v-messages,.v-input--disabled .v-input__append>.v-icon,.v-input--disabled .v-input__append .v-messages,.v-input--error .v-input__append>.v-icon,.v-input--error .v-input__append .v-messages{opacity:1}.v-input--disabled .v-input__details,.v-input--disabled .v-input__prepend,.v-input--disabled .v-input__append{opacity:var(--v-disabled-opacity)}.v-input--error:not(.v-input--disabled) .v-input__details>.v-icon,.v-input--error:not(.v-input--disabled) .v-input__details .v-messages,.v-input--error:not(.v-input--disabled) .v-input__prepend>.v-icon,.v-input--error:not(.v-input--disabled) .v-input__prepend .v-messages,.v-input--error:not(.v-input--disabled) .v-input__append>.v-icon,.v-input--error:not(.v-input--disabled) .v-input__append .v-messages{color:rgb(var(--v-theme-error))}.v-input__prepend,.v-input__append{display:flex;align-items:flex-start;padding-top:var(--v-input-padding-top)}.v-input--center-affix .v-input__prepend,.v-input--center-affix .v-input__append{align-items:center;padding-top:0}.v-input__prepend{grid-area:prepend}.v-input__append{grid-area:append}.v-input__control{display:flex;grid-area:control}.v-input--hide-spin-buttons input::-webkit-outer-spin-button,.v-input--hide-spin-buttons input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.v-input--hide-spin-buttons input[type=number]{-moz-appearance:textfield}.v-input--plain-underlined .v-input__prepend,.v-input--plain-underlined .v-input__append{align-items:flex-start}.v-input--density-default.v-input--plain-underlined .v-input__prepend,.v-input--density-default.v-input--plain-underlined .v-input__append{padding-top:calc(var(--v-input-padding-top) + 4px)}.v-input--density-comfortable.v-input--plain-underlined .v-input__prepend,.v-input--density-comfortable.v-input--plain-underlined .v-input__append{padding-top:calc(var(--v-input-padding-top) + 2px)}.v-input--density-compact.v-input--plain-underlined .v-input__prepend,.v-input--density-compact.v-input--plain-underlined .v-input__append{padding-top:calc(var(--v-input-padding-top) + 0px)}.v-messages{flex:1 1 auto;font-size:12px;min-height:14px;min-width:1px;opacity:var(--v-medium-emphasis-opacity);position:relative}.v-messages__message{line-height:12px;word-break:break-word;overflow-wrap:break-word;word-wrap:break-word;-webkit-hyphens:auto;hyphens:auto;transition-duration:.15s}.v-chip{align-items:center;cursor:default;display:inline-flex;font-weight:400;max-width:100%;min-width:0;overflow:hidden;position:relative;text-decoration:none;white-space:nowrap;vertical-align:middle;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;border-radius:9999px}.v-chip.v-chip--size-x-small{--v-chip-size: .625rem;--v-chip-height: 20px;font-size:.625rem;padding:0 8px}.v-chip.v-chip--size-x-small .v-avatar{--v-avatar-height: 14px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar{--v-avatar-height: 20px}.v-chip.v-chip--size-x-small .v-avatar--start{margin-inline-start:-5.6px;margin-inline-end:4px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar--start{margin-inline-start:-8px}.v-chip.v-chip--size-x-small .v-avatar--end{margin-inline-start:4px;margin-inline-end:-5.6px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar--end{margin-inline-end:-8px}.v-chip--pill.v-chip.v-chip--size-x-small .v-avatar--end+.v-chip__close{margin-inline-start:12px}.v-chip.v-chip--size-x-small .v-icon--start,.v-chip.v-chip--size-x-small .v-chip__filter{margin-inline-start:-4px;margin-inline-end:4px}.v-chip.v-chip--size-x-small .v-icon--end,.v-chip.v-chip--size-x-small .v-chip__close{margin-inline-start:4px;margin-inline-end:-4px}.v-chip.v-chip--size-x-small .v-icon--end+.v-chip__close,.v-chip.v-chip--size-x-small .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-x-small .v-chip__append+.v-chip__close{margin-inline-start:8px}.v-chip.v-chip--size-small{--v-chip-size: .75rem;--v-chip-height: 26px;font-size:.75rem;padding:0 10px}.v-chip.v-chip--size-small .v-avatar{--v-avatar-height: 20px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar{--v-avatar-height: 26px}.v-chip.v-chip--size-small .v-avatar--start{margin-inline-start:-7px;margin-inline-end:5px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar--start{margin-inline-start:-10px}.v-chip.v-chip--size-small .v-avatar--end{margin-inline-start:5px;margin-inline-end:-7px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar--end{margin-inline-end:-10px}.v-chip--pill.v-chip.v-chip--size-small .v-avatar--end+.v-chip__close{margin-inline-start:15px}.v-chip.v-chip--size-small .v-icon--start,.v-chip.v-chip--size-small .v-chip__filter{margin-inline-start:-5px;margin-inline-end:5px}.v-chip.v-chip--size-small .v-icon--end,.v-chip.v-chip--size-small .v-chip__close{margin-inline-start:5px;margin-inline-end:-5px}.v-chip.v-chip--size-small .v-icon--end+.v-chip__close,.v-chip.v-chip--size-small .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-small .v-chip__append+.v-chip__close{margin-inline-start:10px}.v-chip.v-chip--size-default{--v-chip-size: .875rem;--v-chip-height: 32px;font-size:.875rem;padding:0 12px}.v-chip.v-chip--size-default .v-avatar{--v-avatar-height: 26px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar{--v-avatar-height: 32px}.v-chip.v-chip--size-default .v-avatar--start{margin-inline-start:-8.4px;margin-inline-end:6px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar--start{margin-inline-start:-12px}.v-chip.v-chip--size-default .v-avatar--end{margin-inline-start:6px;margin-inline-end:-8.4px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar--end{margin-inline-end:-12px}.v-chip--pill.v-chip.v-chip--size-default .v-avatar--end+.v-chip__close{margin-inline-start:18px}.v-chip.v-chip--size-default .v-icon--start,.v-chip.v-chip--size-default .v-chip__filter{margin-inline-start:-6px;margin-inline-end:6px}.v-chip.v-chip--size-default .v-icon--end,.v-chip.v-chip--size-default .v-chip__close{margin-inline-start:6px;margin-inline-end:-6px}.v-chip.v-chip--size-default .v-icon--end+.v-chip__close,.v-chip.v-chip--size-default .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-default .v-chip__append+.v-chip__close{margin-inline-start:12px}.v-chip.v-chip--size-large{--v-chip-size: 1rem;--v-chip-height: 38px;font-size:1rem;padding:0 14px}.v-chip.v-chip--size-large .v-avatar{--v-avatar-height: 32px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar{--v-avatar-height: 38px}.v-chip.v-chip--size-large .v-avatar--start{margin-inline-start:-9.8px;margin-inline-end:7px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar--start{margin-inline-start:-14px}.v-chip.v-chip--size-large .v-avatar--end{margin-inline-start:7px;margin-inline-end:-9.8px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar--end{margin-inline-end:-14px}.v-chip--pill.v-chip.v-chip--size-large .v-avatar--end+.v-chip__close{margin-inline-start:21px}.v-chip.v-chip--size-large .v-icon--start,.v-chip.v-chip--size-large .v-chip__filter{margin-inline-start:-7px;margin-inline-end:7px}.v-chip.v-chip--size-large .v-icon--end,.v-chip.v-chip--size-large .v-chip__close{margin-inline-start:7px;margin-inline-end:-7px}.v-chip.v-chip--size-large .v-icon--end+.v-chip__close,.v-chip.v-chip--size-large .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-large .v-chip__append+.v-chip__close{margin-inline-start:14px}.v-chip.v-chip--size-x-large{--v-chip-size: 1.125rem;--v-chip-height: 44px;font-size:1.125rem;padding:0 17px}.v-chip.v-chip--size-x-large .v-avatar{--v-avatar-height: 38px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar{--v-avatar-height: 44px}.v-chip.v-chip--size-x-large .v-avatar--start{margin-inline-start:-11.9px;margin-inline-end:8.5px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar--start{margin-inline-start:-17px}.v-chip.v-chip--size-x-large .v-avatar--end{margin-inline-start:8.5px;margin-inline-end:-11.9px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar--end{margin-inline-end:-17px}.v-chip--pill.v-chip.v-chip--size-x-large .v-avatar--end+.v-chip__close{margin-inline-start:25.5px}.v-chip.v-chip--size-x-large .v-icon--start,.v-chip.v-chip--size-x-large .v-chip__filter{margin-inline-start:-8.5px;margin-inline-end:8.5px}.v-chip.v-chip--size-x-large .v-icon--end,.v-chip.v-chip--size-x-large .v-chip__close{margin-inline-start:8.5px;margin-inline-end:-8.5px}.v-chip.v-chip--size-x-large .v-icon--end+.v-chip__close,.v-chip.v-chip--size-x-large .v-avatar--end+.v-chip__close,.v-chip.v-chip--size-x-large .v-chip__append+.v-chip__close{margin-inline-start:17px}.v-chip.v-chip--density-default{height:calc(var(--v-chip-height) + 0px)}.v-chip.v-chip--density-comfortable{height:calc(var(--v-chip-height) + -8px)}.v-chip.v-chip--density-compact{height:calc(var(--v-chip-height) + -12px)}.v-chip:hover>.v-chip__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-chip:focus-visible>.v-chip__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-chip:focus>.v-chip__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-chip--active>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]>.v-chip__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-chip--active:hover>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]:hover>.v-chip__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-chip--active:focus-visible>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-chip__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-chip--active:focus>.v-chip__overlay,.v-chip[aria-haspopup=menu][aria-expanded=true]:focus>.v-chip__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-chip--variant-plain,.v-chip--variant-outlined,.v-chip--variant-text,.v-chip--variant-tonal{background:transparent;color:inherit}.v-chip--variant-plain{opacity:.26}.v-chip--variant-plain:focus,.v-chip--variant-plain:hover{opacity:1}.v-chip--variant-plain .v-chip__overlay{display:none}.v-chip--variant-elevated,.v-chip--variant-flat{background:rgb(var(--v-theme-surface-variant));color:rgb(var(--v-theme-on-surface-variant))}.v-chip--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-chip--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-chip--variant-outlined{border:thin solid currentColor}.v-chip--variant-text .v-chip__overlay{background:currentColor}.v-chip--variant-tonal .v-chip__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}.v-chip--border{border-width:thin}.v-chip--link{cursor:pointer}.v-chip--filter{-webkit-user-select:none;user-select:none}.v-chip__content{align-items:center;display:inline-flex}.v-autocomplete__selection .v-chip__content,.v-combobox__selection .v-chip__content,.v-select__selection .v-chip__content{overflow:hidden}.v-chip__filter,.v-chip__prepend,.v-chip__append,.v-chip__close{align-items:center;display:inline-flex}.v-chip__close{cursor:pointer;flex:0 1 auto;font-size:18px;max-height:18px;max-width:18px;-webkit-user-select:none;user-select:none}.v-chip__close .v-icon{font-size:inherit}.v-chip__filter{transition:.15s cubic-bezier(.4,0,.2,1)}.v-chip__overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:currentColor;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .2s ease-in-out}.v-chip--disabled{opacity:.3;pointer-events:none;-webkit-user-select:none;user-select:none}.v-chip--label{border-radius:4px}.v-chip-group{display:flex;max-width:100%;min-width:0;overflow-x:auto;padding:4px 0}.v-chip-group .v-chip{margin:4px 8px 4px 0}.v-chip-group .v-chip.v-chip--selected:not(.v-chip--disabled) .v-chip__overlay{opacity:var(--v-activated-opacity)}.v-chip-group--column .v-slide-group__content{white-space:normal;flex-wrap:wrap;max-width:100%}.v-slide-group{display:flex;overflow:hidden}.v-slide-group__next,.v-slide-group__prev{align-items:center;display:flex;flex:0 1 52px;justify-content:center;min-width:52px;cursor:pointer}.v-slide-group__next--disabled,.v-slide-group__prev--disabled{pointer-events:none;opacity:var(--v-disabled-opacity)}.v-slide-group__content{display:flex;flex:1 0 auto;position:relative;transition:.2s all cubic-bezier(.4,0,.2,1);white-space:nowrap}.v-slide-group__content>*{white-space:initial}.v-slide-group__container{contain:content;display:flex;flex:1 1 auto;overflow:hidden}.v-slide-group--vertical,.v-slide-group--vertical .v-slide-group__container,.v-slide-group--vertical .v-slide-group__content{flex-direction:column}.v-list{overflow:auto;padding:8px 0;position:relative;outline:none;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgba(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-list--border{border-width:thin;box-shadow:none}.v-list--disabled{pointer-events:none;-webkit-user-select:none;user-select:none}.v-list--nav{padding-inline:8px}.v-list--rounded{border-radius:4px}.v-list--subheader{padding-top:0}.v-list-img{border-radius:inherit;display:flex;height:100%;left:0;overflow:hidden;position:absolute;top:0;width:100%;z-index:-1}.v-list-subheader{align-items:center;background:inherit;color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity));display:flex;font-size:.875rem;font-weight:400;line-height:1.375rem;padding-inline-end:16px;min-height:40px;transition:.2s min-height cubic-bezier(.4,0,.2,1)}.v-list-subheader__text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-list--density-default .v-list-subheader{min-height:40px;padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list--density-comfortable .v-list-subheader{min-height:36px;padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list--density-compact .v-list-subheader{min-height:32px;padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list-subheader--inset{--indent-padding: 56px}.v-list--nav .v-list-subheader{font-size:.75rem}.v-list-subheader--sticky{background:inherit;left:0;position:sticky;top:0;z-index:1}.v-list__overlay{background-color:currentColor;border-radius:inherit;bottom:0;left:0;opacity:0;pointer-events:none;position:absolute;right:0;top:0;transition:opacity .2s ease-in-out}.v-list-item{align-items:center;display:grid;flex:none;grid-template-areas:"prepend content append";grid-template-columns:max-content 1fr auto;outline:none;max-width:100%;padding:4px 16px;position:relative;text-decoration:none;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;border-radius:0}.v-list-item--border{border-width:thin;box-shadow:none}.v-list-item:hover>.v-list-item__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-list-item:focus-visible>.v-list-item__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-list-item:focus>.v-list-item__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-list-item--active>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]>.v-list-item__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-list-item--active:hover>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]:hover>.v-list-item__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-list-item--active:focus-visible>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-list-item__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-list-item--active:focus>.v-list-item__overlay,.v-list-item[aria-haspopup=menu][aria-expanded=true]:focus>.v-list-item__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-list-item--variant-plain,.v-list-item--variant-outlined,.v-list-item--variant-text,.v-list-item--variant-tonal{background:transparent;color:inherit}.v-list-item--variant-plain{opacity:.62}.v-list-item--variant-plain:focus,.v-list-item--variant-plain:hover{opacity:1}.v-list-item--variant-plain .v-list-item__overlay{display:none}.v-list-item--variant-elevated,.v-list-item--variant-flat{background:rgba(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-list-item--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-list-item--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-list-item--variant-outlined{border:thin solid currentColor}.v-list-item--variant-text .v-list-item__overlay{background:currentColor}.v-list-item--variant-tonal .v-list-item__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}@supports selector(:focus-visible){.v-list-item:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;border:2px solid currentColor;border-radius:4px;opacity:0;transition:opacity .2s ease-in-out}.v-list-item:focus-visible:after{opacity:calc(.15 * var(--v-theme-overlay-multiplier))}}.v-list-item__prepend>.v-badge .v-icon,.v-list-item__prepend>.v-icon,.v-list-item__append>.v-badge .v-icon,.v-list-item__append>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-list-item--active .v-list-item__prepend>.v-badge .v-icon,.v-list-item--active .v-list-item__prepend>.v-icon,.v-list-item--active .v-list-item__append>.v-badge .v-icon,.v-list-item--active .v-list-item__append>.v-icon{opacity:1}.v-list-item--rounded{border-radius:4px}.v-list-item--disabled{pointer-events:none;-webkit-user-select:none;user-select:none;opacity:.6}.v-list-item--link{cursor:pointer}.v-navigation-drawer--rail:not(.v-navigation-drawer--expand-on-hover) .v-list-item .v-avatar,.v-navigation-drawer--rail.v-navigation-drawer--expand-on-hover:not(.v-navigation-drawer--is-hovering) .v-list-item .v-avatar{--v-avatar-height: 24px}.v-list-item__prepend{align-items:center;align-self:center;display:flex;grid-area:prepend}.v-list-item__prepend>.v-badge~.v-list-item__spacer,.v-list-item__prepend>.v-icon~.v-list-item__spacer,.v-list-item__prepend>.v-tooltip~.v-list-item__spacer{width:32px}.v-list-item__prepend>.v-avatar~.v-list-item__spacer{width:16px}.v-list-item--slim .v-list-item__prepend>.v-badge~.v-list-item__spacer,.v-list-item--slim .v-list-item__prepend>.v-icon~.v-list-item__spacer,.v-list-item--slim .v-list-item__prepend>.v-tooltip~.v-list-item__spacer{width:8px}.v-list-item--slim .v-list-item__prepend>.v-avatar~.v-list-item__spacer{width:4px}.v-list-item--three-line .v-list-item__prepend{align-self:start}.v-list-item__append{align-self:center;display:flex;align-items:center;grid-area:append}.v-list-item__append .v-list-item__spacer{order:-1;transition:.15s width cubic-bezier(.4,0,.2,1)}.v-list-item__append>.v-badge~.v-list-item__spacer,.v-list-item__append>.v-icon~.v-list-item__spacer,.v-list-item__append>.v-tooltip~.v-list-item__spacer{width:32px}.v-list-item__append>.v-avatar~.v-list-item__spacer{width:16px}.v-list-item--slim .v-list-item__append>.v-badge~.v-list-item__spacer,.v-list-item--slim .v-list-item__append>.v-icon~.v-list-item__spacer,.v-list-item--slim .v-list-item__append>.v-tooltip~.v-list-item__spacer{width:8px}.v-list-item--slim .v-list-item__append>.v-avatar~.v-list-item__spacer{width:4px}.v-list-item--three-line .v-list-item__append{align-self:start}.v-list-item__content{align-self:center;grid-area:content;overflow:hidden}.v-list-item-action{align-self:center;display:flex;align-items:center;grid-area:prepend;flex:none;transition:inherit;transition-property:height,width}.v-list-item-action--start{margin-inline-end:12px}.v-list-item-action--end{margin-inline-start:12px}.v-list-item-media{margin-top:0;margin-bottom:0}.v-list-item-media--start{margin-inline-end:16px}.v-list-item-media--end{margin-inline-start:16px}.v-list-item--two-line .v-list-item-media{margin-top:-4px;margin-bottom:-4px}.v-list-item--three-line .v-list-item-media{margin-top:0;margin-bottom:0}.v-list-item-subtitle{-webkit-box-orient:vertical;display:-webkit-box;opacity:var(--v-medium-emphasis-opacity);overflow:hidden;padding:0;text-overflow:ellipsis;word-break:break-all;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;line-height:1rem;text-transform:none}.v-list-item--one-line .v-list-item-subtitle{-webkit-line-clamp:1}.v-list-item--two-line .v-list-item-subtitle{-webkit-line-clamp:2}.v-list-item--three-line .v-list-item-subtitle{-webkit-line-clamp:3}.v-list-item--nav .v-list-item-subtitle{font-size:.75rem;font-weight:400;letter-spacing:.0178571429em;line-height:1rem}.v-list-item-title{-webkit-hyphens:auto;hyphens:auto;overflow-wrap:normal;overflow:hidden;padding:0;white-space:nowrap;text-overflow:ellipsis;word-break:normal;word-wrap:break-word;font-size:1rem;font-weight:400;letter-spacing:.009375em;line-height:1.5rem;text-transform:none}.v-list-item--nav .v-list-item-title{font-size:.8125rem;font-weight:500;letter-spacing:normal;line-height:1rem}.v-list-item--density-default{min-height:40px}.v-list-item--density-default.v-list-item--one-line{min-height:48px;padding-top:4px;padding-bottom:4px}.v-list-item--density-default.v-list-item--two-line{min-height:64px;padding-top:12px;padding-bottom:12px}.v-list-item--density-default.v-list-item--three-line{min-height:88px;padding-top:16px;padding-bottom:16px}.v-list-item--density-default.v-list-item--three-line .v-list-item__prepend,.v-list-item--density-default.v-list-item--three-line .v-list-item__append{padding-top:8px}.v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line{padding-inline:16px}.v-list-item--density-default:not(.v-list-item--nav).v-list-item--two-line{padding-inline:16px}.v-list-item--density-default:not(.v-list-item--nav).v-list-item--three-line{padding-inline:16px}.v-list-item--density-comfortable{min-height:36px}.v-list-item--density-comfortable.v-list-item--one-line{min-height:44px}.v-list-item--density-comfortable.v-list-item--two-line{min-height:60px;padding-top:8px;padding-bottom:8px}.v-list-item--density-comfortable.v-list-item--three-line{min-height:84px;padding-top:12px;padding-bottom:12px}.v-list-item--density-comfortable.v-list-item--three-line .v-list-item__prepend,.v-list-item--density-comfortable.v-list-item--three-line .v-list-item__append{padding-top:6px}.v-list-item--density-comfortable:not(.v-list-item--nav).v-list-item--one-line{padding-inline:16px}.v-list-item--density-comfortable:not(.v-list-item--nav).v-list-item--two-line{padding-inline:16px}.v-list-item--density-comfortable:not(.v-list-item--nav).v-list-item--three-line{padding-inline:16px}.v-list-item--density-compact{min-height:32px}.v-list-item--density-compact.v-list-item--one-line{min-height:40px}.v-list-item--density-compact.v-list-item--two-line{min-height:56px;padding-top:4px;padding-bottom:4px}.v-list-item--density-compact.v-list-item--three-line{min-height:80px;padding-top:8px;padding-bottom:8px}.v-list-item--density-compact.v-list-item--three-line .v-list-item__prepend,.v-list-item--density-compact.v-list-item--three-line .v-list-item__append{padding-top:4px}.v-list-item--density-compact:not(.v-list-item--nav).v-list-item--one-line{padding-inline:16px}.v-list-item--density-compact:not(.v-list-item--nav).v-list-item--two-line{padding-inline:16px}.v-list-item--density-compact:not(.v-list-item--nav).v-list-item--three-line{padding-inline:16px}.v-list-item--nav{padding-inline:8px}.v-list .v-list-item--nav:not(:only-child){margin-bottom:4px}.v-list-item__underlay{position:absolute}.v-list-item__overlay{background-color:currentColor;border-radius:inherit;bottom:0;left:0;opacity:0;pointer-events:none;position:absolute;right:0;top:0;transition:opacity .2s ease-in-out}.v-list-item--active.v-list-item--variant-elevated .v-list-item__overlay{--v-theme-overlay-multiplier: 0}.v-list{--indent-padding: 0px}.v-list--nav{--indent-padding: -8px}.v-list-group{--list-indent-size: 16px;--parent-padding: var(--indent-padding);--prepend-width: 40px}.v-list--slim .v-list-group{--prepend-width: 16px}.v-list-group--fluid{--list-indent-size: 0px}.v-list-group--prepend{--parent-padding: calc(var(--indent-padding) + var(--prepend-width))}.v-list-group--fluid.v-list-group--prepend{--parent-padding: var(--indent-padding)}.v-list-group__items{--indent-padding: calc(var(--parent-padding) + var(--list-indent-size))}.v-list-group__items .v-list-item{padding-inline-start:calc(16px + var(--indent-padding))!important}.v-list-group__header.v-list-item--active:not(:focus-visible) .v-list-item__overlay{opacity:0}.v-list-group__header.v-list-item--active:hover .v-list-item__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-divider{display:block;flex:1 1 100%;height:0px;max-height:0px;opacity:var(--v-border-opacity);transition:inherit;border-style:solid;border-width:thin 0 0 0}.v-divider--vertical{align-self:stretch;border-width:0 thin 0 0;display:inline-flex;height:inherit;margin-left:-1px;max-height:100%;max-width:0px;vertical-align:text-bottom;width:0px}.v-divider--inset:not(.v-divider--vertical){max-width:calc(100% - 72px);margin-inline-start:72px}.v-divider--inset.v-divider--vertical{margin-bottom:8px;margin-top:8px;max-height:calc(100% - 16px)}.v-menu>.v-overlay__content{display:flex;flex-direction:column;border-radius:4px}.v-menu>.v-overlay__content>.v-card,.v-menu>.v-overlay__content>.v-sheet,.v-menu>.v-overlay__content>.v-list{background:rgb(var(--v-theme-surface));border-radius:inherit;overflow:auto;height:100%;box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-overlay-container{contain:layout;left:0;pointer-events:none;position:absolute;top:0;display:contents}.v-overlay-scroll-blocked{padding-inline-end:var(--v-scrollbar-offset)}.v-overlay-scroll-blocked:not(html){overflow-y:hidden!important}html.v-overlay-scroll-blocked{position:fixed;top:var(--v-body-scroll-y);left:var(--v-body-scroll-x);width:100%;height:100%}.v-overlay{border-radius:inherit;display:flex;left:0;pointer-events:none;position:fixed;top:0;bottom:0;right:0}.v-overlay__content{outline:none;position:absolute;pointer-events:auto;contain:layout}.v-overlay__scrim{pointer-events:auto;background:rgb(var(--v-theme-on-surface));border-radius:inherit;bottom:0;left:0;opacity:.32;position:fixed;right:0;top:0}.v-overlay--absolute,.v-overlay--contained .v-overlay__scrim{position:absolute}.v-overlay--scroll-blocked{padding-inline-end:var(--v-scrollbar-offset)}.v-select .v-field .v-text-field__prefix,.v-select .v-field .v-text-field__suffix,.v-select .v-field .v-field__input,.v-select .v-field.v-field{cursor:pointer}.v-select .v-field .v-field__input>input{align-self:flex-start;opacity:1;flex:0 0;position:absolute;width:100%;transition:none;pointer-events:none;caret-color:transparent}.v-select .v-field--dirty .v-select__selection{margin-inline-end:2px}.v-select .v-select__selection-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-select__content{overflow:hidden;box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:4px}.v-select__selection{display:inline-flex;align-items:center;letter-spacing:inherit;line-height:inherit;max-width:100%}.v-select .v-select__selection:first-child{margin-inline-start:0}.v-select--selected .v-field .v-field__input>input{opacity:0}.v-select__menu-icon{margin-inline-start:4px;transition:.2s cubic-bezier(.4,0,.2,1)}.v-select--active-menu .v-select__menu-icon{opacity:var(--v-high-emphasis-opacity);transform:rotate(180deg)}.v-text-field input{color:inherit;opacity:0;flex:1;transition:.15s opacity cubic-bezier(.4,0,.2,1);min-width:0}.v-text-field input:focus,.v-text-field input:active{outline:none}.v-text-field input:invalid{box-shadow:none}.v-text-field .v-field{cursor:text}.v-text-field--prefixed.v-text-field .v-field__input{--v-field-padding-start: 6px}.v-text-field--suffixed.v-text-field .v-field__input{--v-field-padding-end: 0}.v-text-field .v-input__details{padding-inline:16px}.v-input--plain-underlined.v-text-field .v-input__details{padding-inline:0}.v-text-field .v-field--no-label input,.v-text-field .v-field--active input{opacity:1}.v-text-field .v-field--single-line input{transition:none}.v-text-field__prefix,.v-text-field__suffix{align-items:center;color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity));cursor:default;display:flex;opacity:0;transition:inherit;white-space:nowrap;min-height:max(var(--v-input-control-height, 56px),1.5rem + var(--v-field-input-padding-top) + var(--v-field-input-padding-bottom));padding-top:calc(var(--v-field-padding-top, 4px) + var(--v-input-padding-top, 0));padding-bottom:var(--v-field-padding-bottom, 6px)}.v-field--active .v-text-field__prefix,.v-field--active .v-text-field__suffix{opacity:1}.v-field--disabled .v-text-field__prefix,.v-field--disabled .v-text-field__suffix{color:rgba(var(--v-theme-on-surface),var(--v-disabled-opacity))}.v-text-field__prefix{padding-inline-start:var(--v-field-padding-start)}.v-text-field__suffix{padding-inline-end:var(--v-field-padding-end)}.v-counter{color:rgba(var(--v-theme-on-surface),var(--v-medium-emphasis-opacity));flex:0 1 auto;font-size:12px;transition-duration:.15s}.v-field{display:grid;grid-template-areas:"prepend-inner field clear append-inner";grid-template-columns:min-content minmax(0,1fr) min-content min-content;font-size:16px;letter-spacing:.009375em;max-width:100%;border-radius:4px;contain:layout;flex:1 0;grid-area:control;position:relative;--v-field-padding-start: 16px;--v-field-padding-end: 16px;--v-field-padding-top: 8px;--v-field-padding-bottom: 4px;--v-field-input-padding-top: calc(var(--v-field-padding-top, 8px) + var(--v-input-padding-top, 0));--v-field-input-padding-bottom: var(--v-field-padding-bottom, 4px)}.v-field--disabled{opacity:var(--v-disabled-opacity);pointer-events:none}.v-field .v-chip{--v-chip-height: 24px}.v-field--prepended{padding-inline-start:12px}.v-field--appended{padding-inline-end:12px}.v-field--variant-solo,.v-field--variant-solo-filled,.v-field--variant-solo-inverted{background:rgb(var(--v-theme-surface));border-color:transparent;color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity));box-shadow:0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-field--variant-solo-inverted.v-field--focused{color:rgb(var(--v-theme-on-surface-variant))}.v-field--variant-filled{border-bottom-left-radius:0;border-bottom-right-radius:0}.v-input--density-default .v-field--variant-solo,.v-input--density-default .v-field--variant-solo-inverted,.v-input--density-default .v-field--variant-solo-filled,.v-input--density-default .v-field--variant-filled{--v-input-control-height: 56px;--v-field-padding-bottom: 4px}.v-input--density-comfortable .v-field--variant-solo,.v-input--density-comfortable .v-field--variant-solo-inverted,.v-input--density-comfortable .v-field--variant-solo-filled,.v-input--density-comfortable .v-field--variant-filled{--v-input-control-height: 48px;--v-field-padding-bottom: 0px}.v-input--density-compact .v-field--variant-solo,.v-input--density-compact .v-field--variant-solo-inverted,.v-input--density-compact .v-field--variant-solo-filled,.v-input--density-compact .v-field--variant-filled{--v-input-control-height: 40px;--v-field-padding-bottom: 0px}.v-field--variant-outlined,.v-field--single-line,.v-field--no-label{--v-field-padding-top: 0px}.v-input--density-default .v-field--variant-outlined,.v-input--density-default .v-field--single-line,.v-input--density-default .v-field--no-label{--v-field-padding-bottom: 16px}.v-input--density-comfortable .v-field--variant-outlined,.v-input--density-comfortable .v-field--single-line,.v-input--density-comfortable .v-field--no-label{--v-field-padding-bottom: 12px}.v-input--density-compact .v-field--variant-outlined,.v-input--density-compact .v-field--single-line,.v-input--density-compact .v-field--no-label{--v-field-padding-bottom: 8px}.v-field--variant-plain,.v-field--variant-underlined{border-radius:0;padding:0}.v-field--variant-plain.v-field,.v-field--variant-underlined.v-field{--v-field-padding-start: 0px;--v-field-padding-end: 0px}.v-input--density-default .v-field--variant-plain,.v-input--density-default .v-field--variant-underlined{--v-input-control-height: 48px;--v-field-padding-top: 4px;--v-field-padding-bottom: 4px}.v-input--density-comfortable .v-field--variant-plain,.v-input--density-comfortable .v-field--variant-underlined{--v-input-control-height: 40px;--v-field-padding-top: 2px;--v-field-padding-bottom: 0px}.v-input--density-compact .v-field--variant-plain,.v-input--density-compact .v-field--variant-underlined{--v-input-control-height: 32px;--v-field-padding-top: 0px;--v-field-padding-bottom: 0px}.v-field--flat{box-shadow:none}.v-field--rounded{border-radius:9999px}.v-field.v-field--prepended{--v-field-padding-start: 6px}.v-field.v-field--appended{--v-field-padding-end: 6px}.v-field__input{align-items:center;color:inherit;column-gap:2px;display:flex;flex-wrap:wrap;letter-spacing:.009375em;opacity:var(--v-high-emphasis-opacity);min-height:max(var(--v-input-control-height, 56px),1.5rem + var(--v-field-input-padding-top) + var(--v-field-input-padding-bottom));min-width:0;padding-inline:var(--v-field-padding-start) var(--v-field-padding-end);padding-top:var(--v-field-input-padding-top);padding-bottom:var(--v-field-input-padding-bottom);position:relative;width:100%}.v-input--density-default .v-field__input{row-gap:8px}.v-input--density-comfortable .v-field__input{row-gap:6px}.v-input--density-compact .v-field__input{row-gap:4px}.v-field__input input{letter-spacing:inherit}.v-field__input input::placeholder,input.v-field__input::placeholder,textarea.v-field__input::placeholder{color:currentColor;opacity:var(--v-disabled-opacity)}.v-field__input:focus,.v-field__input:active{outline:none}.v-field__input:invalid{box-shadow:none}.v-field__field{flex:1 0;grid-area:field;position:relative;align-items:flex-start;display:flex}.v-field__prepend-inner{grid-area:prepend-inner;padding-inline-end:var(--v-field-padding-after)}.v-field__clearable{grid-area:clear}.v-field__append-inner{grid-area:append-inner;padding-inline-start:var(--v-field-padding-after)}.v-field__append-inner,.v-field__clearable,.v-field__prepend-inner{display:flex;align-items:flex-start;padding-top:var(--v-input-padding-top, 8px)}.v-field--center-affix .v-field__append-inner,.v-field--center-affix .v-field__clearable,.v-field--center-affix .v-field__prepend-inner{align-items:center;padding-top:0}.v-field.v-field--variant-underlined .v-field__append-inner,.v-field.v-field--variant-underlined .v-field__clearable,.v-field.v-field--variant-underlined .v-field__prepend-inner,.v-field.v-field--variant-plain .v-field__append-inner,.v-field.v-field--variant-plain .v-field__clearable,.v-field.v-field--variant-plain .v-field__prepend-inner{align-items:flex-start;padding-top:calc(var(--v-field-padding-top, 8px) + var(--v-input-padding-top, 0));padding-bottom:var(--v-field-padding-bottom, 4px)}.v-field--focused .v-field__prepend-inner,.v-field--focused .v-field__append-inner{opacity:1}.v-field__prepend-inner>.v-icon,.v-field__append-inner>.v-icon,.v-field__clearable>.v-icon{opacity:var(--v-medium-emphasis-opacity)}.v-field--disabled .v-field__prepend-inner>.v-icon,.v-field--error .v-field__prepend-inner>.v-icon,.v-field--disabled .v-field__append-inner>.v-icon,.v-field--error .v-field__append-inner>.v-icon,.v-field--disabled .v-field__clearable>.v-icon,.v-field--error .v-field__clearable>.v-icon{opacity:1}.v-field--error:not(.v-field--disabled) .v-field__prepend-inner>.v-icon,.v-field--error:not(.v-field--disabled) .v-field__append-inner>.v-icon,.v-field--error:not(.v-field--disabled) .v-field__clearable>.v-icon{color:rgb(var(--v-theme-error))}.v-field__clearable{cursor:pointer;opacity:0;overflow:hidden;margin-inline:4px;transition:.15s cubic-bezier(.4,0,.2,1);transition-property:opacity,transform,width}.v-field--focused .v-field__clearable,.v-field--persistent-clear .v-field__clearable{opacity:1}@media (hover: hover){.v-field:hover .v-field__clearable{opacity:1}}@media (hover: none){.v-field__clearable{opacity:1}}.v-label.v-field-label{contain:layout paint;display:block;margin-inline-start:var(--v-field-padding-start);margin-inline-end:var(--v-field-padding-end);max-width:calc(100% - var(--v-field-padding-start) - var(--v-field-padding-end));pointer-events:none;position:absolute;top:var(--v-input-padding-top);transform-origin:left center;transition:.15s cubic-bezier(.4,0,.2,1);transition-property:opacity,transform;z-index:1}.v-field--variant-underlined .v-label.v-field-label,.v-field--variant-plain .v-label.v-field-label{top:calc(var(--v-input-padding-top) + var(--v-field-padding-top))}.v-field--center-affix .v-label.v-field-label{top:50%;transform:translateY(-50%)}.v-field--active .v-label.v-field-label{visibility:hidden}.v-field--focused .v-label.v-field-label,.v-field--error .v-label.v-field-label{opacity:1}.v-field--error:not(.v-field--disabled) .v-label.v-field-label{color:rgb(var(--v-theme-error))}.v-label.v-field-label--floating{--v-field-label-scale: .75em;font-size:var(--v-field-label-scale);visibility:hidden;max-width:100%}.v-field--center-affix .v-label.v-field-label--floating{transform:none}.v-field.v-field--active .v-label.v-field-label--floating{visibility:unset}.v-input--density-default .v-field--variant-solo .v-label.v-field-label--floating,.v-input--density-default .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-input--density-default .v-field--variant-filled .v-label.v-field-label--floating,.v-input--density-default .v-field--variant-solo-filled .v-label.v-field-label--floating{top:7px}.v-input--density-comfortable .v-field--variant-solo .v-label.v-field-label--floating,.v-input--density-comfortable .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-input--density-comfortable .v-field--variant-filled .v-label.v-field-label--floating,.v-input--density-comfortable .v-field--variant-solo-filled .v-label.v-field-label--floating{top:5px}.v-input--density-compact .v-field--variant-solo .v-label.v-field-label--floating,.v-input--density-compact .v-field--variant-solo-inverted .v-label.v-field-label--floating,.v-input--density-compact .v-field--variant-filled .v-label.v-field-label--floating,.v-input--density-compact .v-field--variant-solo-filled .v-label.v-field-label--floating{top:3px}.v-field--variant-plain .v-label.v-field-label--floating,.v-field--variant-underlined .v-label.v-field-label--floating{transform:translateY(-16px);margin:0;top:var(--v-input-padding-top)}.v-field--variant-outlined .v-label.v-field-label--floating{transform:translateY(-50%);transform-origin:center;position:static;margin:0 4px}.v-field__outline{--v-field-border-width: 1px;--v-field-border-opacity: .38;align-items:stretch;contain:layout;display:flex;height:100%;left:0;pointer-events:none;position:absolute;right:0;width:100%}@media (hover: hover){.v-field:hover .v-field__outline{--v-field-border-opacity: var(--v-high-emphasis-opacity)}}.v-field--error:not(.v-field--disabled) .v-field__outline{color:rgb(var(--v-theme-error))}.v-field.v-field--focused .v-field__outline,.v-input.v-input--error .v-field__outline{--v-field-border-opacity: 1}.v-field--variant-outlined.v-field--focused .v-field__outline{--v-field-border-width: 2px}.v-field--variant-filled .v-field__outline:before,.v-field--variant-underlined .v-field__outline:before{border-color:currentColor;border-style:solid;border-width:0 0 var(--v-field-border-width);opacity:var(--v-field-border-opacity);transition:opacity .25s cubic-bezier(.4,0,.2,1);content:"";position:absolute;top:0;left:0;width:100%;height:100%}.v-field--variant-filled .v-field__outline:after,.v-field--variant-underlined .v-field__outline:after{border-color:currentColor;border-style:solid;border-width:0 0 2px;transform:scaleX(0);transition:transform .15s cubic-bezier(.4,0,.2,1);content:"";position:absolute;top:0;left:0;width:100%;height:100%}.v-field--focused.v-field--variant-filled .v-field__outline:after,.v-field--focused.v-field--variant-underlined .v-field__outline:after{transform:scaleX(1)}.v-field--variant-outlined .v-field__outline{border-radius:inherit}.v-field--variant-outlined .v-field__outline__start,.v-field--variant-outlined .v-field__outline__notch:before,.v-field--variant-outlined .v-field__outline__notch:after,.v-field--variant-outlined .v-field__outline__end{border:0 solid currentColor;opacity:var(--v-field-border-opacity);transition:opacity .25s cubic-bezier(.4,0,.2,1)}.v-field--variant-outlined .v-field__outline__start{flex:0 0 12px;border-top-width:var(--v-field-border-width);border-bottom-width:var(--v-field-border-width);border-inline-start-width:var(--v-field-border-width);border-start-start-radius:inherit;border-start-end-radius:0;border-end-end-radius:0;border-end-start-radius:inherit}.v-field--rounded.v-field--variant-outlined .v-field__outline__start,[class^=rounded-].v-field--variant-outlined .v-field__outline__start,[class*=" rounded-"].v-field--variant-outlined .v-field__outline__start{flex-basis:calc(var(--v-input-control-height) / 2 + 2px)}.v-field--variant-outlined .v-field__outline__notch{flex:none;position:relative;max-width:calc(100% - 12px)}.v-field--variant-outlined .v-field__outline__notch:before,.v-field--variant-outlined .v-field__outline__notch:after{opacity:var(--v-field-border-opacity);transition:opacity .25s cubic-bezier(.4,0,.2,1);content:"";position:absolute;top:0;left:0;width:100%;height:100%}.v-field--variant-outlined .v-field__outline__notch:before{border-width:var(--v-field-border-width) 0 0}.v-field--variant-outlined .v-field__outline__notch:after{bottom:0;border-width:0 0 var(--v-field-border-width)}.v-field--active.v-field--variant-outlined .v-field__outline__notch:before{opacity:0}.v-field--variant-outlined .v-field__outline__end{flex:1;border-top-width:var(--v-field-border-width);border-bottom-width:var(--v-field-border-width);border-inline-end-width:var(--v-field-border-width);border-start-start-radius:0;border-start-end-radius:inherit;border-end-end-radius:inherit;border-end-start-radius:0}.v-field__loader{top:calc(100% - 2px);left:0;position:absolute;right:0;width:100%;border-top-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:inherit;border-bottom-right-radius:inherit;overflow:hidden}.v-field--variant-outlined .v-field__loader{top:calc(100% - 3px)}.v-field__overlay{border-radius:inherit;pointer-events:none;position:absolute;top:0;left:0;width:100%;height:100%}.v-field--variant-filled .v-field__overlay{background-color:currentColor;opacity:.04;transition:opacity .25s cubic-bezier(.4,0,.2,1)}.v-field--variant-filled.v-field--has-background .v-field__overlay{opacity:0}@media (hover: hover){.v-field--variant-filled:hover .v-field__overlay{opacity:calc((.04 + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}}.v-field--variant-filled.v-field--focused .v-field__overlay{opacity:calc((.04 + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}.v-field--variant-solo-filled .v-field__overlay{background-color:currentColor;opacity:.04;transition:opacity .25s cubic-bezier(.4,0,.2,1)}@media (hover: hover){.v-field--variant-solo-filled:hover .v-field__overlay{opacity:calc((.04 + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}}.v-field--variant-solo-filled.v-field--focused .v-field__overlay{opacity:calc((.04 + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}.v-field--variant-solo-inverted .v-field__overlay{transition:opacity .25s cubic-bezier(.4,0,.2,1)}.v-field--variant-solo-inverted.v-field--has-background .v-field__overlay{opacity:0}@media (hover: hover){.v-field--variant-solo-inverted:hover .v-field__overlay{opacity:calc((.04 + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}}.v-field--variant-solo-inverted.v-field--focused .v-field__overlay{background-color:rgb(var(--v-theme-surface-variant));opacity:1}.v-field--reverse .v-field__field,.v-field--reverse .v-field__input{flex-direction:row-reverse}.v-field--reverse .v-field__input,.v-field--reverse input{text-align:end}.v-input--disabled .v-field--variant-filled .v-field__outline:before,.v-input--disabled .v-field--variant-underlined .v-field__outline:before{border-image:repeating-linear-gradient(to right,rgba(var(--v-theme-on-surface),var(--v-disabled-opacity)) 0px,rgba(var(--v-theme-on-surface),var(--v-disabled-opacity)) 2px,transparent 2px,transparent 4px) 1 repeat}.v-field--loading .v-field__outline:after,.v-field--loading .v-field__outline:before{opacity:0}.v-progress-linear{background:transparent;overflow:hidden;position:relative;transition:.2s cubic-bezier(.4,0,.2,1);width:100%}.v-progress-linear__background{background:currentColor;bottom:0;left:0;opacity:var(--v-border-opacity);position:absolute;top:0;transition-property:width,left,right;transition:inherit}.v-progress-linear__content{align-items:center;display:flex;height:100%;justify-content:center;left:0;pointer-events:none;position:absolute;top:0;width:100%}.v-progress-linear__determinate,.v-progress-linear__indeterminate{background:currentColor}.v-progress-linear__determinate{height:inherit;left:0;position:absolute;transition:inherit;transition-property:width,left,right}.v-progress-linear__indeterminate .long,.v-progress-linear__indeterminate .short{animation-play-state:paused;animation-duration:2.2s;animation-iteration-count:infinite;bottom:0;height:inherit;left:0;position:absolute;right:auto;top:0;width:auto;will-change:left,right}.v-progress-linear__indeterminate .long{animation-name:indeterminate-ltr}.v-progress-linear__indeterminate .short{animation-name:indeterminate-short-ltr}.v-progress-linear__stream{animation:stream .25s infinite linear;animation-play-state:paused;bottom:0;left:auto;opacity:.3;pointer-events:none;position:absolute;transition:inherit;transition-property:width,left,right}.v-progress-linear--reverse .v-progress-linear__background,.v-progress-linear--reverse .v-progress-linear__determinate,.v-progress-linear--reverse .v-progress-linear__content,.v-progress-linear--reverse .v-progress-linear__indeterminate .long,.v-progress-linear--reverse .v-progress-linear__indeterminate .short{left:auto;right:0}.v-progress-linear--reverse .v-progress-linear__indeterminate .long{animation-name:indeterminate-rtl}.v-progress-linear--reverse .v-progress-linear__indeterminate .short{animation-name:indeterminate-short-rtl}.v-progress-linear--reverse .v-progress-linear__stream{right:auto}.v-progress-linear--absolute,.v-progress-linear--fixed{left:0;z-index:1}.v-progress-linear--absolute{position:absolute}.v-progress-linear--fixed{position:fixed}.v-progress-linear--rounded{border-radius:9999px}.v-progress-linear--rounded.v-progress-linear--rounded-bar .v-progress-linear__determinate,.v-progress-linear--rounded.v-progress-linear--rounded-bar .v-progress-linear__indeterminate{border-radius:inherit}.v-progress-linear--striped .v-progress-linear__determinate{animation:progress-linear-stripes 1s infinite linear;background-image:linear-gradient(135deg,hsla(0,0%,100%,.25) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,.25) 0,hsla(0,0%,100%,.25) 75%,transparent 0,transparent);background-repeat:repeat;background-size:var(--v-progress-linear-height)}.v-progress-linear--active .v-progress-linear__indeterminate .long,.v-progress-linear--active .v-progress-linear__indeterminate .short,.v-progress-linear--active .v-progress-linear__stream{animation-play-state:running}.v-progress-linear--rounded-bar .v-progress-linear__determinate,.v-progress-linear--rounded-bar .v-progress-linear__indeterminate,.v-progress-linear--rounded-bar .v-progress-linear__stream+.v-progress-linear__background{border-radius:9999px}.v-progress-linear--rounded-bar .v-progress-linear__determinate{border-start-start-radius:0;border-end-start-radius:0}@keyframes indeterminate-ltr{0%{left:-90%;right:100%}60%{left:-90%;right:100%}to{left:100%;right:-35%}}@keyframes indeterminate-rtl{0%{left:100%;right:-90%}60%{left:100%;right:-90%}to{left:-35%;right:100%}}@keyframes indeterminate-short-ltr{0%{left:-200%;right:100%}60%{left:107%;right:-8%}to{left:107%;right:-8%}}@keyframes indeterminate-short-rtl{0%{left:100%;right:-200%}60%{left:-8%;right:107%}to{left:-8%;right:107%}}@keyframes stream{to{transform:translate(var(--v-progress-linear-stream-to))}}@keyframes progress-linear-stripes{0%{background-position-x:var(--v-progress-linear-height)}}.v-virtual-scroll{display:block;flex:1 1 auto;max-width:100%;overflow:auto;position:relative}.v-virtual-scroll__container{display:block}.v-container{width:100%;padding:16px;margin-right:auto;margin-left:auto}@media (min-width: 960px){.v-container{max-width:900px}}@media (min-width: 1280px){.v-container{max-width:1200px}}@media (min-width: 1920px){.v-container{max-width:1800px}}@media (min-width: 2560px){.v-container{max-width:2400px}}.v-container--fluid{max-width:100%}.v-container.fill-height{align-items:center;display:flex;flex-wrap:wrap}.v-row{display:flex;flex-wrap:wrap;flex:1 1 auto;margin:-12px}.v-row+.v-row{margin-top:12px}.v-row+.v-row--dense{margin-top:4px}.v-row--dense{margin:-4px}.v-row--dense>.v-col,.v-row--dense>[class*=v-col-]{padding:4px}.v-row.v-row--no-gutters{margin:0}.v-row.v-row--no-gutters>.v-col,.v-row.v-row--no-gutters>[class*=v-col-]{padding:0}.v-spacer{flex-grow:1}.v-col-xxl,.v-col-xxl-auto,.v-col-xxl-12,.v-col-xxl-11,.v-col-xxl-10,.v-col-xxl-9,.v-col-xxl-8,.v-col-xxl-7,.v-col-xxl-6,.v-col-xxl-5,.v-col-xxl-4,.v-col-xxl-3,.v-col-xxl-2,.v-col-xxl-1,.v-col-xl,.v-col-xl-auto,.v-col-xl-12,.v-col-xl-11,.v-col-xl-10,.v-col-xl-9,.v-col-xl-8,.v-col-xl-7,.v-col-xl-6,.v-col-xl-5,.v-col-xl-4,.v-col-xl-3,.v-col-xl-2,.v-col-xl-1,.v-col-lg,.v-col-lg-auto,.v-col-lg-12,.v-col-lg-11,.v-col-lg-10,.v-col-lg-9,.v-col-lg-8,.v-col-lg-7,.v-col-lg-6,.v-col-lg-5,.v-col-lg-4,.v-col-lg-3,.v-col-lg-2,.v-col-lg-1,.v-col-md,.v-col-md-auto,.v-col-md-12,.v-col-md-11,.v-col-md-10,.v-col-md-9,.v-col-md-8,.v-col-md-7,.v-col-md-6,.v-col-md-5,.v-col-md-4,.v-col-md-3,.v-col-md-2,.v-col-md-1,.v-col-sm,.v-col-sm-auto,.v-col-sm-12,.v-col-sm-11,.v-col-sm-10,.v-col-sm-9,.v-col-sm-8,.v-col-sm-7,.v-col-sm-6,.v-col-sm-5,.v-col-sm-4,.v-col-sm-3,.v-col-sm-2,.v-col-sm-1,.v-col,.v-col-auto,.v-col-12,.v-col-11,.v-col-10,.v-col-9,.v-col-8,.v-col-7,.v-col-6,.v-col-5,.v-col-4,.v-col-3,.v-col-2,.v-col-1{width:100%;padding:12px}.v-col{flex-basis:0;flex-grow:1;max-width:100%}.v-col-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-3{flex:0 0 25%;max-width:25%}.v-col-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-6{flex:0 0 50%;max-width:50%}.v-col-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-9{flex:0 0 75%;max-width:75%}.v-col-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-12{flex:0 0 100%;max-width:100%}.offset-1{margin-inline-start:8.3333333333%}.offset-2{margin-inline-start:16.6666666667%}.offset-3{margin-inline-start:25%}.offset-4{margin-inline-start:33.3333333333%}.offset-5{margin-inline-start:41.6666666667%}.offset-6{margin-inline-start:50%}.offset-7{margin-inline-start:58.3333333333%}.offset-8{margin-inline-start:66.6666666667%}.offset-9{margin-inline-start:75%}.offset-10{margin-inline-start:83.3333333333%}.offset-11{margin-inline-start:91.6666666667%}@media (min-width: 600px){.v-col-sm{flex-basis:0;flex-grow:1;max-width:100%}.v-col-sm-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-sm-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-sm-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-sm-3{flex:0 0 25%;max-width:25%}.v-col-sm-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-sm-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-sm-6{flex:0 0 50%;max-width:50%}.v-col-sm-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-sm-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-sm-9{flex:0 0 75%;max-width:75%}.v-col-sm-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-sm-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-sm-12{flex:0 0 100%;max-width:100%}.offset-sm-0{margin-inline-start:0}.offset-sm-1{margin-inline-start:8.3333333333%}.offset-sm-2{margin-inline-start:16.6666666667%}.offset-sm-3{margin-inline-start:25%}.offset-sm-4{margin-inline-start:33.3333333333%}.offset-sm-5{margin-inline-start:41.6666666667%}.offset-sm-6{margin-inline-start:50%}.offset-sm-7{margin-inline-start:58.3333333333%}.offset-sm-8{margin-inline-start:66.6666666667%}.offset-sm-9{margin-inline-start:75%}.offset-sm-10{margin-inline-start:83.3333333333%}.offset-sm-11{margin-inline-start:91.6666666667%}}@media (min-width: 960px){.v-col-md{flex-basis:0;flex-grow:1;max-width:100%}.v-col-md-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-md-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-md-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-md-3{flex:0 0 25%;max-width:25%}.v-col-md-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-md-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-md-6{flex:0 0 50%;max-width:50%}.v-col-md-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-md-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-md-9{flex:0 0 75%;max-width:75%}.v-col-md-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-md-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-md-12{flex:0 0 100%;max-width:100%}.offset-md-0{margin-inline-start:0}.offset-md-1{margin-inline-start:8.3333333333%}.offset-md-2{margin-inline-start:16.6666666667%}.offset-md-3{margin-inline-start:25%}.offset-md-4{margin-inline-start:33.3333333333%}.offset-md-5{margin-inline-start:41.6666666667%}.offset-md-6{margin-inline-start:50%}.offset-md-7{margin-inline-start:58.3333333333%}.offset-md-8{margin-inline-start:66.6666666667%}.offset-md-9{margin-inline-start:75%}.offset-md-10{margin-inline-start:83.3333333333%}.offset-md-11{margin-inline-start:91.6666666667%}}@media (min-width: 1280px){.v-col-lg{flex-basis:0;flex-grow:1;max-width:100%}.v-col-lg-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-lg-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-lg-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-lg-3{flex:0 0 25%;max-width:25%}.v-col-lg-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-lg-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-lg-6{flex:0 0 50%;max-width:50%}.v-col-lg-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-lg-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-lg-9{flex:0 0 75%;max-width:75%}.v-col-lg-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-lg-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-lg-12{flex:0 0 100%;max-width:100%}.offset-lg-0{margin-inline-start:0}.offset-lg-1{margin-inline-start:8.3333333333%}.offset-lg-2{margin-inline-start:16.6666666667%}.offset-lg-3{margin-inline-start:25%}.offset-lg-4{margin-inline-start:33.3333333333%}.offset-lg-5{margin-inline-start:41.6666666667%}.offset-lg-6{margin-inline-start:50%}.offset-lg-7{margin-inline-start:58.3333333333%}.offset-lg-8{margin-inline-start:66.6666666667%}.offset-lg-9{margin-inline-start:75%}.offset-lg-10{margin-inline-start:83.3333333333%}.offset-lg-11{margin-inline-start:91.6666666667%}}@media (min-width: 1920px){.v-col-xl{flex-basis:0;flex-grow:1;max-width:100%}.v-col-xl-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-xl-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-xl-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-xl-3{flex:0 0 25%;max-width:25%}.v-col-xl-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-xl-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-xl-6{flex:0 0 50%;max-width:50%}.v-col-xl-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-xl-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-xl-9{flex:0 0 75%;max-width:75%}.v-col-xl-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-xl-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-xl-12{flex:0 0 100%;max-width:100%}.offset-xl-0{margin-inline-start:0}.offset-xl-1{margin-inline-start:8.3333333333%}.offset-xl-2{margin-inline-start:16.6666666667%}.offset-xl-3{margin-inline-start:25%}.offset-xl-4{margin-inline-start:33.3333333333%}.offset-xl-5{margin-inline-start:41.6666666667%}.offset-xl-6{margin-inline-start:50%}.offset-xl-7{margin-inline-start:58.3333333333%}.offset-xl-8{margin-inline-start:66.6666666667%}.offset-xl-9{margin-inline-start:75%}.offset-xl-10{margin-inline-start:83.3333333333%}.offset-xl-11{margin-inline-start:91.6666666667%}}@media (min-width: 2560px){.v-col-xxl{flex-basis:0;flex-grow:1;max-width:100%}.v-col-xxl-auto{flex:0 0 auto;width:auto;max-width:100%}.v-col-xxl-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.v-col-xxl-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}.v-col-xxl-3{flex:0 0 25%;max-width:25%}.v-col-xxl-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.v-col-xxl-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}.v-col-xxl-6{flex:0 0 50%;max-width:50%}.v-col-xxl-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.v-col-xxl-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}.v-col-xxl-9{flex:0 0 75%;max-width:75%}.v-col-xxl-10{flex:0 0 83.3333333333%;max-width:83.3333333333%}.v-col-xxl-11{flex:0 0 91.6666666667%;max-width:91.6666666667%}.v-col-xxl-12{flex:0 0 100%;max-width:100%}.offset-xxl-0{margin-inline-start:0}.offset-xxl-1{margin-inline-start:8.3333333333%}.offset-xxl-2{margin-inline-start:16.6666666667%}.offset-xxl-3{margin-inline-start:25%}.offset-xxl-4{margin-inline-start:33.3333333333%}.offset-xxl-5{margin-inline-start:41.6666666667%}.offset-xxl-6{margin-inline-start:50%}.offset-xxl-7{margin-inline-start:58.3333333333%}.offset-xxl-8{margin-inline-start:66.6666666667%}.offset-xxl-9{margin-inline-start:75%}.offset-xxl-10{margin-inline-start:83.3333333333%}.offset-xxl-11{margin-inline-start:91.6666666667%}}.v-card-title[data-v-209409d1]{font-size:18px;color:#000}.v-btn[data-v-209409d1]{border-radius:10px}.v-card[data-v-209409d1]{border-radius:20px;box-shadow:0 4px 12px #0000001a}.v-list-item[data-v-209409d1]{border-bottom:1px solid rgba(0,0,0,.1)}.v-btn{align-items:center;border-radius:4px;display:inline-grid;grid-template-areas:"prepend content append";grid-template-columns:max-content auto max-content;font-weight:500;justify-content:center;letter-spacing:.0892857143em;line-height:normal;max-width:100%;outline:none;position:relative;text-decoration:none;text-indent:.0892857143em;text-transform:uppercase;transition-property:box-shadow,transform,opacity,background;transition-duration:.28s;transition-timing-function:cubic-bezier(.4,0,.2,1);-webkit-user-select:none;user-select:none;vertical-align:middle;flex-shrink:0;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0}.v-btn--size-x-small{--v-btn-size: .625rem;--v-btn-height: 20px;font-size:var(--v-btn-size);min-width:36px;padding:0 8px}.v-btn--size-small{--v-btn-size: .75rem;--v-btn-height: 28px;font-size:var(--v-btn-size);min-width:50px;padding:0 12px}.v-btn--size-default{--v-btn-size: .875rem;--v-btn-height: 36px;font-size:var(--v-btn-size);min-width:64px;padding:0 16px}.v-btn--size-large{--v-btn-size: 1rem;--v-btn-height: 44px;font-size:var(--v-btn-size);min-width:78px;padding:0 20px}.v-btn--size-x-large{--v-btn-size: 1.125rem;--v-btn-height: 52px;font-size:var(--v-btn-size);min-width:92px;padding:0 24px}.v-btn.v-btn--density-default{height:calc(var(--v-btn-height) + 0px)}.v-btn.v-btn--density-comfortable{height:calc(var(--v-btn-height) + -8px)}.v-btn.v-btn--density-compact{height:calc(var(--v-btn-height) + -12px)}.v-btn--border{border-width:thin;box-shadow:none}.v-btn--absolute{position:absolute}.v-btn--fixed{position:fixed}.v-btn:hover>.v-btn__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-btn:focus-visible>.v-btn__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-btn:focus>.v-btn__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-btn--active>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]>.v-btn__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-btn--active:hover>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]:hover>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-btn--active:focus-visible>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-btn--active:focus>.v-btn__overlay,.v-btn[aria-haspopup=menu][aria-expanded=true]:focus>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-btn--variant-plain,.v-btn--variant-outlined,.v-btn--variant-text,.v-btn--variant-tonal{background:transparent;color:inherit}.v-btn--variant-plain{opacity:.62}.v-btn--variant-plain:focus,.v-btn--variant-plain:hover{opacity:1}.v-btn--variant-plain .v-btn__overlay{display:none}.v-btn--variant-elevated,.v-btn--variant-flat{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-btn--variant-elevated{box-shadow:0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--variant-outlined{border:thin solid currentColor}.v-btn--variant-text .v-btn__overlay{background:currentColor}.v-btn--variant-tonal .v-btn__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}@supports selector(:focus-visible){.v-btn:after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;border:2px solid currentColor;border-radius:inherit;opacity:0;transition:opacity .2s ease-in-out}.v-btn:focus-visible:after{opacity:calc(.25 * var(--v-theme-overlay-multiplier))}}.v-btn--icon{border-radius:50%;min-width:0;padding:0}.v-btn--icon.v-btn--size-default{--v-btn-size: 1rem}.v-btn--icon.v-btn--density-default{width:calc(var(--v-btn-height) + 12px);height:calc(var(--v-btn-height) + 12px)}.v-btn--icon.v-btn--density-comfortable{width:calc(var(--v-btn-height) + 0px);height:calc(var(--v-btn-height) + 0px)}.v-btn--icon.v-btn--density-compact{width:calc(var(--v-btn-height) + -8px);height:calc(var(--v-btn-height) + -8px)}.v-btn--elevated:hover,.v-btn--elevated:focus{box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--elevated:active{box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-btn--flat{box-shadow:none}.v-btn--block{display:flex;flex:1 0 auto;min-width:100%}.v-btn--disabled{pointer-events:none;opacity:.26}.v-btn--disabled:hover{opacity:.26}.v-btn--disabled.v-btn--variant-elevated,.v-btn--disabled.v-btn--variant-flat{box-shadow:none;opacity:1;color:rgba(var(--v-theme-on-surface),.26);background:rgb(var(--v-theme-surface))}.v-btn--disabled.v-btn--variant-elevated .v-btn__overlay,.v-btn--disabled.v-btn--variant-flat .v-btn__overlay{opacity:.4615384615}.v-btn--loading{pointer-events:none}.v-btn--loading .v-btn__content,.v-btn--loading .v-btn__prepend,.v-btn--loading .v-btn__append{opacity:0}.v-btn--stacked{grid-template-areas:"prepend" "content" "append";grid-template-columns:auto;grid-template-rows:max-content max-content max-content;justify-items:center;align-content:center}.v-btn--stacked .v-btn__content{flex-direction:column;line-height:1.25}.v-btn--stacked .v-btn__prepend,.v-btn--stacked .v-btn__append,.v-btn--stacked .v-btn__content>.v-icon--start,.v-btn--stacked .v-btn__content>.v-icon--end{margin-inline:0}.v-btn--stacked .v-btn__prepend,.v-btn--stacked .v-btn__content>.v-icon--start{margin-bottom:4px}.v-btn--stacked .v-btn__append,.v-btn--stacked .v-btn__content>.v-icon--end{margin-top:4px}.v-btn--stacked.v-btn--size-x-small{--v-btn-size: .625rem;--v-btn-height: 56px;font-size:var(--v-btn-size);min-width:56px;padding:0 12px}.v-btn--stacked.v-btn--size-small{--v-btn-size: .75rem;--v-btn-height: 64px;font-size:var(--v-btn-size);min-width:64px;padding:0 14px}.v-btn--stacked.v-btn--size-default{--v-btn-size: .875rem;--v-btn-height: 72px;font-size:var(--v-btn-size);min-width:72px;padding:0 16px}.v-btn--stacked.v-btn--size-large{--v-btn-size: 1rem;--v-btn-height: 80px;font-size:var(--v-btn-size);min-width:80px;padding:0 18px}.v-btn--stacked.v-btn--size-x-large{--v-btn-size: 1.125rem;--v-btn-height: 88px;font-size:var(--v-btn-size);min-width:88px;padding:0 20px}.v-btn--stacked.v-btn--density-default{height:calc(var(--v-btn-height) + 0px)}.v-btn--stacked.v-btn--density-comfortable{height:calc(var(--v-btn-height) + -16px)}.v-btn--stacked.v-btn--density-compact{height:calc(var(--v-btn-height) + -24px)}.v-btn--slim{padding:0 8px}.v-btn--rounded{border-radius:24px}.v-btn--rounded.v-btn--icon{border-radius:4px}.v-btn .v-icon{--v-icon-size-multiplier: .8571428571}.v-btn--icon .v-icon{--v-icon-size-multiplier: 1}.v-btn--stacked .v-icon{--v-icon-size-multiplier: 1.1428571429}.v-btn__loader{align-items:center;display:flex;height:100%;justify-content:center;left:0;position:absolute;top:0;width:100%}.v-btn__content,.v-btn__prepend,.v-btn__append{align-items:center;display:flex;transition:transform,opacity .2s cubic-bezier(.4,0,.2,1)}.v-btn__prepend{grid-area:prepend;margin-inline:calc(var(--v-btn-height) / -9) calc(var(--v-btn-height) / 4.5)}.v-btn__append{grid-area:append;margin-inline:calc(var(--v-btn-height) / 4.5) calc(var(--v-btn-height) / -9)}.v-btn__content{grid-area:content;justify-content:center;white-space:nowrap}.v-btn__content>.v-icon--start{margin-inline:calc(var(--v-btn-height) / -9) calc(var(--v-btn-height) / 4.5)}.v-btn__content>.v-icon--end{margin-inline:calc(var(--v-btn-height) / 4.5) calc(var(--v-btn-height) / -9)}.v-btn--stacked .v-btn__content{white-space:normal}.v-btn__overlay{background-color:currentColor;border-radius:inherit;opacity:0;transition:opacity .2s ease-in-out}.v-btn__overlay,.v-btn__underlay{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}.v-card-actions .v-btn~.v-btn:not(.v-btn-toggle .v-btn){margin-inline-start:.5rem}.v-pagination .v-btn{border-radius:4px}.v-pagination .v-btn--rounded{border-radius:50%}.v-btn__overlay{transition:none}.v-pagination__item--is-active .v-btn__overlay{opacity:var(--v-border-opacity)}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled)>.v-btn__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):hover>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):focus-visible>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):focus>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-btn-group{display:inline-flex;flex-wrap:nowrap;max-width:100%;min-width:0;overflow:hidden;vertical-align:middle;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:4px;background:transparent;color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-btn-group--border{border-width:thin;box-shadow:none}.v-btn-group--density-default.v-btn-group{height:48px}.v-btn-group--density-comfortable.v-btn-group{height:40px}.v-btn-group--density-compact.v-btn-group{height:36px}.v-btn-group .v-btn{border-radius:0;border-color:inherit}.v-btn-group .v-btn:not(:last-child){border-inline-end:none}.v-btn-group .v-btn:not(:first-child){border-inline-start:none}.v-btn-group .v-btn:first-child{border-start-start-radius:inherit;border-end-start-radius:inherit}.v-btn-group .v-btn:last-child{border-start-end-radius:inherit;border-end-end-radius:inherit}.v-btn-group--divided .v-btn:not(:last-child){border-inline-end-width:thin;border-inline-end-style:solid;border-inline-end-color:rgba(var(--v-border-color),var(--v-border-opacity))}.v-btn-group--tile{border-radius:0}.v-progress-circular{align-items:center;display:inline-flex;justify-content:center;position:relative;vertical-align:middle}.v-progress-circular>svg{width:100%;height:100%;margin:auto;position:absolute;top:0;bottom:0;left:0;right:0;z-index:0}.v-progress-circular__content{align-items:center;display:flex;justify-content:center}.v-progress-circular__underlay{color:rgba(var(--v-border-color),var(--v-border-opacity));stroke:currentColor;z-index:1}.v-progress-circular__overlay{stroke:currentColor;transition:all .2s ease-in-out,stroke-width 0s;z-index:2}.v-progress-circular--size-x-small{height:16px;width:16px}.v-progress-circular--size-small{height:24px;width:24px}.v-progress-circular--size-default{height:32px;width:32px}.v-progress-circular--size-large{height:48px;width:48px}.v-progress-circular--size-x-large{height:64px;width:64px}.v-progress-circular--indeterminate>svg{animation:progress-circular-rotate 1.4s linear infinite;transform-origin:center center;transition:all .2s ease-in-out}.v-progress-circular--indeterminate .v-progress-circular__overlay{animation:progress-circular-dash 1.4s ease-in-out infinite,progress-circular-rotate 1.4s linear infinite;stroke-dasharray:25,200;stroke-dashoffset:0;stroke-linecap:round;transform-origin:center center;transform:rotate(-90deg)}.v-progress-circular--disable-shrink>svg{animation-duration:.7s}.v-progress-circular--disable-shrink .v-progress-circular__overlay{animation:none}.v-progress-circular--indeterminate:not(.v-progress-circular--visible)>svg,.v-progress-circular--indeterminate:not(.v-progress-circular--visible) .v-progress-circular__overlay{animation-play-state:paused!important}@keyframes progress-circular-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0px}50%{stroke-dasharray:100,200;stroke-dashoffset:-15px}to{stroke-dasharray:100,200;stroke-dashoffset:-124px}}@keyframes progress-circular-rotate{to{transform:rotate(270deg)}}.v-card{display:block;overflow:hidden;overflow-wrap:break-word;position:relative;padding:0;text-decoration:none;transition-duration:.28s;transition-property:box-shadow,opacity,background;transition-timing-function:cubic-bezier(.4,0,.2,1);z-index:0;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;border-radius:4px}.v-card--border{border-width:thin;box-shadow:none}.v-card--absolute{position:absolute}.v-card--fixed{position:fixed}.v-card:hover>.v-card__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-card:focus-visible>.v-card__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-card:focus>.v-card__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-card--active>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]>.v-card__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-card--active:hover>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:hover>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-card--active:focus-visible>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-card--active:focus>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:focus>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-card--variant-plain,.v-card--variant-outlined,.v-card--variant-text,.v-card--variant-tonal{background:transparent;color:inherit}.v-card--variant-plain{opacity:.62}.v-card--variant-plain:focus,.v-card--variant-plain:hover{opacity:1}.v-card--variant-plain .v-card__overlay{display:none}.v-card--variant-elevated,.v-card--variant-flat{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-card--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--variant-outlined{border:thin solid currentColor}.v-card--variant-text .v-card__overlay{background:currentColor}.v-card--variant-tonal .v-card__underlay{background:currentColor;opacity:var(--v-activated-opacity);border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}.v-card--disabled{pointer-events:none;-webkit-user-select:none;user-select:none}.v-card--disabled>:not(.v-card__loader){opacity:.6}.v-card--flat{box-shadow:none}.v-card--hover{cursor:pointer}.v-card--hover:before,.v-card--hover:after{border-radius:inherit;bottom:0;content:"";display:block;left:0;pointer-events:none;position:absolute;right:0;top:0;transition:inherit}.v-card--hover:before{opacity:1;z-index:-1;box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--hover:after{z-index:1;opacity:0;box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--hover:hover:after{opacity:1}.v-card--hover:hover:before{opacity:0}.v-card--hover:hover{box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-card--link{cursor:pointer}.v-card-actions{align-items:center;display:flex;flex:none;min-height:52px;padding:.5rem}.v-card-item{align-items:center;display:grid;flex:none;grid-template-areas:"prepend content append";grid-template-columns:max-content auto max-content;padding:.625rem 1rem}.v-card-item+.v-card-text{padding-top:0}.v-card-item__prepend,.v-card-item__append{align-items:center;display:flex}.v-card-item__prepend{grid-area:prepend;padding-inline-end:.5rem}.v-card-item__append{grid-area:append;padding-inline-start:.5rem}.v-card-item__content{align-self:center;grid-area:content;overflow:hidden}.v-card-title{display:block;flex:none;font-size:1.25rem;font-weight:500;-webkit-hyphens:auto;hyphens:auto;letter-spacing:.0125em;min-width:0;overflow-wrap:normal;overflow:hidden;padding:.5rem 1rem;text-overflow:ellipsis;text-transform:none;white-space:nowrap;word-break:normal;word-wrap:break-word}.v-card .v-card-title{line-height:2rem}.v-card--density-comfortable .v-card-title{line-height:1.75rem}.v-card--density-compact .v-card-title{line-height:1.55rem}.v-card-item .v-card-title{padding:0}.v-card-title+.v-card-text,.v-card-title+.v-card-actions{padding-top:0}.v-card-subtitle{display:block;flex:none;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;opacity:var(--v-medium-emphasis-opacity);overflow:hidden;padding:0 1rem;text-overflow:ellipsis;text-transform:none;white-space:nowrap}.v-card .v-card-subtitle{line-height:1.25rem}.v-card--density-comfortable .v-card-subtitle{line-height:1.125rem}.v-card--density-compact .v-card-subtitle{line-height:1rem}.v-card-item .v-card-subtitle{padding:0 0 .25rem}.v-card-text{flex:1 1 auto;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;padding:1rem;text-transform:none}.v-card .v-card-text{line-height:1.25rem}.v-card--density-comfortable .v-card-text{line-height:1.2rem}.v-card--density-compact .v-card-text{line-height:1.15rem}.v-card__image{display:flex;height:100%;flex:1 1 auto;left:0;overflow:hidden;position:absolute;top:0;width:100%;z-index:-1}.v-card__content{border-radius:inherit;overflow:hidden;position:relative}.v-card__loader{bottom:auto;top:0;left:0;position:absolute;right:0;width:100%;z-index:1}.v-card__overlay{background-color:currentColor;border-radius:inherit;position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;opacity:0;transition:opacity .2s ease-in-out}.flag[data-v-d1ce1a9a]{width:28px;height:18px;cursor:pointer}.flag-wrapper[data-v-d1ce1a9a]{display:flex;align-items:center;cursor:pointer}.arrow[data-v-d1ce1a9a]{margin-left:4px;transition:transform .3s ease}.arrow[data-v-d1ce1a9a]:active{transform:rotate(90deg)}.app-logo[data-v-f9d3029e]{height:40px;max-width:150px}.v-app-bar{display:flex}.v-app-bar.v-toolbar{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-app-bar.v-toolbar:not(.v-toolbar--flat){box-shadow:0 2px 4px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 4px 5px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 10px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-app-bar:not(.v-toolbar--absolute){padding-inline-end:var(--v-scrollbar-offset)}.v-toolbar{align-items:flex-start;display:flex;flex:none;flex-direction:column;justify-content:space-between;max-width:100%;overflow:hidden;position:relative;transition:.2s cubic-bezier(.4,0,.2,1);transition-property:height,width,transform,max-width,left,right,top,bottom,box-shadow;width:100%;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgb(var(--v-theme-surface-light));color:rgba(var(--v-theme-on-surface-light),var(--v-high-emphasis-opacity))}.v-toolbar--border{border-width:thin;box-shadow:none}.v-toolbar--absolute{position:absolute}.v-toolbar--collapse{max-width:112px;overflow:hidden;border-end-end-radius:24px}.v-toolbar--collapse .v-toolbar-title{display:none}.v-toolbar--flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-toolbar--floating{display:inline-flex}.v-toolbar--rounded{border-radius:4px}.v-toolbar__content,.v-toolbar__extension{align-items:center;display:flex;flex:0 0 auto;position:relative;transition:inherit;width:100%}.v-toolbar__content>.v-btn:first-child{margin-inline-start:10px}.v-toolbar__content>.v-btn:last-child{margin-inline-end:10px}.v-toolbar__content>.v-toolbar-title{margin-inline-start:16px}.v-toolbar--density-prominent .v-toolbar__content{align-items:flex-start}.v-toolbar__image{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;opacity:var(--v-toolbar-image-opacity, 1);transition-property:opacity}.v-toolbar__prepend,.v-toolbar__append{align-items:center;align-self:stretch;display:flex}.v-toolbar__prepend{margin-inline:10px auto}.v-toolbar__append{margin-inline:auto 10px}.v-toolbar-title{flex:1 1;min-width:0;font-size:1.25rem;font-weight:400;letter-spacing:0;line-height:1.75rem;text-transform:none}.v-toolbar--density-prominent .v-toolbar-title{align-self:flex-end;padding-bottom:6px;font-size:1.5rem;font-weight:400;letter-spacing:0;line-height:2.25rem;text-transform:none}.v-toolbar-title__placeholder{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.v-toolbar-items{display:flex;height:inherit;align-self:stretch}.v-toolbar-items>.v-btn{border-radius:0}.v-navigation-drawer{-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;height:100%;max-width:100%;pointer-events:auto;transition-duration:.2s;transition-property:box-shadow,transform,visibility,width,height,left,right,top,bottom;transition-timing-function:cubic-bezier(.4,0,.2,1);position:absolute;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-navigation-drawer--border{border-width:thin;box-shadow:none}.v-navigation-drawer--rounded{border-radius:4px}.v-navigation-drawer--top{top:0;border-bottom-width:thin}.v-navigation-drawer--bottom{left:0;border-top-width:thin}.v-navigation-drawer--left{top:0;left:0;right:auto;border-right-width:thin}.v-navigation-drawer--right{top:0;left:auto;right:0;border-left-width:thin}.v-navigation-drawer--floating{border:none}.v-navigation-drawer--temporary{box-shadow:0 8px 10px -5px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 16px 24px 2px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 6px 30px 5px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12))}.v-navigation-drawer--sticky{height:auto;transition:box-shadow,transform,visibility,width,height,left,right}.v-navigation-drawer .v-list{overflow:hidden}.v-navigation-drawer__content{flex:0 1 auto;height:100%;max-width:100%;overflow-x:hidden;overflow-y:auto}.v-navigation-drawer__img{height:100%;left:0;position:absolute;top:0;width:100%;z-index:-1}.v-navigation-drawer__img img{height:inherit;object-fit:cover;width:inherit}.v-navigation-drawer__scrim{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:.2;transition:opacity .2s cubic-bezier(.4,0,.2,1);z-index:1}.v-navigation-drawer__prepend,.v-navigation-drawer__append{flex:none;overflow:hidden}.footer-link[data-v-5d96d66f]{color:#42b983;font-weight:700;transition:color .3s ease}.footer-link[data-v-5d96d66f]:hover{color:#2c3e50;text-decoration:underline}.fast-site-link[data-v-5d96d66f]{color:#42b983;font-weight:700;transition:color .3s ease}.fast-site-link[data-v-5d96d66f]:hover{color:#2c3e50;text-decoration:underline}.v-footer{align-items:center;display:flex;flex:1 1 auto;padding:8px 16px;position:relative;transition:.2s cubic-bezier(.4,0,.2,1);transition-property:height,width,transform,max-width,left,right,top,bottom;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-footer--border{border-width:thin;box-shadow:none}.v-footer--absolute{position:absolute}.v-footer--fixed{position:fixed}.v-footer--rounded{border-radius:4px}:root,:host{--ol-background-color: white;--ol-accent-background-color: #F5F5F5;--ol-subtle-background-color: rgba(128, 128, 128, .25);--ol-partial-background-color: rgba(255, 255, 255, .75);--ol-foreground-color: #333333;--ol-subtle-foreground-color: #666666;--ol-brand-color: #00AAFF}.ol-box{box-sizing:border-box;border-radius:2px;border:1.5px solid var(--ol-background-color);background-color:var(--ol-partial-background-color)}.ol-mouse-position{top:8px;right:8px;position:absolute}.ol-scale-line{background:var(--ol-partial-background-color);border-radius:4px;bottom:8px;left:8px;padding:2px;position:absolute}.ol-scale-line-inner{border:1px solid var(--ol-subtle-foreground-color);border-top:none;color:var(--ol-foreground-color);font-size:10px;text-align:center;margin:1px;will-change:contents,width;transition:all .25s}.ol-scale-bar{position:absolute;bottom:8px;left:8px}.ol-scale-bar-inner{display:flex}.ol-scale-step-marker{width:1px;height:15px;background-color:var(--ol-foreground-color);float:right;z-index:10}.ol-scale-step-text{position:absolute;bottom:-5px;font-size:10px;z-index:11;color:var(--ol-foreground-color);text-shadow:-1.5px 0 var(--ol-partial-background-color),0 1.5px var(--ol-partial-background-color),1.5px 0 var(--ol-partial-background-color),0 -1.5px var(--ol-partial-background-color)}.ol-scale-text{position:absolute;font-size:12px;text-align:center;bottom:25px;color:var(--ol-foreground-color);text-shadow:-1.5px 0 var(--ol-partial-background-color),0 1.5px var(--ol-partial-background-color),1.5px 0 var(--ol-partial-background-color),0 -1.5px var(--ol-partial-background-color)}.ol-scale-singlebar{position:relative;height:10px;z-index:9;box-sizing:border-box;border:1px solid var(--ol-foreground-color)}.ol-scale-singlebar-even{background-color:var(--ol-subtle-foreground-color)}.ol-scale-singlebar-odd{background-color:var(--ol-background-color)}.ol-unsupported{display:none}.ol-viewport,.ol-unselectable{-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.ol-viewport canvas{all:unset;overflow:hidden}.ol-viewport{touch-action:pan-x pan-y}.ol-selectable{-webkit-touch-callout:default;-webkit-user-select:text;-moz-user-select:text;user-select:text}.ol-grabbing{cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.ol-grab{cursor:move;cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.ol-control{position:absolute;background-color:var(--ol-subtle-background-color);border-radius:4px}.ol-zoom{top:.5em;left:.5em}.ol-rotate{top:.5em;right:.5em;transition:opacity .25s linear,visibility 0s linear}.ol-rotate.ol-hidden{opacity:0;visibility:hidden;transition:opacity .25s linear,visibility 0s linear .25s}.ol-zoom-extent{top:4.643em;left:.5em}.ol-full-screen{right:.5em;top:.5em}.ol-control button{display:block;margin:1px;padding:0;color:var(--ol-subtle-foreground-color);font-weight:700;text-decoration:none;font-size:inherit;text-align:center;height:1.375em;width:1.375em;line-height:.4em;background-color:var(--ol-background-color);border:none;border-radius:2px}.ol-control button::-moz-focus-inner{border:none;padding:0}.ol-zoom-extent button{line-height:1.4em}.ol-compass{display:block;font-weight:400;will-change:transform}.ol-touch .ol-control button{font-size:1.5em}.ol-touch .ol-zoom-extent{top:5.5em}.ol-control button:hover,.ol-control button:focus{text-decoration:none;outline:1px solid var(--ol-subtle-foreground-color);color:var(--ol-foreground-color)}.ol-zoom .ol-zoom-in{border-radius:2px 2px 0 0}.ol-zoom .ol-zoom-out{border-radius:0 0 2px 2px}.ol-attribution{text-align:right;bottom:.5em;right:.5em;max-width:calc(100% - 1.3em);display:flex;flex-flow:row-reverse;align-items:center}.ol-attribution a{color:var(--ol-subtle-foreground-color);text-decoration:none}.ol-attribution ul{margin:0;padding:1px .5em;color:var(--ol-foreground-color);text-shadow:0 0 2px var(--ol-background-color);font-size:12px}.ol-attribution li{display:inline;list-style:none}.ol-attribution li:not(:last-child):after{content:" "}.ol-attribution img{max-height:2em;max-width:inherit;vertical-align:middle}.ol-attribution button{flex-shrink:0}.ol-attribution.ol-collapsed ul{display:none}.ol-attribution:not(.ol-collapsed){background:var(--ol-partial-background-color)}.ol-attribution.ol-uncollapsible{bottom:0;right:0;border-radius:4px 0 0}.ol-attribution.ol-uncollapsible img{margin-top:-.2em;max-height:1.6em}.ol-attribution.ol-uncollapsible button{display:none}.ol-zoomslider{top:4.5em;left:.5em;height:200px}.ol-zoomslider button{position:relative;height:10px}.ol-touch .ol-zoomslider{top:5.5em}.ol-overviewmap{left:.5em;bottom:.5em}.ol-overviewmap.ol-uncollapsible{bottom:0;left:0;border-radius:0 4px 0 0}.ol-overviewmap .ol-overviewmap-map,.ol-overviewmap button{display:block}.ol-overviewmap .ol-overviewmap-map{border:1px solid var(--ol-subtle-foreground-color);height:150px;width:150px}.ol-overviewmap:not(.ol-collapsed) button{bottom:0;left:0;position:absolute}.ol-overviewmap.ol-collapsed .ol-overviewmap-map,.ol-overviewmap.ol-uncollapsible button{display:none}.ol-overviewmap:not(.ol-collapsed){background:var(--ol-subtle-background-color)}.ol-overviewmap-box{border:1.5px dotted var(--ol-subtle-foreground-color)}.ol-overviewmap .ol-overviewmap-box:hover{cursor:move}.nav[data-v-22e77fbc]{display:flex;justify-content:center;align-items:center;text-decoration:none;font-size:13px}.ol-popup[data-v-22e77fbc]{position:absolute;background:#fff;border-radius:8px;padding:8px 12px;min-width:220px;box-shadow:0 3px 14px #0003;pointer-events:auto;transform:translate(-50%);white-space:nowrap;font-size:14px;text-align:center;-webkit-user-select:none;user-select:none;z-index:1000}.ol-popup-arrow[data-v-22e77fbc]{position:absolute;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid white;left:50%;bottom:-10px;transform:translate(-50%);filter:drop-shadow(0 1px 1px rgba(0,0,0,.1));z-index:1001}.popup-close-btn[data-v-22e77fbc]{position:absolute;top:8px;right:10px;background:transparent;border:none;font-size:18px;font-weight:700;cursor:pointer;line-height:1;color:#999;transition:color .2s;z-index:1002}.popup-close-btn[data-v-22e77fbc]:hover{color:#333}.articles-wrapper[data-v-d2a4554c]{display:flex;flex-wrap:wrap;justify-content:space-around}.article-item[data-v-d2a4554c]{width:300px;border-radius:8px}.img[data-v-d2a4554c]{width:100%;height:300px;object-fit:cover;border-radius:4px}.link[data-v-d2a4554c]{cursor:pointer;font-weight:600;text-decoration:none;position:relative;display:inline-block}.link[data-v-d2a4554c]:after{content:"";position:absolute;left:0%;bottom:-2px;width:50%;height:2px;background-color:currentColor;transition:width .3s ease,left .3s ease}.link[data-v-d2a4554c]:hover:after{width:100%;left:0;transform:none}.caption[data-v-f361fddd]{position:absolute;bottom:25px;left:15px;color:#fff;font-size:larger}.caption-mobile[data-v-f361fddd]{position:absolute;bottom:60px;right:25px;text-align:right;color:#fff;font-size:larger}.custom-controls[data-v-f361fddd]{position:absolute;bottom:25px;right:25px;display:flex;align-items:center;justify-content:center}.custom-dot[data-v-f361fddd]{width:10px;height:10px;border-radius:50%;background-color:#fff;cursor:pointer}.v-carousel{overflow:hidden;position:relative;width:100%}.v-carousel__controls{align-items:center;bottom:0;display:flex;height:50px;justify-content:center;list-style-type:none;position:absolute;width:100%;z-index:1;background:rgba(var(--v-theme-surface-variant),.3);color:rgb(var(--v-theme-on-surface-variant))}.v-carousel__controls>.v-item-group{flex:0 1 auto}.v-carousel__controls__item{margin:0 8px}.v-carousel__controls__item .v-icon{opacity:.5}.v-carousel__controls__item--active .v-icon{opacity:1;vertical-align:middle}.v-carousel__controls__item:hover{background:none}.v-carousel__controls__item:hover .v-icon{opacity:.8}.v-carousel__progress{margin:0;position:absolute;bottom:0;left:0;right:0}.v-carousel-item{display:block;height:inherit;text-decoration:none}.v-carousel-item>.v-img{height:inherit}.v-carousel--hide-delimiter-background .v-carousel__controls{background:transparent}.v-carousel--vertical-delimiters .v-carousel__controls{flex-direction:column;height:100%!important;width:50px}.v-window{overflow:hidden}.v-window__container{display:flex;flex-direction:column;height:inherit;position:relative;transition:.3s cubic-bezier(.25,.8,.5,1)}.v-window__controls{position:absolute;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 16px;pointer-events:none}.v-window__controls>*{pointer-events:auto}.v-window--show-arrows-on-hover{overflow:hidden}.v-window--show-arrows-on-hover .v-window__left{transform:translate(-200%)}.v-window--show-arrows-on-hover .v-window__right{transform:translate(200%)}.v-window--show-arrows-on-hover:hover .v-window__left,.v-window--show-arrows-on-hover:hover .v-window__right{transform:translate(0)}.v-window-x-transition-enter-active,.v-window-x-transition-leave-active,.v-window-x-reverse-transition-enter-active,.v-window-x-reverse-transition-leave-active,.v-window-y-transition-enter-active,.v-window-y-transition-leave-active,.v-window-y-reverse-transition-enter-active,.v-window-y-reverse-transition-leave-active{transition:.3s cubic-bezier(.25,.8,.5,1)}.v-window-x-transition-leave-from,.v-window-x-transition-leave-to,.v-window-x-reverse-transition-leave-from,.v-window-x-reverse-transition-leave-to,.v-window-y-transition-leave-from,.v-window-y-transition-leave-to,.v-window-y-reverse-transition-leave-from,.v-window-y-reverse-transition-leave-to{position:absolute!important;top:0;width:100%}.v-window-x-transition-enter-from{transform:translate(100%)}.v-window-x-transition-leave-to,.v-window-x-reverse-transition-enter-from{transform:translate(-100%)}.v-window-x-reverse-transition-leave-to{transform:translate(100%)}.v-window-y-transition-enter-from{transform:translateY(100%)}.v-window-y-transition-leave-to,.v-window-y-reverse-transition-enter-from{transform:translateY(-100%)}.v-window-y-reverse-transition-leave-to{transform:translateY(100%)}.v-expansion-panel{background-color:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-expansion-panel:not(:first-child):after{border-color:rgba(var(--v-border-color),var(--v-border-opacity))}.v-expansion-panel--disabled .v-expansion-panel-title{color:rgba(var(--v-theme-on-surface),.26)}.v-expansion-panel--disabled .v-expansion-panel-title .v-expansion-panel-title__overlay{opacity:.4615384615}.v-expansion-panels{display:flex;flex-wrap:wrap;justify-content:center;list-style-type:none;padding:0;width:100%;position:relative;z-index:1}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:not(:first-child):not(:last-child):not(.v-expansion-panel--active):not(.v-expansion-panel--before-active){border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:not(:first-child):not(:last-child):not(.v-expansion-panel--active):not(.v-expansion-panel--after-active){border-top-left-radius:0!important;border-top-right-radius:0!important}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:first-child:not(:last-child):not(.v-expansion-panel--active):not(.v-expansion-panel--before-active){border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.v-expansion-panels:not(.v-expansion-panels--variant-accordion)>:last-child:not(:first-child):not(.v-expansion-panel--active):not(.v-expansion-panel--after-active){border-top-left-radius:0!important;border-top-right-radius:0!important}.v-expansion-panels--variant-accordion>:first-child{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.v-expansion-panels--variant-accordion>:last-child{border-top-left-radius:0!important;border-top-right-radius:0!important}.v-expansion-panels--variant-accordion>:last-child .v-expansion-panel-title--active{border-bottom-left-radius:initial;border-bottom-right-radius:initial}.v-expansion-panels--variant-accordion>:not(:first-child):not(:last-child){border-radius:0!important}.v-expansion-panels--variant-accordion .v-expansion-panel-title__overlay{transition:.3s border-radius cubic-bezier(.4,0,.2,1)}.v-expansion-panel{flex:1 0 100%;max-width:100%;position:relative;transition:.3s all cubic-bezier(.4,0,.2,1);transition-property:margin-top,border-radius,border,max-width;border-radius:4px}.v-expansion-panel:not(:first-child):after{border-top-style:solid;border-top-width:thin;content:"";left:0;position:absolute;right:0;top:0;transition:.3s opacity cubic-bezier(.4,0,.2,1)}.v-expansion-panel--disabled .v-expansion-panel-title{pointer-events:none}.v-expansion-panel--active:not(:first-child),.v-expansion-panel--active+.v-expansion-panel{margin-top:16px}.v-expansion-panel--active:not(:first-child):after,.v-expansion-panel--active+.v-expansion-panel:after{opacity:0}.v-expansion-panel--active>.v-expansion-panel-title{border-bottom-left-radius:0;border-bottom-right-radius:0}.v-expansion-panel--active>.v-expansion-panel-title:not(.v-expansion-panel-title--static){min-height:64px}.v-expansion-panel__shadow{position:absolute;top:0;left:0;width:100%;height:100%;box-shadow:0 3px 1px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 2px 2px 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 1px 5px 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:inherit;z-index:-1}.v-expansion-panel-title{align-items:center;text-align:start;border-radius:inherit;display:flex;font-size:.9375rem;line-height:1;min-height:48px;outline:none;padding:16px 24px;position:relative;transition:.3s min-height cubic-bezier(.4,0,.2,1);width:100%;justify-content:space-between}.v-expansion-panel-title:hover>.v-expansion-panel-title__overlay{opacity:calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier))}.v-expansion-panel-title:focus-visible>.v-expansion-panel-title__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-expansion-panel-title:focus>.v-expansion-panel-title__overlay{opacity:calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier))}}.v-expansion-panel-title--active>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]>.v-expansion-panel-title__overlay{opacity:calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier))}.v-expansion-panel-title--active:hover>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]:hover>.v-expansion-panel-title__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier))}.v-expansion-panel-title--active:focus-visible>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-expansion-panel-title__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-expansion-panel-title--active:focus>.v-expansion-panel-title__overlay,.v-expansion-panel-title[aria-haspopup=menu][aria-expanded=true]:focus>.v-expansion-panel-title__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier))}}.v-expansion-panel-title--active:before{opacity:.12}.v-expansion-panel-title__overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:currentColor;border-radius:inherit;opacity:0}.v-expansion-panel-title__icon{display:inline-flex;margin-bottom:-4px;margin-top:-4px;-webkit-user-select:none;user-select:none;margin-inline-start:auto}.v-expansion-panel-text{display:flex}.v-expansion-panel-text__wrapper{padding:8px 24px 16px;flex:1 1 auto;max-width:100%}.v-expansion-panels--variant-accordion>.v-expansion-panel{margin-top:0}.v-expansion-panels--variant-accordion>.v-expansion-panel:after{opacity:1}.v-expansion-panels--variant-popout>.v-expansion-panel{max-width:calc(100% - 32px)}.v-expansion-panels--variant-popout>.v-expansion-panel--active{max-width:calc(100% + 16px)}.v-expansion-panels--variant-inset>.v-expansion-panel{max-width:100%}.v-expansion-panels--variant-inset>.v-expansion-panel--active{max-width:calc(100% - 32px)}.contact__text[data-v-4734370a]{white-space:normal}.v-textarea .v-field{--v-textarea-control-height: var(--v-input-control-height)}.v-textarea .v-field__field{--v-input-control-height: var(--v-textarea-control-height)}.v-textarea .v-field__input{flex:1 1 auto;outline:none;-webkit-mask-image:linear-gradient(to bottom,transparent,transparent calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) - 6px),black calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) + 4px));mask-image:linear-gradient(to bottom,transparent,transparent calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) - 6px),black calc(var(--v-field-padding-top, 0) + var(--v-input-padding-top, 0) + 4px))}.v-textarea .v-field__input.v-textarea__sizer{visibility:hidden;position:absolute;top:0;left:0;height:0!important;min-height:0!important;pointer-events:none}.v-textarea--no-resize .v-field__input{resize:none}.v-textarea .v-field--no-label textarea,.v-textarea .v-field--active textarea{opacity:1}.v-textarea textarea{opacity:0;flex:1;min-width:0;transition:.15s opacity cubic-bezier(.4,0,.2,1)}.v-textarea textarea:focus,.v-textarea textarea:active{outline:none}.v-textarea textarea:invalid{box-shadow:none}.brand_item[data-v-c2a41d09]{margin-right:25px;border:0px}.img-wrapper[data-v-8395df3e]{width:100%;height:600px;overflow:hidden;position:relative}.img-wrapper.mobile-height[data-v-8395df3e]{height:400px!important}.img[data-v-8395df3e]{width:100%;height:100%;object-fit:cover;display:block}.carousel--mobile[data-v-8395df3e] .v-btn.v-btn--icon{width:35px!important;height:35px!important;font-size:14px!important}.v-sheet{display:block;border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-style:solid;border-width:0;box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, .2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, .14)),0 0 0 0 var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, .12));border-radius:0;background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-background),var(--v-high-emphasis-opacity))}.v-sheet--border{border-width:thin;box-shadow:none}.v-sheet--absolute{position:absolute}.v-sheet--fixed{position:fixed}.v-sheet--relative{position:relative}.v-sheet--sticky{position:sticky}.v-sheet--rounded{border-radius:4px}.social-container[data-v-8ea47031]{display:flex;align-items:center;justify-content:center;position:fixed;right:15px;border-radius:100%;z-index:999;cursor:pointer}.shadown[data-v-8ea47031]{box-shadow:0 4px 4px #0003;transition:box-shadow 225ms}.shadown[data-v-8ea47031]:hover{box-shadow:0 10px 14px #0003}.v-application{display:flex;background:rgb(var(--v-theme-background));color:rgba(var(--v-theme-on-background),var(--v-high-emphasis-opacity))}.v-application__wrap{backface-visibility:hidden;display:flex;flex-direction:column;flex:1 1 auto;max-width:100%;min-height:100vh;min-height:100dvh;position:relative}.margin_top__default{margin-top:25px}.v-main{flex:1 0 auto;max-width:100%;transition:.2s cubic-bezier(.4,0,.2,1);padding-left:var(--v-layout-left);padding-right:var(--v-layout-right);padding-top:var(--v-layout-top);padding-bottom:var(--v-layout-bottom)}.v-main__scroller{max-width:100%;position:relative}.v-main--scrollable{display:flex;position:absolute;top:0;left:0;width:100%;height:100%}.v-main--scrollable>.v-main__scroller{flex:1 1 auto;overflow-y:auto;--v-layout-left: 0px;--v-layout-right: 0px;--v-layout-top: 0px;--v-layout-bottom: 0px}')),document.head.appendChild(e)}}catch(i){console.error("vite-plugin-css-injected-by-js",i)}})();
 var am = Object.defineProperty;
 var om = (t, e, n) => e in t ? am(t, e, { enumerable: !0, configurable: !0, writable: !0, value: n }) : t[e] = n;
-var zc = (t, e, n) => om(t, typeof e != "symbol" ? e + "" : e, n);
-import { ref as j, onMounted as Ke, onUnmounted as zd, createElementBlock as Pe, openBlock as Z, normalizeStyle as dt, createElementVNode as re, onBeforeUnmount as Ct, Fragment as fe, capitalize as ho, reactive as Nn, computed as x, watchEffect as Qt, toRefs as Ld, isVNode as rm, Comment as sm, unref as O, warn as Mr, inject as $e, shallowRef as q, provide as ot, defineComponent as lm, h as pa, camelize as Vd, getCurrentInstance as cm, isRef as fo, createVNode as v, mergeProps as ce, toRef as te, Text as um, Transition as di, watch as J, onBeforeMount as ll, nextTick as We, withDirectives as Ze, resolveDirective as an, vShow as mi, onScopeDispose as Et, effectScope as cl, toRaw as vi, TransitionGroup as dm, readonly as ul, resolveDynamicComponent as Bd, Teleport as hm, cloneVNode as fm, createTextVNode as nt, withCtx as Y, createBlock as he, createCommentVNode as Me, toDisplayString as Ne, renderList as Tt, withModifiers as Ya, normalizeProps as Lc, onDeactivated as gm, onActivated as mm, vModelText as vm, normalizeClass as Vc } from "vue";
-import { defineStore as go, storeToRefs as $t } from "pinia";
-const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
+var Ac = (t, e, n) => om(t, typeof e != "symbol" ? e + "" : e, n);
+import { ref as j, onMounted as Ke, onUnmounted as Ad, createElementBlock as Pe, openBlock as Z, normalizeStyle as dt, createElementVNode as re, onBeforeUnmount as Ct, Fragment as fe, capitalize as fo, reactive as Nn, computed as x, watchEffect as Qt, toRefs as Rd, isVNode as rm, Comment as sm, unref as O, warn as xr, inject as We, shallowRef as q, provide as ot, defineComponent as lm, h as pa, camelize as Id, getCurrentInstance as cm, isRef as go, createVNode as v, mergeProps as ce, toRef as te, Text as um, Transition as di, watch as J, onBeforeMount as ll, nextTick as $e, withDirectives as Ze, resolveDirective as an, vShow as mi, onScopeDispose as Et, effectScope as cl, toRaw as vi, TransitionGroup as dm, readonly as ul, resolveDynamicComponent as zd, Teleport as hm, cloneVNode as fm, createTextVNode as nt, withCtx as Y, createBlock as he, createCommentVNode as Me, toDisplayString as Ne, renderList as Tt, withModifiers as Ya, normalizeProps as Rc, onDeactivated as gm, onActivated as mm, vModelText as vm, normalizeClass as Ic } from "vue";
+import { defineStore as mo, storeToRefs as Wt } from "pinia";
+const Ld = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
   const a = new URL(`${t}${e}`);
   Object.keys(n).forEach((o) => a.searchParams.append(o, n[o])), fetch(a, {
     method: "GET",
@@ -19,76 +19,60 @@ const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
     console.error("Errore nella richiesta:", o);
   });
 }, pm = (t, e, n, i = "POST", a = void 0) => {
-  fetch(`${dl}${t}`, {
+  fetch(`${Ld}${t}`, {
     method: i,
-    headers: hl(),
+    headers: Vd(),
     body: JSON.stringify(e)
   }).then((o) => {
     if (!o.ok)
       throw new Error(`Errore nella risposta del server: ${o.status} - ${o.statusText}`);
     return o.json();
   }).then((o) => {
-    fl(o, n, a);
+    Bd(o, n, a);
   }).catch((o) => {
     console.error("Errore nella richiesta:", o);
   });
-}, ym = (t, e, n, i = "POST", a = void 0) => {
-  const o = new FormData();
-  o.append("file", e), fetch(`${dl}${t}`, {
-    method: i,
-    headers: hl(!0),
-    body: o
-  }).then((r) => {
-    if (!r.ok)
-      throw new Error(`Errore nella risposta del server: ${r.status} - ${r.statusText}`);
-    return r.json();
-  }).then((r) => {
-    fl(r, n, a);
-  }).catch((r) => {
-    console.error("Errore nella richiesta:", r);
-  });
-}, _m = (t, e, n, i = "GET", a = void 0) => {
-  const o = new URL(`${dl}${t}`);
+}, ym = (t, e, n, i = "GET", a = void 0) => {
+  const o = new URL(`${Ld}${t}`);
   Object.keys(e).forEach((r) => o.searchParams.append(r, e[r])), fetch(o, {
     method: i,
-    headers: hl()
+    headers: Vd()
   }).then((r) => {
     if (!r.ok)
       throw new Error(`Errore nella risposta del server: ${r.status} - ${r.statusText}`);
     return r.json();
   }).then((r) => {
-    fl(r, n, a);
+    Bd(r, n, a);
   }).catch((r) => {
     console.error("Errore nella richiesta:", r);
   });
-}, hl = (t = !1) => {
+}, Vd = (t = !1) => {
   let e = {
     Token: localStorage.getItem("token")
   };
   return t ? e.Accept = "*/*" : e["Content-Type"] = "application/json", e;
-}, fl = (t, e, n) => {
+}, Bd = (t, e, n) => {
   t.status == "session" ? (alert("Sessione scaduta"), n.push("/")) : e(t);
-}, xr = {
-  postRequestGenericBE: pm,
-  postRequestFileGenericBE: ym,
-  getRequestGenericBE: _m,
+}, ja = {
+  postRequest: pm,
+  getRequest: ym,
   getRequestDemo: Cm
-}, Sm = ["Chatty", "VirtualTour", "Multilingual", "Blog"], bm = [{ content: { type: "static", title: { it: "Il mio blog", gb: "My blog" }, url: "Scopri di più...", articles: [{ title: "Titolo articolo 1", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 2", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 3", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }] }, type: "blog", menu: "Blog" }, { content: { type: "automatic", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: { it: "Carosello", gb: "Carusel" }, type: "gallery" }, { content: { type: "manual", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: "Galleria", type: "gallery" }, { content: { brands: ["img-01.png", "img-02.png", "img-03.png", "img-04.png"] }, menu: "Brandlist", type: "brandlist" }, { content: { title: { it: "Vantaggi", gb: "Advantages" }, advantages: [{ description: { it: "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.", gb: "We create unique and personalized websites for each client, ensuring a distinctive and professional image." }, image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, name: { it: "Design Personalizzato", gb: "Pers Design" } }, { description: { it: "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.", gb: "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png", name: "SEO Ottimizzato" }, { description: { it: "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.", gb: "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", name: "Responsive Design" }, { description: { it: "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.", gb: "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking." }, image: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"], name: "Velocità di Caricamento Ottimale" }] }, menu: "Vantaggi", type: "advantages" }, { type: "line" }, { content: { title: "Servizi", services: [{ description: "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.", name: "Sito Web Vetrina" }, { description: "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.", name: "Sito Web E-commerce" }, { description: "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.", name: "Ottimizzazione SEO" }, { description: "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.", name: "Gestione Contenuti" }, { description: "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.", name: "Sviluppo Web Personalizzato" }] }, menu: "Servizi", type: "services" }, { type: "line" }, { content: { button: { it: "Cliccami!", gb: "Click on me!" }, description: "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.", image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, orientationDesktop: "left", orientationMobile: "top", subtitle: "Da siti statici a piattaforme complesse", title: "Servizi di Sviluppo Web", url: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png" }, menu: "Sezione doppia", type: "dualSection" }, { content: { title: "I nostri contatti", subtitle: "Contattaci direttamente con questo form", contacts: [{ icon: "mdi-email", title: "giovanni.colasanto@fastsite.it" }, { icon: "mdi-phone", title: "+39 347 876 8340" }, { icon: "mdi-map-marker", title: "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy" }, { icon: "mdi-facebook", title: { it: "Seguici su Facebook", gb: "Follow us on Facebook" }, url: "https://www.facebook.com/" }, { icon: "mdi-instagram", title: "Seguici su Instagram", url: "https://www.instagram.com/" }, { icon: "mdi-linkedin", title: "Seguici su LinkedIn", url: "https://www.linkedin.com/in/nomeprofilo" }, { icon: "mdi-twitter", title: "Seguici su X (Twitter)", url: "https://twitter.com/profilo" }, { icon: "mdi-youtube", title: "Guarda il nostro canale YouTube", url: "https://www.youtube.com/@canale" }, { icon: "mdi-music", title: "Seguici su TikTok", url: "https://www.tiktok.com/@utente" }] }, menu: "Contatti", type: "contacts" }, { content: { title: "Puoi venirci a conoscere qui", address: "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy", coordinates: [16.882818, 41.09665], zoom: 9 }, type: "map" }], Mm = { name: "FastSite", logo: "https://imgur.com/mNAxeqq.png", logoMode: "both", primaryColor: "#2F4F4F", secondaryColor: "#D2B48C", chattyId: 10, locales: ["it", "gb"], socialBubbles: [{ icon: "mdi-whatsapp", url: "https://twitter.com/profilo" }, { icon: "mdi-instagram", url: "https://twitter.com/profilo" }, { icon: "mdi-facebook", url: "https://twitter.com/profilo" }] }, xm = { username: "bro.users.info@gmail.com", password: "Ciao1234", addressMode: 1, province: "Barletta-Andria-Trani", cities: ["Lanzo Torinese", "Cafasse"] }, Pm = {
-  addOn: Sm,
-  components: bm,
-  info: Mm,
-  store: xm
-}, bn = go("data", {
+}, _m = ["Chatty", "VirtualTour", "Multilingual", "Blog", "Shop"], Sm = [{ content: { type: "static", title: { it: "Il mio blog", gb: "My blog" }, url: "Scopri di più...", articles: [{ title: "Titolo articolo 1", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 2", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, { title: "Titolo articolo 3", content: "Descrizione articolo", cover: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }] }, type: "blog", menu: "Blog" }, { content: { type: "automatic", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: { it: "Carosello", gb: "Carusel" }, type: "gallery" }, { content: { type: "manual", images: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery0.png", { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebgallery1.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png" }] }, menu: "Galleria", type: "gallery" }, { content: { brands: ["img-01.png", "img-02.png", "img-03.png", "img-04.png"] }, menu: "Brandlist", type: "brandlist" }, { content: { title: { it: "Vantaggi", gb: "Advantages" }, advantages: [{ description: { it: "Creiamo siti web unici e personalizzati per ogni cliente, garantendo un'immagine distintiva e professionale.", gb: "We create unique and personalized websites for each client, ensuring a distinctive and professional image." }, image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, name: { it: "Design Personalizzato", gb: "Pers Design" } }, { description: { it: "Implementiamo le migliori pratiche SEO per migliorare la visibilità online dei siti web che sviluppiamo, garantendo un posizionamento migliore sui motori di ricerca.", gb: "We implement the best SEO practices to improve the online visibility of the websites we develop, ensuring better ranking in search engines." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png", name: "SEO Ottimizzato" }, { description: { it: "I siti web che progettiamo sono completamente responsive, garantendo un'esperienza utente ottimale su tutti i dispositivi, come desktop, tablet e smartphone.", gb: "The websites we design are fully responsive, ensuring an optimal user experience across all devices such as desktop, tablet, and smartphone." }, image: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", name: "Responsive Design" }, { description: { it: "Ci assicuriamo che i siti web siano ottimizzati per la velocità di caricamento, migliorando l'esperienza dell'utente e favorendo il posizionamento sui motori di ricerca.", gb: "We ensure that websites are optimized for loading speed, improving user experience and supporting better search engine ranking." }, image: ["https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages2.png", "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages3.png"], name: "Velocità di Caricamento Ottimale" }] }, menu: "Vantaggi", type: "advantages" }, { type: "line" }, { content: { title: "Servizi", services: [{ description: "Creazione di un sito web vetrina personalizzato per presentare i tuoi servizi e prodotti in modo professionale e accattivante.", name: "Sito Web Vetrina" }, { description: "Realizzazione di un sito web e-commerce completo di funzionalità di shopping online, gestione dei pagamenti e catalogo prodotti.", name: "Sito Web E-commerce" }, { description: "Analisi e ottimizzazione del sito web per i motori di ricerca al fine di migliorare la visibilità online e aumentare il traffico organico.", name: "Ottimizzazione SEO" }, { description: "Aggiornamento regolare dei contenuti del sito web, inclusi testi, immagini e prodotti, per garantire un'esperienza utente sempre fresca.", name: "Gestione Contenuti" }, { description: "Creazione di soluzioni web personalizzate e innovative in base alle esigenze specifiche del cliente per ottenere un sito web unico e funzionale.", name: "Sviluppo Web Personalizzato" }] }, menu: "Servizi", type: "services" }, { type: "line" }, { content: { button: { it: "Cliccami!", gb: "Click on me!" }, description: "Offriamo servizi di sviluppo web personalizzati per soddisfare le esigenze dei nostri clienti. Dalla creazione di siti web statici alla realizzazione di piattaforme web complesse e scalabili, garantiamo soluzioni di alta qualità e user-friendly.", image: { desktop: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png", mobile: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebadvantages1.png" }, orientationDesktop: "left", orientationMobile: "top", subtitle: "Da siti statici a piattaforme complesse", title: "Servizi di Sviluppo Web", url: "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Sviluppatoredisitiwebbase0.png" }, menu: "Sezione doppia", type: "dualSection" }, { content: { title: "I nostri contatti", subtitle: "Contattaci direttamente con questo form", contacts: [{ icon: "mdi-email", title: "giovanni.colasanto@fastsite.it" }, { icon: "mdi-phone", title: "+39 347 876 8340" }, { icon: "mdi-map-marker", title: "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy" }, { icon: "mdi-facebook", title: { it: "Seguici su Facebook", gb: "Follow us on Facebook" }, url: "https://www.facebook.com/" }, { icon: "mdi-instagram", title: "Seguici su Instagram", url: "https://www.instagram.com/" }, { icon: "mdi-linkedin", title: "Seguici su LinkedIn", url: "https://www.linkedin.com/in/nomeprofilo" }, { icon: "mdi-twitter", title: "Seguici su X (Twitter)", url: "https://twitter.com/profilo" }, { icon: "mdi-youtube", title: "Guarda il nostro canale YouTube", url: "https://www.youtube.com/@canale" }, { icon: "mdi-music", title: "Seguici su TikTok", url: "https://www.tiktok.com/@utente" }] }, menu: "Contatti", type: "contacts" }, { content: { title: "Puoi venirci a conoscere qui", address: "Via Abate Bruni, 11, 76011 Bisceglie BT, Italy", coordinates: [16.882818, 41.09665], zoom: 9 }, type: "map" }], bm = { name: "FastSite", logo: "https://imgur.com/mNAxeqq.png", logoMode: "both", primaryColor: "#2F4F4F", secondaryColor: "#D2B48C", chattyId: 10, locales: ["it", "gb"], socialBubbles: [{ icon: "mdi-whatsapp", url: "https://twitter.com/profilo" }, { icon: "mdi-instagram", url: "https://twitter.com/profilo" }, { icon: "mdi-facebook", url: "https://twitter.com/profilo" }] }, Mm = { userId: 3, addressMode: 1, province: "Barletta-Andria-Trani", cities: ["Lanzo Torinese", "Cafasse"] }, xm = {
+  addOn: _m,
+  components: Sm,
+  info: bm,
+  store: Mm
+}, bn = mo("data", {
   state: () => ({
     data: {},
     ready: !1
   }),
   actions: {
     initData() {
-      this.updateData(Pm);
+      this.updateData(xm);
     },
     initDataByDemoLayout(t, e) {
-      xr.getRequestDemo(t, `get-data/${e}`, {}, (n) => {
+      ja.getRequestDemo(t, `get-data/${e}`, {}, (n) => {
         this.updateData(n.data);
       });
     },
@@ -104,7 +88,7 @@ const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
   for (const [i, a] of e)
     n[i] = a;
   return n;
-}, Tm = {
+}, Pm = {
   __name: "UpArrow",
   props: {
     bottomOffset: {
@@ -113,7 +97,7 @@ const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
     }
   },
   setup(t) {
-    const e = t, n = bn(), { data: i } = $t(n), a = i.value.info, o = j(null), r = () => {
+    const e = t, n = bn(), { data: i } = Wt(n), a = i.value.info, o = j(null), r = () => {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -124,7 +108,7 @@ const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
     return Ke(() => {
       const l = document.getElementById("UpArrow");
       l && (l.style.color = a.primaryColor), window.addEventListener("scroll", s);
-    }), zd(() => {
+    }), Ad(() => {
       window.removeEventListener("scroll", s);
     }), (l, c) => (Z(), Pe("div", {
       class: "sup-container shadown",
@@ -139,7 +123,7 @@ const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
       }, null, -1)
     ]), 4));
   }
-}, Fd = /* @__PURE__ */ Ut(Tm, [["__scopeId", "data-v-8abb3880"]]), kd = go("address", {
+}, Fd = /* @__PURE__ */ Ut(Pm, [["__scopeId", "data-v-8abb3880"]]), kd = mo("address", {
   state: () => ({
     firstname: "",
     lastname: "",
@@ -164,7 +148,7 @@ const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
     enabled: !0,
     storage: localStorage
   }
-}), Od = go("order", {
+}), Od = mo("order", {
   state: () => ({
     products: []
   }),
@@ -182,46 +166,46 @@ const dl = "https://generic-be-test.replit.app/", Cm = (t, e, n, i) => {
     }
   },
   persist: !0
-}), gl = j(!1), os = () => {
-  gl.value = window.innerWidth < 600;
+}), dl = j(!1), os = () => {
+  dl.value = window.innerWidth < 600;
 }, ya = () => (Ke(() => {
   os(), window.addEventListener("resize", os);
 }), Ct(() => {
   window.removeEventListener("resize", os);
-}), gl), Bi = (t) => typeof t == "string" ? t : typeof t == "object" ? gl.value ? t.mobile : t.desktop : "", wm = /* @__PURE__ */ JSON.parse(`{"Torino":["Reano","Usseaux","Salassa","Brandizzo","Pertusio","Cavour","Ivrea","Azeglio","Rivarossa","Salbertrand","Ciconio","Villastellone","Borgiallo","Alpignano","Torre Canavese","Cintano","Cuorgnè","Rivoli","Cantalupa","Brosso","Cafasse","Lanzo Torinese","Romano Canavese","Novalesa","San Carlo Canavese","Rueglio","San Martino Canavese","Lessolo","Rocca Canavese","San Pietro Val Lemina","Giaglione","Orio Canavese","Ceres","Chiaverano","Cumiana","Osasio","Scalenghe","Mercenasco","Candia Canavese","Isolabella","Noasca","Groscavallo","Ribordone","Druento","Cossano Canavese","Villar Perosa","Locana","Piverone","Front","Levone","Settimo Torinese","Alpette","San Giusto Canavese","Bardonecchia","Verolengo","Fenestrelle","Sauze d'Oulx","Colleretto Castelnuovo","Rivara","Macello","Barbania","Gravere","Corio","Valprato Soana","Chianocco","Sestriere","Montalto Dora","Coazze","Meana di Susa","None","Cantoira","Chialamberto","Settimo Rottaro","Arignano","Mombello di Torino","Prali","Busano","Lemie","Val di Chy","Moncalieri","Banchette","Chiesanuova","Borgaro Torinese","Favria","Grosso","San Maurizio Canavese","Albiano d'Ivrea","Rorà","Garzigliana","Exilles","Buriasco","Villar Focchiardo","Castagneto Po","Agliè","Sant'Ambrogio di Torino","Balangero","Rivarolo Canavese","Rivalta di Torino","Andezeno","Cambiano","Beinasco","Valperga","Prarostino","Pinerolo","Vische","Bobbio Pellice","Mattie","Valchiusa","Lombriasco","Baldissero Torinese","Virle Piemonte","Venaria Reale","Mappano","Bollengo","Lusernetta","San Benigno Canavese","Borgone Susa","Balme","Borgofranco d'Ivrea","Montalenghe","Rubiana","Villar Pellice","Ala di Stura","Carignano","Castagnole Piemonte","Villafranca Piemonte","Casalborgone","Perrero","Mathi","Barone Canavese","Mazzè","Brozolo","Roletto","Carema","Germagnano","Trofarello","Issiglio","Perosa Canavese","Montaldo Torinese","Mompantero","Bruino","Villar Dora","Rivalba","Vialfrè","Tavagnasco","Luserna San Giovanni","San Francesco al Campo","Lombardore","Brusasco","Mezzenile","Salza di Pinerolo","Verrua Savoia","Leini","Caselette","Pratiglione","Bibiana","Traves","Condove","Castellamonte","Gassino Torinese","Sauze di Cesana","Givoletto","Carmagnola","Usseglio","Ronco Canavese","Caluso","Loranzè","Forno Canavese","Canischio","Bairo","Sant'Antonino di Susa","Moriondo Torinese","Settimo Vittone","Airasca","Lauriano","Piscina","Andrate","Inverso Pinasca","Rosta","San Giorgio Canavese","Colleretto Giacosa","Caprie","Samone","Roure","Volpiano","Vaie","Grugliasco","Pomaretto","San Germano Chisone","Ceresole Reale","Vallo Torinese","Fiano","San Giorio di Susa","Caravino","Cesana Torinese","Varisella","Bosconero","Monteu da Po","Burolo","Cascinette d'Ivrea","Sciolze","Borgomasino","Pecetto Torinese","Massello","La Loggia","Ozegna","Sparone","Pessinetto","San Gillio","Feletto","Pralormo","Maglione","Caselle Torinese","Torrazza Piemonte","Oglianico","Coassolo Torinese","Viù","Chiomonte","Strambinello","Susa","Frossasco","Porte","Vinovo","Vauda Canavese","Pragelato","Parella","Villarbasse","Traversella","Vigone","Chivasso","Cercenasco","Santena","Giaveno","Pianezza","Riva presso Chieri","Cinzano","Fiorano Canavese","Volvera","Cuceglio","Candiolo","Torre Pellice","Almese","Castiglione Torinese","Piobesi Torinese","Quincinetto","Vistrorio","San Didero","Collegno","Villareggia","Pavone Canavese","Venaus","San Colombano Belmonte","Bussoleno","Oulx","Nichelino","Foglizzo","Baldissero Canavese","San Secondo di Pinerolo","Ingria","Scarmagno","Bruzolo","Quassolo","Moncenisio","Trana","Cavagnolo","San Sebastiano da Po","Poirino","Nomaglio","Chiusa di San Michele","Nole","Vestignè","Angrogna","Robassomero","Vidracco","Val della Torre","Avigliana","Bricherasio","Strambino","Castelnuovo Nigra","Montanaro","Salerano Canavese","Valgioie","Marentino","Ciriè","Campiglione Fenile","Osasco","Orbassano","Prascorsano","Torino","Perosa Argentina","Pont Canavese","Monastero di Lanzo","La Cassa","Pinasca","San Mauro Torinese","Sangano","Pavarolo","Buttigliera Alta","Palazzo Canavese","Quagliuzzo","Claviere","Villanova Canavese","Piossasco","Lusigliè","Pino Torinese","Pancalieri","Chieri","Frassinetto","Pramollo","San Ponso","San Raffaele Cimena","Rondissone"],"Vercelli":["Albano Vercellese","Moncrivello","Villata","Asigliano Vercellese","Alice Castello","Cellio con Breia","Lenta","Mollia","Vocca","Desana","Varallo","Bianzè","Palazzolo Vercellese","Ronsecco","Collobiano","Balmuccia","Campertogno","Valduggia","Cravagliana","Rovasenda","Casanova Elvo","Balocco","Salasco","Formigliana","Pezzana","Gattinara","Olcenengo","Roasio","Crova","Arborio","Rimella","Alagna Valsesia","Piode","Scopello","Costanzana","Carisio","Ghislarengo","Quarona","Villarboit","Boccioleto","Lozzolo","Borgo d'Ale","Prarolo","Serravalle Sesia","Trino","San Giacomo Vercellese","Caresana","Civiasco","Caresanablot","Santhià","Scopa","Fontanetto Po","Cervatto","Buronzo","Carcoforo","Saluggia","Greggio","Alto Sermenza","Oldenico","Quinto Vercellese","Pertengo","Sali Vercellese","Crescentino","Motta de' Conti","Cigliano","Rassa","Lignana","Rossa","Vercelli","Rive","Livorno Ferraris","Tricerro","Tronzano Vercellese","Borgosesia","San Germano Vercellese","Fobello","Pila","Lamporo","Borgo Vercelli","Stroppiana","Guardabosone","Postua"],"Novara":["Fara Novarese","Vaprio d'Agogna","Mandello Vitta","Invorio","Landiona","Divignano","Mezzomerico","Caltignaga","Castellazzo Novarese","Soriso","Vespolate","Cavaglio d'Agogna","Cureggio","Borgolavezzaro","Pella","Casalbeltrame","Pettenasco","Biandrate","Cavallirio","Meina","Casalvolone","Nebbiuno","Oleggio","Varallo Pombia","Casalino","San Pietro Mosezzo","Boca","Ameno","Miasino","Trecate","Carpignano Sesia","Garbagna Novarese","Pogno","Briga Novarese","Grignasco","Gargallo","Vinzaglio","Agrate Conturbia","Vicolungo","Bogogno","Cerano","Marano Ticino","Gattico-Veruno","Barengo","Cameri","Paruzzaro","Suno","Massino Visconti","Prato Sesia","Armeno","Ghemme","Bolzano Novarese","Dormelletto","San Maurizio d'Opaglio","Borgo Ticino","Oleggio Castello","Nibbiola","Colazza","Recetto","Gozzano","Sizzano","Pombia","Fontaneto d'Agogna","Romentino","Comignago","Bellinzago Novarese","Momo","Castelletto sopra Ticino","Lesa","Arona","Romagnano Sesia","Borgomanero","Maggiora","Sillavengo","Briona","Casaleggio Novara","Cressa","Cavaglietto","Pisano","Granozzo con Monticello","Novara","Sozzago","Galliate","Tornaco","Terdobbiate","San Nazzaro Sesia","Orta San Giulio"],"Cuneo":["Baldissero d'Alba","Bergolo","Mango","Margarita","Pamparato","Neviglie","Montelupo Albese","Govone","Farigliano","Castiglione Tinella","Lesegno","Villar San Costanzo","Castellinaldo d'Alba","Venasca","Oncino","Limone Piemonte","Rocca Cigliè","Torre San Giorgio","Sambuco","Rodello","Santo Stefano Roero","Battifollo","Torre Bormida","Cuneo","Casteldelfino","Castelletto Stura","Serralunga d'Alba","Genola","Perletto","Barge","Entracque","Robilante","Busca","Corneliano d'Alba","Canosio","Castellino Tanaro","Guarene","Garessio","Cardè","Lisio","Neive","Niella Tanaro","Rittana","Roccavione","Carrù","Canale","Rossana","Mondovì","Bagnolo Piemonte","Treiso","Vicoforte","Roccabruna","Cigliè","Monasterolo di Savigliano","Monasterolo Casotto","Crissolo","Bra","Pezzolo Valle Uzzone","Scagnello","Prazzo","Sale delle Langhe","Frassino","Pietraporzio","Rocca de' Baldi","Rocchetta Belbo","Valloriate","Villanova Solaro","Boves","Pontechianale","Pianfei","Revello","Montezemolo","Polonghera","Villafalletto","Moretta","Paesana","Sanfrè","Racconigi","Saliceto","Tarantasca","Barolo","Gottasecca","Fossano","Narzole","Montà","Prunetto","Alba","Castelletto Uzzone","Morozzo","Belvedere Langhe","Costigliole Saluzzo","Briga Alta","Monterosso Grana","Piasco","Cervasca","San Michele Mondovì","Moiola","Albaretto della Torre","Borgomale","Roascio","Gaiola","Magliano Alpi","Saluzzo","Trezzo Tinella","Cavallerleone","Nucetto","Lagnasco","Isasca","Bene Vagienna","Verzuolo","Monesiglio","Martiniana Po","Argentera","Valdieri","Marene","Villanova Mondovì","Ceva","Frabosa Sottana","Cossano Belbo","Cortemilia","Montemale di Cuneo","Santa Vittoria d'Alba","Gambasca","Casalgrasso","Ceresole Alba","Frabosa Soprana","Perlo","Bellino","Aisone","Macra","Montaldo di Mondovì","Chiusa di Pesio","Arguello","Piozzo","Stroppo","Caprauna","Elva","Priola","Santo Stefano Belbo","Cravanzana","Brondello","Demonte","Mombasiglio","La Morra","Roccasparvera","Sommariva Perno","Sale San Giovanni","Grinzane Cavour","Savigliano","Murazzano","Verduno","Acceglio","Monchiero","Cherasco","Roburent","Melle","Vernante","Sant'Albano Stura","Monastero di Vasco","Castiglione Falletto","Montaldo Roero","Roccaforte Mondovì","Vottignasco","Sinio","Viola","Borgo San Dalmazzo","Scarnafigi","Niella Belbo","Bagnasco","Cartignano","Envie","Gorzegno","Murello","Lequio Berria","Cavallermaggiore","Marsaglia","Manta","Barbaresco","Camerana","Sampeyre","Sanfront","Rifreddo","Vignolo","Beinette","Benevello","Feisoglio","Cervere","Cerretto Langhe","San Damiano Macra","Caramagna Piemonte","Roddi","Roaschia","Serravalle Langhe","Valgrana","Vinadio","Lequio Tanaro","Dronero","Ostana","Salmour","Mombarcaro","Bossolasco","Castagnito","Centallo","Magliano Alfieri","Torresina","Pradleves","Igliano","Priero","Pocapaglia","Marmora","Dogliani","Alto","Bernezzo","Bonvicino","Monforte d'Alba","Castelnuovo di Ceva","Vezza d'Alba","Novello","Sommariva del Bosco","Briaglia","Torre Mondovì","Bastia Mondovì","Roddino","Monticello d'Alba","Caraglio","Castelmagno","Faule","Diano d'Alba","Monteu Roero","Castino","Somano","Pagno","Piobesi d'Alba","Ruffia","Brossasco","Priocca","Cissone","Bosia","Paroldo","Levice","Clavesana","Montanera","San Benedetto Belbo","Peveragno","Trinità","Celle di Macra","Ormea"],"Asti":["Incisa Scapaccino","Scurzolengo","Villa San Secondo","Cerro Tanaro","Montiglio Monferrato","Cortanze","Baldichieri d'Asti","Belveglio","Villanova d'Asti","Isola d'Asti","San Paolo Solbrito","Quaranti","Grazzano Badoglio","Cocconato","Serole","Sessame","Cassinasco","Moasca","Moransengo-Tonengo","Calosso","Passerano Marmorito","Camerano Casasco","Corsione","Bruno","Celle Enomondo","Cerreto d'Asti","Vinchio","Coazzolo","Cortiglione","Cossombrato","Monastero Bormida","Castell'Alfero","Asti","Cellarengo","Cantarana","Dusino San Michele","Roccaverano","Berzano di San Pietro","Montabone","San Giorgio Scarampi","Montegrosso d'Asti","Fontanile","Frinco","Vaglio Serra","Buttigliera d'Asti","Tonco","Montemagno Monferrato","Capriglio","Bubbio","Villafranca d'Asti","Viarigi","Penango","Maranzana","Rocca d'Arazzo","San Martino Alfieri","Aramengo","Costigliole d'Asti","Rocchetta Palafea","Castelnuovo Belbo","Soglio","Cisterna d'Asti","Castelnuovo Don Bosco","Castello di Annone","Refrancore","Revigliasco d'Asti","Rocchetta Tanaro","Nizza Monferrato","Piea","Cunico","Ferrere","Montafia","Robella","Canelli","Grana Monferrato","Calamandrana","Calliano Monferrato","Albugnano","Montaldo Scarampi","Olmo Gentile","Castel Boglione","Mombercelli","Antignano","Mongardino","Portacomaro","San Marzano Oliveto","Azzano d'Asti","Castellero","Roatto","Maretto","Cortazzone","Casorzo Monferrato","Castelnuovo Calcea","Tigliole","Moncucco Torinese","Settime","Moncalvo","Castelletto Molina","Cinaglio","Castagnole Monferrato","Pino d'Asti","Piovà Massaia","Cessole","Valfenera","Mombaldone","Mombaruzzo","Montechiaro d'Asti","Chiusano d'Asti","Vigliano d'Asti","Loazzolo","Vesime","Monale","Viale","Castagnole delle Lanze","Agliano Terme","Cortandone","Castel Rocchero","San Damiano d'Asti"],"Alessandria":["Cereseto","Malvicino","Volpeglino","Avolasca","Fubine Monferrato","Vignole Borbera","Alice Bel Colle","Pareto","Gamalero","Melazzo","Bosco Marengo","Montegioco","Conzano","Alluvioni Piovera","Felizzano","Sala Monferrato","Acqui Terme","Prasco","Tagliolo Monferrato","Borgo San Martino","Gremiasco","Masio","Castelnuovo Scrivia","Casale Monferrato","Fabbrica Curone","Valmacca","Morsasco","Valenza","Pomaro Monferrato","Dernice","Molare","Borghetto di Borbera","Basaluzzo","Carrosio","Castelletto Merli","Monleale","Ponti","Trisobbio","Cerreto Grue","Montechiaro d'Acqui","Cella Monte","Merana","Cavatore","Spigno Monferrato","Orsara Bormida","Bozzole","San Giorgio Monferrato","Occimiano","Villamiroglio","Carentino","Pontestura","Oviglio","Terzo","Balzola","Voltaggio","Carbonara Scrivia","Rocchetta Ligure","Sarezzano","Rocca Grimalda","Morano sul Po","Ticineto","Stazzano","Fresonara","Strevi","Berzano di Tortona","Serralunga di Crea","Terruggia","Ponzano Monferrato","Arquata Scrivia","Tassarolo","Solero","Cantalupo Ligure","Cremolino","Bassignana","Frugarolo","Ponzone","Silvano d'Orba","Denice","Casal Cermelli","Rivarone","Solonghello","Brignano-Frascata","Montaldeo","Castelletto d'Erro","Francavilla Bisio","Pozzolo Formigaro","Molino dei Torti","Villalvernia","Volpedo","Capriata d'Orba","Carrega Ligure","Momperone","Viguzzolo","Mornese","Villanova Monferrato","Cartosio","Fraconalto","Grognardo","Montecastello","Pecetto di Valenza","Lu e Cuccaro Monferrato","Albera Ligure","Bistagno","Belforte Monferrato","Frassineto Po","Guazzora","Ozzano Monferrato","Visone","Casaleggio Boiro","Cassinelle","Grondona","Altavilla Monferrato","Garbagna","Sezzadio","Murisengo","Castelspina","Ricaldone","Castelnuovo Bormida","Isola Sant'Antonio","Castelletto d'Orba","Montacuto","Sant'Agata Fossili","Villadeati","Vignale Monferrato","Tortona","Castellar Guidobono","Ovada","Bergamasco","Pozzol Groppo","Quattordio","Rivalta Bormida","Quargnento","Alessandria","Alzano Scrivia","Treville","Villaromagnano","Camino","Novi Ligure","Rosignano Monferrato","Montaldo Bormida","Carezzano","Montemarzino","Serravalle Scrivia","Coniolo","San Salvatore Monferrato","Roccaforte Ligure","Predosa","Spineto Scrivia","Odalengo Piccolo","San Sebastiano Curone","Cassano Spinola","Giarole","Cabella Ligure","Moncestino","Carpeneto","Gavi","Sardigliano","Olivola","Frascaro","Ottiglio","Costa Vescovato","Casalnoceto","Gabiano","Odalengo Grande","Casasco","Castellazzo Bormida","Paderna","Bosio","San Cristoforo","Mirabello Monferrato","Frassinello Monferrato","Mongiardino Ligure","Sale","Castellania Coppi","Borgoratto Alessandrino","Pontecurone","Camagna Monferrato","Castelletto Monferrato","Pietra Marazzi","Cerrina Monferrato","Lerma","Cassine","Mombello Monferrato","Alfiano Natta","Parodi Ligure","Morbello","Pasturana"],"Biella":["Crevacuore","Cavaglià","Ponderano","Viverone","Quaregna Cerreto","Sagliano Micca","Miagliano","Vigliano Biellese","Camandona","Piatto","Massazza","Campiglia Cervo","Bioglio","Rosazza","Veglio","Salussola","Vallanzengo","Graglia","Zubiena","Benna","Camburzano","Portula","Coggiola","Verrone","Strona","Ailoche","Sala Biellese","Muzzano","Cossato","Andorno Micca","Castelletto Cervo","Dorzano","Villa del Bosco","Magnano","Sandigliano","Zumaglia","Brusnengo","Biella","Gifflenga","Zimone","Mongrando","Sordevolo","Donato","Valle San Nicolao","Villanova Biellese","Candelo","Caprile","Pettinengo","Curino","Tollegno","Valdengo","Cerrione","Occhieppo Inferiore","Pralungo","Ronco Biellese","Netro","Callabiana","Roppolo","Masserano","Mezzana Mortigliengo","Tavigliano","Occhieppo Superiore","Lessona","Piedicavallo","Mottalciata","Valdilana","Torrazzo","Ternengo","Casapinta","Sostegno","Gaglianico","Borriana","Pollone","Pray"],"Verbano-Cusio-Ossola":["Belgirate","Domodossola","Bognanco","Macugnaga","Ornavasso","Nonio","Premia","Vignone","Santa Maria Maggiore","Beura-Cardezza","Caprezzo","Villadossola","Valstrona","Omegna","Trontano","Formazza","Germagno","Toceno","Bannio Anzino","Stresa","Madonna del Sasso","Arola","Cossogno","Oggebbio","Piedimulera","Aurano","Druogno","Pieve Vergonte","Anzola d'Ossola","Craveggia","Gravellona Toce","Intragna","Cannero Riviera","Baceno","Quarna Sotto","Varzo","Masera","Verbania","Crodo","Gurro","Crevoladossola","Miazzina","Premosello-Chiovenda","Cannobio","Massiola","Quarna Sopra","Montescheno","Pallanzeno","Vogogna","Gignese","Mergozzo","Premeno","Ceppo Morelli","Cambiasca","Arizzano","Montecrestese","Re","Valle Cannobina","Antrona Schieranco","Ghiffa","Loreglia","Trasquera","Villette","Bee","Trarego Viggiona","Malesco","Baveno","Borgomezzavalle","Brovello-Carpugnino","Cesara","San Bernardino Verbano","Casale Corte Cerro","Vanzone con San Carlo","Calasca-Castiglione"]}`), Em = { Imperia: ["Mendatica", "Borghetto d'Arroscia", "Montalto Carpasio", "Vallebona", "Aurigo", "Perinaldo", "Diano Castello", "Rezzo", "Borgomaro", "Civezza", "Ventimiglia", "Pietrabruna", "Chiusavecchia", "Dolceacqua", "Cervo", "Villa Faraldi", "San Biagio della Cima", "Molini di Triora", "Diano Marina", "Vallecrosia", "Diano Arentino", "Imperia", "Dolcedo", "Pontedassio", "Pieve di Teco", "Pornassio", "Airole", "Camporosso", "Bordighera", "Isolabona", "Vessalico", "Ceriana", "Triora", "Cesio", "Caravonica", "Taggia", "San Lorenzo al Mare", "Ranzo", "Armo", "Pompeiana", "Cosio d'Arroscia", "Montegrosso Pian Latte", "Riva Ligure", "Rocchetta Nervina", "San Bartolomeo al Mare", "Chiusanico", "Sanremo", "Prelà", "Ospedaletti", "Castel Vittorio", "Santo Stefano al Mare", "Costarainera", "Apricale", "Aquila d'Arroscia", "Castellaro", "Cipressa", "Seborga", "Lucinasco", "Diano San Pietro", "Soldano", "Terzorio", "Vasia", "Pigna", "Badalucco", "Bajardo", "Olivetta San Michele"], Savona: ["Piana Crixia", "Balestrino", "Osiglia", "Spotorno", "Calice Ligure", "Varazze", "Vezzi Portio", "Cengio", "Albissola Marina", "Alassio", "Noli", "Roccavignale", "Ceriale", "Murialdo", "Villanova d'Albenga", "Zuccarello", "Bormida", "Andora", "Boissano", "Borgio Verezzi", "Plodio", "Rialto", "Vado Ligure", "Bergeggi", "Orco Feglino", "Urbe", "Erli", "Savona", "Giusvalla", "Laigueglia", "Testico", "Cairo Montenotte", "Altare", "Nasino", "Onzo", "Quiliano", "Bardineto", "Mioglia", "Tovo San Giacomo", "Casanova Lerrone", "Borghetto Santo Spirito", "Arnasco", "Pontinvrea", "Calizzano", "Giustenice", "Cosseria", "Garlenda", "Mallare", "Millesimo", "Toirano", "Albisola Superiore", "Stella", "Celle Ligure", "Castelbianco", "Magliolo", "Sassello", "Pietra Ligure", "Vendone", "Carcare", "Castelvecchio di Rocca Barbena", "Finale Ligure", "Loano", "Albenga", "Massimino", "Cisano sul Neva", "Pallare", "Stellanello", "Ortovero", "Dego"], Genova: ["Rapallo", "Santa Margherita Ligure", "Lumarzo", "Moneglia", "Rondanina", "Sori", "Isola del Cantone", "Favale di Malvaro", "Propata", "Fascia", "Mezzanego", "Borzonasca", "Campo Ligure", "San Colombano Certenoli", "Campomorone", "Pieve Ligure", "Montoggio", "Carasco", "Rezzoaglio", "Ronco Scrivia", "Rossiglione", "Chiavari", "Gorreto", "Tribogna", "Arenzano", "Masone", "Bargagli", "Sant'Olcese", "Genova", "Cogoleto", "Serra Riccò", "Savignone", "Valbrevenna", "Lorsica", "Moconesi", "Uscio", "Coreglia Ligure", "Davagna", "Orero", "Cogorno", "Tiglieto", "Mignanego", "Casella", "Castiglione Chiavarese", "Recco", "Torriglia", "Montebruno", "Leivi", "Sestri Levante", "Ceranesi", "Zoagli", "Santo Stefano d'Aveto", "Ne", "Lavagna", "Rovegno", "Mele", "Avegno", "Vobbia", "Neirone", "Casarza Ligure", "Busalla", "Portofino", "Cicagna", "Camogli", "Fontanigorda", "Bogliasco", "Crocefieschi"], "La Spezia": ["Calice al Cornoviglio", "Lerici", "Ameglia", "Carro", "Framura", "La Spezia", "Zignago", "Santo Stefano di Magra", "Castelnuovo Magra", "Carrodano", "Rocchetta di Vara", "Borghetto di Vara", "Beverino", "Follo", "Riomaggiore", "Luni", "Pignone", "Portovenere", "Bolano", "Sarzana", "Maissana", "Riccò del Golfo di Spezia", "Vezzano Ligure", "Bonassola", "Levanto", "Vernazza", "Deiva Marina", "Varese Ligure", "Sesta Godano", "Arcola", "Monterosso al Mare", "Brugnato"] }, Am = /* @__PURE__ */ JSON.parse(`{"Varese":["Castronno","Lavena Ponte Tresa","Olgiate Olona","Cassano Valcuvia","Gallarate","Leggiuno","Caronno Pertusella","Sangiano","Origgio","Casciago","Lonate Ceppino","Bardello con Malgesso e Bregano","Cadegliano-Viconago","Cavaria con Premezzo","Cuvio","Cazzago Brabbia","Venegono Inferiore","Albizzate","Buguggiate","Cadrezzate con Osmate","Bisuschio","Varese","Busto Arsizio","Luino","Gazzada Schianno","Vedano Olona","Cantello","Arcisate","Bedero Valcuvia","Agra","Orino","Uboldo","Brezzo di Bedero","Marnate","Masciago Primo","Angera","Gavirate","Jerago con Orago","Brunello","Crosio della Valle","Carnago","Mercallo","Montegrino Valtravaglia","Cocquio-Trevisago","Comerio","Venegono Superiore","Cugliate-Fabiasco","Induno Olona","Cuveglio","Cairate","Valganna","Cunardo","Castello Cabiaglio","Saronno","Morazzone","Mesenzana","Sesto Calende","Luvinate","Besozzo","Caronno Varesino","Mornago","Brinzio","Besnate","Cittiglio","Dumenza","Brusimpiano","Curiglia con Monteviasco","Ranco","Ferno","Samarate","Vergiate","Clivio","Gerenzano","Gorla Minore","Lonate Pozzolo","Maccagno con Pino e Veddasca","Marzio","Golasecca","Cassano Magnago","Brebbia","Ispra","Biandronno","Gemonio","Marchirolo","Tronzano Lago Maggiore","Fagnano Olona","Gornate Olona","Duno","Brissago-Valtravaglia","Sumirago","Azzio","Castelseprio","Viggiù","Inarzo","Cislago","Taino","Solbiate Olona","Casorate Sempione","Casale Litta","Azzate","Oggiona con Santo Stefano","Gorla Maggiore","Besano","Barasso","Ferrera di Varese","Castiglione Olona","Varano Borghi","Comabbio","Cremenaga","Ternate","Castelveccana","Germignaga","Castellanza","Somma Lombardo","Brenta","Saltrio","Monvalle","Laveno-Mombello","Malnate","Porto Valtravaglia","Tradate","Vizzola Ticino","Grantola","Cuasso al Monte","Daverio","Arsago Seprio","Bodio Lomnago","Porto Ceresio","Casalzuigno","Lozza","Solbiate Arno","Travedona-Monate","Cardano al Campo","Rancio Valcuvia","Caravate","Galliate Lombardo"],"Como":["Trezzone","Stazzona","Como","Cusino","Merone","Uggiate con Ronago","Grandate","Appiano Gentile","Maslianico","Eupilio","Lurate Caccivio","Canzo","Brienno","Faggeto Lario","Albese con Cassano","Sorico","Bulgarograsso","Livo","Mariano Comense","Fenegrò","Lomazzo","Solbiate con Cagno","Guanzate","Veleso","Gera Lario","Caslino d'Erba","Ponna","Colverde","Casnate con Bernate","Colonno","Centro Valle Intelvi","Limido Comasco","Monguzzo","Pusiano","Campione d'Italia","Vercana","Luisago","Vertemate con Minoprio","Valbrona","Orsenigo","San Nazzaro Val Cavargna","Albiolo","Griante","Oltrona di San Mamette","Rezzago","Corrido","Cremia","Rodero","Erba","Asso","Moltrasio","Nesso","Bene Lario","Figino Serenza","Turate","Tremezzina","Sala Comacina","Pianello del Lario","Fino Mornasco","Rovellasca","Capiago Intimiano","Castelmarte","Bregnano","Sormano","Brunate","Cabiate","Carlazzo","Menaggio","Montano Lucino","Porlezza","Veniano","Carate Urio","Bizzarone","Valsolda","San Fermo della Battaglia","Claino con Osteno","Anzano del Parco","Torno","Proserpio","Cadorago","Faloppio","Peglio","Olgiate Comasco","Barni","Cermenate","Arosio","Carugo","Bellagio","Val Rezzo","Cernobbio","Novedrate","Cerano d'Intelvi","Cirimido","Villa Guardia","Garzeno","Domaso","San Bartolomeo Val Cavargna","Blevio","Caglio","Rovello Porro","Lasnigo","Laino","Alta Valle Intelvi","Longone al Segrino","Carimate","Cassina Rizzardi","Beregazzo con Figliaro","Lambrugo","Lezzeno","Dongo","Argegno","Schignano","Binago","Lurago Marinone","Cucciago","Alzate Brianza","Locate Varesino","Montemezzo","Lurago d'Erba","Carbonate","Mozzate","Alserio","Pigra","Lipomo","Castelnuovo Bozzente","Cavargna","Blessagno","Magreglio","Dizzasco","Ponte Lambro","Tavernerio","Zelbio","Grandola ed Uniti","Gravedona ed Uniti","Dosso del Liro","Albavilla","Cantù","Brenna","San Siro","Laglio","Inverigo","Montorfano","Musso","Pognana Lario","Plesio","Senna Comasco","Valmorea"],"Sondrio":["Pedesina","Montagna in Valtellina","Gordona","Berbenno di Valtellina","Tirano","Mazzo di Valtellina","Villa di Tirano","Sondrio","Vervio","Chiuro","Delebio","Livigno","Mese","Caiolo","Rasura","Andalo Valtellino","Prata Camportaccio","Piateda","Samolaco","Postalesio","Lanzada","Bianzone","Colorina","Bema","Talamona","Castione Andevenno","Campodolcino","Mello","Ardenno","Valdidentro","Fusine","Grosotto","Tovo di Sant'Agata","Castello dell'Acqua","Morbegno","Poggiridenti","Gerola Alta","Verceia","Cosio Valtellino","Bormio","Albosaggia","Dazio","Tresivio","Civo","Spriana","Cedrasco","Aprica","San Giacomo Filippo","Villa di Chiavenna","Teglio","Tartano","Albaredo per San Marco","Sondalo","Chiavenna","Forcola","Dubino","Faedo Valtellino","Rogolo","Sernio","Novate Mezzola","Chiesa in Valmalenco","Lovero","Traona","Caspoggio","Valfurva","Cino","Madesimo","Valdisotto","Ponte in Valtellina","Val Masino","Piuro","Torre di Santa Maria","Grosio","Cercino","Mantello","Piantedo","Buglio in Monte"],"Milano":["Bellinzago Lombardo","Boffalora sopra Ticino","Mediglia","Busto Garolfo","Motta Visconti","Solaro","Lainate","Albairate","Colturano","Noviglio","Arluno","Dresano","Vizzolo Predabissi","Castano Primo","Cuggiono","Calvignasco","Cesate","Tribiano","Nerviano","Inzago","Locate di Triulzi","Vimodrone","Liscate","Trezzano Rosa","Cassinetta di Lugagnano","Basiglio","Binasco","Pozzo d'Adda","Abbiategrasso","Corbetta","Dairago","Gudo Visconti","Pieve Emanuele","Nosate","Milano","Carugate","Cerro al Lambro","Rho","Pogliano Milanese","Buscate","Ozzero","Settimo Milanese","Morimondo","Sedriano","Peschiera Borromeo","Vermezzo con Zelo","Segrate","Mesero","Vittuone","Cornaredo","Magenta","Rodano","Rosate","San Giorgio su Legnano","Cusano Milanino","Bubbiano","Turbigo","Arconate","Senago","Lacchiarella","Magnago","Settala","Ossona","Cassano d'Adda","San Colombano al Lambro","Cinisello Balsamo","Opera","Robecchetto con Induno","Legnano","Casorezzo","Bareggio","Baranzate","Cesano Boscone","Trezzano sul Naviglio","Marcallo con Casone","Vernate","Cusago","Cormano","Cologno Monzese","Grezzago","Bollate","Rozzano","Cisliano","San Giuliano Milanese","Sesto San Giovanni","Pozzuolo Martesana","Gorgonzola","Santo Stefano Ticino","Bresso","Gessate","Parabiago","Pantigliate","Canegrate","Casarile","Bernate Ticino","Rescaldina","Melegnano","Pregnana Milanese","Truccazzano","Vignate","Besate","Vanzago","Pioltello","Corsico","Bussero","Garbagnate Milanese","San Vittore Olona","Paderno Dugnano","Vaprio d'Adda","Gaggiano","Assago","Novate Milanese","Inveruno","Zibido San Giacomo","Carpiano","Cassina de' Pecchi","Robecco sul Naviglio","Basiano","Cambiago","San Donato Milanese","Cerro Maggiore","Masate","San Zenone al Lambro","Trezzo sull'Adda","Pessano con Bornago","Pero","Villa Cortese","Buccinasco","Vanzaghello","Arese","Paullo","Cernusco sul Naviglio","Melzo"],"Bergamo":["Stezzano","Castro","Verdellino","Sant'Omobono Terme","Zogno","Pognano","Chiuduno","Torre Boldone","Urgnano","Madone","Piazzolo","Arcene","Taleggio","Lovere","Bossico","Bedulita","Carvico","Fara Olivana con Sola","Roncobello","Castelli Calepio","Selvino","Predore","Brembate","Almenno San Salvatore","Filago","Pontida","Treviolo","Zandobbio","Ghisalba","Lallio","Pagazzano","Brumano","Bonate Sotto","Ardesio","Ranzanico","Telgate","Sedrina","Ponteranica","Costa Serina","Cene","Calcinate","Gorlago","Ambivere","San Paolo d'Argon","Leffe","Ranica","Sovere","Pumenengo","Branzi","Fino del Monte","Gazzaniga","Palosco","Albino","Sarnico","Casirate d'Adda","Parre","Valbondione","Albano Sant'Alessandro","Fornovo San Giovanni","Vigano San Martino","Fontanella","Oneta","Mozzo","Solto Collina","Almenno San Bartolomeo","Brignano Gera d'Adda","Gromo","Antegnate","Verdello","Cornalba","Scanzorosciate","Romano di Lombardia","Costa di Mezzate","Spinone al Lago","Corna Imagna","Grone","Clusone","Trescore Balneario","Pontirolo Nuovo","Serina","San Pellegrino Terme","Almè","Moio de' Calvi","Borgo di Terzo","Torre de' Roveri","Presezzo","Gorno","Onore","Dalmine","Paladina","Montello","Lenna","Rota d'Imagna","San Giovanni Bianco","Bergamo","Carona","Casazza","Lurano","Brembate di Sopra","Mozzanica","Gandellino","Pedrengo","Parzanica","Cenate Sopra","Strozza","Colere","Ponte Nossa","Roncola","Villa d'Adda","Bottanuco","Villa d'Ogna","Schilpario","Cusio","Cividate al Piano","Seriate","Alzano Lombardo","Piario","Fonteno","Orio al Serio","Calvenzano","Ubiale Clanezzo","Valtorta","Vilminore di Scalve","Blello","Adrara San Martino","Fuipiano Valle Imagna","Isso","Dossena","Arzago d'Adda","Barzana","Levate","Ornica","Capizzone","Capriate San Gervasio","Palazzago","Valleve","Averara","Bariano","Val Brembilla","Premolo","Comun Nuovo","Cerete","Rovetta","Mezzoldo","Morengo","Olmo al Brembo","Camerata Cornello","Bonate Sopra","Endine Gaiano","Medolago","Pianico","Ciserano","Cavernago","Castel Rozzone","Isola di Fondra","Algua","Caravaggio","Gorle","Cologno al Serio","Fara Gera d'Adda","Treviglio","Cenate Sotto","Curno","Bracca","Cortenuova","Cisano Bergamasco","Credaro","Costa Valle Imagna","Monasterolo del Castello","Songavazzo","Sotto il Monte Giovanni XXIII","Torre Pallavicina","Valgoglio","Chignolo d'Isola","Oltressenda Alta","Rogno","Mapello","Valnegra","Canonica d'Adda","Barbata","Berbenno","Castione della Presolana","Zanica","Entratico","Vedeseta","Gandino","Misano di Gera d'Adda","Cazzano Sant'Andrea","Villa di Serio","Viadanica","Calcio","Calusco d'Adda","Grassobbio","Osio Sopra","Torre de' Busi","Caprino Bergamasco","Villongo","Foppolo","Peia","Gaverina Terme","Colzate","Oltre il Colle","Fiorano al Serio","Cassiglio","Vertova","Aviatico","Adrara San Rocco","Locatello","Santa Brigida","Spirano","Riva di Solto","Osio Sotto","Vigolo","Terno d'Isola","Brusaporto","Sorisole","Carobbio degli Angeli","Azzone","Berzo San Fermo","Villa d'Almè","Bianzano","Piazzatorre","Ponte San Pietro","Casnigo","Grumello del Monte","Suisio","Piazza Brembana","Bolgare","Covo","Luzzana","Gandosso","Nembro","Pradalunga","Valbrembo","Costa Volpino","Martinengo","Azzano San Paolo","Boltiere","Bagnatica","Mornico al Serio","Tavernola Bergamasca","Solza","Foresto Sparso"],"Brescia":["Castel Mella","Provaglio d'Iseo","Coccaglio","Sabbio Chiese","Muscoline","Botticino","Brescia","Odolo","Paisco Loveno","Puegnago del Garda","Bovezzo","Villachiara","Passirano","Darfo Boario Terme","Flero","Orzivecchi","Irma","Pezzaze","Pompiano","Azzano Mella","Urago d'Oglio","Casto","Pontevico","Ospitaletto","Pertica Alta","Monte Isola","Verolavecchia","Marmentino","Caino","Erbusco","Collebeato","Anfo","Marone","Cigole","Manerba del Garda","Orzinuovi","Polaveno","Gussago","Cevo","Magasa","Villa Carcina","Idro","Angolo Terme","Chiari","Gianico","Manerbio","Corzano","Fiesse","Nuvolento","Pavone del Mella","Cellatica","Rezzato","Villanuova sul Clisi","Comezzano-Cizzago","Capriolo","Borno","Milzano","Brione","Lonato del Garda","Pontoglio","Vallio Terme","San Paolo","Palazzolo sull'Oglio","San Felice del Benaco","Niardo","Pralboino","Corteno Golgi","Borgo San Giacomo","Castenedolo","Sarezzo","Mairano","Lodrino","Collio","Alfianello","Monticelli Brusati","Sale Marasino","Bione","Bovegno","Gardone Val Trompia","Montichiari","Castrezzato","Lozio","Sonico","Berlingo","Carpenedolo","Acquafredda","Ceto","Maclodio","Tavernole sul Mella","Cedegolo","Ossimo","Capo di Ponte","Vestone","Vezza d'Oglio","Nuvolera","Barbariga","Sulzano","Bagnolo Mella","Rovato","Limone sul Garda","Pian Camuno","Poncarale","Castegnato","Ponte di Legno","Pertica Bassa","Dello","San Gervasio Bresciano","Desenzano del Garda","Berzo Inferiore","Barghe","Calcinato","Offlaga","Leno","Capriano del Colle","Brandico","Preseglie","Ome","Iseo","Padenghe sul Garda","Gambara","Breno","Lavenone","Ono San Pietro","Piancogno","Tremosine sul Garda","Malonno","Monno","Toscolano-Maderno","Provaglio Val Sabbia","Isorella","Borgosatollo","Edolo","Travagliato","Visano","Lograto","Berzo Demo","Temù","Mazzano","Vobarno","Treviso Bresciano","Longhena","Lumezzane","Gottolengo","Concesio","Malegno","Gardone Riviera","Ghedi","Cerveno","Braone","Montirone","Soiano del Lago","Losine","Remedello","Agnosine","Capovalle","Castelcovati","Valvestino","Gargnano","Cazzago San Martino","Calvagese della Riviera","Paspardo","Salò","Sellero","Trenzano","Torbole Casaglia","Corte Franca","Nave","Polpenazze del Garda","Marcheno","Esine","Incudine","Paratico","Serle","Pisogne","Paitone","Bassano Bresciano","Mura","Cimbergo","Roè Volciano","Prevalle","Cividate Camuno","Vione","Calvisano","Roncadelle","Rodengo Saiano","Seniga","Roccafranca","Verolanuova","Rudiano","Gavardo","Moniga del Garda","Quinzano d'Oglio","Saviore dell'Adamello","Bienno","Cologne","Pozzolengo","Sirmione","Zone","Artogne","Bedizzole","Tignale","San Zeno Naviglio","Bagolino","Paderno Franciacorta","Adro"],"Pavia":["Montalto Pavese","Cilavegna","Casteggio","Valle Salimbene","Albuzzano","Corvino San Quirico","Gambarana","Certosa di Pavia","Pieve del Cairo","Santa Margherita di Staffora","Velezzo Lomellina","Suardi","Spessa","Cassolnovo","Robbio","Giussago","Romagnese","Zenevredo","Corana","Mede","Costa de' Nobili","Montù Beccaria","Rea","Casei Gerola","San Zenone al Po","Battuda","Nicorvo","Lirio","Oliva Gessi","Bastida Pancarana","Rocca Susella","Bagnaria","San Genesio ed Uniti","Godiasco Salice Terme","San Cipriano Po","Zeccone","Santa Maria della Versa","Voghera","Golferenzo","Badia Pavese","Broni","Cecima","Pinarolo Po","Roncaro","Lardirago","Fortunago","Zerbolò","Vistarino","Rovescala","Ponte Nizza","Sartirana Lomellina","Marzano","Confienza","Castelnovetto","Canneto Pavese","Garlasco","Marcignago","Sommo","Varzi","San Damiano al Colle","Borgoratto Mormorolo","Langosco","Vellezzo Bellini","Scaldasole","Colli Verdi","Verretto","Santa Cristina e Bissone","Verrua Po","Olevano di Lomellina","Lomello","Zeme","Bascapè","Brallo di Pregola","Ceranova","Gravellona Lomellina","Cozzo","Semiana","Albonese","Siziano","Borgo Priolo","Trivolzio","Rivanazzano Terme","Barbianello","Villanterio","Galliavola","Silvano Pietra","Menconico","Montesegale","Frascarolo","Magherno","Montescano","Torre d'Arese","Trovo","Castelletto di Branduzzo","Ferrera Erbognone","Candia Lomellina","Torricella Verzate","Tromello","Castana","Inverno e Monteleone","Arena Po","Cervesina","Mezzana Rabattone","Bosnasco","Zinasco","Bereguardo","Casorate Primo","Sannazzaro de' Burgondi","Stradella","Vigevano","Gambolò","Castello d'Agogna","Portalbera","Pancarana","Val di Nizza","Pietra de' Giorgi","Landriano","Valle Lomellina","Volpara","Pavia","Santa Giuletta","Retorbido","Redavalle","Torrevecchia Pia","Robecco Pavese","Cava Manara","Palestro","Dorno","Codevilla","Casatisma","Zerbo","Montebello della Battaglia","Sant'Angelo Lomellina","Pieve Albignola","Monticelli Pavese","Torre Beretti e Castellaro","Mezzana Bigli","Cigognola","Borgarello","Lungavilla","Corteolona e Genzone","Bressana Bottarone","Borgo San Siro","Cura Carpignano","Chignolo Po","Rosasco","Montecalvo Versiggia","Calvignano","Mornico Losana","Cornale e Bastida","Parona","Mezzanino","Breme","Copiano","Casanova Lonati","Sant'Alessio con Vialone","Rognano","San Martino Siccomario","Pizzale","Vidigulfo","Travacò Siccomario","Miradolo Terme","Campospinoso Albaredo","Gerenzago","Alagna","Torre de' Negri","Cergnago","Villa Biscossi","Torre d'Isola","Belgioioso","Torrazza Coste","Zavattarello","Rocca de' Giorgi","Villanova d'Ardenghi","Valeggio","Mortara","San Giorgio di Lomellina","Carbonara al Ticino","Bornasco","Pieve Porto Morone","Ceretto Lomellina","Linarolo","Gropello Cairoli","Filighera","Ottobiano"],"Cremona":["Cumignano sul Naviglio","Casalmorano","Quintano","Gombito","Spineda","Pozzaglio ed Uniti","Agnadello","Chieve","Camisano","Casaletto di Sopra","Casalbuttano ed Uniti","Pianengo","Robecco d'Oglio","Gussola","Sesto ed Uniti","Corte de' Cortesi con Cignone","Vescovato","Castelleone","Trigolo","Pieranica","Torlino Vimercati","Crema","Martignana di Po","Cappella Cantone","Casalmaggiore","Ostiano","Cella Dati","Trescore Cremasco","Spinadesco","Torre de' Picenardi","Offanengo","Casaletto Vaprio","Formigara","Rivarolo del Re ed Uniti","Capralba","Campagnola Cremasca","San Giovanni in Croce","Cappella de' Picenardi","Gerre de' Caprioli","Crotta d'Adda","Voltido","Sospiro","San Daniele Po","Bonemerse","Calvatone","Paderno Ponchielli","Solarolo Rainerio","Bagnolo Cremasco","Capergnanica","Vailate","Izano","Cicognolo","Pizzighettone","Dovera","San Bassano","Castel Gabbiano","Soresina","Rivolta d'Adda","Sergnano","Pessina Cremonese","Casale Cremasco-Vidolasco","Spino d'Adda","Ripalta Guerina","San Martino del Lago","Gadesco-Pieve Delmona","Corte de' Frati","Volongo","Ripalta Cremasca","Cremosano","Ricengo","Grumello Cremonese ed Uniti","Romanengo","Persico Dosimo","Pescarolo ed Uniti","Montodine","Azzanello","Salvirola","Scandolara Ripa d'Oglio","Moscazzano","Castelvisconti","Motta Baluffi","Piadena Drizzona","Annicco","Isola Dovarese","Genivolta","Credera Rubbiano","Scandolara Ravara","Pieve San Giacomo","Madignano","Ripalta Arpina","Casaletto Ceredano","Castelverde","Stagno Lombardo","Gabbioneta-Binanuova","Derovere","Cingia de' Botti","Torricella del Pizzo","Soncino","Casteldidone","Pieve d'Olmi","Tornata","Fiesco","Pandino","Ticengo","Vaiano Cremasco","Cremona","Bordolano","Olmeneta","Grontardo","Palazzo Pignano","Acquanegra Cremonese","Monte Cremasco","Malagnino"],"Mantova":["San Giorgio Bigarello","Curtatone","Volta Mantovana","Monzambano","Castel Goffredo","Castiglione delle Stiviere","Mantova","Roncoferraro","San Giacomo delle Segnate","Cavriana","Suzzara","Casalmoro","Commessaggio","Rodigo","Quistello","Sabbioneta","Gazoldo degli Ippoliti","Borgo Virgilio","Goito","Pegognaga","Moglia","Villimpenta","Acquanegra sul Chiese","Ceresara","Quingentole","San Giovanni del Dosso","Ostiglia","Mariana Mantovana","Medole","Gazzuolo","Schivenoglia","Asola","Poggio Rusco","Casaloldo","Ponti sul Mincio","Bagnolo San Vito","Solferino","Pomponesco","Castel d'Ario","Guidizzolo","Bozzolo","Castellucchio","Marcaria","Magnacavallo","Casalromano","Porto Mantovano","Redondesco","San Martino dall'Argine","Sustinente","Canneto sull'Oglio","Castelbelforte","Sermide e Felonica","Viadana","Gonzaga","Piubega","Borgo Mantovano","Serravalle a Po","Dosolo","Borgocarbonara","Marmirolo","Roverbella","Rivarolo Mantovano","San Benedetto Po","Motteggiana"],"Lecco":["Margno","Costa Masnaga","Garlate","Calco","Valgreghentino","Nibionno","Premana","Barzanò","Oliveto Lario","Ballabio","Cremeno","Garbagnate Monastero","Pagnona","Dolzago","Brivio","Vercurago","Airuno","Colico","Esino Lario","Primaluna","Valvarrone","Cassago Brianza","Colle Brianza","Monticello Brianza","Missaglia","Suello","Castello di Brianza","Cesana Brianza","Pasturo","Malgrate","Valmadrera","Montevecchia","Molteno","Bellano","Carenno","Dervio","Casargo","Monte Marenzo","Bulciago","Cassina Valsassina","Rogeno","Cernusco Lombardone","Varenna","Verderio","Lierna","Olgiate Molgora","Casatenovo","Santa Maria Hoè","Cortenova","Moggio","Robbiate","Merate","Crandola Valsassina","Galbiate","Lecco","Parlasco","Annone di Brianza","Sueglio","Oggiono","La Valletta Brianza","Olginate","Morterone","Erve","Ello","Calolziocorte","Dorio","Imbersago","Paderno d'Adda","Taceno","Sirone","Mandello del Lario","Pescate","Bosisio Parini","Perledo","Osnago","Sirtori","Barzio","Civate","Abbadia Lariana","Barzago","Lomagna","Viganò","Cremella","Introbio"],"Lodi":["Maccastorna","Brembio","Borgo San Giovanni","Castelnuovo Bocca d'Adda","Tavazzano con Villavesco","Caselle Landi","Marudo","San Rocco al Porto","Caselle Lurani","Cavenago d'Adda","Meleti","Comazzo","Valera Fratta","San Fiorano","Salerano sul Lambro","Boffalora d'Adda","Castiraga Vidardo","Terranova dei Passerini","Bertonico","Cornovecchio","Somaglia","Crespiatica","Livraga","Villanova del Sillaro","San Martino in Strada","Orio Litta","Abbadia Cerreto","Cornegliano Laudense","Fombio","Lodi","Ospedaletto Lodigiano","Massalengo","Corno Giovine","Mairago","Mulazzano","Merlino","Borghetto Lodigiano","Galgagnano","Senna Lodigiana","Secugnago","Zelo Buon Persico","Turano Lodigiano","Cervignano d'Adda","Sant'Angelo Lodigiano","Castiglione d'Adda","Pieve Fissiraga","Casalmaiocco","Lodi Vecchio","Casalpusterlengo","Castelgerundo","Guardamiglio","Montanaso Lombardo","Corte Palasio","Graffignana","Ossago Lodigiano","Santo Stefano Lodigiano","Codogno","Sordio","Maleo","Casaletto Lodigiano"],"Monza e della Brianza":["Lentate sul Seveso","Bernareggio","Roncello","Albiate","Usmate Velate","Barlassina","Cesano Maderno","Aicurzio","Vimercate","Limbiate","Monza","Lazzate","Cornate d'Adda","Mezzago","Briosco","Correzzana","Burago di Molgora","Vedano al Lambro","Ornago","Carate Brianza","Giussano","Concorezzo","Bellusco","Arcore","Besana in Brianza","Brugherio","Camparada","Nova Milanese","Lissone","Seregno","Sulbiate","Ronco Briantino","Ceriano Laghetto","Carnate","Cavenago di Brianza","Seveso","Triuggio","Cogliate","Caponago","Agrate Brianza","Verano Brianza","Macherio","Lesmo","Misinto","Muggiò","Varedo","Bovisio-Masciago","Biassono","Meda","Renate","Sovico","Desio","Veduggio con Colzano","Villasanta","Busnago"]}`), Rm = { Verona: ["Erbezzo", "Sanguinetto", "Villa Bartolomea", "San Giovanni Ilarione", "Caldiero", "Nogara", "Mezzane di Sotto", "Castel d'Azzano", "Lazise", "Pescantina", "Bonavigo", "Cerro Veronese", "Verona", "Boschi Sant'Anna", "Fumane", "Oppeano", "Povegliano Veronese", "Cerea", "Bardolino", "Isola della Scala", "Castelnuovo del Garda", "Nogarole Rocca", "Bussolengo", "San Pietro in Cariano", "Affi", "Angiari", "San Bonifacio", "Badia Calavena", "Valeggio sul Mincio", "Zevio", "Castagnaro", "Soave", "Terrazzo", "Velo Veronese", "Lavagno", "Rivoli Veronese", "Bevilacqua", "Erbè", "Isola Rizza", "Montecchia di Crosara", "Ronco all'Adige", "Torri del Benaco", "Selva di Progno", "Veronella", "Arcole", "Colognola ai Colli", "Casaleone", "Legnago", "Vestenanova", "San Martino Buon Albergo", "Ferrara di Monte Baldo", "San Giovanni Lupatoto", "Dolcè", "Brentino Belluno", "Palù", "Roverchiara", "Pastrengo", "Peschiera del Garda", "Brenzone sul Garda", "Sona", "San Zeno di Montagna", "Vigasio", "Roverè Veronese", "Monteforte d'Alpone", "Concamarise", "Albaredo d'Adige", "Sant'Ambrogio di Valpolicella", "Sorgà", "Caprino Veronese", "Gazzo Veronese", "Illasi", "Malcesine", "Garda", "Cologna Veneta", "Pressana", "Tregnago", "Grezzana", "Zimella", "Belfiore", "Sant'Anna d'Alfaedo", "Roncà", "San Mauro di Saline", "Sommacampagna", "Trevenzuolo", "Minerbe", "Villafranca di Verona", "Roveredo di Guà", "Salizzole", "Cavaion Veronese", "Marano di Valpolicella", "Mozzecane", "Costermano sul Garda", "Negrar di Valpolicella", "Cazzano di Tramigna", "Bosco Chiesanuova", "Bovolone", "Buttapietra", "San Pietro di Morubio"], Vicenza: ["Asigliano Veneto", "Val Liona", "Sandrigo", "Posina", "Carrè", "Barbarano Mossano", "Montegaldella", "Costabissara", "Grumolo delle Abbadesse", "Lonigo", "Sovizzo", "San Pietro Mussolino", "Nanto", "Solagna", "Marano Vicentino", "Foza", "Altissimo", "Bressanvido", "Dueville", "Longare", "Caldogno", "Roana", "Orgiano", "Agugliaro", "Valli del Pasubio", "Villaga", "Bolzano Vicentino", "Arzignano", "Mussolente", "Monticello Conte Otto", "Breganze", "Chiampo", "Zanè", "Malo", "Schiavon", "Romano d'Ezzelino", "Castegnero", "Grisignano di Zocco", "Zugliano", "Noventa Vicentina", "Brendola", "Valdagno", "Albettone", "Vicenza", "Asiago", "Creazzo", "Cornedo Vicentino", "Rosà", "Arsiero", "Montecchio Maggiore", "Cartigliano", "Crespadoro", "Lastebasse", "Villaverla", "Montorso Vicentino", "Camisano Vicentino", "Isola Vicentina", "Pojana Maggiore", "Tezze sul Brenta", "Valbrenta", "Gambellara", "Brogliano", "Piovene Rocchette", "Arcugnano", "Castelgomberto", "Gallio", "Pove del Grappa", "Valdastico", "Montecchio Precalcino", "Schio", "Cassola", "Montegalda", "Thiene", "Marostica", "Sarcedo", "Zermeghedo", "Santorso", "Lusiana Conco", "Calvene", "Pozzoleone", "Bassano del Grappa", "Caltrano", "Salcedo", "Rossano Veneto", "Recoaro Terme", "Monteviale", "Chiuppano", "Nove", "Pianezze", "Cogollo del Cengio", "Colceresa", "Velo d'Astico", "Campiglia dei Berici", "Montebello Vicentino", "Trissino", "Torri di Quartesolo", "Alonte", "Sossano", "Laghi", "Nogarole Vicentino", "Altavilla Vicentina", "San Vito di Leguzzano", "Quinto Vicentino", "Zovencedo", "Fara Vicentino", "Tonezza del Cimone", "Sarego", "Torrebelvicino", "Rotzo", "Monte di Malo", "Pedemonte", "Lugo di Vicenza", "Enego"], Belluno: ["Cesiomaggiore", "Lamon", "La Valle Agordina", "Perarolo di Cadore", "Calalzo di Cadore", "Canale d'Agordo", "Pieve di Cadore", "Taibon Agordino", "Sospirolo", "Tambre", "Vallada Agordina", "Gosaldo", "Val di Zoldo", "Seren del Grappa", "Livinallongo del Col di Lana", "Valle di Cadore", "Alpago", "San Gregorio nelle Alpi", "Soverzene", "Falcade", "Arsiè", "Cibiana di Cadore", "Ospitale di Cadore", "Alleghe", "Pedavena", "Rocca Pietore", "Comelico Superiore", "Feltre", "Fonzaso", "Borca di Cadore", "San Vito di Cadore", "Sovramonte", "Ponte nelle Alpi", "Borgo Valbelluna", "Santa Giustina", "Rivamonte Agordino", "Limana", "Sedico", "San Nicolò di Comelico", "Cencenighe Agordino", "Vodo Cadore", "Zoppè di Cadore", "Cortina d'Ampezzo", "Voltago Agordino", "Agordo", "Chies d'Alpago", "Auronzo di Cadore", "Lorenzago di Cadore", "San Tomaso Agordino", "Longarone", "Belluno", "Colle Santa Lucia", "Selva di Cadore", "Vigo di Cadore", "Domegge di Cadore", "Setteville", "Lozzo di Cadore", "Danta di Cadore", "Santo Stefano di Cadore", "San Pietro di Cadore"], Treviso: ["Treviso", "Gaiarine", "Segusino", "Sernaglia della Battaglia", "Vedelago", "Ponte di Piave", "Maserada sul Piave", "Povegliano", "San Vendemiano", "Codognè", "Possagno", "Riese Pio X", "Silea", "Motta di Livenza", "Roncade", "Borso del Grappa", "Sarmede", "Villorba", "Susegana", "San Pietro di Feletto", "Vazzola", "Castelfranco Veneto", "Casale sul Sile", "Salgareda", "Vidor", "Pieve di Soligo", "Ponzano Veneto", "Portobuffolè", "Casier", "Revine Lago", "San Fior", "Follina", "Farra di Soligo", "Caerano di San Marco", "Godega di Sant'Urbano", "Resana", "Morgano", "Meduna di Livenza", "Spresiano", "Colle Umberto", "Cappella Maggiore", "Orsago", "Mogliano Veneto", "Zenson di Piave", "San Biagio di Callalta", "Paese", "Preganziol", "Maser", "Ormelle", "Cornuda", "Gorgo al Monticano", "Cavaso del Tomba", "Fontanelle", "Cimadolmo", "Conegliano", "Vittorio Veneto", "Breda di Piave", "Oderzo", "Nervesa della Battaglia", "San Zenone degli Ezzelini", "Zero Branco", "Chiarano", "Arcade", "Trevignano", "Fregona", "Cordignano", "Montebelluna", "Santa Lucia di Piave", "Monastier di Treviso", "Asolo", "Istrana", "Mareno di Piave", "Refrontolo", "Pederobba", "Valdobbiadene", "Altivole", "Mansuè", "Tarzo", "Cessalto", "Giavera del Montello", "Castello di Godego", "Castelcucco", "San Polo di Piave", "Quinto di Treviso", "Pieve del Grappa", "Monfumo", "Moriago della Battaglia", "Crocetta del Montello", "Cison di Valmarino", "Loria", "Miane", "Volpago del Montello", "Carbonera", "Fonte"], Venezia: ["Jesolo", "Meolo", "Cavallino-Treporti", "Dolo", "Cona", "Mira", "Pianiga", "San Donà di Piave", "Pramaggiore", "Mirano", "Noventa di Piave", "Stra", "Gruaro", "Teglio Veneto", "Martellago", "Ceggia", "Musile di Piave", "Santa Maria di Sala", "Venezia", "Quarto d'Altino", "Campagna Lupia", "Eraclea", "Annone Veneto", "Portogruaro", "San Stino di Livenza", "San Michele al Tagliamento", "Fossalta di Portogruaro", "Camponogara", "Concordia Sagittaria", "Cavarzere", "Caorle", "Campolongo Maggiore", "Fiesso d'Artico", "Vigonovo", "Chioggia", "Scorzè", "Fossò", "Spinea", "Cinto Caomaggiore", "Noale", "Salzano", "Fossalta di Piave", "Torre di Mosto", "Marcon"], Padova: ["Casalserugo", "Cartura", "Arzergrande", "Castelbaldo", "Stanghella", "Mestrino", "Ponso", "Camposampiero", "Legnaro", "Vo'", "Piove di Sacco", "Arre", "Campo San Martino", "Noventa Padovana", "Due Carrare", "Montagnana", "Arquà Petrarca", "San Martino di Lupari", "Vigonza", "Carmignano di Brenta", "Lozzo Atestino", "Tombolo", "Campodoro", "San Pietro in Gu", "Ospedaletto Euganeo", "Este", "Barbona", "Baone", "Sant'Elena", "Borgo Veneto", "Battaglia Terme", "Cervarese Santa Croce", "Correzzola", "Boara Pisani", "Veggiano", "Torreglia", "Piombino Dese", "Casale di Scodosia", "Villanova di Camposampiero", "Gazzo", "Trebaseleghe", "Villa Estense", "Galzignano Terme", "Montegrotto Terme", "Ponte San Nicolò", "Saonara", "Villafranca Padovana", "Piacenza d'Adige", "Tribano", "Solesino", "Megliadino San Vitale", "Masi", "Rubano", "Granze", "Bovolenta", "Merlara", "Teolo", "Codevigo", "Vigodarzere", "Sant'Urbano", "Bagnoli di Sopra", "Conselve", "Cinto Euganeo", "Albignasego", "Terrassa Padovana", "Borgoricco", "Villa del Conte", "Anguillara Veneta", "Urbana", "Curtarolo", "Saccolongo", "Vescovana", "Brugine", "Pontelongo", "San Pietro Viminario", "Maserà di Padova", "Limena", "Polverara", "Cadoneghe", "Padova", "Campodarsego", "Pozzonovo", "Massanzago", "Agna", "Loreggia", "Grantorto", "Rovolon", "Fontaniva", "Abano Terme", "Sant'Angelo di Piove di Sacco", "Pernumia", "Santa Caterina d'Este", "Candiana", "Piazzola sul Brenta", "Cittadella", "San Giorgio delle Pertiche", "Galliera Veneta", "Santa Giustina in Colle", "Selvazzano Dentro", "Monselice", "San Giorgio in Bosco"], Rovigo: ["Arquà Polesine", "Polesella", "Costa di Rovigo", "Ariano nel Polesine", "Porto Viro", "Papozze", "Stienta", "Occhiobello", "Canda", "Castelnovo Bariano", "San Bellino", "Villadose", "Ceneselli", "Ceregnano", "Salara", "Castelmassa", "Porto Tolle", "Guarda Veneta", "Bergantino", "Villanova del Ghebbo", "Pettorazza Grimani", "Canaro", "Castelguglielmo", "Villamarzana", "Badia Polesine", "Gavello", "Adria", "Ficarolo", "Bagnolo di Po", "Bosaro", "Corbola", "Giacciano con Baruchella", "Calto", "Fratta Polesine", "Lusia", "Melara", "San Martino di Venezze", "Pontecchio Polesine", "Pincara", "Lendinara", "Taglio di Po", "Trecenta", "Frassinelle Polesine", "Rovigo", "Loreo", "Fiesso Umbertiano", "Rosolina", "Crespino", "Gaiba", "Villanova Marchesana"] }, Im = { "Pesaro e Urbino": ["Fermignano", "Borgo Pace", "Pergola", "Serra Sant'Abbondio", "Urbania", "San Costanzo", "Mercatino Conca", "Piandimeleto", "Pesaro", "Gabicce Mare", "Mondolfo", "Gradara", "Urbino", "Sassocorvaro Auditore", "Petriano", "Lunano", "Frontone", "Tavullia", "Fratte Rosa", "Peglio", "Montelabbate", "Cantiano", "Sant'Ippolito", "Vallefoglia", "Sant'Angelo in Vado", "San Lorenzo in Campo", "Fano", "Montecalvo in Foglia", "Monte Grimano Terme", "Fossombrone", "Piobbico", "Terre Roveresche", "Monte Porzio", "Monte Cerignone", "Mombaroccio", "Belforte all'Isauro", "Mercatello sul Metauro", "Apecchio", "Pietrarubbia", "Isola del Piano", "Carpegna", "Montefelcino", "Tavoleto", "Colli al Metauro", "Macerata Feltria", "Cartoceto", "Cagli", "Acqualagna", "Frontino", "Mondavio"], Ancona: ["Ancona", "Agugliano", "Monsano", "Polverigi", "Sirolo", "Cerreto d'Esi", "Chiaravalle", "Arcevia", "Monte San Vito", "Filottrano", "Santa Maria Nuova", "Staffolo", "Fabriano", "Poggio San Marcello", "Mergo", "Falconara Marittima", "Osimo", "Castelleone di Suasa", "San Paolo di Jesi", "Castelbellino", "Jesi", "Camerano", "Belvedere Ostrense", "Serra de' Conti", "Morro d'Alba", "Castelplanio", "Maiolati Spontini", "Camerata Picena", "Sassoferrato", "Corinaldo", "Ostra", "Genga", "Monte Roberto", "Castelfidardo", "Rosora", "Trecastelli", "Cupramontana", "Montemarciano", "Serra San Quirico", "Numana", "Montecarotto", "Loreto", "Ostra Vetere", "San Marcello", "Senigallia", "Barbara", "Offagna"], Macerata: ["Corridonia", "Sarnano", "Valfornace", "Pollenza", "Pioraco", "Macerata", "Ussita", "Appignano", "Apiro", "Mogliano", "Muccia", "Poggio San Vicino", "Penna San Giovanni", "Sant'Angelo in Pontano", "Camporotondo di Fiastrone", "San Severino Marche", "Fiuminata", "Tolentino", "Recanati", "Ripe San Ginesio", "Urbisaglia", "Montefano", "Montecosaro", "Belforte del Chienti", "Treia", "Fiastra", "Sefro", "Potenza Picena", "Bolognola", "Pieve Torina", "Morrovalle", "Castelraimondo", "Loro Piceno", "Monte Cavallo", "Serrapetrona", "Porto Recanati", "Gagliole", "Cessapalombo", "Matelica", "Montecassiano", "Monte San Giusto", "Monte San Martino", "Esanatoglia", "Montelupone", "Visso", "Cingoli", "Gualdo", "Caldarola", "Camerino", "Petriolo", "Colmurano", "San Ginesio", "Civitanova Marche", "Castelsantangelo sul Nera", "Serravalle di Chienti"], "Ascoli Piceno": ["Carassai", "Monteprandone", "Castorano", "Arquata del Tronto", "Grottammare", "Cupra Marittima", "Montalto delle Marche", "Maltignano", "Appignano del Tronto", "Roccafluvione", "Acquaviva Picena", "Castignano", "Montedinove", "Montegallo", "Force", "Montemonaco", "Rotella", "Montefiore dell'Aso", "Cossignano", "Monsampolo del Tronto", "Massignano", "Palmiano", "Colli del Tronto", "Spinetoli", "Folignano", "San Benedetto del Tronto", "Venarotta", "Ripatransone", "Comunanza", "Offida", "Acquasanta Terme", "Castel di Lama", "Ascoli Piceno"], Fermo: ["Monte San Pietrangeli", "Amandola", "Montottone", "Monsampietro Morico", "Monterubbiano", "Sant'Elpidio a Mare", "Rapagnano", "Monte Vidon Combatte", "Pedaso", "Montefalcone Appennino", "Belmonte Piceno", "Montefortino", "Fermo", "Montelparo", "Servigliano", "Santa Vittoria in Matenano", "Monteleone di Fermo", "Lapedona", "Falerone", "Porto Sant'Elpidio", "Monte Urano", "Petritoli", "Moresco", "Montappone", "Porto San Giorgio", "Montegranaro", "Monte Rinaldo", "Monte Giberto", "Ortezzano", "Torre San Patrizio", "Francavilla d'Ete", "Magliano di Tenna", "Montegiorgio", "Massa Fermana", "Campofilone", "Monte Vidon Corrado", "Altidona", "Grottazzolina", "Ponzano di Fermo", "Smerillo"] }, zm = { "Massa-Carrara": ["Bagnone", "Montignoso", "Aulla", "Podenzana", "Fosdinovo", "Licciana Nardi", "Pontremoli", "Villafranca in Lunigiana", "Zeri", "Comano", "Tresana", "Mulazzo", "Massa", "Casola in Lunigiana", "Fivizzano", "Filattiera", "Carrara"], Lucca: ["Camaiore", "Castelnuovo di Garfagnana", "Lucca", "San Romano in Garfagnana", "Fosciandora", "Sillano Giuncugnano", "Altopascio", "Coreglia Antelminelli", "Piazza al Serchio", "Pescaglia", "Pietrasanta", "Gallicano", "Borgo a Mozzano", "Pieve Fosciana", "Molazzana", "Barga", "Castiglione di Garfagnana", "Massarosa", "Villa Basilica", "Careggine", "Vagli Sotto", "Bagni di Lucca", "Camporgiano", "Montecarlo", "Viareggio", "Capannori", "Stazzema", "Forte dei Marmi", "Minucciano", "Fabbriche di Vergemoli", "Seravezza", "Villa Collemandina", "Porcari"], Pistoia: ["Lamporecchio", "Marliana", "Agliana", "Pieve a Nievole", "Quarrata", "Sambuca Pistoiese", "Pistoia", "Larciano", "Ponte Buggianese", "Serravalle Pistoiese", "Pescia", "Uzzano", "Monsummano Terme", "Buggiano", "Abetone Cutigliano", "Montecatini-Terme", "Chiesina Uzzanese", "Montale", "San Marcello Piteglio", "Massa e Cozzile"], Firenze: ["Signa", "San Godenzo", "Greve in Chianti", "Vicchio", "Palazzuolo sul Senio", "Empoli", "Capraia e Limite", "Montespertoli", "Londa", "Firenze", "Barberino Tavarnelle", "Castelfiorentino", "Dicomano", "Gambassi Terme", "Rufina", "Cerreto Guidi", "Rignano sull'Arno", "Pontassieve", "Figline e Incisa Valdarno", "Certaldo", "Bagno a Ripoli", "San Casciano in Val di Pesa", "Scandicci", "Calenzano", "Barberino di Mugello", "Impruneta", "Montelupo Fiorentino", "Fiesole", "Sesto Fiorentino", "Vinci", "Borgo San Lorenzo", "Firenzuola", "Pelago", "Scarperia e San Piero", "Campi Bisenzio", "Vaglia", "Fucecchio", "Montaione", "Reggello", "Lastra a Signa", "Marradi"], Livorno: ["Porto Azzurro", "Marciana Marina", "Capoliveri", "Capraia Isola", "Campo nell'Elba", "Sassetta", "Collesalvetti", "Portoferraio", "Suvereto", "Campiglia Marittima", "Livorno", "Piombino", "Bibbona", "San Vincenzo", "Castagneto Carducci", "Rosignano Marittimo", "Cecina", "Rio", "Marciana"], Pisa: ["San Giuliano Terme", "Pontedera", "Palaia", "Castelnuovo di Val di Cecina", "Lajatico", "Vecchiano", "Peccioli", "Monteverdi Marittimo", "Castellina Marittima", "Buti", "Pisa", "Santa Croce sull'Arno", "Riparbella", "Fauglia", "Calci", "Terricciola", "Casale Marittimo", "Pomarance", "Santa Luce", "Chianni", "Bientina", "Castelfranco di Sotto", "Vicopisano", "Montopoli in Val d'Arno", "Santa Maria a Monte", "Cascina", "Volterra", "Montecatini Val di Cecina", "Capannoli", "Crespina Lorenzana", "Casciana Terme Lari", "Guardistallo", "Montescudaio", "San Miniato", "Calcinaia", "Ponsacco", "Orciano Pisano"], Arezzo: ["Foiano della Chiana", "Montevarchi", "Sansepolcro", "Civitella in Val di Chiana", "Chiusi della Verna", "Caprese Michelangelo", "Montemignaio", "Bucine", "Arezzo", "Sestino", "Ortignano Raggiolo", "Cavriglia", "San Giovanni Valdarno", "Marciano della Chiana", "Poppi", "Talla", "Capolona", "Terranuova Bracciolini", "Castiglion Fibocchi", "Castel San Niccolò", "Cortona", "Laterina Pergine Valdarno", "Chitignano", "Monterchi", "Loro Ciuffenna", "Anghiari", "Badia Tedalda", "Subbiano", "Pratovecchio Stia", "Castel Focognano", "Castiglion Fiorentino", "Castelfranco Piandiscò", "Monte San Savino", "Lucignano", "Pieve Santo Stefano", "Bibbiena"], Siena: ["Monteriggioni", "Sinalunga", "Chiusi", "Sarteano", "Montalcino", "Rapolano Terme", "Radda in Chianti", "Chiusdino", "Gaiole in Chianti", "Castellina in Chianti", "Torrita di Siena", "Pienza", "Casole d'Elsa", "Piancastagnaio", "Abbadia San Salvatore", "Monticiano", "Siena", "San Quirico d'Orcia", "Chianciano Terme", "San Gimignano", "Radicondoli", "Radicofani", "Cetona", "Sovicille", "Castelnuovo Berardenga", "Buonconvento", "Castiglione d'Orcia", "Montepulciano", "Trequanda", "Asciano", "Murlo", "Poggibonsi", "San Casciano dei Bagni", "Colle di Val d'Elsa", "Monteroni d'Arbia"], Grosseto: ["Monte Argentario", "Roccastrada", "Monterotondo Marittimo", "Castell'Azzara", "Arcidosso", "Campagnatico", "Civitella Paganico", "Capalbio", "Pitigliano", "Sorano", "Seggiano", "Gavorrano", "Castel del Piano", "Montieri", "Scarlino", "Santa Fiora", "Roccalbegna", "Scansano", "Isola del Giglio", "Cinigiano", "Massa Marittima", "Grosseto", "Orbetello", "Semproniano", "Manciano", "Castiglione della Pescaia", "Magliano in Toscana", "Follonica"], Prato: ["Cantagallo", "Poggio a Caiano", "Vaiano", "Vernio", "Montemurlo", "Carmignano", "Prato"] }, Lm = { Perugia: ["Monte Santa Maria Tiberina", "Passignano sul Trasimeno", "Valtopina", "Marsciano", "Cerreto di Spoleto", "Cannara", "Bettona", "Piegaro", "Sant'Anatolia di Narco", "Preci", "Scheggino", "Torgiano", "Magione", "Bastia Umbra", "Assisi", "Spello", "Campello sul Clitunno", "Collazzone", "Foligno", "Nocera Umbra", "Massa Martana", "Montone", "Panicale", "Trevi", "Corciano", "San Giustino", "Costacciaro", "Pietralunga", "Norcia", "Paciano", "Gualdo Cattaneo", "Todi", "Monte Castello di Vibio", "Montefalco", "Bevagna", "Gualdo Tadino", "Monteleone di Spoleto", "Castiglione del Lago", "Cascia", "Scheggia e Pascelupo", "Fossato di Vico", "Castel Ritaldi", "Sellano", "Tuoro sul Trasimeno", "Perugia", "Citerna", "Città di Castello", "Fratta Todina", "Giano dell'Umbria", "Gubbio", "Lisciano Niccone", "Città della Pieve", "Spoleto", "Poggiodomo", "Deruta", "Vallo di Nera", "Valfabbrica", "Umbertide", "Sigillo"], Terni: ["Parrano", "Ferentillo", "Montecastrilli", "Attigliano", "Calvi dell'Umbria", "Guardea", "San Venanzo", "Narni", "Monteleone d'Orvieto", "Montegabbione", "Alviano", "Orvieto", "Castel Viscardo", "Montefranco", "Arrone", "Polino", "Otricoli", "Ficulle", "San Gemini", "Fabro", "Amelia", "Penna in Teverina", "Castel Giorgio", "Lugnano in Teverina", "Baschi", "Porano", "Avigliano Umbro", "Montecchio", "Allerona", "Acquasparta", "Stroncone", "Giove", "Terni"] }, Vm = { Viterbo: ["Civitella d'Agliano", "Cellere", "Canepina", "Piansano", "Soriano nel Cimino", "Gradoli", "Castiglione in Teverina", "Carbognano", "Ronciglione", "Orte", "Civita Castellana", "Tuscania", "Valentano", "Vignanello", "Fabrica di Roma", "Capranica", "Barbarano Romano", "Celleno", "Latera", "Villa San Giovanni in Tuscia", "Tarquinia", "Vallerano", "Tessennano", "Arlena di Castro", "Blera", "Bassano in Teverina", "Castel Sant'Elia", "Montalto di Castro", "Nepi", "Vetralla", "Gallese", "Oriolo Romano", "Marta", "Monterosi", "Bolsena", "Grotte di Castro", "Vasanello", "Montefiascone", "Bomarzo", "Onano", "Viterbo", "Bassano Romano", "Caprarola", "Corchiano", "Lubriano", "Proceno", "Vitorchiano", "Acquapendente", "San Lorenzo Nuovo", "Sutri", "Bagnoregio", "Faleria", "Ischia di Castro", "Vejano", "Canino", "Capodimonte", "Monte Romano", "Calcata", "Farnese", "Graffignano"], Rieti: ["Fara in Sabina", "Fiamignano", "Castelnuovo di Farfa", "Rocca Sinibalda", "Labro", "Vacone", "Rivodutri", "Montopoli di Sabina", "Greccio", "Pescorocchiano", "Poggio San Lorenzo", "Borbona", "Salisano", "Poggio Bustone", "Poggio Mirteto", "Tarano", "Borgorose", "Monteleone Sabino", "Frasso Sabino", "Morro Reatino", "Cottanello", "Leonessa", "Roccantica", "Selci", "Belmonte in Sabina", "Montasola", "Pozzaglia Sabina", "Antrodoco", "Collegiove", "Forano", "Montebuono", "Casperia", "Castel Sant'Angelo", "Poggio Nativo", "Cittareale", "Colle di Tora", "Poggio Moiano", "Magliano Sabina", "Stimigliano", "Monte San Giovanni in Sabina", "Torricella in Sabina", "Borgo Velino", "Mompeo", "Colli sul Velino", "Nespolo", "Longone Sabino", "Casaprota", "Paganico Sabino", "Scandriglia", "Varco Sabino", "Montenero Sabino", "Marcetelli", "Collalto Sabino", "Contigliano", "Poggio Catino", "Torri in Sabina", "Orvinio", "Castel di Tora", "Concerviano", "Cantalupo in Sabina", "Cantalice", "Cittaducale", "Toffia", "Posta", "Amatrice", "Collevecchio", "Configni", "Micigliano", "Rieti", "Accumoli", "Turania", "Petrella Salto", "Ascrea"], Roma: ["San Polo dei Cavalieri", "Bellegra", "Filacciano", "Nettuno", "Palombara Sabina", "Vallinfreda", "Cineto Romano", "Lariano", "Nemi", "Affile", "Rocca Canterano", "Poli", "Grottaferrata", "Marcellina", "Monterotondo", "Montelanico", "Pisoniano", "Riofreddo", "Mazzano Romano", "Fiano Romano", "Anticoli Corrado", "Ponzano Romano", "Montorio Romano", "Gerano", "Mandela", "Bracciano", "Roccagiovine", "Roma", "Palestrina", "Casape", "Carpineto Romano", "Roviano", "Tolfa", "Formello", "Ariccia", "Cerveteri", "Allumiere", "Subiaco", "Gavignano", "Lanuvio", "Rocca Priora", "Mentana", "Valmontone", "Colonna", "Monte Compatri", "Ardea", "Castel San Pietro Romano", "Zagarolo", "Civitella San Paolo", "Cervara di Roma", "Marano Equo", "Magliano Romano", "Moricone", "Monteflavio", "Torrita Tiberina", "San Cesareo", "Anzio", "Civitavecchia", "Rignano Flaminio", "Artena", "Jenne", "Arsoli", "Percile", "Rocca Santo Stefano", "Sambuci", "Agosta", "Saracinesco", "Sant'Angelo Romano", "Cerreto Laziale", "Castel Madama", "Sant'Oreste", "Arcinazzo Romano", "Ciciliano", "Vivaro Romano", "Vicovaro", "Velletri", "Olevano Romano", "Ladispoli", "Pomezia", "Rocca di Cave", "San Vito Romano", "Nerola", "Sacrofano", "Albano Laziale", "Morlupo", "Nazzano", "Monte Porzio Catone", "Castel Gandolfo", "Rocca di Papa", "Fiumicino", "Castelnuovo di Porto", "Santa Marinella", "Colleferro", "Canterano", "Tivoli", "Capena", "Cave", "Genzano di Roma", "Trevignano Romano", "Camerata Nuova", "Frascati", "Vallepietra", "Roiate", "Genazzano", "San Gregorio da Sassola", "Campagnano di Roma", "Guidonia Montecelio", "Fonte Nuova", "Montelibretti", "Ciampino", "Canale Monterano", "Gorga", "Gallicano nel Lazio", "Labico", "Manziana", "Capranica Prenestina", "Licenza", "Marino", "Anguillara Sabazia", "Riano", "Segni"], Latina: ["Castelforte", "Maenza", "Prossedi", "Minturno", "Formia", "Sabaudia", "Aprilia", "Campodimele", "Rocca Massima", "Lenola", "Cori", "Roccasecca dei Volsci", "Latina", "Pontinia", "Cisterna di Latina", "Terracina", "Santi Cosma e Damiano", "Roccagorga", "Sonnino", "Norma", "Sezze", "Ponza", "Spigno Saturnia", "Sermoneta", "Itri", "San Felice Circeo", "Fondi", "Ventotene", "Bassiano", "Priverno", "Gaeta", "Monte San Biagio", "Sperlonga"], Frosinone: ["Pignataro Interamna", "Torre Cajetani", "Viticuso", "Ripi", "Paliano", "Sant'Elia Fiumerapido", "Vico nel Lazio", "Boville Ernica", "Rocca d'Arce", "Villa Santa Lucia", "Alvito", "Fumone", "San Biagio Saracinisco", "Picinisco", "Ausonia", "Aquino", "Campoli Appennino", "Pofi", "San Giovanni Incarico", "Supino", "Villa Santo Stefano", "Piedimonte San Germano", "Castro dei Volsci", "Esperia", "Cassino", "Villa Latina", "Roccasecca", "Pontecorvo", "Ferentino", "Posta Fibreno", "Vicalvi", "Arce", "Santopadre", "Broccostella", "Coreno Ausonio", "Sgurgola", "Piglio", "Acuto", "Sant'Apollinare", "Casalattico", "Colfelice", "Vallerotonda", "Belmonte Castello", "Collepardo", "Sant'Ambrogio sul Garigliano", "Arpino", "Sora", "Gallinaro", "Trivigliano", "Castelliri", "Casalvieri", "Monte San Giovanni Campano", "Ceprano", "Settefrati", "Pico", "Castelnuovo Parano", "Trevi nel Lazio", "Vallemaio", "Morolo", "Amaseno", "San Donato Val di Comino", "Acquafondata", "Atina", "Filettino", "Vallecorsa", "Torrice", "Castrocielo", "Isola del Liri", "Cervaro", "Veroli", "Fontechiari", "San Vittore del Lazio", "Ceccano", "Alatri", "Giuliano di Roma", "Arnara", "Serrone", "Fontana Liri", "Falvaterra", "Sant'Andrea del Garigliano", "Anagni", "Colle San Magno", "Pastena", "Patrica", "Terelle", "Fiuggi", "Guarcino", "San Giorgio a Liri", "Frosinone", "Pescosolido", "Strangolagalli"] }, Bm = { Caserta: ["Cervino", "Marcianise", "Cesa", "Ailano", "Rocchetta e Croce", "Valle di Maddaloni", "Alvignano", "Capriati a Volturno", "Santa Maria la Fossa", "Casal di Principe", "Riardo", "Sant'Arpino", "Frignano", "Liberi", "Gallo Matese", "Castel Volturno", "Aversa", "Succivo", "Teano", "Roccamonfina", "Grazzanise", "Presenzano", "Castel Morrone", "San Marco Evangelista", "San Prisco", "Vairano Patenora", "Carinaro", "Villa di Briano", "Letino", "Marzano Appio", "Sparanise", "Casagiove", "Ruviano", "San Gregorio Matese", "Sant'Angelo d'Alife", "Valle Agricola", "Arienzo", "Curti", "Cellole", "Piedimonte Matese", "Piana di Monte Verna", "San Pietro Infine", "Castello del Matese", "Pontelatone", "Falciano del Massico", "Caserta", "Calvi Risorta", "Pastorano", "Casapesenna", "Mondragone", "Casapulla", "Cancello ed Arnone", "Pignataro Maggiore", "San Felice a Cancello", "Castel di Sasso", "Baia e Latina", "Santa Maria a Vico", "San Nicola la Strada", "Formicola", "Parete", "Roccaromana", "Galluccio", "Alife", "Dragoni", "Orta di Atella", "Pratella", "Caianello", "Lusciano", "San Potito Sannitico", "Pietravairano", "Ciorlano", "Mignano Monte Lungo", "Casaluce", "Capua", "San Tammaro", "Tora e Piccilli", "Portico di Caserta", "Recale", "Macerata Campania", "Gioia Sannitica", "San Cipriano d'Aversa", "Trentola Ducenta", "Villa Literno", "Gricignano di Aversa", "Teverola", "Giano Vetusto", "Rocca d'Evandro", "Conca della Campania", "San Marcellino", "Sessa Aurunca", "Fontegreca", "Carinola", "Prata Sannita", "Pietramelara", "Bellona", "Vitulazio", "Castel Campagnano", "Caiazzo", "Camigliano", "Capodrise", "Santa Maria Capua Vetere", "Francolise", "Maddaloni", "Raviscanina"], Benevento: ["Foglianise", "Circello", "Ponte", "Forchia", "Sant'Agata de' Goti", "Fragneto Monforte", "Limatola", "Molinara", "Cusano Mutri", "Reino", "San Giorgio del Sannio", "Vitulano", "Paupisi", "Calvi", "San Lupo", "Castelpoto", "San Leucio del Sannio", "Montesarchio", "Solopaca", "San Lorenzo Maggiore", "Airola", "Pannarano", "Colle Sannita", "Arpaise", "Durazzano", "Tocco Caudio", "Fragneto l'Abate", "Paolisi", "San Nazzaro", "Santa Croce del Sannio", "Guardia Sanframondi", "Castelfranco in Miscano", "Montefalcone di Val Fortore", "San Giorgio La Molara", "San Lorenzello", "Buonalbergo", "Puglianello", "San Bartolomeo in Galdo", "Telese Terme", "Frasso Telesino", "Moiano", "Casalduni", "San Nicola Manfredi", "Benevento", "Paduli", "San Marco dei Cavoti", "Cautano", "Arpaia", "Baselice", "Cerreto Sannita", "Ginestra degli Schiavoni", "Castelpagano", "Morcone", "Bucciano", "Pietrelcina", "Pago Veiano", "Amorosi", "Torrecuso", "Sant'Arcangelo Trimonte", "Castelvetere in Val Fortore", "Apollosa", "San Martino Sannita", "San Salvatore Telesino", "Campoli del Monte Taburno", "Pontelandolfo", "Apice", "Bonea", "Castelvenere", "Sant'Angelo a Cupolo", "Pietraroja", "Sassinoro", "Foiano di Val Fortore", "Melizzano", "Faicchio", "Ceppaloni", "Campolattaro", "Pesco Sannita", "Dugenta"], Napoli: ["Scisciano", "Striano", "Pozzuoli", "Castellammare di Stabia", "Frattamaggiore", "Forio", "Frattaminore", "Cicciano", "Sant'Antonio Abate", "San Vitaliano", "Somma Vesuviana", "Pomigliano d'Arco", "Caivano", "Castello di Cisterna", "Cardito", "Gragnano", "Calvizzano", "Casamarciano", "Marano di Napoli", "Roccarainola", "Sant'Anastasia", "Tufino", "Poggiomarino", "Volla", "Casola di Napoli", "Portici", "Villaricca", "Capri", "Anacapri", "Lacco Ameno", "Piano di Sorrento", "Melito di Napoli", "Mariglianella", "Crispano", "Meta", "Pimonte", "Acerra", "Camposano", "Pollena Trocchia", "Boscoreale", "Casamicciola Terme", "Grumo Nevano", "Saviano", "Carbonara di Nola", "San Paolo Bel Sito", "Arzano", "Cercola", "Comiziano", "Mugnano di Napoli", "Afragola", "Torre Annunziata", "San Sebastiano al Vesuvio", "Casavatore", "Massa Lubrense", "Bacoli", "Vico Equense", "Ercolano", "San Giorgio a Cremano", "Serrara Fontana", "Visciano", "Torre del Greco", "Sant'Antimo", "Procida", "Casoria", "Quarto", "Napoli", "San Gennaro Vesuviano", "Ischia", "Terzigno", "Casalnuovo di Napoli", "Brusciano", "San Giuseppe Vesuviano", "Boscotrecase", "Santa Maria la Carità", "Marigliano", "Sant'Agnello", "Nola", "Palma Campania", "Cimitile", "Giugliano in Campania", "Trecase", "Pompei", "Monte di Procida", "Sorrento", "Qualiano", "Casandrino", "Lettere", "Barano d'Ischia", "Ottaviano", "Agerola", "Liveri", "Massa di Somma"], Avellino: ["Castelvetere sul Calore", "Atripalda", "Baiano", "Montoro", "Grottolella", "Tufo", "Fontanarosa", "Santo Stefano del Sole", "Monteforte Irpino", "Teora", "Greci", "Trevico", "Vallata", "Montaguto", "Gesualdo", "Cesinali", "Vallesaccarda", "Conza della Campania", "Venticano", "Moschiano", "Pietrastornina", "Paternopoli", "Pietradefusi", "Torrioni", "Senerchia", "Casalbore", "Montemiletto", "Sirignano", "Zungoli", "Sperone", "Rotondi", "Caposele", "Scampitella", "Guardia Lombardi", "San Potito Ultra", "Domicella", "Calabritto", "Chiusano di San Domenico", "Salza Irpina", "Manocalzati", "Cairano", "Quadrelle", "Cassano Irpino", "Quindici", "San Nicola Baronia", "Sant'Andrea di Conza", "Sant'Angelo dei Lombardi", "Montemarano", "Cervinara", "Ospedaletto d'Alpinolo", "San Sossio Baronia", "Serino", "Solofra", "Chianche", "Montefusco", "Mercogliano", "Sorbo Serpico", "Carife", "Forino", "Mirabella Eclano", "Parolise", "Savignano Irpino", "Bagnoli Irpino", "Roccabascerana", "Contrada", "Lacedonia", "Montefalcione", "Grottaminarda", "Lauro", "Montecalvo Irpino", "Summonte", "Pago del Vallo di Lauro", "Castel Baronia", "Aquilonia", "Taurano", "Castelfranci", "Capriglia Irpina", "Volturara Irpina", "Villanova del Battista", "Prata di Principato Ultra", "Sant'Angelo a Scala", "Santa Paolina", "Ariano Irpino", "Villamaina", "Avella", "Montefredane", "Luogosano", "Aiello del Sabato", "Taurasi", "Nusco", "Monteverde", "Avellino", "Rocca San Felice", "Andretta", "Flumeri", "Frigento", "Bonito", "Melito Irpino", "Sant'Angelo all'Esca", "Pratola Serra", "Santa Lucia di Serino", "Mugnano del Cardinale", "Torella dei Lombardi", "Calitri", "Sturno", "San Mango sul Calore", "San Michele di Serino", "Petruro Irpino", "Lapio", "Montella", "Bisaccia", "San Martino Valle Caudina", "Lioni", "Altavilla Irpina", "Morra De Sanctis", "Marzano di Nola", "Candida", "Torre Le Nocelle"], Salerno: ["Cannalonga", "Castelnuovo Cilento", "Romagnano al Monte", "Prignano Cilento", "Scala", "Castel San Giorgio", "Auletta", "Giungano", "Cava de' Tirreni", "Casal Velino", "Casalbuono", "Laurino", "Ravello", "Casaletto Spartano", "San Cipriano Picentino", "Serre", "Tramonti", "Scafati", "Torraca", "Tortorella", "Bellizzi", "Camerota", "Celle di Bulgheria", "Salento", "Monteforte Cilento", "Baronissi", "Sant'Angelo a Fasanella", "Altavilla Silentina", "Salvitelle", "Omignano", "Furore", "Montesano sulla Marcellana", "Castelcivita", "Buonabitacolo", "Sala Consilina", "Santa Marina", "Pellezzano", "Castiglione del Genovesi", "Monte San Giacomo", "Sessa Cilento", "Colliano", "Valva", "Praiano", "Mercato San Severino", "Caggiano", "Battipaglia", "Campora", "San Valentino Torio", "Aquara", "Castellabate", "Lustra", "Moio della Civitella", "Torchiara", "Giffoni Valle Piana", "Sapri", "Capaccio Paestum", "Fisciano", "Stio", "Bellosguardo", "Novi Velia", "Sarno", "Roscigno", "San Marzano sul Sarno", "Roccadaspide", "Postiglione", "Castel San Lorenzo", "San Giovanni a Piro", "Castelnuovo di Conza", "Ispani", "Piaggine", "Controne", "Ottati", "Positano", "Campagna", "Cetara", "Corleto Monforte", "San Mauro la Bruca", "Sacco", "Caselle in Pittari", "Ricigliano", "Minori", "Acerno", "Siano", "Calvanico", "Ascea", "Contursi Terme", "Felitto", "Morigerati", "Salerno", "Orria", "Valle dell'Angelo", "San Rufo", "Corbara", "San Gregorio Magno", "Pisciotta", "Palomonte", "Teggiano", "Petina", "Rutino", "Olevano sul Tusciano", "Roccagloriosa", "Futani", "Vibonati", "Agropoli", "Bracigliano", "Perdifumo", "Angri", "Nocera Superiore", "Roccapiemonte", "Cicerale", "Atrani", "Pontecagnano Faiano", "Giffoni Sei Casali", "Laureana Cilento", "San Mauro Cilento", "San Pietro al Tanagro", "Albanella", "Pollica", "Sant'Arsenio", "Vietri sul Mare", "Oliveto Citra", "Sanza", "Sicignano degli Alburni", "Trentinara", "Buccino", "Conca dei Marini", "Stella Cilento", "Atena Lucana", "San Mango Piemonte", "Magliano Vetere", "Amalfi", "Centola", "Gioi", "Ogliastro Cilento", "Pertosa", "Serramezzana", "Eboli", "Torre Orsaia", "Pagani", "Santomenna", "Montecorice", "Padula", "Perito", "Cuccaro Vetere", "Ceraso", "Montecorvino Rovella", "Nocera Inferiore", "Laurito", "Maiori", "Vallo della Lucania", "Laviano", "Sant'Egidio del Monte Albino", "Montano Antilia", "Polla", "Alfano", "Sassano", "Montecorvino Pugliano", "Rofrano"] }, Fm = { "L'Aquila": ["Castel di Ieri", "Collelongo", "Capistrello", "Scontrone", "Montereale", "Opi", "San Benedetto in Perillis", "Fontecchio", "Rivisondoli", "Fagnano Alto", "Castellafiume", "Carapelle Calvisio", "Introdacqua", "Cocullo", "Pereto", "Rocca di Cambio", "San Benedetto dei Marsi", "Pettorano sul Gizio", "Rocca di Botte", "Cappadocia", "Rocca di Mezzo", "Villavallelonga", "Caporciano", "Pescasseroli", "Anversa degli Abruzzi", "Bisegna", "Santo Stefano di Sessanio", "Rocca Pia", "Celano", "Scoppito", "Capestrano", "Roccaraso", "Ofena", "Villalago", "San Vincenzo Valle Roveto", "Gioia dei Marsi", "Avezzano", "Ocre", "Collepietro", "Trasacco", "Poggio Picenze", "Barrea", "Ortucchio", "Aielli", "Canistro", "Pacentro", "Villa Sant'Angelo", "Ovindoli", "Prata d'Ansidonia", "Villetta Barrea", "Villa Santa Lucia degli Abruzzi", "Raiano", "Castelvecchio Calvisio", "Bugnara", "Castelvecchio Subequo", "Lecce nei Marsi", "Scanno", "Sulmona", "Capitignano", "Pescocostanzo", "Sante Marie", "Alfedena", "Civitella Roveto", "Cerchio", "Carsoli", "Lucoli", "Balsorano", "Pizzoli", "Fossa", "Acciano", "Ateleta", "Barisciano", "Scurcola Marsicana", "Campo di Giove", "Gagliano Aterno", "L'Aquila", "Roccacasale", "Castel di Sangro", "Civita d'Antino", "Pratola Peligna", "Calascio", "Navelli", "Sant'Eusanio Forconese", "Vittorito", "Magliano de' Marsi", "Castel del Monte", "Molina Aterno", "Tornimparte", "San Demetrio ne' Vestini", "Tagliacozzo", "Barete", "Campotosto", "Tione degli Abruzzi", "Civitella Alfedena", "Pescina", "Collarmele", "San Pio delle Camere", "Prezza", "Massa d'Albe", "Morino", "Cansano", "Secinaro", "Corfinio", "Goriano Sicoli", "Luco dei Marsi", "Cagnano Amiterno", "Ortona dei Marsi", "Oricola"], Teramo: ["Tortoreto", "Giulianova", "Pietracamela", "Civitella del Tronto", "Teramo", "Torricella Sicura", "Rocca Santa Maria", "Campli", "Morro d'Oro", "Tossicia", "Arsita", "Ancarano", "Cortino", "Bisenti", "Atri", "Corropoli", "Sant'Omero", "Pineto", "Basciano", "Cellino Attanasio", "Alba Adriatica", "Mosciano Sant'Angelo", "Silvi", "Castellalto", "Crognaleto", "Montorio al Vomano", "Sant'Egidio alla Vibrata", "Notaresco", "Torano Nuovo", "Montefino", "Colonnella", "Castelli", "Controguerra", "Colledara", "Canzano", "Isola del Gran Sasso d'Italia", "Penna Sant'Andrea", "Martinsicuro", "Roseto degli Abruzzi", "Bellante", "Cermignano", "Castel Castagna", "Fano Adriano", "Valle Castellana", "Nereto", "Castiglione Messer Raimondo", "Castilenti"], Pescara: ["Carpineto della Nora", "Penne", "Salle", "Nocciano", "Pietranico", "Pescosansonesco", "Montebello di Bertona", "Turrivalignani", "Brittoli", "Città Sant'Angelo", "Alanno", "Collecorvino", "Tocco da Casauria", "Torre de' Passeri", "Castiglione a Casauria", "Cepagatti", "Montesilvano", "Caramanico Terme", "Corvara", "Scafa", "Manoppello", "Roccamorice", "Loreto Aprutino", "Moscufo", "Spoltore", "Rosciano", "Bolognano", "San Valentino in Abruzzo Citeriore", "Popoli Terme", "Lettomanoppello", "Picciano", "Elice", "Villa Celiera", "Pescara", "Vicoli", "Serramonacesca", "Sant'Eufemia a Maiella", "Catignano", "Civitaquana", "Abbateggio", "Cappelle sul Tavo", "Pianella", "Farindola", "Bussi sul Tirino", "Civitella Casanova", "Cugnoli"], Chieti: ["Castel Frentano", "Paglieta", "Fara Filiorum Petri", "Casacanditella", "Poggiofiorito", "Villamagna", "San Martino sulla Marrucina", "Carunchio", "Torrebruna", "Roccamontepiano", "Tornareccio", "Atessa", "San Giovanni Lipioni", "Lentella", "San Salvo", "Crecchio", "Palena", "Fossacesia", "Chieti", "Furci", "Fallo", "Sant'Eusanio del Sangro", "Carpineto Sinello", "Roccaspinalveti", "Quadri", "Taranta Peligna", "Fara San Martino", "Cupello", "Casalincontrada", "Rapino", "Scerni", "Treglio", "Mozzagrogna", "Rocca San Giovanni", "Santa Maria Imbaro", "Miglianico", "Gissi", "Colledimezzo", "Monteferrante", "Montebello sul Sangro", "Fresagrandinaria", "Canosa Sannita", "Castelguidone", "Pietraferrazzana", "Torricella Peligna", "Schiavi di Abruzzo", "Pennadomo", "Lettopalena", "Filetto", "Ari", "Pretoro", "Gessopalena", "Civitaluparella", "Montazzoli", "San Buono", "Palombaro", "Civitella Messer Raimondo", "Colledimacine", "Vasto", "Frisa", "Pennapiedimonte", "Borrello", "Giuliano Teatino", "Lanciano", "Ortona", "Tufillo", "Gamberale", "Fraine", "Bucchianico", "Pollutri", "Torino di Sangro", "Montelapiano", "Montenerodomo", "Archi", "Roio del Sangro", "Celenza sul Trigno", "Ripa Teatina", "Monteodorisio", "Dogliola", "Villa Santa Maria", "Guilmi", "Palmoli", "Guardiagrele", "Casalanguida", "Perano", "Francavilla al Mare", "San Giovanni Teatino", "Lama dei Peligni", "Casalbordino", "Roccascalegna", "Casoli", "Vacri", "Villalfonsina", "Pizzoferrato", "Arielli", "Altino", "Liscia", "Rosello", "Torrevecchia Teatina", "Orsogna", "Castiglione Messer Marino", "San Vito Chietino", "Tollo", "Bomba"] }, km = { Campobasso: ["Campolieto", "Campochiaro", "Castellino del Biferno", "Spinete", "Bonefro", "Campomarino", "Portocannone", "Toro", "Ripabottoni", "Morrone del Sannio", "Ferrazzano", "Oratino", "Roccavivara", "Guardiaregia", "Mirabello Sannitico", "Vinchiaturo", "Montenero di Bisaccia", "Montorio nei Frentani", "Guardialfiera", "Jelsi", "Cercepiccola", "Pietracatella", "Larino", "Campodipietra", "Pietracupa", "Riccia", "Baranello", "Tavenna", "Lucito", "Matrice", "Provvidenti", "Santa Croce di Magliano", "Campobasso", "Trivento", "Ururi", "Sant'Angelo Limosano", "Cercemaggiore", "San Giacomo degli Schiavoni", "Montefalcone nel Sannio", "Gildone", "Busso", "San Polo Matese", "Montemitro", "Tufara", "Fossalto", "Montelongo", "Palata", "Termoli", "Sepino", "Lupara", "Casacalenda", "San Giuliano di Puglia", "Petrella Tifernina", "Colletorto", "Sant'Elia a Pianisi", "San Martino in Pensilis", "Rotello", "Molise", "Mafalda", "Castropignano", "Ripalimosani", "Macchia Valfortore", "Casalciprano", "Gambatesa", "San Biase", "San Giovanni in Galdo", "Castelmauro", "Petacciato", "Colle d'Anchise", "Limosano", "Civitacampomarano", "Salcito", "Monacilioni", "Bojano", "Montagano", "Torella del Sannio", "Montecilfone", "Guglionesi", "Acquaviva Collecroce", "San Felice del Molise", "San Giuliano del Sannio", "Castelbottaccio", "Duronia", "San Massimo"], Isernia: ["Bagnoli del Trigno", "Carovilli", "Castelpizzuto", "Conca Casale", "Civitanova del Sannio", "Castel San Vincenzo", "Sesto Campano", "Belmonte del Sannio", "Sessano del Molise", "Longano", "Scapoli", "Castel del Giudice", "Isernia", "Acquaviva d'Isernia", "Agnone", "Montaquila", "Carpinone", "Chiauci", "Sant'Agapito", "Miranda", "Pozzilli", "Rionero Sannitico", "Pescopennataro", "Pettoranello del Molise", "Macchiagodena", "Monteroduni", "Pietrabbondante", "Sant'Angelo del Pesco", "Cantalupo nel Sannio", "Colli a Volturno", "Fornelli", "Rocchetta a Volturno", "Pescolanciano", "Sant'Elena Sannita", "Macchia d'Isernia", "Pesche", "Castelverrino", "Frosolone", "Forlì del Sannio", "Montenero Val Cocchiara", "San Pietro Avellana", "Vastogirardi", "Roccamandolfi", "Venafro", "Santa Maria del Molise", "Castelpetroso", "Pizzone", "Roccasicura", "Capracotta", "Poggio Sannita", "Filignano", "Cerro al Volturno"] }, Om = { Foggia: ["San Nicandro Garganico", "Carapelle", "Ordona", "Ascoli Satriano", "Peschici", "Chieuti", "Castelnuovo della Daunia", "San Severo", "Poggio Imperiale", "Castelluccio dei Sauri", "Castelluccio Valmaggiore", "Cerignola", "Anzano di Puglia", "Ischitella", "Zapponeta", "Sant'Agata di Puglia", "San Marco la Catola", "Troia", "Lucera", "Cagnano Varano", "Serracapriola", "San Giovanni Rotondo", "Volturara Appula", "Bovino", "Orsara di Puglia", "Torremaggiore", "Biccari", "Carlantino", "Celenza Valfortore", "Vico del Gargano", "Orta Nova", "Lesina", "Pietramontecorvino", "Apricena", "San Marco in Lamis", "Volturino", "Candela", "Carpino", "Casalnuovo Monterotaro", "Isole Tremiti", "Faeto", "Rodi Garganico", "Rignano Garganico", "Monte Sant'Angelo", "Mattinata", "Celle di San Vito", "Motta Montecorvino", "Panni", "Casalvecchio di Puglia", "Vieste", "Stornarella", "Monteleone di Puglia", "Accadia", "Alberona", "Roseto Valfortore", "San Paolo di Civitate", "Manfredonia", "Deliceto", "Rocchetta Sant'Antonio", "Foggia", "Stornara"], Bari: ["Altamura", "Palo del Colle", "Poggiorsini", "Acquaviva delle Fonti", "Modugno", "Molfetta", "Terlizzi", "Polignano a Mare", "Bitritto", "Putignano", "Triggiano", "Sammichele di Bari", "Castellana Grotte", "Cassano delle Murge", "Noicattaro", "Rutigliano", "Conversano", "Gioia del Colle", "Adelfia", "Capurso", "Cellamare", "Ruvo di Puglia", "Gravina in Puglia", "Valenzano", "Locorotondo", "Corato", "Bitetto", "Binetto", "Sannicandro di Bari", "Mola di Bari", "Toritto", "Giovinazzo", "Alberobello", "Bitonto", "Monopoli", "Grumo Appula", "Noci", "Turi", "Bari", "Casamassima", "Santeramo in Colle"], Taranto: ["Martina Franca", "Fragagnano", "Castellaneta", "Sava", "Crispiano", "San Giorgio Ionico", "Pulsano", "Mottola", "Montemesola", "San Marzano di San Giuseppe", "Avetrana", "Lizzano", "Palagianello", "Taranto", "Manduria", "Massafra", "Monteiasi", "Laterza", "Carosino", "Statte", "Monteparano", "Torricella", "Grottaglie", "Roccaforzata", "Faggiano", "Maruggio", "Ginosa", "Leporano", "Palagiano"], Brindisi: ["Mesagne", "Ostuni", "Torre Santa Susanna", "Cisternino", "San Vito dei Normanni", "Erchie", "Francavilla Fontana", "Cellino San Marco", "San Donaci", "San Pietro Vernotico", "Carovigno", "Fasano", "Torchiarolo", "Ceglie Messapica", "Oria", "Brindisi", "San Michele Salentino", "San Pancrazio Salentino", "Villa Castelli", "Latiano"], Lecce: ["Castri di Lecce", "Santa Cesarea Terme", "Castro", "Melpignano", "San Pietro in Lama", "Seclì", "Copertino", "Soleto", "Diso", "Alessano", "Spongano", "Guagnano", "Surano", "Squinzano", "Sternatia", "Arnesano", "Presicce-Acquarica", "Neviano", "Castrignano del Capo", "Casarano", "Leverano", "Ortelle", "Novoli", "Taviano", "Galatina", "Surbo", "Alliste", "Andrano", "Martignano", "Maglie", "Giuggianello", "Veglie", "Ruffano", "Corigliano d'Otranto", "Miggiano", "Carpignano Salentino", "Botrugno", "Minervino di Lecce", "Sogliano Cavour", "Tuglie", "Taurisano", "Monteroni di Lecce", "Lequile", "Salve", "Racale", "Tricase", "Martano", "Castrignano de' Greci", "Ugento", "Matino", "Carmiano", "Vernole", "Cutrofiano", "Salice Salentino", "Scorrano", "San Cassiano", "Cursi", "Bagnolo del Salento", "Specchia", "Nardò", "Morciano di Leuca", "Porto Cesareo", "Patù", "Trepuzzi", "Montesano Salentino", "San Cesario di Lecce", "Corsano", "Caprarica di Lecce", "Lizzanello", "Parabita", "Sannicola", "Aradeo", "Otranto", "Collepasso", "Campi Salentina", "Calimera", "Tiggiano", "Galatone", "Giurdignano", "Poggiardo", "Muro Leccese", "Supersano", "Cavallino", "Lecce", "Sanarica", "Zollino", "Melendugno", "Alezio", "San Donato di Lecce", "Gallipoli", "Cannole", "Uggiano la Chiesa", "Gagliano del Capo", "Palmariggi", "Melissano", "Nociglia"], "Barletta-Andria-Trani": ["Canosa di Puglia", "Trani", "Andria", "Spinazzola", "Trinitapoli", "Barletta", "Margherita di Savoia", "Minervino Murge", "San Ferdinando di Puglia", "Bisceglie"] }, Dm = { Potenza: ["San Severino Lucano", "Ruvo del Monte", "Lagonegro", "Calvera", "Carbone", "Satriano di Lucania", "Montemilone", "Rivello", "Moliterno", "Balvano", "Fardella", "Francavilla in Sinni", "Castelmezzano", "Tolve", "Chiaromonte", "Cersosimo", "Tramutola", "Corleto Perticara", "Lavello", "Brienza", "Venosa", "Banzi", "Calvello", "Savoia di Lucania", "Teana", "Pietrapertosa", "Montemurro", "Castelluccio Inferiore", "Avigliano", "Castelluccio Superiore", "Ruoti", "Genzano di Lucania", "San Martino d'Agri", "Potenza", "Episcopia", "Castelgrande", "Vaglio Basilicata", "Viggianello", "Anzi", "Maschito", "Baragiano", "Castelsaraceno", "Rotonda", "Sasso di Castalda", "Albano di Lucania", "Viggiano", "San Paolo Albanese", "Nemoli", "Rapolla", "Paterno", "San Costantino Albanese", "Pietragalla", "Melfi", "Sant'Angelo Le Fratte", "Castronuovo di Sant'Andrea", "Acerenza", "Campomaggiore", "Vietri di Potenza", "Trecchina", "Picerno", "Rapone", "Armento", "Gallicchio", "Pescopagano", "San Chirico Raparo", "Roccanova", "Maratea", "Missanello", "San Chirico Nuovo", "Spinoso", "Ripacandida", "Sarconi", "Tito", "Rionero in Vulture", "Bella", "Latronico", "Palazzo San Gervasio", "Noepoli", "Trivigno", "Barile", "Ginestra", "Sant'Arcangelo", "Atella", "Filiano", "Muro Lucano", "Marsico Nuovo", "Oppido Lucano", "San Fele", "Guardia Perticara", "Brindisi Montagna", "Lauria", "Cancellara", "Forenza", "Laurenzana", "Grumento Nova", "Abriola", "Terranova di Pollino", "Pignola", "Senise", "Marsicovetere"], Matera: ["Calciano", "Montescaglioso", "Montalbano Jonico", "Colobraro", "Pisticci", "Oliveto Lucano", "Accettura", "Garaguso", "Matera", "Grottole", "Irsina", "Tricarico", "San Giorgio Lucano", "Craco", "Pomarico", "Gorgoglione", "San Mauro Forte", "Nova Siri", "Miglionico", "Bernalda", "Ferrandina", "Salandra", "Tursi", "Cirigliano", "Policoro", "Valsinni", "Stigliano", "Aliano", "Rotondella", "Grassano", "Scanzano Jonico"] }, Gm = { Cosenza: ["Fuscaldo", "Amendolara", "Santa Domenica Talao", "Nocara", "Acri", "Mormanno", "Bisignano", "Carolei", "Altilia", "Firmo", "San Fili", "Rota Greca", "Santa Maria del Cedro", "Lago", "Castrolibero", "Aieta", "Plataci", "Cetraro", "San Giorgio Albanese", "Lattarico", "Mendicino", "Pietrapaola", "Marano Principato", "Panettieri", "Bonifati", "Bocchigliero", "Rocca Imperiale", "Santo Stefano di Rogliano", "Roseto Capo Spulico", "Calopezzati", "Casali del Manco", "Paola", "Grimaldi", "Rende", "Cellara", "Campana", "Parenti", "Paterno Calabro", "Sangineto", "Cerisano", "Santa Caterina Albanese", "Falconara Albanese", "Lappano", "Caloveto", "Malvito", "Frascineto", "Oriolo", "San Lorenzo Bellizzi", "Belvedere Marittimo", "Scalea", "Amantea", "Paludi", "Villapiana", "Scigliano", "San Marco Argentano", "San Sosti", "Longobucco", "Carpanzano", "Pietrafitta", "Cropalati", "Alessandria del Carretto", "Zumpano", "San Cosmo Albanese", "Castiglione Cosentino", "San Donato di Ninea", "Civita", "Cerchiara di Calabria", "Altomonte", "Mandatoriccio", "Canna", "Vaccarizzo Albanese", "Fiumefreddo Bruzio", "Fagnano Castello", "Sant'Agata di Esaro", "Terravecchia", "Tortora", "Mangone", "Marzi", "San Pietro in Amantea", "San Vincenzo La Costa", "Verbicaro", "Trebisacce", "Celico", "Praia a Mare", "Belmonte Calabro", "Malito", "Castroregio", "Cervicati", "Torano Castello", "Grisolia", "Morano Calabro", "Bianchi", "Scala Coeli", "Montegiordano", "Aiello Calabro", "Albidona", "Domanico", "San Basile", "Rovito", "Luzzi", "Guardia Piemontese", "San Demetrio Corone", "Aprigliano", "Cassano all'Ionio", "Acquappesa", "Buonvicino", "San Benedetto Ullano", "Crosia", "San Nicola Arcella", "San Martino di Finita", "Roggiano Gravina", "Laino Borgo", "Cosenza", "Serra d'Aiello", "Figline Vegliaturo", "Pedivigliano", "Francavilla Marittima", "San Lucido", "Maierà", "Longobardi", "Cleto", "Castrovillari", "Lungro", "San Pietro in Guarano", "Terranova da Sibari", "Montalto Uffugo", "Santa Sofia d'Epiro", "Diamante", "Orsomarso", "Marano Marchesato", "Cerzeto", "Laino Castello", "Corigliano-Rossano", "Cariati", "Mongrassano", "Piane Crati", "Spezzano Albanese", "Rose", "Mottafollone", "Dipignano", "Tarsia", "Saracena", "Belsito", "Papasidero", "Spezzano della Sila", "San Giovanni in Fiore", "Rogliano", "Acquaformosa", "Colosimi", "San Lorenzo del Vallo"], Catanzaro: ["Settingiano", "Pianopoli", "Stalettì", "Tiriolo", "Cenadi", "Marcellinara", "Amato", "Curinga", "San Pietro a Maida", "Badolato", "Girifalco", "Fossato Serralta", "Miglierina", "Belcastro", "Falerna", "Petronà", "Gagliato", "Carlopoli", "Marcedusa", "Martirano Lombardo", "Platania", "Gizzeria", "Soverato", "Cardinale", "Davoli", "Gasperina", "Cicala", "Soveria Mannelli", "Santa Caterina dello Ionio", "Motta Santa Lucia", "Feroleto Antico", "Petrizzi", "Cortale", "Montauro", "Argusto", "Centrache", "Chiaravalle Centrale", "Taverna", "Montepaone", "Caraffa di Catanzaro", "Amaroni", "Catanzaro", "Soveria Simeri", "Sersale", "Magisano", "Sant'Andrea Apostolo dello Ionio", "San Vito sullo Ionio", "San Mango d'Aquino", "Satriano", "Albi", "Jacurso", "Simeri Crichi", "Conflenti", "Botricello", "Sellia Marina", "Cerva", "Borgia", "San Pietro Apostolo", "Nocera Terinese", "Palermiti", "Maida", "Vallefiorita", "Pentone", "Lamezia Terme", "Isca sullo Ionio", "Torre di Ruggiero", "Cropani", "Decollatura", "Gimigliano", "Martirano", "San Sostene", "Olivadi", "Squillace", "San Floro", "Sorbo San Basile", "Serrastretta", "Andali", "Guardavalle", "Zagarise", "Sellia"], "Reggio Calabria": ["Campo Calabro", "Candidoni", "San Giorgio Morgeto", "Placanica", "Sant'Alessio in Aspromonte", "Laureana di Borrello", "Caulonia", "Ardore", "Grotteria", "Palizzi", "Condofuri", "Pazzano", "Marina di Gioiosa Ionica", "Motta San Giovanni", "Sant'Agata del Bianco", "Gioiosa Ionica", "Varapodio", "Riace", "Sant'Eufemia d'Aspromonte", "Locri", "Laganadi", "San Giovanni di Gerace", "Caraffa del Bianco", "Canolo", "Roccaforte del Greco", "Mammola", "Bianco", "Ferruzzano", "Martone", "Scido", "Cinquefrondi", "Terranova Sappo Minulio", "Bivongi", "Santa Cristina d'Aspromonte", "Seminara", "Sinopoli", "Cosoleto", "Giffone", "Rosarno", "Molochio", "Gioia Tauro", "Maropati", "Monasterace", "Benestare", "Africo", "Samo", "Melicuccà", "Bova", "Cardeto", "San Procopio", "Stignano", "Bagnara Calabra", "Cittanova", "San Lorenzo", "Brancaleone", "Roghudi", "Roccella Ionica", "Polistena", "Oppido Mamertina", "Galatro", "Siderno", "Scilla", "San Luca", "San Roberto", "San Pietro di Caridà", "Careri", "Sant'Ilario dello Ionio", "Rizziconi", "Camini", "Melicucco", "Portigliola", "Bovalino", "Delianuova", "Ciminà", "Gerace", "Santo Stefano in Aspromonte", "Staiti", "Taurianova", "Fiumara", "Platì", "Palmi", "Antonimina", "Bagaladi", "Bova Marina", "Montebello Jonico", "Calanna", "Bruzzano Zeffirio", "Melito di Porto Salvo", "Serrata", "Agnana Calabra", "San Ferdinando", "Stilo", "Feroleto della Chiesa", "Reggio di Calabria", "Casignana", "Anoia", "Villa San Giovanni"], Crotone: ["Roccabernarda", "Verzino", "Scandale", "Cirò", "Isola di Capo Rizzuto", "Savelli", "Castelsilano", "Strongoli", "Rocca di Neto", "Cirò Marina", "Cutro", "San Nicola dell'Alto", "Cerenzia", "Carfizzi", "Belvedere di Spinello", "San Mauro Marchesato", "Crucoli", "Umbriatico", "Mesoraca", "Santa Severina", "Crotone", "Pallagorio", "Petilia Policastro", "Casabona", "Caccuri", "Melissa", "Cotronei"], "Vibo Valentia": ["Filandari", "Pizzo", "Ricadi", "Joppolo", "Vallelonga", "Nardodipace", "Rombiolo", "Brognaturo", "Spadola", "Maierato", "Simbario", "Fabrizia", "Sorianello", "Zungri", "Jonadi", "Soriano Calabro", "Spilinga", "Tropea", "San Calogero", "Vazzano", "Drapia", "Gerocarne", "Briatico", "Cessaniti", "Zaccanopoli", "Limbadi", "Dasà", "Parghelia", "Mileto", "Francica", "Dinami", "Capistrano", "Arena", "Sant'Onofrio", "Pizzoni", "Nicotera", "Polia", "Francavilla Angitola", "Acquaro", "Vibo Valentia", "Stefanaconi", "Zambrone", "San Gregorio d'Ippona", "San Costantino Calabro", "Filadelfia", "Monterosso Calabro", "Serra San Bruno", "San Nicola da Crissa", "Mongiana", "Filogaso"] }, Nm = { Trapani: ["Alcamo", "Buseto Palizzolo", "Paceco", "Salaparuta", "Castelvetrano", "Santa Ninfa", "Custonaci", "Poggioreale", "San Vito Lo Capo", "Petrosino", "Trapani", "Vita", "Salemi", "Mazara del Vallo", "Pantelleria", "Castellammare del Golfo", "Marsala", "Favignana", "Misiliscemi", "Campobello di Mazara", "Erice", "Valderice", "Gibellina", "Partanna", "Calatafimi-Segesta"], Palermo: ["Montemaggiore Belsito", "Lercara Friddi", "Carini", "San Giuseppe Jato", "Termini Imerese", "Campofelice di Roccella", "Vicari", "Palazzo Adriano", "Caltavuturo", "Alia", "Bompietro", "Prizzi", "Isnello", "Campofiorito", "Chiusa Sclafani", "Gratteri", "Balestrate", "Campofelice di Fitalia", "Altavilla Milicia", "Belmonte Mezzagno", "Borgetto", "Pollina", "Santa Flavia", "Alimena", "Cefalà Diana", "Palermo", "Torretta", "Casteldaccia", "Sciara", "Roccapalumba", "Villabate", "Baucina", "San Mauro Castelverde", "Trabia", "Partinico", "Cinisi", "San Cipirello", "Santa Cristina Gela", "Ficarazzi", "Caccamo", "Castronovo di Sicilia", "Cerda", "Valledolmo", "Camporeale", "Bisacquino", "Cefalù", "Capaci", "Corleone", "Villafrati", "Castellana Sicula", "Roccamena", "Terrasini", "Isola delle Femmine", "Misilmeri", "Giuliana", "Bolognetta", "Piana degli Albanesi", "Gangi", "Trappeto", "Sclafani Bagni", "Bagheria", "Petralia Sottana", "Godrano", "Geraci Siculo", "Castelbuono", "Ciminna", "Polizzi Generosa", "Blufi", "Lascari", "Giardinello", "Ustica", "Ventimiglia di Sicilia", "Collesano", "Mezzojuso", "Contessa Entellina", "Marineo", "Scillato", "Petralia Soprana", "Monreale", "Montelepre", "Altofonte", "Aliminusa"], Messina: ["Floresta", "Alì", "Santa Domenica Vittoria", "San Salvatore di Fitalia", "Torrenova", "Valdina", "Tusa", "Messina", "Castel di Lucio", "Malvagna", "Barcellona Pozzo di Gotto", "Caronia", "Itala", "San Marco d'Alunzio", "Motta Camastra", "Saponara", "Pagliara", "Gaggi", "Piraino", "San Filippo del Mela", "Rodì Milici", "Mazzarrà Sant'Andrea", "Rometta", "Scaletta Zanclea", "Santa Teresa di Riva", "Roccafiorita", "Sant'Alessio Siculo", "Naso", "Capizzi", "Militello Rosmarino", "Villafranca Tirrena", "Roccella Valdemone", "Sant'Angelo di Brolo", "Venetico", "Torregrotta", "Casalvecchio Siculo", "Merì", "Furci Siculo", "Gallodoro", "Capri Leone", "Montagnareale", "Francavilla di Sicilia", "Mistretta", "Furnari", "Santa Marina Salina", "Falcone", "Patti", "Librizzi", "Tortorici", "Montalbano Elicona", "Roccavaldina", "Antillo", "Castell'Umberto", "Ficarra", "Novara di Sicilia", "San Piero Patti", "Raccuja", "Motta d'Affermo", "Mandanici", "Nizza di Sicilia", "Ucria", "Savoca", "Condrò", "Capo d'Orlando", "San Fratello", "Forza d'Agrò", "Gualtieri Sicaminò", "Oliveri", "Spadafora", "San Pier Niceto", "Sinagra", "Gioiosa Marea", "Fiumedinisi", "Alcara li Fusi", "Taormina", "Monforte San Giorgio", "Giardini-Naxos", "Leni", "Basicò", "Sant'Agata di Militello", "Terme Vigliatore", "Castroreale", "Santo Stefano di Camastra", "Graniti", "Lipari", "Milazzo", "San Teodoro", "Acquedolci", "Santa Lucia del Mela", "Galati Mamertino", "Reitano", "Frazzanò", "Alì Terme", "Tripi", "Roccalumera", "Moio Alcantara", "Cesarò", "Limina", "Castelmola", "Longi", "Malfa", "Fondachelli-Fantina", "Letojanni", "Mongiuffi Melia", "Pace del Mela", "Brolo", "Mirto", "Pettineo"], Agrigento: ["Licata", "Ribera", "Alessandria della Rocca", "Santa Elisabetta", "Grotte", "Montallegro", "Menfi", "Montevago", "Calamonaci", "San Biagio Platani", "Castrofilippo", "Santa Margherita di Belice", "Ravanusa", "Cianciana", "Lucca Sicula", "Sant'Angelo Muxaro", "Realmonte", "Porto Empedocle", "Lampedusa e Linosa", "Villafranca Sicula", "Canicattì", "Naro", "San Giovanni Gemini", "Santo Stefano Quisquina", "Cammarata", "Comitini", "Raffadali", "Burgio", "Agrigento", "Sciacca", "Siculiana", "Bivona", "Joppolo Giancaxio", "Racalmuto", "Camastra", "Sambuca di Sicilia", "Campobello di Licata", "Caltabellotta", "Casteltermini", "Aragona", "Cattolica Eraclea", "Favara", "Palma di Montechiaro"], Caltanissetta: ["Sommatino", "Delia", "San Cataldo", "Marianopoli", "Mazzarino", "Acquaviva Platani", "Gela", "Mussomeli", "Butera", "Villalba", "Vallelunga Pratameno", "Bompensiere", "Resuttano", "Serradifalco", "Caltanissetta", "Campofranco", "Niscemi", "Montedoro", "Milena", "Sutera", "Santa Caterina Villarmosa", "Riesi"], Enna: ["Aidone", "Valguarnera Caropepe", "Agira", "Pietraperzia", "Gagliano Castelferrato", "Leonforte", "Catenanuova", "Villarosa", "Regalbuto", "Barrafranca", "Centuripe", "Troina", "Enna", "Sperlinga", "Cerami", "Assoro", "Nicosia", "Piazza Armerina", "Nissoria", "Calascibetta"], Catania: ["Aci Sant'Antonio", "Tremestieri Etneo", "Fiumefreddo di Sicilia", "Castiglione di Sicilia", "Gravina di Catania", "Bronte", "Camporotondo Etneo", "San Pietro Clarenza", "Scordia", "Mineo", "Caltagirone", "Giarre", "Mazzarrone", "Palagonia", "Santa Maria di Licodia", "Raddusa", "Riposto", "Milo", "Viagrande", "Licodia Eubea", "Calatabiano", "Nicolosi", "Grammichele", "Mascali", "Belpasso", "Castel di Iudica", "Aci Catena", "Catania", "Biancavilla", "Ragalna", "Piedimonte Etneo", "Trecastagni", "Sant'Agata li Battiati", "San Gregorio di Catania", "San Cono", "Aci Bonaccorsi", "Pedara", "Randazzo", "Paternò", "San Michele di Ganzaria", "Motta Sant'Anastasia", "Zafferana Etnea", "Vizzini", "Acireale", "San Giovanni la Punta", "Linguaglossa", "Misterbianco", "Ramacca", "Valverde", "Sant'Alfio", "Santa Venerina", "Mascalucia", "Militello in Val di Catania", "Aci Castello", "Maletto", "Maniace", "Mirabella Imbaccari", "Adrano"], Ragusa: ["Modica", "Ispica", "Acate", "Ragusa", "Comiso", "Vittoria", "Giarratana", "Chiaramonte Gulfi", "Monterosso Almo", "Pozzallo", "Santa Croce Camerina", "Scicli"], Siracusa: ["Augusta", "Floridia", "Melilli", "Buccheri", "Siracusa", "Cassaro", "Canicattini Bagni", "Rosolini", "Lentini", "Buscemi", "Carlentini", "Sortino", "Ferla", "Palazzolo Acreide", "Avola", "Francofonte", "Priolo Gargallo", "Portopalo di Capo Passero", "Solarino", "Pachino", "Noto"] }, $m = { Sassari: ["Bonorva", "Bultei", "Mara", "Ozieri", "Illorai", "Chiaramonti", "Ploaghe", "Torralba", "Putifigari", "Stintino", "Codrongianos", "Sorso", "Padria", "Palau", "Nule", "Luras", "Muros", "Anela", "Bottidda", "Uri", "Ittiri", "Borutta", "Mores", "Pozzomaggiore", "Nulvi", "Alà dei Sardi", "Banari", "Usini", "Laerru", "Bonnanaro", "Villanova Monteleone", "Budoni", "Tula", "Florinas", "Bulzi", "Romana", "Ossi", "Tergu", "Cargeghe", "Badesi", "Benetutti", "Tissi", "Aggius", "Luogosanto", "Sassari", "Esporlatu", "Cossoine", "Padru", "Thiesi", "Semestene", "Monteleone Rocca Doria", "Bortigiadas", "La Maddalena", "Arzachena", "Santa Teresa Gallura", "Martis", "Pattada", "Loiri Porto San Paolo", "Erula", "Burgos", "Bono", "Osilo", "Tempio Pausania", "Santa Maria Coghinas", "Aglientu", "Castelsardo", "Cheremule", "Telti", "Siligo", "Nughedu San Nicolò", "Giave", "Viddalba", "Trinità d'Agultu e Vignola", "San Teodoro", "Sedini", "Valledoria", "Olbia", "Porto Torres", "Alghero", "Bessude", "Calangianus", "Ittireddu", "Berchidda", "Golfo Aranci", "Sant'Antonio di Gallura", "Buddusò", "Ardara", "Sennori", "Monti", "Olmedo", "Oschiri", "Perfugas"], Nuoro: ["Dualchi", "Meana Sardo", "Loculi", "Tiana", "Atzara", "Lodine", "Loceri", "Orune", "Orotelli", "Bitti", "Girasole", "Macomer", "Oniferi", "Lotzorai", "Gadoni", "Ovodda", "Tortolì", "Lula", "Galtellì", "Olzai", "Bortigali", "Onifai", "Lei", "Aritzo", "Desulo", "Perdasdefogu", "Baunei", "Gavoi", "Lanusei", "Belvì", "Triei", "Jerzu", "Posada", "Birori", "Lodè", "Teti", "Orani", "Silanus", "Ollolai", "Orgosolo", "Sindia", "Talana", "Noragugume", "Irgoli", "Austis", "Borore", "Gairo", "Nuoro", "Dorgali", "Cardedu", "Tonara", "Ilbono", "Sarule", "Urzulei", "Tertenia", "Osini", "Ussassai", "Mamoiada", "Orosei", "Sorgono", "Torpè", "Villagrande Strisaili", "Elini", "Ulassai", "Ottana", "Oliena", "Bari Sardo", "Arzana", "Onanì", "Siniscola", "Ortueri", "Osidda", "Fonni", "Bolotana"], Cagliari: ["Capoterra", "Sestu", "Maracalagonis", "Villa San Pietro", "Quartucciu", "Settimo San Pietro", "Decimomannu", "Selargius", "Elmas", "Assemini", "Sinnai", "Uta", "Monserrato", "Cagliari", "Quartu Sant'Elena", "Sarroch", "Pula"], Oristano: ["Sedilo", "Morgongiori", "Marrubiu", "Simaxis", "Palmas Arborea", "Simala", "Uras", "Sennariolo", "Pompu", "Tinnura", "Abbasanta", "Albagiara", "Soddì", "Siris", "Milis", "Siamaggiore", "Tramatza", "Senis", "Cabras", "Gonnostramatza", "Bosa", "Seneghe", "Assolo", "Bauladu", "Sorradile", "Ghilarza", "Nughedu Santa Vittoria", "Boroneddu", "Asuni", "Santu Lussurgiu", "Flussio", "Mogoro", "Ulà Tirso", "Ardauli", "San Nicolò d'Arcidano", "Montresta", "Ruinas", "Narbolia", "Zeddiani", "Tadasuni", "Ales", "Scano di Montiferro", "Laconi", "San Vero Milis", "Neoneli", "Norbello", "Ollastra", "Gonnoscodina", "Fordongianus", "Magomadas", "Nureci", "Terralba", "Paulilatino", "Solarussa", "Oristano", "Nurachi", "Suni", "Zerfaliu", "Baratili San Pietro", "Bonarcado", "Allai", "Usellus", "Masullas", "Villa Sant'Antonio", "Baradili", "Busachi", "Curcuris", "Villanova Truschedu", "Sini", "Villaurbana", "Baressa", "Mogorella", "Tresnuraghes", "Bidonì", "Aidomaggiore", "Gonnosnò", "Siapiccia", "Modolo", "Pau", "Riola Sardo", "Arborea", "Cuglieri", "Villa Verde", "Samugheo", "Santa Giusta", "Siamanna", "Sagama"], "Sud Sardegna": ["Ussaramanna", "Escolca", "Donori", "Isili", "Arbus", "Giba", "Segariu", "Guamaggiore", "Carloforte", "Perdaxius", "San Sperate", "Masainas", "Nurri", "Muravera", "Iglesias", "Villaspeciosa", "Burcei", "Pauli Arbarei", "Nuraminis", "San Basilio", "Genuri", "Villanova Tulo", "Nuragus", "Serrenti", "Vallermosa", "Senorbì", "Barumini", "Monastir", "Santadi", "Domus de Maria", "Tratalias", "Nurallao", "Ballao", "Siddi", "Siurgus Donigala", "Sant'Andrea Frius", "Guspini", "Guasila", "Fluminimaggiore", "San Vito", "Silius", "Soleminis", "Villamassargia", "Escalaplano", "Samatzai", "Gonnesa", "San Nicolò Gerrei", "Selegas", "Gergei", "Villaperuccio", "Sardara", "Villamar", "Turri", "Las Plassas", "Teulada", "Nuxis", "Gesturi", "Villacidro", "Setzu", "Domusnovas", "Seui", "Portoscuso", "Sanluri", "Genoni", "Goni", "Villanovaforru", "Musei", "Ortacesus", "Seulo", "Tuili", "Serri", "Serdiana", "Piscinas", "Gonnosfanadiga", "Siliqua", "Villasalto", "Calasetta", "Barrali", "Decimoputzu", "Sant'Anna Arresi", "Collinas", "Narcao", "Serramanna", "Esterzili", "Sant'Antioco", "Mandas", "Buggerru", "Villanovafranca", "Villasor", "Carbonia", "Gesico", "Villasimius", "Sadali", "Samassi", "Pabillonis", "Ussana", "San Gavino Monreale", "Castiadas", "San Giovanni Suergiu", "Furtei", "Lunamatrona", "Villaputzu", "Dolianova", "Armungia", "Orroli", "Suelli", "Pimentel"] }, dn = {
-  Piemonte: wm,
+}), dl), Bi = (t) => typeof t == "string" ? t : typeof t == "object" ? dl.value ? t.mobile : t.desktop : "", Tm = /* @__PURE__ */ JSON.parse(`{"Torino":["Reano","Usseaux","Salassa","Brandizzo","Pertusio","Cavour","Ivrea","Azeglio","Rivarossa","Salbertrand","Ciconio","Villastellone","Borgiallo","Alpignano","Torre Canavese","Cintano","Cuorgnè","Rivoli","Cantalupa","Brosso","Cafasse","Lanzo Torinese","Romano Canavese","Novalesa","San Carlo Canavese","Rueglio","San Martino Canavese","Lessolo","Rocca Canavese","San Pietro Val Lemina","Giaglione","Orio Canavese","Ceres","Chiaverano","Cumiana","Osasio","Scalenghe","Mercenasco","Candia Canavese","Isolabella","Noasca","Groscavallo","Ribordone","Druento","Cossano Canavese","Villar Perosa","Locana","Piverone","Front","Levone","Settimo Torinese","Alpette","San Giusto Canavese","Bardonecchia","Verolengo","Fenestrelle","Sauze d'Oulx","Colleretto Castelnuovo","Rivara","Macello","Barbania","Gravere","Corio","Valprato Soana","Chianocco","Sestriere","Montalto Dora","Coazze","Meana di Susa","None","Cantoira","Chialamberto","Settimo Rottaro","Arignano","Mombello di Torino","Prali","Busano","Lemie","Val di Chy","Moncalieri","Banchette","Chiesanuova","Borgaro Torinese","Favria","Grosso","San Maurizio Canavese","Albiano d'Ivrea","Rorà","Garzigliana","Exilles","Buriasco","Villar Focchiardo","Castagneto Po","Agliè","Sant'Ambrogio di Torino","Balangero","Rivarolo Canavese","Rivalta di Torino","Andezeno","Cambiano","Beinasco","Valperga","Prarostino","Pinerolo","Vische","Bobbio Pellice","Mattie","Valchiusa","Lombriasco","Baldissero Torinese","Virle Piemonte","Venaria Reale","Mappano","Bollengo","Lusernetta","San Benigno Canavese","Borgone Susa","Balme","Borgofranco d'Ivrea","Montalenghe","Rubiana","Villar Pellice","Ala di Stura","Carignano","Castagnole Piemonte","Villafranca Piemonte","Casalborgone","Perrero","Mathi","Barone Canavese","Mazzè","Brozolo","Roletto","Carema","Germagnano","Trofarello","Issiglio","Perosa Canavese","Montaldo Torinese","Mompantero","Bruino","Villar Dora","Rivalba","Vialfrè","Tavagnasco","Luserna San Giovanni","San Francesco al Campo","Lombardore","Brusasco","Mezzenile","Salza di Pinerolo","Verrua Savoia","Leini","Caselette","Pratiglione","Bibiana","Traves","Condove","Castellamonte","Gassino Torinese","Sauze di Cesana","Givoletto","Carmagnola","Usseglio","Ronco Canavese","Caluso","Loranzè","Forno Canavese","Canischio","Bairo","Sant'Antonino di Susa","Moriondo Torinese","Settimo Vittone","Airasca","Lauriano","Piscina","Andrate","Inverso Pinasca","Rosta","San Giorgio Canavese","Colleretto Giacosa","Caprie","Samone","Roure","Volpiano","Vaie","Grugliasco","Pomaretto","San Germano Chisone","Ceresole Reale","Vallo Torinese","Fiano","San Giorio di Susa","Caravino","Cesana Torinese","Varisella","Bosconero","Monteu da Po","Burolo","Cascinette d'Ivrea","Sciolze","Borgomasino","Pecetto Torinese","Massello","La Loggia","Ozegna","Sparone","Pessinetto","San Gillio","Feletto","Pralormo","Maglione","Caselle Torinese","Torrazza Piemonte","Oglianico","Coassolo Torinese","Viù","Chiomonte","Strambinello","Susa","Frossasco","Porte","Vinovo","Vauda Canavese","Pragelato","Parella","Villarbasse","Traversella","Vigone","Chivasso","Cercenasco","Santena","Giaveno","Pianezza","Riva presso Chieri","Cinzano","Fiorano Canavese","Volvera","Cuceglio","Candiolo","Torre Pellice","Almese","Castiglione Torinese","Piobesi Torinese","Quincinetto","Vistrorio","San Didero","Collegno","Villareggia","Pavone Canavese","Venaus","San Colombano Belmonte","Bussoleno","Oulx","Nichelino","Foglizzo","Baldissero Canavese","San Secondo di Pinerolo","Ingria","Scarmagno","Bruzolo","Quassolo","Moncenisio","Trana","Cavagnolo","San Sebastiano da Po","Poirino","Nomaglio","Chiusa di San Michele","Nole","Vestignè","Angrogna","Robassomero","Vidracco","Val della Torre","Avigliana","Bricherasio","Strambino","Castelnuovo Nigra","Montanaro","Salerano Canavese","Valgioie","Marentino","Ciriè","Campiglione Fenile","Osasco","Orbassano","Prascorsano","Torino","Perosa Argentina","Pont Canavese","Monastero di Lanzo","La Cassa","Pinasca","San Mauro Torinese","Sangano","Pavarolo","Buttigliera Alta","Palazzo Canavese","Quagliuzzo","Claviere","Villanova Canavese","Piossasco","Lusigliè","Pino Torinese","Pancalieri","Chieri","Frassinetto","Pramollo","San Ponso","San Raffaele Cimena","Rondissone"],"Vercelli":["Albano Vercellese","Moncrivello","Villata","Asigliano Vercellese","Alice Castello","Cellio con Breia","Lenta","Mollia","Vocca","Desana","Varallo","Bianzè","Palazzolo Vercellese","Ronsecco","Collobiano","Balmuccia","Campertogno","Valduggia","Cravagliana","Rovasenda","Casanova Elvo","Balocco","Salasco","Formigliana","Pezzana","Gattinara","Olcenengo","Roasio","Crova","Arborio","Rimella","Alagna Valsesia","Piode","Scopello","Costanzana","Carisio","Ghislarengo","Quarona","Villarboit","Boccioleto","Lozzolo","Borgo d'Ale","Prarolo","Serravalle Sesia","Trino","San Giacomo Vercellese","Caresana","Civiasco","Caresanablot","Santhià","Scopa","Fontanetto Po","Cervatto","Buronzo","Carcoforo","Saluggia","Greggio","Alto Sermenza","Oldenico","Quinto Vercellese","Pertengo","Sali Vercellese","Crescentino","Motta de' Conti","Cigliano","Rassa","Lignana","Rossa","Vercelli","Rive","Livorno Ferraris","Tricerro","Tronzano Vercellese","Borgosesia","San Germano Vercellese","Fobello","Pila","Lamporo","Borgo Vercelli","Stroppiana","Guardabosone","Postua"],"Novara":["Fara Novarese","Vaprio d'Agogna","Mandello Vitta","Invorio","Landiona","Divignano","Mezzomerico","Caltignaga","Castellazzo Novarese","Soriso","Vespolate","Cavaglio d'Agogna","Cureggio","Borgolavezzaro","Pella","Casalbeltrame","Pettenasco","Biandrate","Cavallirio","Meina","Casalvolone","Nebbiuno","Oleggio","Varallo Pombia","Casalino","San Pietro Mosezzo","Boca","Ameno","Miasino","Trecate","Carpignano Sesia","Garbagna Novarese","Pogno","Briga Novarese","Grignasco","Gargallo","Vinzaglio","Agrate Conturbia","Vicolungo","Bogogno","Cerano","Marano Ticino","Gattico-Veruno","Barengo","Cameri","Paruzzaro","Suno","Massino Visconti","Prato Sesia","Armeno","Ghemme","Bolzano Novarese","Dormelletto","San Maurizio d'Opaglio","Borgo Ticino","Oleggio Castello","Nibbiola","Colazza","Recetto","Gozzano","Sizzano","Pombia","Fontaneto d'Agogna","Romentino","Comignago","Bellinzago Novarese","Momo","Castelletto sopra Ticino","Lesa","Arona","Romagnano Sesia","Borgomanero","Maggiora","Sillavengo","Briona","Casaleggio Novara","Cressa","Cavaglietto","Pisano","Granozzo con Monticello","Novara","Sozzago","Galliate","Tornaco","Terdobbiate","San Nazzaro Sesia","Orta San Giulio"],"Cuneo":["Baldissero d'Alba","Bergolo","Mango","Margarita","Pamparato","Neviglie","Montelupo Albese","Govone","Farigliano","Castiglione Tinella","Lesegno","Villar San Costanzo","Castellinaldo d'Alba","Venasca","Oncino","Limone Piemonte","Rocca Cigliè","Torre San Giorgio","Sambuco","Rodello","Santo Stefano Roero","Battifollo","Torre Bormida","Cuneo","Casteldelfino","Castelletto Stura","Serralunga d'Alba","Genola","Perletto","Barge","Entracque","Robilante","Busca","Corneliano d'Alba","Canosio","Castellino Tanaro","Guarene","Garessio","Cardè","Lisio","Neive","Niella Tanaro","Rittana","Roccavione","Carrù","Canale","Rossana","Mondovì","Bagnolo Piemonte","Treiso","Vicoforte","Roccabruna","Cigliè","Monasterolo di Savigliano","Monasterolo Casotto","Crissolo","Bra","Pezzolo Valle Uzzone","Scagnello","Prazzo","Sale delle Langhe","Frassino","Pietraporzio","Rocca de' Baldi","Rocchetta Belbo","Valloriate","Villanova Solaro","Boves","Pontechianale","Pianfei","Revello","Montezemolo","Polonghera","Villafalletto","Moretta","Paesana","Sanfrè","Racconigi","Saliceto","Tarantasca","Barolo","Gottasecca","Fossano","Narzole","Montà","Prunetto","Alba","Castelletto Uzzone","Morozzo","Belvedere Langhe","Costigliole Saluzzo","Briga Alta","Monterosso Grana","Piasco","Cervasca","San Michele Mondovì","Moiola","Albaretto della Torre","Borgomale","Roascio","Gaiola","Magliano Alpi","Saluzzo","Trezzo Tinella","Cavallerleone","Nucetto","Lagnasco","Isasca","Bene Vagienna","Verzuolo","Monesiglio","Martiniana Po","Argentera","Valdieri","Marene","Villanova Mondovì","Ceva","Frabosa Sottana","Cossano Belbo","Cortemilia","Montemale di Cuneo","Santa Vittoria d'Alba","Gambasca","Casalgrasso","Ceresole Alba","Frabosa Soprana","Perlo","Bellino","Aisone","Macra","Montaldo di Mondovì","Chiusa di Pesio","Arguello","Piozzo","Stroppo","Caprauna","Elva","Priola","Santo Stefano Belbo","Cravanzana","Brondello","Demonte","Mombasiglio","La Morra","Roccasparvera","Sommariva Perno","Sale San Giovanni","Grinzane Cavour","Savigliano","Murazzano","Verduno","Acceglio","Monchiero","Cherasco","Roburent","Melle","Vernante","Sant'Albano Stura","Monastero di Vasco","Castiglione Falletto","Montaldo Roero","Roccaforte Mondovì","Vottignasco","Sinio","Viola","Borgo San Dalmazzo","Scarnafigi","Niella Belbo","Bagnasco","Cartignano","Envie","Gorzegno","Murello","Lequio Berria","Cavallermaggiore","Marsaglia","Manta","Barbaresco","Camerana","Sampeyre","Sanfront","Rifreddo","Vignolo","Beinette","Benevello","Feisoglio","Cervere","Cerretto Langhe","San Damiano Macra","Caramagna Piemonte","Roddi","Roaschia","Serravalle Langhe","Valgrana","Vinadio","Lequio Tanaro","Dronero","Ostana","Salmour","Mombarcaro","Bossolasco","Castagnito","Centallo","Magliano Alfieri","Torresina","Pradleves","Igliano","Priero","Pocapaglia","Marmora","Dogliani","Alto","Bernezzo","Bonvicino","Monforte d'Alba","Castelnuovo di Ceva","Vezza d'Alba","Novello","Sommariva del Bosco","Briaglia","Torre Mondovì","Bastia Mondovì","Roddino","Monticello d'Alba","Caraglio","Castelmagno","Faule","Diano d'Alba","Monteu Roero","Castino","Somano","Pagno","Piobesi d'Alba","Ruffia","Brossasco","Priocca","Cissone","Bosia","Paroldo","Levice","Clavesana","Montanera","San Benedetto Belbo","Peveragno","Trinità","Celle di Macra","Ormea"],"Asti":["Incisa Scapaccino","Scurzolengo","Villa San Secondo","Cerro Tanaro","Montiglio Monferrato","Cortanze","Baldichieri d'Asti","Belveglio","Villanova d'Asti","Isola d'Asti","San Paolo Solbrito","Quaranti","Grazzano Badoglio","Cocconato","Serole","Sessame","Cassinasco","Moasca","Moransengo-Tonengo","Calosso","Passerano Marmorito","Camerano Casasco","Corsione","Bruno","Celle Enomondo","Cerreto d'Asti","Vinchio","Coazzolo","Cortiglione","Cossombrato","Monastero Bormida","Castell'Alfero","Asti","Cellarengo","Cantarana","Dusino San Michele","Roccaverano","Berzano di San Pietro","Montabone","San Giorgio Scarampi","Montegrosso d'Asti","Fontanile","Frinco","Vaglio Serra","Buttigliera d'Asti","Tonco","Montemagno Monferrato","Capriglio","Bubbio","Villafranca d'Asti","Viarigi","Penango","Maranzana","Rocca d'Arazzo","San Martino Alfieri","Aramengo","Costigliole d'Asti","Rocchetta Palafea","Castelnuovo Belbo","Soglio","Cisterna d'Asti","Castelnuovo Don Bosco","Castello di Annone","Refrancore","Revigliasco d'Asti","Rocchetta Tanaro","Nizza Monferrato","Piea","Cunico","Ferrere","Montafia","Robella","Canelli","Grana Monferrato","Calamandrana","Calliano Monferrato","Albugnano","Montaldo Scarampi","Olmo Gentile","Castel Boglione","Mombercelli","Antignano","Mongardino","Portacomaro","San Marzano Oliveto","Azzano d'Asti","Castellero","Roatto","Maretto","Cortazzone","Casorzo Monferrato","Castelnuovo Calcea","Tigliole","Moncucco Torinese","Settime","Moncalvo","Castelletto Molina","Cinaglio","Castagnole Monferrato","Pino d'Asti","Piovà Massaia","Cessole","Valfenera","Mombaldone","Mombaruzzo","Montechiaro d'Asti","Chiusano d'Asti","Vigliano d'Asti","Loazzolo","Vesime","Monale","Viale","Castagnole delle Lanze","Agliano Terme","Cortandone","Castel Rocchero","San Damiano d'Asti"],"Alessandria":["Cereseto","Malvicino","Volpeglino","Avolasca","Fubine Monferrato","Vignole Borbera","Alice Bel Colle","Pareto","Gamalero","Melazzo","Bosco Marengo","Montegioco","Conzano","Alluvioni Piovera","Felizzano","Sala Monferrato","Acqui Terme","Prasco","Tagliolo Monferrato","Borgo San Martino","Gremiasco","Masio","Castelnuovo Scrivia","Casale Monferrato","Fabbrica Curone","Valmacca","Morsasco","Valenza","Pomaro Monferrato","Dernice","Molare","Borghetto di Borbera","Basaluzzo","Carrosio","Castelletto Merli","Monleale","Ponti","Trisobbio","Cerreto Grue","Montechiaro d'Acqui","Cella Monte","Merana","Cavatore","Spigno Monferrato","Orsara Bormida","Bozzole","San Giorgio Monferrato","Occimiano","Villamiroglio","Carentino","Pontestura","Oviglio","Terzo","Balzola","Voltaggio","Carbonara Scrivia","Rocchetta Ligure","Sarezzano","Rocca Grimalda","Morano sul Po","Ticineto","Stazzano","Fresonara","Strevi","Berzano di Tortona","Serralunga di Crea","Terruggia","Ponzano Monferrato","Arquata Scrivia","Tassarolo","Solero","Cantalupo Ligure","Cremolino","Bassignana","Frugarolo","Ponzone","Silvano d'Orba","Denice","Casal Cermelli","Rivarone","Solonghello","Brignano-Frascata","Montaldeo","Castelletto d'Erro","Francavilla Bisio","Pozzolo Formigaro","Molino dei Torti","Villalvernia","Volpedo","Capriata d'Orba","Carrega Ligure","Momperone","Viguzzolo","Mornese","Villanova Monferrato","Cartosio","Fraconalto","Grognardo","Montecastello","Pecetto di Valenza","Lu e Cuccaro Monferrato","Albera Ligure","Bistagno","Belforte Monferrato","Frassineto Po","Guazzora","Ozzano Monferrato","Visone","Casaleggio Boiro","Cassinelle","Grondona","Altavilla Monferrato","Garbagna","Sezzadio","Murisengo","Castelspina","Ricaldone","Castelnuovo Bormida","Isola Sant'Antonio","Castelletto d'Orba","Montacuto","Sant'Agata Fossili","Villadeati","Vignale Monferrato","Tortona","Castellar Guidobono","Ovada","Bergamasco","Pozzol Groppo","Quattordio","Rivalta Bormida","Quargnento","Alessandria","Alzano Scrivia","Treville","Villaromagnano","Camino","Novi Ligure","Rosignano Monferrato","Montaldo Bormida","Carezzano","Montemarzino","Serravalle Scrivia","Coniolo","San Salvatore Monferrato","Roccaforte Ligure","Predosa","Spineto Scrivia","Odalengo Piccolo","San Sebastiano Curone","Cassano Spinola","Giarole","Cabella Ligure","Moncestino","Carpeneto","Gavi","Sardigliano","Olivola","Frascaro","Ottiglio","Costa Vescovato","Casalnoceto","Gabiano","Odalengo Grande","Casasco","Castellazzo Bormida","Paderna","Bosio","San Cristoforo","Mirabello Monferrato","Frassinello Monferrato","Mongiardino Ligure","Sale","Castellania Coppi","Borgoratto Alessandrino","Pontecurone","Camagna Monferrato","Castelletto Monferrato","Pietra Marazzi","Cerrina Monferrato","Lerma","Cassine","Mombello Monferrato","Alfiano Natta","Parodi Ligure","Morbello","Pasturana"],"Biella":["Crevacuore","Cavaglià","Ponderano","Viverone","Quaregna Cerreto","Sagliano Micca","Miagliano","Vigliano Biellese","Camandona","Piatto","Massazza","Campiglia Cervo","Bioglio","Rosazza","Veglio","Salussola","Vallanzengo","Graglia","Zubiena","Benna","Camburzano","Portula","Coggiola","Verrone","Strona","Ailoche","Sala Biellese","Muzzano","Cossato","Andorno Micca","Castelletto Cervo","Dorzano","Villa del Bosco","Magnano","Sandigliano","Zumaglia","Brusnengo","Biella","Gifflenga","Zimone","Mongrando","Sordevolo","Donato","Valle San Nicolao","Villanova Biellese","Candelo","Caprile","Pettinengo","Curino","Tollegno","Valdengo","Cerrione","Occhieppo Inferiore","Pralungo","Ronco Biellese","Netro","Callabiana","Roppolo","Masserano","Mezzana Mortigliengo","Tavigliano","Occhieppo Superiore","Lessona","Piedicavallo","Mottalciata","Valdilana","Torrazzo","Ternengo","Casapinta","Sostegno","Gaglianico","Borriana","Pollone","Pray"],"Verbano-Cusio-Ossola":["Belgirate","Domodossola","Bognanco","Macugnaga","Ornavasso","Nonio","Premia","Vignone","Santa Maria Maggiore","Beura-Cardezza","Caprezzo","Villadossola","Valstrona","Omegna","Trontano","Formazza","Germagno","Toceno","Bannio Anzino","Stresa","Madonna del Sasso","Arola","Cossogno","Oggebbio","Piedimulera","Aurano","Druogno","Pieve Vergonte","Anzola d'Ossola","Craveggia","Gravellona Toce","Intragna","Cannero Riviera","Baceno","Quarna Sotto","Varzo","Masera","Verbania","Crodo","Gurro","Crevoladossola","Miazzina","Premosello-Chiovenda","Cannobio","Massiola","Quarna Sopra","Montescheno","Pallanzeno","Vogogna","Gignese","Mergozzo","Premeno","Ceppo Morelli","Cambiasca","Arizzano","Montecrestese","Re","Valle Cannobina","Antrona Schieranco","Ghiffa","Loreglia","Trasquera","Villette","Bee","Trarego Viggiona","Malesco","Baveno","Borgomezzavalle","Brovello-Carpugnino","Cesara","San Bernardino Verbano","Casale Corte Cerro","Vanzone con San Carlo","Calasca-Castiglione"]}`), wm = { Imperia: ["Mendatica", "Borghetto d'Arroscia", "Montalto Carpasio", "Vallebona", "Aurigo", "Perinaldo", "Diano Castello", "Rezzo", "Borgomaro", "Civezza", "Ventimiglia", "Pietrabruna", "Chiusavecchia", "Dolceacqua", "Cervo", "Villa Faraldi", "San Biagio della Cima", "Molini di Triora", "Diano Marina", "Vallecrosia", "Diano Arentino", "Imperia", "Dolcedo", "Pontedassio", "Pieve di Teco", "Pornassio", "Airole", "Camporosso", "Bordighera", "Isolabona", "Vessalico", "Ceriana", "Triora", "Cesio", "Caravonica", "Taggia", "San Lorenzo al Mare", "Ranzo", "Armo", "Pompeiana", "Cosio d'Arroscia", "Montegrosso Pian Latte", "Riva Ligure", "Rocchetta Nervina", "San Bartolomeo al Mare", "Chiusanico", "Sanremo", "Prelà", "Ospedaletti", "Castel Vittorio", "Santo Stefano al Mare", "Costarainera", "Apricale", "Aquila d'Arroscia", "Castellaro", "Cipressa", "Seborga", "Lucinasco", "Diano San Pietro", "Soldano", "Terzorio", "Vasia", "Pigna", "Badalucco", "Bajardo", "Olivetta San Michele"], Savona: ["Piana Crixia", "Balestrino", "Osiglia", "Spotorno", "Calice Ligure", "Varazze", "Vezzi Portio", "Cengio", "Albissola Marina", "Alassio", "Noli", "Roccavignale", "Ceriale", "Murialdo", "Villanova d'Albenga", "Zuccarello", "Bormida", "Andora", "Boissano", "Borgio Verezzi", "Plodio", "Rialto", "Vado Ligure", "Bergeggi", "Orco Feglino", "Urbe", "Erli", "Savona", "Giusvalla", "Laigueglia", "Testico", "Cairo Montenotte", "Altare", "Nasino", "Onzo", "Quiliano", "Bardineto", "Mioglia", "Tovo San Giacomo", "Casanova Lerrone", "Borghetto Santo Spirito", "Arnasco", "Pontinvrea", "Calizzano", "Giustenice", "Cosseria", "Garlenda", "Mallare", "Millesimo", "Toirano", "Albisola Superiore", "Stella", "Celle Ligure", "Castelbianco", "Magliolo", "Sassello", "Pietra Ligure", "Vendone", "Carcare", "Castelvecchio di Rocca Barbena", "Finale Ligure", "Loano", "Albenga", "Massimino", "Cisano sul Neva", "Pallare", "Stellanello", "Ortovero", "Dego"], Genova: ["Rapallo", "Santa Margherita Ligure", "Lumarzo", "Moneglia", "Rondanina", "Sori", "Isola del Cantone", "Favale di Malvaro", "Propata", "Fascia", "Mezzanego", "Borzonasca", "Campo Ligure", "San Colombano Certenoli", "Campomorone", "Pieve Ligure", "Montoggio", "Carasco", "Rezzoaglio", "Ronco Scrivia", "Rossiglione", "Chiavari", "Gorreto", "Tribogna", "Arenzano", "Masone", "Bargagli", "Sant'Olcese", "Genova", "Cogoleto", "Serra Riccò", "Savignone", "Valbrevenna", "Lorsica", "Moconesi", "Uscio", "Coreglia Ligure", "Davagna", "Orero", "Cogorno", "Tiglieto", "Mignanego", "Casella", "Castiglione Chiavarese", "Recco", "Torriglia", "Montebruno", "Leivi", "Sestri Levante", "Ceranesi", "Zoagli", "Santo Stefano d'Aveto", "Ne", "Lavagna", "Rovegno", "Mele", "Avegno", "Vobbia", "Neirone", "Casarza Ligure", "Busalla", "Portofino", "Cicagna", "Camogli", "Fontanigorda", "Bogliasco", "Crocefieschi"], "La Spezia": ["Calice al Cornoviglio", "Lerici", "Ameglia", "Carro", "Framura", "La Spezia", "Zignago", "Santo Stefano di Magra", "Castelnuovo Magra", "Carrodano", "Rocchetta di Vara", "Borghetto di Vara", "Beverino", "Follo", "Riomaggiore", "Luni", "Pignone", "Portovenere", "Bolano", "Sarzana", "Maissana", "Riccò del Golfo di Spezia", "Vezzano Ligure", "Bonassola", "Levanto", "Vernazza", "Deiva Marina", "Varese Ligure", "Sesta Godano", "Arcola", "Monterosso al Mare", "Brugnato"] }, Em = /* @__PURE__ */ JSON.parse(`{"Varese":["Castronno","Lavena Ponte Tresa","Olgiate Olona","Cassano Valcuvia","Gallarate","Leggiuno","Caronno Pertusella","Sangiano","Origgio","Casciago","Lonate Ceppino","Bardello con Malgesso e Bregano","Cadegliano-Viconago","Cavaria con Premezzo","Cuvio","Cazzago Brabbia","Venegono Inferiore","Albizzate","Buguggiate","Cadrezzate con Osmate","Bisuschio","Varese","Busto Arsizio","Luino","Gazzada Schianno","Vedano Olona","Cantello","Arcisate","Bedero Valcuvia","Agra","Orino","Uboldo","Brezzo di Bedero","Marnate","Masciago Primo","Angera","Gavirate","Jerago con Orago","Brunello","Crosio della Valle","Carnago","Mercallo","Montegrino Valtravaglia","Cocquio-Trevisago","Comerio","Venegono Superiore","Cugliate-Fabiasco","Induno Olona","Cuveglio","Cairate","Valganna","Cunardo","Castello Cabiaglio","Saronno","Morazzone","Mesenzana","Sesto Calende","Luvinate","Besozzo","Caronno Varesino","Mornago","Brinzio","Besnate","Cittiglio","Dumenza","Brusimpiano","Curiglia con Monteviasco","Ranco","Ferno","Samarate","Vergiate","Clivio","Gerenzano","Gorla Minore","Lonate Pozzolo","Maccagno con Pino e Veddasca","Marzio","Golasecca","Cassano Magnago","Brebbia","Ispra","Biandronno","Gemonio","Marchirolo","Tronzano Lago Maggiore","Fagnano Olona","Gornate Olona","Duno","Brissago-Valtravaglia","Sumirago","Azzio","Castelseprio","Viggiù","Inarzo","Cislago","Taino","Solbiate Olona","Casorate Sempione","Casale Litta","Azzate","Oggiona con Santo Stefano","Gorla Maggiore","Besano","Barasso","Ferrera di Varese","Castiglione Olona","Varano Borghi","Comabbio","Cremenaga","Ternate","Castelveccana","Germignaga","Castellanza","Somma Lombardo","Brenta","Saltrio","Monvalle","Laveno-Mombello","Malnate","Porto Valtravaglia","Tradate","Vizzola Ticino","Grantola","Cuasso al Monte","Daverio","Arsago Seprio","Bodio Lomnago","Porto Ceresio","Casalzuigno","Lozza","Solbiate Arno","Travedona-Monate","Cardano al Campo","Rancio Valcuvia","Caravate","Galliate Lombardo"],"Como":["Trezzone","Stazzona","Como","Cusino","Merone","Uggiate con Ronago","Grandate","Appiano Gentile","Maslianico","Eupilio","Lurate Caccivio","Canzo","Brienno","Faggeto Lario","Albese con Cassano","Sorico","Bulgarograsso","Livo","Mariano Comense","Fenegrò","Lomazzo","Solbiate con Cagno","Guanzate","Veleso","Gera Lario","Caslino d'Erba","Ponna","Colverde","Casnate con Bernate","Colonno","Centro Valle Intelvi","Limido Comasco","Monguzzo","Pusiano","Campione d'Italia","Vercana","Luisago","Vertemate con Minoprio","Valbrona","Orsenigo","San Nazzaro Val Cavargna","Albiolo","Griante","Oltrona di San Mamette","Rezzago","Corrido","Cremia","Rodero","Erba","Asso","Moltrasio","Nesso","Bene Lario","Figino Serenza","Turate","Tremezzina","Sala Comacina","Pianello del Lario","Fino Mornasco","Rovellasca","Capiago Intimiano","Castelmarte","Bregnano","Sormano","Brunate","Cabiate","Carlazzo","Menaggio","Montano Lucino","Porlezza","Veniano","Carate Urio","Bizzarone","Valsolda","San Fermo della Battaglia","Claino con Osteno","Anzano del Parco","Torno","Proserpio","Cadorago","Faloppio","Peglio","Olgiate Comasco","Barni","Cermenate","Arosio","Carugo","Bellagio","Val Rezzo","Cernobbio","Novedrate","Cerano d'Intelvi","Cirimido","Villa Guardia","Garzeno","Domaso","San Bartolomeo Val Cavargna","Blevio","Caglio","Rovello Porro","Lasnigo","Laino","Alta Valle Intelvi","Longone al Segrino","Carimate","Cassina Rizzardi","Beregazzo con Figliaro","Lambrugo","Lezzeno","Dongo","Argegno","Schignano","Binago","Lurago Marinone","Cucciago","Alzate Brianza","Locate Varesino","Montemezzo","Lurago d'Erba","Carbonate","Mozzate","Alserio","Pigra","Lipomo","Castelnuovo Bozzente","Cavargna","Blessagno","Magreglio","Dizzasco","Ponte Lambro","Tavernerio","Zelbio","Grandola ed Uniti","Gravedona ed Uniti","Dosso del Liro","Albavilla","Cantù","Brenna","San Siro","Laglio","Inverigo","Montorfano","Musso","Pognana Lario","Plesio","Senna Comasco","Valmorea"],"Sondrio":["Pedesina","Montagna in Valtellina","Gordona","Berbenno di Valtellina","Tirano","Mazzo di Valtellina","Villa di Tirano","Sondrio","Vervio","Chiuro","Delebio","Livigno","Mese","Caiolo","Rasura","Andalo Valtellino","Prata Camportaccio","Piateda","Samolaco","Postalesio","Lanzada","Bianzone","Colorina","Bema","Talamona","Castione Andevenno","Campodolcino","Mello","Ardenno","Valdidentro","Fusine","Grosotto","Tovo di Sant'Agata","Castello dell'Acqua","Morbegno","Poggiridenti","Gerola Alta","Verceia","Cosio Valtellino","Bormio","Albosaggia","Dazio","Tresivio","Civo","Spriana","Cedrasco","Aprica","San Giacomo Filippo","Villa di Chiavenna","Teglio","Tartano","Albaredo per San Marco","Sondalo","Chiavenna","Forcola","Dubino","Faedo Valtellino","Rogolo","Sernio","Novate Mezzola","Chiesa in Valmalenco","Lovero","Traona","Caspoggio","Valfurva","Cino","Madesimo","Valdisotto","Ponte in Valtellina","Val Masino","Piuro","Torre di Santa Maria","Grosio","Cercino","Mantello","Piantedo","Buglio in Monte"],"Milano":["Bellinzago Lombardo","Boffalora sopra Ticino","Mediglia","Busto Garolfo","Motta Visconti","Solaro","Lainate","Albairate","Colturano","Noviglio","Arluno","Dresano","Vizzolo Predabissi","Castano Primo","Cuggiono","Calvignasco","Cesate","Tribiano","Nerviano","Inzago","Locate di Triulzi","Vimodrone","Liscate","Trezzano Rosa","Cassinetta di Lugagnano","Basiglio","Binasco","Pozzo d'Adda","Abbiategrasso","Corbetta","Dairago","Gudo Visconti","Pieve Emanuele","Nosate","Milano","Carugate","Cerro al Lambro","Rho","Pogliano Milanese","Buscate","Ozzero","Settimo Milanese","Morimondo","Sedriano","Peschiera Borromeo","Vermezzo con Zelo","Segrate","Mesero","Vittuone","Cornaredo","Magenta","Rodano","Rosate","San Giorgio su Legnano","Cusano Milanino","Bubbiano","Turbigo","Arconate","Senago","Lacchiarella","Magnago","Settala","Ossona","Cassano d'Adda","San Colombano al Lambro","Cinisello Balsamo","Opera","Robecchetto con Induno","Legnano","Casorezzo","Bareggio","Baranzate","Cesano Boscone","Trezzano sul Naviglio","Marcallo con Casone","Vernate","Cusago","Cormano","Cologno Monzese","Grezzago","Bollate","Rozzano","Cisliano","San Giuliano Milanese","Sesto San Giovanni","Pozzuolo Martesana","Gorgonzola","Santo Stefano Ticino","Bresso","Gessate","Parabiago","Pantigliate","Canegrate","Casarile","Bernate Ticino","Rescaldina","Melegnano","Pregnana Milanese","Truccazzano","Vignate","Besate","Vanzago","Pioltello","Corsico","Bussero","Garbagnate Milanese","San Vittore Olona","Paderno Dugnano","Vaprio d'Adda","Gaggiano","Assago","Novate Milanese","Inveruno","Zibido San Giacomo","Carpiano","Cassina de' Pecchi","Robecco sul Naviglio","Basiano","Cambiago","San Donato Milanese","Cerro Maggiore","Masate","San Zenone al Lambro","Trezzo sull'Adda","Pessano con Bornago","Pero","Villa Cortese","Buccinasco","Vanzaghello","Arese","Paullo","Cernusco sul Naviglio","Melzo"],"Bergamo":["Stezzano","Castro","Verdellino","Sant'Omobono Terme","Zogno","Pognano","Chiuduno","Torre Boldone","Urgnano","Madone","Piazzolo","Arcene","Taleggio","Lovere","Bossico","Bedulita","Carvico","Fara Olivana con Sola","Roncobello","Castelli Calepio","Selvino","Predore","Brembate","Almenno San Salvatore","Filago","Pontida","Treviolo","Zandobbio","Ghisalba","Lallio","Pagazzano","Brumano","Bonate Sotto","Ardesio","Ranzanico","Telgate","Sedrina","Ponteranica","Costa Serina","Cene","Calcinate","Gorlago","Ambivere","San Paolo d'Argon","Leffe","Ranica","Sovere","Pumenengo","Branzi","Fino del Monte","Gazzaniga","Palosco","Albino","Sarnico","Casirate d'Adda","Parre","Valbondione","Albano Sant'Alessandro","Fornovo San Giovanni","Vigano San Martino","Fontanella","Oneta","Mozzo","Solto Collina","Almenno San Bartolomeo","Brignano Gera d'Adda","Gromo","Antegnate","Verdello","Cornalba","Scanzorosciate","Romano di Lombardia","Costa di Mezzate","Spinone al Lago","Corna Imagna","Grone","Clusone","Trescore Balneario","Pontirolo Nuovo","Serina","San Pellegrino Terme","Almè","Moio de' Calvi","Borgo di Terzo","Torre de' Roveri","Presezzo","Gorno","Onore","Dalmine","Paladina","Montello","Lenna","Rota d'Imagna","San Giovanni Bianco","Bergamo","Carona","Casazza","Lurano","Brembate di Sopra","Mozzanica","Gandellino","Pedrengo","Parzanica","Cenate Sopra","Strozza","Colere","Ponte Nossa","Roncola","Villa d'Adda","Bottanuco","Villa d'Ogna","Schilpario","Cusio","Cividate al Piano","Seriate","Alzano Lombardo","Piario","Fonteno","Orio al Serio","Calvenzano","Ubiale Clanezzo","Valtorta","Vilminore di Scalve","Blello","Adrara San Martino","Fuipiano Valle Imagna","Isso","Dossena","Arzago d'Adda","Barzana","Levate","Ornica","Capizzone","Capriate San Gervasio","Palazzago","Valleve","Averara","Bariano","Val Brembilla","Premolo","Comun Nuovo","Cerete","Rovetta","Mezzoldo","Morengo","Olmo al Brembo","Camerata Cornello","Bonate Sopra","Endine Gaiano","Medolago","Pianico","Ciserano","Cavernago","Castel Rozzone","Isola di Fondra","Algua","Caravaggio","Gorle","Cologno al Serio","Fara Gera d'Adda","Treviglio","Cenate Sotto","Curno","Bracca","Cortenuova","Cisano Bergamasco","Credaro","Costa Valle Imagna","Monasterolo del Castello","Songavazzo","Sotto il Monte Giovanni XXIII","Torre Pallavicina","Valgoglio","Chignolo d'Isola","Oltressenda Alta","Rogno","Mapello","Valnegra","Canonica d'Adda","Barbata","Berbenno","Castione della Presolana","Zanica","Entratico","Vedeseta","Gandino","Misano di Gera d'Adda","Cazzano Sant'Andrea","Villa di Serio","Viadanica","Calcio","Calusco d'Adda","Grassobbio","Osio Sopra","Torre de' Busi","Caprino Bergamasco","Villongo","Foppolo","Peia","Gaverina Terme","Colzate","Oltre il Colle","Fiorano al Serio","Cassiglio","Vertova","Aviatico","Adrara San Rocco","Locatello","Santa Brigida","Spirano","Riva di Solto","Osio Sotto","Vigolo","Terno d'Isola","Brusaporto","Sorisole","Carobbio degli Angeli","Azzone","Berzo San Fermo","Villa d'Almè","Bianzano","Piazzatorre","Ponte San Pietro","Casnigo","Grumello del Monte","Suisio","Piazza Brembana","Bolgare","Covo","Luzzana","Gandosso","Nembro","Pradalunga","Valbrembo","Costa Volpino","Martinengo","Azzano San Paolo","Boltiere","Bagnatica","Mornico al Serio","Tavernola Bergamasca","Solza","Foresto Sparso"],"Brescia":["Castel Mella","Provaglio d'Iseo","Coccaglio","Sabbio Chiese","Muscoline","Botticino","Brescia","Odolo","Paisco Loveno","Puegnago del Garda","Bovezzo","Villachiara","Passirano","Darfo Boario Terme","Flero","Orzivecchi","Irma","Pezzaze","Pompiano","Azzano Mella","Urago d'Oglio","Casto","Pontevico","Ospitaletto","Pertica Alta","Monte Isola","Verolavecchia","Marmentino","Caino","Erbusco","Collebeato","Anfo","Marone","Cigole","Manerba del Garda","Orzinuovi","Polaveno","Gussago","Cevo","Magasa","Villa Carcina","Idro","Angolo Terme","Chiari","Gianico","Manerbio","Corzano","Fiesse","Nuvolento","Pavone del Mella","Cellatica","Rezzato","Villanuova sul Clisi","Comezzano-Cizzago","Capriolo","Borno","Milzano","Brione","Lonato del Garda","Pontoglio","Vallio Terme","San Paolo","Palazzolo sull'Oglio","San Felice del Benaco","Niardo","Pralboino","Corteno Golgi","Borgo San Giacomo","Castenedolo","Sarezzo","Mairano","Lodrino","Collio","Alfianello","Monticelli Brusati","Sale Marasino","Bione","Bovegno","Gardone Val Trompia","Montichiari","Castrezzato","Lozio","Sonico","Berlingo","Carpenedolo","Acquafredda","Ceto","Maclodio","Tavernole sul Mella","Cedegolo","Ossimo","Capo di Ponte","Vestone","Vezza d'Oglio","Nuvolera","Barbariga","Sulzano","Bagnolo Mella","Rovato","Limone sul Garda","Pian Camuno","Poncarale","Castegnato","Ponte di Legno","Pertica Bassa","Dello","San Gervasio Bresciano","Desenzano del Garda","Berzo Inferiore","Barghe","Calcinato","Offlaga","Leno","Capriano del Colle","Brandico","Preseglie","Ome","Iseo","Padenghe sul Garda","Gambara","Breno","Lavenone","Ono San Pietro","Piancogno","Tremosine sul Garda","Malonno","Monno","Toscolano-Maderno","Provaglio Val Sabbia","Isorella","Borgosatollo","Edolo","Travagliato","Visano","Lograto","Berzo Demo","Temù","Mazzano","Vobarno","Treviso Bresciano","Longhena","Lumezzane","Gottolengo","Concesio","Malegno","Gardone Riviera","Ghedi","Cerveno","Braone","Montirone","Soiano del Lago","Losine","Remedello","Agnosine","Capovalle","Castelcovati","Valvestino","Gargnano","Cazzago San Martino","Calvagese della Riviera","Paspardo","Salò","Sellero","Trenzano","Torbole Casaglia","Corte Franca","Nave","Polpenazze del Garda","Marcheno","Esine","Incudine","Paratico","Serle","Pisogne","Paitone","Bassano Bresciano","Mura","Cimbergo","Roè Volciano","Prevalle","Cividate Camuno","Vione","Calvisano","Roncadelle","Rodengo Saiano","Seniga","Roccafranca","Verolanuova","Rudiano","Gavardo","Moniga del Garda","Quinzano d'Oglio","Saviore dell'Adamello","Bienno","Cologne","Pozzolengo","Sirmione","Zone","Artogne","Bedizzole","Tignale","San Zeno Naviglio","Bagolino","Paderno Franciacorta","Adro"],"Pavia":["Montalto Pavese","Cilavegna","Casteggio","Valle Salimbene","Albuzzano","Corvino San Quirico","Gambarana","Certosa di Pavia","Pieve del Cairo","Santa Margherita di Staffora","Velezzo Lomellina","Suardi","Spessa","Cassolnovo","Robbio","Giussago","Romagnese","Zenevredo","Corana","Mede","Costa de' Nobili","Montù Beccaria","Rea","Casei Gerola","San Zenone al Po","Battuda","Nicorvo","Lirio","Oliva Gessi","Bastida Pancarana","Rocca Susella","Bagnaria","San Genesio ed Uniti","Godiasco Salice Terme","San Cipriano Po","Zeccone","Santa Maria della Versa","Voghera","Golferenzo","Badia Pavese","Broni","Cecima","Pinarolo Po","Roncaro","Lardirago","Fortunago","Zerbolò","Vistarino","Rovescala","Ponte Nizza","Sartirana Lomellina","Marzano","Confienza","Castelnovetto","Canneto Pavese","Garlasco","Marcignago","Sommo","Varzi","San Damiano al Colle","Borgoratto Mormorolo","Langosco","Vellezzo Bellini","Scaldasole","Colli Verdi","Verretto","Santa Cristina e Bissone","Verrua Po","Olevano di Lomellina","Lomello","Zeme","Bascapè","Brallo di Pregola","Ceranova","Gravellona Lomellina","Cozzo","Semiana","Albonese","Siziano","Borgo Priolo","Trivolzio","Rivanazzano Terme","Barbianello","Villanterio","Galliavola","Silvano Pietra","Menconico","Montesegale","Frascarolo","Magherno","Montescano","Torre d'Arese","Trovo","Castelletto di Branduzzo","Ferrera Erbognone","Candia Lomellina","Torricella Verzate","Tromello","Castana","Inverno e Monteleone","Arena Po","Cervesina","Mezzana Rabattone","Bosnasco","Zinasco","Bereguardo","Casorate Primo","Sannazzaro de' Burgondi","Stradella","Vigevano","Gambolò","Castello d'Agogna","Portalbera","Pancarana","Val di Nizza","Pietra de' Giorgi","Landriano","Valle Lomellina","Volpara","Pavia","Santa Giuletta","Retorbido","Redavalle","Torrevecchia Pia","Robecco Pavese","Cava Manara","Palestro","Dorno","Codevilla","Casatisma","Zerbo","Montebello della Battaglia","Sant'Angelo Lomellina","Pieve Albignola","Monticelli Pavese","Torre Beretti e Castellaro","Mezzana Bigli","Cigognola","Borgarello","Lungavilla","Corteolona e Genzone","Bressana Bottarone","Borgo San Siro","Cura Carpignano","Chignolo Po","Rosasco","Montecalvo Versiggia","Calvignano","Mornico Losana","Cornale e Bastida","Parona","Mezzanino","Breme","Copiano","Casanova Lonati","Sant'Alessio con Vialone","Rognano","San Martino Siccomario","Pizzale","Vidigulfo","Travacò Siccomario","Miradolo Terme","Campospinoso Albaredo","Gerenzago","Alagna","Torre de' Negri","Cergnago","Villa Biscossi","Torre d'Isola","Belgioioso","Torrazza Coste","Zavattarello","Rocca de' Giorgi","Villanova d'Ardenghi","Valeggio","Mortara","San Giorgio di Lomellina","Carbonara al Ticino","Bornasco","Pieve Porto Morone","Ceretto Lomellina","Linarolo","Gropello Cairoli","Filighera","Ottobiano"],"Cremona":["Cumignano sul Naviglio","Casalmorano","Quintano","Gombito","Spineda","Pozzaglio ed Uniti","Agnadello","Chieve","Camisano","Casaletto di Sopra","Casalbuttano ed Uniti","Pianengo","Robecco d'Oglio","Gussola","Sesto ed Uniti","Corte de' Cortesi con Cignone","Vescovato","Castelleone","Trigolo","Pieranica","Torlino Vimercati","Crema","Martignana di Po","Cappella Cantone","Casalmaggiore","Ostiano","Cella Dati","Trescore Cremasco","Spinadesco","Torre de' Picenardi","Offanengo","Casaletto Vaprio","Formigara","Rivarolo del Re ed Uniti","Capralba","Campagnola Cremasca","San Giovanni in Croce","Cappella de' Picenardi","Gerre de' Caprioli","Crotta d'Adda","Voltido","Sospiro","San Daniele Po","Bonemerse","Calvatone","Paderno Ponchielli","Solarolo Rainerio","Bagnolo Cremasco","Capergnanica","Vailate","Izano","Cicognolo","Pizzighettone","Dovera","San Bassano","Castel Gabbiano","Soresina","Rivolta d'Adda","Sergnano","Pessina Cremonese","Casale Cremasco-Vidolasco","Spino d'Adda","Ripalta Guerina","San Martino del Lago","Gadesco-Pieve Delmona","Corte de' Frati","Volongo","Ripalta Cremasca","Cremosano","Ricengo","Grumello Cremonese ed Uniti","Romanengo","Persico Dosimo","Pescarolo ed Uniti","Montodine","Azzanello","Salvirola","Scandolara Ripa d'Oglio","Moscazzano","Castelvisconti","Motta Baluffi","Piadena Drizzona","Annicco","Isola Dovarese","Genivolta","Credera Rubbiano","Scandolara Ravara","Pieve San Giacomo","Madignano","Ripalta Arpina","Casaletto Ceredano","Castelverde","Stagno Lombardo","Gabbioneta-Binanuova","Derovere","Cingia de' Botti","Torricella del Pizzo","Soncino","Casteldidone","Pieve d'Olmi","Tornata","Fiesco","Pandino","Ticengo","Vaiano Cremasco","Cremona","Bordolano","Olmeneta","Grontardo","Palazzo Pignano","Acquanegra Cremonese","Monte Cremasco","Malagnino"],"Mantova":["San Giorgio Bigarello","Curtatone","Volta Mantovana","Monzambano","Castel Goffredo","Castiglione delle Stiviere","Mantova","Roncoferraro","San Giacomo delle Segnate","Cavriana","Suzzara","Casalmoro","Commessaggio","Rodigo","Quistello","Sabbioneta","Gazoldo degli Ippoliti","Borgo Virgilio","Goito","Pegognaga","Moglia","Villimpenta","Acquanegra sul Chiese","Ceresara","Quingentole","San Giovanni del Dosso","Ostiglia","Mariana Mantovana","Medole","Gazzuolo","Schivenoglia","Asola","Poggio Rusco","Casaloldo","Ponti sul Mincio","Bagnolo San Vito","Solferino","Pomponesco","Castel d'Ario","Guidizzolo","Bozzolo","Castellucchio","Marcaria","Magnacavallo","Casalromano","Porto Mantovano","Redondesco","San Martino dall'Argine","Sustinente","Canneto sull'Oglio","Castelbelforte","Sermide e Felonica","Viadana","Gonzaga","Piubega","Borgo Mantovano","Serravalle a Po","Dosolo","Borgocarbonara","Marmirolo","Roverbella","Rivarolo Mantovano","San Benedetto Po","Motteggiana"],"Lecco":["Margno","Costa Masnaga","Garlate","Calco","Valgreghentino","Nibionno","Premana","Barzanò","Oliveto Lario","Ballabio","Cremeno","Garbagnate Monastero","Pagnona","Dolzago","Brivio","Vercurago","Airuno","Colico","Esino Lario","Primaluna","Valvarrone","Cassago Brianza","Colle Brianza","Monticello Brianza","Missaglia","Suello","Castello di Brianza","Cesana Brianza","Pasturo","Malgrate","Valmadrera","Montevecchia","Molteno","Bellano","Carenno","Dervio","Casargo","Monte Marenzo","Bulciago","Cassina Valsassina","Rogeno","Cernusco Lombardone","Varenna","Verderio","Lierna","Olgiate Molgora","Casatenovo","Santa Maria Hoè","Cortenova","Moggio","Robbiate","Merate","Crandola Valsassina","Galbiate","Lecco","Parlasco","Annone di Brianza","Sueglio","Oggiono","La Valletta Brianza","Olginate","Morterone","Erve","Ello","Calolziocorte","Dorio","Imbersago","Paderno d'Adda","Taceno","Sirone","Mandello del Lario","Pescate","Bosisio Parini","Perledo","Osnago","Sirtori","Barzio","Civate","Abbadia Lariana","Barzago","Lomagna","Viganò","Cremella","Introbio"],"Lodi":["Maccastorna","Brembio","Borgo San Giovanni","Castelnuovo Bocca d'Adda","Tavazzano con Villavesco","Caselle Landi","Marudo","San Rocco al Porto","Caselle Lurani","Cavenago d'Adda","Meleti","Comazzo","Valera Fratta","San Fiorano","Salerano sul Lambro","Boffalora d'Adda","Castiraga Vidardo","Terranova dei Passerini","Bertonico","Cornovecchio","Somaglia","Crespiatica","Livraga","Villanova del Sillaro","San Martino in Strada","Orio Litta","Abbadia Cerreto","Cornegliano Laudense","Fombio","Lodi","Ospedaletto Lodigiano","Massalengo","Corno Giovine","Mairago","Mulazzano","Merlino","Borghetto Lodigiano","Galgagnano","Senna Lodigiana","Secugnago","Zelo Buon Persico","Turano Lodigiano","Cervignano d'Adda","Sant'Angelo Lodigiano","Castiglione d'Adda","Pieve Fissiraga","Casalmaiocco","Lodi Vecchio","Casalpusterlengo","Castelgerundo","Guardamiglio","Montanaso Lombardo","Corte Palasio","Graffignana","Ossago Lodigiano","Santo Stefano Lodigiano","Codogno","Sordio","Maleo","Casaletto Lodigiano"],"Monza e della Brianza":["Lentate sul Seveso","Bernareggio","Roncello","Albiate","Usmate Velate","Barlassina","Cesano Maderno","Aicurzio","Vimercate","Limbiate","Monza","Lazzate","Cornate d'Adda","Mezzago","Briosco","Correzzana","Burago di Molgora","Vedano al Lambro","Ornago","Carate Brianza","Giussano","Concorezzo","Bellusco","Arcore","Besana in Brianza","Brugherio","Camparada","Nova Milanese","Lissone","Seregno","Sulbiate","Ronco Briantino","Ceriano Laghetto","Carnate","Cavenago di Brianza","Seveso","Triuggio","Cogliate","Caponago","Agrate Brianza","Verano Brianza","Macherio","Lesmo","Misinto","Muggiò","Varedo","Bovisio-Masciago","Biassono","Meda","Renate","Sovico","Desio","Veduggio con Colzano","Villasanta","Busnago"]}`), Am = { Verona: ["Erbezzo", "Sanguinetto", "Villa Bartolomea", "San Giovanni Ilarione", "Caldiero", "Nogara", "Mezzane di Sotto", "Castel d'Azzano", "Lazise", "Pescantina", "Bonavigo", "Cerro Veronese", "Verona", "Boschi Sant'Anna", "Fumane", "Oppeano", "Povegliano Veronese", "Cerea", "Bardolino", "Isola della Scala", "Castelnuovo del Garda", "Nogarole Rocca", "Bussolengo", "San Pietro in Cariano", "Affi", "Angiari", "San Bonifacio", "Badia Calavena", "Valeggio sul Mincio", "Zevio", "Castagnaro", "Soave", "Terrazzo", "Velo Veronese", "Lavagno", "Rivoli Veronese", "Bevilacqua", "Erbè", "Isola Rizza", "Montecchia di Crosara", "Ronco all'Adige", "Torri del Benaco", "Selva di Progno", "Veronella", "Arcole", "Colognola ai Colli", "Casaleone", "Legnago", "Vestenanova", "San Martino Buon Albergo", "Ferrara di Monte Baldo", "San Giovanni Lupatoto", "Dolcè", "Brentino Belluno", "Palù", "Roverchiara", "Pastrengo", "Peschiera del Garda", "Brenzone sul Garda", "Sona", "San Zeno di Montagna", "Vigasio", "Roverè Veronese", "Monteforte d'Alpone", "Concamarise", "Albaredo d'Adige", "Sant'Ambrogio di Valpolicella", "Sorgà", "Caprino Veronese", "Gazzo Veronese", "Illasi", "Malcesine", "Garda", "Cologna Veneta", "Pressana", "Tregnago", "Grezzana", "Zimella", "Belfiore", "Sant'Anna d'Alfaedo", "Roncà", "San Mauro di Saline", "Sommacampagna", "Trevenzuolo", "Minerbe", "Villafranca di Verona", "Roveredo di Guà", "Salizzole", "Cavaion Veronese", "Marano di Valpolicella", "Mozzecane", "Costermano sul Garda", "Negrar di Valpolicella", "Cazzano di Tramigna", "Bosco Chiesanuova", "Bovolone", "Buttapietra", "San Pietro di Morubio"], Vicenza: ["Asigliano Veneto", "Val Liona", "Sandrigo", "Posina", "Carrè", "Barbarano Mossano", "Montegaldella", "Costabissara", "Grumolo delle Abbadesse", "Lonigo", "Sovizzo", "San Pietro Mussolino", "Nanto", "Solagna", "Marano Vicentino", "Foza", "Altissimo", "Bressanvido", "Dueville", "Longare", "Caldogno", "Roana", "Orgiano", "Agugliaro", "Valli del Pasubio", "Villaga", "Bolzano Vicentino", "Arzignano", "Mussolente", "Monticello Conte Otto", "Breganze", "Chiampo", "Zanè", "Malo", "Schiavon", "Romano d'Ezzelino", "Castegnero", "Grisignano di Zocco", "Zugliano", "Noventa Vicentina", "Brendola", "Valdagno", "Albettone", "Vicenza", "Asiago", "Creazzo", "Cornedo Vicentino", "Rosà", "Arsiero", "Montecchio Maggiore", "Cartigliano", "Crespadoro", "Lastebasse", "Villaverla", "Montorso Vicentino", "Camisano Vicentino", "Isola Vicentina", "Pojana Maggiore", "Tezze sul Brenta", "Valbrenta", "Gambellara", "Brogliano", "Piovene Rocchette", "Arcugnano", "Castelgomberto", "Gallio", "Pove del Grappa", "Valdastico", "Montecchio Precalcino", "Schio", "Cassola", "Montegalda", "Thiene", "Marostica", "Sarcedo", "Zermeghedo", "Santorso", "Lusiana Conco", "Calvene", "Pozzoleone", "Bassano del Grappa", "Caltrano", "Salcedo", "Rossano Veneto", "Recoaro Terme", "Monteviale", "Chiuppano", "Nove", "Pianezze", "Cogollo del Cengio", "Colceresa", "Velo d'Astico", "Campiglia dei Berici", "Montebello Vicentino", "Trissino", "Torri di Quartesolo", "Alonte", "Sossano", "Laghi", "Nogarole Vicentino", "Altavilla Vicentina", "San Vito di Leguzzano", "Quinto Vicentino", "Zovencedo", "Fara Vicentino", "Tonezza del Cimone", "Sarego", "Torrebelvicino", "Rotzo", "Monte di Malo", "Pedemonte", "Lugo di Vicenza", "Enego"], Belluno: ["Cesiomaggiore", "Lamon", "La Valle Agordina", "Perarolo di Cadore", "Calalzo di Cadore", "Canale d'Agordo", "Pieve di Cadore", "Taibon Agordino", "Sospirolo", "Tambre", "Vallada Agordina", "Gosaldo", "Val di Zoldo", "Seren del Grappa", "Livinallongo del Col di Lana", "Valle di Cadore", "Alpago", "San Gregorio nelle Alpi", "Soverzene", "Falcade", "Arsiè", "Cibiana di Cadore", "Ospitale di Cadore", "Alleghe", "Pedavena", "Rocca Pietore", "Comelico Superiore", "Feltre", "Fonzaso", "Borca di Cadore", "San Vito di Cadore", "Sovramonte", "Ponte nelle Alpi", "Borgo Valbelluna", "Santa Giustina", "Rivamonte Agordino", "Limana", "Sedico", "San Nicolò di Comelico", "Cencenighe Agordino", "Vodo Cadore", "Zoppè di Cadore", "Cortina d'Ampezzo", "Voltago Agordino", "Agordo", "Chies d'Alpago", "Auronzo di Cadore", "Lorenzago di Cadore", "San Tomaso Agordino", "Longarone", "Belluno", "Colle Santa Lucia", "Selva di Cadore", "Vigo di Cadore", "Domegge di Cadore", "Setteville", "Lozzo di Cadore", "Danta di Cadore", "Santo Stefano di Cadore", "San Pietro di Cadore"], Treviso: ["Treviso", "Gaiarine", "Segusino", "Sernaglia della Battaglia", "Vedelago", "Ponte di Piave", "Maserada sul Piave", "Povegliano", "San Vendemiano", "Codognè", "Possagno", "Riese Pio X", "Silea", "Motta di Livenza", "Roncade", "Borso del Grappa", "Sarmede", "Villorba", "Susegana", "San Pietro di Feletto", "Vazzola", "Castelfranco Veneto", "Casale sul Sile", "Salgareda", "Vidor", "Pieve di Soligo", "Ponzano Veneto", "Portobuffolè", "Casier", "Revine Lago", "San Fior", "Follina", "Farra di Soligo", "Caerano di San Marco", "Godega di Sant'Urbano", "Resana", "Morgano", "Meduna di Livenza", "Spresiano", "Colle Umberto", "Cappella Maggiore", "Orsago", "Mogliano Veneto", "Zenson di Piave", "San Biagio di Callalta", "Paese", "Preganziol", "Maser", "Ormelle", "Cornuda", "Gorgo al Monticano", "Cavaso del Tomba", "Fontanelle", "Cimadolmo", "Conegliano", "Vittorio Veneto", "Breda di Piave", "Oderzo", "Nervesa della Battaglia", "San Zenone degli Ezzelini", "Zero Branco", "Chiarano", "Arcade", "Trevignano", "Fregona", "Cordignano", "Montebelluna", "Santa Lucia di Piave", "Monastier di Treviso", "Asolo", "Istrana", "Mareno di Piave", "Refrontolo", "Pederobba", "Valdobbiadene", "Altivole", "Mansuè", "Tarzo", "Cessalto", "Giavera del Montello", "Castello di Godego", "Castelcucco", "San Polo di Piave", "Quinto di Treviso", "Pieve del Grappa", "Monfumo", "Moriago della Battaglia", "Crocetta del Montello", "Cison di Valmarino", "Loria", "Miane", "Volpago del Montello", "Carbonera", "Fonte"], Venezia: ["Jesolo", "Meolo", "Cavallino-Treporti", "Dolo", "Cona", "Mira", "Pianiga", "San Donà di Piave", "Pramaggiore", "Mirano", "Noventa di Piave", "Stra", "Gruaro", "Teglio Veneto", "Martellago", "Ceggia", "Musile di Piave", "Santa Maria di Sala", "Venezia", "Quarto d'Altino", "Campagna Lupia", "Eraclea", "Annone Veneto", "Portogruaro", "San Stino di Livenza", "San Michele al Tagliamento", "Fossalta di Portogruaro", "Camponogara", "Concordia Sagittaria", "Cavarzere", "Caorle", "Campolongo Maggiore", "Fiesso d'Artico", "Vigonovo", "Chioggia", "Scorzè", "Fossò", "Spinea", "Cinto Caomaggiore", "Noale", "Salzano", "Fossalta di Piave", "Torre di Mosto", "Marcon"], Padova: ["Casalserugo", "Cartura", "Arzergrande", "Castelbaldo", "Stanghella", "Mestrino", "Ponso", "Camposampiero", "Legnaro", "Vo'", "Piove di Sacco", "Arre", "Campo San Martino", "Noventa Padovana", "Due Carrare", "Montagnana", "Arquà Petrarca", "San Martino di Lupari", "Vigonza", "Carmignano di Brenta", "Lozzo Atestino", "Tombolo", "Campodoro", "San Pietro in Gu", "Ospedaletto Euganeo", "Este", "Barbona", "Baone", "Sant'Elena", "Borgo Veneto", "Battaglia Terme", "Cervarese Santa Croce", "Correzzola", "Boara Pisani", "Veggiano", "Torreglia", "Piombino Dese", "Casale di Scodosia", "Villanova di Camposampiero", "Gazzo", "Trebaseleghe", "Villa Estense", "Galzignano Terme", "Montegrotto Terme", "Ponte San Nicolò", "Saonara", "Villafranca Padovana", "Piacenza d'Adige", "Tribano", "Solesino", "Megliadino San Vitale", "Masi", "Rubano", "Granze", "Bovolenta", "Merlara", "Teolo", "Codevigo", "Vigodarzere", "Sant'Urbano", "Bagnoli di Sopra", "Conselve", "Cinto Euganeo", "Albignasego", "Terrassa Padovana", "Borgoricco", "Villa del Conte", "Anguillara Veneta", "Urbana", "Curtarolo", "Saccolongo", "Vescovana", "Brugine", "Pontelongo", "San Pietro Viminario", "Maserà di Padova", "Limena", "Polverara", "Cadoneghe", "Padova", "Campodarsego", "Pozzonovo", "Massanzago", "Agna", "Loreggia", "Grantorto", "Rovolon", "Fontaniva", "Abano Terme", "Sant'Angelo di Piove di Sacco", "Pernumia", "Santa Caterina d'Este", "Candiana", "Piazzola sul Brenta", "Cittadella", "San Giorgio delle Pertiche", "Galliera Veneta", "Santa Giustina in Colle", "Selvazzano Dentro", "Monselice", "San Giorgio in Bosco"], Rovigo: ["Arquà Polesine", "Polesella", "Costa di Rovigo", "Ariano nel Polesine", "Porto Viro", "Papozze", "Stienta", "Occhiobello", "Canda", "Castelnovo Bariano", "San Bellino", "Villadose", "Ceneselli", "Ceregnano", "Salara", "Castelmassa", "Porto Tolle", "Guarda Veneta", "Bergantino", "Villanova del Ghebbo", "Pettorazza Grimani", "Canaro", "Castelguglielmo", "Villamarzana", "Badia Polesine", "Gavello", "Adria", "Ficarolo", "Bagnolo di Po", "Bosaro", "Corbola", "Giacciano con Baruchella", "Calto", "Fratta Polesine", "Lusia", "Melara", "San Martino di Venezze", "Pontecchio Polesine", "Pincara", "Lendinara", "Taglio di Po", "Trecenta", "Frassinelle Polesine", "Rovigo", "Loreo", "Fiesso Umbertiano", "Rosolina", "Crespino", "Gaiba", "Villanova Marchesana"] }, Rm = { "Pesaro e Urbino": ["Fermignano", "Borgo Pace", "Pergola", "Serra Sant'Abbondio", "Urbania", "San Costanzo", "Mercatino Conca", "Piandimeleto", "Pesaro", "Gabicce Mare", "Mondolfo", "Gradara", "Urbino", "Sassocorvaro Auditore", "Petriano", "Lunano", "Frontone", "Tavullia", "Fratte Rosa", "Peglio", "Montelabbate", "Cantiano", "Sant'Ippolito", "Vallefoglia", "Sant'Angelo in Vado", "San Lorenzo in Campo", "Fano", "Montecalvo in Foglia", "Monte Grimano Terme", "Fossombrone", "Piobbico", "Terre Roveresche", "Monte Porzio", "Monte Cerignone", "Mombaroccio", "Belforte all'Isauro", "Mercatello sul Metauro", "Apecchio", "Pietrarubbia", "Isola del Piano", "Carpegna", "Montefelcino", "Tavoleto", "Colli al Metauro", "Macerata Feltria", "Cartoceto", "Cagli", "Acqualagna", "Frontino", "Mondavio"], Ancona: ["Ancona", "Agugliano", "Monsano", "Polverigi", "Sirolo", "Cerreto d'Esi", "Chiaravalle", "Arcevia", "Monte San Vito", "Filottrano", "Santa Maria Nuova", "Staffolo", "Fabriano", "Poggio San Marcello", "Mergo", "Falconara Marittima", "Osimo", "Castelleone di Suasa", "San Paolo di Jesi", "Castelbellino", "Jesi", "Camerano", "Belvedere Ostrense", "Serra de' Conti", "Morro d'Alba", "Castelplanio", "Maiolati Spontini", "Camerata Picena", "Sassoferrato", "Corinaldo", "Ostra", "Genga", "Monte Roberto", "Castelfidardo", "Rosora", "Trecastelli", "Cupramontana", "Montemarciano", "Serra San Quirico", "Numana", "Montecarotto", "Loreto", "Ostra Vetere", "San Marcello", "Senigallia", "Barbara", "Offagna"], Macerata: ["Corridonia", "Sarnano", "Valfornace", "Pollenza", "Pioraco", "Macerata", "Ussita", "Appignano", "Apiro", "Mogliano", "Muccia", "Poggio San Vicino", "Penna San Giovanni", "Sant'Angelo in Pontano", "Camporotondo di Fiastrone", "San Severino Marche", "Fiuminata", "Tolentino", "Recanati", "Ripe San Ginesio", "Urbisaglia", "Montefano", "Montecosaro", "Belforte del Chienti", "Treia", "Fiastra", "Sefro", "Potenza Picena", "Bolognola", "Pieve Torina", "Morrovalle", "Castelraimondo", "Loro Piceno", "Monte Cavallo", "Serrapetrona", "Porto Recanati", "Gagliole", "Cessapalombo", "Matelica", "Montecassiano", "Monte San Giusto", "Monte San Martino", "Esanatoglia", "Montelupone", "Visso", "Cingoli", "Gualdo", "Caldarola", "Camerino", "Petriolo", "Colmurano", "San Ginesio", "Civitanova Marche", "Castelsantangelo sul Nera", "Serravalle di Chienti"], "Ascoli Piceno": ["Carassai", "Monteprandone", "Castorano", "Arquata del Tronto", "Grottammare", "Cupra Marittima", "Montalto delle Marche", "Maltignano", "Appignano del Tronto", "Roccafluvione", "Acquaviva Picena", "Castignano", "Montedinove", "Montegallo", "Force", "Montemonaco", "Rotella", "Montefiore dell'Aso", "Cossignano", "Monsampolo del Tronto", "Massignano", "Palmiano", "Colli del Tronto", "Spinetoli", "Folignano", "San Benedetto del Tronto", "Venarotta", "Ripatransone", "Comunanza", "Offida", "Acquasanta Terme", "Castel di Lama", "Ascoli Piceno"], Fermo: ["Monte San Pietrangeli", "Amandola", "Montottone", "Monsampietro Morico", "Monterubbiano", "Sant'Elpidio a Mare", "Rapagnano", "Monte Vidon Combatte", "Pedaso", "Montefalcone Appennino", "Belmonte Piceno", "Montefortino", "Fermo", "Montelparo", "Servigliano", "Santa Vittoria in Matenano", "Monteleone di Fermo", "Lapedona", "Falerone", "Porto Sant'Elpidio", "Monte Urano", "Petritoli", "Moresco", "Montappone", "Porto San Giorgio", "Montegranaro", "Monte Rinaldo", "Monte Giberto", "Ortezzano", "Torre San Patrizio", "Francavilla d'Ete", "Magliano di Tenna", "Montegiorgio", "Massa Fermana", "Campofilone", "Monte Vidon Corrado", "Altidona", "Grottazzolina", "Ponzano di Fermo", "Smerillo"] }, Im = { "Massa-Carrara": ["Bagnone", "Montignoso", "Aulla", "Podenzana", "Fosdinovo", "Licciana Nardi", "Pontremoli", "Villafranca in Lunigiana", "Zeri", "Comano", "Tresana", "Mulazzo", "Massa", "Casola in Lunigiana", "Fivizzano", "Filattiera", "Carrara"], Lucca: ["Camaiore", "Castelnuovo di Garfagnana", "Lucca", "San Romano in Garfagnana", "Fosciandora", "Sillano Giuncugnano", "Altopascio", "Coreglia Antelminelli", "Piazza al Serchio", "Pescaglia", "Pietrasanta", "Gallicano", "Borgo a Mozzano", "Pieve Fosciana", "Molazzana", "Barga", "Castiglione di Garfagnana", "Massarosa", "Villa Basilica", "Careggine", "Vagli Sotto", "Bagni di Lucca", "Camporgiano", "Montecarlo", "Viareggio", "Capannori", "Stazzema", "Forte dei Marmi", "Minucciano", "Fabbriche di Vergemoli", "Seravezza", "Villa Collemandina", "Porcari"], Pistoia: ["Lamporecchio", "Marliana", "Agliana", "Pieve a Nievole", "Quarrata", "Sambuca Pistoiese", "Pistoia", "Larciano", "Ponte Buggianese", "Serravalle Pistoiese", "Pescia", "Uzzano", "Monsummano Terme", "Buggiano", "Abetone Cutigliano", "Montecatini-Terme", "Chiesina Uzzanese", "Montale", "San Marcello Piteglio", "Massa e Cozzile"], Firenze: ["Signa", "San Godenzo", "Greve in Chianti", "Vicchio", "Palazzuolo sul Senio", "Empoli", "Capraia e Limite", "Montespertoli", "Londa", "Firenze", "Barberino Tavarnelle", "Castelfiorentino", "Dicomano", "Gambassi Terme", "Rufina", "Cerreto Guidi", "Rignano sull'Arno", "Pontassieve", "Figline e Incisa Valdarno", "Certaldo", "Bagno a Ripoli", "San Casciano in Val di Pesa", "Scandicci", "Calenzano", "Barberino di Mugello", "Impruneta", "Montelupo Fiorentino", "Fiesole", "Sesto Fiorentino", "Vinci", "Borgo San Lorenzo", "Firenzuola", "Pelago", "Scarperia e San Piero", "Campi Bisenzio", "Vaglia", "Fucecchio", "Montaione", "Reggello", "Lastra a Signa", "Marradi"], Livorno: ["Porto Azzurro", "Marciana Marina", "Capoliveri", "Capraia Isola", "Campo nell'Elba", "Sassetta", "Collesalvetti", "Portoferraio", "Suvereto", "Campiglia Marittima", "Livorno", "Piombino", "Bibbona", "San Vincenzo", "Castagneto Carducci", "Rosignano Marittimo", "Cecina", "Rio", "Marciana"], Pisa: ["San Giuliano Terme", "Pontedera", "Palaia", "Castelnuovo di Val di Cecina", "Lajatico", "Vecchiano", "Peccioli", "Monteverdi Marittimo", "Castellina Marittima", "Buti", "Pisa", "Santa Croce sull'Arno", "Riparbella", "Fauglia", "Calci", "Terricciola", "Casale Marittimo", "Pomarance", "Santa Luce", "Chianni", "Bientina", "Castelfranco di Sotto", "Vicopisano", "Montopoli in Val d'Arno", "Santa Maria a Monte", "Cascina", "Volterra", "Montecatini Val di Cecina", "Capannoli", "Crespina Lorenzana", "Casciana Terme Lari", "Guardistallo", "Montescudaio", "San Miniato", "Calcinaia", "Ponsacco", "Orciano Pisano"], Arezzo: ["Foiano della Chiana", "Montevarchi", "Sansepolcro", "Civitella in Val di Chiana", "Chiusi della Verna", "Caprese Michelangelo", "Montemignaio", "Bucine", "Arezzo", "Sestino", "Ortignano Raggiolo", "Cavriglia", "San Giovanni Valdarno", "Marciano della Chiana", "Poppi", "Talla", "Capolona", "Terranuova Bracciolini", "Castiglion Fibocchi", "Castel San Niccolò", "Cortona", "Laterina Pergine Valdarno", "Chitignano", "Monterchi", "Loro Ciuffenna", "Anghiari", "Badia Tedalda", "Subbiano", "Pratovecchio Stia", "Castel Focognano", "Castiglion Fiorentino", "Castelfranco Piandiscò", "Monte San Savino", "Lucignano", "Pieve Santo Stefano", "Bibbiena"], Siena: ["Monteriggioni", "Sinalunga", "Chiusi", "Sarteano", "Montalcino", "Rapolano Terme", "Radda in Chianti", "Chiusdino", "Gaiole in Chianti", "Castellina in Chianti", "Torrita di Siena", "Pienza", "Casole d'Elsa", "Piancastagnaio", "Abbadia San Salvatore", "Monticiano", "Siena", "San Quirico d'Orcia", "Chianciano Terme", "San Gimignano", "Radicondoli", "Radicofani", "Cetona", "Sovicille", "Castelnuovo Berardenga", "Buonconvento", "Castiglione d'Orcia", "Montepulciano", "Trequanda", "Asciano", "Murlo", "Poggibonsi", "San Casciano dei Bagni", "Colle di Val d'Elsa", "Monteroni d'Arbia"], Grosseto: ["Monte Argentario", "Roccastrada", "Monterotondo Marittimo", "Castell'Azzara", "Arcidosso", "Campagnatico", "Civitella Paganico", "Capalbio", "Pitigliano", "Sorano", "Seggiano", "Gavorrano", "Castel del Piano", "Montieri", "Scarlino", "Santa Fiora", "Roccalbegna", "Scansano", "Isola del Giglio", "Cinigiano", "Massa Marittima", "Grosseto", "Orbetello", "Semproniano", "Manciano", "Castiglione della Pescaia", "Magliano in Toscana", "Follonica"], Prato: ["Cantagallo", "Poggio a Caiano", "Vaiano", "Vernio", "Montemurlo", "Carmignano", "Prato"] }, zm = { Perugia: ["Monte Santa Maria Tiberina", "Passignano sul Trasimeno", "Valtopina", "Marsciano", "Cerreto di Spoleto", "Cannara", "Bettona", "Piegaro", "Sant'Anatolia di Narco", "Preci", "Scheggino", "Torgiano", "Magione", "Bastia Umbra", "Assisi", "Spello", "Campello sul Clitunno", "Collazzone", "Foligno", "Nocera Umbra", "Massa Martana", "Montone", "Panicale", "Trevi", "Corciano", "San Giustino", "Costacciaro", "Pietralunga", "Norcia", "Paciano", "Gualdo Cattaneo", "Todi", "Monte Castello di Vibio", "Montefalco", "Bevagna", "Gualdo Tadino", "Monteleone di Spoleto", "Castiglione del Lago", "Cascia", "Scheggia e Pascelupo", "Fossato di Vico", "Castel Ritaldi", "Sellano", "Tuoro sul Trasimeno", "Perugia", "Citerna", "Città di Castello", "Fratta Todina", "Giano dell'Umbria", "Gubbio", "Lisciano Niccone", "Città della Pieve", "Spoleto", "Poggiodomo", "Deruta", "Vallo di Nera", "Valfabbrica", "Umbertide", "Sigillo"], Terni: ["Parrano", "Ferentillo", "Montecastrilli", "Attigliano", "Calvi dell'Umbria", "Guardea", "San Venanzo", "Narni", "Monteleone d'Orvieto", "Montegabbione", "Alviano", "Orvieto", "Castel Viscardo", "Montefranco", "Arrone", "Polino", "Otricoli", "Ficulle", "San Gemini", "Fabro", "Amelia", "Penna in Teverina", "Castel Giorgio", "Lugnano in Teverina", "Baschi", "Porano", "Avigliano Umbro", "Montecchio", "Allerona", "Acquasparta", "Stroncone", "Giove", "Terni"] }, Lm = { Viterbo: ["Civitella d'Agliano", "Cellere", "Canepina", "Piansano", "Soriano nel Cimino", "Gradoli", "Castiglione in Teverina", "Carbognano", "Ronciglione", "Orte", "Civita Castellana", "Tuscania", "Valentano", "Vignanello", "Fabrica di Roma", "Capranica", "Barbarano Romano", "Celleno", "Latera", "Villa San Giovanni in Tuscia", "Tarquinia", "Vallerano", "Tessennano", "Arlena di Castro", "Blera", "Bassano in Teverina", "Castel Sant'Elia", "Montalto di Castro", "Nepi", "Vetralla", "Gallese", "Oriolo Romano", "Marta", "Monterosi", "Bolsena", "Grotte di Castro", "Vasanello", "Montefiascone", "Bomarzo", "Onano", "Viterbo", "Bassano Romano", "Caprarola", "Corchiano", "Lubriano", "Proceno", "Vitorchiano", "Acquapendente", "San Lorenzo Nuovo", "Sutri", "Bagnoregio", "Faleria", "Ischia di Castro", "Vejano", "Canino", "Capodimonte", "Monte Romano", "Calcata", "Farnese", "Graffignano"], Rieti: ["Fara in Sabina", "Fiamignano", "Castelnuovo di Farfa", "Rocca Sinibalda", "Labro", "Vacone", "Rivodutri", "Montopoli di Sabina", "Greccio", "Pescorocchiano", "Poggio San Lorenzo", "Borbona", "Salisano", "Poggio Bustone", "Poggio Mirteto", "Tarano", "Borgorose", "Monteleone Sabino", "Frasso Sabino", "Morro Reatino", "Cottanello", "Leonessa", "Roccantica", "Selci", "Belmonte in Sabina", "Montasola", "Pozzaglia Sabina", "Antrodoco", "Collegiove", "Forano", "Montebuono", "Casperia", "Castel Sant'Angelo", "Poggio Nativo", "Cittareale", "Colle di Tora", "Poggio Moiano", "Magliano Sabina", "Stimigliano", "Monte San Giovanni in Sabina", "Torricella in Sabina", "Borgo Velino", "Mompeo", "Colli sul Velino", "Nespolo", "Longone Sabino", "Casaprota", "Paganico Sabino", "Scandriglia", "Varco Sabino", "Montenero Sabino", "Marcetelli", "Collalto Sabino", "Contigliano", "Poggio Catino", "Torri in Sabina", "Orvinio", "Castel di Tora", "Concerviano", "Cantalupo in Sabina", "Cantalice", "Cittaducale", "Toffia", "Posta", "Amatrice", "Collevecchio", "Configni", "Micigliano", "Rieti", "Accumoli", "Turania", "Petrella Salto", "Ascrea"], Roma: ["San Polo dei Cavalieri", "Bellegra", "Filacciano", "Nettuno", "Palombara Sabina", "Vallinfreda", "Cineto Romano", "Lariano", "Nemi", "Affile", "Rocca Canterano", "Poli", "Grottaferrata", "Marcellina", "Monterotondo", "Montelanico", "Pisoniano", "Riofreddo", "Mazzano Romano", "Fiano Romano", "Anticoli Corrado", "Ponzano Romano", "Montorio Romano", "Gerano", "Mandela", "Bracciano", "Roccagiovine", "Roma", "Palestrina", "Casape", "Carpineto Romano", "Roviano", "Tolfa", "Formello", "Ariccia", "Cerveteri", "Allumiere", "Subiaco", "Gavignano", "Lanuvio", "Rocca Priora", "Mentana", "Valmontone", "Colonna", "Monte Compatri", "Ardea", "Castel San Pietro Romano", "Zagarolo", "Civitella San Paolo", "Cervara di Roma", "Marano Equo", "Magliano Romano", "Moricone", "Monteflavio", "Torrita Tiberina", "San Cesareo", "Anzio", "Civitavecchia", "Rignano Flaminio", "Artena", "Jenne", "Arsoli", "Percile", "Rocca Santo Stefano", "Sambuci", "Agosta", "Saracinesco", "Sant'Angelo Romano", "Cerreto Laziale", "Castel Madama", "Sant'Oreste", "Arcinazzo Romano", "Ciciliano", "Vivaro Romano", "Vicovaro", "Velletri", "Olevano Romano", "Ladispoli", "Pomezia", "Rocca di Cave", "San Vito Romano", "Nerola", "Sacrofano", "Albano Laziale", "Morlupo", "Nazzano", "Monte Porzio Catone", "Castel Gandolfo", "Rocca di Papa", "Fiumicino", "Castelnuovo di Porto", "Santa Marinella", "Colleferro", "Canterano", "Tivoli", "Capena", "Cave", "Genzano di Roma", "Trevignano Romano", "Camerata Nuova", "Frascati", "Vallepietra", "Roiate", "Genazzano", "San Gregorio da Sassola", "Campagnano di Roma", "Guidonia Montecelio", "Fonte Nuova", "Montelibretti", "Ciampino", "Canale Monterano", "Gorga", "Gallicano nel Lazio", "Labico", "Manziana", "Capranica Prenestina", "Licenza", "Marino", "Anguillara Sabazia", "Riano", "Segni"], Latina: ["Castelforte", "Maenza", "Prossedi", "Minturno", "Formia", "Sabaudia", "Aprilia", "Campodimele", "Rocca Massima", "Lenola", "Cori", "Roccasecca dei Volsci", "Latina", "Pontinia", "Cisterna di Latina", "Terracina", "Santi Cosma e Damiano", "Roccagorga", "Sonnino", "Norma", "Sezze", "Ponza", "Spigno Saturnia", "Sermoneta", "Itri", "San Felice Circeo", "Fondi", "Ventotene", "Bassiano", "Priverno", "Gaeta", "Monte San Biagio", "Sperlonga"], Frosinone: ["Pignataro Interamna", "Torre Cajetani", "Viticuso", "Ripi", "Paliano", "Sant'Elia Fiumerapido", "Vico nel Lazio", "Boville Ernica", "Rocca d'Arce", "Villa Santa Lucia", "Alvito", "Fumone", "San Biagio Saracinisco", "Picinisco", "Ausonia", "Aquino", "Campoli Appennino", "Pofi", "San Giovanni Incarico", "Supino", "Villa Santo Stefano", "Piedimonte San Germano", "Castro dei Volsci", "Esperia", "Cassino", "Villa Latina", "Roccasecca", "Pontecorvo", "Ferentino", "Posta Fibreno", "Vicalvi", "Arce", "Santopadre", "Broccostella", "Coreno Ausonio", "Sgurgola", "Piglio", "Acuto", "Sant'Apollinare", "Casalattico", "Colfelice", "Vallerotonda", "Belmonte Castello", "Collepardo", "Sant'Ambrogio sul Garigliano", "Arpino", "Sora", "Gallinaro", "Trivigliano", "Castelliri", "Casalvieri", "Monte San Giovanni Campano", "Ceprano", "Settefrati", "Pico", "Castelnuovo Parano", "Trevi nel Lazio", "Vallemaio", "Morolo", "Amaseno", "San Donato Val di Comino", "Acquafondata", "Atina", "Filettino", "Vallecorsa", "Torrice", "Castrocielo", "Isola del Liri", "Cervaro", "Veroli", "Fontechiari", "San Vittore del Lazio", "Ceccano", "Alatri", "Giuliano di Roma", "Arnara", "Serrone", "Fontana Liri", "Falvaterra", "Sant'Andrea del Garigliano", "Anagni", "Colle San Magno", "Pastena", "Patrica", "Terelle", "Fiuggi", "Guarcino", "San Giorgio a Liri", "Frosinone", "Pescosolido", "Strangolagalli"] }, Vm = { Caserta: ["Cervino", "Marcianise", "Cesa", "Ailano", "Rocchetta e Croce", "Valle di Maddaloni", "Alvignano", "Capriati a Volturno", "Santa Maria la Fossa", "Casal di Principe", "Riardo", "Sant'Arpino", "Frignano", "Liberi", "Gallo Matese", "Castel Volturno", "Aversa", "Succivo", "Teano", "Roccamonfina", "Grazzanise", "Presenzano", "Castel Morrone", "San Marco Evangelista", "San Prisco", "Vairano Patenora", "Carinaro", "Villa di Briano", "Letino", "Marzano Appio", "Sparanise", "Casagiove", "Ruviano", "San Gregorio Matese", "Sant'Angelo d'Alife", "Valle Agricola", "Arienzo", "Curti", "Cellole", "Piedimonte Matese", "Piana di Monte Verna", "San Pietro Infine", "Castello del Matese", "Pontelatone", "Falciano del Massico", "Caserta", "Calvi Risorta", "Pastorano", "Casapesenna", "Mondragone", "Casapulla", "Cancello ed Arnone", "Pignataro Maggiore", "San Felice a Cancello", "Castel di Sasso", "Baia e Latina", "Santa Maria a Vico", "San Nicola la Strada", "Formicola", "Parete", "Roccaromana", "Galluccio", "Alife", "Dragoni", "Orta di Atella", "Pratella", "Caianello", "Lusciano", "San Potito Sannitico", "Pietravairano", "Ciorlano", "Mignano Monte Lungo", "Casaluce", "Capua", "San Tammaro", "Tora e Piccilli", "Portico di Caserta", "Recale", "Macerata Campania", "Gioia Sannitica", "San Cipriano d'Aversa", "Trentola Ducenta", "Villa Literno", "Gricignano di Aversa", "Teverola", "Giano Vetusto", "Rocca d'Evandro", "Conca della Campania", "San Marcellino", "Sessa Aurunca", "Fontegreca", "Carinola", "Prata Sannita", "Pietramelara", "Bellona", "Vitulazio", "Castel Campagnano", "Caiazzo", "Camigliano", "Capodrise", "Santa Maria Capua Vetere", "Francolise", "Maddaloni", "Raviscanina"], Benevento: ["Foglianise", "Circello", "Ponte", "Forchia", "Sant'Agata de' Goti", "Fragneto Monforte", "Limatola", "Molinara", "Cusano Mutri", "Reino", "San Giorgio del Sannio", "Vitulano", "Paupisi", "Calvi", "San Lupo", "Castelpoto", "San Leucio del Sannio", "Montesarchio", "Solopaca", "San Lorenzo Maggiore", "Airola", "Pannarano", "Colle Sannita", "Arpaise", "Durazzano", "Tocco Caudio", "Fragneto l'Abate", "Paolisi", "San Nazzaro", "Santa Croce del Sannio", "Guardia Sanframondi", "Castelfranco in Miscano", "Montefalcone di Val Fortore", "San Giorgio La Molara", "San Lorenzello", "Buonalbergo", "Puglianello", "San Bartolomeo in Galdo", "Telese Terme", "Frasso Telesino", "Moiano", "Casalduni", "San Nicola Manfredi", "Benevento", "Paduli", "San Marco dei Cavoti", "Cautano", "Arpaia", "Baselice", "Cerreto Sannita", "Ginestra degli Schiavoni", "Castelpagano", "Morcone", "Bucciano", "Pietrelcina", "Pago Veiano", "Amorosi", "Torrecuso", "Sant'Arcangelo Trimonte", "Castelvetere in Val Fortore", "Apollosa", "San Martino Sannita", "San Salvatore Telesino", "Campoli del Monte Taburno", "Pontelandolfo", "Apice", "Bonea", "Castelvenere", "Sant'Angelo a Cupolo", "Pietraroja", "Sassinoro", "Foiano di Val Fortore", "Melizzano", "Faicchio", "Ceppaloni", "Campolattaro", "Pesco Sannita", "Dugenta"], Napoli: ["Scisciano", "Striano", "Pozzuoli", "Castellammare di Stabia", "Frattamaggiore", "Forio", "Frattaminore", "Cicciano", "Sant'Antonio Abate", "San Vitaliano", "Somma Vesuviana", "Pomigliano d'Arco", "Caivano", "Castello di Cisterna", "Cardito", "Gragnano", "Calvizzano", "Casamarciano", "Marano di Napoli", "Roccarainola", "Sant'Anastasia", "Tufino", "Poggiomarino", "Volla", "Casola di Napoli", "Portici", "Villaricca", "Capri", "Anacapri", "Lacco Ameno", "Piano di Sorrento", "Melito di Napoli", "Mariglianella", "Crispano", "Meta", "Pimonte", "Acerra", "Camposano", "Pollena Trocchia", "Boscoreale", "Casamicciola Terme", "Grumo Nevano", "Saviano", "Carbonara di Nola", "San Paolo Bel Sito", "Arzano", "Cercola", "Comiziano", "Mugnano di Napoli", "Afragola", "Torre Annunziata", "San Sebastiano al Vesuvio", "Casavatore", "Massa Lubrense", "Bacoli", "Vico Equense", "Ercolano", "San Giorgio a Cremano", "Serrara Fontana", "Visciano", "Torre del Greco", "Sant'Antimo", "Procida", "Casoria", "Quarto", "Napoli", "San Gennaro Vesuviano", "Ischia", "Terzigno", "Casalnuovo di Napoli", "Brusciano", "San Giuseppe Vesuviano", "Boscotrecase", "Santa Maria la Carità", "Marigliano", "Sant'Agnello", "Nola", "Palma Campania", "Cimitile", "Giugliano in Campania", "Trecase", "Pompei", "Monte di Procida", "Sorrento", "Qualiano", "Casandrino", "Lettere", "Barano d'Ischia", "Ottaviano", "Agerola", "Liveri", "Massa di Somma"], Avellino: ["Castelvetere sul Calore", "Atripalda", "Baiano", "Montoro", "Grottolella", "Tufo", "Fontanarosa", "Santo Stefano del Sole", "Monteforte Irpino", "Teora", "Greci", "Trevico", "Vallata", "Montaguto", "Gesualdo", "Cesinali", "Vallesaccarda", "Conza della Campania", "Venticano", "Moschiano", "Pietrastornina", "Paternopoli", "Pietradefusi", "Torrioni", "Senerchia", "Casalbore", "Montemiletto", "Sirignano", "Zungoli", "Sperone", "Rotondi", "Caposele", "Scampitella", "Guardia Lombardi", "San Potito Ultra", "Domicella", "Calabritto", "Chiusano di San Domenico", "Salza Irpina", "Manocalzati", "Cairano", "Quadrelle", "Cassano Irpino", "Quindici", "San Nicola Baronia", "Sant'Andrea di Conza", "Sant'Angelo dei Lombardi", "Montemarano", "Cervinara", "Ospedaletto d'Alpinolo", "San Sossio Baronia", "Serino", "Solofra", "Chianche", "Montefusco", "Mercogliano", "Sorbo Serpico", "Carife", "Forino", "Mirabella Eclano", "Parolise", "Savignano Irpino", "Bagnoli Irpino", "Roccabascerana", "Contrada", "Lacedonia", "Montefalcione", "Grottaminarda", "Lauro", "Montecalvo Irpino", "Summonte", "Pago del Vallo di Lauro", "Castel Baronia", "Aquilonia", "Taurano", "Castelfranci", "Capriglia Irpina", "Volturara Irpina", "Villanova del Battista", "Prata di Principato Ultra", "Sant'Angelo a Scala", "Santa Paolina", "Ariano Irpino", "Villamaina", "Avella", "Montefredane", "Luogosano", "Aiello del Sabato", "Taurasi", "Nusco", "Monteverde", "Avellino", "Rocca San Felice", "Andretta", "Flumeri", "Frigento", "Bonito", "Melito Irpino", "Sant'Angelo all'Esca", "Pratola Serra", "Santa Lucia di Serino", "Mugnano del Cardinale", "Torella dei Lombardi", "Calitri", "Sturno", "San Mango sul Calore", "San Michele di Serino", "Petruro Irpino", "Lapio", "Montella", "Bisaccia", "San Martino Valle Caudina", "Lioni", "Altavilla Irpina", "Morra De Sanctis", "Marzano di Nola", "Candida", "Torre Le Nocelle"], Salerno: ["Cannalonga", "Castelnuovo Cilento", "Romagnano al Monte", "Prignano Cilento", "Scala", "Castel San Giorgio", "Auletta", "Giungano", "Cava de' Tirreni", "Casal Velino", "Casalbuono", "Laurino", "Ravello", "Casaletto Spartano", "San Cipriano Picentino", "Serre", "Tramonti", "Scafati", "Torraca", "Tortorella", "Bellizzi", "Camerota", "Celle di Bulgheria", "Salento", "Monteforte Cilento", "Baronissi", "Sant'Angelo a Fasanella", "Altavilla Silentina", "Salvitelle", "Omignano", "Furore", "Montesano sulla Marcellana", "Castelcivita", "Buonabitacolo", "Sala Consilina", "Santa Marina", "Pellezzano", "Castiglione del Genovesi", "Monte San Giacomo", "Sessa Cilento", "Colliano", "Valva", "Praiano", "Mercato San Severino", "Caggiano", "Battipaglia", "Campora", "San Valentino Torio", "Aquara", "Castellabate", "Lustra", "Moio della Civitella", "Torchiara", "Giffoni Valle Piana", "Sapri", "Capaccio Paestum", "Fisciano", "Stio", "Bellosguardo", "Novi Velia", "Sarno", "Roscigno", "San Marzano sul Sarno", "Roccadaspide", "Postiglione", "Castel San Lorenzo", "San Giovanni a Piro", "Castelnuovo di Conza", "Ispani", "Piaggine", "Controne", "Ottati", "Positano", "Campagna", "Cetara", "Corleto Monforte", "San Mauro la Bruca", "Sacco", "Caselle in Pittari", "Ricigliano", "Minori", "Acerno", "Siano", "Calvanico", "Ascea", "Contursi Terme", "Felitto", "Morigerati", "Salerno", "Orria", "Valle dell'Angelo", "San Rufo", "Corbara", "San Gregorio Magno", "Pisciotta", "Palomonte", "Teggiano", "Petina", "Rutino", "Olevano sul Tusciano", "Roccagloriosa", "Futani", "Vibonati", "Agropoli", "Bracigliano", "Perdifumo", "Angri", "Nocera Superiore", "Roccapiemonte", "Cicerale", "Atrani", "Pontecagnano Faiano", "Giffoni Sei Casali", "Laureana Cilento", "San Mauro Cilento", "San Pietro al Tanagro", "Albanella", "Pollica", "Sant'Arsenio", "Vietri sul Mare", "Oliveto Citra", "Sanza", "Sicignano degli Alburni", "Trentinara", "Buccino", "Conca dei Marini", "Stella Cilento", "Atena Lucana", "San Mango Piemonte", "Magliano Vetere", "Amalfi", "Centola", "Gioi", "Ogliastro Cilento", "Pertosa", "Serramezzana", "Eboli", "Torre Orsaia", "Pagani", "Santomenna", "Montecorice", "Padula", "Perito", "Cuccaro Vetere", "Ceraso", "Montecorvino Rovella", "Nocera Inferiore", "Laurito", "Maiori", "Vallo della Lucania", "Laviano", "Sant'Egidio del Monte Albino", "Montano Antilia", "Polla", "Alfano", "Sassano", "Montecorvino Pugliano", "Rofrano"] }, Bm = { "L'Aquila": ["Castel di Ieri", "Collelongo", "Capistrello", "Scontrone", "Montereale", "Opi", "San Benedetto in Perillis", "Fontecchio", "Rivisondoli", "Fagnano Alto", "Castellafiume", "Carapelle Calvisio", "Introdacqua", "Cocullo", "Pereto", "Rocca di Cambio", "San Benedetto dei Marsi", "Pettorano sul Gizio", "Rocca di Botte", "Cappadocia", "Rocca di Mezzo", "Villavallelonga", "Caporciano", "Pescasseroli", "Anversa degli Abruzzi", "Bisegna", "Santo Stefano di Sessanio", "Rocca Pia", "Celano", "Scoppito", "Capestrano", "Roccaraso", "Ofena", "Villalago", "San Vincenzo Valle Roveto", "Gioia dei Marsi", "Avezzano", "Ocre", "Collepietro", "Trasacco", "Poggio Picenze", "Barrea", "Ortucchio", "Aielli", "Canistro", "Pacentro", "Villa Sant'Angelo", "Ovindoli", "Prata d'Ansidonia", "Villetta Barrea", "Villa Santa Lucia degli Abruzzi", "Raiano", "Castelvecchio Calvisio", "Bugnara", "Castelvecchio Subequo", "Lecce nei Marsi", "Scanno", "Sulmona", "Capitignano", "Pescocostanzo", "Sante Marie", "Alfedena", "Civitella Roveto", "Cerchio", "Carsoli", "Lucoli", "Balsorano", "Pizzoli", "Fossa", "Acciano", "Ateleta", "Barisciano", "Scurcola Marsicana", "Campo di Giove", "Gagliano Aterno", "L'Aquila", "Roccacasale", "Castel di Sangro", "Civita d'Antino", "Pratola Peligna", "Calascio", "Navelli", "Sant'Eusanio Forconese", "Vittorito", "Magliano de' Marsi", "Castel del Monte", "Molina Aterno", "Tornimparte", "San Demetrio ne' Vestini", "Tagliacozzo", "Barete", "Campotosto", "Tione degli Abruzzi", "Civitella Alfedena", "Pescina", "Collarmele", "San Pio delle Camere", "Prezza", "Massa d'Albe", "Morino", "Cansano", "Secinaro", "Corfinio", "Goriano Sicoli", "Luco dei Marsi", "Cagnano Amiterno", "Ortona dei Marsi", "Oricola"], Teramo: ["Tortoreto", "Giulianova", "Pietracamela", "Civitella del Tronto", "Teramo", "Torricella Sicura", "Rocca Santa Maria", "Campli", "Morro d'Oro", "Tossicia", "Arsita", "Ancarano", "Cortino", "Bisenti", "Atri", "Corropoli", "Sant'Omero", "Pineto", "Basciano", "Cellino Attanasio", "Alba Adriatica", "Mosciano Sant'Angelo", "Silvi", "Castellalto", "Crognaleto", "Montorio al Vomano", "Sant'Egidio alla Vibrata", "Notaresco", "Torano Nuovo", "Montefino", "Colonnella", "Castelli", "Controguerra", "Colledara", "Canzano", "Isola del Gran Sasso d'Italia", "Penna Sant'Andrea", "Martinsicuro", "Roseto degli Abruzzi", "Bellante", "Cermignano", "Castel Castagna", "Fano Adriano", "Valle Castellana", "Nereto", "Castiglione Messer Raimondo", "Castilenti"], Pescara: ["Carpineto della Nora", "Penne", "Salle", "Nocciano", "Pietranico", "Pescosansonesco", "Montebello di Bertona", "Turrivalignani", "Brittoli", "Città Sant'Angelo", "Alanno", "Collecorvino", "Tocco da Casauria", "Torre de' Passeri", "Castiglione a Casauria", "Cepagatti", "Montesilvano", "Caramanico Terme", "Corvara", "Scafa", "Manoppello", "Roccamorice", "Loreto Aprutino", "Moscufo", "Spoltore", "Rosciano", "Bolognano", "San Valentino in Abruzzo Citeriore", "Popoli Terme", "Lettomanoppello", "Picciano", "Elice", "Villa Celiera", "Pescara", "Vicoli", "Serramonacesca", "Sant'Eufemia a Maiella", "Catignano", "Civitaquana", "Abbateggio", "Cappelle sul Tavo", "Pianella", "Farindola", "Bussi sul Tirino", "Civitella Casanova", "Cugnoli"], Chieti: ["Castel Frentano", "Paglieta", "Fara Filiorum Petri", "Casacanditella", "Poggiofiorito", "Villamagna", "San Martino sulla Marrucina", "Carunchio", "Torrebruna", "Roccamontepiano", "Tornareccio", "Atessa", "San Giovanni Lipioni", "Lentella", "San Salvo", "Crecchio", "Palena", "Fossacesia", "Chieti", "Furci", "Fallo", "Sant'Eusanio del Sangro", "Carpineto Sinello", "Roccaspinalveti", "Quadri", "Taranta Peligna", "Fara San Martino", "Cupello", "Casalincontrada", "Rapino", "Scerni", "Treglio", "Mozzagrogna", "Rocca San Giovanni", "Santa Maria Imbaro", "Miglianico", "Gissi", "Colledimezzo", "Monteferrante", "Montebello sul Sangro", "Fresagrandinaria", "Canosa Sannita", "Castelguidone", "Pietraferrazzana", "Torricella Peligna", "Schiavi di Abruzzo", "Pennadomo", "Lettopalena", "Filetto", "Ari", "Pretoro", "Gessopalena", "Civitaluparella", "Montazzoli", "San Buono", "Palombaro", "Civitella Messer Raimondo", "Colledimacine", "Vasto", "Frisa", "Pennapiedimonte", "Borrello", "Giuliano Teatino", "Lanciano", "Ortona", "Tufillo", "Gamberale", "Fraine", "Bucchianico", "Pollutri", "Torino di Sangro", "Montelapiano", "Montenerodomo", "Archi", "Roio del Sangro", "Celenza sul Trigno", "Ripa Teatina", "Monteodorisio", "Dogliola", "Villa Santa Maria", "Guilmi", "Palmoli", "Guardiagrele", "Casalanguida", "Perano", "Francavilla al Mare", "San Giovanni Teatino", "Lama dei Peligni", "Casalbordino", "Roccascalegna", "Casoli", "Vacri", "Villalfonsina", "Pizzoferrato", "Arielli", "Altino", "Liscia", "Rosello", "Torrevecchia Teatina", "Orsogna", "Castiglione Messer Marino", "San Vito Chietino", "Tollo", "Bomba"] }, Fm = { Campobasso: ["Campolieto", "Campochiaro", "Castellino del Biferno", "Spinete", "Bonefro", "Campomarino", "Portocannone", "Toro", "Ripabottoni", "Morrone del Sannio", "Ferrazzano", "Oratino", "Roccavivara", "Guardiaregia", "Mirabello Sannitico", "Vinchiaturo", "Montenero di Bisaccia", "Montorio nei Frentani", "Guardialfiera", "Jelsi", "Cercepiccola", "Pietracatella", "Larino", "Campodipietra", "Pietracupa", "Riccia", "Baranello", "Tavenna", "Lucito", "Matrice", "Provvidenti", "Santa Croce di Magliano", "Campobasso", "Trivento", "Ururi", "Sant'Angelo Limosano", "Cercemaggiore", "San Giacomo degli Schiavoni", "Montefalcone nel Sannio", "Gildone", "Busso", "San Polo Matese", "Montemitro", "Tufara", "Fossalto", "Montelongo", "Palata", "Termoli", "Sepino", "Lupara", "Casacalenda", "San Giuliano di Puglia", "Petrella Tifernina", "Colletorto", "Sant'Elia a Pianisi", "San Martino in Pensilis", "Rotello", "Molise", "Mafalda", "Castropignano", "Ripalimosani", "Macchia Valfortore", "Casalciprano", "Gambatesa", "San Biase", "San Giovanni in Galdo", "Castelmauro", "Petacciato", "Colle d'Anchise", "Limosano", "Civitacampomarano", "Salcito", "Monacilioni", "Bojano", "Montagano", "Torella del Sannio", "Montecilfone", "Guglionesi", "Acquaviva Collecroce", "San Felice del Molise", "San Giuliano del Sannio", "Castelbottaccio", "Duronia", "San Massimo"], Isernia: ["Bagnoli del Trigno", "Carovilli", "Castelpizzuto", "Conca Casale", "Civitanova del Sannio", "Castel San Vincenzo", "Sesto Campano", "Belmonte del Sannio", "Sessano del Molise", "Longano", "Scapoli", "Castel del Giudice", "Isernia", "Acquaviva d'Isernia", "Agnone", "Montaquila", "Carpinone", "Chiauci", "Sant'Agapito", "Miranda", "Pozzilli", "Rionero Sannitico", "Pescopennataro", "Pettoranello del Molise", "Macchiagodena", "Monteroduni", "Pietrabbondante", "Sant'Angelo del Pesco", "Cantalupo nel Sannio", "Colli a Volturno", "Fornelli", "Rocchetta a Volturno", "Pescolanciano", "Sant'Elena Sannita", "Macchia d'Isernia", "Pesche", "Castelverrino", "Frosolone", "Forlì del Sannio", "Montenero Val Cocchiara", "San Pietro Avellana", "Vastogirardi", "Roccamandolfi", "Venafro", "Santa Maria del Molise", "Castelpetroso", "Pizzone", "Roccasicura", "Capracotta", "Poggio Sannita", "Filignano", "Cerro al Volturno"] }, km = { Foggia: ["San Nicandro Garganico", "Carapelle", "Ordona", "Ascoli Satriano", "Peschici", "Chieuti", "Castelnuovo della Daunia", "San Severo", "Poggio Imperiale", "Castelluccio dei Sauri", "Castelluccio Valmaggiore", "Cerignola", "Anzano di Puglia", "Ischitella", "Zapponeta", "Sant'Agata di Puglia", "San Marco la Catola", "Troia", "Lucera", "Cagnano Varano", "Serracapriola", "San Giovanni Rotondo", "Volturara Appula", "Bovino", "Orsara di Puglia", "Torremaggiore", "Biccari", "Carlantino", "Celenza Valfortore", "Vico del Gargano", "Orta Nova", "Lesina", "Pietramontecorvino", "Apricena", "San Marco in Lamis", "Volturino", "Candela", "Carpino", "Casalnuovo Monterotaro", "Isole Tremiti", "Faeto", "Rodi Garganico", "Rignano Garganico", "Monte Sant'Angelo", "Mattinata", "Celle di San Vito", "Motta Montecorvino", "Panni", "Casalvecchio di Puglia", "Vieste", "Stornarella", "Monteleone di Puglia", "Accadia", "Alberona", "Roseto Valfortore", "San Paolo di Civitate", "Manfredonia", "Deliceto", "Rocchetta Sant'Antonio", "Foggia", "Stornara"], Bari: ["Altamura", "Palo del Colle", "Poggiorsini", "Acquaviva delle Fonti", "Modugno", "Molfetta", "Terlizzi", "Polignano a Mare", "Bitritto", "Putignano", "Triggiano", "Sammichele di Bari", "Castellana Grotte", "Cassano delle Murge", "Noicattaro", "Rutigliano", "Conversano", "Gioia del Colle", "Adelfia", "Capurso", "Cellamare", "Ruvo di Puglia", "Gravina in Puglia", "Valenzano", "Locorotondo", "Corato", "Bitetto", "Binetto", "Sannicandro di Bari", "Mola di Bari", "Toritto", "Giovinazzo", "Alberobello", "Bitonto", "Monopoli", "Grumo Appula", "Noci", "Turi", "Bari", "Casamassima", "Santeramo in Colle"], Taranto: ["Martina Franca", "Fragagnano", "Castellaneta", "Sava", "Crispiano", "San Giorgio Ionico", "Pulsano", "Mottola", "Montemesola", "San Marzano di San Giuseppe", "Avetrana", "Lizzano", "Palagianello", "Taranto", "Manduria", "Massafra", "Monteiasi", "Laterza", "Carosino", "Statte", "Monteparano", "Torricella", "Grottaglie", "Roccaforzata", "Faggiano", "Maruggio", "Ginosa", "Leporano", "Palagiano"], Brindisi: ["Mesagne", "Ostuni", "Torre Santa Susanna", "Cisternino", "San Vito dei Normanni", "Erchie", "Francavilla Fontana", "Cellino San Marco", "San Donaci", "San Pietro Vernotico", "Carovigno", "Fasano", "Torchiarolo", "Ceglie Messapica", "Oria", "Brindisi", "San Michele Salentino", "San Pancrazio Salentino", "Villa Castelli", "Latiano"], Lecce: ["Castri di Lecce", "Santa Cesarea Terme", "Castro", "Melpignano", "San Pietro in Lama", "Seclì", "Copertino", "Soleto", "Diso", "Alessano", "Spongano", "Guagnano", "Surano", "Squinzano", "Sternatia", "Arnesano", "Presicce-Acquarica", "Neviano", "Castrignano del Capo", "Casarano", "Leverano", "Ortelle", "Novoli", "Taviano", "Galatina", "Surbo", "Alliste", "Andrano", "Martignano", "Maglie", "Giuggianello", "Veglie", "Ruffano", "Corigliano d'Otranto", "Miggiano", "Carpignano Salentino", "Botrugno", "Minervino di Lecce", "Sogliano Cavour", "Tuglie", "Taurisano", "Monteroni di Lecce", "Lequile", "Salve", "Racale", "Tricase", "Martano", "Castrignano de' Greci", "Ugento", "Matino", "Carmiano", "Vernole", "Cutrofiano", "Salice Salentino", "Scorrano", "San Cassiano", "Cursi", "Bagnolo del Salento", "Specchia", "Nardò", "Morciano di Leuca", "Porto Cesareo", "Patù", "Trepuzzi", "Montesano Salentino", "San Cesario di Lecce", "Corsano", "Caprarica di Lecce", "Lizzanello", "Parabita", "Sannicola", "Aradeo", "Otranto", "Collepasso", "Campi Salentina", "Calimera", "Tiggiano", "Galatone", "Giurdignano", "Poggiardo", "Muro Leccese", "Supersano", "Cavallino", "Lecce", "Sanarica", "Zollino", "Melendugno", "Alezio", "San Donato di Lecce", "Gallipoli", "Cannole", "Uggiano la Chiesa", "Gagliano del Capo", "Palmariggi", "Melissano", "Nociglia"], "Barletta-Andria-Trani": ["Canosa di Puglia", "Trani", "Andria", "Spinazzola", "Trinitapoli", "Barletta", "Margherita di Savoia", "Minervino Murge", "San Ferdinando di Puglia", "Bisceglie"] }, Om = { Potenza: ["San Severino Lucano", "Ruvo del Monte", "Lagonegro", "Calvera", "Carbone", "Satriano di Lucania", "Montemilone", "Rivello", "Moliterno", "Balvano", "Fardella", "Francavilla in Sinni", "Castelmezzano", "Tolve", "Chiaromonte", "Cersosimo", "Tramutola", "Corleto Perticara", "Lavello", "Brienza", "Venosa", "Banzi", "Calvello", "Savoia di Lucania", "Teana", "Pietrapertosa", "Montemurro", "Castelluccio Inferiore", "Avigliano", "Castelluccio Superiore", "Ruoti", "Genzano di Lucania", "San Martino d'Agri", "Potenza", "Episcopia", "Castelgrande", "Vaglio Basilicata", "Viggianello", "Anzi", "Maschito", "Baragiano", "Castelsaraceno", "Rotonda", "Sasso di Castalda", "Albano di Lucania", "Viggiano", "San Paolo Albanese", "Nemoli", "Rapolla", "Paterno", "San Costantino Albanese", "Pietragalla", "Melfi", "Sant'Angelo Le Fratte", "Castronuovo di Sant'Andrea", "Acerenza", "Campomaggiore", "Vietri di Potenza", "Trecchina", "Picerno", "Rapone", "Armento", "Gallicchio", "Pescopagano", "San Chirico Raparo", "Roccanova", "Maratea", "Missanello", "San Chirico Nuovo", "Spinoso", "Ripacandida", "Sarconi", "Tito", "Rionero in Vulture", "Bella", "Latronico", "Palazzo San Gervasio", "Noepoli", "Trivigno", "Barile", "Ginestra", "Sant'Arcangelo", "Atella", "Filiano", "Muro Lucano", "Marsico Nuovo", "Oppido Lucano", "San Fele", "Guardia Perticara", "Brindisi Montagna", "Lauria", "Cancellara", "Forenza", "Laurenzana", "Grumento Nova", "Abriola", "Terranova di Pollino", "Pignola", "Senise", "Marsicovetere"], Matera: ["Calciano", "Montescaglioso", "Montalbano Jonico", "Colobraro", "Pisticci", "Oliveto Lucano", "Accettura", "Garaguso", "Matera", "Grottole", "Irsina", "Tricarico", "San Giorgio Lucano", "Craco", "Pomarico", "Gorgoglione", "San Mauro Forte", "Nova Siri", "Miglionico", "Bernalda", "Ferrandina", "Salandra", "Tursi", "Cirigliano", "Policoro", "Valsinni", "Stigliano", "Aliano", "Rotondella", "Grassano", "Scanzano Jonico"] }, Dm = { Cosenza: ["Fuscaldo", "Amendolara", "Santa Domenica Talao", "Nocara", "Acri", "Mormanno", "Bisignano", "Carolei", "Altilia", "Firmo", "San Fili", "Rota Greca", "Santa Maria del Cedro", "Lago", "Castrolibero", "Aieta", "Plataci", "Cetraro", "San Giorgio Albanese", "Lattarico", "Mendicino", "Pietrapaola", "Marano Principato", "Panettieri", "Bonifati", "Bocchigliero", "Rocca Imperiale", "Santo Stefano di Rogliano", "Roseto Capo Spulico", "Calopezzati", "Casali del Manco", "Paola", "Grimaldi", "Rende", "Cellara", "Campana", "Parenti", "Paterno Calabro", "Sangineto", "Cerisano", "Santa Caterina Albanese", "Falconara Albanese", "Lappano", "Caloveto", "Malvito", "Frascineto", "Oriolo", "San Lorenzo Bellizzi", "Belvedere Marittimo", "Scalea", "Amantea", "Paludi", "Villapiana", "Scigliano", "San Marco Argentano", "San Sosti", "Longobucco", "Carpanzano", "Pietrafitta", "Cropalati", "Alessandria del Carretto", "Zumpano", "San Cosmo Albanese", "Castiglione Cosentino", "San Donato di Ninea", "Civita", "Cerchiara di Calabria", "Altomonte", "Mandatoriccio", "Canna", "Vaccarizzo Albanese", "Fiumefreddo Bruzio", "Fagnano Castello", "Sant'Agata di Esaro", "Terravecchia", "Tortora", "Mangone", "Marzi", "San Pietro in Amantea", "San Vincenzo La Costa", "Verbicaro", "Trebisacce", "Celico", "Praia a Mare", "Belmonte Calabro", "Malito", "Castroregio", "Cervicati", "Torano Castello", "Grisolia", "Morano Calabro", "Bianchi", "Scala Coeli", "Montegiordano", "Aiello Calabro", "Albidona", "Domanico", "San Basile", "Rovito", "Luzzi", "Guardia Piemontese", "San Demetrio Corone", "Aprigliano", "Cassano all'Ionio", "Acquappesa", "Buonvicino", "San Benedetto Ullano", "Crosia", "San Nicola Arcella", "San Martino di Finita", "Roggiano Gravina", "Laino Borgo", "Cosenza", "Serra d'Aiello", "Figline Vegliaturo", "Pedivigliano", "Francavilla Marittima", "San Lucido", "Maierà", "Longobardi", "Cleto", "Castrovillari", "Lungro", "San Pietro in Guarano", "Terranova da Sibari", "Montalto Uffugo", "Santa Sofia d'Epiro", "Diamante", "Orsomarso", "Marano Marchesato", "Cerzeto", "Laino Castello", "Corigliano-Rossano", "Cariati", "Mongrassano", "Piane Crati", "Spezzano Albanese", "Rose", "Mottafollone", "Dipignano", "Tarsia", "Saracena", "Belsito", "Papasidero", "Spezzano della Sila", "San Giovanni in Fiore", "Rogliano", "Acquaformosa", "Colosimi", "San Lorenzo del Vallo"], Catanzaro: ["Settingiano", "Pianopoli", "Stalettì", "Tiriolo", "Cenadi", "Marcellinara", "Amato", "Curinga", "San Pietro a Maida", "Badolato", "Girifalco", "Fossato Serralta", "Miglierina", "Belcastro", "Falerna", "Petronà", "Gagliato", "Carlopoli", "Marcedusa", "Martirano Lombardo", "Platania", "Gizzeria", "Soverato", "Cardinale", "Davoli", "Gasperina", "Cicala", "Soveria Mannelli", "Santa Caterina dello Ionio", "Motta Santa Lucia", "Feroleto Antico", "Petrizzi", "Cortale", "Montauro", "Argusto", "Centrache", "Chiaravalle Centrale", "Taverna", "Montepaone", "Caraffa di Catanzaro", "Amaroni", "Catanzaro", "Soveria Simeri", "Sersale", "Magisano", "Sant'Andrea Apostolo dello Ionio", "San Vito sullo Ionio", "San Mango d'Aquino", "Satriano", "Albi", "Jacurso", "Simeri Crichi", "Conflenti", "Botricello", "Sellia Marina", "Cerva", "Borgia", "San Pietro Apostolo", "Nocera Terinese", "Palermiti", "Maida", "Vallefiorita", "Pentone", "Lamezia Terme", "Isca sullo Ionio", "Torre di Ruggiero", "Cropani", "Decollatura", "Gimigliano", "Martirano", "San Sostene", "Olivadi", "Squillace", "San Floro", "Sorbo San Basile", "Serrastretta", "Andali", "Guardavalle", "Zagarise", "Sellia"], "Reggio Calabria": ["Campo Calabro", "Candidoni", "San Giorgio Morgeto", "Placanica", "Sant'Alessio in Aspromonte", "Laureana di Borrello", "Caulonia", "Ardore", "Grotteria", "Palizzi", "Condofuri", "Pazzano", "Marina di Gioiosa Ionica", "Motta San Giovanni", "Sant'Agata del Bianco", "Gioiosa Ionica", "Varapodio", "Riace", "Sant'Eufemia d'Aspromonte", "Locri", "Laganadi", "San Giovanni di Gerace", "Caraffa del Bianco", "Canolo", "Roccaforte del Greco", "Mammola", "Bianco", "Ferruzzano", "Martone", "Scido", "Cinquefrondi", "Terranova Sappo Minulio", "Bivongi", "Santa Cristina d'Aspromonte", "Seminara", "Sinopoli", "Cosoleto", "Giffone", "Rosarno", "Molochio", "Gioia Tauro", "Maropati", "Monasterace", "Benestare", "Africo", "Samo", "Melicuccà", "Bova", "Cardeto", "San Procopio", "Stignano", "Bagnara Calabra", "Cittanova", "San Lorenzo", "Brancaleone", "Roghudi", "Roccella Ionica", "Polistena", "Oppido Mamertina", "Galatro", "Siderno", "Scilla", "San Luca", "San Roberto", "San Pietro di Caridà", "Careri", "Sant'Ilario dello Ionio", "Rizziconi", "Camini", "Melicucco", "Portigliola", "Bovalino", "Delianuova", "Ciminà", "Gerace", "Santo Stefano in Aspromonte", "Staiti", "Taurianova", "Fiumara", "Platì", "Palmi", "Antonimina", "Bagaladi", "Bova Marina", "Montebello Jonico", "Calanna", "Bruzzano Zeffirio", "Melito di Porto Salvo", "Serrata", "Agnana Calabra", "San Ferdinando", "Stilo", "Feroleto della Chiesa", "Reggio di Calabria", "Casignana", "Anoia", "Villa San Giovanni"], Crotone: ["Roccabernarda", "Verzino", "Scandale", "Cirò", "Isola di Capo Rizzuto", "Savelli", "Castelsilano", "Strongoli", "Rocca di Neto", "Cirò Marina", "Cutro", "San Nicola dell'Alto", "Cerenzia", "Carfizzi", "Belvedere di Spinello", "San Mauro Marchesato", "Crucoli", "Umbriatico", "Mesoraca", "Santa Severina", "Crotone", "Pallagorio", "Petilia Policastro", "Casabona", "Caccuri", "Melissa", "Cotronei"], "Vibo Valentia": ["Filandari", "Pizzo", "Ricadi", "Joppolo", "Vallelonga", "Nardodipace", "Rombiolo", "Brognaturo", "Spadola", "Maierato", "Simbario", "Fabrizia", "Sorianello", "Zungri", "Jonadi", "Soriano Calabro", "Spilinga", "Tropea", "San Calogero", "Vazzano", "Drapia", "Gerocarne", "Briatico", "Cessaniti", "Zaccanopoli", "Limbadi", "Dasà", "Parghelia", "Mileto", "Francica", "Dinami", "Capistrano", "Arena", "Sant'Onofrio", "Pizzoni", "Nicotera", "Polia", "Francavilla Angitola", "Acquaro", "Vibo Valentia", "Stefanaconi", "Zambrone", "San Gregorio d'Ippona", "San Costantino Calabro", "Filadelfia", "Monterosso Calabro", "Serra San Bruno", "San Nicola da Crissa", "Mongiana", "Filogaso"] }, Gm = { Trapani: ["Alcamo", "Buseto Palizzolo", "Paceco", "Salaparuta", "Castelvetrano", "Santa Ninfa", "Custonaci", "Poggioreale", "San Vito Lo Capo", "Petrosino", "Trapani", "Vita", "Salemi", "Mazara del Vallo", "Pantelleria", "Castellammare del Golfo", "Marsala", "Favignana", "Misiliscemi", "Campobello di Mazara", "Erice", "Valderice", "Gibellina", "Partanna", "Calatafimi-Segesta"], Palermo: ["Montemaggiore Belsito", "Lercara Friddi", "Carini", "San Giuseppe Jato", "Termini Imerese", "Campofelice di Roccella", "Vicari", "Palazzo Adriano", "Caltavuturo", "Alia", "Bompietro", "Prizzi", "Isnello", "Campofiorito", "Chiusa Sclafani", "Gratteri", "Balestrate", "Campofelice di Fitalia", "Altavilla Milicia", "Belmonte Mezzagno", "Borgetto", "Pollina", "Santa Flavia", "Alimena", "Cefalà Diana", "Palermo", "Torretta", "Casteldaccia", "Sciara", "Roccapalumba", "Villabate", "Baucina", "San Mauro Castelverde", "Trabia", "Partinico", "Cinisi", "San Cipirello", "Santa Cristina Gela", "Ficarazzi", "Caccamo", "Castronovo di Sicilia", "Cerda", "Valledolmo", "Camporeale", "Bisacquino", "Cefalù", "Capaci", "Corleone", "Villafrati", "Castellana Sicula", "Roccamena", "Terrasini", "Isola delle Femmine", "Misilmeri", "Giuliana", "Bolognetta", "Piana degli Albanesi", "Gangi", "Trappeto", "Sclafani Bagni", "Bagheria", "Petralia Sottana", "Godrano", "Geraci Siculo", "Castelbuono", "Ciminna", "Polizzi Generosa", "Blufi", "Lascari", "Giardinello", "Ustica", "Ventimiglia di Sicilia", "Collesano", "Mezzojuso", "Contessa Entellina", "Marineo", "Scillato", "Petralia Soprana", "Monreale", "Montelepre", "Altofonte", "Aliminusa"], Messina: ["Floresta", "Alì", "Santa Domenica Vittoria", "San Salvatore di Fitalia", "Torrenova", "Valdina", "Tusa", "Messina", "Castel di Lucio", "Malvagna", "Barcellona Pozzo di Gotto", "Caronia", "Itala", "San Marco d'Alunzio", "Motta Camastra", "Saponara", "Pagliara", "Gaggi", "Piraino", "San Filippo del Mela", "Rodì Milici", "Mazzarrà Sant'Andrea", "Rometta", "Scaletta Zanclea", "Santa Teresa di Riva", "Roccafiorita", "Sant'Alessio Siculo", "Naso", "Capizzi", "Militello Rosmarino", "Villafranca Tirrena", "Roccella Valdemone", "Sant'Angelo di Brolo", "Venetico", "Torregrotta", "Casalvecchio Siculo", "Merì", "Furci Siculo", "Gallodoro", "Capri Leone", "Montagnareale", "Francavilla di Sicilia", "Mistretta", "Furnari", "Santa Marina Salina", "Falcone", "Patti", "Librizzi", "Tortorici", "Montalbano Elicona", "Roccavaldina", "Antillo", "Castell'Umberto", "Ficarra", "Novara di Sicilia", "San Piero Patti", "Raccuja", "Motta d'Affermo", "Mandanici", "Nizza di Sicilia", "Ucria", "Savoca", "Condrò", "Capo d'Orlando", "San Fratello", "Forza d'Agrò", "Gualtieri Sicaminò", "Oliveri", "Spadafora", "San Pier Niceto", "Sinagra", "Gioiosa Marea", "Fiumedinisi", "Alcara li Fusi", "Taormina", "Monforte San Giorgio", "Giardini-Naxos", "Leni", "Basicò", "Sant'Agata di Militello", "Terme Vigliatore", "Castroreale", "Santo Stefano di Camastra", "Graniti", "Lipari", "Milazzo", "San Teodoro", "Acquedolci", "Santa Lucia del Mela", "Galati Mamertino", "Reitano", "Frazzanò", "Alì Terme", "Tripi", "Roccalumera", "Moio Alcantara", "Cesarò", "Limina", "Castelmola", "Longi", "Malfa", "Fondachelli-Fantina", "Letojanni", "Mongiuffi Melia", "Pace del Mela", "Brolo", "Mirto", "Pettineo"], Agrigento: ["Licata", "Ribera", "Alessandria della Rocca", "Santa Elisabetta", "Grotte", "Montallegro", "Menfi", "Montevago", "Calamonaci", "San Biagio Platani", "Castrofilippo", "Santa Margherita di Belice", "Ravanusa", "Cianciana", "Lucca Sicula", "Sant'Angelo Muxaro", "Realmonte", "Porto Empedocle", "Lampedusa e Linosa", "Villafranca Sicula", "Canicattì", "Naro", "San Giovanni Gemini", "Santo Stefano Quisquina", "Cammarata", "Comitini", "Raffadali", "Burgio", "Agrigento", "Sciacca", "Siculiana", "Bivona", "Joppolo Giancaxio", "Racalmuto", "Camastra", "Sambuca di Sicilia", "Campobello di Licata", "Caltabellotta", "Casteltermini", "Aragona", "Cattolica Eraclea", "Favara", "Palma di Montechiaro"], Caltanissetta: ["Sommatino", "Delia", "San Cataldo", "Marianopoli", "Mazzarino", "Acquaviva Platani", "Gela", "Mussomeli", "Butera", "Villalba", "Vallelunga Pratameno", "Bompensiere", "Resuttano", "Serradifalco", "Caltanissetta", "Campofranco", "Niscemi", "Montedoro", "Milena", "Sutera", "Santa Caterina Villarmosa", "Riesi"], Enna: ["Aidone", "Valguarnera Caropepe", "Agira", "Pietraperzia", "Gagliano Castelferrato", "Leonforte", "Catenanuova", "Villarosa", "Regalbuto", "Barrafranca", "Centuripe", "Troina", "Enna", "Sperlinga", "Cerami", "Assoro", "Nicosia", "Piazza Armerina", "Nissoria", "Calascibetta"], Catania: ["Aci Sant'Antonio", "Tremestieri Etneo", "Fiumefreddo di Sicilia", "Castiglione di Sicilia", "Gravina di Catania", "Bronte", "Camporotondo Etneo", "San Pietro Clarenza", "Scordia", "Mineo", "Caltagirone", "Giarre", "Mazzarrone", "Palagonia", "Santa Maria di Licodia", "Raddusa", "Riposto", "Milo", "Viagrande", "Licodia Eubea", "Calatabiano", "Nicolosi", "Grammichele", "Mascali", "Belpasso", "Castel di Iudica", "Aci Catena", "Catania", "Biancavilla", "Ragalna", "Piedimonte Etneo", "Trecastagni", "Sant'Agata li Battiati", "San Gregorio di Catania", "San Cono", "Aci Bonaccorsi", "Pedara", "Randazzo", "Paternò", "San Michele di Ganzaria", "Motta Sant'Anastasia", "Zafferana Etnea", "Vizzini", "Acireale", "San Giovanni la Punta", "Linguaglossa", "Misterbianco", "Ramacca", "Valverde", "Sant'Alfio", "Santa Venerina", "Mascalucia", "Militello in Val di Catania", "Aci Castello", "Maletto", "Maniace", "Mirabella Imbaccari", "Adrano"], Ragusa: ["Modica", "Ispica", "Acate", "Ragusa", "Comiso", "Vittoria", "Giarratana", "Chiaramonte Gulfi", "Monterosso Almo", "Pozzallo", "Santa Croce Camerina", "Scicli"], Siracusa: ["Augusta", "Floridia", "Melilli", "Buccheri", "Siracusa", "Cassaro", "Canicattini Bagni", "Rosolini", "Lentini", "Buscemi", "Carlentini", "Sortino", "Ferla", "Palazzolo Acreide", "Avola", "Francofonte", "Priolo Gargallo", "Portopalo di Capo Passero", "Solarino", "Pachino", "Noto"] }, Nm = { Sassari: ["Bonorva", "Bultei", "Mara", "Ozieri", "Illorai", "Chiaramonti", "Ploaghe", "Torralba", "Putifigari", "Stintino", "Codrongianos", "Sorso", "Padria", "Palau", "Nule", "Luras", "Muros", "Anela", "Bottidda", "Uri", "Ittiri", "Borutta", "Mores", "Pozzomaggiore", "Nulvi", "Alà dei Sardi", "Banari", "Usini", "Laerru", "Bonnanaro", "Villanova Monteleone", "Budoni", "Tula", "Florinas", "Bulzi", "Romana", "Ossi", "Tergu", "Cargeghe", "Badesi", "Benetutti", "Tissi", "Aggius", "Luogosanto", "Sassari", "Esporlatu", "Cossoine", "Padru", "Thiesi", "Semestene", "Monteleone Rocca Doria", "Bortigiadas", "La Maddalena", "Arzachena", "Santa Teresa Gallura", "Martis", "Pattada", "Loiri Porto San Paolo", "Erula", "Burgos", "Bono", "Osilo", "Tempio Pausania", "Santa Maria Coghinas", "Aglientu", "Castelsardo", "Cheremule", "Telti", "Siligo", "Nughedu San Nicolò", "Giave", "Viddalba", "Trinità d'Agultu e Vignola", "San Teodoro", "Sedini", "Valledoria", "Olbia", "Porto Torres", "Alghero", "Bessude", "Calangianus", "Ittireddu", "Berchidda", "Golfo Aranci", "Sant'Antonio di Gallura", "Buddusò", "Ardara", "Sennori", "Monti", "Olmedo", "Oschiri", "Perfugas"], Nuoro: ["Dualchi", "Meana Sardo", "Loculi", "Tiana", "Atzara", "Lodine", "Loceri", "Orune", "Orotelli", "Bitti", "Girasole", "Macomer", "Oniferi", "Lotzorai", "Gadoni", "Ovodda", "Tortolì", "Lula", "Galtellì", "Olzai", "Bortigali", "Onifai", "Lei", "Aritzo", "Desulo", "Perdasdefogu", "Baunei", "Gavoi", "Lanusei", "Belvì", "Triei", "Jerzu", "Posada", "Birori", "Lodè", "Teti", "Orani", "Silanus", "Ollolai", "Orgosolo", "Sindia", "Talana", "Noragugume", "Irgoli", "Austis", "Borore", "Gairo", "Nuoro", "Dorgali", "Cardedu", "Tonara", "Ilbono", "Sarule", "Urzulei", "Tertenia", "Osini", "Ussassai", "Mamoiada", "Orosei", "Sorgono", "Torpè", "Villagrande Strisaili", "Elini", "Ulassai", "Ottana", "Oliena", "Bari Sardo", "Arzana", "Onanì", "Siniscola", "Ortueri", "Osidda", "Fonni", "Bolotana"], Cagliari: ["Capoterra", "Sestu", "Maracalagonis", "Villa San Pietro", "Quartucciu", "Settimo San Pietro", "Decimomannu", "Selargius", "Elmas", "Assemini", "Sinnai", "Uta", "Monserrato", "Cagliari", "Quartu Sant'Elena", "Sarroch", "Pula"], Oristano: ["Sedilo", "Morgongiori", "Marrubiu", "Simaxis", "Palmas Arborea", "Simala", "Uras", "Sennariolo", "Pompu", "Tinnura", "Abbasanta", "Albagiara", "Soddì", "Siris", "Milis", "Siamaggiore", "Tramatza", "Senis", "Cabras", "Gonnostramatza", "Bosa", "Seneghe", "Assolo", "Bauladu", "Sorradile", "Ghilarza", "Nughedu Santa Vittoria", "Boroneddu", "Asuni", "Santu Lussurgiu", "Flussio", "Mogoro", "Ulà Tirso", "Ardauli", "San Nicolò d'Arcidano", "Montresta", "Ruinas", "Narbolia", "Zeddiani", "Tadasuni", "Ales", "Scano di Montiferro", "Laconi", "San Vero Milis", "Neoneli", "Norbello", "Ollastra", "Gonnoscodina", "Fordongianus", "Magomadas", "Nureci", "Terralba", "Paulilatino", "Solarussa", "Oristano", "Nurachi", "Suni", "Zerfaliu", "Baratili San Pietro", "Bonarcado", "Allai", "Usellus", "Masullas", "Villa Sant'Antonio", "Baradili", "Busachi", "Curcuris", "Villanova Truschedu", "Sini", "Villaurbana", "Baressa", "Mogorella", "Tresnuraghes", "Bidonì", "Aidomaggiore", "Gonnosnò", "Siapiccia", "Modolo", "Pau", "Riola Sardo", "Arborea", "Cuglieri", "Villa Verde", "Samugheo", "Santa Giusta", "Siamanna", "Sagama"], "Sud Sardegna": ["Ussaramanna", "Escolca", "Donori", "Isili", "Arbus", "Giba", "Segariu", "Guamaggiore", "Carloforte", "Perdaxius", "San Sperate", "Masainas", "Nurri", "Muravera", "Iglesias", "Villaspeciosa", "Burcei", "Pauli Arbarei", "Nuraminis", "San Basilio", "Genuri", "Villanova Tulo", "Nuragus", "Serrenti", "Vallermosa", "Senorbì", "Barumini", "Monastir", "Santadi", "Domus de Maria", "Tratalias", "Nurallao", "Ballao", "Siddi", "Siurgus Donigala", "Sant'Andrea Frius", "Guspini", "Guasila", "Fluminimaggiore", "San Vito", "Silius", "Soleminis", "Villamassargia", "Escalaplano", "Samatzai", "Gonnesa", "San Nicolò Gerrei", "Selegas", "Gergei", "Villaperuccio", "Sardara", "Villamar", "Turri", "Las Plassas", "Teulada", "Nuxis", "Gesturi", "Villacidro", "Setzu", "Domusnovas", "Seui", "Portoscuso", "Sanluri", "Genoni", "Goni", "Villanovaforru", "Musei", "Ortacesus", "Seulo", "Tuili", "Serri", "Serdiana", "Piscinas", "Gonnosfanadiga", "Siliqua", "Villasalto", "Calasetta", "Barrali", "Decimoputzu", "Sant'Anna Arresi", "Collinas", "Narcao", "Serramanna", "Esterzili", "Sant'Antioco", "Mandas", "Buggerru", "Villanovafranca", "Villasor", "Carbonia", "Gesico", "Villasimius", "Sadali", "Samassi", "Pabillonis", "Ussana", "San Gavino Monreale", "Castiadas", "San Giovanni Suergiu", "Furtei", "Lunamatrona", "Villaputzu", "Dolianova", "Armungia", "Orroli", "Suelli", "Pimentel"] }, dn = {
+  Piemonte: Tm,
   "Valle d'Aosta": { Aosta: ["Pollein", "Bard", "Saint-Nicolas", "Cogne", "Gignod", "Saint-Christophe", "Challand-Saint-Victor", "Saint-Rhémy-en-Bosses", "Valgrisenche", "Sarre", "Valsavarenche", "Gressan", "Allein", "Torgnon", "Nus", "Bionaz", "Pont-Saint-Martin", "Introd", "Villeneuve", "Valtournenche", "Saint-Denis", "Pontey", "Arvier", "Jovençan", "Fontainemore", "La Salle", "Emarèse", "Saint-Pierre", "Aosta", "Montjovet", "Pontboset", "Brissogne", "Verrès", "Chamois", "Donnas", "Champdepraz", "Gressoney-La-Trinité", "Rhêmes-Saint-Georges", "Gaby", "Saint-Vincent", "Champorcher", "Châtillon", "Avise", "Charvensod", "Fénis", "La Magdeleine", "Saint-Marcel", "Aymavilles", "Ollomont", "Gressoney-Saint-Jean", "Chambave", "Brusson", "Doues", "Rhêmes-Notre-Dame", "Challand-Saint-Anselme", "La Thuile", "Morgex", "Issogne", "Antey-Saint-André", "Perloz", "Ayas", "Roisan", "Valpelline", "Pré-Saint-Didier", "Quart", "Lillianes", "Oyace", "Verrayes", "Saint-Oyen", "Courmayeur", "Etroubles", "Arnad", "Hône", "Issime"] },
-  Liguria: Em,
-  Lombardia: Am,
+  Liguria: wm,
+  Lombardia: Em,
   "Trentino-Alto Adige": { Bolzano: ["San Genesio Atesino", "Scena", "Varna", "Bronzolo", "Castelrotto", "Martello", "Proves", "Campo di Trens", "Prato allo Stelvio", "Racines", "Terlano", "Brunico", "Cortaccia sulla strada del vino", "Parcines", "Perca", "Cermes", "Ponte Gardena", "Montagna sulla Strada del Vino", "Senales", "Bressanone", "Nova Ponente", "Chienes", "Merano", "Trodena nel parco naturale", "Nova Levante", "Gais", "Caldaro sulla strada del vino", "Naz-Sciaves", "Marebbe", "Selva dei Molini", "Sluderno", "Ora", "Laion", "Aldino", "San Lorenzo di Sebato", "Magrè sulla strada del vino", "Meltina", "Salorno sulla strada del vino", "Plaus", "La Valle", "Villabassa", "Avelengo", "Senale-San Felice", "Malles Venosta", "Postal", "Bolzano", "Braies", "Marlengo", "Rasun-Anterselva", "Lana", "Vandoies", "San Pancrazio", "Silandro", "Sesto", "Villandro", "San Martino in Passiria", "Rio di Pusteria", "Egna", "Tubre", "Lauregno", "Chiusa", "Vipiteno", "Nalles", "Lagundo", "Tirolo", "Funes", "Badia", "San Candido", "Valle Aurina", "Tires", "San Martino in Badia", "Sarentino", "Cornedo all'Isarco", "Laces", "Anterivo", "Gargazzone", "Renon", "Selva di Val Gardena", "San Leonardo in Passiria", "Cortina sulla strada del vino", "Terento", "Brennero", "Corvara in Badia", "Ultimo", "Fiè allo Sciliar", "Lasa", "Caines", "Velturno", "Luson", "Vadena", "Glorenza", "Stelvio", "Laives", "Valdaora", "Santa Cristina Valgardena", "Monguelfo-Tesido", "Barbiano", "Falzes", "Rifiano", "Termeno sulla strada del vino", "Ortisei", "Fortezza", "Curon Venosta", "Dobbiaco", "Val di Vizze", "Predoi", "Castelbello-Ciardes", "Moso in Passiria", "Campo Tures", "Rodengo", "Tesimo", "Verano", "Naturno", "Valle di Casies", "Andriano", "Appiano sulla strada del vino"], Trento: ["Sover", "Sporminore", "Tesero", "Ruffrè-Mendola", "Lavarone", "Ville di Fiemme", "Albiano", "San Lorenzo Dorsino", "Cavizzana", "Terre d'Adige", "Peio", "Pieve Tesino", "Pellizzano", "Stenico", "Canal San Bovo", "Cavedine", "Croviana", "San Giovanni di Fassa", "Livo", "Trento", "Sella Giudicarie", "Valfloriana", "Volano", "Cles", "Avio", "Roverè della Luna", "Carzano", "Mezzolombardo", "Borgo Chiese", "Cavalese", "Caderzone Terme", "Mori", "Pieve di Bono-Prezzo", "Tione di Trento", "Campodenno", "Molveno", "Spormaggiore", "Calceranica al Lago", "Spiazzo", "Storo", "Borgo d'Anaunia", "Fierozzo", "Pomarolo", "Capriana", "Castelnuovo", "Castel Condino", "Dambel", "Giovo", "Massimeno", "Soraga di Fassa", "Aldeno", "Vallarsa", "Predaia", "Ossana", "Drena", "Ronchi Valsugana", "Tre Ville", "Bresimo", "Palù del Fersina", "Luserna", "Bocenago", "Caldonazzo", "Sanzeno", "Cimone", "Samone", "Vermiglio", "Ziano di Fiemme", "Moena", "Pinzolo", "Sarnonico", "Besenello", "Grigno", "Contà", "Bondone", "Terragnolo", "Torcegno", "Madruzzo", "Ledro", "Cembra Lisignago", "Bieno", "Porte di Rendena", "Fiavè", "Panchià", "Sagron Mis", "Terzolas", "Carisolo", "Mezzocorona", "Nago-Torbole", "Riva del Garda", "Primiero San Martino di Castrozza", "Amblar-Don", "Ala", "Borgo Valsugana", "Villa Lagarina", "Nogaredo", "Fornace", "Garniga Terme", "Vallelaghi", "Altavalle", "Ronzo-Chienis", "Malé", "Sfruz", "Tenno", "Trambileno", "Commezzadura", "Folgaria", "Ton", "Pelugo", "Levico Terme", "Pergine Valsugana", "Novaledo", "Ospedaletto", "Segonzano", "Ville d'Anaunia", "Civezzano", "Comano Terme", "Mezzano", "Mezzana", "Lavis", "Giustino", "Mazzin", "Telve", "Tenna", "Dro", "Imer", "Predazzo", "San Michele all'Adige", "Isera", "Dimaro Folgarida", "Castello-Molina di Fiemme", "Borgo Lares", "Arco", "Baselga di Pinè", "Calliano", "Castello Tesino", "Cis", "Canazei", "Bedollo", "Cavareno", "Denno", "Fai della Paganella", "Romeno", "Valdaone", "Rabbi", "Vignola-Falesina", "Altopiano della Vigolana", "Castel Ivano", "Brentonico", "Rumo", "Roncegno Terme", "Telve di Sopra", "Andalo", "Ronzone", "Strembo", "Cinte Tesino", "Nomi", "Rovereto", "Cavedago", "Lona-Lases", "Sant'Orsola Terme", "Bleggio Superiore", "Novella", "Frassilongo", "Campitello di Fassa", "Caldes", "Scurelle"] },
-  Veneto: Rm,
+  Veneto: Am,
   "Friuli-Venezia Giulia": { Udine: ["Pradamano", "Forni di Sotto", "Venzone", "Pontebba", "Forni di Sopra", "Bagnaria Arsa", "Resia", "Povoletto", "Savogna", "Fagagna", "Malborghetto Valbruna", "Flaibano", "Aquileia", "Drenchia", "Chiusaforte", "Taipana", "Torreano", "Trivignano Udinese", "Pavia di Udine", "Precenicco", "Cervignano del Friuli", "Mereto di Tomba", "Marano Lagunare", "Trasaghis", "Resiutta", "Palazzolo dello Stella", "Castions di Strada", "Ampezzo", "Remanzacco", "San Giovanni al Natisone", "Visco", "Gonars", "Montenars", "Cavazzo Carnico", "Prato Carnico", "Buttrio", "San Vito di Fagagna", "Dogna", "Ronchis", "Ruda", "Grimacco", "Sauris", "Majano", "Bordano", "Santa Maria la Longa", "Rivignano Teor", "Ragogna", "Socchieve", "Moggio Udinese", "Arta Terme", "Camino al Tagliamento", "Dignano", "Sappada", "Pagnacco", "Enemonzo", "Rive d'Arcano", "Bicinicco", "Rigolato", "Muzzana del Turgnano", "Basiliano", "Amaro", "Corno di Rosazzo", "Carlino", "Pocenia", "Cercivento", "Campolongo Tapogliano", "Tarcento", "Manzano", "Tavagnacco", "Premariacco", "Udine", "Verzegnis", "Zuglio", "Gemona del Friuli", "Pulfero", "Reana del Rojale", "Buja", "Preone", "Pasian di Prato", "Artegna", "Aiello del Friuli", "Moruzzo", "Coseano", "Cividale del Friuli", "Terzo d'Aquileia", "Lestizza", "San Pietro al Natisone", "Bertiolo", "Torviscosa", "Moimacco", "Osoppo", "San Giorgio di Nogaro", "Chiopris-Viscone", "Faedis", "Paluzza", "Magnano in Riviera", "Lignano Sabbiadoro", "Codroipo", "Latisana", "Porpetto", "Tricesimo", "Pozzuolo del Friuli", "San Daniele del Friuli", "Lauco", "Attimis", "Talmassons", "Nimis", "Forni Avoltri", "Fiumicello Villa Vicentina", "Comeglians", "Ovaro", "Paularo", "Varmo", "Raveo", "Prepotto", "Lusevera", "San Leonardo", "San Vito al Torre", "Forgaria nel Friuli", "Sedegliano", "Tolmezzo", "Palmanova", "Treppo Ligosullo", "Ravascletto", "Sutrio", "Tarvisio", "Cassacco", "Mortegliano", "Martignacco", "Villa Santina", "Colloredo di Monte Albano", "Treppo Grande", "Stregna", "Campoformido"], Gorizia: ["Mossa", "Staranzano", "Moraro", "Mariano del Friuli", "San Lorenzo Isontino", "Grado", "Capriva del Friuli", "San Pier d'Isonzo", "Farra d'Isonzo", "Fogliano Redipuglia", "Turriaco", "Cormons", "San Canzian d'Isonzo", "Ronchi dei Legionari", "Savogna d'Isonzo", "Romans d'Isonzo", "Sagrado", "Medea", "Doberdò del Lago", "Gradisca d'Isonzo", "San Floriano del Collio", "Gorizia", "Dolegna del Collio", "Villesse", "Monfalcone"], Trieste: ["Muggia", "Monrupino", "Sgonico", "Duino Aurisina", "Trieste", "San Dorligo della Valle"], Pordenone: ["Porcia", "Caneva", "Fontanafredda", "Aviano", "Cimolais", "Pravisdomini", "Meduno", "Brugnera", "Polcenigo", "Pordenone", "Zoppola", "Arba", "Clauzetto", "Cavasso Nuovo", "Pasiano di Pordenone", "Tramonti di Sotto", "Castelnovo del Friuli", "Spilimbergo", "Budoia", "Roveredo in Piano", "San Giorgio della Richinvelda", "Vivaro", "Fiume Veneto", "Chions", "San Martino al Tagliamento", "Barcis", "Pinzano al Tagliamento", "Azzano Decimo", "Cordenons", "Casarsa della Delizia", "Prata di Pordenone", "Vajont", "Valvasone Arzene", "Maniago", "Montereale Valcellina", "San Quirino", "San Vito al Tagliamento", "Erto e Casso", "Claut", "Morsano al Tagliamento", "Andreis", "Frisanco", "Sacile", "Tramonti di Sopra", "Sesto al Reghena", "Fanna", "Vito d'Asio", "Sequals", "Travesio", "Cordovado"] },
   "Emilia-Romagna": { Piacenza: ["Vigolzone", "Cortemaggiore", "Rivergaro", "Gazzola", "Borgonovo Val Tidone", "Monticelli d'Ongina", "Piacenza", "Ponte dell'Olio", "Ferriere", "Bobbio", "Morfasso", "Ziano Piacentino", "Caorso", "Farini", "Pianello Val Tidone", "Calendasco", "Alseno", "Vernasca", "Agazzano", "Castell'Arquato", "Sarmato", "San Giorgio Piacentino", "Rottofreno", "Alta Val Tidone", "Castelvetro Piacentino", "Besenzone", "Castel San Giovanni", "Gragnano Trebbiense", "Travo", "Lugagnano Val d'Arda", "San Pietro in Cerro", "Carpaneto Piacentino", "Cadeo", "Corte Brugnatella", "Zerba", "Fiorenzuola d'Arda", "Podenzano", "Coli", "Bettola", "Pontenure", "Ottone", "Villanova sull'Arda", "Gropparello", "Piozzano", "Gossolengo", "Cerignale"], Parma: ["Tornolo", "Bore", "Borgo Val di Taro", "Sorbolo Mezzani", "Fidenza", "Collecchio", "Busseto", "Terenzo", "Varano de' Melegari", "Bardi", "Pellegrino Parmense", "Corniglio", "Felino", "Roccabianca", "Montechiarugolo", "Compiano", "Fontanellato", "Salsomaggiore Terme", "Berceto", "San Secondo Parmense", "Traversetolo", "Fontevivo", "Fornovo di Taro", "Neviano degli Arduini", "Palanzano", "Colorno", "Calestano", "Noceto", "Sala Baganza", "Lesignano de' Bagni", "Langhirano", "Sissa Trecasali", "Torrile", "Valmozzola", "Albareto", "Medesano", "Bedonia", "Parma", "Monchio delle Corti", "Tizzano Val Parma", "Polesine Zibello", "Varsi", "Solignano", "Soragna"], "Reggio nell'Emilia": ["Bagnolo in Piano", "Vetto", "Campagnola Emilia", "San Polo d'Enza", "Toano", "Gualtieri", "Canossa", "Scandiano", "Cadelbosco di Sopra", "Rubiera", "Guastalla", "Castelnovo di Sotto", "Vezzano sul Crostolo", "Casina", "Campegine", "Cavriago", "Brescello", "Luzzara", "Rolo", "Correggio", "Carpineti", "Gattatico", "Poviglio", "Rio Saliceto", "Boretto", "Villa Minozzo", "Castelnovo ne' Monti", "Reggio nell'Emilia", "Albinea", "Quattro Castella", "Novellara", "San Martino in Rio", "Bibbiano", "Ventasso", "Casalgrande", "Montecchio Emilia", "Viano", "Sant'Ilario d'Enza", "Baiso", "Fabbrico", "Reggiolo", "Castellarano"], Modena: ["Campogalliano", "Montecreto", "Bomporto", "Soliera", "Fiorano Modenese", "Ravarino", "Lama Mocogno", "Frassinoro", "Modena", "San Felice sul Panaro", "San Prospero", "Medolla", "Sassuolo", "Riolunato", "Pavullo nel Frignano", "Zocca", "Formigine", "Cavezzo", "Nonantola", "Serramazzoni", "Mirandola", "Bastiglia", "Prignano sulla Secchia", "Finale Emilia", "Guiglia", "Fiumalbo", "Fanano", "Spilamberto", "Polinago", "Castelnuovo Rangone", "Carpi", "Palagano", "San Cesario sul Panaro", "San Possidonio", "Castelfranco Emilia", "Pievepelago", "Montese", "Montefiorino", "Novi di Modena", "Sestola", "Vignola", "Camposanto", "Concordia sulla Secchia", "Savignano sul Panaro", "Marano sul Panaro", "Maranello", "Castelvetro di Modena"], Bologna: ["Casalfiumanese", "San Benedetto Val di Sambro", "San Giorgio di Piano", "Castiglione dei Pepoli", "Budrio", "Gaggio Montano", "Loiano", "Grizzana Morandi", "Medicina", "Ozzano dell'Emilia", "Pieve di Cento", "San Lazzaro di Savena", "San Pietro in Casale", "Zola Predosa", "Castel Guelfo di Bologna", "Castel del Rio", "Bentivoglio", "Argelato", "Sasso Marconi", "Casalecchio di Reno", "Camugnano", "Lizzano in Belvedere", "San Giovanni in Persiceto", "Castel di Casio", "Fontanelice", "Castenaso", "Monte San Pietro", "Castel d'Aiano", "Pianoro", "Galliera", "Malalbergo", "Sala Bolognese", "Calderara di Reno", "Valsamoggia", "Monzuno", "Alto Reno Terme", "Dozza", "Mordano", "Monterenzio", "Bologna", "Imola", "Vergato", "Castello d'Argile", "Castel San Pietro Terme", "Molinella", "Marzabotto", "Baricella", "Crevalcore", "Minerbio", "Anzola dell'Emilia", "Castel Maggiore", "Sant'Agata Bolognese", "Granarolo dell'Emilia", "Monghidoro", "Borgo Tossignano"], Ferrara: ["Cento", "Comacchio", "Bondeno", "Riva del Po", "Voghiera", "Lagosanto", "Mesola", "Portomaggiore", "Ferrara", "Goro", "Masi Torello", "Poggio Renatico", "Terre del Reno", "Fiscaglia", "Jolanda di Savoia", "Argenta", "Ostellato", "Tresignana", "Copparo", "Codigoro", "Vigarano Mainarda"], Ravenna: ["Bagnacavallo", "Massa Lombarda", "Conselice", "Ravenna", "Casola Valsenio", "Bagnara di Romagna", "Lugo", "Solarolo", "Castel Bolognese", "Cotignola", "Alfonsine", "Riolo Terme", "Russi", "Cervia", "Faenza", "Fusignano", "Brisighella", "Sant'Agata sul Santerno"], "Forlì-Cesena": ["Cesenatico", "Modigliana", "Portico e San Benedetto", "Sarsina", "Roncofreddo", "Meldola", "Gatteo", "Castrocaro Terme e Terra del Sole", "Rocca San Casciano", "Santa Sofia", "Predappio", "Sogliano al Rubicone", "Longiano", "Verghereto", "Borghi", "Civitella di Romagna", "Forlì", "Bagno di Romagna", "Galeata", "Montiano", "Tredozio", "Savignano sul Rubicone", "San Mauro Pascoli", "Forlimpopoli", "Premilcuore", "Bertinoro", "Gambettola", "Dovadola", "Cesena", "Mercato Saraceno"], Rimini: ["Montefiore Conca", "Saludecio", "Mondaino", "Pennabilli", "Montegridolfo", "Poggio Torriana", "Sassofeltrio", "Bellaria-Igea Marina", "Verucchio", "Misano Adriatico", "Casteldelci", "Gemmano", "Cattolica", "San Leo", "Sant'Agata Feltria", "Montecopiolo", "Montescudo-Monte Colombo", "Talamello", "Riccione", "San Clemente", "Santarcangelo di Romagna", "Morciano di Romagna", "Coriano", "Rimini", "Maiolo", "Novafeltria", "San Giovanni in Marignano"] },
-  Marche: Im,
-  Toscana: zm,
-  Umbria: Lm,
-  Lazio: Vm,
-  Campania: Bm,
-  Abruzzo: Fm,
-  Molise: km,
-  Puglia: Om,
-  Basilicata: Dm,
-  Calabria: Gm,
-  Sicilia: Nm,
-  Sardegna: $m
-}, ft = typeof window < "u", ml = ft && "IntersectionObserver" in window;
-function Bc(t, e, n) {
+  Marche: Rm,
+  Toscana: Im,
+  Umbria: zm,
+  Lazio: Lm,
+  Campania: Vm,
+  Abruzzo: Bm,
+  Molise: Fm,
+  Puglia: km,
+  Basilicata: Om,
+  Calabria: Dm,
+  Sicilia: Gm,
+  Sardegna: Nm
+}, ft = typeof window < "u", hl = ft && "IntersectionObserver" in window;
+function zc(t, e, n) {
   Wm(t, e), e.set(t, n);
 }
 function Wm(t, e) {
   if (e.has(t))
     throw new TypeError("Cannot initialize the same private elements twice on an object");
 }
-function Xm(t, e, n) {
+function $m(t, e, n) {
   var i = Dd(t, e, "set");
-  return Um(t, i, n), n;
+  return Xm(t, i, n), n;
 }
-function Um(t, e, n) {
+function Xm(t, e, n) {
   if (e.set)
     e.set.call(t, n);
   else {
@@ -232,14 +216,14 @@ function Um(t, e, n) {
 }
 function Mi(t, e) {
   var n = Dd(t, e, "get");
-  return Ym(t, n);
+  return Um(t, n);
 }
 function Dd(t, e, n) {
   if (!e.has(t))
     throw new TypeError("attempted to " + n + " private field on non-instance");
   return e.get(t);
 }
-function Ym(t, e) {
+function Um(t, e) {
   return e.get ? e.get.call(t) : e.value;
 }
 function Gd(t, e, n) {
@@ -259,7 +243,7 @@ function _a(t, e) {
   const n = Object.keys(t);
   return n.length !== Object.keys(e).length ? !1 : n.every((i) => _a(t[i], e[i]));
 }
-function jm(t, e, n) {
+function Ym(t, e, n) {
   return t == null || !e || typeof e != "string" ? n : t[e] !== void 0 ? t[e] : (e = e.replace(/\[(\w+)\]/g, ".$1"), e = e.replace(/^\./, ""), Gd(t, e.split("."), n));
 }
 function hn(t, e, n) {
@@ -270,7 +254,7 @@ function hn(t, e, n) {
     const a = e(t, n);
     return typeof a > "u" ? n : a;
   }
-  if (typeof e == "string") return jm(t, e, n);
+  if (typeof e == "string") return Ym(t, e, n);
   if (Array.isArray(e)) return Gd(t, e, n);
   if (typeof e != "function") return n;
   const i = e(t, n);
@@ -284,14 +268,14 @@ function se(t) {
 function Ls(t) {
   return t !== null && typeof t == "object" && !Array.isArray(t);
 }
-function er(t) {
+function tr(t) {
   if (t && "$el" in t) {
     const e = t.$el;
     return (e == null ? void 0 : e.nodeType) === Node.TEXT_NODE ? e.nextElementSibling : e;
   }
   return t;
 }
-const Fc = Object.freeze({
+const Lc = Object.freeze({
   enter: 13,
   tab: 9,
   delete: 46,
@@ -316,13 +300,13 @@ function Nd(t) {
 function rs(t, e) {
   return e.every((n) => t.hasOwnProperty(n));
 }
-function $d(t, e) {
+function Wd(t, e) {
   const n = {}, i = new Set(Object.keys(t));
   for (const a of e)
     i.has(a) && (n[a] = t[a]);
   return n;
 }
-function kc(t, e, n) {
+function Vc(t, e, n) {
   const i = /* @__PURE__ */ Object.create(null), a = /* @__PURE__ */ Object.create(null);
   for (const o in t)
     e.some((r) => r instanceof RegExp ? r.test(o) : r === o) ? i[o] = t[o] : a[o] = t[o];
@@ -334,15 +318,15 @@ function Oi(t, e) {
   };
   return e.forEach((i) => delete n[i]), n;
 }
-const Wd = /^on[^a-z]/, vl = (t) => Wd.test(t), Hm = ["onAfterscriptexecute", "onAnimationcancel", "onAnimationend", "onAnimationiteration", "onAnimationstart", "onAuxclick", "onBeforeinput", "onBeforescriptexecute", "onChange", "onClick", "onCompositionend", "onCompositionstart", "onCompositionupdate", "onContextmenu", "onCopy", "onCut", "onDblclick", "onFocusin", "onFocusout", "onFullscreenchange", "onFullscreenerror", "onGesturechange", "onGestureend", "onGesturestart", "onGotpointercapture", "onInput", "onKeydown", "onKeypress", "onKeyup", "onLostpointercapture", "onMousedown", "onMousemove", "onMouseout", "onMouseover", "onMouseup", "onMousewheel", "onPaste", "onPointercancel", "onPointerdown", "onPointerenter", "onPointerleave", "onPointermove", "onPointerout", "onPointerover", "onPointerup", "onReset", "onSelect", "onSubmit", "onTouchcancel", "onTouchend", "onTouchmove", "onTouchstart", "onTransitioncancel", "onTransitionend", "onTransitionrun", "onTransitionstart", "onWheel"];
-function Cl(t) {
-  const [e, n] = kc(t, [Wd]), i = Oi(e, Hm), [a, o] = kc(n, ["class", "style", "id", /^data-/]);
+const $d = /^on[^a-z]/, fl = (t) => $d.test(t), jm = ["onAfterscriptexecute", "onAnimationcancel", "onAnimationend", "onAnimationiteration", "onAnimationstart", "onAuxclick", "onBeforeinput", "onBeforescriptexecute", "onChange", "onClick", "onCompositionend", "onCompositionstart", "onCompositionupdate", "onContextmenu", "onCopy", "onCut", "onDblclick", "onFocusin", "onFocusout", "onFullscreenchange", "onFullscreenerror", "onGesturechange", "onGestureend", "onGesturestart", "onGotpointercapture", "onInput", "onKeydown", "onKeypress", "onKeyup", "onLostpointercapture", "onMousedown", "onMousemove", "onMouseout", "onMouseover", "onMouseup", "onMousewheel", "onPaste", "onPointercancel", "onPointerdown", "onPointerenter", "onPointerleave", "onPointermove", "onPointerout", "onPointerover", "onPointerup", "onReset", "onSelect", "onSubmit", "onTouchcancel", "onTouchend", "onTouchmove", "onTouchstart", "onTransitioncancel", "onTransitionend", "onTransitionrun", "onTransitionstart", "onWheel"];
+function gl(t) {
+  const [e, n] = Vc(t, [$d]), i = Oi(e, jm), [a, o] = Vc(n, ["class", "style", "id", /^data-/]);
   return Object.assign(a, e), Object.assign(o, i), [a, o];
 }
 function Nt(t) {
   return t == null ? [] : Array.isArray(t) ? t : [t];
 }
-function Zm(t, e) {
+function Hm(t, e) {
   let n = 0;
   const i = function() {
     for (var a = arguments.length, o = new Array(a), r = 0; r < a; r++)
@@ -357,11 +341,11 @@ function li(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 0, n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
   return Math.max(e, Math.min(n, t));
 }
-function Oc(t, e) {
+function Bc(t, e) {
   let n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "0";
   return t + n.repeat(Math.max(0, e - t.length));
 }
-function Km(t) {
+function Zm(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 1;
   const n = [];
   let i = 0;
@@ -398,56 +382,56 @@ function zi() {
   return zi.cache.set(t, e), e;
 }
 zi.cache = /* @__PURE__ */ new Map();
-function $a(t, e) {
+function Wa(t, e) {
   if (!e || typeof e != "object") return [];
   if (Array.isArray(e))
-    return e.map((n) => $a(t, n)).flat(1);
+    return e.map((n) => Wa(t, n)).flat(1);
   if (Array.isArray(e.children))
-    return e.children.map((n) => $a(t, n)).flat(1);
+    return e.children.map((n) => Wa(t, n)).flat(1);
   if (e.component) {
     if (Object.getOwnPropertySymbols(e.component.provides).includes(t))
       return [e.component];
     if (e.component.subTree)
-      return $a(t, e.component.subTree).flat(1);
+      return Wa(t, e.component.subTree).flat(1);
   }
   return [];
 }
-var Bo = /* @__PURE__ */ new WeakMap(), Wi = /* @__PURE__ */ new WeakMap();
-class qm {
+var Fo = /* @__PURE__ */ new WeakMap(), $i = /* @__PURE__ */ new WeakMap();
+class Km {
   constructor(e) {
-    Bc(this, Bo, {
+    zc(this, Fo, {
       writable: !0,
       value: []
-    }), Bc(this, Wi, {
+    }), zc(this, $i, {
       writable: !0,
       value: 0
     }), this.size = e;
   }
   push(e) {
-    Mi(this, Bo)[Mi(this, Wi)] = e, Xm(this, Wi, (Mi(this, Wi) + 1) % this.size);
+    Mi(this, Fo)[Mi(this, $i)] = e, $m(this, $i, (Mi(this, $i) + 1) % this.size);
   }
   values() {
-    return Mi(this, Bo).slice(Mi(this, Wi)).concat(Mi(this, Bo).slice(0, Mi(this, Wi)));
+    return Mi(this, Fo).slice(Mi(this, $i)).concat(Mi(this, Fo).slice(0, Mi(this, $i)));
   }
 }
-function pl(t) {
+function ml(t) {
   const e = Nn({}), n = x(t);
   return Qt(() => {
     for (const i in n.value)
       e[i] = n.value[i];
   }, {
     flush: "sync"
-  }), Ld(e);
+  }), Rd(e);
 }
-function tr(t, e) {
+function nr(t, e) {
   return t.includes(e);
 }
 function Ud(t) {
   return t[2].toLowerCase() + t.slice(3);
 }
 const Zt = () => [Function, Array];
-function Dc(t, e) {
-  return e = "on" + ho(e), !!(t[e] || t[`${e}Once`] || t[`${e}Capture`] || t[`${e}OnceCapture`] || t[`${e}CaptureOnce`]);
+function Fc(t, e) {
+  return e = "on" + fo(e), !!(t[e] || t[`${e}Once`] || t[`${e}Capture`] || t[`${e}OnceCapture`] || t[`${e}CaptureOnce`]);
 }
 function Yd(t) {
   for (var e = arguments.length, n = new Array(e > 1 ? e - 1 : 0), i = 1; i < e; i++)
@@ -457,7 +441,7 @@ function Yd(t) {
       a(...n);
   else typeof t == "function" && t(...n);
 }
-function nr(t) {
+function ir(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !0;
   const n = ["button", "[href]", 'input:not([type="hidden"])', "select", "textarea", "[tabindex]"].map((i) => `${i}${e ? ':not([tabindex="-1"])' : ""}:not([disabled])`).join(", ");
   return [...t.querySelectorAll(n)];
@@ -470,9 +454,9 @@ function jd(t, e, n) {
   while ((!i || i.offsetParent == null || !((n == null ? void 0 : n(i)) ?? !0)) && a < t.length && a >= 0);
   return i;
 }
-function ir(t, e) {
+function ar(t, e) {
   var i, a, o, r;
-  const n = nr(t);
+  const n = ir(t);
   if (!e)
     (t === document.activeElement || !t.contains(document.activeElement)) && ((i = n[0]) == null || i.focus());
   else if (e === "first")
@@ -483,10 +467,10 @@ function ir(t, e) {
     (r = n[e]) == null || r.focus();
   else {
     const s = jd(n, e);
-    s ? s.focus() : ir(t, e === "next" ? "first" : "last");
+    s ? s.focus() : ar(t, e === "next" ? "first" : "last");
   }
 }
-function Jm() {
+function qm() {
 }
 function ua(t, e) {
   if (!(ft && typeof CSS < "u" && typeof CSS.supports < "u" && CSS.supports(`selector(${e})`))) return null;
@@ -496,20 +480,20 @@ function ua(t, e) {
     return null;
   }
 }
-function yl(t) {
-  return t.some((e) => rm(e) ? e.type === sm ? !1 : e.type !== fe || yl(e.children) : !0) ? t : null;
+function vl(t) {
+  return t.some((e) => rm(e) ? e.type === sm ? !1 : e.type !== fe || vl(e.children) : !0) ? t : null;
 }
-function Qm(t, e) {
+function Jm(t, e) {
   if (!ft || t === 0)
     return e(), () => {
     };
   const n = window.setTimeout(e, t);
   return () => window.clearTimeout(n);
 }
-const Hd = ["top", "bottom"], ev = ["start", "end", "left", "right"];
+const Hd = ["top", "bottom"], Qm = ["start", "end", "left", "right"];
 function Vs(t, e) {
   let [n, i] = t.split(" ");
-  return i || (i = tr(Hd, n) ? "start" : tr(ev, n) ? "top" : "center"), {
+  return i || (i = nr(Hd, n) ? "start" : nr(Qm, n) ? "top" : "center"), {
     side: Bs(n, e),
     align: Bs(i, e)
   };
@@ -541,14 +525,14 @@ function ls(t) {
     }[t.align]
   };
 }
-function Gc(t) {
+function kc(t) {
   return {
     side: t.align,
     align: t.side
   };
 }
-function Nc(t) {
-  return tr(Hd, t.side) ? "y" : "x";
+function Oc(t) {
+  return nr(Hd, t.side) ? "y" : "x";
 }
 class Li {
   constructor(e) {
@@ -573,7 +557,7 @@ class Li {
     return this.x + this.width;
   }
 }
-function $c(t, e) {
+function Dc(t, e) {
   return {
     x: {
       before: Math.max(0, e.left - t.left),
@@ -593,7 +577,7 @@ function Zd(t) {
     height: 0
   }) : t.getBoundingClientRect();
 }
-function _l(t) {
+function Cl(t) {
   const e = t.getBoundingClientRect(), n = getComputedStyle(t), i = n.transform;
   if (i) {
     let a, o, r, s, l;
@@ -631,11 +615,11 @@ function ia(t, e, n) {
     };
   })), i;
 }
-const Ko = /* @__PURE__ */ new WeakMap();
-function tv(t, e) {
+const qo = /* @__PURE__ */ new WeakMap();
+function ev(t, e) {
   Object.keys(e).forEach((n) => {
-    if (vl(n)) {
-      const i = Ud(n), a = Ko.get(t);
+    if (fl(n)) {
+      const i = Ud(n), a = qo.get(t);
       if (e[n] == null)
         a == null || a.forEach((o) => {
           const [r, s] = o;
@@ -644,16 +628,16 @@ function tv(t, e) {
       else if (!a || ![...a].some((o) => o[0] === i && o[1] === e[n])) {
         t.addEventListener(i, e[n]);
         const o = a || /* @__PURE__ */ new Set();
-        o.add([i, e[n]]), Ko.has(t) || Ko.set(t, o);
+        o.add([i, e[n]]), qo.has(t) || qo.set(t, o);
       }
     } else
       e[n] == null ? t.removeAttribute(n) : t.setAttribute(n, e[n]);
   });
 }
-function nv(t, e) {
+function tv(t, e) {
   Object.keys(e).forEach((n) => {
-    if (vl(n)) {
-      const i = Ud(n), a = Ko.get(t);
+    if (fl(n)) {
+      const i = Ud(n), a = qo.get(t);
       a == null || a.forEach((o) => {
         const [r, s] = o;
         r === i && (t.removeEventListener(i, s), a.delete(o));
@@ -662,37 +646,37 @@ function nv(t, e) {
       t.removeAttribute(n);
   });
 }
-const Xi = 2.4, Wc = 0.2126729, Xc = 0.7151522, Uc = 0.072175, iv = 0.55, av = 0.58, ov = 0.57, rv = 0.62, Fo = 0.03, Yc = 1.45, sv = 5e-4, lv = 1.25, cv = 1.25, jc = 0.078, Hc = 12.82051282051282, ko = 0.06, Zc = 1e-3;
-function Kc(t, e) {
+const Xi = 2.4, Gc = 0.2126729, Nc = 0.7151522, Wc = 0.072175, nv = 0.55, iv = 0.58, av = 0.57, ov = 0.62, ko = 0.03, $c = 1.45, rv = 5e-4, sv = 1.25, lv = 1.25, Xc = 0.078, Uc = 12.82051282051282, Oo = 0.06, Yc = 1e-3;
+function jc(t, e) {
   const n = (t.r / 255) ** Xi, i = (t.g / 255) ** Xi, a = (t.b / 255) ** Xi, o = (e.r / 255) ** Xi, r = (e.g / 255) ** Xi, s = (e.b / 255) ** Xi;
-  let l = n * Wc + i * Xc + a * Uc, c = o * Wc + r * Xc + s * Uc;
-  if (l <= Fo && (l += (Fo - l) ** Yc), c <= Fo && (c += (Fo - c) ** Yc), Math.abs(c - l) < sv) return 0;
+  let l = n * Gc + i * Nc + a * Wc, c = o * Gc + r * Nc + s * Wc;
+  if (l <= ko && (l += (ko - l) ** $c), c <= ko && (c += (ko - c) ** $c), Math.abs(c - l) < rv) return 0;
   let u;
   if (c > l) {
-    const d = (c ** iv - l ** av) * lv;
-    u = d < Zc ? 0 : d < jc ? d - d * Hc * ko : d - ko;
+    const d = (c ** nv - l ** iv) * sv;
+    u = d < Yc ? 0 : d < Xc ? d - d * Uc * Oo : d - Oo;
   } else {
-    const d = (c ** rv - l ** ov) * cv;
-    u = d > -Zc ? 0 : d > -jc ? d - d * Hc * ko : d + ko;
+    const d = (c ** ov - l ** av) * lv;
+    u = d > -Yc ? 0 : d > -Xc ? d - d * Uc * Oo : d + Oo;
   }
   return u * 100;
 }
 function Vi(t) {
-  Mr(`Vuetify: ${t}`);
+  xr(`Vuetify: ${t}`);
 }
-function uv(t) {
-  Mr(`Vuetify error: ${t}`);
+function cv(t) {
+  xr(`Vuetify error: ${t}`);
 }
-function dv(t, e) {
-  e = Array.isArray(e) ? e.slice(0, -1).map((n) => `'${n}'`).join(", ") + ` or '${e.at(-1)}'` : `'${e}'`, Mr(`[Vuetify UPGRADE] '${t}' is deprecated, use ${e} instead.`);
+function uv(t, e) {
+  e = Array.isArray(e) ? e.slice(0, -1).map((n) => `'${n}'`).join(", ") + ` or '${e.at(-1)}'` : `'${e}'`, xr(`[Vuetify UPGRADE] '${t}' is deprecated, use ${e} instead.`);
 }
 function Fs(t) {
   return !!t && /^(#|var\(--|(rgb|hsl)a?\()/.test(t);
 }
-function hv(t) {
+function dv(t) {
   return Fs(t) && !/^((rgb|hsl)a?\()?var\(--/.test(t);
 }
-const qc = /^(?<fn>(?:rgb|hsl)a?)\((?<values>.+)\)/, fv = {
+const Hc = /^(?<fn>(?:rgb|hsl)a?)\((?<values>.+)\)/, hv = {
   rgb: (t, e, n, i) => ({
     r: t,
     g: e,
@@ -705,25 +689,25 @@ const qc = /^(?<fn>(?:rgb|hsl)a?)\((?<values>.+)\)/, fv = {
     b: n,
     a: i
   }),
-  hsl: (t, e, n, i) => Jc({
+  hsl: (t, e, n, i) => Zc({
     h: t,
     s: e,
     l: n,
     a: i
   }),
-  hsla: (t, e, n, i) => Jc({
+  hsla: (t, e, n, i) => Zc({
     h: t,
     s: e,
     l: n,
     a: i
   }),
-  hsv: (t, e, n, i) => ja({
+  hsv: (t, e, n, i) => Ha({
     h: t,
     s: e,
     v: n,
     a: i
   }),
-  hsva: (t, e, n, i) => ja({
+  hsva: (t, e, n, i) => Ha({
     h: t,
     s: e,
     v: n,
@@ -737,31 +721,31 @@ function Oa(t) {
       g: (t & 65280) >> 8,
       b: t & 255
     };
-  if (typeof t == "string" && qc.test(t)) {
+  if (typeof t == "string" && Hc.test(t)) {
     const {
       groups: e
-    } = t.match(qc), {
+    } = t.match(Hc), {
       fn: n,
       values: i
     } = e, a = i.split(/,\s*/).map((o) => o.endsWith("%") && ["hsl", "hsla", "hsv", "hsva"].includes(n) ? parseFloat(o) / 100 : parseFloat(o));
-    return fv[n](...a);
+    return hv[n](...a);
   } else if (typeof t == "string") {
     let e = t.startsWith("#") ? t.slice(1) : t;
     [3, 4].includes(e.length) ? e = e.split("").map((i) => i + i).join("") : [6, 8].includes(e.length) || Vi(`'${t}' is not a valid hex(a) color`);
     const n = parseInt(e, 16);
-    return (isNaN(n) || n < 0 || n > 4294967295) && Vi(`'${t}' is not a valid hex(a) color`), gv(e);
+    return (isNaN(n) || n < 0 || n > 4294967295) && Vi(`'${t}' is not a valid hex(a) color`), fv(e);
   } else if (typeof t == "object") {
     if (rs(t, ["r", "g", "b"]))
       return t;
     if (rs(t, ["h", "s", "l"]))
-      return ja(Kd(t));
+      return Ha(Kd(t));
     if (rs(t, ["h", "s", "v"]))
-      return ja(t);
+      return Ha(t);
   }
   throw new TypeError(`Invalid color: ${t == null ? t : String(t) || t.constructor.name}
 Expected #hex, #hexa, rgb(), rgba(), hsl(), hsla(), object or number`);
 }
-function ja(t) {
+function Ha(t) {
   const {
     h: e,
     s: n,
@@ -778,8 +762,8 @@ function ja(t) {
     a
   };
 }
-function Jc(t) {
-  return ja(Kd(t));
+function Zc(t) {
+  return Ha(Kd(t));
 }
 function Kd(t) {
   const {
@@ -795,9 +779,9 @@ function Kd(t) {
     a
   };
 }
-function gv(t) {
-  t = mv(t);
-  let [e, n, i, a] = Km(t, 2).map((o) => parseInt(o, 16));
+function fv(t) {
+  t = gv(t);
+  let [e, n, i, a] = Zm(t, 2).map((o) => parseInt(o, 16));
   return a = a === void 0 ? a : a / 255, {
     r: e,
     g: n,
@@ -805,14 +789,14 @@ function gv(t) {
     a
   };
 }
+function gv(t) {
+  return t.startsWith("#") && (t = t.slice(1)), t = t.replace(/([^0-9a-f])/gi, "F"), (t.length === 3 || t.length === 4) && (t = t.split("").map((e) => e + e).join("")), t.length !== 6 && (t = Bc(Bc(t, 6), 8, "F")), t;
+}
 function mv(t) {
-  return t.startsWith("#") && (t = t.slice(1)), t = t.replace(/([^0-9a-f])/gi, "F"), (t.length === 3 || t.length === 4) && (t = t.split("").map((e) => e + e).join("")), t.length !== 6 && (t = Oc(Oc(t, 6), 8, "F")), t;
+  const e = Math.abs(jc(Oa(0), Oa(t)));
+  return Math.abs(jc(Oa(16777215), Oa(t))) > Math.min(e, 50) ? "#fff" : "#000";
 }
-function vv(t) {
-  const e = Math.abs(Kc(Oa(0), Oa(t)));
-  return Math.abs(Kc(Oa(16777215), Oa(t))) > Math.min(e, 50) ? "#fff" : "#000";
-}
-function $(t, e) {
+function W(t, e) {
   return (n) => Object.keys(t).reduce((i, a) => {
     const r = typeof t[a] == "object" && t[a] != null && !Array.isArray(t[a]) ? t[a] : {
       type: t[a]
@@ -823,20 +807,20 @@ function $(t, e) {
     } : i[a] = r, e && !i[a].source && (i[a].source = e), i;
   }, {});
 }
-const de = $({
+const de = W({
   class: [String, Array],
   style: {
     type: [String, Array, Object],
     default: null
   }
-}, "component"), ar = Symbol.for("vuetify:defaults");
-function Sl() {
-  const t = $e(ar);
+}, "component"), or = Symbol.for("vuetify:defaults");
+function pl() {
+  const t = We(or);
   if (!t) throw new Error("[Vuetify] Could not find defaults instance");
   return t;
 }
 function Mn(t, e) {
-  const n = Sl(), i = j(t), a = x(() => {
+  const n = pl(), i = j(t), a = x(() => {
     if (O(e == null ? void 0 : e.disabled)) return n.value;
     const r = O(e == null ? void 0 : e.scoped), s = O(e == null ? void 0 : e.reset), l = O(e == null ? void 0 : e.root);
     if (i.value == null && !(r || s || l)) return n.value;
@@ -854,14 +838,14 @@ function Mn(t, e) {
     }
     return c.prev ? na(c.prev, c) : c;
   });
-  return ot(ar, a), a;
+  return ot(or, a), a;
 }
-function Cv(t, e) {
+function vv(t, e) {
   var n, i;
   return typeof ((n = t.props) == null ? void 0 : n[e]) < "u" || typeof ((i = t.props) == null ? void 0 : i[zi(e)]) < "u";
 }
-function pv() {
-  let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, e = arguments.length > 1 ? arguments[1] : void 0, n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : Sl();
+function Cv() {
+  let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, e = arguments.length > 1 ? arguments[1] : void 0, n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : pl();
   const i = qe("useDefaults");
   if (e = e ?? i.type.name ?? i.type.__name, !e)
     throw new Error("[Vuetify] Could not determine component name");
@@ -872,7 +856,7 @@ function pv() {
     get(l, c) {
       var d, h, f, g;
       const u = Reflect.get(l, c);
-      return c === "class" || c === "style" ? [(d = a.value) == null ? void 0 : d[c], u].filter((m) => m != null) : typeof c == "string" && !Cv(i.vnode, c) ? ((h = a.value) == null ? void 0 : h[c]) ?? ((g = (f = n.value) == null ? void 0 : f.global) == null ? void 0 : g[c]) ?? u : u;
+      return c === "class" || c === "style" ? [(d = a.value) == null ? void 0 : d[c], u].filter((m) => m != null) : typeof c == "string" && !vv(i.vnode, c) ? ((h = a.value) == null ? void 0 : h[c]) ?? ((g = (f = n.value) == null ? void 0 : f.global) == null ? void 0 : g[c]) ?? u : u;
     }
   }), r = q();
   Qt(() => {
@@ -886,29 +870,29 @@ function pv() {
       r.value = void 0;
   });
   function s() {
-    const l = bv(ar, i);
-    ot(ar, x(() => r.value ? na((l == null ? void 0 : l.value) ?? {}, r.value) : l == null ? void 0 : l.value));
+    const l = Sv(or, i);
+    ot(or, x(() => r.value ? na((l == null ? void 0 : l.value) ?? {}, r.value) : l == null ? void 0 : l.value));
   }
   return {
     props: o,
     provideSubDefaults: s
   };
 }
-function mo(t) {
+function vo(t) {
   if (t._setup = t._setup ?? t.setup, !t.name)
     return Vi("The component is missing an explicit name, unable to generate default prop value"), t;
   if (t._setup) {
-    t.props = $(t.props ?? {}, t.name)();
+    t.props = W(t.props ?? {}, t.name)();
     const e = Object.keys(t.props).filter((n) => n !== "class" && n !== "style");
     t.filterProps = function(i) {
-      return $d(i, e);
+      return Wd(i, e);
     }, t.props._as = String, t.setup = function(i, a) {
-      const o = Sl();
+      const o = pl();
       if (!o.value) return t._setup(i, a);
       const {
         props: r,
         provideSubDefaults: s
-      } = pv(i, i._as ?? t.name, o), l = t._setup(r, a);
+      } = Cv(i, i._as ?? t.name, o), l = t._setup(r, a);
       return s(), l;
     };
   }
@@ -916,12 +900,12 @@ function mo(t) {
 }
 function K() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : !0;
-  return (e) => (t ? mo : lm)(e);
+  return (e) => (t ? vo : lm)(e);
 }
-function vo(t) {
+function Co(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "div", n = arguments.length > 2 ? arguments[2] : void 0;
   return K()({
-    name: n ?? ho(Vd(t.replace(/__/g, "-"))),
+    name: n ?? fo(Id(t.replace(/__/g, "-"))),
     props: {
       tag: {
         type: String,
@@ -953,7 +937,7 @@ function qd(t) {
     composed: !0
   }) !== document ? null : e;
 }
-const or = "cubic-bezier(0.4, 0, 0.2, 1)", yv = "cubic-bezier(0.0, 0, 0.2, 1)", _v = "cubic-bezier(0.4, 0, 1, 1)";
+const rr = "cubic-bezier(0.4, 0, 0.2, 1)", pv = "cubic-bezier(0.0, 0, 0.2, 1)", yv = "cubic-bezier(0.4, 0, 1, 1)";
 function qe(t, e) {
   const n = cm();
   if (!n)
@@ -965,44 +949,44 @@ function xn() {
   const e = qe(t).type;
   return zi((e == null ? void 0 : e.aliasName) || (e == null ? void 0 : e.name));
 }
-let Jd = 0, qo = /* @__PURE__ */ new WeakMap();
+let Jd = 0, Jo = /* @__PURE__ */ new WeakMap();
 function Pn() {
   const t = qe("getUid");
-  if (qo.has(t)) return qo.get(t);
+  if (Jo.has(t)) return Jo.get(t);
   {
     const e = Jd++;
-    return qo.set(t, e), e;
+    return Jo.set(t, e), e;
   }
 }
 Pn.reset = () => {
-  Jd = 0, qo = /* @__PURE__ */ new WeakMap();
+  Jd = 0, Jo = /* @__PURE__ */ new WeakMap();
 };
 function Qd(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1;
   for (; t; ) {
-    if (e ? Sv(t) : bl(t)) return t;
+    if (e ? _v(t) : yl(t)) return t;
     t = t.parentElement;
   }
   return document.scrollingElement;
 }
-function rr(t, e) {
+function sr(t, e) {
   const n = [];
   if (e && t && !e.contains(t)) return n;
-  for (; t && (bl(t) && n.push(t), t !== e); )
+  for (; t && (yl(t) && n.push(t), t !== e); )
     t = t.parentElement;
   return n;
 }
-function bl(t) {
+function yl(t) {
   if (!t || t.nodeType !== Node.ELEMENT_NODE) return !1;
   const e = window.getComputedStyle(t);
   return e.overflowY === "scroll" || e.overflowY === "auto" && t.scrollHeight > t.clientHeight;
 }
-function Sv(t) {
+function _v(t) {
   if (!t || t.nodeType !== Node.ELEMENT_NODE) return !1;
   const e = window.getComputedStyle(t);
   return ["scroll", "auto"].includes(e.overflowY);
 }
-function bv(t) {
+function Sv(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : qe("injectSelf");
   const {
     provides: n
@@ -1010,7 +994,7 @@ function bv(t) {
   if (n && t in n)
     return n[t];
 }
-function Mv(t) {
+function bv(t) {
   for (; t; ) {
     if (window.getComputedStyle(t).position === "fixed")
       return !0;
@@ -1022,15 +1006,15 @@ function ie(t) {
   const e = qe("useRender");
   e.render = t;
 }
-function Ml(t) {
-  return pl(() => {
+function _l(t) {
+  return ml(() => {
     const e = [], n = {};
     if (t.value.background)
       if (Fs(t.value.background)) {
-        if (n.backgroundColor = t.value.background, !t.value.text && hv(t.value.background)) {
+        if (n.backgroundColor = t.value.background, !t.value.text && dv(t.value.background)) {
           const i = Oa(t.value.background);
           if (i.a == null || i.a === 1) {
-            const a = vv(i);
+            const a = mv(i);
             n.color = a, n.caretColor = a;
           }
         }
@@ -1044,11 +1028,11 @@ function Ml(t) {
 }
 function yn(t, e) {
   const n = x(() => ({
-    text: fo(t) ? t.value : e ? t[e] : null
+    text: go(t) ? t.value : e ? t[e] : null
   })), {
     colorClasses: i,
     colorStyles: a
-  } = Ml(n);
+  } = _l(n);
   return {
     textColorClasses: i,
     textColorStyles: a
@@ -1056,17 +1040,17 @@ function yn(t, e) {
 }
 function wt(t, e) {
   const n = x(() => ({
-    background: fo(t) ? t.value : e ? t[e] : null
+    background: go(t) ? t.value : e ? t[e] : null
   })), {
     colorClasses: i,
     colorStyles: a
-  } = Ml(n);
+  } = _l(n);
   return {
     backgroundColorClasses: i,
     backgroundColorStyles: a
   };
 }
-const Te = [String, Function, Object, Array], xv = Symbol.for("vuetify:icons"), Pr = $({
+const Te = [String, Function, Object, Array], Mv = Symbol.for("vuetify:icons"), Pr = W({
   icon: {
     type: Te
   },
@@ -1075,7 +1059,7 @@ const Te = [String, Function, Object, Array], xv = Symbol.for("vuetify:icons"), 
     type: String,
     required: !0
   }
-}, "icon"), Qc = K()({
+}, "icon"), Kc = K()({
   name: "VComponentIcon",
   props: Pr(),
   setup(t, e) {
@@ -1092,7 +1076,7 @@ const Te = [String, Function, Object, Array], xv = Symbol.for("vuetify:icons"), 
       });
     };
   }
-}), Pv = mo({
+}), xv = vo({
   name: "VSvgIcon",
   inheritAttrs: !1,
   props: Pr(),
@@ -1120,7 +1104,7 @@ const Te = [String, Function, Object, Array], xv = Symbol.for("vuetify:icons"), 
     });
   }
 });
-mo({
+vo({
   name: "VLigatureIcon",
   props: Pr(),
   setup(t) {
@@ -1129,7 +1113,7 @@ mo({
     });
   }
 });
-mo({
+vo({
   name: "VClassIcon",
   props: Pr(),
   setup(t) {
@@ -1138,26 +1122,26 @@ mo({
     }, null);
   }
 });
-const Tv = (t) => {
-  const e = $e(xv);
+const Pv = (t) => {
+  const e = We(Mv);
   if (!e) throw new Error("Missing Vuetify Icons provide!");
   return {
     iconData: x(() => {
       var l;
       const i = O(t);
       if (!i) return {
-        component: Qc
+        component: Kc
       };
       let a = i;
       if (typeof a == "string" && (a = a.trim(), a.startsWith("$") && (a = (l = e.aliases) == null ? void 0 : l[a.slice(1)])), !a) throw new Error(`Could not find aliased icon "${i}"`);
       if (Array.isArray(a))
         return {
-          component: Pv,
+          component: xv,
           icon: a
         };
       if (typeof a != "string")
         return {
-          component: Qc,
+          component: Kc,
           icon: a
         };
       const o = Object.keys(e.sets).find((c) => typeof a == "string" && a.startsWith(`${c}:`)), r = o ? a.slice(o.length + 1) : a;
@@ -1167,17 +1151,17 @@ const Tv = (t) => {
       };
     })
   };
-}, wv = ["x-small", "small", "default", "large", "x-large"], Co = $({
+}, Tv = ["x-small", "small", "default", "large", "x-large"], po = W({
   size: {
     type: [String, Number],
     default: "default"
   }
 }, "size");
-function po(t) {
+function yo(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
-  return pl(() => {
+  return ml(() => {
     let n, i;
-    return tr(wv, t.size) ? n = `${e}--size-${t.size}` : t.size && (i = {
+    return nr(Tv, t.size) ? n = `${e}--size-${t.size}` : t.size && (i = {
       width: se(t.size),
       height: se(t.size)
     }), {
@@ -1186,17 +1170,17 @@ function po(t) {
     };
   });
 }
-const Le = $({
+const Le = W({
   tag: {
     type: String,
     default: "div"
   }
-}, "tag"), eu = Symbol.for("vuetify:theme"), ke = $({
+}, "tag"), qc = Symbol.for("vuetify:theme"), ke = W({
   theme: String
 }, "theme");
 function Xe(t) {
   qe("provideTheme");
-  const e = $e(eu, null);
+  const e = We(qc, null);
   if (!e) throw new Error("Could not find Vuetify theme injection");
   const n = x(() => t.theme ?? e.name.value), i = x(() => e.themes.value[n.value]), a = x(() => e.isDisabled ? void 0 : `v-theme--${n.value}`), o = {
     ...e,
@@ -1204,22 +1188,22 @@ function Xe(t) {
     current: i,
     themeClasses: a
   };
-  return ot(eu, o), o;
+  return ot(qc, o), o;
 }
-const Ev = $({
+const wv = W({
   color: String,
   start: Boolean,
   end: Boolean,
   icon: Te,
   ...de(),
-  ...Co(),
+  ...po(),
   ...Le({
     tag: "i"
   }),
   ...ke()
 }, "VIcon"), Ae = K()({
   name: "VIcon",
-  props: Ev(),
+  props: wv(),
   setup(t, e) {
     let {
       attrs: n,
@@ -1229,9 +1213,9 @@ const Ev = $({
       themeClasses: o
     } = Xe(t), {
       iconData: r
-    } = Tv(x(() => a.value || t.icon)), {
+    } = Pv(x(() => a.value || t.icon)), {
       sizeClasses: s
-    } = po(t), {
+    } = yo(t), {
       textColorClasses: l,
       textColorStyles: c
     } = yn(te(t, "color"));
@@ -1258,7 +1242,7 @@ const Ev = $({
       });
     }), {};
   }
-}), Ci = $({
+}), Ci = W({
   height: [Number, String],
   maxHeight: [Number, String],
   maxWidth: [Number, String],
@@ -1278,7 +1262,7 @@ function pi(t) {
     }))
   };
 }
-function Av(t) {
+function Ev(t) {
   return {
     aspectStyles: x(() => {
       const e = Number(t.aspectRatio);
@@ -1288,13 +1272,13 @@ function Av(t) {
     })
   };
 }
-const eh = $({
+const eh = W({
   aspectRatio: [String, Number],
   contentClass: String,
   inline: Boolean,
   ...de(),
   ...Ci()
-}, "VResponsive"), tu = K()({
+}, "VResponsive"), Jc = K()({
   name: "VResponsive",
   props: eh(),
   setup(t, e) {
@@ -1303,7 +1287,7 @@ const eh = $({
     } = e;
     const {
       aspectStyles: i
-    } = Av(t), {
+    } = Ev(t), {
       dimensionStyles: a
     } = pi(t);
     return ie(() => {
@@ -1321,7 +1305,7 @@ const eh = $({
       }, [n.default()])]);
     }), {};
   }
-}), pt = $({
+}), pt = W({
   rounded: {
     type: [Boolean, Number, String],
     default: void 0
@@ -1331,7 +1315,7 @@ function yt(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
   return {
     roundedClasses: x(() => {
-      const i = fo(t) ? t.value : t.rounded, a = [];
+      const i = go(t) ? t.value : t.rounded, a = [];
       if (i === !0 || i === "")
         a.push(`${e}--rounded`);
       else if (typeof i == "string" || i === 0)
@@ -1341,13 +1325,13 @@ function yt(t) {
     })
   };
 }
-const Sa = $({
+const Sa = W({
   transition: {
     type: [Boolean, String, Object],
     default: "fade-transition",
     validator: (t) => t !== !0
   }
-}, "transition"), $n = (t, e) => {
+}, "transition"), Wn = (t, e) => {
   let {
     slots: n
   } = e;
@@ -1365,8 +1349,8 @@ const Sa = $({
     disabled: a
   }), n);
 };
-function Rv(t, e) {
-  if (!ml) return;
+function Av(t, e) {
+  if (!hl) return;
   const n = e.modifiers || {}, i = e.value, {
     handler: a,
     options: o
@@ -1391,10 +1375,10 @@ function th(t, e) {
   const n = (i = t._observe) == null ? void 0 : i[e.instance.$.uid];
   n && (n.observer.unobserve(t), delete t._observe[e.instance.$.uid]);
 }
-const xl = {
-  mounted: Rv,
+const Sl = {
+  mounted: Av,
   unmounted: th
-}, nh = $({
+}, nh = W({
   alt: String,
   cover: Boolean,
   color: String,
@@ -1431,7 +1415,7 @@ const xl = {
 }, "VImg"), en = K()({
   name: "VImg",
   directives: {
-    intersect: xl
+    intersect: Sl
   },
   props: nh(),
   emits: {
@@ -1466,12 +1450,12 @@ const xl = {
       !A && R && c.value && S(c.value);
     }), ll(() => m());
     function m(A) {
-      if (!(t.eager && A) && !(ml && !A && !t.eager)) {
+      if (!(t.eager && A) && !(hl && !A && !t.eager)) {
         if (u.value = "loading", f.value.lazySrc) {
           const R = new Image();
           R.src = f.value.lazySrc, S(R, null);
         }
-        f.value.src && We(() => {
+        f.value.src && $e(() => {
           var R;
           n("loadstart", ((R = c.value) == null ? void 0 : R.currentSrc) || f.value.src), setTimeout(() => {
             var V;
@@ -1535,7 +1519,7 @@ const xl = {
         onLoad: C,
         onError: p
       }, null), R = (V = i.sources) == null ? void 0 : V.call(i);
-      return v($n, {
+      return v(Wn, {
         transition: t.transition,
         appear: !0
       }, {
@@ -1543,7 +1527,7 @@ const xl = {
           class: "v-img__picture"
         }, [R, A]) : A, [[mi, u.value === "loaded"]])]
       });
-    }, _ = () => v($n, {
+    }, _ = () => v(Wn, {
       transition: t.transition
     }, {
       default: () => [f.value.lazySrc && u.value !== "loaded" && v("img", {
@@ -1557,14 +1541,14 @@ const xl = {
         referrerpolicy: t.referrerpolicy,
         draggable: t.draggable
       }, null)]
-    }), P = () => i.placeholder ? v($n, {
+    }), P = () => i.placeholder ? v(Wn, {
       transition: t.transition,
       appear: !0
     }, {
       default: () => [(u.value === "loading" || u.value === "error" && !i.error) && v("div", {
         class: "v-img__placeholder"
       }, [i.placeholder()])]
-    }) : null, w = () => i.error ? v($n, {
+    }) : null, w = () => i.error ? v(Wn, {
       transition: t.transition,
       appear: !0
     }, {
@@ -1587,8 +1571,8 @@ const xl = {
       });
     }
     return ie(() => {
-      const A = tu.filterProps(t);
-      return Ze(v(tu, ce({
+      const A = Jc.filterProps(t);
+      return Ze(v(Jc, ce({
         class: ["v-img", {
           "v-img--booting": !z.value
         }, a.value, r.value, t.class],
@@ -1616,11 +1600,11 @@ const xl = {
       naturalHeight: h
     };
   }
-}), Iv = [null, "default", "comfortable", "compact"], Tn = $({
+}), Rv = [null, "default", "comfortable", "compact"], Tn = W({
   density: {
     type: String,
     default: "default",
-    validator: (t) => Iv.includes(t)
+    validator: (t) => Rv.includes(t)
   }
 }, "density");
 function Hn(t) {
@@ -1629,8 +1613,8 @@ function Hn(t) {
     densityClasses: x(() => `${e}--density-${t.density}`)
   };
 }
-const zv = ["elevated", "flat", "tonal", "outlined", "text", "plain"];
-function yo(t, e) {
+const Iv = ["elevated", "flat", "tonal", "outlined", "text", "plain"];
+function _o(t, e) {
   return v(fe, null, [t && v("span", {
     key: "overlay",
     class: `${e}__overlay`
@@ -1639,15 +1623,15 @@ function yo(t, e) {
     class: `${e}__underlay`
   }, null)]);
 }
-const yi = $({
+const yi = W({
   color: String,
   variant: {
     type: String,
     default: "elevated",
-    validator: (t) => zv.includes(t)
+    validator: (t) => Iv.includes(t)
   }
 }, "variant");
-function _o(t) {
+function So(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
   const n = x(() => {
     const {
@@ -1657,7 +1641,7 @@ function _o(t) {
   }), {
     colorClasses: i,
     colorStyles: a
-  } = Ml(x(() => {
+  } = _l(x(() => {
     const {
       variant: o,
       color: r
@@ -1672,7 +1656,7 @@ function _o(t) {
     variantClasses: n
   };
 }
-const Lv = $({
+const zv = W({
   start: Boolean,
   end: Boolean,
   icon: Te,
@@ -1681,7 +1665,7 @@ const Lv = $({
   ...de(),
   ...Tn(),
   ...pt(),
-  ...Co(),
+  ...po(),
   ...Le(),
   ...ke(),
   ...yi({
@@ -1689,7 +1673,7 @@ const Lv = $({
   })
 }, "VAvatar"), hi = K()({
   name: "VAvatar",
-  props: Lv(),
+  props: zv(),
   setup(t, e) {
     let {
       slots: n
@@ -1700,14 +1684,14 @@ const Lv = $({
       colorClasses: a,
       colorStyles: o,
       variantClasses: r
-    } = _o(t), {
+    } = So(t), {
       densityClasses: s
     } = Hn(t), {
       roundedClasses: l
     } = yt(t), {
       sizeClasses: c,
       sizeStyles: u
-    } = po(t);
+    } = yo(t);
     return ie(() => v(t.tag, {
       class: ["v-avatar", {
         "v-avatar--start": t.start,
@@ -1725,18 +1709,18 @@ const Lv = $({
         }, null) : t.icon ? v(Ae, {
           key: "icon",
           icon: t.icon
-        }, null) : ((d = n.default) == null ? void 0 : d.call(n)) ?? t.text, yo(!1, "v-avatar")];
+        }, null) : ((d = n.default) == null ? void 0 : d.call(n)) ?? t.text, _o(!1, "v-avatar")];
       }
     })), {};
   }
-}), Vv = $({
+}), Lv = W({
   text: String,
   onClick: Zt(),
   ...de(),
   ...ke()
 }, "VLabel"), ih = K()({
   name: "VLabel",
-  props: Vv(),
+  props: Lv(),
   setup(t, e) {
     let {
       slots: n
@@ -1796,7 +1780,7 @@ function Be(t, e, n) {
     get: () => c.value ? t[e] : r.value
   }), u;
 }
-const ah = Symbol.for("vuetify:selection-control-group"), oh = $({
+const ah = Symbol.for("vuetify:selection-control-group"), oh = W({
   color: String,
   disabled: {
     type: Boolean,
@@ -1830,14 +1814,14 @@ const ah = Symbol.for("vuetify:selection-control-group"), oh = $({
   ...de(),
   ...Tn(),
   ...ke()
-}, "SelectionControlGroup"), Bv = $({
+}, "SelectionControlGroup"), Vv = W({
   ...oh({
     defaultsTarget: "VSelectionControl"
   })
 }, "VSelectionControlGroup");
 K()({
   name: "VSelectionControlGroup",
-  props: Bv(),
+  props: Vv(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -1885,8 +1869,8 @@ K()({
     }), {};
   }
 });
-const ks = Symbol("rippleStop"), Fv = 80;
-function nu(t, e) {
+const ks = Symbol("rippleStop"), Bv = 80;
+function Qc(t, e) {
   t.style.transform = e, t.style.webkitTransform = e;
 }
 function Os(t) {
@@ -1895,7 +1879,7 @@ function Os(t) {
 function rh(t) {
   return t.constructor.name === "KeyboardEvent";
 }
-const kv = function(t, e) {
+const Fv = function(t, e) {
   var d;
   let n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {}, i = 0, a = 0;
   if (!rh(t)) {
@@ -1913,7 +1897,7 @@ const kv = function(t, e) {
     centerX: s,
     centerY: l
   };
-}, sr = {
+}, lr = {
   /* eslint-disable max-statements */
   show(t, e) {
     var f;
@@ -1929,11 +1913,11 @@ const kv = function(t, e) {
       y: l,
       centerX: c,
       centerY: u
-    } = kv(t, e, n), d = `${o * 2}px`;
+    } = Fv(t, e, n), d = `${o * 2}px`;
     a.className = "v-ripple__animation", a.style.width = d, a.style.height = d, e.appendChild(i);
     const h = window.getComputedStyle(e);
-    h && h.position === "static" && (e.style.position = "relative", e.dataset.previousPosition = "static"), a.classList.add("v-ripple__animation--enter"), a.classList.add("v-ripple__animation--visible"), nu(a, `translate(${s}, ${l}) scale3d(${r},${r},${r})`), a.dataset.activated = String(performance.now()), setTimeout(() => {
-      a.classList.remove("v-ripple__animation--enter"), a.classList.add("v-ripple__animation--in"), nu(a, `translate(${c}, ${u}) scale3d(1,1,1)`);
+    h && h.position === "static" && (e.style.position = "relative", e.dataset.previousPosition = "static"), a.classList.add("v-ripple__animation--enter"), a.classList.add("v-ripple__animation--visible"), Qc(a, `translate(${s}, ${l}) scale3d(${r},${r},${r})`), a.dataset.activated = String(performance.now()), setTimeout(() => {
+      a.classList.remove("v-ripple__animation--enter"), a.classList.add("v-ripple__animation--in"), Qc(a, `translate(${c}, ${u}) scale3d(1,1,1)`);
     }, 0);
   },
   hide(t) {
@@ -1956,7 +1940,7 @@ const kv = function(t, e) {
 function sh(t) {
   return typeof t > "u" || !!t;
 }
-function Ha(t) {
+function Za(t) {
   const e = {}, n = t.currentTarget;
   if (!(!(n != null && n._ripple) || n._ripple.touched || t[ks])) {
     if (t[ks] = !0, Os(t))
@@ -1965,16 +1949,16 @@ function Ha(t) {
     if (e.center = n._ripple.centered || rh(t), n._ripple.class && (e.class = n._ripple.class), Os(t)) {
       if (n._ripple.showTimerCommit) return;
       n._ripple.showTimerCommit = () => {
-        sr.show(t, n, e);
+        lr.show(t, n, e);
       }, n._ripple.showTimer = window.setTimeout(() => {
         var i;
         (i = n == null ? void 0 : n._ripple) != null && i.showTimerCommit && (n._ripple.showTimerCommit(), n._ripple.showTimerCommit = null);
-      }, Fv);
+      }, Bv);
     } else
-      sr.show(t, n, e);
+      lr.show(t, n, e);
   }
 }
-function iu(t) {
+function eu(t) {
   t[ks] = !0;
 }
 function Rt(t) {
@@ -1988,66 +1972,66 @@ function Rt(t) {
     }
     window.setTimeout(() => {
       e._ripple && (e._ripple.touched = !1);
-    }), sr.hide(e);
+    }), lr.hide(e);
   }
 }
 function lh(t) {
   const e = t.currentTarget;
   e != null && e._ripple && (e._ripple.showTimerCommit && (e._ripple.showTimerCommit = null), window.clearTimeout(e._ripple.showTimer));
 }
-let Za = !1;
+let Ka = !1;
 function ch(t) {
-  !Za && (t.keyCode === Fc.enter || t.keyCode === Fc.space) && (Za = !0, Ha(t));
+  !Ka && (t.keyCode === Lc.enter || t.keyCode === Lc.space) && (Ka = !0, Za(t));
 }
 function uh(t) {
-  Za = !1, Rt(t);
+  Ka = !1, Rt(t);
 }
 function dh(t) {
-  Za && (Za = !1, Rt(t));
+  Ka && (Ka = !1, Rt(t));
 }
 function hh(t, e, n) {
   const {
     value: i,
     modifiers: a
   } = e, o = sh(i);
-  if (o || sr.hide(t), t._ripple = t._ripple ?? {}, t._ripple.enabled = o, t._ripple.centered = a.center, t._ripple.circle = a.circle, Ls(i) && i.class && (t._ripple.class = i.class), o && !n) {
+  if (o || lr.hide(t), t._ripple = t._ripple ?? {}, t._ripple.enabled = o, t._ripple.centered = a.center, t._ripple.circle = a.circle, Ls(i) && i.class && (t._ripple.class = i.class), o && !n) {
     if (a.stop) {
-      t.addEventListener("touchstart", iu, {
+      t.addEventListener("touchstart", eu, {
         passive: !0
-      }), t.addEventListener("mousedown", iu);
+      }), t.addEventListener("mousedown", eu);
       return;
     }
-    t.addEventListener("touchstart", Ha, {
+    t.addEventListener("touchstart", Za, {
       passive: !0
     }), t.addEventListener("touchend", Rt, {
       passive: !0
     }), t.addEventListener("touchmove", lh, {
       passive: !0
-    }), t.addEventListener("touchcancel", Rt), t.addEventListener("mousedown", Ha), t.addEventListener("mouseup", Rt), t.addEventListener("mouseleave", Rt), t.addEventListener("keydown", ch), t.addEventListener("keyup", uh), t.addEventListener("blur", dh), t.addEventListener("dragstart", Rt, {
+    }), t.addEventListener("touchcancel", Rt), t.addEventListener("mousedown", Za), t.addEventListener("mouseup", Rt), t.addEventListener("mouseleave", Rt), t.addEventListener("keydown", ch), t.addEventListener("keyup", uh), t.addEventListener("blur", dh), t.addEventListener("dragstart", Rt, {
       passive: !0
     });
   } else !o && n && fh(t);
 }
 function fh(t) {
-  t.removeEventListener("mousedown", Ha), t.removeEventListener("touchstart", Ha), t.removeEventListener("touchend", Rt), t.removeEventListener("touchmove", lh), t.removeEventListener("touchcancel", Rt), t.removeEventListener("mouseup", Rt), t.removeEventListener("mouseleave", Rt), t.removeEventListener("keydown", ch), t.removeEventListener("keyup", uh), t.removeEventListener("dragstart", Rt), t.removeEventListener("blur", dh);
+  t.removeEventListener("mousedown", Za), t.removeEventListener("touchstart", Za), t.removeEventListener("touchend", Rt), t.removeEventListener("touchmove", lh), t.removeEventListener("touchcancel", Rt), t.removeEventListener("mouseup", Rt), t.removeEventListener("mouseleave", Rt), t.removeEventListener("keydown", ch), t.removeEventListener("keyup", uh), t.removeEventListener("dragstart", Rt), t.removeEventListener("blur", dh);
 }
-function Ov(t, e) {
+function kv(t, e) {
   hh(t, e, !1);
 }
-function Dv(t) {
+function Ov(t) {
   delete t._ripple, fh(t);
 }
-function Gv(t, e) {
+function Dv(t, e) {
   if (e.value === e.oldValue)
     return;
   const n = sh(e.oldValue);
   hh(t, e, n);
 }
 const ba = {
-  mounted: Ov,
-  unmounted: Dv,
-  updated: Gv
-}, gh = $({
+  mounted: kv,
+  unmounted: Ov,
+  updated: Dv
+}, gh = W({
   label: String,
   baseColor: String,
   trueValue: null,
@@ -2056,8 +2040,8 @@ const ba = {
   ...de(),
   ...oh()
 }, "VSelectionControl");
-function Nv(t) {
-  const e = $e(ah, void 0), {
+function Gv(t) {
+  const e = We(ah, void 0), {
     densityClasses: n
   } = Hn(t), i = Be(t, "modelValue"), a = x(() => t.trueValue !== void 0 ? t.trueValue : t.value !== void 0 ? t.value : !0), o = x(() => t.falseValue !== void 0 ? t.falseValue : !1), r = x(() => !!t.multiple || t.multiple == null && Array.isArray(i.value)), s = x({
     get() {
@@ -2093,7 +2077,7 @@ function Nv(t) {
     icon: h
   };
 }
-const au = K()({
+const tu = K()({
   name: "VSelectionControl",
   directives: {
     Ripple: ba
@@ -2118,7 +2102,7 @@ const au = K()({
       backgroundColorClasses: u,
       backgroundColorStyles: d,
       trueValue: h
-    } = Nv(t), f = Pn(), g = q(!1), m = q(!1), C = j(), p = x(() => t.id || `input-${f}`), y = x(() => !t.disabled && !t.readonly);
+    } = Gv(t), f = Pn(), g = q(!1), m = q(!1), C = j(), p = x(() => t.id || `input-${f}`), y = x(() => !t.disabled && !t.readonly);
     a == null || a.onForceUpdate(() => {
       C.value && (C.value.checked = s.value);
     });
@@ -2132,7 +2116,7 @@ const au = K()({
       _.stopPropagation();
     }
     function T(_) {
-      y.value && (t.readonly && a && We(() => a.forceUpdate()), s.value = _.target.checked);
+      y.value && (t.readonly && a && $e(() => a.forceUpdate()), s.value = _.target.checked);
     }
     return ie(() => {
       var z, A;
@@ -2141,7 +2125,7 @@ const au = K()({
         props: {
           for: p.value
         }
-      }) : t.label, [P, w] = Cl(n), I = v("input", ce({
+      }) : t.label, [P, w] = gl(n), I = v("input", ce({
         ref: C,
         checked: s.value,
         disabled: !!t.disabled,
@@ -2201,7 +2185,7 @@ const au = K()({
       input: C
     };
   }
-}), $v = $({
+}), Nv = W({
   indeterminate: Boolean,
   indeterminateIcon: {
     type: Te,
@@ -2213,7 +2197,7 @@ const au = K()({
   })
 }, "VCheckboxBtn"), mh = K()({
   name: "VCheckboxBtn",
-  props: $v(),
+  props: Nv(),
   emits: {
     "update:modelValue": (t) => !0,
     "update:indeterminate": (t) => !0
@@ -2228,8 +2212,8 @@ const au = K()({
     }
     const r = x(() => i.value ? t.indeterminateIcon : t.falseIcon), s = x(() => i.value ? t.indeterminateIcon : t.trueIcon);
     return ie(() => {
-      const l = Oi(au.filterProps(t), ["modelValue"]);
-      return v(au, ce(l, {
+      const l = Oi(tu.filterProps(t), ["modelValue"]);
+      return v(tu, ce(l, {
         modelValue: a.value,
         "onUpdate:modelValue": [(c) => a.value = c, o],
         class: ["v-checkbox-btn", t.class],
@@ -2243,12 +2227,12 @@ const au = K()({
   }
 }), vh = Symbol.for("vuetify:locale");
 function Ma() {
-  const t = $e(vh);
+  const t = We(vh);
   if (!t) throw new Error("[Vuetify] Could not find injected locale instance");
   return t;
 }
 function on() {
-  const t = $e(vh);
+  const t = We(vh);
   if (!t) throw new Error("[Vuetify] Could not find injected rtl instance");
   return {
     isRtl: t.isRtl,
@@ -2280,7 +2264,7 @@ function Ch(t) {
     InputIcon: n
   };
 }
-const Wv = $({
+const Wv = W({
   disabled: Boolean,
   group: Boolean,
   hideOnLeave: Boolean,
@@ -2374,7 +2358,7 @@ function ph(t, e) {
 }
 function yh() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "";
-  const n = (arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1) ? "width" : "height", i = Vd(`offset-${n}`);
+  const n = (arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : !1) ? "width" : "height", i = Id(`offset-${n}`);
   return {
     onBeforeEnter(r) {
       r._parent = r.parentNode, r._initialStyle = {
@@ -2411,11 +2395,11 @@ function yh() {
     r.style.overflow = r._initialStyle.overflow, s != null && (r.style[n] = s), delete r._initialStyle;
   }
 }
-const Xv = $({
+const $v = W({
   target: [Object, Array]
 }, "v-dialog-transition"), _h = K()({
   name: "VDialogTransition",
-  props: Xv(),
+  props: $v(),
   setup(t, e) {
     let {
       slots: n
@@ -2433,14 +2417,14 @@ const Xv = $({
           sx: l,
           sy: c,
           speed: u
-        } = ru(t.target, a), d = ia(a, [{
+        } = iu(t.target, a), d = ia(a, [{
           transform: `translate(${r}px, ${s}px) scale(${l}, ${c})`,
           opacity: 0
         }, {}], {
           duration: 225 * u,
-          easing: yv
+          easing: pv
         });
-        (h = ou(a)) == null || h.forEach((f) => {
+        (h = nu(a)) == null || h.forEach((f) => {
           ia(f, [{
             opacity: 0
           }, {
@@ -2448,7 +2432,7 @@ const Xv = $({
             offset: 0.33
           }, {}], {
             duration: 225 * 2 * u,
-            easing: or
+            easing: rr
           });
         }), d.finished.then(() => o());
       },
@@ -2467,14 +2451,14 @@ const Xv = $({
           sx: l,
           sy: c,
           speed: u
-        } = ru(t.target, a);
+        } = iu(t.target, a);
         ia(a, [{}, {
           transform: `translate(${r}px, ${s}px) scale(${l}, ${c})`,
           opacity: 0
         }], {
           duration: 125 * u,
-          easing: _v
-        }).finished.then(() => o()), (h = ou(a)) == null || h.forEach((f) => {
+          easing: yv
+        }).finished.then(() => o()), (h = nu(a)) == null || h.forEach((f) => {
           ia(f, [{}, {
             opacity: 0,
             offset: 0.2
@@ -2482,7 +2466,7 @@ const Xv = $({
             opacity: 0
           }], {
             duration: 125 * 2 * u,
-            easing: or
+            easing: rr
           });
         });
       },
@@ -2499,13 +2483,13 @@ const Xv = $({
     }, n);
   }
 });
-function ou(t) {
+function nu(t) {
   var n;
   const e = (n = t.querySelector(":scope > .v-card, :scope > .v-sheet, :scope > .v-list")) == null ? void 0 : n.children;
   return e && [...e];
 }
-function ru(t, e) {
-  const n = Zd(t), i = _l(e), [a, o] = getComputedStyle(e).transformOrigin.split(" ").map((p) => parseFloat(p)), [r, s] = getComputedStyle(e).getPropertyValue("--v-overlay-anchor-origin").split(" ");
+function iu(t, e) {
+  const n = Zd(t), i = Cl(e), [a, o] = getComputedStyle(e).transformOrigin.split(" ").map((p) => parseFloat(p)), [r, s] = getComputedStyle(e).getPropertyValue("--v-overlay-anchor-origin").split(" ");
   let l = n.left + n.width / 2;
   r === "left" || s === "left" ? l -= n.width / 2 : (r === "right" || s === "right") && (l += n.width / 2);
   let c = n.top + n.height / 2;
@@ -2522,7 +2506,7 @@ function ru(t, e) {
 zt("fab-transition", "center center", "out-in");
 zt("dialog-bottom-transition");
 zt("dialog-top-transition");
-const su = zt("fade-transition");
+const au = zt("fade-transition");
 zt("scale-transition");
 zt("scroll-x-transition");
 zt("scroll-x-reverse-transition");
@@ -2532,7 +2516,7 @@ zt("slide-x-transition");
 zt("slide-x-reverse-transition");
 const Sh = zt("slide-y-transition");
 zt("slide-y-reverse-transition");
-const Pl = ph("expand-transition", yh()), bh = ph("expand-x-transition", yh("", !0)), Uv = $({
+const bl = ph("expand-transition", yh()), bh = ph("expand-x-transition", yh("", !0)), Xv = W({
   active: Boolean,
   color: String,
   messages: {
@@ -2547,9 +2531,9 @@ const Pl = ph("expand-transition", yh()), bh = ph("expand-x-transition", yh("", 
       group: !0
     }
   })
-}, "VMessages"), Yv = K()({
+}, "VMessages"), Uv = K()({
   name: "VMessages",
-  props: Uv(),
+  props: Xv(),
   setup(t, e) {
     let {
       slots: n
@@ -2558,7 +2542,7 @@ const Pl = ph("expand-transition", yh()), bh = ph("expand-x-transition", yh("", 
       textColorClasses: a,
       textColorStyles: o
     } = yn(x(() => t.color));
-    return ie(() => v($n, {
+    return ie(() => v(Wn, {
       transition: t.transition,
       tag: "div",
       class: ["v-messages", a.value, t.class],
@@ -2574,11 +2558,11 @@ const Pl = ph("expand-transition", yh()), bh = ph("expand-x-transition", yh("", 
       }) : r]))]
     })), {};
   }
-}), Mh = $({
+}), Mh = W({
   focused: Boolean,
   "onUpdate:focused": Zt()
 }, "focus");
-function Tl(t) {
+function Ml(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
   const n = Be(t, "focused"), i = x(() => ({
     [`${e}--focused`]: n.value
@@ -2596,7 +2580,7 @@ function Tl(t) {
     blur: o
   };
 }
-const xh = Symbol.for("vuetify:form"), jv = $({
+const xh = Symbol.for("vuetify:form"), Yv = W({
   disabled: Boolean,
   fastFail: Boolean,
   readonly: Boolean,
@@ -2609,7 +2593,7 @@ const xh = Symbol.for("vuetify:form"), jv = $({
     default: "input"
   }
 }, "form");
-function Hv(t) {
+function jv(t) {
   const e = Be(t, "modelValue"), n = x(() => t.disabled), i = x(() => t.readonly), a = q(!1), o = j([]), r = j([]);
   async function s() {
     const u = [];
@@ -2686,10 +2670,10 @@ function Hv(t) {
     resetValidation: c
   };
 }
-function wl() {
-  return $e(xh, null);
+function xl() {
+  return We(xh, null);
 }
-const Zv = $({
+const Hv = W({
   disabled: {
     type: Boolean,
     default: null
@@ -2718,9 +2702,9 @@ const Zv = $({
   validationValue: null,
   ...Mh()
 }, "validation");
-function Kv(t) {
+function Zv(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn(), n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : Pn();
-  const i = Be(t, "modelValue"), a = x(() => t.validationValue === void 0 ? i.value : t.validationValue), o = wl(), r = j([]), s = q(!0), l = x(() => !!(Nt(i.value === "" ? null : i.value).length || Nt(a.value === "" ? null : a.value).length)), c = x(() => !!(t.disabled ?? (o == null ? void 0 : o.isDisabled.value))), u = x(() => !!(t.readonly ?? (o == null ? void 0 : o.isReadonly.value))), d = x(() => {
+  const i = Be(t, "modelValue"), a = x(() => t.validationValue === void 0 ? i.value : t.validationValue), o = xl(), r = j([]), s = q(!0), l = x(() => !!(Nt(i.value === "" ? null : i.value).length || Nt(a.value === "" ? null : a.value).length)), c = x(() => !!(t.disabled ?? (o == null ? void 0 : o.isDisabled.value))), u = x(() => !!(t.readonly ?? (o == null ? void 0 : o.isReadonly.value))), d = x(() => {
     var S;
     return (S = t.errorMessages) != null && S.length ? Nt(t.errorMessages).concat(r.value).slice(0, Math.max(0, +t.maxErrors)) : r.value;
   }), h = x(() => {
@@ -2771,7 +2755,7 @@ function Kv(t) {
     o == null || o.update(C.value, f.value, d.value);
   });
   function p() {
-    i.value = null, We(y);
+    i.value = null, $e(y);
   }
   function y() {
     s.value = !0, h.value.lazy ? r.value = [] : M(!0);
@@ -2808,7 +2792,7 @@ function Kv(t) {
     validationClasses: m
   };
 }
-const El = $({
+const Pl = W({
   id: String,
   appendIcon: Te,
   centerAffix: {
@@ -2833,11 +2817,11 @@ const El = $({
   "onClick:append": Zt(),
   ...de(),
   ...Tn(),
-  ...Zv()
-}, "VInput"), lr = K()({
+  ...Hv()
+}, "VInput"), cr = K()({
   name: "VInput",
   props: {
-    ...El()
+    ...Pl()
   },
   emits: {
     "update:modelValue": (t) => !0
@@ -2866,7 +2850,7 @@ const El = $({
       resetValidation: M,
       validate: S,
       validationClasses: b
-    } = Kv(t, "v-input", c), T = x(() => ({
+    } = Zv(t, "v-input", c), T = x(() => ({
       id: c,
       messagesId: u,
       isDirty: h,
@@ -2907,7 +2891,7 @@ const El = $({
         name: "append"
       }, null), (V = i.append) == null ? void 0 : V.call(i, T.value)]), z && v("div", {
         class: "v-input__details"
-      }, [v(Yv, {
+      }, [v(Uv, {
         id: u.value,
         active: I,
         messages: _.value
@@ -2922,12 +2906,12 @@ const El = $({
       errorMessages: d
     };
   }
-}), Tr = ["sm", "md", "lg", "xl", "xxl"], qv = Symbol.for("vuetify:display"), Ph = $({
+}), Tr = ["sm", "md", "lg", "xl", "xxl"], Kv = Symbol.for("vuetify:display"), Ph = W({
   mobileBreakpoint: [Number, String]
 }, "display");
 function wr() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {}, e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
-  const n = $e(qv);
+  const n = We(Kv);
   if (!n) throw new Error("Could not find Vuetify display injection");
   const i = x(() => {
     if (!t.mobileBreakpoint) return n.mobile.value;
@@ -2942,7 +2926,7 @@ function wr() {
     mobile: i
   };
 }
-const Er = $({
+const Er = W({
   modelValue: {
     type: null,
     default: void 0
@@ -2952,19 +2936,19 @@ const Er = $({
   max: Number,
   selectedClass: String,
   disabled: Boolean
-}, "group"), So = $({
+}, "group"), bo = W({
   value: null,
   disabled: Boolean,
   selectedClass: String
 }, "group-item");
-function bo(t, e) {
+function Mo(t, e) {
   let n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : !0;
   const i = qe("useGroupItem");
   if (!i)
     throw new Error("[Vuetify] useGroupItem composable must be used inside a component setup function");
   const a = Pn();
   ot(Symbol.for(`${e.description}:id`), a);
-  const o = $e(e, null);
+  const o = We(e, null);
   if (!o) {
     if (!n) return o;
     throw new Error(`[Vuetify] Could not find useGroup injection with symbol ${e.description}`);
@@ -2993,14 +2977,14 @@ function bo(t, e) {
     group: o
   };
 }
-function Mo(t, e) {
+function xo(t, e) {
   let n = !1;
   const i = Nn([]), a = Be(t, "modelValue", [], (h) => h == null ? [] : Th(i, Nt(h)), (h) => {
-    const f = Qv(i, h);
+    const f = Jv(i, h);
     return t.multiple ? f : f[0];
   }), o = qe("useGroup");
   function r(h, f) {
-    const g = h, m = Symbol.for(`${e.description}:id`), p = $a(m, o == null ? void 0 : o.vnode).indexOf(f);
+    const g = h, m = Symbol.for(`${e.description}:id`), p = Wa(m, o == null ? void 0 : o.vnode).indexOf(f);
     O(g.value) == null && (g.value = p), p > -1 ? i.splice(p, 0, g) : i.push(g);
   }
   function s(h) {
@@ -3055,11 +3039,11 @@ function Mo(t, e) {
     isSelected: (h) => a.value.includes(h),
     selectedClass: x(() => t.selectedClass),
     items: x(() => i),
-    getItemIndex: (h) => Jv(i, h)
+    getItemIndex: (h) => qv(i, h)
   };
   return ot(e, d), d;
 }
-function Jv(t, e) {
+function qv(t, e) {
   const n = Th(t, [e]);
   return n.length ? t.findIndex((i) => i.id === n[0]) : -1;
 }
@@ -3070,7 +3054,7 @@ function Th(t, e) {
     (a == null ? void 0 : a.value) != null ? n.push(a.id) : o != null && n.push(o.id);
   }), n;
 }
-function Qv(t, e) {
+function Jv(t, e) {
   const n = [];
   return e.forEach((i) => {
     const a = t.findIndex((o) => o.id === i);
@@ -3090,7 +3074,7 @@ function Fi(t) {
     Ct(() => {
       a.disconnect();
     }), J(n, (o, r) => {
-      r && (a.unobserve(er(r)), i.value = void 0), o && a.observe(er(o));
+      r && (a.unobserve(tr(r)), i.value = void 0), o && a.observe(tr(o));
     }, {
       flush: "post"
     });
@@ -3100,11 +3084,11 @@ function Fi(t) {
     contentRect: ul(i)
   };
 }
-function lu(t) {
+function ou(t) {
   const n = Math.abs(t);
   return Math.sign(t) * (n / ((1 / 0.501 - 2) * (1 - n) + 1));
 }
-function cu(t) {
+function ru(t) {
   let {
     selectedElement: e,
     containerSize: n,
@@ -3116,7 +3100,7 @@ function cu(t) {
   const s = r ? e.clientWidth : e.clientHeight, l = r ? e.offsetLeft : e.offsetTop, c = a && r ? i - l - s : l, u = n + o, d = s + c, h = s * 0.4;
   return c <= o ? o = Math.max(c - h, 0) : u <= d && (o = Math.min(o - (u - d - h), i - n)), o;
 }
-function eC(t) {
+function Qv(t) {
   let {
     selectedElement: e,
     containerSize: n,
@@ -3127,7 +3111,7 @@ function eC(t) {
   const r = o ? e.clientWidth : e.clientHeight, s = o ? e.offsetLeft : e.offsetTop, l = a && o ? i - s - r / 2 - n / 2 : s + r / 2 - n / 2;
   return Math.min(i - n, Math.max(0, l));
 }
-const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
+const wh = Symbol.for("vuetify:v-slide-group"), Eh = W({
   centerActive: Boolean,
   direction: {
     type: String,
@@ -3170,7 +3154,7 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
     } = on(), {
       displayClasses: a,
       mobile: o
-    } = wr(t), r = Mo(t, t.symbol), s = q(!1), l = q(0), c = q(0), u = q(0), d = x(() => t.direction === "horizontal"), {
+    } = wr(t), r = xo(t, t.symbol), s = q(!1), l = q(0), c = q(0), u = q(0), d = x(() => t.direction === "horizontal"), {
       resizeRef: h,
       contentRect: f
     } = Fi(), {
@@ -3182,19 +3166,19 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
       J(() => [r.selected.value, f.value, m.value, d.value], () => {
         cancelAnimationFrame(k), k = requestAnimationFrame(() => {
           if (f.value && m.value) {
-            const W = d.value ? "width" : "height";
-            c.value = f.value[W], u.value = m.value[W], s.value = c.value + 1 < u.value;
+            const $ = d.value ? "width" : "height";
+            c.value = f.value[$], u.value = m.value[$], s.value = c.value + 1 < u.value;
           }
           if (C.value >= 0 && g.value) {
-            const W = g.value.children[p.value];
-            C.value === 0 || !s.value ? l.value = 0 : t.centerActive ? l.value = eC({
-              selectedElement: W,
+            const $ = g.value.children[p.value];
+            C.value === 0 || !s.value ? l.value = 0 : t.centerActive ? l.value = Qv({
+              selectedElement: $,
               containerSize: c.value,
               contentSize: u.value,
               isRtl: i.value,
               isHorizontal: d.value
-            }) : s.value && (l.value = cu({
-              selectedElement: W,
+            }) : s.value && (l.value = ru({
+              selectedElement: $,
               containerSize: c.value,
               contentSize: u.value,
               isRtl: i.value,
@@ -3208,17 +3192,17 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
     const y = q(!1);
     let M = 0, S = 0;
     function b(k) {
-      const W = d.value ? "clientX" : "clientY";
-      S = (i.value && d.value ? -1 : 1) * l.value, M = k.touches[0][W], y.value = !0;
+      const $ = d.value ? "clientX" : "clientY";
+      S = (i.value && d.value ? -1 : 1) * l.value, M = k.touches[0][$], y.value = !0;
     }
     function T(k) {
       if (!s.value) return;
-      const W = d.value ? "clientX" : "clientY", X = i.value && d.value ? -1 : 1;
-      l.value = X * (S + M - k.touches[0][W]);
+      const $ = d.value ? "clientX" : "clientY", X = i.value && d.value ? -1 : 1;
+      l.value = X * (S + M - k.touches[0][$]);
     }
     function _(k) {
-      const W = u.value - c.value;
-      l.value < 0 || !s.value ? l.value = 0 : l.value >= W && (l.value = W), y.value = !1;
+      const $ = u.value - c.value;
+      l.value < 0 || !s.value ? l.value = 0 : l.value >= $ && (l.value = $), y.value = !1;
     }
     function P() {
       h.value && (h.value[d.value ? "scrollLeft" : "scrollTop"] = 0);
@@ -3226,10 +3210,10 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
     const w = q(!1);
     function I(k) {
       if (w.value = !0, !(!s.value || !g.value)) {
-        for (const W of k.composedPath())
+        for (const $ of k.composedPath())
           for (const X of g.value.children)
-            if (X === W) {
-              l.value = cu({
+            if (X === $) {
+              l.value = ru({
                 selectedElement: X,
                 containerSize: c.value,
                 contentSize: u.value,
@@ -3245,17 +3229,17 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
       w.value = !1;
     }
     function A(k) {
-      var W;
-      !w.value && !(k.relatedTarget && ((W = g.value) != null && W.contains(k.relatedTarget))) && V();
+      var $;
+      !w.value && !(k.relatedTarget && (($ = g.value) != null && $.contains(k.relatedTarget))) && V();
     }
     function R(k) {
       g.value && (d.value ? k.key === "ArrowRight" ? V(i.value ? "prev" : "next") : k.key === "ArrowLeft" && V(i.value ? "next" : "prev") : k.key === "ArrowDown" ? V("next") : k.key === "ArrowUp" && V("prev"), k.key === "Home" ? V("first") : k.key === "End" && V("last"));
     }
     function V(k) {
-      var W, X, L, ee, Q;
+      var $, X, L, ee, Q;
       if (g.value)
         if (!k)
-          (W = nr(g.value)[0]) == null || W.focus();
+          ($ = ir(g.value)[0]) == null || $.focus();
         else if (k === "next") {
           const ae = (X = g.value.querySelector(":focus")) == null ? void 0 : X.nextElementSibling;
           ae ? ae.focus() : V("first");
@@ -3265,15 +3249,15 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
         } else k === "first" ? (ee = g.value.firstElementChild) == null || ee.focus() : k === "last" && ((Q = g.value.lastElementChild) == null || Q.focus());
     }
     function N(k) {
-      const W = l.value + (k === "prev" ? -1 : 1) * c.value;
-      l.value = li(W, 0, u.value - c.value);
+      const $ = l.value + (k === "prev" ? -1 : 1) * c.value;
+      l.value = li($, 0, u.value - c.value);
     }
     const G = x(() => {
-      let k = l.value > u.value - c.value ? -(u.value - c.value) + lu(u.value - c.value - l.value) : -l.value;
-      l.value <= 0 && (k = lu(-l.value));
-      const W = i.value && d.value ? -1 : 1;
+      let k = l.value > u.value - c.value ? -(u.value - c.value) + ou(u.value - c.value - l.value) : -l.value;
+      l.value <= 0 && (k = ou(-l.value));
+      const $ = i.value && d.value ? -1 : 1;
       return {
-        transform: `translate${d.value ? "X" : "Y"}(${W * k}px)`,
+        transform: `translate${d.value ? "X" : "Y"}(${$ * k}px)`,
         transition: y.value ? "none" : "",
         willChange: y.value ? "transform" : ""
       };
@@ -3315,14 +3299,14 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
       onFocus: A
     }, {
       default: () => {
-        var k, W, X;
+        var k, $, X;
         return [E.value && v("div", {
           key: "prev",
           class: ["v-slide-group__prev", {
             "v-slide-group__prev--disabled": !B.value
           }],
           onClick: () => B.value && N("prev")
-        }, [((k = n.prev) == null ? void 0 : k.call(n, U.value)) ?? v(su, null, {
+        }, [((k = n.prev) == null ? void 0 : k.call(n, U.value)) ?? v(au, null, {
           default: () => [v(Ae, {
             icon: i.value ? t.nextIcon : t.prevIcon
           }, null)]
@@ -3341,13 +3325,13 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
           onFocusin: I,
           onFocusout: z,
           onKeydown: R
-        }, [(W = n.default) == null ? void 0 : W.call(n, U.value)])]), E.value && v("div", {
+        }, [($ = n.default) == null ? void 0 : $.call(n, U.value)])]), E.value && v("div", {
           key: "next",
           class: ["v-slide-group__next", {
             "v-slide-group__next--disabled": !D.value
           }],
           onClick: () => D.value && N("next")
-        }, [((X = n.next) == null ? void 0 : X.call(n, U.value)) ?? v(su, null, {
+        }, [((X = n.next) == null ? void 0 : X.call(n, U.value)) ?? v(au, null, {
           default: () => [v(Ae, {
             icon: i.value ? t.prevIcon : t.nextIcon
           }, null)]
@@ -3360,7 +3344,7 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
       focus: V
     };
   }
-}), Ah = Symbol.for("vuetify:v-chip-group"), tC = $({
+}), Ah = Symbol.for("vuetify:v-chip-group"), eC = W({
   column: Boolean,
   filter: Boolean,
   valueComparator: {
@@ -3380,7 +3364,7 @@ const wh = Symbol.for("vuetify:v-slide-group"), Eh = $({
 }, "VChipGroup");
 K()({
   name: "VChipGroup",
-  props: tC(),
+  props: eC(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -3396,7 +3380,7 @@ K()({
       next: r,
       prev: s,
       selected: l
-    } = Mo(t, Ah);
+    } = xo(t, Ah);
     return Mn({
       VChip: {
         color: te(t, "color"),
@@ -3426,7 +3410,7 @@ K()({
     }), {};
   }
 });
-const nC = $({
+const tC = W({
   defaults: Object,
   disabled: Boolean,
   reset: [Number, String],
@@ -3434,7 +3418,7 @@ const nC = $({
   scoped: Boolean
 }, "VDefaultsProvider"), je = K(!1)({
   name: "VDefaultsProvider",
-  props: nC(),
+  props: tC(),
   setup(t, e) {
     let {
       slots: n
@@ -3445,7 +3429,7 @@ const nC = $({
       reset: o,
       root: r,
       scoped: s
-    } = Ld(t);
+    } = Rd(t);
     return Mn(i, {
       reset: o,
       root: r,
@@ -3456,14 +3440,14 @@ const nC = $({
       return (l = n.default) == null ? void 0 : l.call(n);
     };
   }
-}), wn = $({
+}), wn = W({
   border: [Boolean, Number, String]
 }, "border");
 function En(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
   return {
     borderClasses: x(() => {
-      const i = fo(t) ? t.value : t.border, a = [];
+      const i = go(t) ? t.value : t.border, a = [];
       if (i === !0 || i === "")
         a.push(`${e}--border`);
       else if (typeof i == "string" || i === 0)
@@ -3473,7 +3457,7 @@ function En(t) {
     })
   };
 }
-const rn = $({
+const rn = W({
   elevation: {
     type: [Number, String],
     validator(t) {
@@ -3487,12 +3471,12 @@ const rn = $({
 function sn(t) {
   return {
     elevationClasses: x(() => {
-      const n = fo(t) ? t.value : t.elevation, i = [];
+      const n = go(t) ? t.value : t.elevation, i = [];
       return n == null || i.push(`elevation-${n}`), i;
     })
   };
 }
-function iC() {
+function nC() {
   const t = qe("useRoute");
   return x(() => {
     var e;
@@ -3504,14 +3488,14 @@ function Rh() {
   return (e = (t = qe("useRouter")) == null ? void 0 : t.proxy) == null ? void 0 : e.$router;
 }
 function Ar(t, e) {
-  const n = Bd("RouterLink"), i = x(() => !!(t.href || t.to)), a = x(() => (i == null ? void 0 : i.value) || Dc(e, "click") || Dc(t, "click"));
+  const n = zd("RouterLink"), i = x(() => !!(t.href || t.to)), a = x(() => (i == null ? void 0 : i.value) || Fc(e, "click") || Fc(t, "click"));
   if (typeof n == "string")
     return {
       isLink: i,
       isClickable: a,
       href: te(t, "href")
     };
-  const o = t.to ? n.useLink(t) : void 0, r = iC();
+  const o = t.to ? n.useLink(t) : void 0, r = nC();
   return {
     isLink: i,
     isClickable: a,
@@ -3524,16 +3508,16 @@ function Ar(t, e) {
     href: x(() => t.to ? o == null ? void 0 : o.route.value.href : t.href)
   };
 }
-const Rr = $({
+const Rr = W({
   href: String,
   replace: Boolean,
   to: [String, Object],
   exact: Boolean
 }, "router");
 let cs = !1;
-function aC(t, e) {
+function iC(t, e) {
   let n = !1, i, a;
-  ft && (We(() => {
+  ft && ($e(() => {
     window.addEventListener("popstate", o), i = t == null ? void 0 : t.beforeEach((r, s, l) => {
       cs ? n ? e(l) : l() : setTimeout(() => n ? e(l) : l()), cs = !0;
     }), a = t == null ? void 0 : t.afterEach(() => {
@@ -3547,7 +3531,7 @@ function aC(t, e) {
     (s = r.state) != null && s.replaced || (n = !0, setTimeout(() => n = !1));
   }
 }
-const oC = $({
+const aC = W({
   activeClass: String,
   appendAvatar: String,
   appendIcon: Te,
@@ -3589,10 +3573,10 @@ const oC = $({
   ...de(),
   ...Tn(),
   ...rn(),
-  ...So(),
+  ...bo(),
   ...pt(),
   ...Rr(),
-  ...Co(),
+  ...po(),
   ...Le({
     tag: "span"
   }),
@@ -3605,7 +3589,7 @@ const oC = $({
   directives: {
     Ripple: ba
   },
-  props: oC(),
+  props: aC(),
   emits: {
     "click:close": (t) => !0,
     "update:modelValue": (t) => !0,
@@ -3626,7 +3610,7 @@ const oC = $({
       colorClasses: s,
       colorStyles: l,
       variantClasses: c
-    } = _o(t), {
+    } = So(t), {
       densityClasses: u
     } = Hn(t), {
       elevationClasses: d
@@ -3634,9 +3618,9 @@ const oC = $({
       roundedClasses: h
     } = yt(t), {
       sizeClasses: f
-    } = po(t), {
+    } = yo(t), {
       themeClasses: g
-    } = Xe(t), m = Be(t, "modelValue"), C = bo(t, Ah, !1), p = Ar(t, n), y = x(() => t.link !== !1 && p.isLink.value), M = x(() => !t.disabled && t.link !== !1 && (!!C || t.link || p.isClickable.value)), S = x(() => ({
+    } = Xe(t), m = Be(t, "modelValue"), C = Mo(t, Ah, !1), p = Ar(t, n), y = x(() => t.link !== !1 && p.isLink.value), M = x(() => !t.disabled && t.link !== !1 && (!!C || t.link || p.isClickable.value)), S = x(() => ({
       "aria-label": o(t.closeLabel),
       onClick(_) {
         _.stopPropagation(), m.value = !1, i("click:close", _);
@@ -3669,7 +3653,7 @@ const oC = $({
       }, {
         default: () => {
           var N;
-          return [yo(M.value, "v-chip"), z && v(bh, {
+          return [_o(M.value, "v-chip"), z && v(bh, {
             key: "filter"
           }, {
             default: () => [Ze(v("div", {
@@ -3766,7 +3750,7 @@ const oC = $({
   }
 }), Gs = Symbol.for("vuetify:list");
 function zh() {
-  const t = $e(Gs, {
+  const t = We(Gs, {
     hasPrepend: q(!1),
     updateHasPrepend: () => null
   }), e = {
@@ -3778,9 +3762,9 @@ function zh() {
   return ot(Gs, e), t;
 }
 function Lh() {
-  return $e(Gs, null);
+  return We(Gs, null);
 }
-const rC = {
+const oC = {
   open: (t) => {
     let {
       id: e,
@@ -3817,7 +3801,7 @@ const rC = {
     return i;
   },
   select: () => null
-}, sC = {
+}, rC = {
   open: Vh.open,
   select: (t) => {
     let {
@@ -3833,7 +3817,7 @@ const rC = {
       o.push(r), r = a.get(r);
     return new Set(o);
   }
-}, Al = (t) => {
+}, Tl = (t) => {
   const e = {
     select: (n) => {
       let {
@@ -3871,7 +3855,7 @@ const rC = {
   };
   return e;
 }, Bh = (t) => {
-  const e = Al(t);
+  const e = Tl(t);
   return {
     select: (i) => {
       let {
@@ -3893,8 +3877,8 @@ const rC = {
     },
     out: (i, a, o) => e.out(i, a, o)
   };
-}, lC = (t) => {
-  const e = Al(t);
+}, sC = (t) => {
+  const e = Tl(t);
   return {
     select: (i) => {
       let {
@@ -3913,7 +3897,7 @@ const rC = {
     in: e.in,
     out: e.out
   };
-}, cC = (t) => {
+}, lC = (t) => {
   const e = Bh(t);
   return {
     select: (i) => {
@@ -3933,7 +3917,7 @@ const rC = {
     in: e.in,
     out: e.out
   };
-}, uC = (t) => {
+}, cC = (t) => {
   const e = {
     select: (n) => {
       let {
@@ -3979,7 +3963,7 @@ const rC = {
     }
   };
   return e;
-}, Ka = Symbol.for("vuetify:nested"), Fh = {
+}, qa = Symbol.for("vuetify:nested"), Fh = {
   id: q(),
   root: {
     register: () => null,
@@ -3993,36 +3977,36 @@ const rC = {
     selected: j(/* @__PURE__ */ new Map()),
     selectedValues: j([])
   }
-}, dC = $({
+}, uC = W({
   selectStrategy: [String, Function],
   openStrategy: [String, Object],
   opened: Array,
   selected: Array,
   mandatory: Boolean
-}, "nested"), hC = (t) => {
+}, "nested"), dC = (t) => {
   let e = !1;
   const n = j(/* @__PURE__ */ new Map()), i = j(/* @__PURE__ */ new Map()), a = Be(t, "opened", t.opened, (d) => new Set(d), (d) => [...d.values()]), o = x(() => {
     if (typeof t.selectStrategy == "object") return t.selectStrategy;
     switch (t.selectStrategy) {
       case "single-leaf":
-        return cC(t.mandatory);
-      case "leaf":
         return lC(t.mandatory);
+      case "leaf":
+        return sC(t.mandatory);
       case "independent":
-        return Al(t.mandatory);
+        return Tl(t.mandatory);
       case "single-independent":
         return Bh(t.mandatory);
       case "classic":
       default:
-        return uC(t.mandatory);
+        return cC(t.mandatory);
     }
   }), r = x(() => {
     if (typeof t.openStrategy == "object") return t.openStrategy;
     switch (t.openStrategy) {
       case "list":
-        return sC;
-      case "single":
         return rC;
+      case "single":
+        return oC;
       case "multiple":
       default:
         return Vh;
@@ -4112,9 +4096,9 @@ const rC = {
       parents: i
     }
   };
-  return ot(Ka, u), u.root;
+  return ot(qa, u), u.root;
 }, kh = (t, e) => {
-  const n = $e(Ka, Fh), i = Symbol(Pn()), a = x(() => t.value !== void 0 ? t.value : i), o = {
+  const n = We(qa, Fh), i = Symbol(Pn()), a = x(() => t.value !== void 0 ? t.value : i), o = {
     ...n,
     id: a,
     open: (r, s) => n.root.open(a.value, r, s),
@@ -4129,15 +4113,15 @@ const rC = {
   };
   return !n.isGroupActivator && n.root.register(a.value, n.id.value, e), Ct(() => {
     !n.isGroupActivator && n.root.unregister(a.value);
-  }), e && ot(Ka, o), o;
-}, fC = () => {
-  const t = $e(Ka, Fh);
-  ot(Ka, {
+  }), e && ot(qa, o), o;
+}, hC = () => {
+  const t = We(qa, Fh);
+  ot(qa, {
     ...t,
     isGroupActivator: !0
   });
 };
-function xo() {
+function Po() {
   const t = q(!1);
   return Ke(() => {
     window.requestAnimationFrame(() => {
@@ -4150,18 +4134,18 @@ function xo() {
     isBooted: ul(t)
   };
 }
-const gC = mo({
+const fC = vo({
   name: "VListGroupActivator",
   setup(t, e) {
     let {
       slots: n
     } = e;
-    return fC(), () => {
+    return hC(), () => {
       var i;
       return (i = n.default) == null ? void 0 : i.call(n);
     };
   }
-}), mC = $({
+}), gC = W({
   /* @deprecated */
   activeColor: String,
   baseColor: String,
@@ -4182,9 +4166,9 @@ const gC = mo({
   value: null,
   ...de(),
   ...Le()
-}, "VListGroup"), uu = K()({
+}, "VListGroup"), su = K()({
   name: "VListGroup",
-  props: mC(),
+  props: gC(),
   setup(t, e) {
     let {
       slots: n
@@ -4195,7 +4179,7 @@ const gC = mo({
       id: o
     } = kh(te(t, "value"), !0), r = x(() => `v-list-group--id-${String(o.value)}`), s = Lh(), {
       isBooted: l
-    } = xo();
+    } = Po();
     function c(f) {
       a(!i.value, f);
     }
@@ -4227,15 +4211,15 @@ const gC = mo({
       default: () => [n.activator && v(je, {
         defaults: h.value
       }, {
-        default: () => [v(gC, null, {
+        default: () => [v(fC, null, {
           default: () => [n.activator({
             props: u.value,
             isOpen: i.value
           })]
         })]
-      }), v($n, {
+      }), v(Wn, {
         transition: {
-          component: Pl
+          component: bl
         },
         disabled: !l.value
       }, {
@@ -4250,7 +4234,7 @@ const gC = mo({
       })]
     })), {};
   }
-}), vC = vo("v-list-item-subtitle"), Oh = vo("v-list-item-title"), CC = $({
+}), mC = Co("v-list-item-subtitle"), Oh = Co("v-list-item-title"), vC = W({
   active: {
     type: Boolean,
     default: void 0
@@ -4297,7 +4281,7 @@ const gC = mo({
   directives: {
     Ripple: ba
   },
-  props: CC(),
+  props: vC(),
   emits: {
     click: (t) => !0
   },
@@ -4338,7 +4322,7 @@ const gC = mo({
       colorClasses: _,
       colorStyles: P,
       variantClasses: w
-    } = _o(S), {
+    } = So(S), {
       densityClasses: I
     } = Hn(t), {
       dimensionStyles: z
@@ -4360,8 +4344,8 @@ const gC = mo({
       (E.key === "Enter" || E.key === " ") && (E.preventDefault(), G(E));
     }
     return ie(() => {
-      const E = C.value ? "a" : t.tag, B = i.title || t.title != null, D = i.subtitle || t.subtitle != null, k = !!(t.appendAvatar || t.appendIcon), W = !!(k || i.append), X = !!(t.prependAvatar || t.prependIcon), L = !!(X || i.prepend);
-      return g == null || g.updateHasPrepend(L), t.activeColor && dv("active-color", ["color", "base-color"]), Ze(v(E, {
+      const E = C.value ? "a" : t.tag, B = i.title || t.title != null, D = i.subtitle || t.subtitle != null, k = !!(t.appendAvatar || t.appendIcon), $ = !!(k || i.append), X = !!(t.prependAvatar || t.prependIcon), L = !!(X || i.prepend);
+      return g == null || g.updateHasPrepend(L), t.activeColor && uv("active-color", ["color", "base-color"]), Ze(v(E, {
         class: ["v-list-item", {
           "v-list-item--active": m.value,
           "v-list-item--disabled": t.disabled,
@@ -4379,7 +4363,7 @@ const gC = mo({
       }, {
         default: () => {
           var ee;
-          return [yo(p.value || m.value, "v-list-item"), L && v("div", {
+          return [_o(p.value || m.value, "v-list-item"), L && v("div", {
             key: "prepend",
             class: "v-list-item__prepend"
           }, [i.prepend ? v(je, {
@@ -4425,7 +4409,7 @@ const gC = mo({
                 title: t.title
               })) ?? t.title];
             }
-          }), D && v(vC, {
+          }), D && v(mC, {
             key: "subtitle"
           }, {
             default: () => {
@@ -4434,7 +4418,7 @@ const gC = mo({
                 subtitle: t.subtitle
               })) ?? t.subtitle];
             }
-          }), (ee = i.default) == null ? void 0 : ee.call(i, N.value)]), W && v("div", {
+          }), (ee = i.default) == null ? void 0 : ee.call(i, N.value)]), $ && v("div", {
             key: "append",
             class: "v-list-item__append"
           }, [i.append ? v(je, {
@@ -4473,16 +4457,16 @@ const gC = mo({
       }), [[an("ripple"), p.value && t.ripple]]);
     }), {};
   }
-}), pC = $({
+}), CC = W({
   color: String,
   inset: Boolean,
   sticky: Boolean,
   title: String,
   ...de(),
   ...Le()
-}, "VListSubheader"), yC = K()({
+}, "VListSubheader"), pC = K()({
   name: "VListSubheader",
-  props: pC(),
+  props: CC(),
   setup(t, e) {
     let {
       slots: n
@@ -4511,7 +4495,7 @@ const gC = mo({
       });
     }), {};
   }
-}), _C = $({
+}), yC = W({
   color: String,
   inset: Boolean,
   length: [Number, String],
@@ -4519,9 +4503,9 @@ const gC = mo({
   vertical: Boolean,
   ...de(),
   ...ke()
-}, "VDivider"), SC = K()({
+}, "VDivider"), _C = K()({
   name: "VDivider",
-  props: _C(),
+  props: yC(),
   setup(t, e) {
     let {
       attrs: n
@@ -4546,12 +4530,12 @@ const gC = mo({
       role: `${n.role || "separator"}`
     }, null)), {};
   }
-}), bC = $({
+}), SC = W({
   items: Array,
   returnObject: Boolean
 }, "VListChildren"), Dh = K()({
   name: "VListChildren",
-  props: bC(),
+  props: SC(),
   setup(t, e) {
     let {
       slots: n
@@ -4569,11 +4553,11 @@ const gC = mo({
         if (l === "divider")
           return ((h = n.divider) == null ? void 0 : h.call(n, {
             props: s
-          })) ?? v(SC, s, null);
+          })) ?? v(_C, s, null);
         if (l === "subheader")
           return ((f = n.subheader) == null ? void 0 : f.call(n, {
             props: s
-          })) ?? v(yC, s, null);
+          })) ?? v(pC, s, null);
         const u = {
           subtitle: n.subtitle ? (g) => {
             var m;
@@ -4603,8 +4587,8 @@ const gC = mo({
               item: c
             });
           } : void 0
-        }, d = uu.filterProps(s);
-        return r ? v(uu, ce({
+        }, d = su.filterProps(s);
+        return r ? v(su, ce({
           value: s == null ? void 0 : s.value
         }, d), {
           activator: (g) => {
@@ -4631,7 +4615,7 @@ const gC = mo({
       }));
     };
   }
-}), Gh = $({
+}), Gh = W({
   items: {
     type: Array,
     default: () => []
@@ -4678,7 +4662,7 @@ function Nh(t, e) {
     n.push(Ns(t, i));
   return n;
 }
-function $h(t) {
+function Wh(t) {
   const e = x(() => Nh(t, t.items)), n = x(() => e.value.some((o) => o.value === null));
   function i(o) {
     return n.value || (o = o.filter((r) => r !== null)), o.map((r) => t.returnObject && typeof r == "string" ? Ns(t, r) : e.value.find((s) => t.valueComparator(r, s.value)) || Ns(t, r));
@@ -4702,11 +4686,11 @@ function $h(t) {
     transformOut: a
   };
 }
-function MC(t) {
+function bC(t) {
   return typeof t == "string" || typeof t == "number" || typeof t == "boolean";
 }
-function xC(t, e) {
-  const n = hn(e, t.itemType, "item"), i = MC(e) ? e : hn(e, t.itemTitle), a = hn(e, t.itemValue, void 0), o = hn(e, t.itemChildren), r = t.itemProps === !0 ? Oi(e, ["children"]) : hn(e, t.itemProps), s = {
+function MC(t, e) {
+  const n = hn(e, t.itemType, "item"), i = bC(e) ? e : hn(e, t.itemTitle), a = hn(e, t.itemValue, void 0), o = hn(e, t.itemChildren), r = t.itemProps === !0 ? Oi(e, ["children"]) : hn(e, t.itemProps), s = {
     title: i,
     value: a,
     ...r
@@ -4716,22 +4700,22 @@ function xC(t, e) {
     title: s.title,
     value: s.value,
     props: s,
-    children: n === "item" && o ? Wh(t, o) : void 0,
+    children: n === "item" && o ? $h(t, o) : void 0,
     raw: e
   };
 }
-function Wh(t, e) {
+function $h(t, e) {
   const n = [];
   for (const i of e)
-    n.push(xC(t, i));
+    n.push(MC(t, i));
   return n;
 }
-function PC(t) {
+function xC(t) {
   return {
-    items: x(() => Wh(t, t.items))
+    items: x(() => $h(t, t.items))
   };
 }
-const TC = $({
+const PC = W({
   baseColor: String,
   /* @deprecated */
   activeColor: String,
@@ -4746,7 +4730,7 @@ const TC = $({
   },
   slim: Boolean,
   nav: Boolean,
-  ...dC({
+  ...uC({
     selectStrategy: "single-leaf",
     openStrategy: "list"
   }),
@@ -4768,7 +4752,7 @@ const TC = $({
   })
 }, "VList"), xa = K()({
   name: "VList",
-  props: TC(),
+  props: PC(),
   emits: {
     "update:selected": (t) => !0,
     "update:opened": (t) => !0,
@@ -4781,7 +4765,7 @@ const TC = $({
     } = e;
     const {
       items: i
-    } = PC(t), {
+    } = xC(t), {
       themeClasses: a
     } = Xe(t), {
       backgroundColorClasses: o,
@@ -4799,7 +4783,7 @@ const TC = $({
     } = yt(t), {
       open: h,
       select: f
-    } = hC(t), g = x(() => t.lines ? `v-list--${t.lines}-line` : void 0), m = te(t, "activeColor"), C = te(t, "baseColor"), p = te(t, "color");
+    } = dC(t), g = x(() => t.lines ? `v-list--${t.lines}-line` : void 0), m = te(t, "activeColor"), C = te(t, "baseColor"), p = te(t, "color");
     zh(), Mn({
       VListGroup: {
         activeColor: m,
@@ -4852,7 +4836,7 @@ const TC = $({
     }
     function w(I) {
       if (M.value)
-        return ir(M.value, I);
+        return ar(M.value, I);
     }
     return ie(() => v(t.tag, {
       ref: M,
@@ -4888,13 +4872,13 @@ function us(t, e) {
     y: t.y + e.y
   };
 }
-function wC(t, e) {
+function TC(t, e) {
   return {
     x: t.x - e.x,
     y: t.y - e.y
   };
 }
-function du(t, e) {
+function lu(t, e) {
   if (t.side === "top" || t.side === "bottom") {
     const {
       side: n,
@@ -4920,11 +4904,11 @@ function du(t, e) {
   }, e);
 }
 const Xh = {
-  static: RC,
+  static: AC,
   // specific viewport position, usually centered
-  connected: zC
+  connected: IC
   // connected to a certain element
-}, EC = $({
+}, wC = W({
   locationStrategy: {
     type: [String, Function],
     default: "static",
@@ -4940,7 +4924,7 @@ const Xh = {
   },
   offset: [Number, String, Array]
 }, "VOverlay-location-strategies");
-function AC(t, e) {
+function EC(t, e) {
   const n = j({}), i = j();
   ft && Kt(() => !!(e.isActive.value && t.locationStrategy), (o) => {
     var r, s;
@@ -4959,15 +4943,15 @@ function AC(t, e) {
     updateLocation: i
   };
 }
-function RC() {
+function AC() {
 }
-function IC(t, e) {
+function RC(t, e) {
   e ? t.style.removeProperty("left") : t.style.removeProperty("right");
-  const n = _l(t);
+  const n = Cl(t);
   return e ? n.x += parseFloat(t.style.right || 0) : n.x -= parseFloat(t.style.left || 0), n.y -= parseFloat(t.style.top || 0), n;
 }
-function zC(t, e, n) {
-  (Array.isArray(t.target.value) || Mv(t.target.value)) && Object.assign(n.value, {
+function IC(t, e, n) {
+  (Array.isArray(t.target.value) || bv(t.target.value)) && Object.assign(n.value, {
     position: "fixed",
     top: 0,
     [t.isRtl.value ? "right" : "left"]: 0
@@ -4975,11 +4959,11 @@ function zC(t, e, n) {
   const {
     preferredAnchor: a,
     preferredOrigin: o
-  } = pl(() => {
+  } = ml(() => {
     const g = Vs(e.location, t.isRtl.value), m = e.origin === "overlap" ? g : e.origin === "auto" ? ss(g) : Vs(e.origin, t.isRtl.value);
     return g.side === m.side && g.align === ls(m).align ? {
-      preferredAnchor: Gc(g),
-      preferredOrigin: Gc(m)
+      preferredAnchor: kc(g),
+      preferredOrigin: kc(m)
     } : {
       preferredAnchor: g,
       preferredOrigin: m
@@ -5010,7 +4994,7 @@ function zC(t, e, n) {
   });
   function f() {
     if (d = !1, requestAnimationFrame(() => d = !0), !t.target.value || !t.contentEl.value) return;
-    const g = Zd(t.target.value), m = IC(t.contentEl.value, t.isRtl.value), C = rr(t.contentEl.value), p = 12;
+    const g = Zd(t.target.value), m = RC(t.contentEl.value, t.isRtl.value), C = sr(t.contentEl.value), p = 12;
     C.length || (C.push(document.documentElement), t.contentEl.value.style.top && t.contentEl.value.style.left || (m.x -= parseFloat(document.documentElement.style.getPropertyValue("--v-body-scroll-x") || 0), m.y -= parseFloat(document.documentElement.style.getPropertyValue("--v-body-scroll-y") || 0)));
     const y = C.reduce((z, A) => {
       const R = A.getBoundingClientRect(), V = new Li({
@@ -5032,11 +5016,11 @@ function zC(t, e, n) {
       origin: o.value
     };
     function S(z) {
-      const A = new Li(m), R = du(z.anchor, g), V = du(z.origin, A);
+      const A = new Li(m), R = lu(z.anchor, g), V = lu(z.origin, A);
       let {
         x: N,
         y: G
-      } = wC(R, V);
+      } = TC(R, V);
       switch (z.anchor.side) {
         case "top":
           G -= u.value[0];
@@ -5066,7 +5050,7 @@ function zC(t, e, n) {
           break;
       }
       return A.x += N, A.y += G, A.width = Math.min(A.width, l.value), A.height = Math.min(A.height, c.value), {
-        overflows: $c(A, y),
+        overflows: Dc(A, y),
         x: N,
         y: G
       };
@@ -5082,7 +5066,7 @@ function zC(t, e, n) {
     let w = -1;
     for (; ; ) {
       if (w++ > 10) {
-        uv("Infinite loop detected in connectedLocationStrategy");
+        cv("Infinite loop detected in connectedLocationStrategy");
         break;
       }
       const {
@@ -5092,7 +5076,7 @@ function zC(t, e, n) {
       } = S(M);
       b += z, T += A, m.x += z, m.y += A;
       {
-        const V = Nc(M.anchor), N = R.x.before || R.x.after, G = R.y.before || R.y.after;
+        const V = Oc(M.anchor), N = R.x.before || R.x.after, G = R.y.before || R.y.after;
         let U = !1;
         if (["x", "y"].forEach((E) => {
           if (E === "x" && N && !P.x || E === "y" && G && !P.y) {
@@ -5114,12 +5098,12 @@ function zC(t, e, n) {
       }
       R.x.before && (b += R.x.before, m.x += R.x.before), R.x.after && (b -= R.x.after, m.x -= R.x.after), R.y.before && (T += R.y.before, m.y += R.y.before), R.y.after && (T -= R.y.after, m.y -= R.y.after);
       {
-        const V = $c(m, y);
+        const V = Dc(m, y);
         _.x = y.width - V.x.before - V.x.after, _.y = y.height - V.y.before - V.y.after, b += V.x.before, m.x += V.x.before, T += V.y.before, m.y += V.y.before;
       }
       break;
     }
-    const I = Nc(M.anchor);
+    const I = Oc(M.anchor);
     return Object.assign(n.value, {
       "--v-overlay-anchor-origin": `${M.anchor.side} ${M.anchor.align}`,
       transformOrigin: `${M.origin.side} ${M.origin.align}`,
@@ -5128,14 +5112,14 @@ function zC(t, e, n) {
       left: t.isRtl.value ? void 0 : se(ds(b)),
       right: t.isRtl.value ? se(ds(-b)) : void 0,
       minWidth: se(I === "y" ? Math.min(r.value, g.width) : r.value),
-      maxWidth: se(hu(li(_.x, r.value === 1 / 0 ? 0 : r.value, l.value))),
-      maxHeight: se(hu(li(_.y, s.value === 1 / 0 ? 0 : s.value, c.value)))
+      maxWidth: se(cu(li(_.x, r.value === 1 / 0 ? 0 : r.value, l.value))),
+      maxHeight: se(cu(li(_.y, s.value === 1 / 0 ? 0 : s.value, c.value)))
     }), {
       available: _,
       contentBox: m
     };
   }
-  return J(() => [a.value, o.value, e.offset, e.minWidth, e.minHeight, e.maxWidth, e.maxHeight], () => f()), We(() => {
+  return J(() => [a.value, o.value, e.offset, e.minWidth, e.minHeight, e.maxWidth, e.maxHeight], () => f()), $e(() => {
     const g = f();
     if (!g) return;
     const {
@@ -5154,54 +5138,54 @@ function zC(t, e, n) {
 function ds(t) {
   return Math.round(t * devicePixelRatio) / devicePixelRatio;
 }
-function hu(t) {
+function cu(t) {
   return Math.ceil(t * devicePixelRatio) / devicePixelRatio;
 }
-let $s = !0;
-const cr = [];
-function LC(t) {
-  !$s || cr.length ? (cr.push(t), Ws()) : ($s = !1, t(), Ws());
+let Ws = !0;
+const ur = [];
+function zC(t) {
+  !Ws || ur.length ? (ur.push(t), $s()) : (Ws = !1, t(), $s());
 }
-let fu = -1;
-function Ws() {
-  cancelAnimationFrame(fu), fu = requestAnimationFrame(() => {
-    const t = cr.shift();
-    t && t(), cr.length ? Ws() : $s = !0;
+let uu = -1;
+function $s() {
+  cancelAnimationFrame(uu), uu = requestAnimationFrame(() => {
+    const t = ur.shift();
+    t && t(), ur.length ? $s() : Ws = !0;
   });
 }
-const Jo = {
+const Qo = {
   none: null,
-  close: FC,
-  block: kC,
-  reposition: OC
-}, VC = $({
+  close: BC,
+  block: FC,
+  reposition: kC
+}, LC = W({
   scrollStrategy: {
     type: [String, Function],
     default: "block",
-    validator: (t) => typeof t == "function" || t in Jo
+    validator: (t) => typeof t == "function" || t in Qo
   }
 }, "VOverlay-scroll-strategies");
-function BC(t, e) {
+function VC(t, e) {
   if (!ft) return;
   let n;
   Qt(async () => {
-    n == null || n.stop(), e.isActive.value && t.scrollStrategy && (n = cl(), await We(), n.active && n.run(() => {
+    n == null || n.stop(), e.isActive.value && t.scrollStrategy && (n = cl(), await $e(), n.active && n.run(() => {
       var i;
-      typeof t.scrollStrategy == "function" ? t.scrollStrategy(e, t, n) : (i = Jo[t.scrollStrategy]) == null || i.call(Jo, e, t, n);
+      typeof t.scrollStrategy == "function" ? t.scrollStrategy(e, t, n) : (i = Qo[t.scrollStrategy]) == null || i.call(Qo, e, t, n);
     }));
   }), Et(() => {
     n == null || n.stop();
   });
 }
-function FC(t) {
+function BC(t) {
   function e(n) {
     t.isActive.value = !1;
   }
   Uh(t.targetEl.value ?? t.contentEl.value, e);
 }
-function kC(t, e) {
+function FC(t, e) {
   var r;
-  const n = (r = t.root.value) == null ? void 0 : r.offsetParent, i = [.../* @__PURE__ */ new Set([...rr(t.targetEl.value, e.contained ? n : void 0), ...rr(t.contentEl.value, e.contained ? n : void 0)])].filter((s) => !s.classList.contains("v-overlay-scroll-blocked")), a = window.innerWidth - document.documentElement.offsetWidth, o = ((s) => bl(s) && s)(n || document.documentElement);
+  const n = (r = t.root.value) == null ? void 0 : r.offsetParent, i = [.../* @__PURE__ */ new Set([...sr(t.targetEl.value, e.contained ? n : void 0), ...sr(t.contentEl.value, e.contained ? n : void 0)])].filter((s) => !s.classList.contains("v-overlay-scroll-blocked")), a = window.innerWidth - document.documentElement.offsetWidth, o = ((s) => yl(s) && s)(n || document.documentElement);
   o && t.root.value.classList.add("v-overlay--scroll-blocked"), i.forEach((s, l) => {
     s.style.setProperty("--v-body-scroll-x", se(-s.scrollLeft)), s.style.setProperty("--v-body-scroll-y", se(-s.scrollTop)), s !== document.documentElement && s.style.setProperty("--v-scrollbar-offset", se(a)), s.classList.add("v-overlay-scroll-blocked");
   }), Et(() => {
@@ -5211,10 +5195,10 @@ function kC(t, e) {
     }), o && t.root.value.classList.remove("v-overlay--scroll-blocked");
   });
 }
-function OC(t, e, n) {
+function kC(t, e, n) {
   let i = !1, a = -1, o = -1;
   function r(s) {
-    LC(() => {
+    zC(() => {
       var u, d;
       const l = performance.now();
       (d = (u = t.updateLocation).value) == null || d.call(u, s), i = (performance.now() - l) / (1e3 / 60) > 2;
@@ -5235,7 +5219,7 @@ function OC(t, e, n) {
   });
 }
 function Uh(t, e) {
-  const n = [document, ...rr(t)];
+  const n = [document, ...sr(t)];
   n.forEach((i) => {
     i.addEventListener("scroll", e, {
       passive: !0
@@ -5246,18 +5230,18 @@ function Uh(t, e) {
     });
   });
 }
-const Xs = Symbol.for("vuetify:v-menu"), DC = $({
+const Xs = Symbol.for("vuetify:v-menu"), OC = W({
   closeDelay: [Number, String],
   openDelay: [Number, String]
 }, "delay");
-function GC(t, e) {
+function DC(t, e) {
   let n = () => {
   };
   function i(r) {
     n == null || n();
     const s = Number(r ? t.openDelay : t.closeDelay);
     return new Promise((l) => {
-      n = Qm(s, () => {
+      n = Jm(s, () => {
         e == null || e(r), l(r);
       });
     });
@@ -5274,7 +5258,7 @@ function GC(t, e) {
     runCloseDelay: o
   };
 }
-const NC = $({
+const GC = W({
   target: [String, Object],
   activator: [String, Object],
   activatorProps: {
@@ -5291,9 +5275,9 @@ const NC = $({
     default: void 0
   },
   closeOnContentClick: Boolean,
-  ...DC()
+  ...OC()
 }, "VOverlay-activator");
-function $C(t, e) {
+function NC(t, e) {
   let {
     isActive: n,
     isTop: i
@@ -5303,7 +5287,7 @@ function $C(t, e) {
   const c = x(() => t.openOnFocus || t.openOnFocus == null && t.openOnHover), u = x(() => t.openOnClick || t.openOnClick == null && !t.openOnHover && !c.value), {
     runOpenDelay: d,
     runCloseDelay: h
-  } = GC(t, (_) => {
+  } = DC(t, (_) => {
     _ === (t.openOnHover && r || c.value && s) && !(t.openOnHover && n.value && !i.value) && (n.value !== _ && (l = !0), n.value = _);
   }), f = j(), g = {
     onClick: (_) => {
@@ -5336,7 +5320,7 @@ function $C(t, e) {
     }, _.onFocusout = () => {
       s = !1, h();
     }), t.closeOnContentClick) {
-      const P = $e(Xs, null);
+      const P = We(Xs, null);
       _.onClick = () => {
         n.value = !1, P == null || P.closeParents();
       };
@@ -5361,11 +5345,11 @@ function $C(t, e) {
   });
   const y = j();
   Qt(() => {
-    y.value && We(() => {
-      o.value = er(y.value);
+    y.value && $e(() => {
+      o.value = tr(y.value);
     });
   });
-  const M = j(), S = x(() => t.target === "cursor" && f.value ? f.value : M.value ? er(M.value) : Yh(t.target, a) || o.value), b = x(() => Array.isArray(S.value) ? void 0 : S.value);
+  const M = j(), S = x(() => t.target === "cursor" && f.value ? f.value : M.value ? tr(M.value) : Yh(t.target, a) || o.value), b = x(() => Array.isArray(S.value) ? void 0 : S.value);
   let T;
   return J(() => !!t.activator, (_) => {
     _ && ft ? (T = cl(), T.run(() => {
@@ -5400,7 +5384,7 @@ function WC(t, e, n) {
       const u = s(c);
       u && r(u);
     }
-    l && We(() => o());
+    l && $e(() => o());
   }, {
     immediate: !0
   }), J(() => t.activatorProps, () => {
@@ -5410,11 +5394,11 @@ function WC(t, e, n) {
   });
   function o() {
     let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : s(), c = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t.activatorProps;
-    l && tv(l, ce(a.value, c));
+    l && ev(l, ce(a.value, c));
   }
   function r() {
     let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : s(), c = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : t.activatorProps;
-    l && nv(l, ce(a.value, c));
+    l && tv(l, ce(a.value, c));
   }
   function s() {
     let l = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : t.activator;
@@ -5434,7 +5418,7 @@ function Yh(t, e) {
   } else typeof t == "string" ? n = document.querySelector(t) : "$el" in t ? n = t.$el : n = t;
   return n;
 }
-function XC() {
+function $C() {
   if (!ft) return q(!1);
   const {
     ssr: t
@@ -5447,10 +5431,10 @@ function XC() {
   } else
     return q(!0);
 }
-const Ir = $({
+const Ir = W({
   eager: Boolean
 }, "lazy");
-function Rl(t, e) {
+function wl(t, e) {
   const n = q(!1), i = x(() => n.value || t.eager || e.value);
   J(e, () => n.value = !0);
   function a() {
@@ -5462,7 +5446,7 @@ function Rl(t, e) {
     onAfterLeave: a
   };
 }
-function Il() {
+function El() {
   const e = qe("useScopeId").vnode.scopeId;
   return {
     scopeId: e ? {
@@ -5470,12 +5454,12 @@ function Il() {
     } : void 0
   };
 }
-const gu = Symbol.for("vuetify:stack"), La = Nn([]);
-function UC(t, e, n) {
-  const i = qe("useStack"), a = !n, o = $e(gu, void 0), r = Nn({
+const du = Symbol.for("vuetify:stack"), La = Nn([]);
+function XC(t, e, n) {
+  const i = qe("useStack"), a = !n, o = We(du, void 0), r = Nn({
     activeChildren: /* @__PURE__ */ new Set()
   });
-  ot(gu, r);
+  ot(du, r);
   const s = q(+e.value);
   Kt(t, () => {
     var d;
@@ -5503,14 +5487,14 @@ function UC(t, e, n) {
     }))
   };
 }
-function YC(t) {
+function UC(t) {
   return {
     teleportTarget: x(() => {
       const n = t.value;
       if (n === !0 || !ft) return;
       const i = n === !1 ? document.body : typeof n == "string" ? document.querySelector(n) : n;
       if (i == null) {
-        Mr(`Unable to locate target ${n}`);
+        xr(`Unable to locate target ${n}`);
         return;
       }
       let a = i.querySelector(":scope > .v-overlay-container");
@@ -5518,7 +5502,7 @@ function YC(t) {
     })
   };
 }
-function jC() {
+function YC() {
   return !0;
 }
 function jh(t, e, n) {
@@ -5529,29 +5513,29 @@ function jh(t, e, n) {
   return a.push(e), !a.some((o) => o == null ? void 0 : o.contains(t.target));
 }
 function Hh(t, e) {
-  return (typeof e.value == "object" && e.value.closeConditional || jC)(t);
+  return (typeof e.value == "object" && e.value.closeConditional || YC)(t);
 }
-function HC(t, e, n) {
+function jC(t, e, n) {
   const i = typeof n.value == "function" ? n.value : n.value.handler;
   e._clickOutside.lastMousedownWasOutside && jh(t, e, n) && setTimeout(() => {
     Hh(t, n) && i && i(t);
   }, 0);
 }
-function mu(t, e) {
+function hu(t, e) {
   const n = qd(t);
   e(document), typeof ShadowRoot < "u" && n instanceof ShadowRoot && e(n);
 }
-const ZC = {
+const HC = {
   // [data-app] may not be found
   // if using bind, inserted makes
   // sure that the root element is
   // available, iOS does not support
   // clicks on body
   mounted(t, e) {
-    const n = (a) => HC(a, t, e), i = (a) => {
+    const n = (a) => jC(a, t, e), i = (a) => {
       t._clickOutside.lastMousedownWasOutside = jh(a, t, e);
     };
-    mu(t, (a) => {
+    hu(t, (a) => {
       a.addEventListener("click", n, !0), a.addEventListener("mousedown", i, !0);
     }), t._clickOutside || (t._clickOutside = {
       lastMousedownWasOutside: !1
@@ -5561,7 +5545,7 @@ const ZC = {
     };
   },
   unmounted(t, e) {
-    t._clickOutside && (mu(t, (n) => {
+    t._clickOutside && (hu(t, (n) => {
       var o;
       if (!n || !((o = t._clickOutside) != null && o[e.instance.$.uid])) return;
       const {
@@ -5572,7 +5556,7 @@ const ZC = {
     }), delete t._clickOutside[e.instance.$.uid]);
   }
 };
-function KC(t) {
+function ZC(t) {
   const {
     modelValue: e,
     color: n,
@@ -5588,7 +5572,7 @@ function KC(t) {
     }, i), null)]
   });
 }
-const Zh = $({
+const Zh = W({
   absolute: Boolean,
   attach: [Boolean, String, Object],
   closeOnBack: {
@@ -5610,18 +5594,18 @@ const Zh = $({
     type: [Number, String],
     default: 2e3
   },
-  ...NC(),
+  ...GC(),
   ...de(),
   ...Ci(),
   ...Ir(),
-  ...EC(),
-  ...VC(),
+  ...wC(),
+  ...LC(),
   ...ke(),
   ...Sa()
-}, "VOverlay"), vu = K()({
+}, "VOverlay"), fu = K()({
   name: "VOverlay",
   directives: {
-    ClickOutside: ZC
+    ClickOutside: HC
   },
   inheritAttrs: !1,
   props: {
@@ -5646,7 +5630,7 @@ const Zh = $({
       }
     }), {
       teleportTarget: s
-    } = YC(x(() => t.attach || t.contained)), {
+    } = UC(x(() => t.attach || t.contained)), {
       themeClasses: l
     } = Xe(t), {
       rtlClasses: c,
@@ -5654,11 +5638,11 @@ const Zh = $({
     } = on(), {
       hasContent: d,
       onAfterLeave: h
-    } = Rl(t, r), f = wt(x(() => typeof t.scrim == "string" ? t.scrim : null)), {
+    } = wl(t, r), f = wt(x(() => typeof t.scrim == "string" ? t.scrim : null)), {
       globalTop: g,
       localTop: m,
       stackStyles: C
-    } = UC(r, te(t, "zIndex"), t._disableGlobalStack), {
+    } = XC(r, te(t, "zIndex"), t._disableGlobalStack), {
       activatorEl: p,
       activatorRef: y,
       target: M,
@@ -5667,27 +5651,27 @@ const Zh = $({
       activatorEvents: T,
       contentEvents: _,
       scrimEvents: P
-    } = $C(t, {
+    } = NC(t, {
       isActive: r,
       isTop: m
     }), {
       dimensionStyles: w
-    } = pi(t), I = XC(), {
+    } = pi(t), I = $C(), {
       scopeId: z
-    } = Il();
+    } = El();
     J(() => t.disabled, (X) => {
       X && (r.value = !1);
     });
     const A = j(), R = j(), {
       contentStyles: V,
       updateLocation: N
-    } = AC(t, {
+    } = EC(t, {
       isRtl: u,
       contentEl: R,
       target: M,
       isActive: r
     });
-    BC(t, {
+    VC(t, {
       root: A,
       contentEl: R,
       targetEl: S,
@@ -5713,7 +5697,7 @@ const Zh = $({
     }
     const B = Rh();
     Kt(() => t.closeOnBack, () => {
-      aC(B, (X) => {
+      iC(B, (X) => {
         g.value && r.value ? (X(!1), t.persistent ? k() : r.value = !1) : X();
       });
     });
@@ -5733,10 +5717,10 @@ const Zh = $({
         transformOrigin: "center"
       }], {
         duration: 150,
-        easing: or
+        easing: rr
       });
     }
-    function W() {
+    function $() {
       h(), a("afterLeave");
     }
     return ie(() => {
@@ -5761,15 +5745,15 @@ const Zh = $({
             top: se(D.value)
           }, t.style],
           ref: A
-        }, z, i), [v(KC, ce({
+        }, z, i), [v(ZC, ce({
           color: f,
           modelValue: !!t.scrim && r.value
-        }, P.value), null), v($n, {
+        }, P.value), null), v(Wn, {
           appear: !0,
           persisted: !0,
           transition: t.transition,
           target: M.value,
-          onAfterLeave: W
+          onAfterLeave: $
         }, {
           default: () => {
             var L;
@@ -5864,7 +5848,7 @@ function Pa(t) {
     }
   });
 }
-const qC = $({
+const KC = W({
   // TODO
   // disableKeys: Boolean,
   id: String,
@@ -5881,7 +5865,7 @@ const qC = $({
   }), ["absolute"])
 }, "VMenu"), zr = K()({
   name: "VMenu",
-  props: qC(),
+  props: KC(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -5891,7 +5875,7 @@ const qC = $({
     } = e;
     const i = Be(t, "modelValue"), {
       scopeId: a
-    } = Il(), o = Pn(), r = x(() => t.id || `v-menu-${o}`), s = j(), l = $e(Xs, null), c = q(0);
+    } = El(), o = Pn(), r = x(() => t.id || `v-menu-${o}`), s = j(), l = We(Xs, null), c = q(0);
     ot(Xs, {
       register() {
         ++c.value;
@@ -5908,10 +5892,10 @@ const qC = $({
     async function u(m) {
       var y, M, S;
       const C = m.relatedTarget, p = m.target;
-      await We(), i.value && C !== p && ((y = s.value) != null && y.contentEl) && // We're the topmost menu
+      await $e(), i.value && C !== p && ((y = s.value) != null && y.contentEl) && // We're the topmost menu
       ((M = s.value) != null && M.globalTop) && // It isn't the document or the menu body
       ![document, s.value.contentEl].includes(p) && // It isn't inside the menu body
-      !s.value.contentEl.contains(p) && ((S = nr(s.value.contentEl)[0]) == null || S.focus());
+      !s.value.contentEl.contains(p) && ((S = ir(s.value.contentEl)[0]) == null || S.focus());
     }
     J(i, (m) => {
       m ? (l == null || l.register(), document.addEventListener("focusin", u, {
@@ -5923,13 +5907,13 @@ const qC = $({
     }
     function h(m) {
       var C, p, y;
-      t.disabled || m.key === "Tab" && (jd(nr((C = s.value) == null ? void 0 : C.contentEl, !1), m.shiftKey ? "prev" : "next", (S) => S.tabIndex >= 0) || (i.value = !1, (y = (p = s.value) == null ? void 0 : p.activatorEl) == null || y.focus()));
+      t.disabled || m.key === "Tab" && (jd(ir((C = s.value) == null ? void 0 : C.contentEl, !1), m.shiftKey ? "prev" : "next", (S) => S.tabIndex >= 0) || (i.value = !1, (y = (p = s.value) == null ? void 0 : p.activatorEl) == null || y.focus()));
     }
     function f(m) {
       var p;
       if (t.disabled) return;
       const C = (p = s.value) == null ? void 0 : p.contentEl;
-      C && i.value ? m.key === "ArrowDown" ? (m.preventDefault(), ir(C, "next")) : m.key === "ArrowUp" && (m.preventDefault(), ir(C, "prev")) : ["ArrowDown", "ArrowUp"].includes(m.key) && (i.value = !0, m.preventDefault(), setTimeout(() => setTimeout(() => f(m))));
+      C && i.value ? m.key === "ArrowDown" ? (m.preventDefault(), ar(C, "next")) : m.key === "ArrowUp" && (m.preventDefault(), ar(C, "prev")) : ["ArrowDown", "ArrowUp"].includes(m.key) && (i.value = !0, m.preventDefault(), setTimeout(() => setTimeout(() => f(m))));
     }
     const g = x(() => ce({
       "aria-haspopup": "menu",
@@ -5938,8 +5922,8 @@ const qC = $({
       onKeydown: f
     }, t.activatorProps));
     return ie(() => {
-      const m = vu.filterProps(t);
-      return v(vu, ce({
+      const m = fu.filterProps(t);
+      return v(fu, ce({
         ref: s,
         id: r.value,
         class: ["v-menu", t.class],
@@ -5971,7 +5955,7 @@ const qC = $({
       ΨopenChildren: c
     }, s);
   }
-}), JC = $({
+}), qC = W({
   active: Boolean,
   max: [Number, String],
   value: {
@@ -5987,13 +5971,13 @@ const qC = $({
 }, "VCounter"), Kh = K()({
   name: "VCounter",
   functional: !0,
-  props: JC(),
+  props: qC(),
   setup(t, e) {
     let {
       slots: n
     } = e;
     const i = x(() => t.max ? `${t.value} / ${t.max}` : String(t.value));
-    return ie(() => v($n, {
+    return ie(() => v(Wn, {
       transition: t.transition
     }, {
       default: () => [Ze(v("div", {
@@ -6006,12 +5990,12 @@ const qC = $({
       }) : i.value]), [[mi, t.active]])]
     })), {};
   }
-}), QC = $({
+}), JC = W({
   floating: Boolean,
   ...de()
-}, "VFieldLabel"), Oo = K()({
+}, "VFieldLabel"), Do = K()({
   name: "VFieldLabel",
-  props: QC(),
+  props: JC(),
   setup(t, e) {
     let {
       slots: n
@@ -6027,7 +6011,7 @@ const qC = $({
 });
 function qh(t, e) {
   const n = j(), i = q(!1);
-  if (ml) {
+  if (hl) {
     const a = new IntersectionObserver((o) => {
       i.value = !!o.find((r) => r.isIntersecting);
     }, e);
@@ -6044,13 +6028,13 @@ function qh(t, e) {
     isIntersecting: i
   };
 }
-const Cu = {
+const gu = {
   center: "center",
   top: "bottom",
   bottom: "top",
   left: "right",
   right: "left"
-}, Lr = $({
+}, Lr = W({
   location: String
 }, "location");
 function Vr(t) {
@@ -6069,7 +6053,7 @@ function Vr(t) {
         return n ? n(c) : 0;
       }
       const l = {};
-      return o !== "center" && (e ? l[Cu[o]] = `calc(100% - ${s(o)}px)` : l[o] = 0), r !== "center" ? e ? l[Cu[r]] = `calc(100% - ${s(r)}px)` : l[r] = 0 : (o === "center" ? l.top = l.left = "50%" : l[{
+      return o !== "center" && (e ? l[gu[o]] = `calc(100% - ${s(o)}px)` : l[o] = 0), r !== "center" ? e ? l[gu[r]] = `calc(100% - ${s(r)}px)` : l[r] = 0 : (o === "center" ? l.top = l.left = "50%" : l[{
         top: "left",
         bottom: "left",
         left: "top",
@@ -6084,7 +6068,7 @@ function Vr(t) {
     })
   };
 }
-const ep = $({
+const QC = W({
   absolute: Boolean,
   active: {
     type: Boolean,
@@ -6124,7 +6108,7 @@ const ep = $({
   ...ke()
 }, "VProgressLinear"), Jh = K()({
   name: "VProgressLinear",
-  props: ep(),
+  props: QC(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -6228,10 +6212,10 @@ const ep = $({
       })])]
     })), {};
   }
-}), zl = $({
+}), Al = W({
   loading: [Boolean, String]
 }, "loader");
-function Ll(t) {
+function Rl(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
   return {
     loaderClasses: x(() => ({
@@ -6257,7 +6241,7 @@ function Qh(t, e) {
     indeterminate: !0
   }, null)]);
 }
-const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-filled", "plain"], Vl = $({
+const ep = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-filled", "plain"], Il = W({
   appendInnerIcon: Te,
   bgColor: String,
   clearable: Boolean,
@@ -6287,22 +6271,22 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
   variant: {
     type: String,
     default: "filled",
-    validator: (t) => tp.includes(t)
+    validator: (t) => ep.includes(t)
   },
   "onClick:clear": Zt(),
   "onClick:appendInner": Zt(),
   "onClick:prependInner": Zt(),
   ...de(),
-  ...zl(),
+  ...Al(),
   ...pt(),
   ...ke()
-}, "VField"), Bl = K()({
+}, "VField"), zl = K()({
   name: "VField",
   inheritAttrs: !1,
   props: {
     id: String,
     ...Mh(),
-    ...Vl()
+    ...Il()
   },
   emits: {
     "update:focused": (t) => !0,
@@ -6318,12 +6302,12 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
       themeClasses: o
     } = Xe(t), {
       loaderClasses: r
-    } = Ll(t), {
+    } = Rl(t), {
       focusClasses: s,
       isFocused: l,
       focus: c,
       blur: u
-    } = Tl(t), {
+    } = Ml(t), {
       InputIcon: d
     } = Ch(t), {
       roundedClasses: h
@@ -6340,16 +6324,16 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
       if (m.value) {
         const V = M.value.$el, N = S.value.$el;
         requestAnimationFrame(() => {
-          const G = _l(V), U = N.getBoundingClientRect(), E = U.x - G.x, B = U.y - G.y - (G.height / 2 - U.height / 2), D = U.width / 0.75, k = Math.abs(D - G.width) > 1 ? {
+          const G = Cl(V), U = N.getBoundingClientRect(), E = U.x - G.x, B = U.y - G.y - (G.height / 2 - U.height / 2), D = U.width / 0.75, k = Math.abs(D - G.width) > 1 ? {
             maxWidth: se(D)
-          } : void 0, W = getComputedStyle(V), X = getComputedStyle(N), L = parseFloat(W.transitionDuration) * 1e3 || 150, ee = parseFloat(X.getPropertyValue("--v-field-label-scale")), Q = X.getPropertyValue("color");
+          } : void 0, $ = getComputedStyle(V), X = getComputedStyle(N), L = parseFloat($.transitionDuration) * 1e3 || 150, ee = parseFloat(X.getPropertyValue("--v-field-label-scale")), Q = X.getPropertyValue("color");
           V.style.visibility = "visible", N.style.visibility = "hidden", ia(V, {
             transform: `translate(${E}px, ${B}px) scale(${ee})`,
             color: Q,
             ...k
           }, {
             duration: L,
-            easing: or,
+            easing: rr,
             direction: R ? "normal" : "reverse"
           }).finished.then(() => {
             V.style.removeProperty("visibility"), N.style.removeProperty("visibility");
@@ -6414,7 +6398,7 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
       }, null), (E = a["prepend-inner"]) == null ? void 0 : E.call(a, z.value)]), v("div", {
         class: "v-field__field",
         "data-no-activator": ""
-      }, [["filled", "solo", "solo-inverted", "solo-filled"].includes(t.variant) && m.value && v(Oo, {
+      }, [["filled", "solo", "solo-inverted", "solo-filled"].includes(t.variant) && m.value && v(Do, {
         key: "floating-label",
         ref: S,
         class: [w.value],
@@ -6423,7 +6407,7 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
         style: I.value
       }, {
         default: () => [U()]
-      }), v(Oo, {
+      }), v(Do, {
         ref: M,
         for: p.value
       }, {
@@ -6461,7 +6445,7 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
         class: "v-field__outline__start"
       }, null), m.value && v("div", {
         class: "v-field__outline__notch"
-      }, [v(Oo, {
+      }, [v(Do, {
         ref: S,
         floating: !0,
         for: p.value
@@ -6469,7 +6453,7 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
         default: () => [U()]
       })]), v("div", {
         class: "v-field__outline__end"
-      }, null)]), T.value && m.value && v(Oo, {
+      }, null)]), T.value && m.value && v(Do, {
         ref: S,
         floating: !0,
         for: p.value
@@ -6482,10 +6466,10 @@ const tp = ["underlined", "outlined", "filled", "solo", "solo-inverted", "solo-f
   }
 });
 function ef(t) {
-  const e = Object.keys(Bl.props).filter((n) => !vl(n) && n !== "class" && n !== "style");
-  return $d(t, e);
+  const e = Object.keys(zl.props).filter((n) => !fl(n) && n !== "class" && n !== "style");
+  return Wd(t, e);
 }
-const np = ["color", "file", "time", "date", "datetime-local", "week", "month"], Fl = $({
+const tp = ["color", "file", "time", "date", "datetime-local", "week", "month"], Ll = W({
   autofocus: Boolean,
   counter: [Boolean, Number, String],
   counterValue: [Number, Function],
@@ -6500,15 +6484,15 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
     default: "text"
   },
   modelModifiers: Object,
-  ...El(),
-  ...Vl()
-}, "VTextField"), Wn = K()({
+  ...Pl(),
+  ...Il()
+}, "VTextField"), $n = K()({
   name: "VTextField",
   directives: {
-    Intersect: xl
+    Intersect: Sl
   },
   inheritAttrs: !1,
-  props: Fl(),
+  props: Ll(),
   emits: {
     "click:control": (t) => !0,
     "mousedown:control": (t) => !0,
@@ -6525,7 +6509,7 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       isFocused: r,
       focus: s,
       blur: l
-    } = Tl(t), c = x(() => typeof t.counterValue == "function" ? t.counterValue(o.value) : typeof t.counterValue == "number" ? t.counterValue : (o.value ?? "").toString().length), u = x(() => {
+    } = Ml(t), c = x(() => typeof t.counterValue == "function" ? t.counterValue(o.value) : typeof t.counterValue == "number" ? t.counterValue : (o.value ?? "").toString().length), u = x(() => {
       if (n.maxlength) return n.maxlength;
       if (!(!t.counter || typeof t.counter != "number" && typeof t.counter != "string"))
         return t.counter;
@@ -6534,7 +6518,7 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       var P, w;
       !t.autofocus || !T || (w = (P = _[0].target) == null ? void 0 : P.focus) == null || w.call(P);
     }
-    const f = j(), g = j(), m = j(), C = x(() => np.includes(t.type) || t.persistentPlaceholder || r.value || t.active);
+    const f = j(), g = j(), m = j(), C = x(() => tp.includes(t.type) || t.persistentPlaceholder || r.value || t.active);
     function p() {
       var T;
       m.value !== document.activeElement && ((T = m.value) == null || T.focus()), r.value || s();
@@ -6546,7 +6530,7 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       p(), i("click:control", T);
     }
     function S(T) {
-      T.stopPropagation(), p(), We(() => {
+      T.stopPropagation(), p(), $e(() => {
         o.value = null, Yd(t["onClick:clear"], T);
       });
     }
@@ -6555,17 +6539,17 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       const _ = T.target;
       if (o.value = _.value, (P = t.modelModifiers) != null && P.trim && ["text", "search", "password", "tel", "url"].includes(t.type)) {
         const w = [_.selectionStart, _.selectionEnd];
-        We(() => {
+        $e(() => {
           _.selectionStart = w[0], _.selectionEnd = w[1];
         });
       }
     }
     return ie(() => {
-      const T = !!(a.counter || t.counter !== !1 && t.counter != null), _ = !!(T || a.details), [P, w] = Cl(n), {
+      const T = !!(a.counter || t.counter !== !1 && t.counter != null), _ = !!(T || a.details), [P, w] = gl(n), {
         modelValue: I,
         ...z
-      } = lr.filterProps(t), A = ef(t);
-      return v(lr, ce({
+      } = cr.filterProps(t), A = ef(t);
+      return v(cr, ce({
         ref: f,
         modelValue: o.value,
         "onUpdate:modelValue": (R) => o.value = R,
@@ -6588,7 +6572,7 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
             isReadonly: U,
             isValid: E
           } = R;
-          return v(Bl, ce({
+          return v(zl, ce({
             ref: g,
             onMousedown: y,
             onClick: M,
@@ -6612,7 +6596,7 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
                   ...k
                 }
               } = B;
-              const W = Ze(v("input", ce({
+              const $ = Ze(v("input", ce({
                 ref: m,
                 value: o.value,
                 onInput: b,
@@ -6637,7 +6621,7 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
               }, [t.prefix])]), a.default ? v("div", {
                 class: D,
                 "data-no-activator": ""
-              }, [a.default(), W]) : fm(W, {
+              }, [a.default(), $]) : fm($, {
                 class: D
               }), t.suffix && v("span", {
                 class: "v-text-field__suffix"
@@ -6658,13 +6642,13 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       });
     }), Pa({}, f, g, m);
   }
-}), ip = $({
+}), np = W({
   renderless: Boolean,
   ...de()
-}, "VVirtualScrollItem"), ap = K()({
+}, "VVirtualScrollItem"), ip = K()({
   name: "VVirtualScrollItem",
   inheritAttrs: !1,
-  props: ip(),
+  props: np(),
   emits: {
     "update:height": (t) => !0
   },
@@ -6694,14 +6678,14 @@ const np = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       }, n), [(l = a.default) == null ? void 0 : l.call(a)]);
     });
   }
-}), op = -1, rp = 1, gs = 100, sp = $({
+}), ap = -1, op = 1, gs = 100, rp = W({
   itemHeight: {
     type: [Number, String],
     default: null
   },
   height: [Number, String]
 }, "virtual");
-function lp(t, e) {
+function sp(t, e) {
   const n = wr(), i = q(0);
   Qt(() => {
     i.value = parseFloat(t.itemHeight || 0);
@@ -6735,7 +6719,7 @@ function lp(t, e) {
   function M(B) {
     return m[B] || i.value;
   }
-  const S = Zm(() => {
+  const S = Hm(() => {
     const B = performance.now();
     C[0] = 0;
     const D = e.value.length;
@@ -6743,7 +6727,7 @@ function lp(t, e) {
       C[k] = (C[k - 1] || 0) + M(k - 1);
     p.value = Math.max(p.value, performance.now() - B);
   }, p), b = J(g, (B) => {
-    B && (b(), u = c.value.offsetTop, S.immediate(), N(), ~y && We(() => {
+    B && (b(), u = c.value.offsetTop, S.immediate(), N(), ~y && $e(() => {
       ft && window.requestAnimationFrame(() => {
         U(y), y = -1;
       });
@@ -6755,14 +6739,14 @@ function lp(t, e) {
     S.clear();
   });
   function T(B, D) {
-    const k = m[B], W = i.value;
-    i.value = W ? Math.min(i.value, D) : D, (k !== D || W !== i.value) && (m[B] = D, S());
+    const k = m[B], $ = i.value;
+    i.value = $ ? Math.min(i.value, D) : D, (k !== D || $ !== i.value) && (m[B] = D, S());
   }
   function _(B) {
     return B = li(B, 0, e.value.length - 1), C[B] || 0;
   }
   function P(B) {
-    return cp(C, B);
+    return lp(C, B);
   }
   let w = 0, I = 0, z = 0;
   function A() {
@@ -6779,14 +6763,14 @@ function lp(t, e) {
   }
   function G() {
     if (!l.value || !f.value) return;
-    const B = w - u, D = Math.sign(I), k = Math.max(0, B - gs), W = li(P(k), 0, e.value.length), X = B + f.value + gs, L = li(P(X) + 1, W + 1, e.value.length);
+    const B = w - u, D = Math.sign(I), k = Math.max(0, B - gs), $ = li(P(k), 0, e.value.length), X = B + f.value + gs, L = li(P(X) + 1, $ + 1, e.value.length);
     if (
       // Only update the side we're scrolling towards,
       // the other side will be updated incidentally
-      (D !== op || W < a.value) && (D !== rp || L > o.value)
+      (D !== ap || $ < a.value) && (D !== op || L > o.value)
     ) {
-      const ee = _(a.value) - _(W), Q = _(L) - _(o.value);
-      Math.max(ee, Q) > gs ? (a.value = W, o.value = L) : (W <= 0 && (a.value = W), L >= e.value.length && (o.value = L));
+      const ee = _(a.value) - _($), Q = _(L) - _(o.value);
+      Math.max(ee, Q) > gs ? (a.value = $, o.value = L) : ($ <= 0 && (a.value = $), L >= e.value.length && (o.value = L));
     }
     r.value = _(a.value), s.value = _(e.value.length) - _(o.value);
   }
@@ -6818,7 +6802,7 @@ function lp(t, e) {
     handleItemResize: T
   };
 }
-function cp(t, e) {
+function lp(t, e) {
   let n = t.length - 1, i = 0, a = 0, o = null, r = -1;
   if (t[n] < e)
     return n;
@@ -6830,18 +6814,18 @@ function cp(t, e) {
     else return o === e ? a : i;
   return r;
 }
-const up = $({
+const cp = W({
   items: {
     type: Array,
     default: () => []
   },
   renderless: Boolean,
-  ...sp(),
+  ...rp(),
   ...de(),
   ...Ci()
 }, "VVirtualScroll"), tf = K()({
   name: "VVirtualScroll",
-  props: up(),
+  props: cp(),
   setup(t, e) {
     let {
       slots: n
@@ -6858,7 +6842,7 @@ const up = $({
       paddingTop: d,
       paddingBottom: h,
       computedItems: f
-    } = lp(t, te(t, "items"));
+    } = sp(t, te(t, "items"));
     return Kt(() => t.renderless, () => {
       function g() {
         var p, y;
@@ -6873,7 +6857,7 @@ const up = $({
         o.value = Qd(i.vnode.el, !0), g(!0);
       }), Et(g);
     }), ie(() => {
-      const g = f.value.map((m) => v(ap, {
+      const g = f.value.map((m) => v(ip, {
         key: m.index,
         renderless: t.renderless,
         "onUpdate:height": (C) => c(m.index, C)
@@ -6967,7 +6951,7 @@ function nf(t, e) {
     onListKeydown: r
   };
 }
-const af = $({
+const af = W({
   chips: Boolean,
   closableChips: Boolean,
   closeText: {
@@ -7002,9 +6986,9 @@ const af = $({
   ...Gh({
     itemChildren: !1
   })
-}, "Select"), dp = $({
+}, "Select"), up = W({
   ...af(),
-  ...Oi(Fl({
+  ...Oi(Ll({
     modelValue: null,
     role: "combobox"
   }), ["validationValue", "dirty", "appendInnerIcon"]),
@@ -7016,7 +7000,7 @@ const af = $({
 }, "VSelect");
 K()({
   name: "VSelect",
-  props: dp(),
+  props: up(),
   emits: {
     "update:focused": (t) => !0,
     "update:modelValue": (t) => !0,
@@ -7038,10 +7022,10 @@ K()({
       items: c,
       transformIn: u,
       transformOut: d
-    } = $h(t), h = Be(t, "modelValue", [], (E) => u(E === null ? [null] : Nt(E)), (E) => {
+    } = Wh(t), h = Be(t, "modelValue", [], (E) => u(E === null ? [null] : Nt(E)), (E) => {
       const B = d(E);
       return t.multiple ? B : B[0] ?? null;
-    }), f = x(() => typeof t.counterValue == "function" ? t.counterValue(h.value) : typeof t.counterValue == "number" ? t.counterValue : h.value.length), g = wl(), m = x(() => h.value.map((E) => E.value)), C = q(!1), p = x(() => l.value ? t.closeText : t.openText);
+    }), f = x(() => typeof t.counterValue == "function" ? t.counterValue(h.value) : typeof t.counterValue == "number" ? t.counterValue : h.value.length), g = xl(), m = x(() => h.value.map((E) => E.value)), C = q(!1), p = x(() => l.value ? t.closeText : t.openText);
     let y = "", M;
     const S = x(() => t.hideSelected ? c.value.filter((E) => !h.value.some((B) => B === E)) : c.value), b = x(() => t.hideNoData && !S.value.length || t.readonly || (g == null ? void 0 : g.isReadonly.value)), T = x(() => {
       var E;
@@ -7075,8 +7059,8 @@ K()({
       if (t.multiple || !D(E)) return;
       const k = performance.now();
       k - M > B && (y = ""), y += E.key.toLowerCase(), M = k;
-      const W = c.value.find((ee) => ee.title.toLowerCase().startsWith(y));
-      W !== void 0 && (h.value = [W]);
+      const $ = c.value.find((ee) => ee.title.toLowerCase().startsWith(y));
+      $ !== void 0 && (h.value = [$]);
     }
     function R(E) {
       if (t.multiple) {
@@ -7119,8 +7103,8 @@ K()({
     }), J(S, (E, B) => {
       C.value && (!E.length && t.hideNoData && (l.value = !1), !B.length && E.length && (l.value = !0));
     }), ie(() => {
-      const E = !!(t.chips || n.chip), B = !!(!t.hideNoData || S.value.length || n["prepend-item"] || n["append-item"] || n["no-data"]), D = h.value.length > 0, k = Wn.filterProps(t), W = D || !C.value && t.label && !t.persistentPlaceholder ? void 0 : t.placeholder;
-      return v(Wn, ce({
+      const E = !!(t.chips || n.chip), B = !!(!t.hideNoData || S.value.length || n["prepend-item"] || n["append-item"] || n["no-data"]), D = h.value.length > 0, k = $n.filterProps(t), $ = D || !C.value && t.label && !t.persistentPlaceholder ? void 0 : t.placeholder;
+      return v($n, ce({
         ref: a
       }, k, {
         modelValue: h.value.map((X) => X.props.value).join(", "),
@@ -7139,7 +7123,7 @@ K()({
         }, t.class],
         style: t.style,
         inputmode: "none",
-        placeholder: W,
+        placeholder: $,
         "onClick:clear": I,
         "onMousedown:control": z,
         onBlur: V,
@@ -7233,7 +7217,7 @@ K()({
             },
             modelValue: !0,
             "onUpdate:modelValue": void 0
-          }, ae = E ? !!n.chip : !!n.selection, H = ae ? yl(E ? n.chip({
+          }, ae = E ? !!n.chip : !!n.selection, H = ae ? vl(E ? n.chip({
             item: X,
             index: L,
             props: Q
@@ -7285,7 +7269,7 @@ K()({
     }, a);
   }
 });
-const hp = (t, e, n) => t == null || e == null ? -1 : t.toString().toLocaleLowerCase().indexOf(e.toString().toLocaleLowerCase()), fp = $({
+const dp = (t, e, n) => t == null || e == null ? -1 : t.toString().toLocaleLowerCase().indexOf(e.toString().toLocaleLowerCase()), hp = W({
   customFilter: Function,
   customKeyFilter: Object,
   filterKeys: [Array, String],
@@ -7295,9 +7279,9 @@ const hp = (t, e, n) => t == null || e == null ? -1 : t.toString().toLocaleLower
   },
   noFilter: Boolean
 }, "filter");
-function gp(t, e, n) {
+function fp(t, e, n) {
   var s;
-  const i = [], a = (n == null ? void 0 : n.default) ?? hp, o = n != null && n.filterKeys ? Nt(n.filterKeys) : !1, r = Object.keys((n == null ? void 0 : n.customKeyFilter) ?? {}).length;
+  const i = [], a = (n == null ? void 0 : n.default) ?? dp, o = n != null && n.filterKeys ? Nt(n.filterKeys) : !1, r = Object.keys((n == null ? void 0 : n.customKeyFilter) ?? {}).length;
   if (!(t != null && t.length)) return i;
   e: for (let l = 0; l < t.length; l++) {
     const [c, u = c] = Nt(t[l]), d = {}, h = {};
@@ -7327,10 +7311,10 @@ function gp(t, e, n) {
   }
   return i;
 }
-function mp(t, e, n, i) {
+function gp(t, e, n, i) {
   const a = j([]), o = j(/* @__PURE__ */ new Map()), r = x(() => O(e));
   Qt(() => {
-    const l = typeof n == "function" ? n() : O(n), c = typeof l != "string" && typeof l != "number" ? "" : String(l), u = gp(r.value, c, {
+    const l = typeof n == "function" ? n() : O(n), c = typeof l != "string" && typeof l != "number" ? "" : String(l), u = fp(r.value, c, {
       customKeyFilter: {
         ...t.customKeyFilter,
         ...O(i == null ? void 0 : i.customKeyFilter)
@@ -7358,7 +7342,7 @@ function mp(t, e, n, i) {
     getMatches: s
   };
 }
-function vp(t, e, n) {
+function mp(t, e, n) {
   if (e == null) return t;
   if (Array.isArray(e)) throw new Error("Multiple matches is not implemented");
   return typeof e == "number" && ~e ? v(fe, null, [v("span", {
@@ -7369,17 +7353,17 @@ function vp(t, e, n) {
     class: "v-autocomplete__unmask"
   }, [t.substr(e + n)])]) : t;
 }
-const Cp = $({
+const vp = W({
   autoSelectFirst: {
     type: [Boolean, String]
   },
   clearOnSelect: Boolean,
   search: String,
-  ...fp({
+  ...hp({
     filterKeys: ["title"]
   }),
   ...af(),
-  ...Oi(Fl({
+  ...Oi(Ll({
     modelValue: null,
     role: "combobox"
   }), ["validationValue", "dirty", "appendInnerIcon"]),
@@ -7388,7 +7372,7 @@ const Cp = $({
   })
 }, "VAutocomplete"), ms = K()({
   name: "VAutocomplete",
-  props: Cp(),
+  props: vp(),
   emits: {
     "update:focused": (t) => !0,
     "update:search": (t) => !0,
@@ -7414,16 +7398,16 @@ const Cp = $({
       items: m,
       transformIn: C,
       transformOut: p
-    } = $h(t), {
+    } = Wh(t), {
       textColorClasses: y,
       textColorStyles: M
     } = yn(f), S = Be(t, "search", ""), b = Be(t, "modelValue", [], (H) => C(H === null ? [null] : Nt(H)), (H) => {
       const ue = p(H);
       return t.multiple ? ue : ue[0] ?? null;
-    }), T = x(() => typeof t.counterValue == "function" ? t.counterValue(b.value) : typeof t.counterValue == "number" ? t.counterValue : b.value.length), _ = wl(), {
+    }), T = x(() => typeof t.counterValue == "function" ? t.counterValue(b.value) : typeof t.counterValue == "number" ? t.counterValue : b.value.length), _ = xl(), {
       filteredItems: P,
       getMatches: w
-    } = mp(t, m, () => r.value ? "" : S.value), I = x(() => t.hideSelected ? P.value.filter((H) => !b.value.some((ue) => ue.value === H.value)) : P.value), z = x(() => b.value.map((H) => H.props.value)), A = x(() => {
+    } = gp(t, m, () => r.value ? "" : S.value), I = x(() => t.hideSelected ? P.value.filter((H) => !b.value.some((ue) => ue.value === H.value)) : P.value), z = x(() => b.value.map((H) => H.props.value)), A = x(() => {
       var ue;
       return (t.autoSelectFirst === !0 || t.autoSelectFirst === "exact" && S.value === ((ue = I.value[0]) == null ? void 0 : ue.title)) && I.value.length > 0 && !r.value && !s.value;
     }), R = x(() => t.hideNoData && !I.value.length || t.readonly || (_ == null ? void 0 : _.isReadonly.value)), V = j(), {
@@ -7470,7 +7454,7 @@ const Cp = $({
         ue && ae(ue);
       }
     }
-    function W() {
+    function $() {
       var H;
       o.value && (r.value = !0, (H = a.value) == null || H.focus());
     }
@@ -7499,11 +7483,11 @@ const Cp = $({
           }
           t.clearOnSelect && (S.value = "");
         } else
-          b.value = ue ? [H] : [], Q.value = !0, S.value = ue ? H.title : "", d.value = !1, r.value = !0, We(() => Q.value = !1);
+          b.value = ue ? [H] : [], Q.value = !0, S.value = ue ? H.title : "", d.value = !1, r.value = !0, $e(() => Q.value = !1);
     }
     return J(o, (H, ue) => {
       var ye;
-      H !== ue && (H ? (Q.value = !0, S.value = t.multiple ? "" : String(((ye = b.value.at(-1)) == null ? void 0 : ye.props.title) ?? ""), r.value = !0, We(() => Q.value = !1)) : (!t.multiple && S.value == null ? b.value = [] : A.value && !s.value && !b.value.some((Ue) => {
+      H !== ue && (H ? (Q.value = !0, S.value = t.multiple ? "" : String(((ye = b.value.at(-1)) == null ? void 0 : ye.props.title) ?? ""), r.value = !0, $e(() => Q.value = !1)) : (!t.multiple && S.value == null ? b.value = [] : A.value && !s.value && !b.value.some((Ue) => {
         let {
           value: pe
         } = Ue;
@@ -7522,8 +7506,8 @@ const Cp = $({
     }), J(I, (H, ue) => {
       o.value && (!H.length && t.hideNoData && (d.value = !1), !ue.length && H.length && (d.value = !0));
     }), ie(() => {
-      const H = !!(t.chips || n.chip), ue = !!(!t.hideNoData || I.value.length || n["prepend-item"] || n["append-item"] || n["no-data"]), ye = b.value.length > 0, Ue = Wn.filterProps(t);
-      return v(Wn, ce({
+      const H = !!(t.chips || n.chip), ue = !!(!t.hideNoData || I.value.length || n["prepend-item"] || n["append-item"] || n["no-data"]), ye = b.value.length > 0, Ue = $n.filterProps(t);
+      return v($n, ce({
         ref: a
       }, Ue, {
         modelValue: S.value,
@@ -7560,7 +7544,7 @@ const Cp = $({
           openOnClick: !1,
           closeOnContentClick: !1,
           transition: t.transition,
-          onAfterLeave: W
+          onAfterLeave: $
         }, t.menuProps), {
           default: () => [ue && v(xa, ce({
             ref: V,
@@ -7619,7 +7603,7 @@ const Cp = $({
                     },
                     title: () => {
                       var An, Je;
-                      return r.value ? ze.title : vp(ze.title, (An = w(ze)) == null ? void 0 : An.title, ((Je = S.value) == null ? void 0 : Je.length) ?? 0);
+                      return r.value ? ze.title : mp(ze.title, (An = w(ze)) == null ? void 0 : An.title, ((Je = S.value) == null ? void 0 : Je.length) ?? 0);
                     }
                   });
                 }
@@ -7637,7 +7621,7 @@ const Cp = $({
             },
             modelValue: !0,
             "onUpdate:modelValue": void 0
-          }, ze = H ? !!n.chip : !!n.selection, _t = ze ? yl(H ? n.chip({
+          }, ze = H ? !!n.chip : !!n.selection, _t = ze ? vl(H ? n.chip({
             item: pe,
             index: Ye,
             props: rt
@@ -7681,7 +7665,7 @@ const Cp = $({
             class: "v-autocomplete__menu-icon",
             icon: t.menuIcon,
             onMousedown: B,
-            onClick: Jm,
+            onClick: qm,
             "aria-label": i(g.value),
             title: i(g.value)
           }, null) : void 0]);
@@ -7696,7 +7680,7 @@ const Cp = $({
       select: ae
     }, a);
   }
-}), pp = $({
+}), Cp = W({
   fluid: {
     type: Boolean,
     default: !1
@@ -7705,7 +7689,7 @@ const Cp = $({
   ...Le()
 }, "VContainer"), tn = K()({
   name: "VContainer",
-  props: pp(),
+  props: Cp(),
   setup(t, e) {
     let {
       slots: n
@@ -7724,23 +7708,23 @@ const Cp = $({
   type: [Boolean, String, Number],
   default: !1
 }, t), {}), rf = Tr.reduce((t, e) => {
-  const n = "offset" + ho(e);
+  const n = "offset" + fo(e);
   return t[n] = {
     type: [String, Number],
     default: null
   }, t;
 }, {}), sf = Tr.reduce((t, e) => {
-  const n = "order" + ho(e);
+  const n = "order" + fo(e);
   return t[n] = {
     type: [String, Number],
     default: null
   }, t;
-}, {}), pu = {
+}, {}), mu = {
   col: Object.keys(of),
   offset: Object.keys(rf),
   order: Object.keys(sf)
 };
-function yp(t, e, n) {
+function pp(t, e, n) {
   let i = t;
   if (!(n == null || n === !1)) {
     if (e) {
@@ -7750,7 +7734,7 @@ function yp(t, e, n) {
     return t === "col" && (i = "v-" + i), t === "col" && (n === "" || n === !0) || (i += `-${n}`), i.toLowerCase();
   }
 }
-const _p = ["auto", "start", "end", "center", "baseline", "stretch"], Sp = $({
+const yp = ["auto", "start", "end", "center", "baseline", "stretch"], _p = W({
   cols: {
     type: [Boolean, String, Number],
     default: !1
@@ -7769,13 +7753,13 @@ const _p = ["auto", "start", "end", "center", "baseline", "stretch"], Sp = $({
   alignSelf: {
     type: String,
     default: null,
-    validator: (t) => _p.includes(t)
+    validator: (t) => yp.includes(t)
   },
   ...de(),
   ...Le()
 }, "VCol"), qt = K()({
   name: "VCol",
-  props: Sp(),
+  props: _p(),
   setup(t, e) {
     let {
       slots: n
@@ -7783,9 +7767,9 @@ const _p = ["auto", "start", "end", "center", "baseline", "stretch"], Sp = $({
     const i = x(() => {
       const a = [];
       let o;
-      for (o in pu)
-        pu[o].forEach((s) => {
-          const l = t[s], c = yp(o, s, l);
+      for (o in mu)
+        mu[o].forEach((s) => {
+          const l = t[s], c = pp(o, s, l);
           c && a.push(c);
         });
       const r = a.some((s) => s.startsWith("v-col-"));
@@ -7806,36 +7790,36 @@ const _p = ["auto", "start", "end", "center", "baseline", "stretch"], Sp = $({
       }, (a = n.default) == null ? void 0 : a.call(n));
     };
   }
-}), kl = ["start", "end", "center"], lf = ["space-between", "space-around", "space-evenly"];
-function Ol(t, e) {
+}), Vl = ["start", "end", "center"], lf = ["space-between", "space-around", "space-evenly"];
+function Bl(t, e) {
   return Tr.reduce((n, i) => {
-    const a = t + ho(i);
+    const a = t + fo(i);
     return n[a] = e(), n;
   }, {});
 }
-const bp = [...kl, "baseline", "stretch"], cf = (t) => bp.includes(t), uf = Ol("align", () => ({
+const Sp = [...Vl, "baseline", "stretch"], cf = (t) => Sp.includes(t), uf = Bl("align", () => ({
   type: String,
   default: null,
   validator: cf
-})), Mp = [...kl, ...lf], df = (t) => Mp.includes(t), hf = Ol("justify", () => ({
+})), bp = [...Vl, ...lf], df = (t) => bp.includes(t), hf = Bl("justify", () => ({
   type: String,
   default: null,
   validator: df
-})), xp = [...kl, ...lf, "stretch"], ff = (t) => xp.includes(t), gf = Ol("alignContent", () => ({
+})), Mp = [...Vl, ...lf, "stretch"], ff = (t) => Mp.includes(t), gf = Bl("alignContent", () => ({
   type: String,
   default: null,
   validator: ff
-})), yu = {
+})), vu = {
   align: Object.keys(uf),
   justify: Object.keys(hf),
   alignContent: Object.keys(gf)
-}, Pp = {
+}, xp = {
   align: "align",
   justify: "justify",
   alignContent: "align-content"
 };
-function Tp(t, e, n) {
-  let i = Pp[t];
+function Pp(t, e, n) {
+  let i = xp[t];
   if (n != null) {
     if (e) {
       const a = e.replace(t, "");
@@ -7844,7 +7828,7 @@ function Tp(t, e, n) {
     return i += `-${n}`, i.toLowerCase();
   }
 }
-const wp = $({
+const Tp = W({
   dense: Boolean,
   noGutters: Boolean,
   align: {
@@ -7869,7 +7853,7 @@ const wp = $({
   ...Le()
 }, "VRow"), da = K()({
   name: "VRow",
-  props: wp(),
+  props: Tp(),
   setup(t, e) {
     let {
       slots: n
@@ -7877,9 +7861,9 @@ const wp = $({
     const i = x(() => {
       const a = [];
       let o;
-      for (o in yu)
-        yu[o].forEach((r) => {
-          const s = t[r], l = Tp(o, r, s);
+      for (o in vu)
+        vu[o].forEach((r) => {
+          const s = t[r], l = Pp(o, r, s);
           l && a.push(l);
         });
       return a.push({
@@ -7898,10 +7882,10 @@ const wp = $({
       }, (a = n.default) == null ? void 0 : a.call(n));
     };
   }
-}), Ep = {
+}), wp = {
   __name: "Address",
   setup(t) {
-    const e = bn(), { data: n } = $t(e), i = n.value.store, a = i.addressMode, o = kd(), r = j([]), s = j([]), l = j([]), c = (g = !1) => {
+    const e = bn(), { data: n } = Wt(e), i = n.value.store, a = i.addressMode, o = kd(), r = j([]), s = j([]), l = j([]), c = (g = !1) => {
       o.region && o.province && !g || o.region && dn[o.region] && (s.value = Object.keys(dn[o.region]), o.province = "", l.value = [], o.city = "");
     }, u = (g = !1) => {
       var m;
@@ -7935,7 +7919,7 @@ const wp = $({
         default: Y(() => [
           v(qt, { cols: "6" }, {
             default: Y(() => [
-              v(Wn, {
+              v($n, {
                 modelValue: O(o).firstname,
                 "onUpdate:modelValue": m[0] || (m[0] = (C) => O(o).firstname = C),
                 label: "Nome",
@@ -7949,7 +7933,7 @@ const wp = $({
           }),
           v(qt, { cols: "6" }, {
             default: Y(() => [
-              v(Wn, {
+              v($n, {
                 modelValue: O(o).lastname,
                 "onUpdate:modelValue": m[1] || (m[1] = (C) => O(o).lastname = C),
                 label: "Cognome",
@@ -8004,7 +7988,7 @@ const wp = $({
         dense: "",
         rules: [(C) => !!C || "Campo obbligatorio"]
       }, null, 8, ["modelValue", "items", "disabled", "rules"]),
-      v(Wn, {
+      v($n, {
         modelValue: O(o).address,
         "onUpdate:modelValue": m[5] || (m[5] = (C) => O(o).address = C),
         label: "Inserisci la via e il numero civico",
@@ -8015,7 +7999,7 @@ const wp = $({
       }, null, 8, ["modelValue", "rules"])
     ]));
   }
-}, Ap = go("popup", {
+}, Ep = mo("popup", {
   state: () => ({
     message: "",
     type: ""
@@ -8027,7 +8011,7 @@ const wp = $({
       }, 50);
     }
   }
-}), mf = $({
+}), mf = W({
   divided: Boolean,
   ...wn(),
   ...de(),
@@ -8037,7 +8021,7 @@ const wp = $({
   ...Le(),
   ...ke(),
   ...yi()
-}, "VBtnGroup"), _u = K()({
+}, "VBtnGroup"), Cu = K()({
   name: "VBtnGroup",
   props: mf(),
   setup(t, e) {
@@ -8070,13 +8054,13 @@ const wp = $({
       style: t.style
     }, n));
   }
-}), vf = Symbol.for("vuetify:v-btn-toggle"), Rp = $({
+}), vf = Symbol.for("vuetify:v-btn-toggle"), Ap = W({
   ...mf(),
   ...Er()
 }, "VBtnToggle");
 K()({
   name: "VBtnToggle",
-  props: Rp(),
+  props: Ap(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -8090,10 +8074,10 @@ K()({
       prev: o,
       select: r,
       selected: s
-    } = Mo(t, vf);
+    } = xo(t, vf);
     return ie(() => {
-      const l = _u.filterProps(t);
-      return v(_u, ce({
+      const l = Cu.filterProps(t);
+      return v(Cu, ce({
         class: ["v-btn-toggle", t.class]
       }, l, {
         style: t.style
@@ -8116,7 +8100,7 @@ K()({
     };
   }
 });
-const Ip = $({
+const Rp = W({
   bgColor: String,
   color: String,
   indeterminate: [Boolean, String],
@@ -8133,14 +8117,14 @@ const Ip = $({
     default: 4
   },
   ...de(),
-  ...Co(),
+  ...po(),
   ...Le({
     tag: "div"
   }),
   ...ke()
-}, "VProgressCircular"), zp = K()({
+}, "VProgressCircular"), Ip = K()({
   name: "VProgressCircular",
-  props: Ip(),
+  props: Rp(),
   setup(t, e) {
     let {
       slots: n
@@ -8150,7 +8134,7 @@ const Ip = $({
     } = Xe(t), {
       sizeClasses: s,
       sizeStyles: l
-    } = po(t), {
+    } = yo(t), {
       textColorClasses: c,
       textColorStyles: u
     } = yn(te(t, "color")), {
@@ -8210,34 +8194,34 @@ const Ip = $({
       })])]
     })), {};
   }
-}), Lp = ["static", "relative", "fixed", "absolute", "sticky"], Dl = $({
+}), zp = ["static", "relative", "fixed", "absolute", "sticky"], Fl = W({
   position: {
     type: String,
     validator: (
       /* istanbul ignore next */
-      (t) => Lp.includes(t)
+      (t) => zp.includes(t)
     )
   }
 }, "position");
-function Gl(t) {
+function kl(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : xn();
   return {
     positionClasses: x(() => t.position ? `${e}--${t.position}` : void 0)
   };
 }
-function Vp(t, e) {
+function Lp(t, e) {
   J(() => {
     var n;
     return (n = t.isActive) == null ? void 0 : n.value;
   }, (n) => {
-    t.isLink.value && n && e && We(() => {
+    t.isLink.value && n && e && $e(() => {
       e(!0);
     });
   }, {
     immediate: !0
   });
 }
-const Cf = $({
+const Cf = W({
   active: {
     type: Boolean,
     default: void 0
@@ -8263,13 +8247,13 @@ const Cf = $({
   ...Tn(),
   ...Ci(),
   ...rn(),
-  ...So(),
-  ...zl(),
+  ...bo(),
+  ...Al(),
   ...Lr(),
-  ...Dl(),
+  ...Fl(),
   ...pt(),
   ...Rr(),
-  ...Co(),
+  ...po(),
   ...Le({
     tag: "button"
   }),
@@ -8299,7 +8283,7 @@ const Cf = $({
       colorClasses: r,
       colorStyles: s,
       variantClasses: l
-    } = _o(t), {
+    } = So(t), {
       densityClasses: c
     } = Hn(t), {
       dimensionStyles: u
@@ -8307,16 +8291,16 @@ const Cf = $({
       elevationClasses: d
     } = sn(t), {
       loaderClasses: h
-    } = Ll(t), {
+    } = Rl(t), {
       locationStyles: f
     } = Vr(t), {
       positionClasses: g
-    } = Gl(t), {
+    } = kl(t), {
       roundedClasses: m
     } = yt(t), {
       sizeClasses: C,
       sizeStyles: p
-    } = po(t), y = bo(t, t.symbol, !1), M = Ar(t, n), S = x(() => {
+    } = yo(t), y = Mo(t, t.symbol, !1), M = Ar(t, n), S = x(() => {
       var w;
       return t.active !== void 0 ? t.active : M.isLink.value ? (w = M.isActive) == null ? void 0 : w.value : y == null ? void 0 : y.isSelected.value;
     }), b = x(() => (y == null ? void 0 : y.disabled.value) || t.disabled), T = x(() => t.variant === "elevated" && !(t.disabled || t.flat || t.border)), _ = x(() => {
@@ -8327,7 +8311,7 @@ const Cf = $({
       var I;
       b.value || M.isLink.value && (w.metaKey || w.ctrlKey || w.shiftKey || w.button !== 0 || n.target === "_blank") || ((I = M.navigate) == null || I.call(M, w), y == null || y.toggle());
     }
-    return Vp(M, y == null ? void 0 : y.select), ie(() => {
+    return Lp(M, y == null ? void 0 : y.select), ie(() => {
       var V, N;
       const w = M.isLink.value ? "a" : t.tag, I = !!(t.prependIcon || i.prepend), z = !!(t.appendIcon || i.append), A = !!(t.icon && t.icon !== !0), R = (y == null ? void 0 : y.isSelected.value) && (!M.isLink.value || ((V = M.isActive) == null ? void 0 : V.value)) || !y || ((N = M.isActive) == null ? void 0 : N.value);
       return Ze(v(w, {
@@ -8351,7 +8335,7 @@ const Cf = $({
       }, {
         default: () => {
           var G;
-          return [yo(!0, "v-btn"), !t.icon && I && v("span", {
+          return [_o(!0, "v-btn"), !t.icon && I && v("span", {
             key: "prepend",
             class: "v-btn__prepend"
           }, [i.prepend ? v(je, {
@@ -8401,7 +8385,7 @@ const Cf = $({
           }, null)]), !!t.loading && v("span", {
             key: "loader",
             class: "v-btn__loader"
-          }, [((G = i.loader) == null ? void 0 : G.call(i)) ?? v(zp, {
+          }, [((G = i.loader) == null ? void 0 : G.call(i)) ?? v(Ip, {
             color: typeof t.loading == "boolean" ? void 0 : t.loading,
             indeterminate: !0,
             size: "23",
@@ -8433,7 +8417,7 @@ const Cf = $({
       }, [(i = n.default) == null ? void 0 : i.call(n)]);
     }), {};
   }
-}), yf = vo("v-card-subtitle"), Nl = vo("v-card-title"), Bp = $({
+}), yf = Co("v-card-subtitle"), Ol = Co("v-card-title"), Vp = W({
   appendAvatar: String,
   appendIcon: Te,
   prependAvatar: String,
@@ -8442,9 +8426,9 @@ const Cf = $({
   title: [String, Number],
   ...de(),
   ...Tn()
-}, "VCardItem"), Fp = K()({
+}, "VCardItem"), Bp = K()({
   name: "VCardItem",
-  props: Bp(),
+  props: Vp(),
   setup(t, e) {
     let {
       slots: n
@@ -8481,7 +8465,7 @@ const Cf = $({
         icon: t.prependIcon
       }, null)])]), v("div", {
         class: "v-card-item__content"
-      }, [s && v(Nl, {
+      }, [s && v(Ol, {
         key: "title"
       }, {
         default: () => {
@@ -8522,7 +8506,7 @@ const Cf = $({
       }, null)])])]);
     }), {};
   }
-}), $l = vo("v-card-text"), kp = $({
+}), Dl = Co("v-card-text"), Fp = W({
   appendAvatar: String,
   appendIcon: Te,
   disabled: Boolean,
@@ -8547,9 +8531,9 @@ const Cf = $({
   ...Tn(),
   ...Ci(),
   ...rn(),
-  ...zl(),
+  ...Al(),
   ...Lr(),
-  ...Dl(),
+  ...Fl(),
   ...pt(),
   ...Rr(),
   ...Le(),
@@ -8557,12 +8541,12 @@ const Cf = $({
   ...yi({
     variant: "elevated"
   })
-}, "VCard"), Po = K()({
+}, "VCard"), To = K()({
   name: "VCard",
   directives: {
     Ripple: ba
   },
-  props: kp(),
+  props: Fp(),
   setup(t, e) {
     let {
       attrs: n,
@@ -8576,7 +8560,7 @@ const Cf = $({
       colorClasses: r,
       colorStyles: s,
       variantClasses: l
-    } = _o(t), {
+    } = So(t), {
       densityClasses: c
     } = Hn(t), {
       dimensionStyles: u
@@ -8584,11 +8568,11 @@ const Cf = $({
       elevationClasses: d
     } = sn(t), {
       loaderClasses: h
-    } = Ll(t), {
+    } = Rl(t), {
       locationStyles: f
     } = Vr(t), {
       positionClasses: g
-    } = Gl(t), {
+    } = kl(t), {
       roundedClasses: m
     } = yt(t), C = Ar(t, n), p = x(() => t.link !== !1 && C.isLink.value), y = x(() => !t.disabled && t.link !== !1 && (t.link || C.isClickable.value));
     return ie(() => {
@@ -8629,7 +8613,7 @@ const Cf = $({
             color: typeof t.loading == "boolean" ? void 0 : t.loading
           }, {
             default: i.loader
-          }), I && v(Fp, {
+          }), I && v(Bp, {
             key: "item",
             prependAvatar: t.prependAvatar,
             prependIcon: t.prependIcon,
@@ -8643,7 +8627,7 @@ const Cf = $({
             title: i.title,
             subtitle: i.subtitle,
             append: i.append
-          }), z && v($l, {
+          }), z && v(Dl, {
             key: "text"
           }, {
             default: () => {
@@ -8652,16 +8636,16 @@ const Cf = $({
             }
           }), (A = i.default) == null ? void 0 : A.call(i), i.actions && v(pf, null, {
             default: i.actions
-          }), yo(y.value, "v-card")];
+          }), _o(y.value, "v-card")];
         }
       }), [[an("ripple"), y.value && t.ripple]]);
     }), {};
   }
-}), Op = { class: "font-weight-bold" }, Dp = { style: { "flex-grow": "1" } }, Gp = { style: { "font-size": "16px", "font-weight": "bold" } }, Np = { style: { display: "flex", "align-items": "center" } }, $p = { style: { "font-size": "15px", "font-weight": "bold" } }, Wp = {
+}), kp = { class: "font-weight-bold" }, Op = { style: { "flex-grow": "1" } }, Dp = { style: { "font-size": "16px", "font-weight": "bold" } }, Gp = { style: { display: "flex", "align-items": "center" } }, Np = { style: { "font-size": "15px", "font-weight": "bold" } }, Wp = {
   __name: "Cart",
   setup(t) {
-    const e = Ap(), n = Od(), i = j([]), a = j(!1), o = j(!1), r = ya(), s = bn(), { data: l } = $t(s), c = l.value.store;
-    xr.getRequestGenericBE("products", {}, function(_) {
+    const e = Ep(), n = Od(), i = j([]), a = j(!1), o = j(!1), r = ya(), s = bn(), { data: l } = Wt(s), c = l.value.store;
+    ja.getRequest("products", {}, function(_) {
       i.value = _;
     });
     const u = x(() => n.products.reduce((_, P) => _ + P.quantity, 0)), d = x(() => n.products.reduce((_, P) => {
@@ -8670,12 +8654,13 @@ const Cf = $({
     }, 0).toFixed(2) + " €"), h = async () => {
       c.addressMode ? a.value = !0 : await f();
     }, f = async () => {
-      const { products: _ } = $t(n), I = await (await fetch("https://generic-be-test.replit.app/stripe-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(_.value)
-      })).json();
-      I.url ? window.location.href = I.url : I.status == "ko" && alert(I.message);
+      const { products: _ } = Wt(n);
+      ja.postRequest("stripe-session", {
+        user_id: c.userId,
+        products: _.value
+      }, function(P) {
+        P.checkout_url ? window.location.href = P.checkout_url : P.status == "ko" && alert(P.message);
+      });
     }, g = () => {
       a.value = !1;
     }, m = () => {
@@ -8713,14 +8698,14 @@ const Cf = $({
       "onClick:outside": P[3] || (P[3] = (w) => o.value = !1)
     }, {
       activator: Y(({ props: w }) => [
-        O(r) ? (Z(), he(St, Lc(ce({ key: 0 }, w)), {
+        O(r) ? (Z(), he(St, Rc(ce({ key: 0 }, w)), {
           default: Y(() => [
             v(Ae, { icon: "mdi-cart-outline" }),
             nt(" (" + Ne(u.value) + ") ", 1)
           ]),
           _: 2
         }, 1040)) : Me("", !0),
-        O(r) ? Me("", !0) : (Z(), he(St, Lc(ce({ key: 1 }, w)), {
+        O(r) ? Me("", !0) : (Z(), he(St, Rc(ce({ key: 1 }, w)), {
           default: Y(() => [
             v(Ae, {
               icon: "mdi-cart-outline",
@@ -8732,20 +8717,20 @@ const Cf = $({
         }, 1040))
       ]),
       default: Y(() => [
-        v(Po, {
+        v(To, {
           class: "mt-4",
           style: { width: "400px", "background-color": "#f5f5f5" }
         }, {
           default: Y(() => [
-            v(Nl, null, {
+            v(Ol, null, {
               default: Y(() => [
-                re("span", Op, Ne(a.value ? "Indirizzo di Spedizione" : "Riepilogo Ordini"), 1)
+                re("span", kp, Ne(a.value ? "Indirizzo di Spedizione" : "Riepilogo Ordini"), 1)
               ]),
               _: 1
             }),
-            v($l, null, {
+            v(Dl, null, {
               default: Y(() => [
-                a.value ? (Z(), he(O(Ep), { key: 0 })) : (Z(), he(xa, { key: 1 }, {
+                a.value ? (Z(), he(O(wp), { key: 0 })) : (Z(), he(xa, { key: 1 }, {
                   default: Y(() => [
                     (Z(!0), Pe(fe, null, Tt(O(n).products, (w) => (Z(), he(_n, { class: "py-4" }, {
                       default: Y(() => [
@@ -8762,9 +8747,9 @@ const Cf = $({
                                   width: "40",
                                   class: "mr-3"
                                 }, null, 8, ["src"]),
-                                re("div", Dp, [
-                                  re("p", Gp, Ne(p(w.product)), 1),
-                                  re("div", Np, [
+                                re("div", Op, [
+                                  re("p", Dp, Ne(p(w.product)), 1),
+                                  re("div", Gp, [
                                     P[4] || (P[4] = re("p", { class: "text-caption" }, "Quantità:", -1)),
                                     v(St, {
                                       onClick: Ya((I) => b(w), ["stop"]),
@@ -8781,7 +8766,7 @@ const Cf = $({
                                     }, null, 8, ["onClick"])
                                   ])
                                 ]),
-                                re("p", $p, Ne(M(w.product) + " €"), 1)
+                                re("p", Np, Ne(M(w.product) + " €"), 1)
                               ]),
                               _: 2
                             }, 1024)
@@ -8837,7 +8822,7 @@ const Cf = $({
       _: 1
     }, 8, ["modelValue"]));
   }
-}, Su = /* @__PURE__ */ Ut(Wp, [["__scopeId", "data-v-73ef1449"]]), Zn = go("language", {
+}, pu = /* @__PURE__ */ Ut(Wp, [["__scopeId", "data-v-209409d1"]]), Zn = mo("language", {
   state: () => ({
     locale: "it"
   }),
@@ -8855,10 +8840,10 @@ const Cf = $({
   persist: {
     storage: localStorage
   }
-}), Xp = ["src"], Up = ["src"], Yp = ["src"], jp = {
+}), $p = ["src"], Xp = ["src"], Up = ["src"], Yp = {
   __name: "Language",
   setup(t) {
-    const e = bn(), n = Zn(), { data: i } = $t(e), { locale: a } = $t(n), o = i.value.info.locales, r = x(() => o.length === 2 ? o.find((u) => u !== a.value) : null), s = (u) => `https://flagcdn.com/w40/${u}.png`, l = () => {
+    const e = bn(), n = Zn(), { data: i } = Wt(e), { locale: a } = Wt(n), o = i.value.info.locales, r = x(() => o.length === 2 ? o.find((u) => u !== a.value) : null), s = (u) => `https://flagcdn.com/w40/${u}.png`, l = () => {
       r.value && (n.locale = r.value);
     }, c = (u) => {
       n.locale = u;
@@ -8870,7 +8855,7 @@ const Cf = $({
         class: "flag",
         onClick: l,
         style: { margin: "16px" }
-      }, null, 8, Xp)) : Me("", !0),
+      }, null, 8, $p)) : Me("", !0),
       O(o).length > 2 ? (Z(), he(zr, { key: 1 }, {
         activator: Y(({ props: h }) => [
           re("div", ce(h, { class: "flag-wrapper" }), [
@@ -8878,7 +8863,7 @@ const Cf = $({
               src: s(O(a)),
               class: "flag",
               style: { width: "20px", height: "20px" }
-            }, null, 8, Up),
+            }, null, 8, Xp),
             v(Ae, { class: "arrow" }, {
               default: Y(() => d[0] || (d[0] = [
                 nt("mdi-menu-down")
@@ -8903,7 +8888,7 @@ const Cf = $({
                     src: s(h),
                     style: { width: "20px", height: "20px" },
                     class: "flag"
-                  }, null, 8, Yp)
+                  }, null, 8, Up)
                 ]),
                 _: 2
               }, 1032, ["onClick"]))), 128))
@@ -8915,7 +8900,7 @@ const Cf = $({
       })) : Me("", !0)
     ], 64));
   }
-}, bu = /* @__PURE__ */ Ut(jp, [["__scopeId", "data-v-d1ce1a9a"]]), _f = $({
+}, yu = /* @__PURE__ */ Ut(Yp, [["__scopeId", "data-v-d1ce1a9a"]]), _f = W({
   text: String,
   ...de(),
   ...Le()
@@ -8941,14 +8926,14 @@ const Cf = $({
       });
     }), {};
   }
-}), Hp = [null, "prominent", "default", "comfortable", "compact"], bf = $({
+}), jp = [null, "prominent", "default", "comfortable", "compact"], bf = W({
   absolute: Boolean,
   collapse: Boolean,
   color: String,
   density: {
     type: String,
     default: "default",
-    validator: (t) => Hp.includes(t)
+    validator: (t) => jp.includes(t)
   },
   extended: Boolean,
   extensionHeight: {
@@ -8971,7 +8956,7 @@ const Cf = $({
     tag: "header"
   }),
   ...ke()
-}, "VToolbar"), Mu = K()({
+}, "VToolbar"), _u = K()({
   name: "VToolbar",
   props: bf(),
   setup(t, e) {
@@ -9058,7 +9043,7 @@ const Cf = $({
             }
           }
         }, {
-          default: () => [v(Pl, null, {
+          default: () => [v(bl, null, {
             default: () => [u.value && v("div", {
               class: "v-toolbar__extension",
               style: {
@@ -9073,13 +9058,13 @@ const Cf = $({
       extensionHeight: h
     };
   }
-}), ur = Symbol.for("vuetify:layout"), Mf = Symbol.for("vuetify:layout-item"), xu = 1e3, Zp = $({
+}), dr = Symbol.for("vuetify:layout"), Mf = Symbol.for("vuetify:layout-item"), Su = 1e3, Hp = W({
   overlaps: {
     type: Array,
     default: () => []
   },
   fullHeight: Boolean
-}, "layout"), Wl = $({
+}, "layout"), Gl = W({
   name: {
     type: String
   },
@@ -9089,8 +9074,8 @@ const Cf = $({
   },
   absolute: Boolean
 }, "layout-item");
-function Kp() {
-  const t = $e(ur);
+function Zp() {
+  const t = We(dr);
   if (!t) throw new Error("[Vuetify] Could not find injected layout");
   return {
     getLayoutItem: t.getLayoutItem,
@@ -9098,8 +9083,8 @@ function Kp() {
     mainStyles: t.mainStyles
   };
 }
-function Xl(t) {
-  const e = $e(ur);
+function Nl(t) {
+  const e = We(dr);
   if (!e) throw new Error("[Vuetify] Could not find injected layout");
   const n = t.id ?? `layout-item-${Pn()}`, i = qe("useLayoutItem");
   ot(Mf, {
@@ -9121,7 +9106,7 @@ function Xl(t) {
     layoutItemScrimStyles: r
   };
 }
-const qp = (t, e, n, i) => {
+const Kp = (t, e, n, i) => {
   let a = {
     top: 0,
     left: 0,
@@ -9148,8 +9133,8 @@ const qp = (t, e, n, i) => {
   }
   return o;
 };
-function Jp(t) {
-  const e = $e(ur, null), n = x(() => e ? e.rootZIndex.value - 100 : xu), i = j([]), a = Nn(/* @__PURE__ */ new Map()), o = Nn(/* @__PURE__ */ new Map()), r = Nn(/* @__PURE__ */ new Map()), s = Nn(/* @__PURE__ */ new Map()), l = Nn(/* @__PURE__ */ new Map()), {
+function qp(t) {
+  const e = We(dr, null), n = x(() => e ? e.rootZIndex.value - 100 : Su), i = j([]), a = Nn(/* @__PURE__ */ new Map()), o = Nn(/* @__PURE__ */ new Map()), r = Nn(/* @__PURE__ */ new Map()), s = Nn(/* @__PURE__ */ new Map()), l = Nn(/* @__PURE__ */ new Map()), {
     resizeRef: c,
     contentRect: u
   } = Fi(), d = x(() => {
@@ -9176,7 +9161,7 @@ function Jp(t) {
       });
       _.push(...w);
     }
-    return qp(_, a, o, s);
+    return Kp(_, a, o, s);
   }), f = x(() => !Array.from(l.values()).some((T) => T.value)), g = x(() => h.value[h.value.length - 1].layer), m = x(() => ({
     "--v-layout-left": se(g.value.left),
     "--v-layout-right": se(g.value.right),
@@ -9201,7 +9186,7 @@ function Jp(t) {
   })), p = (T) => C.value.find((_) => _.id === T), y = qe("createLayout"), M = q(!1);
   Ke(() => {
     M.value = !0;
-  }), ot(ur, {
+  }), ot(dr, {
     register: (T, _) => {
       let {
         id: P,
@@ -9214,14 +9199,14 @@ function Jp(t) {
         absolute: N
       } = _;
       r.set(P, w), a.set(P, I), o.set(P, z), s.set(P, R), V && l.set(P, V);
-      const U = $a(Mf, y == null ? void 0 : y.vnode).indexOf(T);
+      const U = Wa(Mf, y == null ? void 0 : y.vnode).indexOf(T);
       U > -1 ? i.value.splice(U, 0, P) : i.value.push(P);
-      const E = x(() => C.value.findIndex((W) => W.id === P)), B = x(() => n.value + h.value.length * 2 - E.value * 2), D = x(() => {
-        const W = I.value === "left" || I.value === "right", X = I.value === "right", L = I.value === "bottom", ee = {
+      const E = x(() => C.value.findIndex(($) => $.id === P)), B = x(() => n.value + h.value.length * 2 - E.value * 2), D = x(() => {
+        const $ = I.value === "left" || I.value === "right", X = I.value === "right", L = I.value === "bottom", ee = {
           [I.value]: 0,
           zIndex: B.value,
-          transform: `translate${W ? "X" : "Y"}(${(R.value ? 0 : -110) * (X || L ? -1 : 1)}%)`,
-          position: N.value || n.value !== xu ? "absolute" : "fixed",
+          transform: `translate${$ ? "X" : "Y"}(${(R.value ? 0 : -110) * (X || L ? -1 : 1)}%)`,
+          position: N.value || n.value !== Su ? "absolute" : "fixed",
           ...f.value ? void 0 : {
             transition: "none"
           }
@@ -9232,12 +9217,12 @@ function Jp(t) {
         const ae = d.value.get(P);
         return ae && (Q[ae.position] += ae.amount), {
           ...ee,
-          height: W ? `calc(100% - ${Q.top}px - ${Q.bottom}px)` : A.value ? `${A.value}px` : void 0,
+          height: $ ? `calc(100% - ${Q.top}px - ${Q.bottom}px)` : A.value ? `${A.value}px` : void 0,
           left: X ? void 0 : `${Q.left}px`,
           right: X ? `${Q.right}px` : void 0,
           top: I.value !== "bottom" ? `${Q.top}px` : void 0,
           bottom: I.value !== "top" ? `${Q.bottom}px` : void 0,
-          width: W ? A.value ? `${A.value}px` : void 0 : `calc(100% - ${Q.left}px - ${Q.right}px)`
+          width: $ ? A.value ? `${A.value}px` : void 0 : `calc(100% - ${Q.left}px - ${Q.right}px)`
         };
       }), k = x(() => ({
         zIndex: B.value - 1
@@ -9274,7 +9259,7 @@ function Jp(t) {
     layoutRef: c
   };
 }
-const Qp = $({
+const Jp = W({
   scrollTarget: {
     type: String
   },
@@ -9283,7 +9268,7 @@ const Qp = $({
     default: 300
   }
 }, "scroll");
-function ey(t) {
+function Qp(t) {
   let e = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
   const {
     canScroll: n
@@ -9329,7 +9314,7 @@ function ey(t) {
     savedScroll: r
   };
 }
-const ty = $({
+const ey = W({
   scrollBehavior: String,
   modelValue: {
     type: Boolean,
@@ -9341,15 +9326,15 @@ const ty = $({
     validator: (t) => ["top", "bottom"].includes(t)
   },
   ...bf(),
-  ...Wl(),
-  ...Qp(),
+  ...Gl(),
+  ...Jp(),
   height: {
     type: [Number, String],
     default: 64
   }
-}, "VAppBar"), Pu = K()({
+}, "VAppBar"), bu = K()({
   name: "VAppBar",
-  props: ty(),
+  props: ey(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -9379,7 +9364,7 @@ const ty = $({
       scrollThreshold: l,
       isScrollingUp: c,
       scrollRatio: u
-    } = ey(t, {
+    } = Qp(t, {
       canScroll: r
     }), d = x(() => t.collapse || o.value.collapse && (o.value.inverted ? u.value > 0 : u.value === 0)), h = x(() => t.flat || o.value.elevate && (o.value.inverted ? s.value > 0 : s.value === 0)), f = x(() => o.value.fadeImage ? o.value.inverted ? 1 - u.value : u.value : void 0), g = x(() => {
       var M, S;
@@ -9394,9 +9379,9 @@ const ty = $({
     });
     const {
       ssrBootStyles: m
-    } = xo(), {
+    } = Po(), {
       layoutItemStyles: C
-    } = Xl({
+    } = Nl({
       id: t.name,
       order: x(() => parseInt(t.order, 10)),
       position: te(t, "location"),
@@ -9406,8 +9391,8 @@ const ty = $({
       absolute: te(t, "absolute")
     });
     return ie(() => {
-      const p = Mu.filterProps(t);
-      return v(Mu, ce({
+      const p = _u.filterProps(t);
+      return v(_u, ce({
         ref: i,
         class: ["v-app-bar", {
           "v-app-bar--bottom": t.location === "bottom"
@@ -9424,14 +9409,14 @@ const ty = $({
       }), n);
     }), {};
   }
-}), ny = $({
+}), ty = W({
   ...Cf({
     icon: "$menu",
     variant: "text"
   })
-}, "VAppBarNavIcon"), Tu = K()({
+}, "VAppBarNavIcon"), Mu = K()({
   name: "VAppBarNavIcon",
-  props: ny(),
+  props: ty(),
   setup(t, e) {
     let {
       slots: n
@@ -9440,7 +9425,7 @@ const ty = $({
       class: ["v-app-bar-nav-icon"]
     }), n)), {};
   }
-}), wu = K()({
+}), xu = K()({
   name: "VAppBarTitle",
   props: _f(),
   setup(t, e) {
@@ -9452,7 +9437,7 @@ const ty = $({
     }), n)), {};
   }
 });
-function iy(t) {
+function ny(t) {
   let {
     rootEl: e,
     isSticky: n,
@@ -9491,11 +9476,11 @@ function iy(t) {
     stickyStyles: r
   };
 }
-const ay = 100, oy = 20;
-function Eu(t) {
+const iy = 100, ay = 20;
+function Pu(t) {
   return (t < 0 ? -1 : 1) * Math.sqrt(Math.abs(t)) * 1.41421356237;
 }
-function Au(t) {
+function Tu(t) {
   if (t.length < 2)
     return 0;
   if (t.length === 2)
@@ -9504,16 +9489,16 @@ function Au(t) {
   for (let n = t.length - 1; n > 0; n--) {
     if (t[n].t === t[n - 1].t)
       continue;
-    const i = Eu(e), a = (t[n].d - t[n - 1].d) / (t[n].t - t[n - 1].t);
+    const i = Pu(e), a = (t[n].d - t[n - 1].d) / (t[n].t - t[n - 1].t);
     e += (a - i) * Math.abs(a), n === t.length - 1 && (e *= 0.5);
   }
-  return Eu(e) * 1e3;
+  return Pu(e) * 1e3;
 }
-function ry() {
+function oy() {
   const t = {};
   function e(a) {
     Array.from(a.changedTouches).forEach((o) => {
-      (t[o.identifier] ?? (t[o.identifier] = new qm(oy))).push([a.timeStamp, o]);
+      (t[o.identifier] ?? (t[o.identifier] = new Km(ay))).push([a.timeStamp, o]);
     });
   }
   function n(a) {
@@ -9528,7 +9513,7 @@ function ry() {
       throw new Error(`No samples for touch id ${a}`);
     const r = o[0], s = [], l = [];
     for (const u of o) {
-      if (r[0] - u[0] > ay) break;
+      if (r[0] - u[0] > iy) break;
       s.push({
         t: u[0],
         d: u[1].clientX
@@ -9538,14 +9523,14 @@ function ry() {
       });
     }
     return {
-      x: Au(s),
-      y: Au(l),
+      x: Tu(s),
+      y: Tu(l),
       get direction() {
         const {
           x: u,
           y: d
         } = this, [h, f] = [Math.abs(u), Math.abs(d)];
-        return h > f && u >= 0 ? "right" : h > f && u <= 0 ? "left" : f > h && d >= 0 ? "down" : f > h && d <= 0 ? "up" : sy();
+        return h > f && u >= 0 ? "right" : h > f && u <= 0 ? "left" : f > h && d >= 0 ? "down" : f > h && d <= 0 ? "up" : ry();
       }
     };
   }
@@ -9555,10 +9540,10 @@ function ry() {
     getVelocity: i
   };
 }
-function sy() {
+function ry() {
   throw new Error();
 }
-function ly(t) {
+function sy(t) {
   let {
     isActive: e,
     isTemporary: n,
@@ -9581,7 +9566,7 @@ function ly(t) {
     addMovement: s,
     endTouch: l,
     getVelocity: c
-  } = ry();
+  } = oy();
   let u = !1;
   const d = q(!1), h = q(0), f = q(0);
   let g;
@@ -9637,7 +9622,7 @@ function ly(t) {
 function Ui() {
   throw new Error();
 }
-const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
+const ly = ["start", "end", "left", "right", "top", "bottom"], cy = W({
   color: String,
   disableResizeWatcher: Boolean,
   disableRouteWatcher: Boolean,
@@ -9670,22 +9655,22 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
   location: {
     type: String,
     default: "start",
-    validator: (t) => cy.includes(t)
+    validator: (t) => ly.includes(t)
   },
   sticky: Boolean,
   ...wn(),
   ...de(),
   ...Ph(),
   ...rn(),
-  ...Wl(),
+  ...Gl(),
   ...pt(),
   ...Le({
     tag: "nav"
   }),
   ...ke()
-}, "VNavigationDrawer"), dy = K()({
+}, "VNavigationDrawer"), uy = K()({
   name: "VNavigationDrawer",
-  props: uy(),
+  props: cy(),
   emits: {
     "update:modelValue": (t) => !0,
     "update:rail": (t) => !0
@@ -9714,13 +9699,13 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
       roundedClasses: f
     } = yt(t), g = Rh(), m = Be(t, "modelValue", null, (D) => !!D), {
       ssrBootStyles: C
-    } = xo(), {
+    } = Po(), {
       scopeId: p
-    } = Il(), y = j(), M = q(!1), S = x(() => t.rail && t.expandOnHover && M.value ? Number(t.width) : Number(t.rail ? t.railWidth : t.width)), b = x(() => Bs(t.location, o.value)), T = x(() => !t.permanent && (h.value || t.temporary)), _ = x(() => t.sticky && !T.value && b.value !== "bottom");
+    } = El(), y = j(), M = q(!1), S = x(() => t.rail && t.expandOnHover && M.value ? Number(t.width) : Number(t.rail ? t.railWidth : t.width)), b = x(() => Bs(t.location, o.value)), T = x(() => !t.permanent && (h.value || t.temporary)), _ = x(() => t.sticky && !T.value && b.value !== "bottom");
     Kt(() => t.expandOnHover && t.rail != null, () => {
       J(M, (D) => i("update:rail", !D));
     }), Kt(() => !t.disableResizeWatcher, () => {
-      J(T, (D) => !t.permanent && We(() => m.value = !D));
+      J(T, (D) => !t.permanent && $e(() => m.value = !D));
     }), Kt(() => !t.disableRouteWatcher && !!g, () => {
       J(g.currentRoute, () => T.value && (m.value = !1));
     }), J(() => t.permanent, (D) => {
@@ -9732,7 +9717,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
       isDragging: P,
       dragProgress: w,
       dragStyles: I
-    } = ly({
+    } = sy({
       isActive: m,
       isTemporary: T,
       width: S,
@@ -9744,7 +9729,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
     }), {
       layoutItemStyles: A,
       layoutItemScrimStyles: R
-    } = Xl({
+    } = Nl({
       id: t.name,
       order: x(() => parseInt(t.order, 10)),
       position: b,
@@ -9759,7 +9744,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
     }), {
       isStuck: V,
       stickyStyles: N
-    } = iy({
+    } = ny({
       rootEl: y,
       isSticky: _,
       layoutItemStyles: A
@@ -9799,7 +9784,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
         style: [c.value, A.value, I.value, C.value, N.value, t.style]
       }, p, n), {
         default: () => {
-          var k, W, X, L;
+          var k, $, X, L;
           return [D && v("div", {
             key: "image",
             class: "v-navigation-drawer__img"
@@ -9810,7 +9795,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
             alt: ""
           }, null)]), a.prepend && v("div", {
             class: "v-navigation-drawer__prepend"
-          }, [(W = a.prepend) == null ? void 0 : W.call(a)]), v("div", {
+          }, [($ = a.prepend) == null ? void 0 : $.call(a)]), v("div", {
             class: "v-navigation-drawer__content"
           }, [(X = a.default) == null ? void 0 : X.call(a)]), a.append && v("div", {
             class: "v-navigation-drawer__append"
@@ -9829,16 +9814,16 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
       isStuck: V
     };
   }
-}), hy = ["onClick"], fy = { class: "d-flex align-center" }, gy = ["src"], my = {
+}), dy = ["onClick"], hy = { class: "d-flex align-center" }, fy = ["src"], gy = {
   key: 1,
   style: { "margin-left": "10px" }
-}, vy = { class: "d-flex align-center" }, Cy = ["src"], py = {
+}, my = { class: "d-flex align-center" }, vy = ["src"], Cy = {
   key: 1,
   style: { "margin-left": "10px" }
-}, yy = { class: "desktop-menu d-flex justify-center align-center" }, _y = {
+}, py = { class: "desktop-menu d-flex justify-center align-center" }, yy = {
   __name: "AppBar",
   setup(t) {
-    const { getText: e, getAncor: n } = Zn(), i = Od(), a = j(null), o = bn(), { data: r } = $t(o), s = r.value.info, l = r.value.components, c = r.value.addOn, u = c && c.includes("Shop"), d = c && c.includes("Multilingual") && s.locales.length > 1, h = ya(), f = (C) => {
+    const { getText: e, getAncor: n } = Zn(), i = Od(), a = j(null), o = bn(), { data: r } = Wt(o), s = r.value.info, l = r.value.components, c = r.value.addOn, u = c && c.includes("Shop"), d = c && c.includes("Multilingual") && s.locales.length > 1, h = ya(), f = (C) => {
       if (C.type === "ancor") {
         const p = n(C.path).toLowerCase(), y = document.getElementById(p);
         if (y) {
@@ -9863,7 +9848,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
       }))), s.menuHomeLink ? [{ title: "Home", path: "/", type: "internalLink" }, ...C] : C;
     }), m = x(() => i.products.reduce((C, p) => C + p.quantity, 0));
     return (C, p) => (Z(), Pe(fe, null, [
-      v(dy, {
+      v(uy, {
         modelValue: a.value,
         "onUpdate:modelValue": p[0] || (p[0] = (y) => a.value = y),
         location: "bottom",
@@ -9879,7 +9864,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
                 default: Y(() => [
                   re("div", {
                     onClick: (M) => f(y)
-                  }, Ne(y.title), 9, hy)
+                  }, Ne(y.title), 9, dy)
                 ]),
                 _: 2
               }, 1024))), 128))
@@ -9889,59 +9874,59 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
         ]),
         _: 1
       }, 8, ["modelValue"]),
-      O(h) ? (Z(), he(Pu, {
+      O(h) ? (Z(), he(bu, {
         key: 0,
         elevation: 2,
         color: O(s).primaryColor
       }, {
         default: Y(() => [
-          v(Tu, {
+          v(Mu, {
             onClick: p[1] || (p[1] = Ya((y) => a.value = !a.value, ["stop"]))
           }),
-          v(wu, null, {
+          v(xu, null, {
             default: Y(() => [
-              re("div", fy, [
+              re("div", hy, [
                 O(s).logo && (O(s).logoMode === "logo" || O(s).logoMode === "both") ? (Z(), Pe("img", {
                   key: 0,
                   src: O(s).logo,
                   alt: "Logo",
                   class: "app-logo"
-                }, null, 8, gy)) : Me("", !0),
-                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", my, Ne(O(s).name), 1)) : Me("", !0)
+                }, null, 8, fy)) : Me("", !0),
+                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", gy, Ne(O(s).name), 1)) : Me("", !0)
               ])
             ]),
             _: 1
           }),
-          O(u) && m.value != 0 ? (Z(), he(Su, { key: 0 })) : Me("", !0),
-          O(d) ? (Z(), he(bu, { key: 1 })) : Me("", !0)
+          O(u) && m.value != 0 ? (Z(), he(pu, { key: 0 })) : Me("", !0),
+          O(d) ? (Z(), he(yu, { key: 1 })) : Me("", !0)
         ]),
         _: 1
       }, 8, ["color"])) : Me("", !0),
-      O(h) ? Me("", !0) : (Z(), he(Pu, {
+      O(h) ? Me("", !0) : (Z(), he(bu, {
         key: 1,
         elevation: 2,
         color: O(s).primaryColor
       }, {
         default: Y(() => [
-          O(h) ? (Z(), he(Tu, {
+          O(h) ? (Z(), he(Mu, {
             key: 0,
             onClick: p[2] || (p[2] = Ya((y) => a.value = !a.value, ["stop"]))
           })) : Me("", !0),
-          v(wu, null, {
+          v(xu, null, {
             default: Y(() => [
-              re("div", vy, [
+              re("div", my, [
                 O(s).logo && (O(s).logoMode === "logo" || O(s).logoMode === "both") ? (Z(), Pe("img", {
                   key: 0,
                   src: O(s).logo,
                   alt: "Logo",
                   class: "app-logo"
-                }, null, 8, Cy)) : Me("", !0),
-                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", py, Ne(O(s).name), 1)) : Me("", !0)
+                }, null, 8, vy)) : Me("", !0),
+                O(s).logoMode === "text" || O(s).logoMode === "both" || !O(s).logoMode ? (Z(), Pe("b", Cy, Ne(O(s).name), 1)) : Me("", !0)
               ])
             ]),
             _: 1
           }),
-          re("div", yy, [
+          re("div", py, [
             (Z(!0), Pe(fe, null, Tt(g.value, (y) => (Z(), he(St, {
               key: y.path,
               variant: "text",
@@ -9952,15 +9937,15 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
               ]),
               _: 2
             }, 1032, ["onClick"]))), 128)),
-            O(u) && m.value != 0 ? (Z(), he(Su, { key: 0 })) : Me("", !0),
-            O(d) ? (Z(), he(bu, { key: 1 })) : Me("", !0)
+            O(u) && m.value != 0 ? (Z(), he(pu, { key: 0 })) : Me("", !0),
+            O(d) ? (Z(), he(yu, { key: 1 })) : Me("", !0)
           ])
         ]),
         _: 1
       }, 8, ["color"]))
     ], 64));
   }
-}, xf = /* @__PURE__ */ Ut(_y, [["__scopeId", "data-v-f9d3029e"]]), Sy = $({
+}, xf = /* @__PURE__ */ Ut(yy, [["__scopeId", "data-v-f9d3029e"]]), _y = W({
   app: Boolean,
   color: String,
   height: {
@@ -9970,15 +9955,15 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
   ...wn(),
   ...de(),
   ...rn(),
-  ...Wl(),
+  ...Gl(),
   ...pt(),
   ...Le({
     tag: "footer"
   }),
   ...ke()
-}, "VFooter"), by = K()({
+}, "VFooter"), Sy = K()({
   name: "VFooter",
-  props: Sy(),
+  props: _y(),
   setup(t, e) {
     let {
       slots: n
@@ -10000,7 +9985,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
       f.length && (c.value = f[0].target.clientHeight);
     }), d = x(() => t.height === "auto" ? c.value : parseInt(t.height, 10)), {
       layoutItemStyles: h
-    } = Xl({
+    } = Nl({
       id: t.name,
       order: x(() => parseInt(t.order, 10)),
       position: x(() => "bottom"),
@@ -10017,15 +10002,15 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
       }, t.style]
     }, n)), {};
   }
-}), My = { key: 0 }, xy = {
+}), by = { key: 0 }, My = {
   href: "https://fastsite.it",
   class: "fast-site-link",
   target: "_blank"
-}, Py = {
+}, xy = {
   __name: "Footer",
   setup(t) {
-    const e = bn(), { data: n } = $t(e);
-    return (i, a) => (Z(), he(by, {
+    const e = bn(), { data: n } = Wt(e);
+    return (i, a) => (Z(), he(Sy, {
       elevation: "2",
       color: O(n).info.primaryColor
     }, {
@@ -10038,7 +10023,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
                   default: Y(() => [
                     nt(Ne((/* @__PURE__ */ new Date()).getFullYear()) + " — ", 1),
                     re("strong", null, Ne(O(n).info.name), 1),
-                    O(n).info.iva ? (Z(), Pe("div", My, "P. IVA " + Ne(O(n).info.iva), 1)) : Me("", !0)
+                    O(n).info.iva ? (Z(), Pe("div", by, "P. IVA " + Ne(O(n).info.iva), 1)) : Me("", !0)
                   ]),
                   _: 1
                 }),
@@ -10054,7 +10039,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
                     }, "Privacy Policy", -1)),
                     re("div", null, [
                       a[2] || (a[2] = nt(" Powered by ")),
-                      re("a", xy, [
+                      re("a", My, [
                         a[1] || (a[1] = nt(" Fast-Site ")),
                         v(Ae, { right: "" }, {
                           default: Y(() => a[0] || (a[0] = [
@@ -10077,7 +10062,7 @@ const cy = ["start", "end", "left", "right", "top", "bottom"], uy = $({
       _: 1
     }, 8, ["color"]));
   }
-}, Pf = /* @__PURE__ */ Ut(Py, [["__scopeId", "data-v-5d96d66f"]]);
+}, Pf = /* @__PURE__ */ Ut(xy, [["__scopeId", "data-v-5d96d66f"]]);
 class Kn {
   /**
    * @param {string} type Type.
@@ -10109,7 +10094,7 @@ const ha = {
    */
   PROPERTYCHANGE: "propertychange"
 };
-class Ul {
+class Wl {
   constructor() {
     this.disposed = !1;
   }
@@ -10126,7 +10111,7 @@ class Ul {
   disposeInternal() {
   }
 }
-function Ty(t, e, n) {
+function Py(t, e, n) {
   let i, a;
   n = n || Xn;
   let o = 0, r = t.length, s = !1;
@@ -10137,7 +10122,7 @@ function Ty(t, e, n) {
 function Xn(t, e) {
   return t > e ? 1 : t < e ? -1 : 0;
 }
-function Yl(t, e, n) {
+function $l(t, e, n) {
   if (t[0] <= e)
     return 0;
   const i = t.length;
@@ -10173,13 +10158,13 @@ function Yl(t, e, n) {
   }
   return i - 1;
 }
-function wy(t, e, n) {
+function Ty(t, e, n) {
   for (; e < n; ) {
     const i = t[e];
     t[e] = t[n], t[n] = i, ++e, --n;
   }
 }
-function jl(t, e) {
+function Xl(t, e) {
   const n = Array.isArray(e) ? e : [e], i = n.length;
   for (let a = 0; a < i; a++)
     t[t.length] = n[a];
@@ -10193,7 +10178,7 @@ function _i(t, e) {
       return !1;
   return !0;
 }
-function Ey(t, e, n) {
+function wy(t, e, n) {
   const i = e || Xn;
   return t.every(function(a, o) {
     if (o === 0)
@@ -10202,7 +10187,7 @@ function Ey(t, e, n) {
     return !(r > 0 || r === 0);
   });
 }
-function qa() {
+function Ja() {
   return !0;
 }
 function Br() {
@@ -10217,7 +10202,7 @@ function Tf(t) {
     return (!e || this !== a || !_i(o, i)) && (e = !0, a = this, i = o, n = t.apply(this, arguments)), n;
   };
 }
-function Ay(t) {
+function Ey(t) {
   function e() {
     let n;
     try {
@@ -10229,7 +10214,7 @@ function Ay(t) {
   }
   return e();
 }
-function To(t) {
+function wo(t) {
   for (const e in t)
     delete t[e];
 }
@@ -10239,7 +10224,7 @@ function ga(t) {
     return !1;
   return !e;
 }
-class Fr extends Ul {
+class Fr extends Wl {
   /**
    * @param {*} [target] Default event target for dispatched events.
    */
@@ -10297,7 +10282,7 @@ class Fr extends Ul {
    * Clean up.
    */
   disposeInternal() {
-    this.listeners_ && To(this.listeners_);
+    this.listeners_ && wo(this.listeners_);
   }
   /**
    * Get the listeners for a specified event type. Listeners are returned in the
@@ -10367,13 +10352,13 @@ function Se(t, e, n, i, a) {
   };
   return t.addEventListener(e, n), o;
 }
-function dr(t, e, n, i) {
+function hr(t, e, n, i) {
   return Se(t, e, n, i, !0);
 }
 function Ve(t) {
-  t && t.target && (t.target.removeEventListener(t.type, t.listener), To(t));
+  t && t.target && (t.target.removeEventListener(t.type, t.listener), wo(t));
 }
-class wo extends Fr {
+class Eo extends Fr {
   constructor() {
     super(), this.on = /** @type {ObservableOnSignature<import("./events").EventsKey>} */
     this.onInternal, this.once = /** @type {ObservableOnSignature<import("./events").EventsKey>} */
@@ -10428,9 +10413,9 @@ class wo extends Fr {
       const a = e.length;
       i = new Array(a);
       for (let o = 0; o < a; ++o)
-        i[o] = dr(this, e[o], n);
+        i[o] = hr(this, e[o], n);
     } else
-      i = dr(
+      i = hr(
         this,
         /** @type {string} */
         e,
@@ -10450,7 +10435,7 @@ class wo extends Fr {
       n.ol_key
     );
     if (i)
-      Ry(i);
+      Ay(i);
     else if (Array.isArray(e))
       for (let a = 0, o = e.length; a < o; ++a)
         this.removeEventListener(e[a], n);
@@ -10458,10 +10443,10 @@ class wo extends Fr {
       this.removeEventListener(e, n);
   }
 }
-wo.prototype.on;
-wo.prototype.once;
-wo.prototype.un;
-function Ry(t) {
+Eo.prototype.on;
+Eo.prototype.once;
+Eo.prototype.un;
+function Ay(t) {
   if (Array.isArray(t))
     for (let e = 0, n = t.length; e < n; ++e)
       Ve(t[e]);
@@ -10474,11 +10459,11 @@ function Ry(t) {
 function xe() {
   throw new Error("Unimplemented abstract method.");
 }
-let Iy = 0;
+let Ry = 0;
 function Ee(t) {
-  return t.ol_uid || (t.ol_uid = String(++Iy));
+  return t.ol_uid || (t.ol_uid = String(++Ry));
 }
-class Ru extends Kn {
+class wu extends Kn {
   /**
    * @param {string} type The event type.
    * @param {string} key The property name.
@@ -10488,7 +10473,7 @@ class Ru extends Kn {
     super(e), this.key = n, this.oldValue = i;
   }
 }
-class ln extends wo {
+class ln extends Eo {
   /**
    * @param {Object<string, *>} [values] An object with key-value pairs.
    */
@@ -10540,7 +10525,7 @@ class ln extends wo {
    */
   notify(e, n) {
     let i;
-    i = `change:${e}`, this.hasListener(i) && this.dispatchEvent(new Ru(i, e, n)), i = ha.PROPERTYCHANGE, this.hasListener(i) && this.dispatchEvent(new Ru(i, e, n));
+    i = `change:${e}`, this.hasListener(i) && this.dispatchEvent(new wu(i, e, n)), i = ha.PROPERTYCHANGE, this.hasListener(i) && this.dispatchEvent(new wu(i, e, n));
   }
   /**
    * @param {string} key Key name.
@@ -10617,10 +10602,10 @@ const bt = {
    * @api
    */
   REMOVE: "remove"
-}, Iu = {
+}, Eu = {
   LENGTH: "length"
 };
-class Do extends Kn {
+class Go extends Kn {
   /**
    * @param {import("./CollectionEventType.js").default} type Type.
    * @param {T} element Element.
@@ -10700,7 +10685,7 @@ class mn extends ln {
    * @api
    */
   getLength() {
-    return this.get(Iu.LENGTH);
+    return this.get(Eu.LENGTH);
   }
   /**
    * Insert an element at the provided index.
@@ -10712,7 +10697,7 @@ class mn extends ln {
     if (e < 0 || e > this.getLength())
       throw new Error("Index out of bounds: " + e);
     this.unique_ && this.assertUnique_(n), this.array_.splice(e, 0, n), this.updateLength_(), this.dispatchEvent(
-      new Do(bt.ADD, n, e)
+      new Go(bt.ADD, n, e)
     );
   }
   /**
@@ -10760,7 +10745,7 @@ class mn extends ln {
     const n = this.array_[e];
     return this.array_.splice(e, 1), this.updateLength_(), this.dispatchEvent(
       /** @type {CollectionEvent<T>} */
-      new Do(bt.REMOVE, n, e)
+      new Go(bt.REMOVE, n, e)
     ), n;
   }
   /**
@@ -10781,17 +10766,17 @@ class mn extends ln {
     const a = this.array_[e];
     this.array_[e] = n, this.dispatchEvent(
       /** @type {CollectionEvent<T>} */
-      new Do(bt.REMOVE, a, e)
+      new Go(bt.REMOVE, a, e)
     ), this.dispatchEvent(
       /** @type {CollectionEvent<T>} */
-      new Do(bt.ADD, n, e)
+      new Go(bt.ADD, n, e)
     );
   }
   /**
    * @private
    */
   updateLength_() {
-    this.set(Iu.LENGTH, this.array_.length);
+    this.set(Eu.LENGTH, this.array_.length);
   }
   /**
    * @private
@@ -10823,7 +10808,7 @@ function be(t, e) {
 function He(t, e, n) {
   return Math.min(Math.max(t, e), n);
 }
-function zy(t, e, n, i, a, o) {
+function Iy(t, e, n, i, a, o) {
   const r = a - n, s = o - i;
   if (r !== 0 || s !== 0) {
     const l = ((t - n) * r + (e - i) * s) / (r * r + s * s);
@@ -10835,7 +10820,7 @@ function ra(t, e, n, i) {
   const a = n - t, o = i - e;
   return a * a + o * o;
 }
-function Ly(t) {
+function zy(t) {
   const e = t.length;
   for (let i = 0; i < e; i++) {
     let a = i, o = Math.abs(t[i][i]);
@@ -10861,7 +10846,7 @@ function Ly(t) {
   }
   return n;
 }
-function Qo(t) {
+function er(t) {
   return t * Math.PI / 180;
 }
 function sa(t, e) {
@@ -10871,15 +10856,15 @@ function sa(t, e) {
 function Dt(t, e, n) {
   return t + n * (e - t);
 }
-function Hl(t, e) {
+function Ul(t, e) {
   const n = Math.pow(10, e);
   return Math.round(t * n) / n;
 }
-function Go(t, e) {
-  return Math.floor(Hl(t, e));
-}
 function No(t, e) {
-  return Math.ceil(Hl(t, e));
+  return Math.floor(Ul(t, e));
+}
+function Wo(t, e) {
+  return Math.ceil(Ul(t, e));
 }
 class wf extends ln {
   /**
@@ -11185,7 +11170,7 @@ const Gt = {
   CENTER: "center",
   RESOLUTION: "resolution",
   ROTATION: "rotation"
-}, Vy = 42, Zl = 256, Kl = {
+}, Ly = 42, Yl = 256, jl = {
   // use the radius of the Normal sphere
   radians: 6370997 / (2 * Math.PI),
   degrees: 2 * Math.PI * 6370997 / 360,
@@ -11239,7 +11224,7 @@ class Ef {
    * @api
    */
   getMetersPerUnit() {
-    return this.metersPerUnit_ || Kl[this.units_];
+    return this.metersPerUnit_ || jl[this.units_];
   }
   /**
    * Get the world extent for this projection.
@@ -11326,7 +11311,7 @@ class Ef {
     return this.getPointResolutionFunc_;
   }
 }
-const Eo = 6378137, aa = Math.PI * Eo, By = [-aa, -aa, aa, aa], Fy = [-180, -85, 180, 85], $o = Eo * Math.log(Math.tan(Math.PI / 2));
+const Ao = 6378137, aa = Math.PI * Ao, Vy = [-aa, -aa, aa, aa], By = [-180, -85, 180, 85], $o = Ao * Math.log(Math.tan(Math.PI / 2));
 class Yi extends Ef {
   /**
    * @param {string} code Code.
@@ -11335,16 +11320,16 @@ class Yi extends Ef {
     super({
       code: e,
       units: "m",
-      extent: By,
+      extent: Vy,
       global: !0,
-      worldExtent: Fy,
+      worldExtent: By,
       getPointResolution: function(n, i) {
-        return n / Math.cosh(i[1] / Eo);
+        return n / Math.cosh(i[1] / Ao);
       }
     });
   }
 }
-const zu = [
+const Au = [
   new Yi("EPSG:3857"),
   new Yi("EPSG:102100"),
   new Yi("EPSG:102113"),
@@ -11352,24 +11337,24 @@ const zu = [
   new Yi("http://www.opengis.net/def/crs/EPSG/0/3857"),
   new Yi("http://www.opengis.net/gml/srs/epsg.xml#3857")
 ];
-function ky(t, e, n) {
+function Fy(t, e, n) {
   const i = t.length;
   n = n > 1 ? n : 2, e === void 0 && (n > 2 ? e = t.slice() : e = new Array(i));
   for (let a = 0; a < i; a += n) {
     e[a] = aa * t[a] / 180;
-    let o = Eo * Math.log(Math.tan(Math.PI * (+t[a + 1] + 90) / 360));
+    let o = Ao * Math.log(Math.tan(Math.PI * (+t[a + 1] + 90) / 360));
     o > $o ? o = $o : o < -$o && (o = -$o), e[a + 1] = o;
   }
   return e;
 }
-function Oy(t, e, n) {
+function ky(t, e, n) {
   const i = t.length;
   n = n > 1 ? n : 2, e === void 0 && (n > 2 ? e = t.slice() : e = new Array(i));
   for (let a = 0; a < i; a += n)
-    e[a] = 180 * t[a] / aa, e[a + 1] = 360 * Math.atan(Math.exp(t[a + 1] / Eo)) / Math.PI - 90;
+    e[a] = 180 * t[a] / aa, e[a + 1] = 360 * Math.atan(Math.exp(t[a + 1] / Ao)) / Math.PI - 90;
   return e;
 }
-const Dy = 6378137, Lu = [-180, -90, 180, 90], Gy = Math.PI * Dy / 180;
+const Oy = 6378137, Ru = [-180, -90, 180, 90], Dy = Math.PI * Oy / 180;
 class xi extends Ef {
   /**
    * @param {string} code Code.
@@ -11379,15 +11364,15 @@ class xi extends Ef {
     super({
       code: e,
       units: "degrees",
-      extent: Lu,
+      extent: Ru,
       axisOrientation: n,
       global: !0,
-      metersPerUnit: Gy,
-      worldExtent: Lu
+      metersPerUnit: Dy,
+      worldExtent: Ru
     });
   }
 }
-const Vu = [
+const Iu = [
   new xi("CRS:84"),
   new xi("EPSG:4326", "neu"),
   new xi("urn:ogc:def:crs:OGC:1.3:CRS84"),
@@ -11397,14 +11382,14 @@ const Vu = [
   new xi("http://www.opengis.net/def/crs/EPSG/0/4326", "neu")
 ];
 let Us = {};
-function Ny(t) {
+function Gy(t) {
   return Us[t] || Us[t.replace(/urn:(x-)?ogc:def:crs:EPSG:(.*:)?(\w+)$/, "EPSG:$3")] || null;
 }
-function $y(t, e) {
+function Ny(t, e) {
   Us[t] = e;
 }
 let la = {};
-function hr(t, e, n) {
+function fr(t, e, n) {
   const i = t.getCode(), a = e.getCode();
   i in la || (la[i] = {}), la[i][a] = n;
 }
@@ -11420,13 +11405,13 @@ const Qe = {
   BELOW: 8,
   LEFT: 16
 };
-function Bu(t) {
-  const e = Wt();
+function zu(t) {
+  const e = $t();
   for (let n = 0, i = t.length; n < i; ++n)
-    Wa(e, t[n]);
+    $a(e, t[n]);
   return e;
 }
-function ql(t, e, n) {
+function Hl(t, e, n) {
   return n ? (n[0] = t[0] - e, n[1] = t[1] - e, n[2] = t[2] + e, n[3] = t[3] + e, n) : [
     t[0] - e,
     t[1] - e,
@@ -11455,7 +11440,7 @@ function Ys(t, e) {
   let l = Qe.UNKNOWN;
   return r < n ? l = l | Qe.LEFT : r > a && (l = l | Qe.RIGHT), s < i ? l = l | Qe.BELOW : s > o && (l = l | Qe.ABOVE), l === Qe.UNKNOWN && (l = Qe.INTERSECTING), l;
 }
-function Wt() {
+function $t() {
   return [1 / 0, 1 / 0, -1 / 0, -1 / 0];
 }
 function fi(t, e, n, i, a) {
@@ -11468,25 +11453,25 @@ function zf(t, e) {
   const n = t[0], i = t[1];
   return fi(n, i, n, i, e);
 }
-function Jl(t, e, n, i, a) {
+function Zl(t, e, n, i, a) {
   const o = kr(a);
   return Lf(o, t, e, n, i);
 }
-function Ja(t, e) {
+function Qa(t, e) {
   return t[0] == e[0] && t[2] == e[2] && t[1] == e[1] && t[3] == e[3];
 }
-function Xy(t, e) {
+function $y(t, e) {
   return e[0] < t[0] && (t[0] = e[0]), e[2] > t[2] && (t[2] = e[2]), e[1] < t[1] && (t[1] = e[1]), e[3] > t[3] && (t[3] = e[3]), t;
 }
-function Wa(t, e) {
+function $a(t, e) {
   e[0] < t[0] && (t[0] = e[0]), e[0] > t[2] && (t[2] = e[0]), e[1] < t[1] && (t[1] = e[1]), e[1] > t[3] && (t[3] = e[1]);
 }
 function Lf(t, e, n, i, a) {
   for (; n < i; n += a)
-    Uy(t, e[n], e[n + 1]);
+    Xy(t, e[n], e[n + 1]);
   return t;
 }
-function Uy(t, e, n) {
+function Xy(t, e, n) {
   t[0] = Math.min(t[0], e), t[1] = Math.min(t[1], n), t[2] = Math.max(t[2], e), t[3] = Math.max(t[3], n);
 }
 function Vf(t, e) {
@@ -11506,7 +11491,7 @@ function Dr(t) {
 function ki(t) {
   return [(t[0] + t[2]) / 2, (t[1] + t[3]) / 2];
 }
-function Yy(t, e) {
+function Uy(t, e) {
   let n;
   if (e === "bottom-left")
     n = Or(t);
@@ -11554,7 +11539,7 @@ function vt(t) {
   return t[3] - t[1];
 }
 function Xa(t, e, n) {
-  const i = n || Wt();
+  const i = n || $t();
   return xt(t, e) ? (t[0] > e[0] ? i[0] = t[0] : i[0] = e[0], t[1] > e[1] ? i[1] = t[1] : i[1] = e[1], t[2] < e[2] ? i[2] = t[2] : i[2] = e[2], t[3] < e[3] ? i[3] = t[3] : i[3] = e[3]) : kr(i), i;
 }
 function Di(t) {
@@ -11572,10 +11557,10 @@ function xt(t, e) {
 function Nr(t) {
   return t[2] < t[0] || t[3] < t[1];
 }
-function jy(t, e) {
+function Yy(t, e) {
   return e ? (e[0] = t[0], e[1] = t[1], e[2] = t[2], e[3] = t[3], e) : t;
 }
-function Hy(t, e, n) {
+function jy(t, e, n) {
   let i = !1;
   const a = Ys(t, e), o = Ys(t, n);
   if (a === Qe.INTERSECTING || o === Qe.INTERSECTING)
@@ -11597,7 +11582,7 @@ function Bf(t, e) {
   }
   return t;
 }
-function Zy(t, e) {
+function Hy(t, e) {
   if (e.canWrapX()) {
     const n = e.getExtent();
     if (!isFinite(t[0]) || !isFinite(t[2]))
@@ -11619,10 +11604,10 @@ function Zy(t, e) {
   }
   return [t];
 }
-function Ky(t, e) {
+function Zy(t, e) {
   return t[0] += +e[0], t[1] += +e[1], t;
 }
-function fr(t, e) {
+function gr(t, e) {
   let n = !0;
   for (let i = t.length - 1; i >= 0; --i)
     if (t[i] != e[i]) {
@@ -11631,31 +11616,31 @@ function fr(t, e) {
     }
   return n;
 }
-function Ql(t, e) {
+function Kl(t, e) {
   const n = Math.cos(e), i = Math.sin(e), a = t[0] * n - t[1] * i, o = t[1] * n + t[0] * i;
   return t[0] = a, t[1] = o, t;
 }
-function qy(t, e) {
+function Ky(t, e) {
   return t[0] *= e, t[1] *= e, t;
 }
 function Ff(t, e) {
   if (e.canWrapX()) {
-    const n = Ie(e.getExtent()), i = Jy(t, e, n);
+    const n = Ie(e.getExtent()), i = qy(t, e, n);
     i && (t[0] -= i * n);
   }
   return t;
 }
-function Jy(t, e, n) {
+function qy(t, e, n) {
   const i = e.getExtent();
   let a = 0;
   return e.canWrapX() && (t[0] < i[0] || t[0] > i[2]) && (n = n || Ie(i), a = Math.floor(
     (t[0] - i[0]) / n
   )), a;
 }
-const Qy = 63710088e-1;
-function Fu(t, e, n) {
-  n = n || Qy;
-  const i = Qo(t[1]), a = Qo(e[1]), o = (a - i) / 2, r = Qo(e[0] - t[0]) / 2, s = Math.sin(o) * Math.sin(o) + Math.sin(r) * Math.sin(r) * Math.cos(i) * Math.cos(a);
+const Jy = 63710088e-1;
+function Lu(t, e, n) {
+  n = n || Jy;
+  const i = er(t[1]), a = er(e[1]), o = (a - i) / 2, r = er(e[0] - t[0]) / 2, s = Math.sin(o) * Math.sin(o) + Math.sin(r) * Math.sin(r) * Math.cos(i) * Math.cos(a);
   return 2 * n * Math.atan2(Math.sqrt(s), Math.sqrt(1 - s));
 }
 function kf(...t) {
@@ -11665,7 +11650,7 @@ let Ks = !0;
 function Of(t) {
   Ks = !1;
 }
-function ec(t, e) {
+function ql(t, e) {
   if (e !== void 0) {
     for (let n = 0, i = t.length; n < i; ++n)
       e[n] = t[n];
@@ -11682,14 +11667,14 @@ function Df(t, e) {
   }
   return t;
 }
-function e_(t) {
-  $y(t.getCode(), t), hr(t, t, ec);
+function Qy(t) {
+  Ny(t.getCode(), t), fr(t, t, ql);
 }
-function t_(t) {
-  t.forEach(e_);
+function e_(t) {
+  t.forEach(Qy);
 }
 function Xt(t) {
-  return typeof t == "string" ? Ny(
+  return typeof t == "string" ? Gy(
     /** @type {string} */
     t
   ) : (
@@ -11697,7 +11682,7 @@ function Xt(t) {
     t || null
   );
 }
-function ku(t, e, n, i) {
+function Vu(t, e, n, i) {
   t = Xt(t);
   let a;
   const o = t.getPointResolutionFunc();
@@ -11708,7 +11693,7 @@ function ku(t, e, n, i) {
     if (r == "degrees" && !i || i == "degrees")
       a = e;
     else {
-      const s = nc(
+      const s = Ql(
         t,
         Xt("EPSG:4326")
       );
@@ -11726,7 +11711,7 @@ function ku(t, e, n, i) {
           n[1] + e / 2
         ];
         c = s(c, c, 2);
-        const u = Fu(c.slice(0, 2), c.slice(2, 4)), d = Fu(c.slice(4, 6), c.slice(6, 8));
+        const u = Lu(c.slice(0, 2), c.slice(2, 4)), d = Lu(c.slice(4, 6), c.slice(6, 8));
         a = (u + d) / 2;
       }
       const l = t.getMetersPerUnit();
@@ -11735,27 +11720,27 @@ function ku(t, e, n, i) {
   }
   return a;
 }
-function Ou(t) {
-  t_(t), t.forEach(function(e) {
+function Bu(t) {
+  e_(t), t.forEach(function(e) {
     t.forEach(function(n) {
-      e !== n && hr(e, n, ec);
+      e !== n && fr(e, n, ql);
     });
   });
 }
-function n_(t, e, n, i) {
+function t_(t, e, n, i) {
   t.forEach(function(a) {
     e.forEach(function(o) {
-      hr(a, o, n), hr(o, a, i);
+      fr(a, o, n), fr(o, a, i);
     });
   });
 }
-function tc(t, e) {
+function Jl(t, e) {
   return t ? typeof t == "string" ? Xt(t) : (
     /** @type {Projection} */
     t
   ) : Xt(e);
 }
-function Du(t, e) {
+function Fu(t, e) {
   return Of(), Gf(
     t,
     "EPSG:4326",
@@ -11766,25 +11751,25 @@ function qi(t, e) {
   if (t === e)
     return !0;
   const n = t.getUnits() === e.getUnits();
-  return (t.getCode() === e.getCode() || nc(t, e) === ec) && n;
+  return (t.getCode() === e.getCode() || Ql(t, e) === ql) && n;
 }
-function nc(t, e) {
+function Ql(t, e) {
   const n = t.getCode(), i = e.getCode();
   let a = Wy(n, i);
   return a || (a = Df), a;
 }
-function gr(t, e) {
+function mr(t, e) {
   const n = Xt(t), i = Xt(e);
-  return nc(n, i);
+  return Ql(n, i);
 }
 function Gf(t, e, n) {
-  return gr(e, n)(t, void 0, t.length);
+  return mr(e, n)(t, void 0, t.length);
 }
 function qs(t, e) {
   return t;
 }
 function kn(t, e) {
-  return Ks && !fr(t, [0, 0]) && t[0] >= -180 && t[0] <= 180 && t[1] >= -90 && t[1] <= 90 && (Ks = !1, kf(
+  return Ks && !gr(t, [0, 0]) && t[0] >= -180 && t[0] <= 180 && t[1] >= -90 && t[1] <= 90 && (Ks = !1, kf(
     "Call useGeographic() from ol/proj once to work with [longitude, latitude] coordinates."
   )), t;
 }
@@ -11794,16 +11779,16 @@ function Nf(t, e) {
 function Ei(t, e) {
   return t;
 }
-function i_() {
-  Ou(zu), Ou(Vu), n_(
-    Vu,
-    zu,
-    ky,
-    Oy
+function n_() {
+  Bu(Au), Bu(Iu), t_(
+    Iu,
+    Au,
+    Fy,
+    ky
   );
 }
-i_();
-function Gu(t, e, n) {
+n_();
+function ku(t, e, n) {
   return (
     /**
      * @param {import("./coordinate.js").Coordinate|undefined} center Center.
@@ -11830,19 +11815,19 @@ function Gu(t, e, n) {
     }
   );
 }
-function a_(t) {
+function i_(t) {
   return t;
 }
-function ic(t, e, n, i) {
+function ec(t, e, n, i) {
   const a = Ie(e) / n[0], o = vt(e) / n[1];
   return i ? Math.min(t, Math.max(a, o)) : Math.min(t, Math.min(a, o));
 }
-function ac(t, e, n) {
+function tc(t, e, n) {
   let i = Math.min(t, e);
   const a = 50;
   return i *= Math.log(1 + a * Math.max(0, t / e - 1)) / a + 1, n && (i = Math.max(i, n), i /= Math.log(1 + a * Math.max(0, n / t - 1)) / a + 1), He(i, n / 2, e * 2);
 }
-function o_(t, e, n, i) {
+function a_(t, e, n, i) {
   return e = e !== void 0 ? e : !0, /**
    * @param {number|undefined} resolution Resolution.
    * @param {number} direction Direction.
@@ -11852,24 +11837,24 @@ function o_(t, e, n, i) {
    */
   function(a, o, r, s) {
     if (a !== void 0) {
-      const l = t[0], c = t[t.length - 1], u = n ? ic(
+      const l = t[0], c = t[t.length - 1], u = n ? ec(
         l,
         n,
         r,
         i
       ) : l;
       if (s)
-        return e ? ac(
+        return e ? tc(
           a,
           u,
           c
         ) : He(a, c, u);
-      const d = Math.min(u, a), h = Math.floor(Yl(t, d, o));
+      const d = Math.min(u, a), h = Math.floor($l(t, d, o));
       return t[h] > u && h < t.length - 1 ? t[h + 1] : t[h];
     }
   };
 }
-function r_(t, e, n, i, a, o) {
+function o_(t, e, n, i, a, o) {
   return i = i !== void 0 ? i : !0, n = n !== void 0 ? n : 0, /**
    * @param {number|undefined} resolution Resolution.
    * @param {number} direction Direction.
@@ -11879,14 +11864,14 @@ function r_(t, e, n, i, a, o) {
    */
   function(r, s, l, c) {
     if (r !== void 0) {
-      const u = a ? ic(
+      const u = a ? ec(
         e,
         a,
         l,
         o
       ) : e;
       if (c)
-        return i ? ac(
+        return i ? tc(
           r,
           u,
           n
@@ -11900,7 +11885,7 @@ function r_(t, e, n, i, a, o) {
     }
   };
 }
-function Nu(t, e, n, i, a) {
+function Ou(t, e, n, i, a) {
   return n = n !== void 0 ? n : !0, /**
    * @param {number|undefined} resolution Resolution.
    * @param {number} direction Direction.
@@ -11910,13 +11895,13 @@ function Nu(t, e, n, i, a) {
    */
   function(o, r, s, l) {
     if (o !== void 0) {
-      const c = i ? ic(
+      const c = i ? ec(
         t,
         i,
         s,
         a
       ) : t;
-      return !n || !l ? He(o, e, c) : ac(
+      return !n || !l ? He(o, e, c) : tc(
         o,
         c,
         e
@@ -11924,15 +11909,15 @@ function Nu(t, e, n, i, a) {
     }
   };
 }
-function oc(t) {
+function nc(t) {
   if (t !== void 0)
     return 0;
 }
-function $u(t) {
+function Du(t) {
   if (t !== void 0)
     return t;
 }
-function s_(t) {
+function r_(t) {
   const e = 2 * Math.PI / t;
   return (
     /**
@@ -11948,8 +11933,8 @@ function s_(t) {
     }
   );
 }
-function l_(t) {
-  const e = Qo(5);
+function s_(t) {
+  const e = er(5);
   return (
     /**
      * @param {number|undefined} rotation Rotation.
@@ -11961,23 +11946,23 @@ function l_(t) {
     }
   );
 }
-function $f(t) {
+function Wf(t) {
   return Math.pow(t, 3);
 }
 function Ta(t) {
-  return 1 - $f(1 - t);
+  return 1 - Wf(1 - t);
 }
-function c_(t) {
+function l_(t) {
   return 3 * t * t - 2 * t * t * t;
 }
-function u_(t) {
+function c_(t) {
   return t;
 }
 new Array(6);
 function Jt() {
   return [1, 0, 0, 1, 0, 0];
 }
-function d_(t, e) {
+function u_(t, e) {
   return t[0] = e[0], t[1] = e[1], t[2] = e[2], t[3] = e[3], t[4] = e[4], t[5] = e[5], t;
 }
 function et(t, e) {
@@ -11988,19 +11973,19 @@ function Sn(t, e, n, i, a, o, r, s) {
   const l = Math.sin(o), c = Math.cos(o);
   return t[0] = i * c, t[1] = a * l, t[2] = -i * l, t[3] = a * c, t[4] = r * i * c - s * i * l + e, t[5] = r * a * l + s * a * c + n, t;
 }
-function rc(t, e) {
-  const n = h_(e);
+function ic(t, e) {
+  const n = d_(e);
   be(n !== 0, "Transformation matrix cannot be inverted");
   const i = e[0], a = e[1], o = e[2], r = e[3], s = e[4], l = e[5];
   return t[0] = r / n, t[1] = -a / n, t[2] = -o / n, t[3] = i / n, t[4] = (o * l - r * s) / n, t[5] = -(i * l - a * s) / n, t;
 }
-function h_(t) {
+function d_(t) {
   return t[0] * t[3] - t[1] * t[2];
 }
-const Wu = [1e6, 1e6, 1e6, 1e6, 2, 2];
-function Wf(t) {
+const Gu = [1e6, 1e6, 1e6, 1e6, 2, 2];
+function $f(t) {
   return "matrix(" + t.map(
-    (n, i) => Math.round(n * Wu[i]) / Wu[i]
+    (n, i) => Math.round(n * Gu[i]) / Gu[i]
   ).join(", ") + ")";
 }
 function ci(t, e, n, i, a, o) {
@@ -12024,7 +12009,7 @@ function Xf(t, e, n, i, a, o, r) {
   }
   return r && r.length != d && (r.length = d), r;
 }
-function f_(t, e, n, i, a, o, r, s) {
+function h_(t, e, n, i, a, o, r, s) {
   s = s || [];
   const l = r[0], c = r[1];
   let u = 0;
@@ -12036,7 +12021,7 @@ function f_(t, e, n, i, a, o, r, s) {
   }
   return s && s.length != u && (s.length = u), s;
 }
-function g_(t, e, n, i, a, o, r) {
+function f_(t, e, n, i, a, o, r) {
   r = r || [];
   let s = 0;
   for (let l = e; l < n; l += i) {
@@ -12046,10 +12031,10 @@ function g_(t, e, n, i, a, o, r) {
   }
   return r && r.length != s && (r.length = s), r;
 }
-const Xu = Jt();
-class m_ extends ln {
+const Nu = Jt();
+class g_ extends ln {
   constructor() {
-    super(), this.extent_ = Wt(), this.extentRevision_ = -1, this.simplifiedGeometryMaxMinSquaredTolerance = 0, this.simplifiedGeometryRevision = 0, this.simplifyTransformedInternal = Tf(
+    super(), this.extent_ = $t(), this.extentRevision_ = -1, this.simplifiedGeometryMaxMinSquaredTolerance = 0, this.simplifiedGeometryRevision = 0, this.simplifyTransformedInternal = Tf(
       (e, n, i) => {
         if (!i)
           return this.getSimplifiedGeometry(n);
@@ -12141,7 +12126,7 @@ class m_ extends ln {
       const n = this.computeExtent(this.extent_);
       (isNaN(n[0]) || isNaN(n[1])) && kr(n), this.extentRevision_ = this.getRevision();
     }
-    return jy(this.extent_, e);
+    return Yy(this.extent_, e);
   }
   /**
    * Rotate the geometry around a given coordinate. This modifies the geometry
@@ -12249,7 +12234,7 @@ class m_ extends ln {
     const i = Xt(e), a = i.getUnits() == "tile-pixels" ? function(o, r, s) {
       const l = i.getExtent(), c = i.getWorldExtent(), u = vt(c) / vt(l);
       return Sn(
-        Xu,
+        Nu,
         c[0],
         c[3],
         u,
@@ -12262,18 +12247,18 @@ class m_ extends ln {
         0,
         o.length,
         s,
-        Xu,
+        Nu,
         r
-      ), gr(i, n)(
+      ), mr(i, n)(
         o,
         r,
         s
       );
-    } : gr(i, n);
+    } : mr(i, n);
     return this.applyTransform(a), this;
   }
 }
-class sc extends m_ {
+class ac extends g_ {
   constructor() {
     super(), this.layout = "XY", this.stride = 2, this.flatCoordinates;
   }
@@ -12283,7 +12268,7 @@ class sc extends m_ {
    * @return {import("../extent.js").Extent} extent Extent.
    */
   computeExtent(e) {
-    return Jl(
+    return Zl(
       this.flatCoordinates,
       0,
       this.flatCoordinates.length,
@@ -12360,7 +12345,7 @@ class sc extends m_ {
    * @param {Array<number>} flatCoordinates Flat coordinates.
    */
   setFlatCoordinates(e, n) {
-    this.stride = Uu(e), this.layout = e, this.flatCoordinates = n;
+    this.stride = Wu(e), this.layout = e, this.flatCoordinates = n;
   }
   /**
    * @abstract
@@ -12379,7 +12364,7 @@ class sc extends m_ {
   setLayout(e, n, i) {
     let a;
     if (e)
-      a = Uu(e);
+      a = Wu(e);
     else {
       for (let o = 0; o < i; ++o) {
         if (n.length === 0) {
@@ -12389,7 +12374,7 @@ class sc extends m_ {
         n = /** @type {Array<unknown>} */
         n[0];
       }
-      a = n.length, e = v_(a);
+      a = n.length, e = m_(a);
     }
     this.layout = e, this.stride = a;
   }
@@ -12441,7 +12426,7 @@ class sc extends m_ {
     const a = this.getFlatCoordinates();
     if (a) {
       const o = this.getStride();
-      f_(
+      h_(
         a,
         0,
         a.length,
@@ -12464,7 +12449,7 @@ class sc extends m_ {
     const i = this.getFlatCoordinates();
     if (i) {
       const a = this.getStride();
-      g_(
+      f_(
         i,
         0,
         i.length,
@@ -12476,17 +12461,17 @@ class sc extends m_ {
     }
   }
 }
-function v_(t) {
+function m_(t) {
   let e;
   return t == 2 ? e = "XY" : t == 3 ? e = "XYZ" : t == 4 && (e = "XYZM"), /** @type {import("./Geometry.js").GeometryLayout} */
   e;
 }
-function Uu(t) {
+function Wu(t) {
   let e;
   return t == "XY" ? e = 2 : t == "XYZ" || t == "XYM" ? e = 3 : t == "XYZM" && (e = 4), /** @type {number} */
   e;
 }
-function C_(t, e, n) {
+function v_(t, e, n) {
   const i = t.getFlatCoordinates();
   if (!i)
     return null;
@@ -12500,7 +12485,7 @@ function C_(t, e, n) {
     n
   );
 }
-function Yu(t, e, n, i, a, o, r) {
+function $u(t, e, n, i, a, o, r) {
   const s = t[e], l = t[e + 1], c = t[n] - s, u = t[n + 1] - l;
   let d;
   if (c === 0 && u === 0)
@@ -12533,7 +12518,7 @@ function Uf(t, e, n, i, a) {
   }
   return a;
 }
-function p_(t, e, n, i, a) {
+function C_(t, e, n, i, a) {
   for (let o = 0, r = n.length; o < r; ++o) {
     const s = n[o];
     a = Uf(t, e, s, i, a), e = s;
@@ -12560,7 +12545,7 @@ function Yf(t, e, n, i, a, o, r, s, l, c, u) {
   u = u || [NaN, NaN];
   let f = e + i;
   for (; f < n; )
-    if (Yu(
+    if ($u(
       t,
       f - i,
       f,
@@ -12577,7 +12562,7 @@ function Yf(t, e, n, i, a, o, r, s, l, c, u) {
         (Math.sqrt(h) - Math.sqrt(c)) / a | 0,
         1
       );
-  if (Yu(
+  if ($u(
     t,
     n - i,
     e,
@@ -12592,7 +12577,7 @@ function Yf(t, e, n, i, a, o, r, s, l, c, u) {
   }
   return c;
 }
-function y_(t, e, n, i, a, o, r, s, l, c, u) {
+function p_(t, e, n, i, a, o, r, s, l, c, u) {
   u = u || [NaN, NaN];
   for (let d = 0, h = n.length; d < h; ++d) {
     const f = n[d];
@@ -12612,7 +12597,7 @@ function y_(t, e, n, i, a, o, r, s, l, c, u) {
   }
   return c;
 }
-function __(t, e, n, i) {
+function y_(t, e, n, i) {
   for (let a = 0, o = n.length; a < o; ++a)
     t[e++] = n[a];
   return e;
@@ -12625,7 +12610,7 @@ function jf(t, e, n, i) {
   }
   return e;
 }
-function S_(t, e, n, i, a) {
+function __(t, e, n, i, a) {
   a = a || [];
   let o = 0;
   for (let r = 0, s = n.length; r < s; ++r) {
@@ -12639,7 +12624,7 @@ function S_(t, e, n, i, a) {
   }
   return a.length = o, a;
 }
-function lc(t, e, n, i, a, o, r) {
+function oc(t, e, n, i, a, o, r) {
   const s = (n - e) / i;
   if (s < 3) {
     for (; e < n; e += i)
@@ -12655,7 +12640,7 @@ function lc(t, e, n, i, a, o, r) {
     let f = 0;
     const g = t[h], m = t[h + 1], C = t[d], p = t[d + 1];
     for (let y = h + i; y < d; y += i) {
-      const M = t[y], S = t[y + 1], b = zy(M, S, g, m, C, p);
+      const M = t[y], S = t[y + 1], b = Iy(M, S, g, m, C, p);
       b > f && (u = y, f = b);
     }
     f > a && (l[(u - e) / i] = 1, h + i < u && c.push(h, u), u + i < d && c.push(u, d));
@@ -12664,10 +12649,10 @@ function lc(t, e, n, i, a, o, r) {
     l[d] && (o[r++] = t[e + d * i], o[r++] = t[e + d * i + 1]);
   return r;
 }
-function b_(t, e, n, i, a, o, r, s) {
+function S_(t, e, n, i, a, o, r, s) {
   for (let l = 0, c = n.length; l < c; ++l) {
     const u = n[l];
-    r = lc(
+    r = oc(
       t,
       e,
       u,
@@ -12682,7 +12667,7 @@ function b_(t, e, n, i, a, o, r, s) {
 function Ti(t, e) {
   return e * Math.round(t / e);
 }
-function M_(t, e, n, i, a, o, r) {
+function b_(t, e, n, i, a, o, r) {
   if (e == n)
     return r;
   let s = Ti(t[e], a), l = Ti(t[e + 1], a);
@@ -12708,7 +12693,7 @@ function M_(t, e, n, i, a, o, r) {
 function Hf(t, e, n, i, a, o, r, s) {
   for (let l = 0, c = n.length; l < c; ++l) {
     const u = n[l];
-    r = M_(
+    r = b_(
       t,
       e,
       u,
@@ -12727,7 +12712,7 @@ function oa(t, e, n, i, a) {
     a[o++] = t.slice(r, r + i);
   return a.length = o, a;
 }
-function mr(t, e, n, i, a) {
+function vr(t, e, n, i, a) {
   a = a !== void 0 ? a : [];
   let o = 0;
   for (let r = 0, s = n.length; r < s; ++r) {
@@ -12742,12 +12727,12 @@ function mr(t, e, n, i, a) {
   }
   return a.length = o, a;
 }
-function ju(t, e, n, i, a) {
+function Xu(t, e, n, i, a) {
   a = a !== void 0 ? a : [];
   let o = 0;
   for (let r = 0, s = n.length; r < s; ++r) {
     const l = n[r];
-    a[o++] = l.length === 1 && l[0] === e ? [] : mr(
+    a[o++] = l.length === 1 && l[0] === e ? [] : vr(
       t,
       e,
       l,
@@ -12765,7 +12750,7 @@ function Zf(t, e, n, i) {
   }
   return a / 2;
 }
-function x_(t, e, n, i) {
+function M_(t, e, n, i) {
   let a = 0;
   for (let o = 0, r = n.length; o < r; ++o) {
     const s = n[o];
@@ -12773,7 +12758,7 @@ function x_(t, e, n, i) {
   }
   return a;
 }
-class Qa extends sc {
+class eo extends ac {
   /**
    * @param {Array<import("../coordinate.js").Coordinate>|Array<number>} coordinates Coordinates.
    *     For internal use, flat coordinates in combination with `layout` are also accepted.
@@ -12796,7 +12781,7 @@ class Qa extends sc {
    * @api
    */
   clone() {
-    return new Qa(this.flatCoordinates.slice(), this.layout);
+    return new eo(this.flatCoordinates.slice(), this.layout);
   }
   /**
    * @param {number} x X.
@@ -12860,7 +12845,7 @@ class Qa extends sc {
    */
   getSimplifiedGeometryInternal(e) {
     const n = [];
-    return n.length = lc(
+    return n.length = oc(
       this.flatCoordinates,
       0,
       this.flatCoordinates.length,
@@ -12868,7 +12853,7 @@ class Qa extends sc {
       e,
       n,
       0
-    ), new Qa(n, "XY");
+    ), new eo(n, "XY");
   }
   /**
    * Get the type of this geometry.
@@ -12902,7 +12887,7 @@ class Qa extends sc {
     ), this.changed();
   }
 }
-class $r extends sc {
+class Wr extends ac {
   /**
    * @param {import("../coordinate.js").Coordinate} coordinates Coordinates.
    * @param {import("./Geometry.js").GeometryLayout} [layout] Layout.
@@ -12916,7 +12901,7 @@ class $r extends sc {
    * @api
    */
   clone() {
-    const e = new $r(this.flatCoordinates.slice(), this.layout);
+    const e = new Wr(this.flatCoordinates.slice(), this.layout);
     return e.applyProperties(this), e;
   }
   /**
@@ -12980,7 +12965,7 @@ class $r extends sc {
    * @api
    */
   setCoordinates(e, n) {
-    this.setLayout(n, e, 0), this.flatCoordinates || (this.flatCoordinates = []), this.flatCoordinates.length = __(
+    this.setLayout(n, e, 0), this.flatCoordinates || (this.flatCoordinates = []), this.flatCoordinates.length = y_(
       this.flatCoordinates,
       0,
       e,
@@ -12988,7 +12973,7 @@ class $r extends sc {
     ), this.changed();
   }
 }
-function P_(t, e, n, i, a) {
+function x_(t, e, n, i, a) {
   return !Vf(
     a,
     /**
@@ -13023,7 +13008,7 @@ function Kf(t, e, n, i, a, o) {
       return !1;
   return !0;
 }
-function cc(t, e, n, i, a, o, r) {
+function rc(t, e, n, i, a, o, r) {
   let s, l, c, u, d, h, f;
   const g = a[o + 1], m = [];
   for (let y = 0, M = n.length; y < M; ++y) {
@@ -13039,11 +13024,11 @@ function cc(t, e, n, i, a, o, r) {
   }
   return isNaN(C) && (C = a[o]), r ? (r.push(C, g, p), r) : [C, g, p];
 }
-function T_(t, e, n, i, a) {
+function P_(t, e, n, i, a) {
   let o = [];
   for (let r = 0, s = n.length; r < s; ++r) {
     const l = n[r];
-    o = cc(
+    o = rc(
       t,
       e,
       l,
@@ -13055,7 +13040,7 @@ function T_(t, e, n, i, a) {
   }
   return o;
 }
-function w_(t, e, n, i, a) {
+function T_(t, e, n, i, a) {
   let o;
   for (e += i; e < n; e += i)
     if (o = a(
@@ -13067,13 +13052,13 @@ function w_(t, e, n, i, a) {
 }
 function qf(t, e, n, i, a) {
   const o = Lf(
-    Wt(),
+    $t(),
     t,
     e,
     n,
     i
   );
-  return xt(a, o) ? wi(a, o) || o[0] >= a[0] && o[2] <= a[2] || o[1] >= a[1] && o[3] <= a[3] ? !0 : w_(
+  return xt(a, o) ? wi(a, o) || o[0] >= a[0] && o[2] <= a[2] || o[1] >= a[1] && o[3] <= a[3] ? !0 : T_(
     t,
     e,
     n,
@@ -13085,7 +13070,7 @@ function qf(t, e, n, i, a) {
      *     `false` otherwise.
      */
     function(r, s) {
-      return Hy(a, r, s);
+      return jy(a, r, s);
     }
   ) : !1;
 }
@@ -13120,13 +13105,13 @@ function Jf(t, e, n, i, a) {
     a[3]
   ));
 }
-function E_(t, e, n, i, a) {
+function w_(t, e, n, i, a) {
   if (!Jf(t, e, n[0], i, a))
     return !1;
   if (n.length === 1)
     return !0;
   for (let o = 1, r = n.length; o < r; ++o)
-    if (P_(
+    if (x_(
       t,
       n[o - 1],
       n[o],
@@ -13142,7 +13127,7 @@ function E_(t, e, n, i, a) {
       return !1;
   return !0;
 }
-function A_(t, e, n, i) {
+function E_(t, e, n, i) {
   for (; e < n - i; ) {
     for (let a = 0; a < i; ++a) {
       const o = t[e + a];
@@ -13151,7 +13136,7 @@ function A_(t, e, n, i) {
     e += i, n -= i;
   }
 }
-function uc(t, e, n, i) {
+function sc(t, e, n, i) {
   let a = 0, o = t[n - i], r = t[n - i + 1];
   for (; e < n; e += i) {
     const s = t[e], l = t[e + 1];
@@ -13159,10 +13144,10 @@ function uc(t, e, n, i) {
   }
   return a === 0 ? void 0 : a > 0;
 }
-function R_(t, e, n, i, a) {
+function A_(t, e, n, i, a) {
   a = a !== void 0 ? a : !1;
   for (let o = 0, r = n.length; o < r; ++o) {
-    const s = n[o], l = uc(
+    const s = n[o], l = sc(
       t,
       e,
       s,
@@ -13177,24 +13162,24 @@ function R_(t, e, n, i, a) {
   }
   return !0;
 }
-function Hu(t, e, n, i, a) {
+function Uu(t, e, n, i, a) {
   a = a !== void 0 ? a : !1;
   for (let o = 0, r = n.length; o < r; ++o) {
-    const s = n[o], l = uc(
+    const s = n[o], l = sc(
       t,
       e,
       s,
       i
     );
-    (o === 0 ? a && l || !a && !l : a && !l || !a && l) && A_(t, e, s, i), e = s;
+    (o === 0 ? a && l || !a && !l : a && !l || !a && l) && E_(t, e, s, i), e = s;
   }
   return e;
 }
-function I_(t, e) {
+function R_(t, e) {
   const n = [];
   let i = 0, a = 0, o;
   for (let r = 0, s = e.length; r < s; ++r) {
-    const l = e[r], c = uc(t, i, l, 2);
+    const l = e[r], c = sc(t, i, l, 2);
     if (o === void 0 && (o = c), c === o)
       n.push(e.slice(a, r + 1));
     else {
@@ -13206,7 +13191,7 @@ function I_(t, e) {
   }
   return n;
 }
-class eo extends sc {
+class to extends ac {
   /**
    * @param {!Array<Array<import("../coordinate.js").Coordinate>>|!Array<number>} coordinates
    *     Array of linear rings that define the polygon. The first linear ring of the
@@ -13235,7 +13220,7 @@ class eo extends sc {
    * @api
    */
   appendLinearRing(e) {
-    this.flatCoordinates ? jl(this.flatCoordinates, e.getFlatCoordinates()) : this.flatCoordinates = e.getFlatCoordinates().slice(), this.ends_.push(this.flatCoordinates.length), this.changed();
+    this.flatCoordinates ? Xl(this.flatCoordinates, e.getFlatCoordinates()) : this.flatCoordinates = e.getFlatCoordinates().slice(), this.ends_.push(this.flatCoordinates.length), this.changed();
   }
   /**
    * Make a complete copy of the geometry.
@@ -13243,7 +13228,7 @@ class eo extends sc {
    * @api
    */
   clone() {
-    const e = new eo(
+    const e = new to(
       this.flatCoordinates.slice(),
       this.layout,
       this.ends_.slice()
@@ -13259,14 +13244,14 @@ class eo extends sc {
    */
   closestPointXY(e, n, i, a) {
     return a < Rf(this.getExtent(), e, n) ? a : (this.maxDeltaRevision_ != this.getRevision() && (this.maxDelta_ = Math.sqrt(
-      p_(
+      C_(
         this.flatCoordinates,
         0,
         this.ends_,
         this.stride,
         0
       )
-    ), this.maxDeltaRevision_ = this.getRevision()), y_(
+    ), this.maxDeltaRevision_ = this.getRevision()), p_(
       this.flatCoordinates,
       0,
       this.ends_,
@@ -13300,7 +13285,7 @@ class eo extends sc {
    * @api
    */
   getArea() {
-    return x_(
+    return M_(
       this.getOrientedFlatCoordinates(),
       0,
       this.ends_,
@@ -13322,7 +13307,7 @@ class eo extends sc {
    */
   getCoordinates(e) {
     let n;
-    return e !== void 0 ? (n = this.getOrientedFlatCoordinates().slice(), Hu(n, 0, this.ends_, this.stride, e)) : n = this.flatCoordinates, mr(n, 0, this.ends_, this.stride);
+    return e !== void 0 ? (n = this.getOrientedFlatCoordinates().slice(), Uu(n, 0, this.ends_, this.stride, e)) : n = this.flatCoordinates, vr(n, 0, this.ends_, this.stride);
   }
   /**
    * @return {Array<number>} Ends.
@@ -13336,7 +13321,7 @@ class eo extends sc {
   getFlatInteriorPoint() {
     if (this.flatInteriorPointRevision_ != this.getRevision()) {
       const e = ki(this.getExtent());
-      this.flatInteriorPoint_ = cc(
+      this.flatInteriorPoint_ = rc(
         this.getOrientedFlatCoordinates(),
         0,
         this.ends_,
@@ -13357,7 +13342,7 @@ class eo extends sc {
    * @api
    */
   getInteriorPoint() {
-    return new $r(this.getFlatInteriorPoint(), "XYM");
+    return new Wr(this.getFlatInteriorPoint(), "XYM");
   }
   /**
    * Return the number of rings of the polygon,  this includes the exterior
@@ -13380,7 +13365,7 @@ class eo extends sc {
    * @api
    */
   getLinearRing(e) {
-    return e < 0 || this.ends_.length <= e ? null : new Qa(
+    return e < 0 || this.ends_.length <= e ? null : new eo(
       this.flatCoordinates.slice(
         e === 0 ? 0 : this.ends_[e - 1],
         this.ends_[e]
@@ -13397,7 +13382,7 @@ class eo extends sc {
     const e = this.layout, n = this.flatCoordinates, i = this.ends_, a = [];
     let o = 0;
     for (let r = 0, s = i.length; r < s; ++r) {
-      const l = i[r], c = new Qa(
+      const l = i[r], c = new eo(
         n.slice(o, l),
         e
       );
@@ -13411,7 +13396,7 @@ class eo extends sc {
   getOrientedFlatCoordinates() {
     if (this.orientedRevision_ != this.getRevision()) {
       const e = this.flatCoordinates;
-      R_(e, 0, this.ends_, this.stride) ? this.orientedFlatCoordinates_ = e : (this.orientedFlatCoordinates_ = e.slice(), this.orientedFlatCoordinates_.length = Hu(
+      A_(e, 0, this.ends_, this.stride) ? this.orientedFlatCoordinates_ = e : (this.orientedFlatCoordinates_ = e.slice(), this.orientedFlatCoordinates_.length = Uu(
         this.orientedFlatCoordinates_,
         0,
         this.ends_,
@@ -13439,7 +13424,7 @@ class eo extends sc {
       n,
       0,
       i
-    ), new eo(n, "XY", i);
+    ), new to(n, "XY", i);
   }
   /**
    * Get the type of this geometry.
@@ -13456,7 +13441,7 @@ class eo extends sc {
    * @api
    */
   intersectsExtent(e) {
-    return E_(
+    return w_(
       this.getOrientedFlatCoordinates(),
       0,
       this.ends_,
@@ -13472,7 +13457,7 @@ class eo extends sc {
    */
   setCoordinates(e, n) {
     this.setLayout(n, e, 2), this.flatCoordinates || (this.flatCoordinates = []);
-    const i = S_(
+    const i = __(
       this.flatCoordinates,
       0,
       e,
@@ -13482,7 +13467,7 @@ class eo extends sc {
     this.flatCoordinates.length = i.length === 0 ? 0 : i[i.length - 1], this.changed();
   }
 }
-function Zu(t) {
+function Yu(t) {
   if (Nr(t))
     throw new Error("Cannot create polygon from empty extent");
   const e = t[0], n = t[1], i = t[2], a = t[3], o = [
@@ -13497,7 +13482,7 @@ function Zu(t) {
     e,
     n
   ];
-  return new eo(o, "XY", [o.length]);
+  return new to(o, "XY", [o.length]);
 }
 const vs = 0;
 class fn extends ln {
@@ -13505,7 +13490,7 @@ class fn extends ln {
    * @param {ViewOptions} [options] View options.
    */
   constructor(e) {
-    super(), this.on, this.once, this.un, e = Object.assign({}, e), this.hints_ = [0, 0], this.animations_ = [], this.updateAnimationKey_, this.projection_ = tc(e.projection, "EPSG:3857"), this.viewportSize_ = [100, 100], this.targetCenter_ = null, this.targetResolution_, this.targetRotation_, this.nextCenter_ = null, this.nextResolution_, this.nextRotation_, this.cancelAnchor_ = void 0, e.projection && Of(), e.center && (e.center = kn(e.center, this.projection_)), e.extent && (e.extent = Ei(e.extent, this.projection_)), this.applyOptions_(e);
+    super(), this.on, this.once, this.un, e = Object.assign({}, e), this.hints_ = [0, 0], this.animations_ = [], this.updateAnimationKey_, this.projection_ = Jl(e.projection, "EPSG:3857"), this.viewportSize_ = [100, 100], this.targetCenter_ = null, this.targetResolution_, this.targetRotation_, this.nextCenter_ = null, this.nextResolution_, this.nextRotation_, this.cancelAnchor_ = void 0, e.projection && Of(), e.center && (e.center = kn(e.center, this.projection_)), e.extent && (e.extent = Ei(e.extent, this.projection_)), this.applyOptions_(e);
   }
   /**
    * Set up the view with the given options.
@@ -13516,9 +13501,9 @@ class fn extends ln {
     for (const s in Ht)
       delete n[s];
     this.setProperties(n, !0);
-    const i = L_(e);
+    const i = z_(e);
     this.maxResolution_ = i.maxResolution, this.minResolution_ = i.minResolution, this.zoomFactor_ = i.zoomFactor, this.resolutions_ = e.resolutions, this.padding_ = e.padding, this.minZoom_ = i.minZoom;
-    const a = z_(e), o = i.constraint, r = V_(e);
+    const a = I_(e), o = i.constraint, r = L_(e);
     this.constraints_ = {
       center: a,
       resolution: o,
@@ -13622,7 +13607,7 @@ class fn extends ln {
       u.center && this.setCenterInternal(u.center), u.zoom !== void 0 ? this.setZoom(u.zoom) : u.resolution && this.setResolution(u.resolution), u.rotation !== void 0 && this.setRotation(u.rotation);
     }
     if (a === n) {
-      i && Wo(i, !0);
+      i && Xo(i, !0);
       return;
     }
     let o = Date.now(), r = this.targetCenter_.slice(), s = this.targetResolution_, l = this.targetRotation_;
@@ -13636,7 +13621,7 @@ class fn extends ln {
         complete: !1,
         anchor: u.anchor,
         duration: u.duration !== void 0 ? u.duration : 1e3,
-        easing: u.easing || c_,
+        easing: u.easing || l_,
         callback: i
       };
       if (u.center && (d.sourceCenter = r, d.targetCenter = u.center.slice(), r = d.targetCenter), u.zoom !== void 0 ? (d.sourceResolution = s, d.targetResolution = this.getResolutionForZoom(u.zoom), s = d.targetResolution) : u.resolution && (d.sourceResolution = s, d.targetResolution = u.resolution, s = d.targetResolution), u.rotation !== void 0) {
@@ -13644,7 +13629,7 @@ class fn extends ln {
         const h = sa(u.rotation - l + Math.PI, 2 * Math.PI) - Math.PI;
         d.targetRotation = l + h, l = d.targetRotation;
       }
-      B_(d) ? d.complete = !0 : o += d.duration, c.push(d);
+      V_(d) ? d.complete = !0 : o += d.duration, c.push(d);
     }
     this.animations_.push(c), this.setHint(ut.ANIMATING, 1), this.updateAnimations_();
   }
@@ -13673,7 +13658,7 @@ class fn extends ln {
     let e;
     for (let n = 0, i = this.animations_.length; n < i; ++n) {
       const a = this.animations_[n];
-      if (a[0].callback && Wo(a[0].callback, !1), !e)
+      if (a[0].callback && Xo(a[0].callback, !1), !e)
         for (let o = 0, r = a.length; o < r; ++o) {
           const s = a[o];
           if (!s.complete) {
@@ -13745,7 +13730,7 @@ class fn extends ln {
       if (o) {
         this.animations_[i] = null, this.setHint(ut.ANIMATING, -1), this.nextCenter_ = null, this.nextResolution_ = NaN, this.nextRotation_ = NaN;
         const r = a[0].callback;
-        r && Wo(r, !0);
+        r && Xo(r, !0);
       }
     }
     this.animations_ = this.animations_.filter(Boolean), n && this.updateAnimationKey_ === void 0 && (this.updateAnimationKey_ = requestAnimationFrame(
@@ -13760,7 +13745,7 @@ class fn extends ln {
   calculateCenterRotate(e, n) {
     let i;
     const a = this.getCenterInternal();
-    return a !== void 0 && (i = [a[0] - n[0], a[1] - n[1]], Ql(i, e - this.getRotation()), Ky(i, n)), i;
+    return a !== void 0 && (i = [a[0] - n[0], a[1] - n[1]], Kl(i, e - this.getRotation()), Zy(i, n)), i;
   }
   /**
    * @param {number} resolution Target resolution.
@@ -14120,7 +14105,7 @@ class fn extends ln {
   getZoomForResolution(e) {
     let n = this.minZoom_ || 0, i, a;
     if (this.resolutions_) {
-      const o = Yl(this.resolutions_, e, 1);
+      const o = $l(this.resolutions_, e, 1);
       n = o, i = this.resolutions_[o], o == this.resolutions_.length - 1 ? a = 2 : a = i / this.resolutions_[o + 1];
     } else
       i = this.maxResolution_, a = this.zoomFactor_;
@@ -14167,13 +14152,13 @@ class fn extends ln {
         "Cannot fit empty extent provided as `geometry`"
       );
       const a = Ei(e, this.getProjection());
-      i = Zu(a);
+      i = Yu(a);
     } else if (e.getType() === "Circle") {
       const a = Ei(
         e.getExtent(),
         this.getProjection()
       );
-      i = Zu(a), i.rotate(this.getRotation(), ki(a));
+      i = Yu(a), i.rotate(this.getRotation(), ki(a));
     } else
       i = e;
     this.fitInternal(i, n);
@@ -14220,7 +14205,7 @@ class fn extends ln {
         easing: n.easing
       },
       C
-    ) : (this.targetResolution_ = l, this.targetCenter_ = m, this.applyTargetState_(!1, !0), Wo(C, !0));
+    ) : (this.targetResolution_ = l, this.targetCenter_ = m, this.applyTargetState_(!1, !0), Xo(C, !0));
   }
   /**
    * Center on coordinate and view position.
@@ -14444,7 +14429,7 @@ class fn extends ln {
         o
       )
     );
-    this.get(Ht.ROTATION) !== a && this.set(Ht.ROTATION, a), this.get(Ht.RESOLUTION) !== r && (this.set(Ht.RESOLUTION, r), this.set("zoom", this.getZoom(), !0)), (!s || !this.get(Ht.CENTER) || !fr(this.get(Ht.CENTER), s)) && this.set(Ht.CENTER, s), this.getAnimating() && !e && this.cancelAnimations(), this.cancelAnchor_ = void 0;
+    this.get(Ht.ROTATION) !== a && this.set(Ht.ROTATION, a), this.get(Ht.RESOLUTION) !== r && (this.set(Ht.RESOLUTION, r), this.set("zoom", this.getZoom(), !0)), (!s || !this.get(Ht.CENTER) || !gr(this.get(Ht.CENTER), s)) && this.set(Ht.CENTER, s), this.getAnimating() && !e && this.cancelAnimations(), this.cancelAnchor_ = void 0;
   }
   /**
    * If any constraints need to be applied, an animation will be triggered.
@@ -14477,7 +14462,7 @@ class fn extends ln {
       this.targetResolution_ = s, this.targetRotation_ = o, this.targetCenter_ = l, this.applyTargetState_();
       return;
     }
-    i = i || (e === 0 ? this.cancelAnchor_ : void 0), this.cancelAnchor_ = void 0, (this.getResolution() !== s || this.getRotation() !== o || !this.getCenterInternal() || !fr(this.getCenterInternal(), l)) && (this.getAnimating() && this.cancelAnimations(), this.animateInternal({
+    i = i || (e === 0 ? this.cancelAnchor_ : void 0), this.cancelAnchor_ = void 0, (this.getResolution() !== s || this.getRotation() !== o || !this.getCenterInternal() || !gr(this.getCenterInternal(), l)) && (this.getAnimating() && this.cancelAnimations(), this.animateInternal({
       rotation: o,
       center: l,
       resolution: s,
@@ -14561,35 +14546,35 @@ class fn extends ln {
     return this.constraints_.resolution(e, n, i);
   }
 }
-function Wo(t, e) {
+function Xo(t, e) {
   setTimeout(function() {
     t(e);
   }, 0);
 }
-function z_(t) {
+function I_(t) {
   if (t.extent !== void 0) {
     const n = t.smoothExtentConstraint !== void 0 ? t.smoothExtentConstraint : !0;
-    return Gu(t.extent, t.constrainOnlyCenter, n);
+    return ku(t.extent, t.constrainOnlyCenter, n);
   }
-  const e = tc(t.projection, "EPSG:3857");
+  const e = Jl(t.projection, "EPSG:3857");
   if (t.multiWorld !== !0 && e.isGlobal()) {
     const n = e.getExtent().slice();
-    return n[0] = -1 / 0, n[2] = 1 / 0, Gu(n, !1, !1);
+    return n[0] = -1 / 0, n[2] = 1 / 0, ku(n, !1, !1);
   }
-  return a_;
+  return i_;
 }
-function L_(t) {
+function z_(t) {
   let e, n, i, r = t.minZoom !== void 0 ? t.minZoom : vs, s = t.maxZoom !== void 0 ? t.maxZoom : 28;
-  const l = t.zoomFactor !== void 0 ? t.zoomFactor : 2, c = t.multiWorld !== void 0 ? t.multiWorld : !1, u = t.smoothResolutionConstraint !== void 0 ? t.smoothResolutionConstraint : !0, d = t.showFullExtent !== void 0 ? t.showFullExtent : !1, h = tc(t.projection, "EPSG:3857"), f = h.getExtent();
+  const l = t.zoomFactor !== void 0 ? t.zoomFactor : 2, c = t.multiWorld !== void 0 ? t.multiWorld : !1, u = t.smoothResolutionConstraint !== void 0 ? t.smoothResolutionConstraint : !0, d = t.showFullExtent !== void 0 ? t.showFullExtent : !1, h = Jl(t.projection, "EPSG:3857"), f = h.getExtent();
   let g = t.constrainOnlyCenter, m = t.extent;
   if (!c && !m && h.isGlobal() && (g = !1, m = f), t.resolutions !== void 0) {
     const C = t.resolutions;
-    n = C[r], i = C[s] !== void 0 ? C[s] : C[C.length - 1], t.constrainResolution ? e = o_(
+    n = C[r], i = C[s] !== void 0 ? C[s] : C[C.length - 1], t.constrainResolution ? e = a_(
       C,
       u,
       !g && m,
       d
-    ) : e = Nu(
+    ) : e = Ou(
       n,
       i,
       u,
@@ -14599,18 +14584,18 @@ function L_(t) {
   } else {
     const p = (f ? Math.max(Ie(f), vt(f)) : (
       // use an extent that can fit the whole world if need be
-      360 * Kl.degrees / h.getMetersPerUnit()
-    )) / Zl / Math.pow(2, vs), y = p / Math.pow(2, 28 - vs);
+      360 * jl.degrees / h.getMetersPerUnit()
+    )) / Yl / Math.pow(2, vs), y = p / Math.pow(2, 28 - vs);
     n = t.maxResolution, n !== void 0 ? r = 0 : n = p / Math.pow(l, r), i = t.minResolution, i === void 0 && (t.maxZoom !== void 0 ? t.maxResolution !== void 0 ? i = n / Math.pow(l, s) : i = p / Math.pow(l, s) : i = y), s = r + Math.floor(
       Math.log(n / i) / Math.log(l)
-    ), i = n / Math.pow(l, s - r), t.constrainResolution ? e = r_(
+    ), i = n / Math.pow(l, s - r), t.constrainResolution ? e = o_(
       l,
       n,
       i,
       u,
       !g && m,
       d
-    ) : e = Nu(
+    ) : e = Ou(
       n,
       i,
       u,
@@ -14626,15 +14611,15 @@ function L_(t) {
     zoomFactor: l
   };
 }
-function V_(t) {
+function L_(t) {
   if (t.enableRotation !== void 0 ? t.enableRotation : !0) {
     const n = t.constrainRotation;
-    return n === void 0 || n === !0 ? l_() : n === !1 ? $u : typeof n == "number" ? s_(n) : $u;
+    return n === void 0 || n === !0 ? s_() : n === !1 ? Du : typeof n == "number" ? r_(n) : Du;
   }
-  return oc;
+  return nc;
 }
-function B_(t) {
-  return !(t.sourceCenter && t.targetCenter && !fr(t.sourceCenter, t.targetCenter) || t.sourceResolution !== t.targetResolution || t.sourceRotation !== t.targetRotation);
+function V_(t) {
+  return !(t.sourceCenter && t.targetCenter && !gr(t.sourceCenter, t.targetCenter) || t.sourceResolution !== t.targetResolution || t.sourceRotation !== t.targetRotation);
 }
 function Cs(t, e, n, i, a) {
   const o = Math.cos(-a);
@@ -14643,7 +14628,7 @@ function Cs(t, e, n, i, a) {
   const c = s * o - l * r, u = l * o + s * r;
   return [c, u];
 }
-class Wr extends wf {
+class $r extends wf {
   /**
    * @param {Options<SourceType>} options Layer options.
    */
@@ -14755,7 +14740,7 @@ class Wr extends wf {
       (r) => r.layer === this
     ) : a = this.getLayerState();
     const o = this.getExtent();
-    return dc(a, n.viewState) && (!o || xt(o, n.extent));
+    return lc(a, n.viewState) && (!o || xt(o, n.extent));
   }
   /**
    * Get the attributions of the source of this layer for the given view.
@@ -14888,7 +14873,7 @@ class Wr extends wf {
     this.renderer_ && (this.renderer_.dispose(), delete this.renderer_), this.setSource(null), super.disposeInternal();
   }
 }
-function dc(t, e) {
+function lc(t, e) {
   if (!t.visible)
     return !1;
   const n = e.resolution;
@@ -14897,8 +14882,8 @@ function dc(t, e) {
   const i = e.zoom;
   return i > t.minZoom && i <= t.maxZoom;
 }
-function F_(t, e, n, i, a) {
-  Qf(t, e, n || 0, i || t.length - 1, a || k_);
+function B_(t, e, n, i, a) {
+  Qf(t, e, n || 0, i || t.length - 1, a || F_);
 }
 function Qf(t, e, n, i, a) {
   for (; i > n; ) {
@@ -14918,7 +14903,7 @@ function Va(t, e, n) {
   var i = t[e];
   t[e] = t[n], t[n] = i;
 }
-function k_(t, e) {
+function F_(t, e) {
   return t < e ? -1 : t > e ? 1 : 0;
 }
 let eg = class {
@@ -14931,12 +14916,12 @@ let eg = class {
   search(e) {
     let n = this.data;
     const i = [];
-    if (!Uo(e, n)) return i;
+    if (!Yo(e, n)) return i;
     const a = this.toBBox, o = [];
     for (; n; ) {
       for (let r = 0; r < n.children.length; r++) {
         const s = n.children[r], l = n.leaf ? a(s) : s;
-        Uo(e, l) && (n.leaf ? i.push(s) : ys(e, l) ? this._all(s, i) : o.push(s));
+        Yo(e, l) && (n.leaf ? i.push(s) : ys(e, l) ? this._all(s, i) : o.push(s));
       }
       n = o.pop();
     }
@@ -14944,12 +14929,12 @@ let eg = class {
   }
   collides(e) {
     let n = this.data;
-    if (!Uo(e, n)) return !1;
+    if (!Yo(e, n)) return !1;
     const i = [];
     for (; n; ) {
       for (let a = 0; a < n.children.length; a++) {
         const o = n.children[a], r = n.leaf ? this.toBBox(o) : o;
-        if (Uo(e, r)) {
+        if (Yo(e, r)) {
           if (n.leaf || ys(e, r)) return !0;
           i.push(o);
         }
@@ -14992,7 +14977,7 @@ let eg = class {
     let s, l, c;
     for (; i || o.length; ) {
       if (i || (i = o.pop(), l = o[o.length - 1], s = r.pop(), c = !0), i.leaf) {
-        const u = O_(e, i.children, n);
+        const u = k_(e, i.children, n);
         if (u !== -1)
           return i.children.splice(u, 1), o.push(i), this._condense(o), this;
       }
@@ -15028,10 +15013,10 @@ let eg = class {
       return s = Ji(e.slice(n, i + 1)), ji(s, this.toBBox), s;
     a || (a = Math.ceil(Math.log(o) / Math.log(r)), r = Math.ceil(o / Math.pow(r, a - 1))), s = Ji([]), s.leaf = !1, s.height = a;
     const l = Math.ceil(o / r), c = l * Math.ceil(Math.sqrt(r));
-    Ku(e, n, i, c, this.compareMinX);
+    ju(e, n, i, c, this.compareMinX);
     for (let u = n; u <= i; u += c) {
       const d = Math.min(u + c - 1, i);
-      Ku(e, u, d, l, this.compareMinY);
+      ju(e, u, d, l, this.compareMinY);
       for (let h = u; h <= d; h += l) {
         const f = Math.min(h + l - 1, d);
         s.children.push(this._build(e, h, f, a - 1));
@@ -15043,7 +15028,7 @@ let eg = class {
     for (; a.push(n), !(n.leaf || a.length - 1 === i); ) {
       let o = 1 / 0, r = 1 / 0, s;
       for (let l = 0; l < n.children.length; l++) {
-        const c = n.children[l], u = ps(c), d = N_(e, c) - u;
+        const c = n.children[l], u = ps(c), d = G_(e, c) - u;
         d < r ? (r = d, o = u < o ? u : o, s = c) : d === r && u < o && (o = u, s = c);
       }
       n = s || n.children[0];
@@ -15069,28 +15054,28 @@ let eg = class {
   _chooseSplitIndex(e, n, i) {
     let a, o = 1 / 0, r = 1 / 0;
     for (let s = n; s <= i - n; s++) {
-      const l = Da(e, 0, s, this.toBBox), c = Da(e, s, i, this.toBBox), u = $_(l, c), d = ps(l) + ps(c);
+      const l = Da(e, 0, s, this.toBBox), c = Da(e, s, i, this.toBBox), u = N_(l, c), d = ps(l) + ps(c);
       u < o ? (o = u, a = s, r = d < r ? d : r) : u === o && d < r && (r = d, a = s);
     }
     return a || i - n;
   }
   // sorts node children by the best axis for split
   _chooseSplitAxis(e, n, i) {
-    const a = e.leaf ? this.compareMinX : D_, o = e.leaf ? this.compareMinY : G_, r = this._allDistMargin(e, n, i, a), s = this._allDistMargin(e, n, i, o);
+    const a = e.leaf ? this.compareMinX : O_, o = e.leaf ? this.compareMinY : D_, r = this._allDistMargin(e, n, i, a), s = this._allDistMargin(e, n, i, o);
     r < s && e.children.sort(a);
   }
   // total margin of all possible split distributions where each node is at least m full
   _allDistMargin(e, n, i, a) {
     e.children.sort(a);
     const o = this.toBBox, r = Da(e, 0, n, o), s = Da(e, i - n, i, o);
-    let l = Xo(r) + Xo(s);
+    let l = Uo(r) + Uo(s);
     for (let c = n; c < i - n; c++) {
       const u = e.children[c];
-      Ga(r, e.leaf ? o(u) : u), l += Xo(r);
+      Ga(r, e.leaf ? o(u) : u), l += Uo(r);
     }
     for (let c = i - n - 1; c >= n; c--) {
       const u = e.children[c];
-      Ga(s, e.leaf ? o(u) : u), l += Xo(s);
+      Ga(s, e.leaf ? o(u) : u), l += Uo(s);
     }
     return l;
   }
@@ -15103,7 +15088,7 @@ let eg = class {
       e[n].children.length === 0 ? n > 0 ? (i = e[n - 1].children, i.splice(i.indexOf(e[n]), 1)) : this.clear() : ji(e[n], this.toBBox);
   }
 };
-function O_(t, e, n) {
+function k_(t, e, n) {
   if (!n) return e.indexOf(t);
   for (let i = 0; i < e.length; i++)
     if (n(t, e[i])) return i;
@@ -15123,29 +15108,29 @@ function Da(t, e, n, i, a) {
 function Ga(t, e) {
   return t.minX = Math.min(t.minX, e.minX), t.minY = Math.min(t.minY, e.minY), t.maxX = Math.max(t.maxX, e.maxX), t.maxY = Math.max(t.maxY, e.maxY), t;
 }
-function D_(t, e) {
+function O_(t, e) {
   return t.minX - e.minX;
 }
-function G_(t, e) {
+function D_(t, e) {
   return t.minY - e.minY;
 }
 function ps(t) {
   return (t.maxX - t.minX) * (t.maxY - t.minY);
 }
-function Xo(t) {
+function Uo(t) {
   return t.maxX - t.minX + (t.maxY - t.minY);
 }
-function N_(t, e) {
+function G_(t, e) {
   return (Math.max(e.maxX, t.maxX) - Math.min(e.minX, t.minX)) * (Math.max(e.maxY, t.maxY) - Math.min(e.minY, t.minY));
 }
-function $_(t, e) {
+function N_(t, e) {
   const n = Math.max(t.minX, e.minX), i = Math.max(t.minY, e.minY), a = Math.min(t.maxX, e.maxX), o = Math.min(t.maxY, e.maxY);
   return Math.max(0, a - n) * Math.max(0, o - i);
 }
 function ys(t, e) {
   return t.minX <= e.minX && t.minY <= e.minY && e.maxX <= t.maxX && e.maxY <= t.maxY;
 }
-function Uo(t, e) {
+function Yo(t, e) {
   return e.minX <= t.maxX && e.minY <= t.maxY && e.maxX >= t.minX && e.maxY >= t.minY;
 }
 function Ji(t) {
@@ -15159,12 +15144,12 @@ function Ji(t) {
     maxY: -1 / 0
   };
 }
-function Ku(t, e, n, i, a) {
+function ju(t, e, n, i, a) {
   const o = [e, n];
   for (; o.length; ) {
     if (n = o.pop(), e = o.pop(), n - e <= i) continue;
     const r = e + Math.ceil((n - e) / i / 2) * i;
-    F_(t, r, e, n, a), o.push(e, r, r, n);
+    B_(t, r, e, n, a), o.push(e, r, r, n);
   }
 }
 const Ce = {
@@ -15173,7 +15158,7 @@ const Ce = {
   LOADED: 2,
   ERROR: 3
 };
-function qu(t) {
+function Hu(t) {
   return t[0] > 0 && t[1] > 0;
 }
 function W_(t, e, n) {
@@ -15396,7 +15381,7 @@ class Xr {
     return Promise.resolve();
   }
 }
-const to = {
+const no = {
   name: "rgb",
   min: [0, 0, 0],
   max: [255, 255, 255],
@@ -15459,13 +15444,13 @@ it.rgb = function(t, e) {
   var n = t[0] / e[0], i = t[1] / e[1], a = t[2] / e[2], o, r, s;
   return o = n * 3.240969941904521 + i * -1.537383177570093 + a * -0.498610760293, r = n * -0.96924363628087 + i * 1.87596750150772 + a * 0.041555057407175, s = n * 0.055630079696993 + i * -0.20397695888897 + a * 1.056971514242878, o = o > 31308e-7 ? 1.055 * Math.pow(o, 1 / 2.4) - 0.055 : o = o * 12.92, r = r > 31308e-7 ? 1.055 * Math.pow(r, 1 / 2.4) - 0.055 : r = r * 12.92, s = s > 31308e-7 ? 1.055 * Math.pow(s, 1 / 2.4) - 0.055 : s = s * 12.92, o = Math.min(Math.max(0, o), 1), r = Math.min(Math.max(0, r), 1), s = Math.min(Math.max(0, s), 1), [o * 255, r * 255, s * 255];
 };
-to.xyz = function(t, e) {
+no.xyz = function(t, e) {
   var n = t[0] / 255, i = t[1] / 255, a = t[2] / 255;
   n = n > 0.04045 ? Math.pow((n + 0.055) / 1.055, 2.4) : n / 12.92, i = i > 0.04045 ? Math.pow((i + 0.055) / 1.055, 2.4) : i / 12.92, a = a > 0.04045 ? Math.pow((a + 0.055) / 1.055, 2.4) : a / 12.92;
   var o = n * 0.41239079926595 + i * 0.35758433938387 + a * 0.18048078840183, r = n * 0.21263900587151 + i * 0.71516867876775 + a * 0.072192315360733, s = n * 0.019330818715591 + i * 0.11919477979462 + a * 0.95053215224966;
   return e = e || it.whitepoint[2].E, [o * e[0], r * e[1], s * e[2]];
 };
-const hc = {
+const cc = {
   name: "luv",
   //NOTE: luv has no rigidly defined limits
   //easyrgb fails to get proper coords
@@ -15499,17 +15484,17 @@ var tg = {
     return r = i / 360 * 2 * Math.PI, a = n * Math.cos(r), o = n * Math.sin(r), [e, a, o];
   },
   xyz: function(t) {
-    return hc.xyz(tg.luv(t));
+    return cc.xyz(tg.luv(t));
   }
 };
-hc.lchuv = function(t) {
+cc.lchuv = function(t) {
   var e = t[0], n = t[1], i = t[2], a = Math.sqrt(n * n + i * i), o = Math.atan2(i, n), r = o * 360 / 2 / Math.PI;
   return r < 0 && (r += 360), [e, a, r];
 };
 it.lchuv = function(t) {
-  return hc.lchuv(it.luv(t));
+  return cc.lchuv(it.luv(t));
 };
-const Ju = {
+const Zu = {
   aliceblue: [240, 248, 255],
   antiquewhite: [250, 235, 215],
   aqua: [0, 255, 255],
@@ -15659,7 +15644,7 @@ const Ju = {
   yellow: [255, 255, 0],
   yellowgreen: [154, 205, 50]
 };
-var Qu = {
+var Ku = {
   red: 0,
   orange: 60,
   yellow: 120,
@@ -15667,14 +15652,14 @@ var Qu = {
   blue: 240,
   purple: 300
 };
-function X_(t) {
+function $_(t) {
   var u, d;
   var e, n = [], i = 1, a;
   if (typeof t == "number")
     return { space: "rgb", values: [t >>> 16, (t & 65280) >>> 8, t & 255], alpha: 1 };
   if (typeof t == "number") return { space: "rgb", values: [t >>> 16, (t & 65280) >>> 8, t & 255], alpha: 1 };
-  if (t = String(t).toLowerCase(), Ju[t])
-    n = Ju[t].slice(), a = "rgb";
+  if (t = String(t).toLowerCase(), Zu[t])
+    n = Zu[t].slice(), a = "rgb";
   else if (t === "transparent")
     i = 0, a = "rgb", n = [0, 0, 0];
   else if (t[0] === "#") {
@@ -15696,7 +15681,7 @@ function X_(t) {
       if (h[h.length - 1] === "%")
         return h = parseFloat(h) / 100, f === 3 ? h : a === "rgb" ? h * 255 : a[0] === "h" || a[0] === "l" && !f ? h * 100 : a === "lab" ? h * 125 : a === "lch" ? f < 2 ? h * 150 : h * 360 : a[0] === "o" && !f ? h : a === "oklab" ? h * 0.4 : a === "oklch" ? f < 2 ? h * 0.4 : h * 360 : h;
       if (a[f] === "h" || f === 2 && a[a.length - 1] === "h") {
-        if (Qu[h] !== void 0) return Qu[h];
+        if (Ku[h] !== void 0) return Ku[h];
         if (h.endsWith("deg")) return parseFloat(h);
         if (h.endsWith("turn")) return parseFloat(h) * 360;
         if (h.endsWith("grad")) return parseFloat(h) * 360 / 400;
@@ -15727,45 +15712,45 @@ const _s = {
     return s;
   }
 };
-to.hsl = function(t) {
+no.hsl = function(t) {
   var e = t[0] / 255, n = t[1] / 255, i = t[2] / 255, a = Math.min(e, n, i), o = Math.max(e, n, i), r = o - a, s, l, c;
   return o === a ? s = 0 : e === o ? s = (n - i) / r : n === o ? s = 2 + (i - e) / r : i === o && (s = 4 + (e - n) / r), s = Math.min(s * 60, 360), s < 0 && (s += 360), c = (a + o) / 2, o === a ? l = 0 : c <= 0.5 ? l = r / (o + a) : l = r / (2 - o - a), [s, l * 100, c * 100];
 };
-function U_(t) {
+function X_(t) {
   Array.isArray(t) && t.raw && (t = String.raw(...arguments)), t instanceof Number && (t = +t);
-  var e, n = X_(t);
+  var e, n = $_(t);
   if (!n.space) return [];
-  const i = n.space[0] === "h" ? _s.min : to.min, a = n.space[0] === "h" ? _s.max : to.max;
+  const i = n.space[0] === "h" ? _s.min : no.min, a = n.space[0] === "h" ? _s.max : no.max;
   return e = Array(3), e[0] = Math.min(Math.max(n.values[0], i[0]), a[0]), e[1] = Math.min(Math.max(n.values[1], i[1]), a[1]), e[2] = Math.min(Math.max(n.values[2], i[2]), a[2]), n.space[0] === "h" && (e = _s.rgb(e)), e.push(Math.min(Math.max(n.alpha, 0), 1)), e;
 }
-function Y_(t) {
-  return typeof t == "string" ? t : gc(t);
+function U_(t) {
+  return typeof t == "string" ? t : dc(t);
 }
-const j_ = 1024, Ba = {};
+const Y_ = 1024, Ba = {};
 let Ss = 0;
-function H_(t) {
+function j_(t) {
   if (t.length === 4)
     return t;
   const e = t.slice();
   return e[3] = 1, e;
 }
-function ed(t) {
-  const e = it.lchuv(to.xyz(t));
+function qu(t) {
+  const e = it.lchuv(no.xyz(t));
   return e[3] = t[3], e;
 }
-function Z_(t) {
+function H_(t) {
   const e = it.rgb(tg.xyz(t));
   return e[3] = t[3], e;
 }
-function fc(t) {
+function uc(t) {
   if (Ba.hasOwnProperty(t))
     return Ba[t];
-  if (Ss >= j_) {
+  if (Ss >= Y_) {
     let n = 0;
     for (const i in Ba)
       (n++ & 3) === 0 && (delete Ba[i], --Ss);
   }
-  const e = U_(t);
+  const e = X_(t);
   if (e.length !== 4)
     throw new Error('Failed to parse "' + t + '" as color');
   for (const n of e)
@@ -15773,13 +15758,13 @@ function fc(t) {
       throw new Error('Failed to parse "' + t + '" as color');
   return ng(e), Ba[t] = e, ++Ss, e;
 }
-function no(t) {
-  return Array.isArray(t) ? t : fc(t);
+function io(t) {
+  return Array.isArray(t) ? t : uc(t);
 }
 function ng(t) {
   return t[0] = He(t[0] + 0.5 | 0, 0, 255), t[1] = He(t[1] + 0.5 | 0, 0, 255), t[2] = He(t[2] + 0.5 | 0, 0, 255), t[3] = He(t[3], 0, 1), t;
 }
-function gc(t) {
+function dc(t) {
   let e = t[0];
   e != (e | 0) && (e = e + 0.5 | 0);
   let n = t[1];
@@ -15789,16 +15774,16 @@ function gc(t) {
   const a = t[3] === void 0 ? 1 : Math.round(t[3] * 1e3) / 1e3;
   return "rgba(" + e + "," + n + "," + i + "," + a + ")";
 }
-function K_(t) {
+function Z_(t) {
   try {
-    return fc(t), !0;
+    return uc(t), !0;
   } catch {
     return !1;
   }
 }
-const gi = typeof navigator < "u" && typeof navigator.userAgent < "u" ? navigator.userAgent.toLowerCase() : "", q_ = gi.includes("firefox"), J_ = gi.includes("safari") && !gi.includes("chrom");
-J_ && (gi.includes("version/15.4") || /cpu (os|iphone os) 15_4 like mac os x/.test(gi));
-const Q_ = gi.includes("webkit") && !gi.includes("edge"), ig = gi.includes("macintosh"), ag = typeof devicePixelRatio < "u" ? devicePixelRatio : 1, og = typeof WorkerGlobalScope < "u" && typeof OffscreenCanvas < "u" && self instanceof WorkerGlobalScope, rg = typeof Image < "u" && Image.prototype.decode, sg = function() {
+const gi = typeof navigator < "u" && typeof navigator.userAgent < "u" ? navigator.userAgent.toLowerCase() : "", K_ = gi.includes("firefox"), q_ = gi.includes("safari") && !gi.includes("chrom");
+q_ && (gi.includes("version/15.4") || /cpu (os|iphone os) 15_4 like mac os x/.test(gi));
+const J_ = gi.includes("webkit") && !gi.includes("edge"), ig = gi.includes("macintosh"), ag = typeof devicePixelRatio < "u" ? devicePixelRatio : 1, og = typeof WorkerGlobalScope < "u" && typeof OffscreenCanvas < "u" && self instanceof WorkerGlobalScope, rg = typeof Image < "u" && Image.prototype.decode, sg = function() {
   let t = !1;
   try {
     const e = Object.defineProperty({}, "passive", {
@@ -15825,28 +15810,28 @@ function Ur(t) {
   const e = t.canvas;
   e.width = 1, e.height = 1, t.clearRect(0, 0, 1, 1);
 }
-function eS(t) {
+function Q_(t) {
   let e = t.offsetWidth;
   const n = getComputedStyle(t);
   return e += parseInt(n.marginLeft, 10) + parseInt(n.marginRight, 10), e;
 }
-function tS(t) {
+function eS(t) {
   let e = t.offsetHeight;
   const n = getComputedStyle(t);
   return e += parseInt(n.marginTop, 10) + parseInt(n.marginBottom, 10), e;
 }
-function td(t, e) {
+function Ju(t, e) {
   const n = e.parentNode;
   n && n.replaceChild(t, e);
 }
-function vr(t) {
+function Cr(t) {
   return t && t.parentNode ? t.parentNode.removeChild(t) : null;
 }
 function lg(t) {
   for (; t.lastChild; )
     t.removeChild(t.lastChild);
 }
-function nS(t, e) {
+function tS(t, e) {
   const n = t.childNodes;
   for (let i = 0; ; ++i) {
     const a = n[i], o = e[i];
@@ -15865,14 +15850,14 @@ function nS(t, e) {
     }
   }
 }
-function iS(t, e, n) {
+function nS(t, e, n) {
   const i = (
     /** @type {HTMLImageElement} */
     t
   );
   let a = !0, o = !1, r = !1;
   const s = [
-    dr(i, me.LOAD, function() {
+    hr(i, me.LOAD, function() {
       r = !0, o || e();
     })
   ];
@@ -15880,11 +15865,11 @@ function iS(t, e, n) {
     a && e();
   }).catch(function(l) {
     a && (r ? e() : n());
-  })) : s.push(dr(i, me.ERROR, n)), function() {
+  })) : s.push(hr(i, me.ERROR, n)), function() {
     a = !1, s.forEach(Ve);
   };
 }
-function aS(t, e) {
+function iS(t, e) {
   return new Promise((n, i) => {
     function a() {
       r(), n(t);
@@ -15898,14 +15883,14 @@ function aS(t, e) {
     t.addEventListener("load", a), t.addEventListener("error", o);
   });
 }
-function oS(t, e) {
+function aS(t, e) {
   return e && (t.src = e), t.src && rg ? new Promise(
     (n, i) => t.decode().then(() => n(t)).catch(
       (a) => t.complete && t.width ? n(t) : i(a)
     )
-  ) : aS(t);
+  ) : iS(t);
 }
-class rS {
+class oS {
   constructor() {
     this.cache_ = {}, this.patternCache_ = {}, this.cacheSize_ = 0, this.maxCacheSize_ = 32;
   }
@@ -15984,12 +15969,12 @@ class rS {
   }
 }
 function Ms(t, e, n) {
-  const i = n ? no(n) : "null";
+  const i = n ? io(n) : "null";
   return e + ":" + t + ":" + i;
 }
-const vn = new rS();
+const vn = new oS();
 let Fa = null;
-class sS extends Fr {
+class rS extends Fr {
   /**
    * @param {HTMLImageElement|HTMLCanvasElement|ImageBitmap|null} image Image.
    * @param {string|undefined} src Src.
@@ -16097,7 +16082,7 @@ class sS extends Fr {
       } catch {
         this.handleImageError_();
       }
-      this.image_ instanceof HTMLImageElement && oS(this.image_, this.src_).then((e) => {
+      this.image_ instanceof HTMLImageElement && aS(this.image_, this.src_).then((e) => {
         this.image_ = e, this.handleImageLoad_();
       }).catch(this.handleImageError_.bind(this));
     }
@@ -16112,7 +16097,7 @@ class sS extends Fr {
     const n = this.image_, i = document.createElement("canvas");
     i.width = Math.ceil(n.width * e), i.height = Math.ceil(n.height * e);
     const a = i.getContext("2d");
-    a.scale(e, e), a.drawImage(n, 0, 0), a.globalCompositeOperation = "multiply", a.fillStyle = Y_(this.color_), a.fillRect(0, 0, i.width / e, i.height / e), a.globalCompositeOperation = "destination-in", a.drawImage(n, 0, 0), this.canvas_[e] = i;
+    a.scale(e, e), a.drawImage(n, 0, 0), a.globalCompositeOperation = "multiply", a.fillStyle = U_(this.color_), a.fillRect(0, 0, i.width / e, i.height / e), a.globalCompositeOperation = "destination-in", a.drawImage(n, 0, 0), this.canvas_[e] = i;
   }
   /**
    * @return {Promise<void>} Promise that resolves when the image is loaded.
@@ -16125,9 +16110,9 @@ class sS extends Fr {
     })), this.ready_;
   }
 }
-function mc(t, e, n, i, a, o) {
+function hc(t, e, n, i, a, o) {
   let r = e === void 0 ? void 0 : vn.get(e, n, a);
-  return r || (r = new sS(
+  return r || (r = new rS(
     t,
     t instanceof HTMLImageElement ? t.src || void 0 : e,
     n,
@@ -16136,9 +16121,9 @@ function mc(t, e, n, i, a, o) {
   ), vn.set(e, n, a, r, o)), o && r && !vn.getPattern(e, n, a) && vn.set(e, n, a, r, o), r;
 }
 function Cn(t) {
-  return t ? Array.isArray(t) ? gc(t) : typeof t == "object" && "src" in t ? lS(t) : t : null;
+  return t ? Array.isArray(t) ? dc(t) : typeof t == "object" && "src" in t ? sS(t) : t : null;
 }
-function lS(t) {
+function sS(t) {
   if (!t.offset || !t.size)
     return vn.getPattern(t.src, "anonymous", t.color);
   const e = t.src + ":" + t.offset, n = vn.getPattern(
@@ -16165,7 +16150,7 @@ function lS(t) {
     0,
     t.size[0],
     t.size[1]
-  ), mc(
+  ), hc(
     a.canvas,
     e,
     void 0,
@@ -16174,7 +16159,7 @@ function lS(t) {
     !0
   ), vn.getPattern(e, void 0, t.color);
 }
-const Yo = "ol-hidden", cS = "ol-selectable", Yr = "ol-unselectable", vc = "ol-control", nd = "ol-collapsed", uS = new RegExp(
+const jo = "ol-hidden", lS = "ol-selectable", Yr = "ol-unselectable", fc = "ol-control", Qu = "ol-collapsed", cS = new RegExp(
   [
     "^\\s*(?=(?:(?:[-a-z]+\\s*){0,2}(italic|oblique))?)",
     "(?=(?:(?:[-a-z]+\\s*){0,2}(small-caps))?)",
@@ -16185,7 +16170,7 @@ const Yo = "ol-hidden", cS = "ol-selectable", Yr = "ol-unselectable", vc = "ol-c
     `?\\s*([-,\\"\\'\\sa-z]+?)\\s*$`
   ].join(""),
   "i"
-), id = [
+), ed = [
   "style",
   "variant",
   "weight",
@@ -16193,7 +16178,7 @@ const Yo = "ol-hidden", cS = "ol-selectable", Yr = "ol-unselectable", vc = "ol-c
   "lineHeight",
   "family"
 ], cg = function(t) {
-  const e = t.match(uS);
+  const e = t.match(cS);
   if (!e)
     return null;
   const n = (
@@ -16206,25 +16191,25 @@ const Yo = "ol-hidden", cS = "ol-selectable", Yr = "ol-unselectable", vc = "ol-c
       variant: "normal"
     }
   );
-  for (let i = 0, a = id.length; i < a; ++i) {
+  for (let i = 0, a = ed.length; i < a; ++i) {
     const o = e[i + 1];
-    o !== void 0 && (n[id[i]] = o);
+    o !== void 0 && (n[ed[i]] = o);
   }
   return n.families = n.family.split(/,\s?/), n;
-}, ug = "10px sans-serif", Mt = "#000", va = "round", Un = [], Yn = 0, Ca = "round", io = 10, ao = "#000", oo = "center", Cr = "middle", Ri = [0, 0, 0, 0], ro = 1, On = new ln();
+}, ug = "10px sans-serif", Mt = "#000", va = "round", Un = [], Yn = 0, Ca = "round", ao = 10, oo = "#000", ro = "center", pr = "middle", Ri = [0, 0, 0, 0], so = 1, On = new ln();
 let Qi = null, Qs;
-const el = {}, dS = function() {
+const el = {}, uS = function() {
   const e = "32px ", n = ["monospace", "serif"], i = n.length, a = "wmytzilWMYTZIL@#/&?$%10";
   let o, r;
   function s(c, u, d) {
     let h = !0;
     for (let f = 0; f < i; ++f) {
       const g = n[f];
-      if (r = pr(
+      if (r = yr(
         c + " " + u + " " + e + g,
         a
       ), d != g) {
-        const m = pr(
+        const m = yr(
           c + " " + u + " " + e + d + "," + g,
           a
         );
@@ -16239,7 +16224,7 @@ const el = {}, dS = function() {
     for (let d = 0, h = u.length; d < h; ++d) {
       const f = u[d];
       On.get(f) < 100 && (s.apply(this, f.split(`
-`)) ? (To(el), Qi = null, Qs = void 0, On.set(f, 100)) : (On.set(f, On.get(f) + 1, !0), c = !1));
+`)) ? (wo(el), Qi = null, Qs = void 0, On.set(f, 100)) : (On.set(f, On.get(f) + 1, !0), c = !1));
     }
     c && (clearInterval(o), o = void 0);
   }
@@ -16255,7 +16240,7 @@ const el = {}, dS = function() {
       On.get(m) === void 0 && (On.set(m, 100, !0), s(u.style, u.weight, g) || (On.set(m, 0, !0), o === void 0 && (o = setInterval(l, 32))));
     }
   };
-}(), hS = /* @__PURE__ */ function() {
+}(), dS = /* @__PURE__ */ function() {
   let t;
   return function(e) {
     let n = el[e];
@@ -16273,17 +16258,17 @@ const el = {}, dS = function() {
 function dg(t, e) {
   return Qi || (Qi = at(1, 1)), t != Qs && (Qi.font = t, Qs = Qi.font), Qi.measureText(e);
 }
-function pr(t, e) {
+function yr(t, e) {
   return dg(t, e).width;
 }
-function ad(t, e, n) {
+function td(t, e, n) {
   if (e in n)
     return n[e];
   const i = e.split(`
-`).reduce((a, o) => Math.max(a, pr(t, o)), 0);
+`).reduce((a, o) => Math.max(a, yr(t, o)), 0);
   return n[e] = i, i;
 }
-function fS(t, e) {
+function hS(t, e) {
   const n = [], i = [], a = [];
   let o = 0, r = 0, s = 0, l = 0;
   for (let c = 0, u = e.length; c <= u; c += 2) {
@@ -16293,16 +16278,16 @@ function fS(t, e) {
       o = Math.max(o, r), a.push(r), r = 0, s += l;
       continue;
     }
-    const h = e[c + 1] || t.font, f = pr(h, d);
+    const h = e[c + 1] || t.font, f = yr(h, d);
     n.push(f), r += f;
-    const g = hS(h);
+    const g = dS(h);
     i.push(g), l = Math.max(l, g);
   }
   return { width: o, height: s, widths: n, heights: i, lineWidths: a };
 }
-function gS(t, e, n, i, a, o, r, s, l, c, u) {
+function fS(t, e, n, i, a, o, r, s, l, c, u) {
   t.save(), n !== 1 && (t.globalAlpha === void 0 ? t.globalAlpha = (d) => d.globalAlpha *= n : t.globalAlpha *= n), e && t.transform.apply(t, e), /** @type {*} */
-  i.contextInstructions ? (t.translate(l, c), t.scale(u[0], u[1]), mS(
+  i.contextInstructions ? (t.translate(l, c), t.scale(u[0], u[1]), gS(
     /** @type {Label} */
     i,
     t
@@ -16330,7 +16315,7 @@ function gS(t, e, n, i, a, o, r, s, l, c, u) {
     s * u[1]
   ), t.restore();
 }
-function mS(t, e) {
+function gS(t, e) {
   const n = t.contextInstructions;
   for (let i = 0, a = n.length; i < a; i += 2)
     Array.isArray(n[i + 1]) ? e[n[i]].apply(
@@ -16561,7 +16546,7 @@ class jr extends Xr {
    */
   createRenderOptions() {
     let e = va, n = Ca, i = 0, a = null, o = 0, r, s = 0;
-    this.stroke_ && (r = Cn(this.stroke_.getColor() ?? ao), s = this.stroke_.getWidth() ?? ro, a = this.stroke_.getLineDash(), o = this.stroke_.getLineDashOffset() ?? 0, n = this.stroke_.getLineJoin() ?? Ca, e = this.stroke_.getLineCap() ?? va, i = this.stroke_.getMiterLimit() ?? io);
+    this.stroke_ && (r = Cn(this.stroke_.getColor() ?? oo), s = this.stroke_.getWidth() ?? so, a = this.stroke_.getLineDash(), o = this.stroke_.getLineDashOffset() ?? 0, n = this.stroke_.getLineJoin() ?? Ca, e = this.stroke_.getLineCap() ?? va, i = this.stroke_.getMiterLimit() ?? ao);
     const l = this.calculateLineJoinSize_(n, s, i), c = Math.max(this.radius_, this.radius2_ || 0), u = Math.ceil(2 * c + l);
     return {
       strokeStyle: r,
@@ -16604,7 +16589,7 @@ class jr extends Xr {
     let n;
     if (this.fill_) {
       let i = this.fill_.getColor(), a = 0;
-      typeof i == "string" && (i = no(i)), i === null ? a = 1 : Array.isArray(i) && (a = i.length === 4 ? i[3] : 1), a === 0 && (n = at(e.size, e.size), this.drawHitDetectionCanvas_(e, n));
+      typeof i == "string" && (i = io(i)), i === null ? a = 1 : Array.isArray(i) && (a = i.length === 4 ? i[3] : 1), a === 0 && (n = at(e.size, e.size), this.drawHitDetectionCanvas_(e, n));
     }
     return n ? n.canvas : this.getImage(1);
   }
@@ -16685,7 +16670,7 @@ class Hr extends jr {
     this.radius_ = e, this.render();
   }
 }
-class Ao {
+class Ro {
   /**
    * @param {Options} [options] Options.
    */
@@ -16699,7 +16684,7 @@ class Ao {
    */
   clone() {
     const e = this.getColor();
-    return new Ao({
+    return new Ro({
       color: Array.isArray(e) ? e.slice() : e || void 0
     });
   }
@@ -16719,7 +16704,7 @@ class Ao {
    */
   setColor(e) {
     if (e !== null && typeof e == "object" && "src" in e) {
-      const n = mc(
+      const n = hc(
         null,
         e.src,
         "anonymous",
@@ -16895,7 +16880,7 @@ class ui {
    * @param {Options} [options] Style options.
    */
   constructor(e) {
-    e = e || {}, this.geometry_ = null, this.geometryFunction_ = od, e.geometry !== void 0 && this.setGeometry(e.geometry), this.fill_ = e.fill !== void 0 ? e.fill : null, this.image_ = e.image !== void 0 ? e.image : null, this.renderer_ = e.renderer !== void 0 ? e.renderer : null, this.hitDetectionRenderer_ = e.hitDetectionRenderer !== void 0 ? e.hitDetectionRenderer : null, this.stroke_ = e.stroke !== void 0 ? e.stroke : null, this.text_ = e.text !== void 0 ? e.text : null, this.zIndex_ = e.zIndex;
+    e = e || {}, this.geometry_ = null, this.geometryFunction_ = nd, e.geometry !== void 0 && this.setGeometry(e.geometry), this.fill_ = e.fill !== void 0 ? e.fill : null, this.image_ = e.image !== void 0 ? e.image : null, this.renderer_ = e.renderer !== void 0 ? e.renderer : null, this.hitDetectionRenderer_ = e.hitDetectionRenderer !== void 0 ? e.hitDetectionRenderer : null, this.stroke_ = e.stroke !== void 0 ? e.stroke : null, this.text_ = e.text !== void 0 ? e.text : null, this.zIndex_ = e.zIndex;
   }
   /**
    * Clones the style.
@@ -17061,7 +17046,7 @@ class ui {
         /** @type {import("../geom/Geometry.js").default} */
         e
       );
-    }) : this.geometryFunction_ = od, this.geometry_ = e;
+    }) : this.geometryFunction_ = nd, this.geometry_ = e;
   }
   /**
    * Set the z-index.
@@ -17073,7 +17058,7 @@ class ui {
     this.zIndex_ = e;
   }
 }
-function vS(t) {
+function mS(t) {
   let e;
   if (typeof t == "function")
     e = t;
@@ -17093,9 +17078,9 @@ function vS(t) {
   return e;
 }
 let xs = null;
-function CS(t, e) {
+function vS(t, e) {
   if (!xs) {
-    const n = new Ao({
+    const n = new Ro({
       color: "rgba(255,255,255,0.4)"
     }), i = new Zr({
       color: "#3399CC",
@@ -17115,13 +17100,13 @@ function CS(t, e) {
   }
   return xs;
 }
-function od(t) {
+function nd(t) {
   return t.getGeometry();
 }
-function rd(t, e, n, i) {
+function id(t, e, n, i) {
   return n !== void 0 && i !== void 0 ? [n / t, i / e] : n !== void 0 ? n / t : i !== void 0 ? i / e : 1;
 }
-class Ro extends Xr {
+class Io extends Xr {
   /**
    * @param {Options} [options] Options.
    */
@@ -17150,7 +17135,7 @@ class Ro extends Xr {
       "`width` or `height` cannot be provided together with `scale`"
     );
     let l;
-    if (e.src !== void 0 ? l = Ce.IDLE : r !== void 0 && (r instanceof HTMLImageElement ? r.complete ? l = r.src ? Ce.LOADED : Ce.IDLE : l = Ce.LOADING : l = Ce.LOADED), this.color_ = e.color !== void 0 ? no(e.color) : null, this.iconImage_ = mc(
+    if (e.src !== void 0 ? l = Ce.IDLE : r !== void 0 && (r instanceof HTMLImageElement ? r.complete ? l = r.src ? Ce.LOADED : Ce.IDLE : l = Ce.LOADING : l = Ce.LOADED), this.color_ = e.color !== void 0 ? io(e.color) : null, this.iconImage_ = hc(
       r,
       /** @type {string} */
       s,
@@ -17172,7 +17157,7 @@ class Ro extends Xr {
               return;
             const f = this.iconImage_.getSize();
             this.setScale(
-              rd(
+              id(
                 f[0],
                 f[1],
                 e.width,
@@ -17185,7 +17170,7 @@ class Ro extends Xr {
         }
       }
       c !== void 0 && this.setScale(
-        rd(c, u, e.width, e.height)
+        id(c, u, e.width, e.height)
       );
     }
   }
@@ -17196,7 +17181,7 @@ class Ro extends Xr {
    */
   clone() {
     let e, n, i;
-    return this.initialOptions_ ? (n = this.initialOptions_.width, i = this.initialOptions_.height) : (e = this.getScale(), e = Array.isArray(e) ? e.slice() : e), new Ro({
+    return this.initialOptions_ ? (n = this.initialOptions_.width, i = this.initialOptions_.height) : (e = this.getScale(), e = Array.isArray(e) ? e.slice() : e), new Io({
       anchor: this.anchor_.slice(),
       anchorOrigin: this.anchorOrigin_,
       anchorXUnits: this.anchorXUnits_,
@@ -17393,13 +17378,13 @@ class Ro extends Xr {
     return this.iconImage_.ready();
   }
 }
-const pS = "#333";
-class Cc {
+const CS = "#333";
+class gc {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
-    e = e || {}, this.font_ = e.font, this.rotation_ = e.rotation, this.rotateWithView_ = e.rotateWithView, this.scale_ = e.scale, this.scaleArray_ = It(e.scale !== void 0 ? e.scale : 1), this.text_ = e.text, this.textAlign_ = e.textAlign, this.justify_ = e.justify, this.repeat_ = e.repeat, this.textBaseline_ = e.textBaseline, this.fill_ = e.fill !== void 0 ? e.fill : new Ao({ color: pS }), this.maxAngle_ = e.maxAngle !== void 0 ? e.maxAngle : Math.PI / 4, this.placement_ = e.placement !== void 0 ? e.placement : "point", this.overflow_ = !!e.overflow, this.stroke_ = e.stroke !== void 0 ? e.stroke : null, this.offsetX_ = e.offsetX !== void 0 ? e.offsetX : 0, this.offsetY_ = e.offsetY !== void 0 ? e.offsetY : 0, this.backgroundFill_ = e.backgroundFill ? e.backgroundFill : null, this.backgroundStroke_ = e.backgroundStroke ? e.backgroundStroke : null, this.padding_ = e.padding === void 0 ? null : e.padding, this.declutterMode_ = e.declutterMode;
+    e = e || {}, this.font_ = e.font, this.rotation_ = e.rotation, this.rotateWithView_ = e.rotateWithView, this.scale_ = e.scale, this.scaleArray_ = It(e.scale !== void 0 ? e.scale : 1), this.text_ = e.text, this.textAlign_ = e.textAlign, this.justify_ = e.justify, this.repeat_ = e.repeat, this.textBaseline_ = e.textBaseline, this.fill_ = e.fill !== void 0 ? e.fill : new Ro({ color: CS }), this.maxAngle_ = e.maxAngle !== void 0 ? e.maxAngle : Math.PI / 4, this.placement_ = e.placement !== void 0 ? e.placement : "point", this.overflow_ = !!e.overflow, this.stroke_ = e.stroke !== void 0 ? e.stroke : null, this.offsetX_ = e.offsetX !== void 0 ? e.offsetX : 0, this.offsetY_ = e.offsetY !== void 0 ? e.offsetY : 0, this.backgroundFill_ = e.backgroundFill ? e.backgroundFill : null, this.backgroundStroke_ = e.backgroundStroke ? e.backgroundStroke : null, this.padding_ = e.padding === void 0 ? null : e.padding, this.declutterMode_ = e.declutterMode;
   }
   /**
    * Clones the style.
@@ -17408,7 +17393,7 @@ class Cc {
    */
   clone() {
     const e = this.getScale();
-    return new Cc({
+    return new gc({
       font: this.getFont(),
       placement: this.getPlacement(),
       repeat: this.getRepeat(),
@@ -17776,14 +17761,14 @@ const Ea = 0, De = 1 << wa++, ne = 1 << wa++, At = 1 << wa++, tt = 1 << wa++, jn
   [At]: "string",
   [tt]: "color",
   [jn]: "number[]"
-}, yS = Object.keys(hg).map(Number).sort(Xn);
+}, pS = Object.keys(hg).map(Number).sort(Xn);
 function ht(t) {
   const e = [];
-  for (const n of yS)
-    _S(t, n) && e.push(hg[n]);
+  for (const n of pS)
+    yS(t, n) && e.push(hg[n]);
   return e.length === 0 ? "untyped" : e.length < 3 ? e.join(" or ") : e.slice(0, -1).join(", ") + ", or " + e[e.length - 1];
 }
-function _S(t, e) {
+function yS(t, e) {
   return (t & e) === e;
 }
 function pn(t, e) {
@@ -17801,7 +17786,7 @@ class ri {
     this.type = e, this.value = n;
   }
 }
-class SS {
+class _S {
   /**
    * @param {number} type The return type.
    * @param {string} operator The operator.
@@ -17820,7 +17805,7 @@ function fg() {
     style: {}
   };
 }
-function bS(t) {
+function SS(t) {
   switch (t) {
     case "string":
       return At;
@@ -17844,7 +17829,7 @@ function we(t, e, n) {
       return new ri(ne, t);
     case "string": {
       let a = At;
-      return K_(t) && (a |= tt), Kr(a & n, Ea) || (a &= n), new ri(a, t);
+      return Z_(t) && (a |= tt), Kr(a & n, Ea) || (a &= n), new ri(a, t);
     }
   }
   if (!Array.isArray(t))
@@ -17852,7 +17837,7 @@ function we(t, e, n) {
   if (t.length === 0)
     throw new Error("Empty expression");
   if (typeof t[0] == "string")
-    return VS(t, e, n);
+    return LS(t, e, n);
   for (const a of t)
     if (typeof a != "number")
       throw new Error("Expected an array of numbers");
@@ -17905,28 +17890,28 @@ const F = {
   Band: "band",
   Palette: "palette",
   ToString: "to-string"
-}, MS = {
+}, bS = {
   [F.Get]: ge(
-    ([t, e]) => e !== void 0 ? bS(
+    ([t, e]) => e !== void 0 ? SS(
       /** @type {string} */
       /** @type {LiteralExpression} */
       e.value
     ) : lt,
     ve(1, 2),
-    xS
+    MS
   ),
   [F.Var]: ge(
     ([t]) => t.type,
     ve(1, 1),
-    PS
+    xS
   ),
-  [F.Id]: ge(ne | At, ka, TS),
+  [F.Id]: ge(ne | At, ka, PS),
   [F.Concat]: ge(
     At,
     ve(2, 1 / 0),
     _e(lt)
   ),
-  [F.GeometryType]: ge(At, ka, wS),
+  [F.GeometryType]: ge(At, ka, TS),
   [F.Resolution]: ge(ne, ka),
   [F.Zoom]: ge(ne, ka),
   [F.Time]: ge(ne, ka),
@@ -18081,8 +18066,8 @@ const F = {
       return e &= t[t.length - 1].type, e;
     },
     ve(4, 1 / 0),
-    sd,
-    AS
+    ad,
+    ES
   ),
   [F.Between]: ge(
     De,
@@ -18097,8 +18082,8 @@ const F = {
       return e;
     },
     ve(6, 1 / 0),
-    sd,
-    RS
+    ad,
+    AS
   ),
   [F.Case]: ge(
     (t) => {
@@ -18108,10 +18093,10 @@ const F = {
       return e &= t[t.length - 1].type, e;
     },
     ve(3, 1 / 0),
-    ES,
-    IS
+    wS,
+    RS
   ),
-  [F.In]: ge(De, ve(2, 2), zS),
+  [F.In]: ge(De, ve(2, 2), IS),
   [F.Number]: ge(
     ne,
     ve(1, 1 / 0),
@@ -18137,14 +18122,14 @@ const F = {
     ve(1, 3),
     _e(ne)
   ),
-  [F.Palette]: ge(tt, ve(2, 2), LS),
+  [F.Palette]: ge(tt, ve(2, 2), zS),
   [F.ToString]: ge(
     At,
     ve(1, 1),
     _e(De | ne | At | tt)
   )
 };
-function xS(t, e) {
+function MS(t, e) {
   const n = we(t[1], e);
   if (!(n instanceof ri))
     throw new Error("Expected a literal argument for get operation");
@@ -18156,7 +18141,7 @@ function xS(t, e) {
   }
   return [n];
 }
-function PS(t, e, n, i) {
+function xS(t, e, n, i) {
   const a = t[1];
   if (typeof a != "string")
     throw new Error("Expected a string argument for var operation");
@@ -18174,10 +18159,10 @@ function PS(t, e, n, i) {
     );
   return [r];
 }
-function TS(t, e) {
+function PS(t, e) {
   e.featureId = !0;
 }
-function wS(t, e) {
+function TS(t, e) {
   e.geometryType = !0;
 }
 function ka(t, e) {
@@ -18234,7 +18219,7 @@ function Qn(t, e, n) {
     r[s] = we(t[s + 1], e, o);
   return r;
 }
-function ES(t, e) {
+function wS(t, e) {
   const n = t[0], i = t.length - 1;
   if (i % 2 === 0)
     throw new Error(
@@ -18243,7 +18228,7 @@ function ES(t, e) {
       )} instead`
     );
 }
-function sd(t, e) {
+function ad(t, e) {
   const n = t[0], i = t.length - 1;
   if (i % 2 === 1)
     throw new Error(
@@ -18252,7 +18237,7 @@ function sd(t, e) {
       )} instead`
     );
 }
-function AS(t, e, n, i) {
+function ES(t, e, n, i) {
   const a = t.length - 1;
   let r = we(t[1], e).type;
   const s = we(t[t.length - 1], e);
@@ -18283,7 +18268,7 @@ function AS(t, e, n, i) {
     we(t[t.length - 1], e, l)
   ];
 }
-function RS(t, e, n, i) {
+function AS(t, e, n, i) {
   const a = t[1];
   let o;
   switch (a[0]) {
@@ -18326,7 +18311,7 @@ function RS(t, e, n, i) {
   }
   return [o, r, ...s];
 }
-function IS(t, e, n, i) {
+function RS(t, e, n, i) {
   const a = we(t[t.length - 1], e);
   let o = i !== void 0 ? i & a.type : a.type;
   const r = new Array(t.length - 1);
@@ -18350,7 +18335,7 @@ function IS(t, e, n, i) {
     o
   ), r;
 }
-function zS(t, e) {
+function IS(t, e) {
   let n = (
     /** @type {any} */
     t[2]
@@ -18382,7 +18367,7 @@ function zS(t, e) {
     );
   return [we(t[1], e, i), ...a];
 }
-function LS(t, e) {
+function zS(t, e) {
   const n = we(t[1], e, ne);
   if (n.type !== ne)
     throw new Error(
@@ -18434,11 +18419,11 @@ function ge(t, ...e) {
           n
         )}`
       );
-    return new SS(s, o, ...r);
+    return new _S(s, o, ...r);
   };
 }
-function VS(t, e, n) {
-  const i = t[0], a = MS[i];
+function LS(t, e, n) {
+  const i = t[0], a = bS[i];
   if (!a)
     throw new Error(`Unknown operator: ${i}`);
   return a(t, e, n);
@@ -18492,7 +18477,7 @@ function qn(t, e, n) {
 function nn(t, e) {
   if (t instanceof ri) {
     if (t.type === tt && typeof t.value == "string") {
-      const i = fc(t.value);
+      const i = uc(t.value);
       return function() {
         return i;
       };
@@ -18506,10 +18491,10 @@ function nn(t, e) {
     case F.Number:
     case F.String:
     case F.Coalesce:
-      return BS(t);
+      return VS(t);
     case F.Get:
     case F.Var:
-      return FS(t);
+      return BS(t);
     case F.Id:
       return (i) => i.featureId;
     case F.GeometryType:
@@ -18525,14 +18510,14 @@ function nn(t, e) {
     case F.Between:
     case F.In:
     case F.Not:
-      return OS(t);
+      return kS(t);
     case F.Equal:
     case F.NotEqual:
     case F.LessThan:
     case F.LessThanOrEqualTo:
     case F.GreaterThan:
     case F.GreaterThanOrEqualTo:
-      return kS(t);
+      return FS(t);
     case F.Multiply:
     case F.Divide:
     case F.Add:
@@ -18548,20 +18533,20 @@ function nn(t, e) {
     case F.Cos:
     case F.Atan:
     case F.Sqrt:
-      return DS(t);
+      return OS(t);
     case F.Case:
-      return GS(t);
+      return DS(t);
     case F.Match:
-      return NS(t);
+      return GS(t);
     case F.Interpolate:
-      return $S(t);
+      return NS(t);
     case F.ToString:
       return WS(t);
     default:
       throw new Error(`Unsupported operator ${n}`);
   }
 }
-function BS(t, e) {
+function VS(t, e) {
   const n = t.operator, i = t.args.length, a = new Array(i);
   for (let o = 0; o < i; ++o)
     a[o] = nn(t.args[o]);
@@ -18589,7 +18574,7 @@ function BS(t, e) {
       throw new Error(`Unsupported assertion operator ${n}`);
   }
 }
-function FS(t, e) {
+function BS(t, e) {
   const i = (
     /** @type {string} */
     /** @type {LiteralExpression} */
@@ -18604,7 +18589,7 @@ function FS(t, e) {
       throw new Error(`Unsupported accessor operator ${t.operator}`);
   }
 }
-function kS(t, e) {
+function FS(t, e) {
   const n = t.operator, i = nn(t.args[0]), a = nn(t.args[1]);
   switch (n) {
     case F.Equal:
@@ -18623,7 +18608,7 @@ function kS(t, e) {
       throw new Error(`Unsupported comparison operator ${n}`);
   }
 }
-function OS(t, e) {
+function kS(t, e) {
   const n = t.operator, i = t.args.length, a = new Array(i);
   for (let o = 0; o < i; ++o)
     a[o] = nn(t.args[o]);
@@ -18661,7 +18646,7 @@ function OS(t, e) {
       throw new Error(`Unsupported logical operator ${n}`);
   }
 }
-function DS(t, e) {
+function OS(t, e) {
   const n = t.operator, i = t.args.length, a = new Array(i);
   for (let o = 0; o < i; ++o)
     a[o] = nn(t.args[o]);
@@ -18716,7 +18701,7 @@ function DS(t, e) {
       throw new Error(`Unsupported numeric operator ${n}`);
   }
 }
-function GS(t, e) {
+function DS(t, e) {
   const n = t.args.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
     i[a] = nn(t.args[a]);
@@ -18727,7 +18712,7 @@ function GS(t, e) {
     return i[n - 1](a);
   };
 }
-function NS(t, e) {
+function GS(t, e) {
   const n = t.args.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
     i[a] = nn(t.args[a]);
@@ -18739,7 +18724,7 @@ function NS(t, e) {
     return i[n - 1](a);
   };
 }
-function $S(t, e) {
+function NS(t, e) {
   const n = t.args.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
     i[a] = nn(t.args[a]);
@@ -18750,8 +18735,8 @@ function $S(t, e) {
       const u = i[c](a);
       let d = i[c + 1](a);
       const h = Array.isArray(d);
-      if (h && (d = H_(d)), u >= r)
-        return c === 2 ? d : h ? XS(
+      if (h && (d = j_(d)), u >= r)
+        return c === 2 ? d : h ? $S(
           o,
           r,
           s,
@@ -18779,7 +18764,7 @@ function WS(t, e) {
     case F.ToString:
       return (o) => {
         const r = a[0](o);
-        return t.args[0].type === tt ? gc(r) : r.toString();
+        return t.args[0].type === tt ? dc(r) : r.toString();
       };
     default:
       throw new Error(`Unsupported convert operator ${n}`);
@@ -18792,10 +18777,10 @@ function Na(t, e, n, i, a, o) {
   const s = e - n, l = t === 1 ? s / r : (Math.pow(t, s) - 1) / (Math.pow(t, r) - 1);
   return i + l * (o - i);
 }
-function XS(t, e, n, i, a, o) {
+function $S(t, e, n, i, a, o) {
   if (a - n === 0)
     return i;
-  const s = ed(i), l = ed(o);
+  const s = qu(i), l = qu(o);
   let c = l[2] - s[2];
   c > 180 ? c -= 360 : c < -180 && (c += 360);
   const u = [
@@ -18804,13 +18789,13 @@ function XS(t, e, n, i, a, o) {
     s[2] + Na(t, e, n, 0, a, c),
     Na(t, e, n, i[3], a, o[3])
   ];
-  return ng(Z_(u));
+  return ng(H_(u));
 }
-function US(t) {
+function XS(t) {
   return !0;
 }
-function YS(t) {
-  const e = fg(), n = jS(t, e), i = mg();
+function US(t) {
+  const e = fg(), n = YS(t, e), i = mg();
   return function(a, o) {
     if (i.properties = a.getPropertiesInternal(), i.resolution = o, e.featureId) {
       const r = a.getId();
@@ -18821,7 +18806,7 @@ function YS(t) {
     )), n(i);
   };
 }
-function ld(t) {
+function od(t) {
   const e = fg(), n = t.length, i = new Array(n);
   for (let r = 0; r < n; ++r)
     i[r] = tl(t[r], e);
@@ -18839,10 +18824,10 @@ function ld(t) {
     return o.length = l, o;
   };
 }
-function jS(t, e) {
+function YS(t, e) {
   const n = t.length, i = new Array(n);
   for (let a = 0; a < n; ++a) {
-    const o = t[a], r = "filter" in o ? qn(o.filter, De, e) : US;
+    const o = t[a], r = "filter" in o ? qn(o.filter, De, e) : XS;
     let s;
     if (Array.isArray(o.style)) {
       const l = o.style.length;
@@ -18870,7 +18855,7 @@ function jS(t, e) {
   };
 }
 function tl(t, e) {
-  const n = so(t, "", e), i = lo(t, "", e), a = HS(t, e), o = ZS(t, e), r = Pt(t, "z-index", e);
+  const n = lo(t, "", e), i = co(t, "", e), a = jS(t, e), o = HS(t, e), r = Pt(t, "z-index", e);
   if (!n && !i && !a && !o && !ga(t))
     throw new Error(
       "No fill, stroke, point, or text symbolizer properties in style: " + JSON.stringify(t)
@@ -18897,26 +18882,26 @@ function tl(t, e) {
     return r && s.setZIndex(r(l)), c ? null : s;
   };
 }
-function so(t, e, n) {
+function lo(t, e, n) {
   let i;
-  if (e + "fill-pattern-src" in t ? i = QS(t, e + "fill-", n) : i = pc(
+  if (e + "fill-pattern-src" in t ? i = JS(t, e + "fill-", n) : i = mc(
     t,
     e + "fill-color",
     n
   ), !i)
     return null;
-  const a = new Ao();
+  const a = new Ro();
   return function(o) {
     const r = i(o);
     return r === "none" ? null : (a.setColor(r), a);
   };
 }
-function lo(t, e, n) {
+function co(t, e, n) {
   const i = Pt(
     t,
     e + "stroke-width",
     n
-  ), a = pc(
+  ), a = mc(
     t,
     e + "stroke-color",
     n
@@ -18966,15 +18951,15 @@ function lo(t, e, n) {
     return s && u.setLineDash(s(d)), l && u.setLineDashOffset(l(d)), c && u.setMiterLimit(c(d)), u;
   };
 }
-function HS(t, e) {
+function jS(t, e) {
   const n = "text-", i = Gn(t, n + "value", e);
   if (!i)
     return null;
-  const a = so(t, n, e), o = so(
+  const a = lo(t, n, e), o = lo(
     t,
     n + "background-",
     e
-  ), r = lo(t, n, e), s = lo(
+  ), r = co(t, n, e), s = co(
     t,
     n + "background-",
     e
@@ -18990,7 +18975,7 @@ function HS(t, e) {
     t,
     n + "offset-y",
     e
-  ), h = co(
+  ), h = uo(
     t,
     n + "overflow",
     e
@@ -18998,7 +18983,7 @@ function HS(t, e) {
     t,
     n + "placement",
     e
-  ), g = Pt(t, n + "repeat", e), m = qr(t, n + "scale", e), C = co(
+  ), g = Pt(t, n + "repeat", e), m = qr(t, n + "scale", e), C = uo(
     t,
     n + "rotate-with-view",
     e
@@ -19021,7 +19006,7 @@ function HS(t, e) {
   ), T = Jr(
     t,
     n + "declutter-mode"
-  ), _ = new Cc({ declutterMode: T });
+  ), _ = new gc({ declutterMode: T });
   return function(P) {
     if (_.setText(i(P)), a && _.setFill(a(P)), o && _.setBackgroundFill(o(P)), r && _.setStroke(r(P)), s && _.setBackgroundStroke(s(P)), l && _.setFont(l(P)), c && _.setMaxAngle(c(P)), u && _.setOffsetX(u(P)), d && _.setOffsetY(d(P)), h && _.setOverflow(h(P)), f) {
       const w = f(P);
@@ -19054,11 +19039,11 @@ function HS(t, e) {
     return b && _.setPadding(b(P)), _;
   };
 }
-function ZS(t, e) {
-  return "icon-src" in t ? KS(t, e) : "shape-points" in t ? qS(t, e) : "circle-radius" in t ? JS(t, e) : null;
+function HS(t, e) {
+  return "icon-src" in t ? ZS(t, e) : "shape-points" in t ? KS(t, e) : "circle-radius" in t ? qS(t, e) : null;
 }
-function KS(t, e) {
-  const n = "icon-", i = n + "src", a = Cg(t[i], i), o = yr(
+function ZS(t, e) {
+  const n = "icon-", i = n + "src", a = Cg(t[i], i), o = _r(
     t,
     n + "anchor",
     e
@@ -19066,7 +19051,7 @@ function KS(t, e) {
     t,
     n + "opacity",
     e
-  ), l = yr(
+  ), l = _r(
     t,
     n + "displacement",
     e
@@ -19074,20 +19059,20 @@ function KS(t, e) {
     t,
     n + "rotation",
     e
-  ), u = co(
+  ), u = uo(
     t,
     n + "rotate-with-view",
     e
-  ), d = ud(t, n + "anchor-origin"), h = dd(
+  ), d = sd(t, n + "anchor-origin"), h = ld(
     t,
     n + "anchor-x-units"
-  ), f = dd(
+  ), f = ld(
     t,
     n + "anchor-y-units"
-  ), g = i0(t, n + "color"), m = t0(t, n + "cross-origin"), C = n0(t, n + "offset"), p = ud(t, n + "offset-origin"), y = _r(t, n + "width"), M = _r(t, n + "height"), S = e0(t, n + "size"), b = Jr(
+  ), g = n0(t, n + "color"), m = e0(t, n + "cross-origin"), C = t0(t, n + "offset"), p = sd(t, n + "offset-origin"), y = Sr(t, n + "width"), M = Sr(t, n + "height"), S = QS(t, n + "size"), b = Jr(
     t,
     n + "declutter-mode"
-  ), T = new Ro({
+  ), T = new Io({
     src: a,
     anchorOrigin: d,
     anchorXUnits: h,
@@ -19105,8 +19090,8 @@ function KS(t, e) {
     return s && T.setOpacity(s(_)), l && T.setDisplacement(l(_)), c && T.setRotation(c(_)), u && T.setRotateWithView(u(_)), r && T.setScale(r(_)), o && T.setAnchor(o(_)), T;
   };
 }
-function qS(t, e) {
-  const n = "shape-", i = n + "points", a = n + "radius", o = nl(t[i], i), r = nl(t[a], a), s = so(t, n, e), l = lo(t, n, e), c = qr(t, n + "scale", e), u = yr(
+function KS(t, e) {
+  const n = "shape-", i = n + "points", a = n + "radius", o = nl(t[i], i), r = nl(t[a], a), s = lo(t, n, e), l = co(t, n, e), c = qr(t, n + "scale", e), u = _r(
     t,
     n + "displacement",
     e
@@ -19114,11 +19099,11 @@ function qS(t, e) {
     t,
     n + "rotation",
     e
-  ), h = co(
+  ), h = uo(
     t,
     n + "rotate-with-view",
     e
-  ), f = _r(t, n + "radius2"), g = _r(t, n + "angle"), m = Jr(
+  ), f = Sr(t, n + "radius2"), g = Sr(t, n + "angle"), m = Jr(
     t,
     n + "declutter-mode"
   ), C = new jr({
@@ -19132,8 +19117,8 @@ function qS(t, e) {
     return s && C.setFill(s(p)), l && C.setStroke(l(p)), u && C.setDisplacement(u(p)), d && C.setRotation(d(p)), h && C.setRotateWithView(h(p)), c && C.setScale(c(p)), C;
   };
 }
-function JS(t, e) {
-  const n = "circle-", i = so(t, n, e), a = lo(t, n, e), o = Pt(t, n + "radius", e), r = qr(t, n + "scale", e), s = yr(
+function qS(t, e) {
+  const n = "circle-", i = lo(t, n, e), a = co(t, n, e), o = Pt(t, n + "radius", e), r = qr(t, n + "scale", e), s = _r(
     t,
     n + "displacement",
     e
@@ -19141,7 +19126,7 @@ function JS(t, e) {
     t,
     n + "rotation",
     e
-  ), c = co(
+  ), c = uo(
     t,
     n + "rotate-with-view",
     e
@@ -19173,20 +19158,20 @@ function Gn(t, e, n) {
     return Cg(i(a), e);
   };
 }
-function QS(t, e, n) {
+function JS(t, e, n) {
   const i = Gn(
     t,
     e + "pattern-src",
     n
-  ), a = cd(
+  ), a = rd(
     t,
     e + "pattern-offset",
     n
-  ), o = cd(
+  ), o = rd(
     t,
     e + "pattern-size",
     n
-  ), r = pc(
+  ), r = mc(
     t,
     e + "color",
     n
@@ -19200,7 +19185,7 @@ function QS(t, e, n) {
     };
   };
 }
-function co(t, e, n) {
+function uo(t, e, n) {
   if (!(e in t))
     return null;
   const i = qn(t[e], De, n);
@@ -19211,7 +19196,7 @@ function co(t, e, n) {
     return o;
   };
 }
-function pc(t, e, n) {
+function mc(t, e, n) {
   if (!(e in t))
     return null;
   const i = qn(
@@ -19228,21 +19213,21 @@ function vg(t, e, n) {
     return null;
   const i = qn(t[e], jn, n);
   return function(a) {
-    return Io(i(a), e);
+    return zo(i(a), e);
   };
 }
-function yr(t, e, n) {
+function _r(t, e, n) {
   if (!(e in t))
     return null;
   const i = qn(t[e], jn, n);
   return function(a) {
-    const o = Io(i(a), e);
+    const o = zo(i(a), e);
     if (o.length !== 2)
       throw new Error(`Expected two numbers for ${e}`);
     return o;
   };
 }
-function cd(t, e, n) {
+function rd(t, e, n) {
   if (!(e in t))
     return null;
   const i = qn(t[e], jn, n);
@@ -19259,10 +19244,10 @@ function qr(t, e, n) {
     n
   );
   return function(a) {
-    return a0(i(a), e);
+    return i0(i(a), e);
   };
 }
-function _r(t, e) {
+function Sr(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (typeof n != "number")
@@ -19270,7 +19255,7 @@ function _r(t, e) {
     return n;
   }
 }
-function e0(t, e) {
+function QS(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (typeof n == "number")
@@ -19282,7 +19267,7 @@ function e0(t, e) {
     return n;
   }
 }
-function t0(t, e) {
+function e0(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (typeof n != "string")
@@ -19290,7 +19275,7 @@ function t0(t, e) {
     return n;
   }
 }
-function ud(t, e) {
+function sd(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (n !== "bottom-left" && n !== "bottom-right" && n !== "top-left" && n !== "top-right")
@@ -19300,7 +19285,7 @@ function ud(t, e) {
     return n;
   }
 }
-function dd(t, e) {
+function ld(t, e) {
   const n = t[e];
   if (n !== void 0) {
     if (n !== "pixels" && n !== "fraction")
@@ -19308,10 +19293,10 @@ function dd(t, e) {
     return n;
   }
 }
-function n0(t, e) {
+function t0(t, e) {
   const n = t[e];
   if (n !== void 0)
-    return Io(n, e);
+    return zo(n, e);
 }
 function Jr(t, e) {
   const n = t[e];
@@ -19323,12 +19308,12 @@ function Jr(t, e) {
     return n;
   }
 }
-function i0(t, e) {
+function n0(t, e) {
   const n = t[e];
   if (n !== void 0)
     return pg(n, e);
 }
-function Io(t, e) {
+function zo(t, e) {
   if (!Array.isArray(t))
     throw new Error(`Expected an array for ${e}`);
   const n = t.length;
@@ -19350,24 +19335,24 @@ function nl(t, e) {
 function pg(t, e) {
   if (typeof t == "string")
     return t;
-  const n = Io(t, e), i = n.length;
+  const n = zo(t, e), i = n.length;
   if (i < 3 || i > 4)
     throw new Error(`Expected a color with 3 or 4 values for ${e}`);
   return n;
 }
 function yg(t, e) {
-  const n = Io(t, e);
+  const n = zo(t, e);
   if (n.length !== 2)
     throw new Error(`Expected an array of two numbers for ${e}`);
   return n;
 }
-function a0(t, e) {
+function i0(t, e) {
   return typeof t == "number" ? t : yg(t, e);
 }
-const hd = {
+const cd = {
   RENDER_ORDER: "renderOrder"
 };
-class _g extends Wr {
+class _g extends $r {
   /**
    * @param {Options<VectorSourceType>} [options] Options.
    */
@@ -19412,7 +19397,7 @@ class _g extends Wr {
   getRenderOrder() {
     return (
       /** @type {import("../render.js").OrderFunction|null|undefined} */
-      this.get(hd.RENDER_ORDER)
+      this.get(cd.RENDER_ORDER)
     );
   }
   /**
@@ -19460,7 +19445,7 @@ class _g extends Wr {
    *     Render order.
    */
   setRenderOrder(e) {
-    this.set(hd.RENDER_ORDER, e);
+    this.set(cd.RENDER_ORDER, e);
   }
   /**
    * Set the style for features.  This can be a single style object, an array
@@ -19484,18 +19469,18 @@ class _g extends Wr {
    * @api
    */
   setStyle(e) {
-    this.style_ = o0(e), this.styleFunction_ = e === null ? void 0 : vS(this.style_), this.changed();
+    this.style_ = a0(e), this.styleFunction_ = e === null ? void 0 : mS(this.style_), this.changed();
   }
 }
-function o0(t) {
+function a0(t) {
   if (t === void 0)
-    return CS;
+    return vS;
   if (!t)
     return null;
   if (typeof t == "function" || t instanceof ui)
     return t;
   if (!Array.isArray(t))
-    return ld([t]);
+    return od([t]);
   if (t.length === 0)
     return [];
   const e = t.length, n = t[0];
@@ -19517,14 +19502,14 @@ function o0(t) {
         throw new Error("Expected a list of rules with a style property");
       a[o] = r;
     }
-    return YS(a);
+    return US(a);
   }
-  return ld(
+  return od(
     /** @type {Array<import("../style/flat.js").FlatStyle>} */
     t
   );
 }
-class r0 extends Ul {
+class o0 extends Wl {
   /**
    * @param {import("../Map.js").default} map Map.
    */
@@ -19554,7 +19539,7 @@ class r0 extends Ul {
       -n.rotation,
       -n.center[0],
       -n.center[1]
-    ), rc(a, i);
+    ), ic(a, i);
   }
   /**
    * @param {import("../coordinate.js").Coordinate} coordinate Coordinate.
@@ -19589,7 +19574,7 @@ class r0 extends Ul {
     for (let S = 0; S < g.length; S++)
       for (let b = C - 1; b >= 0; --b) {
         const T = m[b], _ = T.layer;
-        if (_.hasRenderer() && dc(T, u) && s.call(l, _)) {
+        if (_.hasRenderer() && lc(T, u) && s.call(l, _)) {
           const P = _.getRenderer(), w = _.getSource();
           if (P && w) {
             const I = w.getWrapX() ? f : e, z = d.bind(
@@ -19632,7 +19617,7 @@ class r0 extends Ul {
       n,
       i,
       a,
-      qa,
+      Ja,
       this,
       o,
       r
@@ -19657,10 +19642,10 @@ class r0 extends Ul {
    * @protected
    */
   scheduleExpireIconCache(e) {
-    vn.canExpireCache() && e.postRenderFunctions.push(s0);
+    vn.canExpireCache() && e.postRenderFunctions.push(r0);
   }
 }
-function s0(t, e) {
+function r0(t, e) {
   vn.expire();
 }
 class Sg extends Kn {
@@ -19675,7 +19660,7 @@ class Sg extends Kn {
     super(e), this.inversePixelTransform = n, this.frameState = i, this.context = a;
   }
 }
-class l0 extends r0 {
+class s0 extends o0 {
   /**
    * @param {import("../Map.js").default} map Map.
    */
@@ -19728,14 +19713,14 @@ class l0 extends r0 {
       const c = n[s];
       e.layerIndex = s;
       const u = c.layer, d = u.getSourceState();
-      if (!dc(c, a) || d != "ready" && d != "undefined") {
+      if (!lc(c, a) || d != "ready" && d != "undefined") {
         u.unrender();
         continue;
       }
       const h = u.render(e, r);
       h && (h !== r && (this.children_.push(h), r = h), o.push(c));
     }
-    this.declutter(e, o), nS(this.element_, this.children_), this.dispatchRenderEvent(Gt.POSTCOMPOSE, e), this.renderedVisible_ || (this.element_.style.display = "", this.renderedVisible_ = !0), this.scheduleExpireIconCache(e);
+    this.declutter(e, o), tS(this.element_, this.children_), this.dispatchRenderEvent(Gt.POSTCOMPOSE, e), this.renderedVisible_ || (this.element_.style.display = "", this.renderedVisible_ = !0), this.scheduleExpireIconCache(e);
   }
   /**
    * @param {import("../Map.js").FrameState} frameState Frame state.
@@ -19804,7 +19789,7 @@ class Aa extends wf {
     );
     for (const i in this.listenerKeys_)
       this.listenerKeys_[i].forEach(Ve);
-    To(this.listenerKeys_);
+    wo(this.listenerKeys_);
     const n = e.getArray();
     for (let i = 0, a = n.length; i < a; i++) {
       const o = n[i];
@@ -20043,7 +20028,7 @@ const Ge = {
   POINTERMOVE: "pointermove",
   POINTERDOWN: "pointerdown"
 };
-class c0 extends Fr {
+class l0 extends Fr {
   /**
    * @param {import("./Map.js").default} map The map with the viewport to listen to events on.
    * @param {number} [moveTolerance] The minimal distance the pointer must travel to trigger a move.
@@ -20298,8 +20283,8 @@ const Dn = {
   SIZE: "size",
   TARGET: "target",
   VIEW: "view"
-}, Sr = 1 / 0;
-class u0 {
+}, br = 1 / 0;
+class c0 {
   /**
    * @param {function(T): number} priorityFunction Priority function.
    * @param {function(T): string} keyFunction Key function.
@@ -20311,7 +20296,7 @@ class u0 {
    * FIXME empty description for jsdoc
    */
   clear() {
-    this.elements_.length = 0, this.priorities_.length = 0, To(this.queuedElements_);
+    this.elements_.length = 0, this.priorities_.length = 0, wo(this.queuedElements_);
   }
   /**
    * Remove and return the highest-priority element. O(log N).
@@ -20336,7 +20321,7 @@ class u0 {
       "Tried to enqueue an `element` that was already added to the queue"
     );
     const n = this.priorityFunction_(e);
-    return n != Sr ? (this.elements_.push(e), this.priorities_.push(n), this.queuedElements_[this.keyFunction_(e)] = !0, this.siftDown_(0, this.elements_.length - 1), !0) : !1;
+    return n != br ? (this.elements_.push(e), this.priorities_.push(n), this.queuedElements_[this.keyFunction_(e)] = !0, this.siftDown_(0, this.elements_.length - 1), !0) : !1;
   }
   /**
    * @return {number} Count.
@@ -20437,7 +20422,7 @@ class u0 {
     const o = n.length;
     let r, s, l;
     for (s = 0; s < o; ++s)
-      r = n[s], l = e(r), l == Sr ? delete this.queuedElements_[this.keyFunction_(r)] : (i[a] = l, n[a++] = r);
+      r = n[s], l = e(r), l == br ? delete this.queuedElements_[this.keyFunction_(r)] : (i[a] = l, n[a++] = r);
     n.length = a, i.length = a, this.heapify_();
   }
 }
@@ -20452,7 +20437,7 @@ const le = {
   ERROR: 3,
   EMPTY: 4
 };
-class d0 extends u0 {
+class u0 extends c0 {
   /**
    * @param {PriorityFunction} tilePriorityFunction Tile priority function.
    * @param {function(): ?} tileChangeCallback Function called on each tile change event.
@@ -20518,13 +20503,13 @@ class d0 extends u0 {
       this.dequeue()[0], r = o.getKey(), a = o.getState(), a === le.IDLE && !(r in this.tilesLoadingKeys_) && (this.tilesLoadingKeys_[r] = !0, ++this.tilesLoading_, ++i, o.load());
   }
 }
-function h0(t, e, n, i, a) {
+function d0(t, e, n, i, a) {
   if (!t || !(n in t.wantedTiles) || !t.wantedTiles[n][e.getKey()])
-    return Sr;
+    return br;
   const o = t.viewState.center, r = i[0] - o[0], s = i[1] - o[1];
   return 65536 * Math.log(a) + Math.sqrt(r * r + s * s) / a;
 }
-class yc extends ln {
+class vc extends ln {
   /**
    * @param {Options} options Control options.
    */
@@ -20537,7 +20522,7 @@ class yc extends ln {
    * Clean up.
    */
   disposeInternal() {
-    vr(this.element), super.disposeInternal();
+    Cr(this.element), super.disposeInternal();
   }
   /**
    * Get the map associated with this control.
@@ -20556,7 +20541,7 @@ class yc extends ln {
    * @api
    */
   setMap(e) {
-    this.map_ && vr(this.element);
+    this.map_ && Cr(this.element);
     for (let n = 0, i = this.listenerKeys.length; n < i; ++n)
       Ve(this.listenerKeys[n]);
     this.listenerKeys.length = 0, this.map_ = e, e && ((this.target_ ? this.target_ : e.getOverlayContainerStopEvent()).appendChild(this.element), this.render !== fa && this.listenerKeys.push(
@@ -20583,7 +20568,7 @@ class yc extends ln {
     this.target_ = typeof e == "string" ? document.getElementById(e) : e;
   }
 }
-class f0 extends yc {
+class h0 extends vc {
   /**
    * @param {Options} [options] Attribution options.
    */
@@ -20603,7 +20588,7 @@ class f0 extends yc {
       this.handleClick_.bind(this),
       !1
     );
-    const c = n + " " + Yr + " " + vc + (this.collapsed_ && this.collapsible_ ? " " + nd : "") + (this.collapsible_ ? "" : " ol-uncollapsible"), u = this.element;
+    const c = n + " " + Yr + " " + fc + (this.collapsed_ && this.collapsible_ ? " " + Qu : "") + (this.collapsible_ ? "" : " ol-uncollapsible"), u = this.element;
     u.className = c, u.appendChild(this.toggleButton_), u.appendChild(this.ulElement_), this.renderedAttributions_ = [], this.renderedVisible_ = !0;
   }
   /**
@@ -20633,7 +20618,7 @@ class f0 extends yc {
     }
     const n = await Promise.all(
       this.collectSourceAttributions_(e).map(
-        (a) => Ay(() => a)
+        (a) => Ey(() => a)
       )
     ), i = n.length > 0;
     if (this.renderedVisible_ != i && (this.element.style.display = i ? "" : "none", this.renderedVisible_ = i), !_i(n, this.renderedAttributions_)) {
@@ -20656,7 +20641,7 @@ class f0 extends yc {
    * @private
    */
   handleToggle_() {
-    this.element.classList.toggle(nd), this.collapsed_ ? td(this.collapseLabel_, this.label_) : td(this.label_, this.collapseLabel_), this.collapsed_ = !this.collapsed_, this.toggleButton_.setAttribute("aria-expanded", String(!this.collapsed_));
+    this.element.classList.toggle(Qu), this.collapsed_ ? Ju(this.collapseLabel_, this.label_) : Ju(this.label_, this.collapseLabel_), this.collapsed_ = !this.collapsed_, this.toggleButton_.setAttribute("aria-expanded", String(!this.collapsed_));
   }
   /**
    * Return `true` if the attribution is collapsible, `false` otherwise.
@@ -20702,7 +20687,7 @@ class f0 extends yc {
     this.updateElement_(e.frameState);
   }
 }
-class g0 extends yc {
+class f0 extends vc {
   /**
    * @param {Options} [options] Rotate options.
    */
@@ -20720,8 +20705,8 @@ class g0 extends yc {
       this.handleClick_.bind(this),
       !1
     );
-    const s = n + " " + Yr + " " + vc, l = this.element;
-    l.className = s, l.appendChild(r), this.callResetNorth_ = e.resetNorth ? e.resetNorth : void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250, this.autoHide_ = e.autoHide !== void 0 ? e.autoHide : !0, this.rotation_ = void 0, this.autoHide_ && this.element.classList.add(Yo);
+    const s = n + " " + Yr + " " + fc, l = this.element;
+    l.className = s, l.appendChild(r), this.callResetNorth_ = e.resetNorth ? e.resetNorth : void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250, this.autoHide_ = e.autoHide !== void 0 ? e.autoHide : !0, this.rotation_ = void 0, this.autoHide_ && this.element.classList.add(jo);
   }
   /**
    * @param {MouseEvent} event The event to handle
@@ -20757,15 +20742,15 @@ class g0 extends yc {
     if (i != this.rotation_) {
       const a = "rotate(" + i + "rad)";
       if (this.autoHide_) {
-        const o = this.element.classList.contains(Yo);
-        !o && i === 0 ? this.element.classList.add(Yo) : o && i !== 0 && this.element.classList.remove(Yo);
+        const o = this.element.classList.contains(jo);
+        !o && i === 0 ? this.element.classList.add(jo) : o && i !== 0 && this.element.classList.remove(jo);
       }
       this.label_.style.transform = a;
     }
     this.rotation_ = i;
   }
 }
-class m0 extends yc {
+class g0 extends vc {
   /**
    * @param {Options} [options] Zoom options.
    */
@@ -20790,7 +20775,7 @@ class m0 extends yc {
       this.handleClick_.bind(this, -i),
       !1
     );
-    const h = n + " " + Yr + " " + vc, f = this.element;
+    const h = n + " " + Yr + " " + fc, f = this.element;
     f.className = h, f.appendChild(u), f.appendChild(d), this.duration_ = e.duration !== void 0 ? e.duration : 250;
   }
   /**
@@ -20820,15 +20805,15 @@ class m0 extends yc {
     }
   }
 }
-function v0(t) {
+function m0(t) {
   t = t || {};
   const e = new mn();
-  return (t.zoom !== void 0 ? t.zoom : !0) && e.push(new m0(t.zoomOptions)), (t.rotate !== void 0 ? t.rotate : !0) && e.push(new g0(t.rotateOptions)), (t.attribution !== void 0 ? t.attribution : !0) && e.push(new f0(t.attributionOptions)), e;
+  return (t.zoom !== void 0 ? t.zoom : !0) && e.push(new g0(t.zoomOptions)), (t.rotate !== void 0 ? t.rotate : !0) && e.push(new f0(t.rotateOptions)), (t.attribution !== void 0 ? t.attribution : !0) && e.push(new h0(t.attributionOptions)), e;
 }
-const fd = {
+const ud = {
   ACTIVE: "active"
 };
-class zo extends ln {
+class Lo extends ln {
   /**
    * @param {InteractionOptions} [options] Options.
    */
@@ -20844,7 +20829,7 @@ class zo extends ln {
   getActive() {
     return (
       /** @type {boolean} */
-      this.get(fd.ACTIVE)
+      this.get(ud.ACTIVE)
     );
   }
   /**
@@ -20871,7 +20856,7 @@ class zo extends ln {
    * @api
    */
   setActive(e) {
-    this.set(fd.ACTIVE, e);
+    this.set(ud.ACTIVE, e);
   }
   /**
    * Remove the interaction from its current map and attach it to the new map.
@@ -20883,18 +20868,18 @@ class zo extends ln {
     this.map_ = e;
   }
 }
-function C0(t, e, n) {
+function v0(t, e, n) {
   const i = t.getCenterInternal();
   if (i) {
     const a = [i[0] + e[0], i[1] + e[1]];
     t.animateInternal({
       duration: n !== void 0 ? n : 250,
-      easing: u_,
+      easing: c_,
       center: t.getConstrainedCenter(a)
     });
   }
 }
-function _c(t, e, n, i) {
+function Cc(t, e, n, i) {
   const a = t.getZoom();
   if (a === void 0)
     return;
@@ -20906,7 +20891,7 @@ function _c(t, e, n, i) {
     easing: Ta
   });
 }
-class p0 extends zo {
+class C0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
@@ -20926,12 +20911,12 @@ class p0 extends zo {
         /** @type {MouseEvent} */
         e.originalEvent
       ), a = e.map, o = e.coordinate, r = i.shiftKey ? -this.delta_ : this.delta_, s = a.getView();
-      _c(s, r, o, this.duration_), i.preventDefault(), n = !0;
+      Cc(s, r, o, this.duration_), i.preventDefault(), n = !0;
     }
     return !n;
   }
 }
-class Lo extends zo {
+class Vo extends Lo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21024,7 +21009,7 @@ class Lo extends zo {
     e.activePointers && (this.targetPointers = e.activePointers);
   }
 }
-function Sc(t) {
+function pc(t) {
   const e = t.length;
   let n = 0, i = 0;
   for (let a = 0; a < e; a++)
@@ -21040,36 +21025,36 @@ function al(t) {
     return i;
   };
 }
-const y0 = function(t) {
+const p0 = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
   );
   return e.altKey && !(e.metaKey || e.ctrlKey) && e.shiftKey;
-}, _0 = function(t) {
+}, y0 = function(t) {
   const e = t.map.getTargetElement(), n = t.map.getOwnerDocument().activeElement;
   return e.contains(n);
 }, bg = function(t) {
-  return t.map.getTargetElement().hasAttribute("tabindex") ? _0(t) : !0;
-}, S0 = qa, Mg = function(t) {
+  return t.map.getTargetElement().hasAttribute("tabindex") ? y0(t) : !0;
+}, _0 = Ja, Mg = function(t) {
   const e = (
     /** @type {MouseEvent} */
     t.originalEvent
   );
-  return e.button == 0 && !(Q_ && ig && e.ctrlKey);
+  return e.button == 0 && !(J_ && ig && e.ctrlKey);
 }, xg = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
   );
   return !e.altKey && !(e.metaKey || e.ctrlKey) && !e.shiftKey;
-}, b0 = function(t) {
+}, S0 = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
   );
   return ig ? e.metaKey : e.ctrlKey;
-}, M0 = function(t) {
+}, b0 = function(t) {
   const e = (
     /** @type {KeyboardEvent|MouseEvent|TouchEvent} */
     t.originalEvent
@@ -21096,7 +21081,7 @@ const y0 = function(t) {
     e !== void 0,
     "mapBrowserEvent must originate from a pointer event"
   ), e.pointerType == "mouse";
-}, x0 = function(t) {
+}, M0 = function(t) {
   const e = (
     /** @type {import("../MapBrowserEvent").default} */
     t.originalEvent
@@ -21106,7 +21091,7 @@ const y0 = function(t) {
     "mapBrowserEvent must originate from a pointer event"
   ), e.isPrimary && e.button === 0;
 };
-class P0 extends Lo {
+class x0 extends Vo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21114,7 +21099,7 @@ class P0 extends Lo {
     super({
       stopDown: Br
     }), e = e || {}, this.kinetic_ = e.kinetic, this.lastCentroid = null, this.lastPointersCount_, this.panning_ = !1;
-    const n = e.condition ? e.condition : al(xg, x0);
+    const n = e.condition ? e.condition : al(xg, M0);
     this.condition_ = e.onFocusOnly ? al(bg, n) : n, this.noKinetic_ = !1;
   }
   /**
@@ -21124,14 +21109,14 @@ class P0 extends Lo {
   handleDragEvent(e) {
     const n = e.map;
     this.panning_ || (this.panning_ = !0, n.getView().beginInteraction());
-    const i = this.targetPointers, a = n.getEventPixel(Sc(i));
+    const i = this.targetPointers, a = n.getEventPixel(pc(i));
     if (i.length == this.lastPointersCount_) {
       if (this.kinetic_ && this.kinetic_.update(a[0], a[1]), this.lastCentroid) {
         const o = [
           this.lastCentroid[0] - a[0],
           a[1] - this.lastCentroid[1]
         ], s = e.map.getView();
-        qy(o, s.getResolution()), Ql(o, s.getRotation()), s.adjustCenterInternal(o);
+        Ky(o, s.getResolution()), Kl(o, s.getRotation()), s.adjustCenterInternal(o);
       }
     } else this.kinetic_ && this.kinetic_.begin();
     this.lastCentroid = a, this.lastPointersCount_ = i.length, e.originalEvent.preventDefault();
@@ -21172,14 +21157,14 @@ class P0 extends Lo {
     return !1;
   }
 }
-class T0 extends Lo {
+class P0 extends Vo {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
     e = e || {}, super({
       stopDown: Br
-    }), this.condition_ = e.condition ? e.condition : y0, this.lastAngle_ = void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250;
+    }), this.condition_ = e.condition ? e.condition : p0, this.lastAngle_ = void 0, this.duration_ = e.duration !== void 0 ? e.duration : 250;
   }
   /**
    * Handle pointer drag events.
@@ -21189,7 +21174,7 @@ class T0 extends Lo {
     if (!Ts(e))
       return;
     const n = e.map, i = n.getView();
-    if (i.getConstraints().rotation === oc)
+    if (i.getConstraints().rotation === nc)
       return;
     const a = n.getSize(), o = e.pixel, r = Math.atan2(a[1] / 2 - o[1], o[0] - a[0] / 2);
     if (this.lastAngle_ !== void 0) {
@@ -21215,7 +21200,7 @@ class T0 extends Lo {
     return Ts(e) && Mg(e) && this.condition_(e) ? (e.map.getView().beginInteraction(), this.lastAngle_ = void 0, !0) : !1;
   }
 }
-class w0 extends Ul {
+class T0 extends Wl {
   /**
    * @param {string} className CSS class name.
    */
@@ -21266,7 +21251,7 @@ class w0 extends Ul {
       this.map_.getCoordinateFromPixelInternal,
       this.map_
     );
-    a[4] = a[0].slice(), this.geometry_ ? this.geometry_.setCoordinates([a]) : this.geometry_ = new eo([a]);
+    a[4] = a[0].slice(), this.geometry_ ? this.geometry_.setCoordinates([a]) : this.geometry_ = new to([a]);
   }
   /**
    * @return {import("../geom/Polygon.js").default} Geometry.
@@ -21275,7 +21260,7 @@ class w0 extends Ul {
     return this.geometry_;
   }
 }
-const jo = {
+const Ho = {
   /**
    * Triggered upon drag box start.
    * @event DragBoxEvent#boxstart
@@ -21311,12 +21296,12 @@ class ws extends Kn {
     super(e), this.coordinate = n, this.mapBrowserEvent = i;
   }
 }
-class E0 extends Lo {
+class w0 extends Vo {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
-    super(), this.on, this.once, this.un, e = e || {}, this.box_ = new w0(e.className || "ol-dragbox"), this.minArea_ = e.minArea !== void 0 ? e.minArea : 64, e.onBoxEnd && (this.onBoxEnd = e.onBoxEnd), this.startPixel_ = null, this.condition_ = e.condition ? e.condition : Mg, this.boxEndCondition_ = e.boxEndCondition ? e.boxEndCondition : this.defaultBoxEndCondition;
+    super(), this.on, this.once, this.un, e = e || {}, this.box_ = new T0(e.className || "ol-dragbox"), this.minArea_ = e.minArea !== void 0 ? e.minArea : 64, e.onBoxEnd && (this.onBoxEnd = e.onBoxEnd), this.startPixel_ = null, this.condition_ = e.condition ? e.condition : Mg, this.boxEndCondition_ = e.boxEndCondition ? e.boxEndCondition : this.defaultBoxEndCondition;
   }
   /**
    * The default condition for determining whether the boxend event
@@ -21346,7 +21331,7 @@ class E0 extends Lo {
   handleDragEvent(e) {
     this.box_.setPixels(this.startPixel_, e.pixel), this.dispatchEvent(
       new ws(
-        jo.BOXDRAG,
+        Ho.BOXDRAG,
         e.coordinate,
         e
       )
@@ -21366,7 +21351,7 @@ class E0 extends Lo {
     );
     return n && this.onBoxEnd(e), this.dispatchEvent(
       new ws(
-        n ? jo.BOXEND : jo.BOXCANCEL,
+        n ? Ho.BOXEND : Ho.BOXCANCEL,
         e.coordinate,
         e
       )
@@ -21380,7 +21365,7 @@ class E0 extends Lo {
   handleDownEvent(e) {
     return this.condition_(e) ? (this.startPixel_ = e.pixel, this.box_.setMap(e.map), this.box_.setPixels(this.startPixel_, this.startPixel_), this.dispatchEvent(
       new ws(
-        jo.BOXSTART,
+        Ho.BOXSTART,
         e.coordinate,
         e
       )
@@ -21393,13 +21378,13 @@ class E0 extends Lo {
   onBoxEnd(e) {
   }
 }
-class A0 extends E0 {
+class E0 extends w0 {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
     e = e || {};
-    const n = e.condition ? e.condition : M0;
+    const n = e.condition ? e.condition : b0;
     super({
       condition: n,
       className: e.className || "ol-dragzoom",
@@ -21432,7 +21417,7 @@ const Pi = {
   RIGHT: "ArrowRight",
   DOWN: "ArrowDown"
 };
-class R0 extends zo {
+class A0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21460,19 +21445,19 @@ class R0 extends zo {
         let l = 0, c = 0;
         a == Pi.DOWN ? c = -s : a == Pi.LEFT ? l = -s : a == Pi.RIGHT ? l = s : c = s;
         const u = [l, c];
-        Ql(u, r.getRotation()), C0(r, u, this.duration_), i.preventDefault(), n = !0;
+        Kl(u, r.getRotation()), v0(r, u, this.duration_), i.preventDefault(), n = !0;
       }
     }
     return !n;
   }
 }
-class I0 extends zo {
+class R0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
   constructor(e) {
     super(), e = e || {}, this.condition_ = e.condition ? e.condition : function(n) {
-      return !b0(n) && Pg(n);
+      return !S0(n) && Pg(n);
     }, this.delta_ = e.delta ? e.delta : 1, this.duration_ = e.duration !== void 0 ? e.duration : 100;
   }
   /**
@@ -21491,13 +21476,13 @@ class I0 extends zo {
       ), a = i.key;
       if (this.condition_(e) && (a === "+" || a === "-")) {
         const o = e.map, r = a === "+" ? this.delta_ : -this.delta_, s = o.getView();
-        _c(s, r, void 0, this.duration_), i.preventDefault(), n = !0;
+        Cc(s, r, void 0, this.duration_), i.preventDefault(), n = !0;
       }
     }
     return !n;
   }
 }
-class z0 {
+class I0 {
   /**
    * @param {number} decay Rate of decay (must be negative).
    * @param {number} minVelocity Minimum velocity (pixels/millisecond).
@@ -21551,7 +21536,7 @@ class z0 {
     return this.angle_;
   }
 }
-class L0 extends zo {
+class z0 extends Lo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21560,7 +21545,7 @@ class L0 extends zo {
       /** @type {import("./Interaction.js").InteractionOptions} */
       e
     ), this.totalDelta_ = 0, this.lastDelta_ = 0, this.maxDelta_ = e.maxDelta !== void 0 ? e.maxDelta : 1, this.duration_ = e.duration !== void 0 ? e.duration : 250, this.timeout_ = e.timeout !== void 0 ? e.timeout : 80, this.useAnchor_ = e.useAnchor !== void 0 ? e.useAnchor : !0, this.constrainResolution_ = e.constrainResolution !== void 0 ? e.constrainResolution : !1;
-    const n = e.condition ? e.condition : S0;
+    const n = e.condition ? e.condition : _0;
     this.condition_ = e.onFocusOnly ? al(bg, n) : n, this.lastAnchor_ = null, this.startTime_ = void 0, this.timeoutId_, this.mode_ = void 0, this.trackpadEventGap_ = 400, this.trackpadTimeoutId_, this.deltaPerZoom_ = 300;
   }
   /**
@@ -21592,7 +21577,7 @@ class L0 extends zo {
     );
     a.preventDefault(), this.useAnchor_ && (this.lastAnchor_ = e.coordinate);
     let o;
-    if (e.type == me.WHEEL && (o = a.deltaY, q_ && a.deltaMode === WheelEvent.DOM_DELTA_PIXEL && (o /= ag), a.deltaMode === WheelEvent.DOM_DELTA_LINE && (o *= 40)), o === 0)
+    if (e.type == me.WHEEL && (o = a.deltaY, K_ && a.deltaMode === WheelEvent.DOM_DELTA_PIXEL && (o /= ag), a.deltaMode === WheelEvent.DOM_DELTA_LINE && (o *= 40)), o === 0)
       return !1;
     this.lastDelta_ = o;
     const r = Date.now();
@@ -21622,7 +21607,7 @@ class L0 extends zo {
       -this.maxDelta_ * this.deltaPerZoom_,
       this.maxDelta_ * this.deltaPerZoom_
     ) / this.deltaPerZoom_;
-    (n.getConstrainResolution() || this.constrainResolution_) && (i = i ? i > 0 ? 1 : -1 : 0), _c(n, i, this.lastAnchor_, this.duration_), this.mode_ = void 0, this.totalDelta_ = 0, this.lastAnchor_ = null, this.startTime_ = void 0, this.timeoutId_ = void 0;
+    (n.getConstrainResolution() || this.constrainResolution_) && (i = i ? i > 0 ? 1 : -1 : 0), Cc(n, i, this.lastAnchor_, this.duration_), this.mode_ = void 0, this.totalDelta_ = 0, this.lastAnchor_ = null, this.startTime_ = void 0, this.timeoutId_ = void 0;
   }
   /**
    * Enable or disable using the mouse's location as an anchor when zooming
@@ -21634,7 +21619,7 @@ class L0 extends zo {
     this.useAnchor_ = e, e || (this.lastAnchor_ = null);
   }
 }
-class V0 extends Lo {
+class L0 extends Vo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21662,8 +21647,8 @@ class V0 extends Lo {
     }
     this.lastAngle_ = o;
     const r = e.map, s = r.getView();
-    s.getConstraints().rotation !== oc && (this.anchor_ = r.getCoordinateFromPixelInternal(
-      r.getEventPixel(Sc(this.targetPointers))
+    s.getConstraints().rotation !== nc && (this.anchor_ = r.getCoordinateFromPixelInternal(
+      r.getEventPixel(pc(this.targetPointers))
     ), this.rotating_ && (r.render(), s.adjustRotationInternal(n, this.anchor_)));
   }
   /**
@@ -21687,7 +21672,7 @@ class V0 extends Lo {
     return !1;
   }
 }
-class B0 extends Lo {
+class V0 extends Vo {
   /**
    * @param {Options} [options] Options.
    */
@@ -21709,7 +21694,7 @@ class B0 extends Lo {
     this.lastDistance_ !== void 0 && (n = this.lastDistance_ / s), this.lastDistance_ = s;
     const l = e.map, c = l.getView();
     n != 1 && (this.lastScaleDelta_ = n), this.anchor_ = l.getCoordinateFromPixelInternal(
-      l.getEventPixel(Sc(this.targetPointers))
+      l.getEventPixel(pc(this.targetPointers))
     ), l.render(), c.adjustResolutionInternal(n, this.anchor_);
   }
   /**
@@ -21737,48 +21722,48 @@ class B0 extends Lo {
     return !1;
   }
 }
-function F0(t) {
+function B0(t) {
   t = t || {};
-  const e = new mn(), n = new z0(-5e-3, 0.05, 100);
-  return (t.altShiftDragRotate !== void 0 ? t.altShiftDragRotate : !0) && e.push(new T0()), (t.doubleClickZoom !== void 0 ? t.doubleClickZoom : !0) && e.push(
-    new p0({
+  const e = new mn(), n = new I0(-5e-3, 0.05, 100);
+  return (t.altShiftDragRotate !== void 0 ? t.altShiftDragRotate : !0) && e.push(new P0()), (t.doubleClickZoom !== void 0 ? t.doubleClickZoom : !0) && e.push(
+    new C0({
       delta: t.zoomDelta,
       duration: t.zoomDuration
     })
   ), (t.dragPan !== void 0 ? t.dragPan : !0) && e.push(
-    new P0({
+    new x0({
       onFocusOnly: t.onFocusOnly,
       kinetic: n
     })
-  ), (t.pinchRotate !== void 0 ? t.pinchRotate : !0) && e.push(new V0()), (t.pinchZoom !== void 0 ? t.pinchZoom : !0) && e.push(
-    new B0({
+  ), (t.pinchRotate !== void 0 ? t.pinchRotate : !0) && e.push(new L0()), (t.pinchZoom !== void 0 ? t.pinchZoom : !0) && e.push(
+    new V0({
       duration: t.zoomDuration
     })
-  ), (t.keyboard !== void 0 ? t.keyboard : !0) && (e.push(new R0()), e.push(
-    new I0({
+  ), (t.keyboard !== void 0 ? t.keyboard : !0) && (e.push(new A0()), e.push(
+    new R0({
       delta: t.zoomDelta,
       duration: t.zoomDuration
     })
   )), (t.mouseWheelZoom !== void 0 ? t.mouseWheelZoom : !0) && e.push(
-    new L0({
+    new z0({
       onFocusOnly: t.onFocusOnly,
       duration: t.zoomDuration
     })
   ), (t.shiftDragZoom !== void 0 ? t.shiftDragZoom : !0) && e.push(
-    new A0({
+    new E0({
       duration: t.zoomDuration
     })
   ), e;
 }
 function Tg(t) {
-  if (t instanceof Wr) {
+  if (t instanceof $r) {
     t.setMapInternal(null);
     return;
   }
   t instanceof Aa && t.getLayers().forEach(Tg);
 }
 function wg(t, e) {
-  if (t instanceof Wr) {
+  if (t instanceof $r) {
     t.setMapInternal(e);
     return;
   }
@@ -21788,16 +21773,16 @@ function wg(t, e) {
       wg(n[i], e);
   }
 }
-let k0 = class extends ln {
+let F0 = class extends ln {
   /**
    * @param {MapOptions} [options] Map options.
    */
   constructor(e) {
     super(), e = e || {}, this.on, this.once, this.un;
-    const n = O0(e);
-    this.renderComplete_, this.loaded_ = !0, this.boundHandleBrowserEvent_ = this.handleBrowserEvent.bind(this), this.maxTilesLoading_ = e.maxTilesLoading !== void 0 ? e.maxTilesLoading : 16, this.pixelRatio_ = e.pixelRatio !== void 0 ? e.pixelRatio : ag, this.postRenderTimeoutHandle_, this.animationDelayKey_, this.animationDelay_ = this.animationDelay_.bind(this), this.coordinateToPixelTransform_ = Jt(), this.pixelToCoordinateTransform_ = Jt(), this.frameIndex_ = 0, this.frameState_ = null, this.previousExtent_ = null, this.viewPropertyListenerKey_ = null, this.viewChangeListenerKey_ = null, this.layerGroupPropertyListenerKeys_ = null, this.viewport_ = document.createElement("div"), this.viewport_.className = "ol-viewport" + ("ontouchstart" in window ? " ol-touch" : ""), this.viewport_.style.position = "relative", this.viewport_.style.overflow = "hidden", this.viewport_.style.width = "100%", this.viewport_.style.height = "100%", this.overlayContainer_ = document.createElement("div"), this.overlayContainer_.style.position = "absolute", this.overlayContainer_.style.zIndex = "0", this.overlayContainer_.style.width = "100%", this.overlayContainer_.style.height = "100%", this.overlayContainer_.style.pointerEvents = "none", this.overlayContainer_.className = "ol-overlaycontainer", this.viewport_.appendChild(this.overlayContainer_), this.overlayContainerStopEvent_ = document.createElement("div"), this.overlayContainerStopEvent_.style.position = "absolute", this.overlayContainerStopEvent_.style.zIndex = "0", this.overlayContainerStopEvent_.style.width = "100%", this.overlayContainerStopEvent_.style.height = "100%", this.overlayContainerStopEvent_.style.pointerEvents = "none", this.overlayContainerStopEvent_.className = "ol-overlaycontainer-stopevent", this.viewport_.appendChild(this.overlayContainerStopEvent_), this.mapBrowserEventHandler_ = null, this.moveTolerance_ = e.moveTolerance, this.keyboardEventTarget_ = n.keyboardEventTarget, this.targetChangeHandlerKeys_ = null, this.targetElement_ = null, this.resizeObserver_ = new ResizeObserver(() => this.updateSize()), this.controls = n.controls || v0(), this.interactions = n.interactions || F0({
+    const n = k0(e);
+    this.renderComplete_, this.loaded_ = !0, this.boundHandleBrowserEvent_ = this.handleBrowserEvent.bind(this), this.maxTilesLoading_ = e.maxTilesLoading !== void 0 ? e.maxTilesLoading : 16, this.pixelRatio_ = e.pixelRatio !== void 0 ? e.pixelRatio : ag, this.postRenderTimeoutHandle_, this.animationDelayKey_, this.animationDelay_ = this.animationDelay_.bind(this), this.coordinateToPixelTransform_ = Jt(), this.pixelToCoordinateTransform_ = Jt(), this.frameIndex_ = 0, this.frameState_ = null, this.previousExtent_ = null, this.viewPropertyListenerKey_ = null, this.viewChangeListenerKey_ = null, this.layerGroupPropertyListenerKeys_ = null, this.viewport_ = document.createElement("div"), this.viewport_.className = "ol-viewport" + ("ontouchstart" in window ? " ol-touch" : ""), this.viewport_.style.position = "relative", this.viewport_.style.overflow = "hidden", this.viewport_.style.width = "100%", this.viewport_.style.height = "100%", this.overlayContainer_ = document.createElement("div"), this.overlayContainer_.style.position = "absolute", this.overlayContainer_.style.zIndex = "0", this.overlayContainer_.style.width = "100%", this.overlayContainer_.style.height = "100%", this.overlayContainer_.style.pointerEvents = "none", this.overlayContainer_.className = "ol-overlaycontainer", this.viewport_.appendChild(this.overlayContainer_), this.overlayContainerStopEvent_ = document.createElement("div"), this.overlayContainerStopEvent_.style.position = "absolute", this.overlayContainerStopEvent_.style.zIndex = "0", this.overlayContainerStopEvent_.style.width = "100%", this.overlayContainerStopEvent_.style.height = "100%", this.overlayContainerStopEvent_.style.pointerEvents = "none", this.overlayContainerStopEvent_.className = "ol-overlaycontainer-stopevent", this.viewport_.appendChild(this.overlayContainerStopEvent_), this.mapBrowserEventHandler_ = null, this.moveTolerance_ = e.moveTolerance, this.keyboardEventTarget_ = n.keyboardEventTarget, this.targetChangeHandlerKeys_ = null, this.targetElement_ = null, this.resizeObserver_ = new ResizeObserver(() => this.updateSize()), this.controls = n.controls || m0(), this.interactions = n.interactions || B0({
       onFocusOnly: !0
-    }), this.overlays_ = n.overlays, this.overlayIdIndex_ = {}, this.renderer_ = null, this.postRenderFunctions_ = [], this.tileQueue_ = new d0(
+    }), this.overlays_ = n.overlays, this.overlayIdIndex_ = {}, this.renderer_ = null, this.postRenderFunctions_ = [], this.tileQueue_ = new u0(
       this.getTilePriority.bind(this),
       this.handleTileChange_.bind(this)
     ), this.addChangeListener(
@@ -21956,7 +21941,7 @@ let k0 = class extends ln {
       return;
     const a = this.getCoordinateFromPixelInternal(e);
     i = i !== void 0 ? i : {};
-    const o = i.hitTolerance !== void 0 ? i.hitTolerance : 0, r = i.layerFilter !== void 0 ? i.layerFilter : qa, s = i.checkWrapped !== !1;
+    const o = i.hitTolerance !== void 0 ? i.hitTolerance : 0, r = i.layerFilter !== void 0 ? i.layerFilter : Ja, s = i.checkWrapped !== !1;
     return this.renderer_.forEachFeatureAtCoordinate(
       a,
       this.frameState_,
@@ -22013,7 +21998,7 @@ let k0 = class extends ln {
       return !1;
     const i = this.getCoordinateFromPixelInternal(e);
     n = n !== void 0 ? n : {};
-    const a = n.layerFilter !== void 0 ? n.layerFilter : qa, o = n.hitTolerance !== void 0 ? n.hitTolerance : 0, r = n.checkWrapped !== !1;
+    const a = n.layerFilter !== void 0 ? n.layerFilter : Ja, o = n.hitTolerance !== void 0 ? n.hitTolerance : 0, r = n.checkWrapped !== !1;
     return this.renderer_.hasFeatureAtCoordinate(
       i,
       this.frameState_,
@@ -22305,7 +22290,7 @@ let k0 = class extends ln {
    * @return {number} Tile priority.
    */
   getTilePriority(e, n, i, a) {
-    return h0(
+    return d0(
       this.frameState_,
       e,
       n,
@@ -22407,7 +22392,7 @@ let k0 = class extends ln {
       ), this.viewport_.removeEventListener(
         me.WHEEL,
         this.boundHandleBrowserEvent_
-      ), this.mapBrowserEventHandler_.dispose(), this.mapBrowserEventHandler_ = null, vr(this.viewport_);
+      ), this.mapBrowserEventHandler_.dispose(), this.mapBrowserEventHandler_ = null, Cr(this.viewport_);
     }
     if (this.targetElement_) {
       this.resizeObserver_.unobserve(this.targetElement_);
@@ -22418,7 +22403,7 @@ let k0 = class extends ln {
     if (this.targetElement_ = n, !n)
       this.renderer_ && (clearTimeout(this.postRenderTimeoutHandle_), this.postRenderTimeoutHandle_ = void 0, this.postRenderFunctions_.length = 0, this.renderer_.dispose(), this.renderer_ = null), this.animationDelayKey_ && (cancelAnimationFrame(this.animationDelayKey_), this.animationDelayKey_ = void 0);
     else {
-      n.appendChild(this.viewport_), this.renderer_ || (this.renderer_ = new l0(this)), this.mapBrowserEventHandler_ = new c0(
+      n.appendChild(this.viewport_), this.renderer_ || (this.renderer_ = new s0(this)), this.mapBrowserEventHandler_ = new l0(
         this,
         this.moveTolerance_
       );
@@ -22589,7 +22574,7 @@ let k0 = class extends ln {
   renderFrame_(e) {
     const n = this.getSize(), i = this.getView(), a = this.frameState_;
     let o = null;
-    if (n !== void 0 && qu(n) && i && i.isDef()) {
+    if (n !== void 0 && Hu(n) && i && i.isDef()) {
       const r = i.getHints(
         this.frameState_ ? this.frameState_.viewHints : void 0
       ), s = i.getState();
@@ -22631,9 +22616,9 @@ let k0 = class extends ln {
     this.frameState_ = o, this.renderer_.renderFrame(o), o && (o.animate && this.render(), Array.prototype.push.apply(
       this.postRenderFunctions_,
       o.postRenderFunctions
-    ), a && (!this.previousExtent_ || !Nr(this.previousExtent_) && !Ja(o.extent, this.previousExtent_)) && (this.dispatchEvent(
+    ), a && (!this.previousExtent_ || !Nr(this.previousExtent_) && !Qa(o.extent, this.previousExtent_)) && (this.dispatchEvent(
       new ea(Dn.MOVESTART, this, a)
-    ), this.previousExtent_ = kr(this.previousExtent_)), this.previousExtent_ && !o.viewHints[ut.ANIMATING] && !o.viewHints[ut.INTERACTING] && !Ja(o.extent, this.previousExtent_) && (this.dispatchEvent(
+    ), this.previousExtent_ = kr(this.previousExtent_)), this.previousExtent_ && !o.viewHints[ut.ANIMATING] && !o.viewHints[ut.INTERACTING] && !Qa(o.extent, this.previousExtent_) && (this.dispatchEvent(
       new ea(Dn.MOVEEND, this, o)
     ), Af(o.extent, this.previousExtent_))), this.dispatchEvent(new ea(Dn.POSTRENDER, this, o)), this.renderComplete_ = this.hasListener(Dn.LOADSTART) || this.hasListener(Dn.LOADEND) || this.hasListener(Gt.RENDERCOMPLETE) ? !this.tileQueue_.getTilesLoading() && !this.tileQueue_.getCount() && !this.getLoadingOrNotReady() : void 0, this.postRenderTimeoutHandle_ || (this.postRenderTimeoutHandle_ = setTimeout(() => {
       this.postRenderTimeoutHandle_ = void 0, this.handlePostRender();
@@ -22698,7 +22683,7 @@ let k0 = class extends ln {
     let n;
     if (e) {
       const a = getComputedStyle(e), o = e.offsetWidth - parseFloat(a.borderLeftWidth) - parseFloat(a.paddingLeft) - parseFloat(a.paddingRight) - parseFloat(a.borderRightWidth), r = e.offsetHeight - parseFloat(a.borderTopWidth) - parseFloat(a.paddingTop) - parseFloat(a.paddingBottom) - parseFloat(a.borderBottomWidth);
-      !isNaN(o) && !isNaN(r) && (n = [o, r], !qu(n) && (e.offsetWidth || e.offsetHeight || e.getClientRects().length) && kf(
+      !isNaN(o) && !isNaN(r) && (n = [o, r], !Hu(n) && (e.offsetWidth || e.offsetHeight || e.getClientRects().length) && kf(
         "No map visible because the map container's width or height are 0."
       ));
     }
@@ -22715,7 +22700,7 @@ let k0 = class extends ln {
     n && n.setViewportSize(e);
   }
 };
-function O0(t) {
+function k0(t) {
   let e = null;
   t.keyboardEventTarget !== void 0 && (e = typeof t.keyboardEventTarget == "string" ? document.getElementById(t.keyboardEventTarget) : t.keyboardEventTarget);
   const n = {}, i = t.layers && typeof /** @type {?} */
@@ -22867,7 +22852,7 @@ class Eg extends Fr {
     else if (i === -1)
       return 1;
     const a = n - i + 1e3 / 60;
-    return a >= this.transition_ ? 1 : $f(a / this.transition_);
+    return a >= this.transition_ ? 1 : Wf(a / this.transition_);
   }
   /**
    * Determine if a tile is in an alpha transition.  A tile is considered in
@@ -22920,7 +22905,7 @@ class Ag extends Eg {
    * @private
    */
   handleImageError_() {
-    this.state = le.ERROR, this.unlistenImage_(), this.image_ = D0(), this.changed();
+    this.state = le.ERROR, this.unlistenImage_(), this.image_ = O0(), this.changed();
   }
   /**
    * Tracks successful image load.
@@ -22972,7 +22957,7 @@ class Ag extends Eg {
    * @api
    */
   load() {
-    this.state == le.ERROR && (this.state = le.IDLE, this.image_ = new Image(), this.crossOrigin_ !== null && (this.image_.crossOrigin = this.crossOrigin_)), this.state == le.IDLE && (this.state = le.LOADING, this.changed(), this.tileLoadFunction_(this, this.src_), this.unlisten_ = iS(
+    this.state == le.ERROR && (this.state = le.IDLE, this.image_ = new Image(), this.crossOrigin_ !== null && (this.image_.crossOrigin = this.crossOrigin_)), this.state == le.IDLE && (this.state = le.LOADING, this.changed(), this.tileLoadFunction_(this, this.src_), this.unlisten_ = nS(
       this.image_,
       this.handleImageLoad_.bind(this),
       this.handleImageError_.bind(this)
@@ -22987,12 +22972,12 @@ class Ag extends Eg {
     this.unlisten_ && (this.unlisten_(), this.unlisten_ = null);
   }
 }
-function D0() {
+function O0() {
   const t = at(1, 1);
   return t.fillStyle = "rgba(0,0,0,0)", t.fillRect(0, 0, 1, 1), t.canvas;
 }
-const G0 = 0.5, N0 = 10, gd = 0.25;
-class $0 {
+const D0 = 0.5, G0 = 10, dd = 0.25;
+class N0 {
   /**
    * @param {import("../proj/Projection.js").default} sourceProj Source projection.
    * @param {import("../proj/Projection.js").default} targetProj Target projection.
@@ -23004,12 +22989,12 @@ class $0 {
   constructor(e, n, i, a, o, r) {
     this.sourceProj_ = e, this.targetProj_ = n;
     let s = {};
-    const l = gr(this.targetProj_, this.sourceProj_);
+    const l = mr(this.targetProj_, this.sourceProj_);
     this.transformInv_ = function(y) {
       const M = y[0] + "/" + y[1];
       return s[M] || (s[M] = l(y)), s[M];
     }, this.maxSourceExtent_ = a, this.errorThresholdSquared_ = o * o, this.triangles_ = [], this.wrapsXInSource_ = !1, this.canWrapXInSource_ = this.sourceProj_.canWrapX() && !!a && !!this.sourceProj_.getExtent() && Ie(a) >= Ie(this.sourceProj_.getExtent()), this.sourceWorldWidth_ = this.sourceProj_.getExtent() ? Ie(this.sourceProj_.getExtent()) : null, this.targetWorldWidth_ = this.targetProj_.getExtent() ? Ie(this.targetProj_.getExtent()) : null;
-    const c = Di(i), u = Gr(i), d = Dr(i), h = Or(i), f = this.transformInv_(c), g = this.transformInv_(u), m = this.transformInv_(d), C = this.transformInv_(h), p = N0 + (r ? Math.max(
+    const c = Di(i), u = Gr(i), d = Dr(i), h = Or(i), f = this.transformInv_(c), g = this.transformInv_(u), m = this.transformInv_(d), C = this.transformInv_(h), p = G0 + (r ? Math.max(
       0,
       Math.ceil(
         Math.log2(
@@ -23096,17 +23081,17 @@ class $0 {
    * @private
    */
   addQuad_(e, n, i, a, o, r, s, l, c) {
-    const u = Bu([o, r, s, l]), d = this.sourceWorldWidth_ ? Ie(u) / this.sourceWorldWidth_ : null, h = (
+    const u = zu([o, r, s, l]), d = this.sourceWorldWidth_ ? Ie(u) / this.sourceWorldWidth_ : null, h = (
       /** @type {number} */
       this.sourceWorldWidth_
     ), f = this.sourceProj_.canWrapX() && d > 0.5 && d < 1;
     let g = !1;
     if (c > 0) {
       if (this.targetProj_.isGlobal() && this.targetWorldWidth_) {
-        const C = Bu([e, n, i, a]);
-        g = Ie(C) / this.targetWorldWidth_ > gd || g;
+        const C = zu([e, n, i, a]);
+        g = Ie(C) / this.targetWorldWidth_ > dd || g;
       }
-      !f && this.sourceProj_.isGlobal() && d && (g = d > gd || g);
+      !f && this.sourceProj_.isGlobal() && d && (g = d > dd || g);
     }
     if (!g && this.maxSourceExtent_ && isFinite(u[0]) && isFinite(u[1]) && isFinite(u[2]) && isFinite(u[3]) && !xt(u, this.maxSourceExtent_))
       return;
@@ -23189,10 +23174,10 @@ class $0 {
    * @return {import("../extent.js").Extent} Calculated extent.
    */
   calculateSourceExtent() {
-    const e = Wt();
+    const e = $t();
     return this.triangles_.forEach(function(n, i, a) {
       const o = n.source;
-      Wa(e, o[0]), Wa(e, o[1]), Wa(e, o[2]);
+      $a(e, o[0]), $a(e, o[1]), $a(e, o[2]);
     }), e;
   }
   /**
@@ -23204,7 +23189,7 @@ class $0 {
 }
 let Es;
 const ca = [];
-function md(t, e, n, i, a) {
+function hd(t, e, n, i, a) {
   t.beginPath(), t.moveTo(0, 0), t.lineTo(e, n), t.lineTo(i, a), t.closePath(), t.save(), t.clip(), t.fillRect(0, 0, Math.max(e, i) + 1, Math.max(n, a)), t.restore();
 }
 function As(t, e) {
@@ -23213,15 +23198,15 @@ function As(t, e) {
 function W0() {
   if (Es === void 0) {
     const t = at(6, 6, ca);
-    t.globalCompositeOperation = "lighter", t.fillStyle = "rgba(210, 0, 0, 0.75)", md(t, 4, 5, 4, 0), md(t, 4, 5, 0, 5);
+    t.globalCompositeOperation = "lighter", t.fillStyle = "rgba(210, 0, 0, 0.75)", hd(t, 4, 5, 4, 0), hd(t, 4, 5, 0, 5);
     const e = t.getImageData(0, 0, 3, 3).data;
     Es = As(e, 0) || As(e, 4) || As(e, 8), Ur(t), ca.push(t.canvas);
   }
   return Es;
 }
-function vd(t, e, n, i) {
+function fd(t, e, n, i) {
   const a = Gf(n, e, t);
-  let o = ku(
+  let o = Vu(
     e,
     i,
     n
@@ -23232,21 +23217,21 @@ function vd(t, e, n, i) {
   s !== void 0 && (o /= s);
   const l = t.getExtent();
   if (!l || ma(l, a)) {
-    const c = ku(t, o, a) / o;
+    const c = Vu(t, o, a) / o;
     isFinite(c) && c > 0 && (o /= c);
   }
   return o;
 }
-function X0(t, e, n, i) {
+function $0(t, e, n, i) {
   const a = ki(n);
-  let o = vd(
+  let o = fd(
     t,
     e,
     a,
     i
   );
   return (!isFinite(o) || o <= 0) && Vf(n, function(r) {
-    return o = vd(
+    return o = fd(
       t,
       e,
       r,
@@ -23254,7 +23239,7 @@ function X0(t, e, n, i) {
     ), isFinite(o) && o > 0;
   }), o;
 }
-function U0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
+function X0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
   const g = at(
     Math.round(n * t),
     Math.round(n * e),
@@ -23267,9 +23252,9 @@ function U0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
     return Math.round(b * n) / n;
   }
   g.globalCompositeOperation = "lighter";
-  const C = Wt();
+  const C = $t();
   l.forEach(function(b, T, _) {
-    Xy(C, b.extent);
+    $y(C, b.extent);
   });
   let p;
   const y = n / i, M = (d ? 1 : 1 + Math.pow(2, -24)) / y;
@@ -23301,14 +23286,14 @@ function U0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
       -(w[1][1] - S[1]) / o
     ), D = m((w[2][0] - S[0]) / o), k = m(
       -(w[2][1] - S[1]) / o
-    ), W = I, X = z;
-    I = 0, z = 0, A -= W, R -= X, V -= W, N -= X;
+    ), $ = I, X = z;
+    I = 0, z = 0, A -= $, R -= X, V -= $, N -= X;
     const L = [
       [A, R, 0, 0, E - G],
       [V, N, 0, 0, D - G],
       [0, 0, A, R, B - U],
       [0, 0, V, N, k - U]
-    ], ee = Ly(L);
+    ], ee = zy(L);
     if (!ee)
       return;
     if (g.save(), g.beginPath(), W0() || !d) {
@@ -23333,7 +23318,7 @@ function U0(t, e, n, i, a, o, r, s, l, c, u, d, h, f) {
       G,
       U
     ), g.translate(
-      C[0] - W,
+      C[0] - $,
       C[3] - X
     );
     let Q;
@@ -23383,7 +23368,7 @@ class ol extends Eg {
     p && (m ? m = Xa(m, p) : m = p);
     const y = a.getResolution(
       this.wrappedTileCoord_[0]
-    ), M = X0(
+    ), M = $0(
       e,
       i,
       C,
@@ -23393,8 +23378,8 @@ class ol extends Eg {
       this.state = le.EMPTY;
       return;
     }
-    const S = u !== void 0 ? u : G0;
-    if (this.triangulation_ = new $0(
+    const S = u !== void 0 ? u : D0;
+    if (this.triangulation_ = new N0(
       e,
       i,
       C,
@@ -23455,7 +23440,7 @@ class ol extends Eg {
       ), l = this.targetTileGrid_.getTileCoordExtent(
         this.wrappedTileCoord_
       );
-      this.canvas_ = U0(
+      this.canvas_ = X0(
         a,
         o,
         this.pixelRatio_,
@@ -23512,7 +23497,7 @@ class ol extends Eg {
     this.canvas_ && (Ur(this.canvas_.getContext("2d")), ca.push(this.canvas_), this.canvas_ = null), super.release();
   }
 }
-class Y0 {
+class U0 {
   /**
    * @param {number} [highWaterMark] High water mark.
    */
@@ -23679,7 +23664,7 @@ class Y0 {
     this.highWaterMark = e;
   }
 }
-function Cd(t, e, n, i) {
+function gd(t, e, n, i) {
   return i !== void 0 ? (i[0] = t, i[1] = e, i[2] = n, i) : [t, e, n];
 }
 function Qr(t, e, n) {
@@ -23688,20 +23673,20 @@ function Qr(t, e, n) {
 function Rg(t) {
   return Qr(t[0], t[1], t[2]);
 }
-function j0(t) {
+function Y0(t) {
   return t.split("/").map(Number);
 }
-function H0(t) {
+function j0(t) {
   return (t[1] << t[0]) + t[2];
 }
-function Z0(t, e) {
+function H0(t, e) {
   const n = t[0], i = t[1], a = t[2];
   if (e.getMinZoom() > n || n > e.getMaxZoom())
     return !1;
   const o = e.getFullTileRange(n);
   return o ? o.containsXY(i, a) : !0;
 }
-class Ig extends Y0 {
+class Ig extends U0 {
   clear() {
     for (; this.getCount() > 0; )
       this.pop().release();
@@ -23720,7 +23705,7 @@ class Ig extends Y0 {
   pruneExceptNewestZ() {
     if (this.getCount() === 0)
       return;
-    const e = this.peekFirstKey(), i = j0(e)[0];
+    const e = this.peekFirstKey(), i = Y0(e)[0];
     this.forEach((a) => {
       a.tileCoord[0] !== i && (this.remove(Rg(a.tileCoord)), a.release());
     });
@@ -23754,7 +23739,7 @@ class zg extends ln {
    * @param {Options} options Source options.
    */
   constructor(e) {
-    super(), this.projection = Xt(e.projection), this.attributions_ = pd(e.attributions), this.attributionsCollapsible_ = e.attributionsCollapsible !== void 0 ? e.attributionsCollapsible : !0, this.loading = !1, this.state_ = e.state !== void 0 ? e.state : "ready", this.wrapX_ = e.wrapX !== void 0 ? e.wrapX : !1, this.interpolate_ = !!e.interpolate, this.viewResolver = null, this.viewRejector = null;
+    super(), this.projection = Xt(e.projection), this.attributions_ = md(e.attributions), this.attributionsCollapsible_ = e.attributionsCollapsible !== void 0 ? e.attributionsCollapsible : !0, this.loading = !1, this.state_ = e.state !== void 0 ? e.state : "ready", this.wrapX_ = e.wrapX !== void 0 ? e.wrapX : !1, this.interpolate_ = !!e.interpolate, this.viewResolver = null, this.viewRejector = null;
     const n = this;
     this.viewPromise_ = new Promise(function(i, a) {
       n.viewResolver = i, n.viewRejector = a;
@@ -23831,7 +23816,7 @@ class zg extends ln {
    * @api
    */
   setAttributions(e) {
-    this.attributions_ = pd(e), this.changed();
+    this.attributions_ = md(e), this.changed();
   }
   /**
    * Set the state of the source.
@@ -23841,14 +23826,14 @@ class zg extends ln {
     this.state_ = e, this.changed();
   }
 }
-function pd(t) {
+function md(t) {
   return t ? Array.isArray(t) ? function(e) {
     return t;
   } : typeof t == "function" ? t : function(e) {
     return [t];
   } : null;
 }
-class bc {
+class yc {
   /**
    * @param {number} minX Minimum X.
    * @param {number} maxX Maximum X.
@@ -23920,7 +23905,7 @@ class bc {
   }
 }
 function Hi(t, e, n, i, a) {
-  return a !== void 0 ? (a.minX = t, a.maxX = e, a.minY = n, a.maxY = i, a) : new bc(t, e, n, i);
+  return a !== void 0 ? (a.minX = t, a.maxX = e, a.minY = n, a.maxY = i, a) : new yc(t, e, n, i);
 }
 const Zi = [0, 0, 0], ei = 5;
 class Lg {
@@ -23929,7 +23914,7 @@ class Lg {
    */
   constructor(e) {
     this.minZoom = e.minZoom !== void 0 ? e.minZoom : 0, this.resolutions_ = e.resolutions, be(
-      Ey(
+      wy(
         this.resolutions_,
         /**
          * @param {number} a First resolution
@@ -23961,11 +23946,11 @@ class Lg {
     ), this.tileSizes_ = null, e.tileSizes !== void 0 && (this.tileSizes_ = e.tileSizes, be(
       this.tileSizes_.length == this.resolutions_.length,
       "Number of `tileSizes` and `resolutions` must be equal"
-    )), this.tileSize_ = e.tileSize !== void 0 ? e.tileSize : this.tileSizes_ ? null : Zl, be(
+    )), this.tileSize_ = e.tileSize !== void 0 ? e.tileSize : this.tileSizes_ ? null : Yl, be(
       !this.tileSize_ && this.tileSizes_ || this.tileSize_ && !this.tileSizes_,
       "Either `tileSize` or `tileSizes` must be configured, never both"
     ), this.extent_ = i !== void 0 ? i : null, this.fullTileRanges_ = null, this.tmpSize_ = [0, 0], this.tmpExtent_ = [0, 0, 0, 0], e.sizes !== void 0 ? this.fullTileRanges_ = e.sizes.map((a, o) => {
-      const r = new bc(
+      const r = new yc(
         Math.min(0, a[0]),
         Math.max(a[0] - 1, -1),
         Math.min(0, a[1]),
@@ -24193,7 +24178,7 @@ class Lg {
   getTileCoordForXYAndResolution_(e, n, i, a, o) {
     const r = this.getZForResolution(i), s = i / this.getResolution(r), l = this.getOrigin(r), c = It(this.getTileSize(r), this.tmpSize_);
     let u = s * (e - l[0]) / i / c[0], d = s * (l[1] - n) / i / c[1];
-    return a ? (u = No(u, ei) - 1, d = No(d, ei) - 1) : (u = Go(u, ei), d = Go(d, ei)), Cd(r, u, d, o);
+    return a ? (u = Wo(u, ei) - 1, d = Wo(d, ei) - 1) : (u = No(u, ei), d = No(d, ei)), gd(r, u, d, o);
   }
   /**
    * Although there is repetition between this method and `getTileCoordForXYAndResolution_`,
@@ -24213,7 +24198,7 @@ class Lg {
   getTileCoordForXYAndZ_(e, n, i, a, o) {
     const r = this.getOrigin(i), s = this.getResolution(i), l = It(this.getTileSize(i), this.tmpSize_);
     let c = (e - r[0]) / s / l[0], u = (r[1] - n) / s / l[1];
-    return a ? (c = No(c, ei) - 1, u = No(u, ei) - 1) : (c = Go(c, ei), u = Go(u, ei)), Cd(i, c, u, o);
+    return a ? (c = Wo(c, ei) - 1, u = Wo(u, ei) - 1) : (c = No(c, ei), u = No(u, ei)), gd(i, c, u, o);
   }
   /**
    * Get a tile coordinate given a map coordinate and zoom level.
@@ -24275,7 +24260,7 @@ class Lg {
    * @api
    */
   getZForResolution(e, n) {
-    const i = Yl(
+    const i = $l(
       this.resolutions_,
       e,
       n || 0
@@ -24310,10 +24295,10 @@ class Lg {
 }
 function Vg(t) {
   let e = t.getDefaultTileGrid();
-  return e || (e = Q0(t), t.setDefaultTileGrid(e)), e;
+  return e || (e = J0(t), t.setDefaultTileGrid(e)), e;
 }
-function K0(t, e, n) {
-  const i = e[0], a = t.getTileCoordCenter(e), o = Mc(n);
+function Z0(t, e, n) {
+  const i = e[0], a = t.getTileCoordCenter(e), o = _c(n);
   if (!ma(o, a)) {
     const r = Ie(o), s = Math.ceil(
       (o[0] - a[0]) / r
@@ -24322,17 +24307,17 @@ function K0(t, e, n) {
   }
   return e;
 }
-function q0(t, e, n, i) {
+function K0(t, e, n, i) {
   i = i !== void 0 ? i : "top-left";
   const a = Bg(t, e, n);
   return new Lg({
     extent: t,
-    origin: Yy(t, i),
+    origin: Uy(t, i),
     resolutions: a,
     tileSize: n
   });
 }
-function J0(t) {
+function q0(t) {
   const e = t || {}, n = e.extent || Xt("EPSG:3857").getExtent(), i = {
     extent: n,
     minZoom: e.minZoom,
@@ -24347,7 +24332,7 @@ function J0(t) {
   return new Lg(i);
 }
 function Bg(t, e, n, i) {
-  e = e !== void 0 ? e : Vy, n = It(n !== void 0 ? n : Zl);
+  e = e !== void 0 ? e : Ly, n = It(n !== void 0 ? n : Yl);
   const a = vt(t), o = Ie(t);
   i = i > 0 ? i : Math.max(o / n[0], a / n[1]);
   const r = e + 1, s = new Array(r);
@@ -24355,20 +24340,20 @@ function Bg(t, e, n, i) {
     s[l] = i / Math.pow(2, l);
   return s;
 }
-function Q0(t, e, n, i) {
-  const a = Mc(t);
-  return q0(a, e, n, i);
+function J0(t, e, n, i) {
+  const a = _c(t);
+  return K0(a, e, n, i);
 }
-function Mc(t) {
+function _c(t) {
   t = Xt(t);
   let e = t.getExtent();
   if (!e) {
-    const n = 180 * Kl.degrees / t.getMetersPerUnit();
+    const n = 180 * jl.degrees / t.getMetersPerUnit();
     e = fi(-n, -n, n, n);
   }
   return e;
 }
-class eb extends zg {
+class Q0 extends zg {
   /**
    * @param {Options} options SourceTile source options.
    */
@@ -24529,7 +24514,7 @@ class eb extends zg {
   getTileCoordForTileUrlFunction(e, n) {
     n = n !== void 0 ? n : this.getProjection();
     const i = this.getTileGridForProjection(n);
-    return this.getWrapX() && n.isGlobal() && (e = K0(i, e, n)), Z0(e, i) ? e : null;
+    return this.getWrapX() && n.isGlobal() && (e = Z0(i, e, n)), H0(e, i) ? e : null;
   }
   /**
    * Remove all cached tiles from the source. The next render cycle will fetch new tiles.
@@ -24561,7 +24546,7 @@ class eb extends zg {
   useTile(e, n, i, a) {
   }
 }
-class tb extends Kn {
+class eb extends Kn {
   /**
    * @param {string} type Type.
    * @param {import("../Tile.js").default} tile The tile.
@@ -24570,7 +24555,7 @@ class tb extends Kn {
     super(e), this.tile = n;
   }
 }
-function nb(t, e) {
+function tb(t, e) {
   const n = /\{z\}/g, i = /\{x\}/g, a = /\{y\}/g, o = /\{-y\}/g;
   return (
     /**
@@ -24592,13 +24577,13 @@ function nb(t, e) {
     }
   );
 }
-function ib(t, e) {
+function nb(t, e) {
   const n = t.length, i = new Array(n);
   for (let a = 0; a < n; ++a)
-    i[a] = nb(t[a], e);
-  return ab(i);
+    i[a] = tb(t[a], e);
+  return ib(i);
 }
-function ab(t) {
+function ib(t) {
   return t.length === 1 ? t[0] : (
     /**
      * @param {import("./tilecoord.js").TileCoord} tileCoord Tile Coordinate.
@@ -24609,12 +24594,12 @@ function ab(t) {
     function(e, n, i) {
       if (!e)
         return;
-      const a = H0(e), o = sa(a, t.length);
+      const a = j0(e), o = sa(a, t.length);
       return t[o](e, n, i);
     }
   );
 }
-function ob(t) {
+function ab(t) {
   const e = [];
   let n = /\{([a-z])-([a-z])\}/.exec(t);
   if (n) {
@@ -24632,7 +24617,7 @@ function ob(t) {
   }
   return e.push(t), e;
 }
-class xc extends eb {
+class Sc extends Q0 {
   /**
    * @param {Options} options Image tile options.
    */
@@ -24651,7 +24636,7 @@ class xc extends eb {
       key: e.key,
       attributionsCollapsible: e.attributionsCollapsible,
       zDirection: e.zDirection
-    }), this.generateTileUrlFunction_ = this.tileUrlFunction === xc.prototype.tileUrlFunction, this.tileLoadFunction = e.tileLoadFunction, e.tileUrlFunction && (this.tileUrlFunction = e.tileUrlFunction), this.urls = null, e.urls ? this.setUrls(e.urls) : e.url && this.setUrl(e.url), this.tileLoadingKeys_ = {};
+    }), this.generateTileUrlFunction_ = this.tileUrlFunction === Sc.prototype.tileUrlFunction, this.tileLoadFunction = e.tileLoadFunction, e.tileUrlFunction && (this.tileUrlFunction = e.tileUrlFunction), this.urls = null, e.urls ? this.setUrls(e.urls) : e.url && this.setUrl(e.url), this.tileLoadingKeys_ = {};
   }
   /**
    * Return the tile load function of the source.
@@ -24690,7 +24675,7 @@ class xc extends eb {
       e.target
     ), i = Ee(n), a = n.getState();
     let o;
-    a == le.LOADING ? (this.tileLoadingKeys_[i] = !0, o = Rs.TILELOADSTART) : i in this.tileLoadingKeys_ && (delete this.tileLoadingKeys_[i], o = a == le.ERROR ? Rs.TILELOADERROR : a == le.LOADED ? Rs.TILELOADEND : void 0), o != null && this.dispatchEvent(new tb(o, n));
+    a == le.LOADING ? (this.tileLoadingKeys_[i] = !0, o = Rs.TILELOADSTART) : i in this.tileLoadingKeys_ && (delete this.tileLoadingKeys_[i], o = a == le.ERROR ? Rs.TILELOADERROR : a == le.LOADED ? Rs.TILELOADEND : void 0), o != null && this.dispatchEvent(new eb(o, n));
   }
   /**
    * Set the tile load function of the source.
@@ -24715,7 +24700,7 @@ class xc extends eb {
    * @api
    */
   setUrl(e) {
-    const n = ob(e);
+    const n = ab(e);
     this.urls = n, this.setUrls(n);
   }
   /**
@@ -24727,7 +24712,7 @@ class xc extends eb {
     this.urls = e;
     const n = e.join(`
 `);
-    this.generateTileUrlFunction_ ? this.setTileUrlFunction(ib(e, this.tileGrid), n) : this.setKey(n);
+    this.generateTileUrlFunction_ ? this.setTileUrlFunction(nb(e, this.tileGrid), n) : this.setKey(n);
   }
   /**
    * @param {import("../tilecoord.js").TileCoord} tileCoord Tile coordinate.
@@ -24748,7 +24733,7 @@ class xc extends eb {
     this.tileCache.containsKey(a) && this.tileCache.get(a);
   }
 }
-class rb extends xc {
+class ob extends Sc {
   /**
    * @param {!Options} options Image tile options.
    */
@@ -24760,7 +24745,7 @@ class rb extends xc {
       projection: e.projection,
       state: e.state,
       tileGrid: e.tileGrid,
-      tileLoadFunction: e.tileLoadFunction ? e.tileLoadFunction : sb,
+      tileLoadFunction: e.tileLoadFunction ? e.tileLoadFunction : rb,
       tilePixelRatio: e.tilePixelRatio,
       tileUrlFunction: e.tileUrlFunction,
       url: e.url,
@@ -24976,17 +24961,17 @@ class rb extends xc {
       this.tileCacheForProjection[e].clear();
   }
 }
-function sb(t, e) {
+function rb(t, e) {
   t.getImage().src = e;
 }
-class lb extends rb {
+class sb extends ob {
   /**
    * @param {Options} [options] XYZ options.
    */
   constructor(e) {
     e = e || {};
-    const n = e.projection !== void 0 ? e.projection : "EPSG:3857", i = e.tileGrid !== void 0 ? e.tileGrid : J0({
-      extent: Mc(n),
+    const n = e.projection !== void 0 ? e.projection : "EPSG:3857", i = e.tileGrid !== void 0 ? e.tileGrid : q0({
+      extent: _c(n),
       maxResolution: e.maxResolution,
       maxZoom: e.maxZoom,
       minZoom: e.minZoom,
@@ -25019,15 +25004,15 @@ class lb extends rb {
     return this.gutter_;
   }
 }
-const cb = '&#169; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.';
-class ub extends lb {
+const lb = '&#169; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors.';
+class cb extends sb {
   /**
    * @param {Options} [options] Open Street Map options.
    */
   constructor(e) {
     e = e || {};
     let n;
-    e.attributions !== void 0 ? n = e.attributions : n = [cb];
+    e.attributions !== void 0 ? n = e.attributions : n = [lb];
     const i = e.crossOrigin !== void 0 ? e.crossOrigin : "anonymous", a = e.url !== void 0 ? e.url : "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
     super({
       attributions: n,
@@ -25046,7 +25031,7 @@ class ub extends lb {
     });
   }
 }
-class Pc extends ln {
+class bc extends ln {
   /**
    * @param {Geometry|ObjectWithGeometry<Geometry>} [geometryOrProperties]
    *     You may pass a Geometry object directly, or an object literal containing
@@ -25076,7 +25061,7 @@ class Pc extends ln {
   clone() {
     const e = (
       /** @type {Feature<Geometry>} */
-      new Pc(this.hasProperties() ? this.getProperties() : null)
+      new bc(this.hasProperties() ? this.getProperties() : null)
     );
     e.setGeometryName(this.getGeometryName());
     const n = this.getGeometry();
@@ -25178,7 +25163,7 @@ class Pc extends ln {
    * @fires module:ol/events/Event~BaseEvent#event:change
    */
   setStyle(e) {
-    this.style_ = e, this.styleFunction_ = e ? db(e) : void 0, this.changed();
+    this.style_ = e, this.styleFunction_ = e ? ub(e) : void 0, this.changed();
   }
   /**
    * Set the feature id.  The feature id is considered stable and may be used when
@@ -25203,7 +25188,7 @@ class Pc extends ln {
     this.removeChangeListener(this.geometryName_, this.handleGeometryChanged_), this.geometryName_ = e, this.addChangeListener(this.geometryName_, this.handleGeometryChanged_), this.handleGeometryChanged_();
   }
 }
-function db(t) {
+function ub(t) {
   if (typeof t == "function")
     return t;
   let e;
@@ -25218,11 +25203,11 @@ function db(t) {
     return e;
   };
 }
-const Ho = {
+const Zo = {
   PRELOAD: "preload",
   USE_INTERIM_TILES_ON_ERROR: "useInterimTilesOnError"
 };
-class hb extends Wr {
+class db extends $r {
   /**
    * @param {Options<TileSourceType>} [options] Tile layer options.
    */
@@ -25242,7 +25227,7 @@ class hb extends Wr {
   getPreload() {
     return (
       /** @type {number} */
-      this.get(Ho.PRELOAD)
+      this.get(Zo.PRELOAD)
     );
   }
   /**
@@ -25252,7 +25237,7 @@ class hb extends Wr {
    * @api
    */
   setPreload(e) {
-    this.set(Ho.PRELOAD, e);
+    this.set(Zo.PRELOAD, e);
   }
   /**
    * Whether we use interim tiles on error.
@@ -25263,7 +25248,7 @@ class hb extends Wr {
   getUseInterimTilesOnError() {
     return (
       /** @type {boolean} */
-      this.get(Ho.USE_INTERIM_TILES_ON_ERROR)
+      this.get(Zo.USE_INTERIM_TILES_ON_ERROR)
     );
   }
   /**
@@ -25273,7 +25258,7 @@ class hb extends Wr {
    * @api
    */
   setUseInterimTilesOnError(e) {
-    this.set(Ho.USE_INTERIM_TILES_ON_ERROR, e);
+    this.set(Zo.USE_INTERIM_TILES_ON_ERROR, e);
   }
   /**
    * Get data for a pixel location.  The return type depends on the source data.  For image tiles,
@@ -25295,7 +25280,7 @@ class hb extends Wr {
     return super.getData(e);
   }
 }
-class fb extends wo {
+class hb extends Eo {
   /**
    * @param {LayerType} layer Layer.
    */
@@ -25441,7 +25426,7 @@ class Fg {
      * @param {...*} args Args.
      * @return {ZIndexContext} This.
      */
-    zc(this, "pushMethodArgs_", (...e) => (this.instructions_[this.zIndex + this.offset_].push(e), this));
+    Ac(this, "pushMethodArgs_", (...e) => (this.instructions_[this.zIndex + this.offset_].push(e), this));
     this.instructions_ = [], this.zIndex = 0, this.offset_ = 0, this.context_ = /** @type {ZIndexContextProxy} */
     new Proxy(CanvasRenderingContext2D.prototype, {
       get: (e, n) => {
@@ -25493,14 +25478,14 @@ class Fg {
     this.offset_ = this.instructions_.length, this.zIndex = 0;
   }
 }
-const yd = [];
+const vd = [];
 let ta = null;
-function gb() {
+function fb() {
   ta = at(1, 1, void 0, {
     willReadFrequently: !0
   });
 }
-class kg extends fb {
+class kg extends hb {
   /**
    * @param {LayerType} layer Layer.
    */
@@ -25514,7 +25499,7 @@ class kg extends fb {
    * @return {Uint8ClampedArray|null} The image data.
    */
   getImageData(e, n, i) {
-    ta || gb(), ta.clearRect(0, 0, 1, 1);
+    ta || fb(), ta.clearRect(0, 0, 1, 1);
     let a;
     try {
       ta.drawImage(e, n, i, 1, 1, 0, 0, 1, 1), a = ta.getImageData(0, 0, 1, 1).data;
@@ -25541,8 +25526,8 @@ class kg extends fb {
     const a = this.getLayer().getClassName();
     let o, r;
     if (e && e.className === a && (!i || e && e.style.backgroundColor && _i(
-      no(e.style.backgroundColor),
-      no(i)
+      io(e.style.backgroundColor),
+      io(i)
     ))) {
       const s = e.firstElementChild;
       s instanceof HTMLCanvasElement && (r = s.getContext("2d"));
@@ -25661,12 +25646,12 @@ class kg extends fb {
     delete this.frameState, super.disposeInternal();
   }
 }
-class mb extends kg {
+class gb extends kg {
   /**
    * @param {LayerType} tileLayer Tile layer.
    */
   constructor(e) {
-    super(e), this.extentChanged = !0, this.renderedExtent_ = null, this.renderedPixelRatio, this.renderedProjection = null, this.renderedRevision, this.renderedTiles = [], this.newTiles_ = !1, this.tmpExtent = Wt(), this.tmpTileRange_ = new bc(0, 0, 0, 0);
+    super(e), this.extentChanged = !0, this.renderedExtent_ = null, this.renderedPixelRatio, this.renderedProjection = null, this.renderedRevision, this.renderedTiles = [], this.newTiles_ = !1, this.tmpExtent = $t(), this.tmpTileRange_ = new yc(0, 0, 0, 0);
   }
   /**
    * @protected
@@ -25816,10 +25801,10 @@ class mb extends kg {
       -M / 2,
       -S / 2
     );
-    const G = Wf(this.pixelTransform);
+    const G = $f(this.pixelTransform);
     this.useContainer(n, G, this.getBackground(e));
     const U = this.getRenderContext(e), E = this.context.canvas;
-    rc(this.inversePixelTransform, this.pixelTransform), Sn(
+    ic(this.inversePixelTransform, this.pixelTransform), Sn(
       this.tempTransform,
       M / 2,
       S / 2,
@@ -25831,7 +25816,7 @@ class mb extends kg {
     ), E.width != M || E.height != S ? (E.width = M, E.height = S) : this.containerReused || U.clearRect(0, 0, M, S), b && this.clipUnrotated(U, e, b), d.getInterpolate() || (U.imageSmoothingEnabled = !1), this.preRender(U, e), this.renderedTiles.length = 0;
     let B = Object.keys(I).map(Number);
     B.sort(Xn);
-    let D, k, W;
+    let D, k, $;
     i.opacity === 1 && (!this.containerReused || d.getOpaque(e.viewState.projection)) ? B = B.reverse() : (D = [], k = []);
     for (let X = B.length - 1; X >= 0; --X) {
       const L = B[X], ee = d.getTilePixelSize(
@@ -25849,20 +25834,20 @@ class mb extends kg {
         const ze = (
           /** @type {import("../../ImageTile.js").default} */
           Fe[rt]
-        ), _t = ze.tileCoord, Lt = ye[1] - _t[1], Gi = Math.round(pe[0] - (Lt - 1) * H), Si = ye[2] - _t[2], An = Math.round(pe[1] - (Si - 1) * ue), Je = Math.round(pe[0] - Lt * H), Yt = Math.round(pe[1] - Si * ue), cn = Gi - Je, jt = An - Yt, Ni = g === L, $i = Ni && ze.getAlpha(Ee(this), e.time) !== 1;
+        ), _t = ze.tileCoord, Lt = ye[1] - _t[1], Gi = Math.round(pe[0] - (Lt - 1) * H), Si = ye[2] - _t[2], An = Math.round(pe[1] - (Si - 1) * ue), Je = Math.round(pe[0] - Lt * H), Yt = Math.round(pe[1] - Si * ue), cn = Gi - Je, jt = An - Yt, Ni = g === L, Wi = Ni && ze.getAlpha(Ee(this), e.time) !== 1;
         let Jn = !1;
-        if (!$i)
+        if (!Wi)
           if (D) {
-            W = [Je, Yt, Je + cn, Yt, Je + cn, Yt + jt, Je, Yt + jt];
+            $ = [Je, Yt, Je + cn, Yt, Je + cn, Yt + jt, Je, Yt + jt];
             for (let Rn = 0, ts = D.length; Rn < ts; ++Rn)
               if (g !== L && L < k[Rn]) {
                 const gt = D[Rn];
                 xt(
                   [Je, Yt, Je + cn, Yt + jt],
                   [gt[0], gt[3], gt[4], gt[7]]
-                ) && (Jn || (U.save(), Jn = !0), U.beginPath(), U.moveTo(W[0], W[1]), U.lineTo(W[2], W[3]), U.lineTo(W[4], W[5]), U.lineTo(W[6], W[7]), U.moveTo(gt[6], gt[7]), U.lineTo(gt[4], gt[5]), U.lineTo(gt[2], gt[3]), U.lineTo(gt[0], gt[1]), U.clip());
+                ) && (Jn || (U.save(), Jn = !0), U.beginPath(), U.moveTo($[0], $[1]), U.lineTo($[2], $[3]), U.lineTo($[4], $[5]), U.lineTo($[6], $[7]), U.moveTo(gt[6], gt[7]), U.lineTo(gt[4], gt[5]), U.lineTo(gt[2], gt[3]), U.lineTo(gt[0], gt[1]), U.clip());
               }
-            D.push(W), k.push(L);
+            D.push($), k.push(L);
           } else
             U.clearRect(Je, Yt, cn, jt);
         this.drawTileImage(
@@ -25874,10 +25859,10 @@ class mb extends kg {
           jt,
           Ye,
           Ni
-        ), D && !$i ? (Jn && U.restore(), this.renderedTiles.unshift(ze)) : this.renderedTiles.push(ze), this.updateUsedTiles(e.usedTiles, d, ze);
+        ), D && !Wi ? (Jn && U.restore(), this.renderedTiles.unshift(ze)) : this.renderedTiles.push(ze), this.updateUsedTiles(e.usedTiles, d, ze);
       }
     }
-    return this.renderedRevision = h, this.renderedResolution = m, this.extentChanged = !this.renderedExtent_ || !Ja(this.renderedExtent_, P), this.renderedExtent_ = P, this.renderedPixelRatio = c, this.renderedProjection = o, this.manageTilePyramid(
+    return this.renderedRevision = h, this.renderedResolution = m, this.extentChanged = !this.renderedExtent_ || !Qa(this.renderedExtent_, P), this.renderedExtent_ = P, this.renderedPixelRatio = c, this.renderedProjection = o, this.manageTilePyramid(
       e,
       d,
       f,
@@ -26001,7 +25986,7 @@ class mb extends kg {
     n.updateCacheSize(C, o);
   }
 }
-class vb extends hb {
+class mb extends db {
   /**
    * @param {import("./BaseTile.js").Options<TileSourceType>} [options] Tile layer options.
    */
@@ -26009,7 +25994,7 @@ class vb extends hb {
     super(e);
   }
   createRenderer() {
-    return new mb(this);
+    return new gb(this);
   }
 }
 const oe = {
@@ -26026,7 +26011,7 @@ const oe = {
   SET_FILL_STYLE: 10,
   SET_STROKE_STYLE: 11,
   STROKE: 12
-}, Zo = [oe.FILL], si = [oe.STROKE], Ii = [oe.BEGIN_PATH], _d = [oe.CLOSE_PATH];
+}, Ko = [oe.FILL], si = [oe.STROKE], Ii = [oe.BEGIN_PATH], Cd = [oe.CLOSE_PATH];
 class Og {
   /**
    * Render a geometry with a custom renderer.
@@ -26142,7 +26127,7 @@ class Og {
   setTextStyle(e, n) {
   }
 }
-class Vo extends Og {
+class Bo extends Og {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26257,7 +26242,7 @@ class Vo extends Og {
           h,
           e,
           i,
-          ju,
+          Xu,
           o
         ]), this.hitDetectionInstructions.push([
           oe.CUSTOM,
@@ -26265,7 +26250,7 @@ class Vo extends Og {
           h,
           e,
           a || i,
-          ju,
+          Xu,
           o
         ]);
         break;
@@ -26287,7 +26272,7 @@ class Vo extends Og {
           d,
           e,
           i,
-          mr,
+          vr,
           o
         ]), this.hitDetectionInstructions.push([
           oe.CUSTOM,
@@ -26295,7 +26280,7 @@ class Vo extends Og {
           d,
           e,
           a || i,
-          mr,
+          vr,
           o
         ]);
         break;
@@ -26409,7 +26394,7 @@ class Vo extends Og {
     let a, o, r = -1;
     for (n = 0; n < i; ++n)
       a = e[n], o = /** @type {import("./Instruction.js").default} */
-      a[0], o == oe.END_GEOMETRY ? r = n : o == oe.BEGIN_GEOMETRY && (a[2] = n, wy(this.hitDetectionInstructions, r, n), r = -1);
+      a[0], o == oe.END_GEOMETRY ? r = n : o == oe.BEGIN_GEOMETRY && (a[2] = n, Ty(this.hitDetectionInstructions, r, n), r = -1);
   }
   /**
    * @param {import("../../style/Fill.js").default} fillStyle Fill style.
@@ -26427,7 +26412,7 @@ class Vo extends Og {
     if (n) {
       const a = n.getColor();
       i.strokeStyle = Cn(
-        a || ao
+        a || oo
       );
       const o = n.getLineCap();
       i.lineCap = o !== void 0 ? o : va;
@@ -26438,9 +26423,9 @@ class Vo extends Og {
       const l = n.getLineJoin();
       i.lineJoin = l !== void 0 ? l : Ca;
       const c = n.getWidth();
-      i.lineWidth = c !== void 0 ? c : ro;
+      i.lineWidth = c !== void 0 ? c : so;
       const u = n.getMiterLimit();
-      i.miterLimit = u !== void 0 ? u : io, i.lineWidth > this.maxLineWidth && (this.maxLineWidth = i.lineWidth, this.bufferedMaxExtent_ = null);
+      i.miterLimit = u !== void 0 ? u : ao, i.lineWidth > this.maxLineWidth && (this.maxLineWidth = i.lineWidth, this.bufferedMaxExtent_ = null);
     } else
       i.strokeStyle = void 0, i.lineCap = void 0, i.lineDash = null, i.lineDashOffset = void 0, i.lineJoin = void 0, i.lineWidth = void 0, i.miterLimit = void 0;
   }
@@ -26508,12 +26493,12 @@ class Vo extends Og {
   getBufferedMaxExtent() {
     if (!this.bufferedMaxExtent_ && (this.bufferedMaxExtent_ = Af(this.maxExtent), this.maxLineWidth > 0)) {
       const e = this.resolution * (this.maxLineWidth + 1) / 2;
-      ql(this.bufferedMaxExtent_, e, this.bufferedMaxExtent_);
+      Hl(this.bufferedMaxExtent_, e, this.bufferedMaxExtent_);
     }
     return this.bufferedMaxExtent_;
   }
 }
-class Cb extends Vo {
+class vb extends Bo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26646,7 +26631,7 @@ class Cb extends Vo {
     this.imagePixelRatio_ = e.getPixelRatio(this.pixelRatio), this.anchorX_ = i[0], this.anchorY_ = i[1], this.hitDetectionImage_ = e.getHitDetectionImage(), this.image_ = e.getImage(this.pixelRatio), this.height_ = a[1], this.opacity_ = e.getOpacity(), this.originX_ = o[0], this.originY_ = o[1], this.rotateWithView_ = e.getRotateWithView(), this.rotation_ = e.getRotation(), this.scale_ = e.getScaleArray(), this.width_ = a[0], this.declutterMode_ = e.getDeclutterMode(), this.declutterImageWithText_ = n;
   }
 }
-class pb extends Vo {
+class Cb extends Bo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26757,7 +26742,7 @@ class pb extends Vo {
     e.lastStroke != null && e.lastStroke != this.coordinates.length && (this.instructions.push(si), e.lastStroke = this.coordinates.length), e.lastStroke = 0, super.applyStroke(e), this.instructions.push(Ii);
   }
 }
-class Sd extends Vo {
+class pd extends Bo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -26791,9 +26776,9 @@ class Sd extends Vo {
         d,
         h
       ];
-      this.instructions.push(f), this.hitDetectionInstructions.push(f), s && (this.instructions.push(_d), this.hitDetectionInstructions.push(_d)), n = u;
+      this.instructions.push(f), this.hitDetectionInstructions.push(f), s && (this.instructions.push(Cd), this.hitDetectionInstructions.push(Cd)), n = u;
     }
-    return r && (this.instructions.push(Zo), this.hitDetectionInstructions.push(Zo)), s && (this.instructions.push(si), this.hitDetectionInstructions.push(si)), n;
+    return r && (this.instructions.push(Ko), this.hitDetectionInstructions.push(Ko)), s && (this.instructions.push(si), this.hitDetectionInstructions.push(si)), n;
   }
   /**
    * @param {import("../../geom/Circle.js").default} circleGeometry Circle geometry.
@@ -26827,7 +26812,7 @@ class Sd extends Vo {
       !1
     );
     const u = [oe.CIRCLE, c];
-    this.instructions.push(Ii, u), this.hitDetectionInstructions.push(Ii, u), a.fillStyle !== void 0 && (this.instructions.push(Zo), this.hitDetectionInstructions.push(Zo)), a.strokeStyle !== void 0 && (this.instructions.push(si), this.hitDetectionInstructions.push(si)), this.endGeometry(n);
+    this.instructions.push(Ii, u), this.hitDetectionInstructions.push(Ii, u), a.fillStyle !== void 0 && (this.instructions.push(Ko), this.hitDetectionInstructions.push(Ko)), a.strokeStyle !== void 0 && (this.instructions.push(si), this.hitDetectionInstructions.push(si)), this.endGeometry(n);
   }
   /**
    * @param {import("../../geom/Polygon.js").default|import("../Feature.js").default} polygonGeometry Polygon geometry.
@@ -26914,7 +26899,7 @@ class Sd extends Vo {
     e.fillStyle !== void 0 && this.updateFillStyle(e, this.createFill), e.strokeStyle !== void 0 && this.updateStrokeStyle(e, this.applyStroke);
   }
 }
-function yb(t, e, n, i, a) {
+function pb(t, e, n, i, a) {
   const o = [];
   let r = n, s = 0, l = e.slice(n, 2);
   for (; s < t && r + a < i; ) {
@@ -26936,7 +26921,7 @@ function yb(t, e, n, i, a) {
   }
   return s > 0 && o.push(l), o;
 }
-function _b(t, e, n, i, a) {
+function yb(t, e, n, i, a) {
   let o = n, r = n, s = 0, l = 0, c = n, u, d, h, f, g, m, C, p, y, M;
   for (d = n; d < i; d += a) {
     const S = e[d], b = e[d + 1];
@@ -26944,7 +26929,7 @@ function _b(t, e, n, i, a) {
   }
   return l += f, l > s ? [c, d] : [o, r];
 }
-const br = {
+const Mr = {
   left: 0,
   center: 0.5,
   right: 1,
@@ -26955,7 +26940,7 @@ const br = {
   ideographic: 0.8,
   bottom: 1
 };
-class Sb extends Vo {
+class _b extends Bo {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Maximum extent.
@@ -27012,7 +26997,7 @@ class Sb extends Vo {
       let m = 0;
       for (let C = 0, p = h.length; C < p; ++C) {
         let y;
-        f ? y = yb(
+        f ? y = pb(
           f * this.resolution,
           u,
           m,
@@ -27023,7 +27008,7 @@ class Sb extends Vo {
           const b = y[M];
           let T = 0, _ = b.length;
           if (g == null) {
-            const w = _b(
+            const w = yb(
               r.maxAngle,
               b,
               0,
@@ -27174,9 +27159,9 @@ class Sb extends Vo {
     const o = this.textKey_;
     o in this.textStates || (this.textStates[o] = {
       font: n.font,
-      textAlign: n.textAlign || oo,
+      textAlign: n.textAlign || ro,
       justify: n.justify,
-      textBaseline: n.textBaseline || Cr,
+      textBaseline: n.textBaseline || pr,
       scale: n.scale
     });
     const r = this.fillKey_;
@@ -27192,7 +27177,7 @@ class Sb extends Vo {
   drawChars_(e, n) {
     const i = this.textStrokeState_, a = this.textState_, o = this.strokeKey_, r = this.textKey_, s = this.fillKey_;
     this.saveTextStates_();
-    const l = this.pixelRatio, c = br[a.textBaseline], u = this.textOffsetY_ * l, d = this.text_, h = i ? i.lineWidth * Math.abs(a.scale[0]) / 2 : 0;
+    const l = this.pixelRatio, c = Mr[a.textBaseline], u = this.textOffsetY_ * l, d = this.text_, h = i ? i.lineWidth * Math.abs(a.scale[0]) / 2 : 0;
     this.instructions.push([
       oe.DRAW_CHARS,
       e,
@@ -27248,30 +27233,30 @@ class Sb extends Vo {
         o = this.textStrokeState_, o || (o = /** @type {import("../canvas.js").StrokeState} */
         {}, this.textStrokeState_ = o);
         const g = s.getLineDash(), m = s.getLineDashOffset(), C = s.getWidth(), p = s.getMiterLimit();
-        o.lineCap = s.getLineCap() || va, o.lineDash = g ? g.slice() : Un, o.lineDashOffset = m === void 0 ? Yn : m, o.lineJoin = s.getLineJoin() || Ca, o.lineWidth = C === void 0 ? ro : C, o.miterLimit = p === void 0 ? io : p, o.strokeStyle = Cn(
-          s.getColor() || ao
+        o.lineCap = s.getLineCap() || va, o.lineDash = g ? g.slice() : Un, o.lineDashOffset = m === void 0 ? Yn : m, o.lineJoin = s.getLineJoin() || Ca, o.lineWidth = C === void 0 ? so : C, o.miterLimit = p === void 0 ? ao : p, o.strokeStyle = Cn(
+          s.getColor() || oo
         );
       }
       i = this.textState_;
       const l = e.getFont() || ug;
-      dS(l);
+      uS(l);
       const c = e.getScaleArray();
-      i.overflow = e.getOverflow(), i.font = l, i.maxAngle = e.getMaxAngle(), i.placement = e.getPlacement(), i.textAlign = e.getTextAlign(), i.repeat = e.getRepeat(), i.justify = e.getJustify(), i.textBaseline = e.getTextBaseline() || Cr, i.backgroundFill = e.getBackgroundFill(), i.backgroundStroke = e.getBackgroundStroke(), i.padding = e.getPadding() || Ri, i.scale = c === void 0 ? [1, 1] : c;
+      i.overflow = e.getOverflow(), i.font = l, i.maxAngle = e.getMaxAngle(), i.placement = e.getPlacement(), i.textAlign = e.getTextAlign(), i.repeat = e.getRepeat(), i.justify = e.getJustify(), i.textBaseline = e.getTextBaseline() || pr, i.backgroundFill = e.getBackgroundFill(), i.backgroundStroke = e.getBackgroundStroke(), i.padding = e.getPadding() || Ri, i.scale = c === void 0 ? [1, 1] : c;
       const u = e.getOffsetX(), d = e.getOffsetY(), h = e.getRotateWithView(), f = e.getRotation();
       this.text_ = e.getText() || "", this.textOffsetX_ = u === void 0 ? 0 : u, this.textOffsetY_ = d === void 0 ? 0 : d, this.textRotateWithView_ = h === void 0 ? !1 : h, this.textRotation_ = f === void 0 ? 0 : f, this.strokeKey_ = o ? (typeof o.strokeStyle == "string" ? o.strokeStyle : Ee(o.strokeStyle)) + o.lineCap + o.lineDashOffset + "|" + o.lineWidth + o.lineJoin + o.miterLimit + "[" + o.lineDash.join() + "]" : "", this.textKey_ = i.font + i.scale + (i.textAlign || "?") + (i.repeat || "?") + (i.justify || "?") + (i.textBaseline || "?"), this.fillKey_ = a && a.fillStyle ? typeof a.fillStyle == "string" ? a.fillStyle : "|" + Ee(a.fillStyle) : "";
     }
     this.declutterMode_ = e.getDeclutterMode(), this.declutterImageWithText_ = n;
   }
 }
-const bb = {
-  Circle: Sd,
-  Default: Vo,
-  Image: Cb,
-  LineString: pb,
-  Polygon: Sd,
-  Text: Sb
+const Sb = {
+  Circle: pd,
+  Default: Bo,
+  Image: vb,
+  LineString: Cb,
+  Polygon: pd,
+  Text: _b
 };
-class Mb {
+class bb {
   /**
    * @param {number} tolerance Tolerance.
    * @param {import("../../extent.js").Extent} maxExtent Max extent.
@@ -27307,7 +27292,7 @@ class Mb {
     a === void 0 && (a = {}, this.buildersByZIndex_[i] = a);
     let o = a[n];
     if (o === void 0) {
-      const r = bb[n];
+      const r = Sb[n];
       o = new r(
         this.tolerance_,
         this.maxExtent_,
@@ -27318,7 +27303,7 @@ class Mb {
     return o;
   }
 }
-function xb(t, e, n, i, a, o, r, s, l, c, u, d) {
+function Mb(t, e, n, i, a, o, r, s, l, c, u, d) {
   let h = t[e], f = t[e + 1], g = 0, m = 0, C = 0, p = 0;
   function y() {
     g = h, m = f, e += i, h = t[e], f = t[e + 1], p += C, C = Math.sqrt((h - g) * (h - g) + (f - m) * (f - m));
@@ -27368,12 +27353,12 @@ function xb(t, e, n, i, a, o, r, s, l, c, u, d) {
       continue;
     const k = z ? a.substring(U - B, U - G) : a.substring(B, G);
     M = C === 0 ? 0 : (o + D / 2 - p) / C;
-    const W = Dt(g, h, M), X = Dt(m, f, M);
-    R.push([W, X, D / 2, E, k]), o += D;
+    const $ = Dt(g, h, M), X = Dt(m, f, M);
+    R.push([$, X, D / 2, E, k]), o += D;
   }
   return R;
 }
-function Pb(t, e, n, i) {
+function xb(t, e, n, i) {
   let a = t[e], o = t[e + 1], r = 0;
   for (let s = e + i; s < n; s += i) {
     const l = t[s], c = t[s + 1];
@@ -27381,23 +27366,23 @@ function Pb(t, e, n, i) {
   }
   return r;
 }
-const Ki = Wt(), ti = [], Vn = [], Bn = [], ni = [];
-function bd(t) {
+const Ki = $t(), ti = [], Vn = [], Bn = [], ni = [];
+function yd(t) {
   return t[3].declutterBox;
 }
-const Md = new RegExp(
+const _d = new RegExp(
   /* eslint-disable prettier/prettier */
   "[֑-ࣿיִ-﷿ﹰ-ﻼࠀ-࿿-]"
   /* eslint-enable prettier/prettier */
 );
 function Is(t, e) {
-  return e === "start" ? e = Md.test(t) ? "right" : "left" : e === "end" && (e = Md.test(t) ? "left" : "right"), br[e];
+  return e === "start" ? e = _d.test(t) ? "right" : "left" : e === "end" && (e = _d.test(t) ? "left" : "right"), Mr[e];
 }
-function Tb(t, e, n) {
+function Pb(t, e, n) {
   return n > 0 && t.push(`
 `, ""), t.push(e, ""), t;
 }
-class wb {
+class Tb {
   /**
    * @param {number} resolution Resolution.
    * @param {number} pixelRatio Pixel ratio.
@@ -27428,11 +27413,11 @@ class wb {
     const r = a ? this.strokeStates[a] : null, s = i ? this.fillStates[i] : null, l = this.textStates[n], c = this.pixelRatio, u = [
       l.scale[0] * c,
       l.scale[1] * c
-    ], d = Array.isArray(e), h = l.justify ? br[l.justify] : Is(
+    ], d = Array.isArray(e), h = l.justify ? Mr[l.justify] : Is(
       Array.isArray(e) ? e[0] : e,
-      l.textAlign || oo
+      l.textAlign || ro
     ), f = a && r.lineWidth ? r.lineWidth : 0, g = d ? e : e.split(`
-`).reduce(Tb, []), { width: m, height: C, widths: p, heights: y, lineWidths: M } = fS(
+`).reduce(Pb, []), { width: m, height: C, widths: p, heights: y, lineWidths: M } = hS(
       l,
       g
     ), S = m + f, b = [], T = (S + 2) * u[0], _ = (C + f) * u[1], P = {
@@ -27454,12 +27439,12 @@ class wb {
       }
       const k = g[E + 1] || l.font;
       k !== U && (a && z.push("font", k), i && A.push("font", k), U = k), R = Math.max(R, y[N]);
-      const W = [
+      const $ = [
         D,
         I + w * p[N] + h * (p[N] - M[G]),
         0.5 * (f + R) + V
       ];
-      I += p[N], a && z.push("strokeText", W), i && A.push("fillText", W), ++N;
+      I += p[N], a && z.push("strokeText", $), i && A.push("fillText", $), ++N;
     }
     return Array.prototype.push.apply(b, z), Array.prototype.push.apply(b, A), this.labels_[o] = P, P;
   }
@@ -27568,7 +27553,7 @@ class wb {
       r,
       /** @type {Array<*>} */
       s
-    ), gS(
+    ), fS(
       e,
       a.canvasTransform,
       o,
@@ -27622,8 +27607,8 @@ class wb {
   drawLabelWithPointPlacement_(e, n, i, a) {
     const o = this.textStates[n], r = this.createLabel(e, n, a, i), s = this.strokeStates[i], l = this.pixelRatio, c = Is(
       Array.isArray(e) ? e[0] : e,
-      o.textAlign || oo
-    ), u = br[o.textBaseline || Cr], d = s && s.lineWidth ? s.lineWidth : 0, h = r.width / l - 2 * o.scale[0], f = c * h + 2 * (0.5 - c) * d, g = u * r.height / l + 2 * (0.5 - u) * d;
+      o.textAlign || ro
+    ), u = Mr[o.textBaseline || pr], d = s && s.lineWidth ? s.lineWidth : 0, h = r.width / l - 2 * o.scale[0], f = c * h + 2 * (0.5 - c) * d, g = u * r.height / l + 2 * (0.5 - u) * d;
     return {
       label: r,
       anchorX: f,
@@ -27654,7 +27639,7 @@ class wb {
       2,
       i,
       this.pixelCoordinates_
-    ), d_(this.renderedTransform_, i));
+    ), u_(this.renderedTransform_, i));
     let d = 0;
     const h = a.length;
     let f = 0, g, m, C, p, y, M, S, b, T, _, P, w, I, z = 0, A = 0, R = null, V = null;
@@ -27667,7 +27652,7 @@ class wb {
         rotation: G
       }
     ), B = this.instructions != a || this.overlaps ? 0 : 200;
-    let D, k, W, X;
+    let D, k, $, X;
     for (; d < h; ) {
       const L = a[d];
       switch (
@@ -27771,11 +27756,11 @@ class wb {
           let Ni;
           L.length > 25 && (Ni = /** @type {number} */
           L[25]);
-          let $i, Jn, Rn;
-          L.length > 17 ? ($i = /** @type {Array<number>} */
+          let Wi, Jn, Rn;
+          L.length > 17 ? (Wi = /** @type {Array<number>} */
           L[16], Jn = /** @type {boolean} */
           L[17], Rn = /** @type {boolean} */
-          L[18]) : ($i = Ri, Jn = !1, Rn = !1), An && U ? Je += G : !An && !U && (Je -= G);
+          L[18]) : (Wi = Ri, Jn = !1, Rn = !1), An && U ? Je += G : !An && !U && (Je -= G);
           let ts = 0;
           for (; f < g; f += 2) {
             if (Ni && Ni[ts++] < cn / this.pixelRatio)
@@ -27794,7 +27779,7 @@ class wb {
               Je,
               Yt,
               o,
-              $i,
+              Wi,
               Jn || Rn,
               D
             ), bi = [
@@ -27821,7 +27806,7 @@ class wb {
                   continue;
                 }
                 const mt = jt[Oe];
-                Bt = mt.args, un = mt.declutterMode, delete jt[Oe], Ft = bd(Bt);
+                Bt = mt.args, un = mt.declutterMode, delete jt[Oe], Ft = yd(Bt);
               }
               let In, zn;
               if (Bt && (un !== "declutter" || !l.collides(Ft)) && (In = !0), (p !== "declutter" || !l.collides(Vt.declutterBox)) && (zn = !0), un === "declutter" && p === "declutter") {
@@ -27838,7 +27823,7 @@ class wb {
           const gt = (
             /** @type {number} */
             L[1]
-          ), Tc = (
+          ), Mc = (
             /** @type {number} */
             L[2]
           ), ns = (
@@ -27853,10 +27838,10 @@ class wb {
           const nm = (
             /** @type {number} */
             L[6]
-          ), wc = (
+          ), xc = (
             /** @type {number} */
             L[7]
-          ), Ec = (
+          ), Pc = (
             /** @type {number} */
             L[8]
           );
@@ -27869,7 +27854,7 @@ class wb {
           _ = /** @type {string} */
           L[11], P = /** @type {string} */
           L[12];
-          const Ac = [
+          const Tc = [
             /** @type {number} */
             L[13],
             /** @type {number} */
@@ -27877,23 +27862,23 @@ class wb {
           ];
           p = L[14] || "declutter";
           const as = this.textStates[P], Ra = as.font, Ia = [
-            as.scale[0] * wc,
-            as.scale[1] * wc
+            as.scale[0] * xc,
+            as.scale[1] * xc
           ];
           let za;
           Ra in this.widths_ ? za = this.widths_[Ra] : (za = {}, this.widths_[Ra] = za);
-          const Rc = Pb(u, gt, Tc, 2), Ic = Math.abs(Ia[0]) * ad(Ra, _, za);
-          if (tm || Ic <= Rc) {
-            const Vt = this.textStates[P].textAlign, bi = (Rc - Ic) * Is(_, Vt), Bt = xb(
+          const wc = xb(u, gt, Mc, 2), Ec = Math.abs(Ia[0]) * td(Ra, _, za);
+          if (tm || Ec <= wc) {
+            const Vt = this.textStates[P].textAlign, bi = (wc - Ec) * Is(_, Vt), Bt = Mb(
               u,
               gt,
-              Tc,
+              Mc,
               2,
               _,
               bi,
               nm,
               Math.abs(Ia[0]),
-              ad,
+              td,
               Ra,
               za,
               U ? 0 : this.viewRotation_
@@ -27905,7 +27890,7 @@ class wb {
                 for (Ft = 0, In = Bt.length; Ft < In; ++Ft) {
                   mt = Bt[Ft], zn = /** @type {string} */
                   mt[4], Oe = this.createLabel(zn, P, "", w), m = /** @type {number} */
-                  mt[2] + (Ia[0] < 0 ? -is : is), C = ns * Oe.height + (0.5 - ns) * 2 * is * Ia[1] / Ia[0] - Ec;
+                  mt[2] + (Ia[0] < 0 ? -is : is), C = ns * Oe.height + (0.5 - ns) * 2 * is * Ia[1] / Ia[0] - Pc;
                   const Ln = this.calculateImageOrLabelDimensions_(
                     Oe.width,
                     Oe.height,
@@ -27918,7 +27903,7 @@ class wb {
                     0,
                     0,
                     mt[3],
-                    Ac,
+                    Tc,
                     !1,
                     Ri,
                     !1,
@@ -27940,7 +27925,7 @@ class wb {
                 for (Ft = 0, In = Bt.length; Ft < In; ++Ft) {
                   mt = Bt[Ft], zn = /** @type {string} */
                   mt[4], Oe = this.createLabel(zn, P, I, ""), m = /** @type {number} */
-                  mt[2], C = ns * Oe.height - Ec;
+                  mt[2], C = ns * Oe.height - Pc;
                   const Ln = this.calculateImageOrLabelDimensions_(
                     Oe.width,
                     Oe.height,
@@ -27953,7 +27938,7 @@ class wb {
                     0,
                     0,
                     mt[3],
-                    Ac,
+                    Tc,
                     !1,
                     Ri,
                     !1,
@@ -27971,7 +27956,7 @@ class wb {
                     null
                   ]);
                 }
-              l && p !== "none" && l.load(un.map(bd));
+              l && p !== "none" && l.load(un.map(yd));
               for (let Ln = 0, im = un.length; Ln < im; ++Ln)
                 this.replayImageOrLabel_.apply(this, un[Ln]);
             }
@@ -27994,8 +27979,8 @@ class wb {
         case oe.MOVE_TO_LINE_TO:
           for (f = /** @type {number} */
           L[1], g = /** @type {number} */
-          L[2], k = u[f], W = u[f + 1], S = k + 0.5 | 0, b = W + 0.5 | 0, (S !== y || b !== M) && (e.moveTo(k, W), y = S, M = b), f += 2; f < g; f += 2)
-            k = u[f], W = u[f + 1], S = k + 0.5 | 0, b = W + 0.5 | 0, (f == g - 2 || S !== y || b !== M) && (e.lineTo(k, W), y = S, M = b);
+          L[2], k = u[f], $ = u[f + 1], S = k + 0.5 | 0, b = $ + 0.5 | 0, (S !== y || b !== M) && (e.moveTo(k, $), y = S, M = b), f += 2; f < g; f += 2)
+            k = u[f], $ = u[f + 1], S = k + 0.5 | 0, b = $ + 0.5 | 0, (f == g - 2 || S !== y || b !== M) && (e.lineTo(k, $), y = S, M = b);
           ++d;
           break;
         case oe.SET_FILL_STYLE:
@@ -28067,10 +28052,10 @@ const Ua = [
   "Image",
   "Text",
   "Default"
-], Dg = ["Image", "Text"], Eb = Ua.filter(
+], Dg = ["Image", "Text"], wb = Ua.filter(
   (t) => !Dg.includes(t)
 );
-class Ab {
+class Eb {
   /**
    * @param {import("../../extent.js").Extent} maxExtent Max extent for clipping. When a
    * `maxExtent` was set on the Builder for this executor group, the same `maxExtent`
@@ -28108,7 +28093,7 @@ class Ab {
       const o = e[i];
       for (const r in o) {
         const s = o[r];
-        a[r] = new wb(
+        a[r] = new Tb(
           this.resolution_,
           this.pixelRatio_,
           this.overlaps_,
@@ -28162,12 +28147,12 @@ class Ab {
     const u = this.hitDetectionContext_;
     u.canvas.width !== s || u.canvas.height !== s ? (u.canvas.width = s, u.canvas.height = s) : c || u.clearRect(0, 0, s, s);
     let d;
-    this.renderBuffer_ !== void 0 && (d = Wt(), Wa(d, e), ql(
+    this.renderBuffer_ !== void 0 && (d = $t(), $a(d, e), Hl(
       d,
       n * (this.renderBuffer_ + a),
       d
     ));
-    const h = Rb(a);
+    const h = Ab(a);
     let f;
     function g(b, T) {
       const _ = u.getImageData(
@@ -28273,7 +28258,7 @@ class Ab {
   }
 }
 const zs = {};
-function Rb(t) {
+function Ab(t) {
   if (zs[t] !== void 0)
     return zs[t];
   const e = t * 2 + 1, n = t * t, i = new Array(n + 1);
@@ -28290,7 +28275,7 @@ function Rb(t) {
     i[o] && a.push(...i[o]);
   return zs[t] = a, a;
 }
-class Ib extends Og {
+class Rb extends Og {
   /**
    * @param {CanvasRenderingContext2D} context Context.
    * @param {number} pixelRatio Pixel ratio.
@@ -28301,7 +28286,7 @@ class Ib extends Og {
    * @param {import("../../proj.js").TransformFunction} [userTransform] Transform from user to view projection.
    */
   constructor(e, n, i, a, o, r, s) {
-    super(), this.context_ = e, this.pixelRatio_ = n, this.extent_ = i, this.transform_ = a, this.transformRotation_ = a ? Hl(Math.atan2(a[1], a[0]), 10) : 0, this.viewRotation_ = o, this.squaredTolerance_ = r, this.userTransform_ = s, this.contextFillState_ = null, this.contextStrokeState_ = null, this.contextTextState_ = null, this.fillState_ = null, this.strokeState_ = null, this.image_ = null, this.imageAnchorX_ = 0, this.imageAnchorY_ = 0, this.imageHeight_ = 0, this.imageOpacity_ = 0, this.imageOriginX_ = 0, this.imageOriginY_ = 0, this.imageRotateWithView_ = !1, this.imageRotation_ = 0, this.imageScale_ = [0, 0], this.imageWidth_ = 0, this.text_ = "", this.textOffsetX_ = 0, this.textOffsetY_ = 0, this.textRotateWithView_ = !1, this.textRotation_ = 0, this.textScale_ = [0, 0], this.textFillState_ = null, this.textStrokeState_ = null, this.textState_ = null, this.pixelCoordinates_ = [], this.tmpLocalTransform_ = Jt();
+    super(), this.context_ = e, this.pixelRatio_ = n, this.extent_ = i, this.transform_ = a, this.transformRotation_ = a ? Ul(Math.atan2(a[1], a[0]), 10) : 0, this.viewRotation_ = o, this.squaredTolerance_ = r, this.userTransform_ = s, this.contextFillState_ = null, this.contextStrokeState_ = null, this.contextTextState_ = null, this.fillState_ = null, this.strokeState_ = null, this.image_ = null, this.imageAnchorX_ = 0, this.imageAnchorY_ = 0, this.imageHeight_ = 0, this.imageOpacity_ = 0, this.imageOriginX_ = 0, this.imageOriginY_ = 0, this.imageRotateWithView_ = !1, this.imageRotation_ = 0, this.imageScale_ = [0, 0], this.imageWidth_ = 0, this.text_ = "", this.textOffsetX_ = 0, this.textOffsetY_ = 0, this.textRotateWithView_ = !1, this.textRotation_ = 0, this.textScale_ = [0, 0], this.textFillState_ = null, this.textStrokeState_ = null, this.textState_ = null, this.pixelCoordinates_ = [], this.tmpLocalTransform_ = Jt();
   }
   /**
    * @param {Array<number>} flatCoordinates Flat coordinates.
@@ -28447,7 +28432,7 @@ class Ib extends Og {
     )), !!xt(this.extent_, e.getExtent())) {
       if (this.fillState_ || this.strokeState_) {
         this.fillState_ && this.setContextFillState_(this.fillState_), this.strokeState_ && this.setContextStrokeState_(this.strokeState_);
-        const n = C_(
+        const n = v_(
           e,
           this.transform_,
           this.pixelCoordinates_
@@ -28752,7 +28737,7 @@ class Ib extends Og {
    * @private
    */
   setContextTextState_(e) {
-    const n = this.context_, i = this.contextTextState_, a = e.textAlign ? e.textAlign : oo;
+    const n = this.context_, i = this.contextTextState_, a = e.textAlign ? e.textAlign : ro;
     i ? (i.font != e.font && (i.font = e.font, n.font = e.font), i.textAlign != a && (i.textAlign = a, n.textAlign = a), i.textBaseline != e.textBaseline && (i.textBaseline = e.textBaseline, n.textBaseline = e.textBaseline)) : (n.font = e.font, n.textAlign = a, n.textBaseline = e.textBaseline, this.contextTextState_ = {
       font: e.font,
       textAlign: a,
@@ -28786,10 +28771,10 @@ class Ib extends Og {
         lineDash: this.pixelRatio_ === 1 ? u : u.map((d) => d * this.pixelRatio_),
         lineDashOffset: (r || Yn) * this.pixelRatio_,
         lineJoin: s !== void 0 ? s : Ca,
-        lineWidth: (l !== void 0 ? l : ro) * this.pixelRatio_,
-        miterLimit: c !== void 0 ? c : io,
+        lineWidth: (l !== void 0 ? l : so) * this.pixelRatio_,
+        miterLimit: c !== void 0 ? c : ao,
         strokeStyle: Cn(
-          i || ao
+          i || oo
         )
       };
     }
@@ -28845,18 +28830,18 @@ class Ib extends Og {
           lineDash: m || Un,
           lineDashOffset: C || Yn,
           lineJoin: p !== void 0 ? p : Ca,
-          lineWidth: y !== void 0 ? y : ro,
-          miterLimit: M !== void 0 ? M : io,
+          lineWidth: y !== void 0 ? y : so,
+          miterLimit: M !== void 0 ? M : ao,
           strokeStyle: Cn(
-            f || ao
+            f || oo
           )
         };
       }
       const a = e.getFont(), o = e.getOffsetX(), r = e.getOffsetY(), s = e.getRotateWithView(), l = e.getRotation(), c = e.getScaleArray(), u = e.getText(), d = e.getTextAlign(), h = e.getTextBaseline();
       this.textState_ = {
         font: a !== void 0 ? a : ug,
-        textAlign: d !== void 0 ? d : oo,
-        textBaseline: h !== void 0 ? h : Cr
+        textAlign: d !== void 0 ? d : ro,
+        textBaseline: h !== void 0 ? h : pr
       }, this.text_ = u !== void 0 ? Array.isArray(u) ? u.reduce((f, g, m) => f += m % 2 ? " " : g, "") : u : "", this.textOffsetX_ = o !== void 0 ? this.pixelRatio_ * o : 0, this.textOffsetY_ = r !== void 0 ? this.pixelRatio_ * r : 0, this.textRotateWithView_ = s !== void 0 ? s : !1, this.textRotation_ = l !== void 0 ? l : 0, this.textScale_ = [
         this.pixelRatio_ * c[0],
         this.pixelRatio_ * c[1]
@@ -28865,10 +28850,10 @@ class Ib extends Og {
   }
 }
 const gn = 0.5;
-function zb(t, e, n, i, a, o, r, s, l) {
+function Ib(t, e, n, i, a, o, r, s, l) {
   const c = a, u = t[0] * gn, d = t[1] * gn, h = at(u, d);
   h.imageSmoothingEnabled = !1;
-  const f = h.canvas, g = new Ib(
+  const f = h.canvas, g = new Rb(
     h,
     gn,
     a,
@@ -28904,10 +28889,10 @@ function zb(t, e, n, i, a, o, r, s, l) {
           D[1],
           void 0,
           { alpha: !1 }
-        ), W = k.canvas;
-        k.fillStyle = P, k.fillRect(0, 0, W.width, W.height), R.setImage(
-          new Ro({
-            img: W,
+        ), $ = k.canvas;
+        k.fillStyle = P, k.fillRect(0, 0, $.width, $.height), R.setImage(
+          new Io({
+            img: $,
             anchor: G.getAnchor(),
             anchorXUnits: "pixels",
             anchorYUnits: "pixels",
@@ -28929,7 +28914,7 @@ function zb(t, e, n, i, a, o, r, s, l) {
           /** @type {import("../../geom/GeometryCollection.js").default} */
           A.getGeometriesArrayRecursive()
         );
-        for (let k = 0, W = D.length; k < W; ++k) {
+        for (let k = 0, $ = D.length; k < $; ++k) {
           const X = D[k];
           E[X.getType().replace("Multi", "")].push(
             X,
@@ -28954,7 +28939,7 @@ function zb(t, e, n, i, a, o, r, s, l) {
   }
   return h.getImageData(0, 0, f.width, f.height);
 }
-function Lb(t, e, n) {
+function zb(t, e, n) {
   const i = [];
   if (n) {
     const a = Math.floor(Math.round(t[0]) * gn), o = Math.floor(Math.round(t[1]) * gn), r = (He(a, 0, n.width - 1) + He(o, 0, n.height - 1) * n.width) * 4, s = n.data[r], l = n.data[r + 1], u = n.data[r + 2] + 256 * (l + 256 * s), d = Math.floor((256 * 256 * 256 - 1) / e.length);
@@ -28962,27 +28947,27 @@ function Lb(t, e, n) {
   }
   return i;
 }
-const Vb = 0.5, Gg = {
-  Point: $b,
-  LineString: Db,
-  Polygon: Xb,
+const Lb = 0.5, Gg = {
+  Point: Nb,
+  LineString: Ob,
+  Polygon: $b,
   MultiPoint: Wb,
-  MultiLineString: Gb,
-  MultiPolygon: Nb,
-  GeometryCollection: Ob,
-  Circle: Fb
+  MultiLineString: Db,
+  MultiPolygon: Gb,
+  GeometryCollection: kb,
+  Circle: Bb
 };
-function Bb(t, e) {
+function Vb(t, e) {
   return parseInt(Ee(t), 10) - parseInt(Ee(e), 10);
 }
-function xd(t, e) {
+function Sd(t, e) {
   const n = Ng(t, e);
   return n * n;
 }
 function Ng(t, e) {
-  return Vb * t / e;
+  return Lb * t / e;
 }
-function Fb(t, e, n, i, a) {
+function Bb(t, e, n, i, a) {
   const o = n.getFill(), r = n.getStroke();
   if (o || r) {
     const l = t.getBuilder(n.getZIndex(), "Circle");
@@ -28994,7 +28979,7 @@ function Fb(t, e, n, i, a) {
     l.setTextStyle(s), l.drawText(e, i);
   }
 }
-function Pd(t, e, n, i, a, o, r, s) {
+function bd(t, e, n, i, a, o, r, s) {
   const l = [], c = n.getImage();
   if (c) {
     let h = !0;
@@ -29004,7 +28989,7 @@ function Pd(t, e, n, i, a, o, r, s) {
   const u = n.getFill();
   u && u.loading() && l.push(u.ready());
   const d = l.length > 0;
-  return d && Promise.all(l).then(() => a(null)), kb(
+  return d && Promise.all(l).then(() => a(null)), Fb(
     t,
     e,
     n,
@@ -29014,7 +28999,7 @@ function Pd(t, e, n, i, a, o, r, s) {
     s
   ), d;
 }
-function kb(t, e, n, i, a, o, r) {
+function Fb(t, e, n, i, a, o, r) {
   const s = n.getGeometryFunction()(e);
   if (!s)
     return;
@@ -29023,7 +29008,7 @@ function kb(t, e, n, i, a, o, r) {
     a
   );
   if (n.getRenderer())
-    $g(t, l, n, e, r);
+    Wg(t, l, n, e, r);
   else {
     const u = Gg[l.getType()];
     u(
@@ -29036,14 +29021,14 @@ function kb(t, e, n, i, a, o, r) {
     );
   }
 }
-function $g(t, e, n, i, a) {
+function Wg(t, e, n, i, a) {
   if (e.getType() == "GeometryCollection") {
     const r = (
       /** @type {import("../geom/GeometryCollection.js").default} */
       e.getGeometries()
     );
     for (let s = 0, l = r.length; s < l; ++s)
-      $g(t, r[s], n, i, a);
+      Wg(t, r[s], n, i, a);
     return;
   }
   t.getBuilder(n.getZIndex(), "Default").drawCustom(
@@ -29055,7 +29040,7 @@ function $g(t, e, n, i, a) {
     a
   );
 }
-function Ob(t, e, n, i, a, o) {
+function kb(t, e, n, i, a, o) {
   const r = e.getGeometriesArray();
   let s, l;
   for (s = 0, l = r.length; s < l; ++s) {
@@ -29070,7 +29055,7 @@ function Ob(t, e, n, i, a, o) {
     );
   }
 }
-function Db(t, e, n, i, a) {
+function Ob(t, e, n, i, a) {
   const o = n.getStroke();
   if (o) {
     const s = t.getBuilder(
@@ -29085,7 +29070,7 @@ function Db(t, e, n, i, a) {
     s.setTextStyle(r), s.drawText(e, i, a);
   }
 }
-function Gb(t, e, n, i, a) {
+function Db(t, e, n, i, a) {
   const o = n.getStroke();
   if (o) {
     const s = t.getBuilder(
@@ -29100,7 +29085,7 @@ function Gb(t, e, n, i, a) {
     s.setTextStyle(r), s.drawText(e, i, a);
   }
 }
-function Nb(t, e, n, i, a) {
+function Gb(t, e, n, i, a) {
   const o = n.getFill(), r = n.getStroke();
   if (r || o) {
     const l = t.getBuilder(n.getZIndex(), "Polygon");
@@ -29112,7 +29097,7 @@ function Nb(t, e, n, i, a) {
     l.setTextStyle(s), l.drawText(e, i, a);
   }
 }
-function $b(t, e, n, i, a, o) {
+function Nb(t, e, n, i, a, o) {
   const r = n.getImage(), s = n.getText(), l = s && s.getText(), c = o && r && l ? {} : void 0;
   if (r) {
     if (r.getImageState() != Ce.LOADED)
@@ -29138,7 +29123,7 @@ function Wb(t, e, n, i, a, o) {
     d.setTextStyle(l, u), d.drawText(e, i, a);
   }
 }
-function Xb(t, e, n, i, a) {
+function $b(t, e, n, i, a) {
   const o = n.getFill(), r = n.getStroke();
   if (o || r) {
     const l = t.getBuilder(n.getZIndex(), "Polygon");
@@ -29150,12 +29135,12 @@ function Xb(t, e, n, i, a) {
     l.setTextStyle(s), l.drawText(e, i, a);
   }
 }
-class Ub extends kg {
+class Xb extends kg {
   /**
    * @param {import("../../layer/BaseVector.js").default} vectorLayer Vector layer.
    */
   constructor(e) {
-    super(e), this.boundHandleStyleImageChange_ = this.handleStyleImageChange_.bind(this), this.animatingOrInteracting_, this.hitDetectionImageData_ = null, this.renderedFeatures_ = null, this.renderedRevision_ = -1, this.renderedResolution_ = NaN, this.renderedExtent_ = Wt(), this.wrappedRenderedExtent_ = Wt(), this.renderedRotation_, this.renderedCenter_ = null, this.renderedProjection_ = null, this.renderedPixelRatio_ = 1, this.renderedRenderOrder_ = null, this.replayGroup_ = null, this.replayGroupChanged = !0, this.clipping = !0, this.targetContext_ = null, this.opacity_ = 1;
+    super(e), this.boundHandleStyleImageChange_ = this.handleStyleImageChange_.bind(this), this.animatingOrInteracting_, this.hitDetectionImageData_ = null, this.renderedFeatures_ = null, this.renderedRevision_ = -1, this.renderedResolution_ = NaN, this.renderedExtent_ = $t(), this.wrappedRenderedExtent_ = $t(), this.renderedRotation_, this.renderedCenter_ = null, this.renderedProjection_ = null, this.renderedPixelRatio_ = 1, this.renderedRenderOrder_ = null, this.replayGroup_ = null, this.replayGroupChanged = !0, this.clipping = !0, this.targetContext_ = null, this.opacity_ = 1;
   }
   /**
    * @param {ExecutorGroup} executorGroup Executor group.
@@ -29182,7 +29167,7 @@ class Ub extends kg {
         _,
         c,
         m,
-        i === void 0 ? Ua : i ? Dg : Eb,
+        i === void 0 ? Ua : i ? Dg : wb,
         i ? h && n.declutter[h] : void 0
       );
     } while (++T < b);
@@ -29194,7 +29179,7 @@ class Ub extends kg {
     this.opacity_ !== 1 && (this.targetContext_ = this.context, this.context = at(
       this.context.canvas.width,
       this.context.canvas.height,
-      yd
+      vd
     ));
   }
   /**
@@ -29203,7 +29188,7 @@ class Ub extends kg {
   resetDrawContext_() {
     if (this.opacity_ !== 1) {
       const e = this.targetContext_.globalAlpha;
-      this.targetContext_.globalAlpha = this.opacity_, this.targetContext_.drawImage(this.context.canvas, 0, 0), this.targetContext_.globalAlpha = e, Ur(this.context), yd.push(this.context.canvas), this.context = this.targetContext_, this.targetContext_ = null;
+      this.targetContext_.globalAlpha = this.opacity_, this.targetContext_.drawImage(this.context.canvas, 0, 0), this.targetContext_.globalAlpha = e, Ur(this.context), vd.push(this.context.canvas), this.context = this.targetContext_, this.targetContext_ = null;
     }
   }
   /**
@@ -29239,8 +29224,8 @@ class Ub extends kg {
       0,
       -s / 2,
       -l / 2
-    ), rc(this.inversePixelTransform, this.pixelTransform);
-    const c = Wf(this.pixelTransform);
+    ), ic(this.inversePixelTransform, this.pixelTransform);
+    const c = $f(this.pixelTransform);
     this.useContainer(n, c, this.getBackground(e));
     const u = this.context, d = u.canvas, h = this.replayGroup_;
     let f = h && !h.isEmpty();
@@ -29313,7 +29298,7 @@ class Ub extends kg {
               ).slice()
             ), m -= C;
         }
-        this.hitDetectionImageData_ = zb(
+        this.hitDetectionImageData_ = Ib(
           i,
           u,
           this.renderedFeatures_,
@@ -29321,11 +29306,11 @@ class Ub extends kg {
           l,
           o,
           r,
-          xd(o, this.renderedPixelRatio_)
+          Sd(o, this.renderedPixelRatio_)
         );
       }
       n(
-        Lb(e, this.renderedFeatures_, this.hitDetectionImageData_)
+        zb(e, this.renderedFeatures_, this.hitDetectionImageData_)
       );
     });
   }
@@ -29404,8 +29389,8 @@ class Ub extends kg {
     this.animatingOrInteracting_ = !1;
     const l = e.extent, c = e.viewState, u = c.projection, d = c.resolution, h = e.pixelRatio, f = n.getRevision(), g = n.getRenderBuffer();
     let m = n.getRenderOrder();
-    m === void 0 && (m = Bb);
-    const C = c.center.slice(), p = ql(
+    m === void 0 && (m = Vb);
+    const C = c.center.slice(), p = Hl(
       l,
       g * d
     ), y = p.slice(), M = [p.slice()], S = u.getExtent();
@@ -29428,7 +29413,7 @@ class Ub extends kg {
     if (this.ready && this.renderedResolution_ == d && this.renderedRevision_ == f && this.renderedRenderOrder_ == m && wi(this.wrappedRenderedExtent_, p))
       return _i(this.renderedExtent_, y) || (this.hitDetectionImageData_ = null, this.renderedExtent_ = y), this.renderedCenter_ = C, this.replayGroupChanged = !1, !0;
     this.replayGroup_ = null;
-    const b = new Mb(
+    const b = new bb(
       Ng(d, h),
       p,
       d,
@@ -29437,7 +29422,7 @@ class Ub extends kg {
     let T;
     for (let V = 0, N = M.length; V < N; ++V)
       i.loadFeatures(M[V], d, u);
-    const _ = xd(d, h);
+    const _ = Sd(d, h);
     let P = !0;
     const w = (
       /**
@@ -29465,7 +29450,7 @@ class Ub extends kg {
     for (let V = 0, N = z.length; V < N; ++V)
       w(z[V], V);
     this.renderedFeatures_ = z, this.ready = P;
-    const A = b.finish(), R = new Ab(
+    const A = b.finish(), R = new Eb(
       p,
       d,
       h,
@@ -29492,7 +29477,7 @@ class Ub extends kg {
     let l = !1;
     if (Array.isArray(i))
       for (let c = 0, u = i.length; c < u; ++c)
-        l = Pd(
+        l = bd(
           a,
           e,
           i[c],
@@ -29503,7 +29488,7 @@ class Ub extends kg {
           s
         ) || l;
     else
-      l = Pd(
+      l = bd(
         a,
         e,
         i,
@@ -29516,7 +29501,7 @@ class Ub extends kg {
     return l;
   }
 }
-class Yb extends _g {
+class Ub extends _g {
   /**
    * @param {import("./BaseVector.js").Options<VectorSourceType>} [options] Options.
    */
@@ -29524,10 +29509,10 @@ class Yb extends _g {
     super(e);
   }
   createRenderer() {
-    return new Ub(this);
+    return new Xb(this);
   }
 }
-class Td {
+class Md {
   /**
    * @param {number} [maxEntries] Max entries.
    */
@@ -29584,7 +29569,7 @@ class Td {
    */
   update(e, n) {
     const i = this.items_[Ee(n)], a = [i.minX, i.minY, i.maxX, i.maxY];
-    Ja(a, e) || (this.remove(n), this.insert(e, n));
+    Qa(a, e) || (this.remove(n), this.insert(e, n));
   }
   /**
    * Return all values in the RBush.
@@ -29672,7 +29657,7 @@ class Td {
       this.items_[n] = e.items_[n];
   }
 }
-function wd(t, e, n, i, a, o, r) {
+function xd(t, e, n, i, a, o, r) {
   let s, l;
   const c = (n - e) / i;
   if (c === 1)
@@ -29686,7 +29671,7 @@ function wd(t, e, n, i, a, o, r) {
       const p = t[C], y = t[C + 1];
       h += Math.sqrt((p - u) * (p - u) + (y - d) * (y - d)), f.push(h), u = p, d = y;
     }
-    const g = a * h, m = Ty(f, g);
+    const g = a * h, m = Py(f, g);
     m < 0 ? (l = (g - f[-m - 2]) / (f[-m - 1] - f[-m - 2]), s = e + (-m - 2) * i) : s = e + m * i;
   }
   r = r > 1 ? r : 2, o = o || new Array(r);
@@ -29694,12 +29679,12 @@ function wd(t, e, n, i, a, o, r) {
     o[u] = s === void 0 ? NaN : l === void 0 ? t[s + u] : Dt(t[s + u], t[s + i + u], l);
   return o;
 }
-function jb(t, e, n, i) {
+function Yb(t, e, n, i) {
   const a = [];
-  let o = Wt();
+  let o = $t();
   for (let r = 0, s = n.length; r < s; ++r) {
     const l = n[r];
-    o = Jl(
+    o = Zl(
       t,
       e,
       l[0],
@@ -29708,7 +29693,7 @@ function jb(t, e, n, i) {
   }
   return a;
 }
-const Ed = Jt();
+const Pd = Jt();
 class Ot {
   /**
    * @param {Type} type Geometry type.
@@ -29737,7 +29722,7 @@ class Ot {
    * @api
    */
   getExtent() {
-    return this.extent_ || (this.extent_ = this.type_ === "Point" ? zf(this.flatCoordinates_) : Jl(
+    return this.extent_ || (this.extent_ = this.type_ === "Point" ? zf(this.flatCoordinates_) : Zl(
       this.flatCoordinates_,
       0,
       this.flatCoordinates_.length,
@@ -29750,7 +29735,7 @@ class Ot {
   getFlatInteriorPoint() {
     if (!this.flatInteriorPoints_) {
       const e = ki(this.getExtent());
-      this.flatInteriorPoints_ = cc(
+      this.flatInteriorPoints_ = rc(
         this.flatCoordinates_,
         0,
         this.ends_,
@@ -29766,8 +29751,8 @@ class Ot {
    */
   getFlatInteriorPoints() {
     if (!this.flatInteriorPoints_) {
-      const e = I_(this.flatCoordinates_, this.ends_), n = jb(this.flatCoordinates_, 0, e, 2);
-      this.flatInteriorPoints_ = T_(
+      const e = R_(this.flatCoordinates_, this.ends_), n = Yb(this.flatCoordinates_, 0, e, 2);
+      this.flatInteriorPoints_ = P_(
         this.flatCoordinates_,
         0,
         e,
@@ -29781,7 +29766,7 @@ class Ot {
    * @return {Array<number>} Flat midpoint.
    */
   getFlatMidpoint() {
-    return this.flatMidpoints_ || (this.flatMidpoints_ = wd(
+    return this.flatMidpoints_ || (this.flatMidpoints_ = xd(
       this.flatCoordinates_,
       0,
       this.flatCoordinates_.length,
@@ -29802,8 +29787,8 @@ class Ot {
         this.ends_
       );
       for (let a = 0, o = i.length; a < o; ++a) {
-        const r = i[a], s = wd(e, n, r, 2, 0.5);
-        jl(this.flatMidpoints_, s), n = r;
+        const r = i[a], s = xd(e, n, r, 2, 0.5);
+        Xl(this.flatMidpoints_, s), n = r;
       }
     }
     return this.flatMidpoints_;
@@ -29895,7 +29880,7 @@ class Ot {
     if (n && i) {
       const a = vt(i) / vt(n);
       Sn(
-        Ed,
+        Pd,
         i[0],
         i[3],
         a,
@@ -29908,7 +29893,7 @@ class Ot {
         0,
         this.flatCoordinates_.length,
         2,
-        Ed,
+        Pd,
         this.flatCoordinates_
       );
     }
@@ -29956,7 +29941,7 @@ class Ot {
       let a;
       switch (this.type_) {
         case "LineString":
-          i.length = lc(
+          i.length = oc(
             i,
             0,
             this.simplifiedGeometry_.flatCoordinates_.length,
@@ -29967,7 +29952,7 @@ class Ot {
           ), a = [i.length];
           break;
         case "MultiLineString":
-          a = [], i.length = b_(
+          a = [], i.length = S_(
             i,
             0,
             this.simplifiedGeometry_.ends_,
@@ -30048,17 +30033,17 @@ const kt = {
    */
   FEATURESLOADERROR: "featuresloaderror"
 };
-function Hb(t, e) {
+function jb(t, e) {
   return [[-1 / 0, -1 / 0, 1 / 0, 1 / 0]];
 }
-let Zb = !1;
-function Kb(t, e, n, i, a, o, r) {
+let Hb = !1;
+function Zb(t, e, n, i, a, o, r) {
   const s = new XMLHttpRequest();
   s.open(
     "GET",
     typeof t == "function" ? t(n, i, a) : t,
     !0
-  ), e.getType() == "arraybuffer" && (s.responseType = "arraybuffer"), s.withCredentials = Zb, s.onload = function(l) {
+  ), e.getType() == "arraybuffer" && (s.responseType = "arraybuffer"), s.withCredentials = Hb, s.onload = function(l) {
     if (!s.status || s.status >= 200 && s.status < 300) {
       const c = e.getType();
       let u;
@@ -30078,13 +30063,13 @@ function Kb(t, e, n, i, a, o, r) {
       r();
   }, s.onerror = r, s.send();
 }
-function Ad(t, e) {
+function Td(t, e) {
   return function(n, i, a, o, r) {
     const s = (
       /** @type {import("./source/Vector").default} */
       this
     );
-    Kb(
+    Zb(
       t,
       e,
       n,
@@ -30113,7 +30098,7 @@ class ii extends Kn {
     super(e), this.feature = n, this.features = i;
   }
 }
-class qb extends zg {
+class Kb extends zg {
   /**
    * @param {Options<FeatureType>} [options] Vector source options.
    */
@@ -30124,13 +30109,13 @@ class qb extends zg {
       projection: void 0,
       state: "ready",
       wrapX: e.wrapX !== void 0 ? e.wrapX : !0
-    }), this.on, this.once, this.un, this.loader_ = fa, this.format_ = e.format, this.overlaps_ = e.overlaps === void 0 ? !0 : e.overlaps, this.url_ = e.url, e.loader !== void 0 ? this.loader_ = e.loader : this.url_ !== void 0 && (be(this.format_, "`format` must be set when `url` is set"), this.loader_ = Ad(
+    }), this.on, this.once, this.un, this.loader_ = fa, this.format_ = e.format, this.overlaps_ = e.overlaps === void 0 ? !0 : e.overlaps, this.url_ = e.url, e.loader !== void 0 ? this.loader_ = e.loader : this.url_ !== void 0 && (be(this.format_, "`format` must be set when `url` is set"), this.loader_ = Td(
       this.url_,
       /** @type {import("../format/Feature.js").default} */
       this.format_
-    )), this.strategy_ = e.strategy !== void 0 ? e.strategy : Hb;
+    )), this.strategy_ = e.strategy !== void 0 ? e.strategy : jb;
     const n = e.useSpatialIndex !== void 0 ? e.useSpatialIndex : !0;
-    this.featuresRtree_ = n ? new Td() : null, this.loadedExtentsRtree_ = new Td(), this.loadingExtentsCount_ = 0, this.nullGeometryFeatures_ = {}, this.idIndex_ = {}, this.uidIndex_ = {}, this.featureChangeKeys_ = {}, this.featuresCollection_ = null;
+    this.featuresRtree_ = n ? new Md() : null, this.loadedExtentsRtree_ = new Md(), this.loadingExtentsCount_ = 0, this.nullGeometryFeatures_ = {}, this.idIndex_ = {}, this.uidIndex_ = {}, this.featureChangeKeys_ = {}, this.featuresCollection_ = null;
     let i, a;
     Array.isArray(e.features) ? a = e.features : e.features && (i = e.features, a = i.getArray()), !n && i === void 0 && (i = new mn(a)), a !== void 0 && this.addFeaturesInternal(a), i !== void 0 && this.bindFeaturesCollection_(i);
   }
@@ -30422,7 +30407,7 @@ class qb extends zg {
    */
   getFeatures() {
     let e;
-    return this.featuresCollection_ ? e = this.featuresCollection_.getArray().slice(0) : this.featuresRtree_ && (e = this.featuresRtree_.getAll(), ga(this.nullGeometryFeatures_) || jl(e, Object.values(this.nullGeometryFeatures_))), e;
+    return this.featuresCollection_ ? e = this.featuresCollection_.getArray().slice(0) : this.featuresRtree_ && (e = this.featuresRtree_.getAll(), ga(this.nullGeometryFeatures_) || Xl(e, Object.values(this.nullGeometryFeatures_))), e;
   }
   /**
    * Get all features whose geometry intersects the provided coordinate.
@@ -30454,7 +30439,7 @@ class qb extends zg {
     if (this.featuresRtree_) {
       if (!(n && n.canWrapX() && this.getWrapX()))
         return this.featuresRtree_.getInExtent(e);
-      const a = Zy(e, n);
+      const a = Hy(e, n);
       return [].concat(
         ...a.map((o) => this.featuresRtree_.getInExtent(o))
       );
@@ -30480,7 +30465,7 @@ class qb extends zg {
     const r = [NaN, NaN];
     let s = 1 / 0;
     const l = [-1 / 0, -1 / 0, 1 / 0, 1 / 0];
-    return n = n || qa, this.featuresRtree_.forEachInExtent(
+    return n = n || Ja, this.featuresRtree_.forEachInExtent(
       l,
       /**
        * @param {FeatureType} feature Feature.
@@ -30659,7 +30644,7 @@ class qb extends zg {
     const n = this.loadedExtentsRtree_;
     let i;
     n.forEachInExtent(e, function(a) {
-      if (Ja(a.extent, e))
+      if (Qa(a.extent, e))
         return i = a, !0;
     }), i && n.remove(i);
   }
@@ -30743,7 +30728,7 @@ class qb extends zg {
    * @api
    */
   setUrl(e) {
-    be(this.format_, "`format` must be set when `url` is set"), this.url_ = e, this.setLoader(Ad(e, this.format_));
+    be(this.format_, "`format` must be set when `url` is set"), this.url_ = e, this.setLoader(Td(e, this.format_));
   }
 }
 const st = {
@@ -30753,12 +30738,12 @@ const st = {
   POSITION: "position",
   POSITIONING: "positioning"
 };
-class Jb extends ln {
+class qb extends ln {
   /**
    * @param {Options} options Overlay options.
    */
   constructor(e) {
-    super(), this.on, this.once, this.un, this.options = e, this.id = e.id, this.insertFirst = e.insertFirst !== void 0 ? e.insertFirst : !0, this.stopEvent = e.stopEvent !== void 0 ? e.stopEvent : !0, this.element = document.createElement("div"), this.element.className = e.className !== void 0 ? e.className : "ol-overlay-container " + cS, this.element.style.position = "absolute", this.element.style.pointerEvents = "auto", this.autoPan = e.autoPan === !0 ? {} : e.autoPan || void 0, this.rendered = {
+    super(), this.on, this.once, this.un, this.options = e, this.id = e.id, this.insertFirst = e.insertFirst !== void 0 ? e.insertFirst : !0, this.stopEvent = e.stopEvent !== void 0 ? e.stopEvent : !0, this.element = document.createElement("div"), this.element.className = e.className !== void 0 ? e.className : "ol-overlay-container " + lS, this.element.style.position = "absolute", this.element.style.pointerEvents = "auto", this.autoPan = e.autoPan === !0 ? {} : e.autoPan || void 0, this.rendered = {
       transform_: "",
       visible: !0
     }, this.mapPostrenderListenerKey = null, this.addChangeListener(st.ELEMENT, this.handleElementChanged), this.addChangeListener(st.MAP, this.handleMapChanged), this.addChangeListener(st.OFFSET, this.handleOffsetChanged), this.addChangeListener(st.POSITION, this.handlePositionChanged), this.addChangeListener(st.POSITIONING, this.handlePositioningChanged), e.element !== void 0 && this.setElement(e.element), this.setOffset(e.offset !== void 0 ? e.offset : [0, 0]), this.setPositioning(e.positioning || "top-left"), e.position !== void 0 && this.setPosition(e.position);
@@ -30846,7 +30831,7 @@ class Jb extends ln {
    * @protected
    */
   handleMapChanged() {
-    this.mapPostrenderListenerKey && (vr(this.element), Ve(this.mapPostrenderListenerKey), this.mapPostrenderListenerKey = null);
+    this.mapPostrenderListenerKey && (Cr(this.element), Ve(this.mapPostrenderListenerKey), this.mapPostrenderListenerKey = null);
     const e = this.getMap();
     if (e) {
       this.mapPostrenderListenerKey = Se(
@@ -30941,8 +30926,8 @@ class Jb extends ln {
     if (!n || !n.getTargetElement() || !this.get(st.POSITION))
       return;
     const i = this.getRect(n.getTargetElement(), n.getSize()), a = this.getElement(), o = this.getRect(a, [
-      eS(a),
-      tS(a)
+      Q_(a),
+      eS(a)
     ]);
     e = e || {};
     const r = e.margin === void 0 ? 20 : e.margin;
@@ -31028,13 +31013,13 @@ class Jb extends ln {
     return this.options;
   }
 }
-const Qb = ["innerHTML"], eM = {
+const Jb = ["innerHTML"], Qb = {
   style: { "font-size": "14px", "font-weight": "bold" },
   class: "mb-1"
-}, tM = {
+}, eM = {
   style: { "font-size": "13px" },
   class: "mb-1"
-}, nM = {
+}, tM = {
   __name: "Map",
   props: ["content", "info"],
   setup(t) {
@@ -31042,11 +31027,11 @@ const Qb = ["innerHTML"], eM = {
     let n = j(null), i = j(null), a = j(null), o, r;
     const s = `https://www.google.com/maps/search/?api=1&query=${t.content.coordinates[1]},${t.content.coordinates[0]}`;
     Ke(async () => {
-      await We();
-      const c = new Pc({
-        geometry: new $r(Du(t.content.coordinates))
+      await $e();
+      const c = new bc({
+        geometry: new Wr(Fu(t.content.coordinates))
       }), u = new ui({
-        image: new Ro({
+        image: new Io({
           anchor: [0.5, 46],
           anchorXUnits: "fraction",
           anchorYUnits: "pixels",
@@ -31054,24 +31039,24 @@ const Qb = ["innerHTML"], eM = {
         })
       });
       c.setStyle(u);
-      const d = new qb({
+      const d = new Kb({
         features: [c]
-      }), h = new Yb({
+      }), h = new Ub({
         source: d
       });
-      o = new k0({
+      o = new F0({
         target: n.value,
         layers: [
-          new vb({
-            source: new ub()
+          new mb({
+            source: new cb()
           }),
           h
         ],
         view: new fn({
-          center: Du(t.content.coordinates),
+          center: Fu(t.content.coordinates),
           zoom: t.content.zoom
         })
-      }), r = new Jb({
+      }), r = new qb({
         element: i.value,
         autoPan: !0,
         autoPanAnimation: {
@@ -31095,14 +31080,14 @@ const Qb = ["innerHTML"], eM = {
     }
     return (c, u) => (Z(), he(tn, null, {
       default: Y(() => [
-        v(Po, { elevation: "20" }, {
+        v(To, { elevation: "20" }, {
           default: Y(() => [
             v(tn, null, {
               default: Y(() => [
                 re("h3", {
                   style: dt({ color: t.info.primaryColor }),
                   innerHTML: O(e)(t.content.title) || "Puoi venirci a conoscere qui"
-                }, null, 12, Qb),
+                }, null, 12, Jb),
                 re("div", {
                   ref_key: "mapContainer",
                   ref: n,
@@ -31130,8 +31115,8 @@ const Qb = ["innerHTML"], eM = {
                       "object-fit": "",
                       style: { "margin-bottom": "10px" }
                     }, null, 8, ["src"]),
-                    re("p", eM, Ne(t.info.name), 1),
-                    re("p", tM, Ne(t.content.address), 1),
+                    re("p", Qb, Ne(t.info.name), 1),
+                    re("p", eM, Ne(t.content.address), 1),
                     re("a", {
                       href: s,
                       target: "_blank",
@@ -31160,13 +31145,13 @@ const Qb = ["innerHTML"], eM = {
       _: 1
     }));
   }
-}, iM = /* @__PURE__ */ Ut(nM, [["__scopeId", "data-v-22e77fbc"]]), aM = { class: "articles-wrapper margin_top__default" }, oM = ["src"], rM = { class: "margin_top__default" }, sM = {
+}, nM = /* @__PURE__ */ Ut(tM, [["__scopeId", "data-v-22e77fbc"]]), iM = { class: "articles-wrapper margin_top__default" }, aM = ["src"], oM = { class: "margin_top__default" }, rM = {
   __name: "Blog",
   props: ["content", "info"],
   setup(t) {
     const { getText: e } = Zn(), n = j([]), i = x(() => t.content.type === "static"), a = (o) => o ? o.length > 150 ? o.slice(0, 150) + "..." : o : "";
     return Ke(() => {
-      i.value ? n.value = t.content.articles : xr.getRequestGenericBE("blog/post", { project: "dorianadinanni.it" }, (o) => {
+      i.value ? n.value = t.content.articles : ja.getRequest("blog/post", { project: "dorianadinanni.it" }, (o) => {
         n.value = o.posts.slice(0, 3).reverse();
       });
     }), (o, r) => (Z(), he(tn, null, {
@@ -31174,7 +31159,7 @@ const Qb = ["innerHTML"], eM = {
         re("h1", {
           style: dt({ color: t.info.primaryColor })
         }, Ne(O(e)(t.content.title) || "I miei articoli"), 5),
-        re("div", aM, [
+        re("div", iM, [
           (Z(!0), Pe(fe, null, Tt(n.value, (s, l) => (Z(), Pe("div", {
             key: l,
             class: "article-item mt-2"
@@ -31182,14 +31167,14 @@ const Qb = ["innerHTML"], eM = {
             re("img", {
               src: O(Bi)(s.cover),
               class: "img"
-            }, null, 8, oM),
+            }, null, 8, aM),
             re("p", {
               style: dt({ color: t.info.primaryColor, fontWeight: 700 })
             }, Ne(O(e)(s.title)), 5),
             re("p", null, Ne(a(O(e)(s.content))), 1)
           ]))), 128))
         ]),
-        re("p", rM, [
+        re("p", oM, [
           re("a", {
             href: "/blog",
             class: "link",
@@ -31200,7 +31185,7 @@ const Qb = ["innerHTML"], eM = {
       _: 1
     }));
   }
-}, lM = /* @__PURE__ */ Ut(sM, [["__scopeId", "data-v-16288117"]]), cM = {
+}, sM = /* @__PURE__ */ Ut(rM, [["__scopeId", "data-v-d2a4554c"]]), lM = {
   __name: "Line",
   props: ["info"],
   setup(t) {
@@ -31213,7 +31198,7 @@ const Qb = ["innerHTML"], eM = {
       _: 1
     }));
   }
-}, uM = (t) => {
+}, cM = (t) => {
   const {
     touchstartX: e,
     touchendX: n,
@@ -31222,7 +31207,7 @@ const Qb = ["innerHTML"], eM = {
   } = t, o = 0.5, r = 16;
   t.offsetX = n - e, t.offsetY = a - i, Math.abs(t.offsetY) < o * Math.abs(t.offsetX) && (t.left && n < e - r && t.left(t), t.right && n > e + r && t.right(t)), Math.abs(t.offsetX) < o * Math.abs(t.offsetY) && (t.up && a < i - r && t.up(t), t.down && a > i + r && t.down(t));
 };
-function dM(t, e) {
+function uM(t, e) {
   var i;
   const n = t.changedTouches[0];
   e.touchstartX = n.clientX, e.touchstartY = n.clientY, (i = e.start) == null || i.call(e, {
@@ -31230,15 +31215,15 @@ function dM(t, e) {
     ...e
   });
 }
-function hM(t, e) {
+function dM(t, e) {
   var i;
   const n = t.changedTouches[0];
   e.touchendX = n.clientX, e.touchendY = n.clientY, (i = e.end) == null || i.call(e, {
     originalEvent: t,
     ...e
-  }), uM(e);
+  }), cM(e);
 }
-function fM(t, e) {
+function hM(t, e) {
   var i;
   const n = t.changedTouches[0];
   e.touchmoveX = n.clientX, e.touchmoveY = n.clientY, (i = e.move) == null || i.call(e, {
@@ -31246,7 +31231,7 @@ function fM(t, e) {
     ...e
   });
 }
-function gM() {
+function fM() {
   let t = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
   const e = {
     touchstartX: 0,
@@ -31266,23 +31251,23 @@ function gM() {
     end: t.end
   };
   return {
-    touchstart: (n) => dM(n, e),
-    touchend: (n) => hM(n, e),
-    touchmove: (n) => fM(n, e)
+    touchstart: (n) => uM(n, e),
+    touchend: (n) => dM(n, e),
+    touchmove: (n) => hM(n, e)
   };
 }
-function mM(t, e) {
+function gM(t, e) {
   var s;
   const n = e.value, i = n != null && n.parent ? t.parentElement : t, a = (n == null ? void 0 : n.options) ?? {
     passive: !0
   }, o = (s = e.instance) == null ? void 0 : s.$.uid;
   if (!i || !o) return;
-  const r = gM(e.value);
+  const r = fM(e.value);
   i._touchHandlers = i._touchHandlers ?? /* @__PURE__ */ Object.create(null), i._touchHandlers[o] = r, Nd(r).forEach((l) => {
     i.addEventListener(l, r[l], a);
   });
 }
-function vM(t, e) {
+function mM(t, e) {
   var o, r;
   const n = (o = e.value) != null && o.parent ? t.parentElement : t, i = (r = e.instance) == null ? void 0 : r.$.uid;
   if (!(n != null && n._touchHandlers) || !i) return;
@@ -31291,10 +31276,10 @@ function vM(t, e) {
     n.removeEventListener(s, a[s]);
   }), delete n._touchHandlers[i];
 }
-const Wg = {
-  mounted: mM,
-  unmounted: vM
-}, Xg = Symbol.for("vuetify:v-window"), Ug = Symbol.for("vuetify:v-window-group"), Yg = $({
+const $g = {
+  mounted: gM,
+  unmounted: mM
+}, Xg = Symbol.for("vuetify:v-window"), Ug = Symbol.for("vuetify:v-window-group"), Yg = W({
   continuous: Boolean,
   nextIcon: {
     type: [Boolean, String, Function, Object],
@@ -31331,10 +31316,10 @@ const Wg = {
   ...de(),
   ...Le(),
   ...ke()
-}, "VWindow"), Rd = K()({
+}, "VWindow"), wd = K()({
   name: "VWindow",
   directives: {
-    Touch: Wg
+    Touch: $g
   },
   props: Yg(),
   emits: {
@@ -31350,7 +31335,7 @@ const Wg = {
       isRtl: a
     } = on(), {
       t: o
-    } = Ma(), r = Mo(t, Ug), s = j(), l = x(() => a.value ? !t.reverse : t.reverse), c = q(!1), u = x(() => {
+    } = Ma(), r = xo(t, Ug), s = j(), l = x(() => a.value ? !t.reverse : t.reverse), c = q(!1), u = x(() => {
       const S = t.direction === "vertical" ? "y" : "x", T = (l.value ? !c.value : c.value) ? "-reverse" : "";
       return `v-window-${S}${T}-transition`;
     }), d = q(0), h = j(void 0), f = x(() => r.items.value.findIndex((S) => r.selected.value.includes(S.id)));
@@ -31433,7 +31418,7 @@ const Wg = {
       group: r
     };
   }
-}), CM = $({
+}), vM = W({
   color: String,
   cycle: Boolean,
   delimiterIcon: {
@@ -31460,7 +31445,7 @@ const Wg = {
   })
 }, "VCarousel"), rl = K()({
   name: "VCarousel",
-  props: CM(),
+  props: vM(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -31482,8 +31467,8 @@ const Wg = {
       window.clearTimeout(r), window.requestAnimationFrame(s);
     }
     return ie(() => {
-      const c = Rd.filterProps(t);
-      return v(Rd, ce({
+      const c = wd.filterProps(t);
+      return v(wd, ce({
         ref: o
       }, c, {
         modelValue: i.value,
@@ -31541,7 +31526,7 @@ const Wg = {
       });
     }), {};
   }
-}), jg = $({
+}), jg = W({
   reverseTransition: {
     type: [Boolean, String],
     default: void 0
@@ -31551,12 +31536,12 @@ const Wg = {
     default: void 0
   },
   ...de(),
-  ...So(),
+  ...bo(),
   ...Ir()
-}, "VWindowItem"), Id = K()({
+}, "VWindowItem"), Ed = K()({
   name: "VWindowItem",
   directives: {
-    Touch: Wg
+    Touch: $g
   },
   props: jg(),
   emits: {
@@ -31566,9 +31551,9 @@ const Wg = {
     let {
       slots: n
     } = e;
-    const i = $e(Xg), a = bo(t, Ug), {
+    const i = We(Xg), a = Mo(t, Ug), {
       isBooted: o
-    } = xo();
+    } = Po();
     if (!i || !a) throw new Error("[Vuetify] VWindowItem must be used inside VWindow");
     const r = q(!1), s = x(() => o.value && (i.isReversed.value ? t.reverseTransition !== !1 : t.transition !== !1));
     function l() {
@@ -31582,7 +31567,7 @@ const Wg = {
       l();
     }
     function d(g) {
-      r.value && We(() => {
+      r.value && $e(() => {
         !s.value || !r.value || !i || (i.transitionHeight.value = se(g.clientHeight));
       });
     }
@@ -31600,8 +31585,8 @@ const Wg = {
       } : !1;
     }), {
       hasContent: f
-    } = Rl(t, a.isSelected);
-    return ie(() => v($n, {
+    } = wl(t, a.isSelected);
+    return ie(() => v(Wn, {
       transition: h.value,
       disabled: !o.value
     }, {
@@ -31616,28 +31601,28 @@ const Wg = {
       groupItem: a
     };
   }
-}), pM = $({
+}), CM = W({
   ...nh(),
   ...jg()
 }, "VCarouselItem"), sl = K()({
   name: "VCarouselItem",
   inheritAttrs: !1,
-  props: pM(),
+  props: CM(),
   setup(t, e) {
     let {
       slots: n,
       attrs: i
     } = e;
     ie(() => {
-      const a = en.filterProps(t), o = Id.filterProps(t);
-      return v(Id, ce({
+      const a = en.filterProps(t), o = Ed.filterProps(t);
+      return v(Ed, ce({
         class: "v-carousel-item"
       }, o), {
         default: () => [v(en, ce(i, a), n)]
       });
     });
   }
-}), yM = {
+}), pM = {
   __name: "Gallery",
   props: ["id", "content", "info"],
   setup(t) {
@@ -31656,7 +31641,7 @@ const Wg = {
     };
     return Ke(() => {
       window.addEventListener("keydown", l), r();
-    }), zd(() => {
+    }), Ad(() => {
       window.removeEventListener("keydown", l), clearInterval(i.value);
     }), (c, u) => (Z(), Pe(fe, null, [
       t.content.type === "manual" ? (Z(), he(rl, {
@@ -31699,22 +31684,22 @@ const Wg = {
       }, 8, ["id", "modelValue"])) : Me("", !0)
     ], 64));
   }
-}, _M = /* @__PURE__ */ Ut(yM, [["__scopeId", "data-v-f361fddd"]]), uo = Symbol.for("vuetify:v-expansion-panel"), SM = ["default", "accordion", "inset", "popout"], bM = $({
+}, yM = /* @__PURE__ */ Ut(pM, [["__scopeId", "data-v-f361fddd"]]), ho = Symbol.for("vuetify:v-expansion-panel"), _M = ["default", "accordion", "inset", "popout"], SM = W({
   color: String,
   static: Boolean,
   variant: {
     type: String,
     default: "default",
-    validator: (t) => SM.includes(t)
+    validator: (t) => _M.includes(t)
   },
   readonly: Boolean,
   ...de(),
   ...Er(),
   ...Le(),
   ...ke()
-}, "VExpansionPanels"), MM = K()({
+}, "VExpansionPanels"), bM = K()({
   name: "VExpansionPanels",
-  props: bM(),
+  props: SM(),
   emits: {
     "update:modelValue": (t) => !0
   },
@@ -31722,7 +31707,7 @@ const Wg = {
     let {
       slots: n
     } = e;
-    Mo(t, uo);
+    xo(t, ho);
     const {
       themeClasses: i
     } = Xe(t), a = x(() => t.variant && `v-expansion-panels--variant-${t.variant}`);
@@ -31737,23 +31722,23 @@ const Wg = {
       style: t.style
     }, n)), {};
   }
-}), xM = $({
+}), MM = W({
   ...de(),
   ...Ir()
 }, "VExpansionPanelText"), Hg = K()({
   name: "VExpansionPanelText",
-  props: xM(),
+  props: MM(),
   setup(t, e) {
     let {
       slots: n
     } = e;
-    const i = $e(uo);
+    const i = We(ho);
     if (!i) throw new Error("[Vuetify] v-expansion-panel-text needs to be placed inside v-expansion-panel");
     const {
       hasContent: a,
       onAfterLeave: o
-    } = Rl(t, i.isSelected);
-    return ie(() => v(Pl, {
+    } = wl(t, i.isSelected);
+    return ie(() => v(bl, {
       onAfterLeave: o
     }, {
       default: () => {
@@ -31767,7 +31752,7 @@ const Wg = {
       }
     })), {};
   }
-}), Zg = $({
+}), Zg = W({
   color: String,
   expandIcon: {
     type: Te,
@@ -31795,7 +31780,7 @@ const Wg = {
     let {
       slots: n
     } = e;
-    const i = $e(uo);
+    const i = We(ho);
     if (!i) throw new Error("[Vuetify] v-expansion-panel-title needs to be placed inside v-expansion-panel");
     const {
       backgroundColorClasses: a,
@@ -31829,20 +31814,20 @@ const Wg = {
       }, null)])]), [[an("ripple"), t.ripple]]);
     }), {};
   }
-}), PM = $({
+}), xM = W({
   title: String,
   text: String,
   bgColor: String,
   ...de(),
   ...rn(),
-  ...So(),
+  ...bo(),
   ...Ir(),
   ...pt(),
   ...Le(),
   ...Zg()
-}, "VExpansionPanel"), TM = K()({
+}, "VExpansionPanel"), PM = K()({
   name: "VExpansionPanel",
-  props: PM(),
+  props: xM(),
   emits: {
     "group:selected": (t) => !0
   },
@@ -31850,7 +31835,7 @@ const Wg = {
     let {
       slots: n
     } = e;
-    const i = bo(t, uo), {
+    const i = Mo(t, ho), {
       backgroundColorClasses: a,
       backgroundColorStyles: o
     } = wt(t, "bgColor"), {
@@ -31864,7 +31849,7 @@ const Wg = {
       const h = i.group.items.value.findIndex((f) => f.id === i.id);
       return !i.isSelected.value && c.value.some((f) => f - h === -1);
     });
-    return ot(uo, i), Mn({
+    return ot(ho, i), Mn({
       VExpansionPanelText: {
         eager: te(t, "eager")
       },
@@ -31904,7 +31889,7 @@ const Wg = {
       });
     }), {};
   }
-}), wM = ["innerHTML"], EM = ["innerHTML"], AM = ["innerHTML"], RM = {
+}), TM = ["innerHTML"], wM = ["innerHTML"], EM = ["innerHTML"], AM = {
   __name: "Services",
   props: ["content", "info"],
   setup(t) {
@@ -31914,10 +31899,10 @@ const Wg = {
         re("h1", {
           style: dt({ color: t.info.primaryColor }),
           innerHTML: O(e)(t.content.title) || "I nostri servizi"
-        }, null, 12, wM),
-        v(MM, { multiple: "" }, {
+        }, null, 12, TM),
+        v(bM, { multiple: "" }, {
           default: Y(() => [
-            (Z(!0), Pe(fe, null, Tt(t.content.services, (a) => (Z(), he(TM, {
+            (Z(!0), Pe(fe, null, Tt(t.content.services, (a) => (Z(), he(PM, {
               elevation: "20",
               class: "margin_top__default"
             }, {
@@ -31926,7 +31911,7 @@ const Wg = {
                   default: Y(() => [
                     re("b", {
                       innerHTML: O(e)(a.name)
-                    }, null, 8, EM)
+                    }, null, 8, wM)
                   ]),
                   _: 2
                 }, 1024),
@@ -31934,7 +31919,7 @@ const Wg = {
                   default: Y(() => [
                     re("div", {
                       innerHTML: O(e)(a.description)
-                    }, null, 8, AM)
+                    }, null, 8, EM)
                   ]),
                   _: 2
                 }, 1024)
@@ -31950,16 +31935,16 @@ const Wg = {
   }
 }, es = [
   (t) => t ? !0 : "Campo obbligatorio"
-], IM = es.concat([
+], RM = es.concat([
   (t) => /.+@.+\..+/.test(t) ? !0 : "E-mail non valida."
-]), zM = es.concat([
+]), IM = es.concat([
   (t) => /^(https?:\/\/)?([\w-]+\.)+([a-z]{2,})+(\/[\w-]*)*(\?[a-z0-9-]+=[a-z0-9-%]+(&[a-z0-9-]+=[a-z0-9-%]+)*)?$/i.test(t) ? !0 : "Sito non valido."
-]), LM = es.concat([
+]), zM = es.concat([
   (t) => /[A-Z]/.test(t) ? !0 : "La password deve contenere almeno una lettera maiscola.",
   (t) => /[a-z]/.test(t) ? !0 : "La password deve contenere almeno una lettera minuscola.",
   (t) => /\d/.test(t) ? !0 : "La password deve contenere almeno un numero.",
   (t) => t.length >= 8 ? !0 : "La password deve contenere almeno 8 caratteri."
-]), VM = (t, e) => {
+]), LM = (t, e) => {
   const n = [];
   for (const i of e) {
     const a = i(t);
@@ -31967,17 +31952,17 @@ const Wg = {
   }
   return n.length === 0 ? null : n;
 }, Fn = {
-  validateInput: VM,
+  validateInput: LM,
   requiredRules: es,
-  emailRules: IM,
-  siteRules: zM,
-  passwordRules: LM
-}, BM = $({
+  emailRules: RM,
+  siteRules: IM,
+  passwordRules: zM
+}, VM = W({
   ...de(),
-  ...jv()
-}, "VForm"), FM = K()({
+  ...Yv()
+}, "VForm"), BM = K()({
   name: "VForm",
-  props: BM(),
+  props: VM(),
   emits: {
     "update:modelValue": (t) => !0,
     submit: (t) => !0
@@ -31987,7 +31972,7 @@ const Wg = {
       slots: n,
       emit: i
     } = e;
-    const a = Hv(t), o = j();
+    const a = jv(t), o = j();
     function r(l) {
       l.preventDefault(), a.reset();
     }
@@ -32013,7 +31998,7 @@ const Wg = {
       }, [(l = n.default) == null ? void 0 : l.call(n, a)]);
     }), Pa(a, o);
   }
-}), kM = $({
+}), FM = W({
   autoGrow: Boolean,
   autofocus: Boolean,
   counter: [Boolean, Number, String],
@@ -32034,15 +32019,15 @@ const Wg = {
   },
   suffix: String,
   modelModifiers: Object,
-  ...El(),
-  ...Vl()
-}, "VTextarea"), OM = K()({
+  ...Pl(),
+  ...Il()
+}, "VTextarea"), kM = K()({
   name: "VTextarea",
   directives: {
-    Intersect: xl
+    Intersect: Sl
   },
   inheritAttrs: !1,
-  props: kM(),
+  props: FM(),
   emits: {
     "click:control": (t) => !0,
     "mousedown:control": (t) => !0,
@@ -32059,7 +32044,7 @@ const Wg = {
       isFocused: r,
       focus: s,
       blur: l
-    } = Tl(t), c = x(() => typeof t.counterValue == "function" ? t.counterValue(o.value) : (o.value || "").toString().length), u = x(() => {
+    } = Ml(t), c = x(() => typeof t.counterValue == "function" ? t.counterValue(o.value) : (o.value || "").toString().length), u = x(() => {
       if (n.maxlength) return n.maxlength;
       if (!(!t.counter || typeof t.counter != "number" && typeof t.counter != "string"))
         return t.counter;
@@ -32080,7 +32065,7 @@ const Wg = {
       i("mousedown:control", z);
     }
     function S(z) {
-      z.stopPropagation(), p(), We(() => {
+      z.stopPropagation(), p(), $e(() => {
         o.value = "", Yd(t["onClick:clear"], z);
       });
     }
@@ -32089,7 +32074,7 @@ const Wg = {
       const A = z.target;
       if (o.value = A.value, (R = t.modelModifiers) != null && R.trim) {
         const V = [A.selectionStart, A.selectionEnd];
-        We(() => {
+        $e(() => {
           A.selectionStart = V[0], A.selectionEnd = V[1];
         });
       }
@@ -32099,7 +32084,7 @@ const Wg = {
       t.autoGrow || (_.value = +t.rows);
     });
     function w() {
-      t.autoGrow && We(() => {
+      t.autoGrow && $e(() => {
         if (!T.value || !f.value) return;
         const z = getComputedStyle(T.value), A = getComputedStyle(f.value.$el), R = parseFloat(z.getPropertyValue("--v-field-padding-top")) + parseFloat(z.getPropertyValue("--v-input-padding-top")) + parseFloat(z.getPropertyValue("--v-field-padding-bottom")), V = T.value.scrollHeight, N = parseFloat(z.lineHeight), G = Math.max(parseFloat(t.rows) * N + R, parseFloat(A.getPropertyValue("--v-input-control-height"))), U = parseFloat(t.maxRows) * N + R || 1 / 0, E = li(V ?? 0, G, U);
         _.value = Math.floor((E - R) / N), g.value = se(E);
@@ -32112,11 +32097,11 @@ const Wg = {
     }), Ct(() => {
       I == null || I.disconnect();
     }), ie(() => {
-      const z = !!(a.counter || t.counter || t.counterValue), A = !!(z || a.details), [R, V] = Cl(n), {
+      const z = !!(a.counter || t.counter || t.counterValue), A = !!(z || a.details), [R, V] = gl(n), {
         modelValue: N,
         ...G
-      } = lr.filterProps(t), U = ef(t);
-      return v(lr, ce({
+      } = cr.filterProps(t), U = ef(t);
+      return v(cr, ce({
         ref: h,
         modelValue: o.value,
         "onUpdate:modelValue": (E) => o.value = E,
@@ -32140,10 +32125,10 @@ const Wg = {
             id: B,
             isDisabled: D,
             isDirty: k,
-            isReadonly: W,
+            isReadonly: $,
             isValid: X
           } = E;
-          return v(Bl, ce({
+          return v(zl, ce({
             ref: f,
             style: {
               "--v-textarea-control-height": g.value
@@ -32178,7 +32163,7 @@ const Wg = {
                 value: o.value,
                 onInput: b,
                 autofocus: t.autofocus,
-                readonly: W.value,
+                readonly: $.value,
                 disabled: D.value,
                 placeholder: t.placeholder,
                 rows: t.rows,
@@ -32213,12 +32198,12 @@ const Wg = {
       });
     }), Pa({}, h, f, m);
   }
-}), DM = ["innerHTML"], GM = ["href", "innerHTML"], NM = ["innerHTML"], $M = {
+}), OM = ["innerHTML"], DM = ["href", "innerHTML"], GM = ["innerHTML"], NM = {
   __name: "Contacts",
   props: ["content", "info"],
   setup(t) {
     const e = "", { getText: n } = Zn(), i = j(""), a = j(""), o = j(""), r = () => {
-      !Fn.validateInput(o.value, Fn.emailRules) && !Fn.validateInput(i.value, Fn.requiredRules) && !Fn.validateInput(a.value, Fn.requiredRules) && xr.postRequestGenericBE("send-email", {
+      !Fn.validateInput(o.value, Fn.emailRules) && !Fn.validateInput(i.value, Fn.requiredRules) && !Fn.validateInput(a.value, Fn.requiredRules) && ja.postRequest("send-email", {
         email: e,
         subject: `Qualcuno ho usato il form del sito ${t.info.name}`,
         body: `Buongiorno,
@@ -32236,14 +32221,14 @@ Ti ringraziamo per il contatto`);
     };
     return (s, l) => (Z(), he(tn, null, {
       default: Y(() => [
-        v(Po, { elevation: "20" }, {
+        v(To, { elevation: "20" }, {
           default: Y(() => [
             v(tn, null, {
               default: Y(() => [
                 re("h2", {
                   style: dt({ color: t.info.primaryColor }),
                   innerHTML: O(n)(t.content.title) || "I nostri contatti"
-                }, null, 12, DM),
+                }, null, 12, OM),
                 v(xa, null, {
                   default: Y(() => [
                     (Z(!0), Pe(fe, null, Tt(t.content.contacts, (c) => (Z(), he(_n, {
@@ -32264,7 +32249,7 @@ Ti ringraziamo per il contatto`);
                               target: "_blank",
                               style: { "text-decoration": "none", color: "inherit" },
                               innerHTML: O(n)(c.title)
-                            }, null, 8, GM)
+                            }, null, 8, DM)
                           ]),
                           _: 2
                         }, 1024)
@@ -32281,10 +32266,10 @@ Ti ringraziamo per il contatto`);
                 l[5] || (l[5] = re("br", null, null, -1)),
                 re("b", {
                   innerHTML: O(n)(t.content.subtitle) || "Contattaci direttamente con questo form"
-                }, null, 8, NM),
+                }, null, 8, GM),
                 l[6] || (l[6] = re("br", null, null, -1)),
                 l[7] || (l[7] = re("br", null, null, -1)),
-                v(FM, {
+                v(BM, {
                   "fast-fail": "",
                   onSubmit: Ya(r, ["prevent"])
                 }, {
@@ -32296,7 +32281,7 @@ Ti ringraziamo per il contatto`);
                           md: "6"
                         }, {
                           default: Y(() => [
-                            v(Wn, {
+                            v($n, {
                               modelValue: i.value,
                               "onUpdate:modelValue": l[0] || (l[0] = (c) => i.value = c),
                               rules: O(Fn).requiredRules,
@@ -32311,7 +32296,7 @@ Ti ringraziamo per il contatto`);
                           md: "6"
                         }, {
                           default: Y(() => [
-                            v(Wn, {
+                            v($n, {
                               modelValue: o.value,
                               "onUpdate:modelValue": l[1] || (l[1] = (c) => o.value = c),
                               rules: O(Fn).emailRules,
@@ -32331,7 +32316,7 @@ Ti ringraziamo per il contatto`);
                           md: "12"
                         }, {
                           default: Y(() => [
-                            v(OM, {
+                            v(kM, {
                               label: "Body",
                               rows: "4",
                               modelValue: a.value,
@@ -32365,9 +32350,9 @@ Ti ringraziamo per il contatto`);
       _: 1
     }));
   }
-}, WM = /* @__PURE__ */ Ut($M, [["__scopeId", "data-v-6c2056c7"]]), XM = K()({
+}, WM = /* @__PURE__ */ Ut(NM, [["__scopeId", "data-v-4734370a"]]), $M = K()({
   name: "VSlideGroupItem",
-  props: So(),
+  props: bo(),
   emits: {
     "group:selected": (t) => !0
   },
@@ -32375,7 +32360,7 @@ Ti ringraziamo per il contatto`);
     let {
       slots: n
     } = e;
-    const i = bo(t, wh);
+    const i = Mo(t, wh);
     return () => {
       var a;
       return (a = n.default) == null ? void 0 : a.call(n, {
@@ -32386,7 +32371,7 @@ Ti ringraziamo per il contatto`);
       });
     };
   }
-}), UM = {
+}), XM = {
   __name: "BrandList",
   props: ["content", "info"],
   setup(t) {
@@ -32411,9 +32396,9 @@ Ti ringraziamo per il contatto`);
             })
           ]),
           default: Y(() => [
-            (Z(!0), Pe(fe, null, Tt(t.content.brands, (a, o) => (Z(), he(XM, { key: o }, {
+            (Z(!0), Pe(fe, null, Tt(t.content.brands, (a, o) => (Z(), he($M, { key: o }, {
               default: Y(() => [
-                v(Po, {
+                v(To, {
                   height: O(e) ? 150 : 300,
                   width: O(e) ? 150 : 300,
                   class: "brand_item"
@@ -32433,7 +32418,7 @@ Ti ringraziamo per il contatto`);
       _: 1
     }));
   }
-}, YM = /* @__PURE__ */ Ut(UM, [["__scopeId", "data-v-c2a41d09"]]), jM = ["innerHTML"], HM = ["src"], ZM = ["src"], KM = ["innerHTML"], qM = {
+}, UM = /* @__PURE__ */ Ut(XM, [["__scopeId", "data-v-c2a41d09"]]), YM = ["innerHTML"], jM = ["src"], HM = ["src"], ZM = ["innerHTML"], KM = {
   __name: "Advantages",
   props: ["content", "info"],
   setup(t) {
@@ -32443,15 +32428,15 @@ Ti ringraziamo per il contatto`);
         re("h1", {
           style: dt({ color: t.info.primaryColor }),
           innerHTML: O(e)(t.content.title) || "I nostri vantaggi"
-        }, null, 12, jM),
-        (Z(!0), Pe(fe, null, Tt(t.content.advantages, (o, r) => (Z(), he(Po, {
+        }, null, 12, YM),
+        (Z(!0), Pe(fe, null, Tt(t.content.advantages, (o, r) => (Z(), he(To, {
           key: r,
-          class: Vc(["margin_top__default", { "carousel--mobile": O(n) }]),
+          class: Ic(["margin_top__default", { "carousel--mobile": O(n) }]),
           elevation: "20"
         }, {
           default: Y(() => [
             re("div", {
-              class: Vc(["img-wrapper", { "mobile-height": O(n) }])
+              class: Ic(["img-wrapper", { "mobile-height": O(n) }])
             }, [
               Array.isArray(o.image) ? (Z(), he(rl, {
                 key: 0,
@@ -32465,7 +32450,7 @@ Ti ringraziamo per il contatto`);
                       re("img", {
                         src: O(Bi)(s),
                         class: "img"
-                      }, null, 8, HM)
+                      }, null, 8, jM)
                     ]),
                     _: 2
                   }, 1024))), 128))
@@ -32475,17 +32460,17 @@ Ti ringraziamo per il contatto`);
                 key: 1,
                 src: O(Bi)(o.image),
                 class: "img"
-              }, null, 8, ZM))
+              }, null, 8, HM))
             ], 2),
-            v(Nl, {
+            v(Ol, {
               style: { "white-space": "normal" },
               innerHTML: O(e)(o.name)
             }, null, 8, ["innerHTML"]),
-            o.description ? (Z(), he($l, { key: 0 }, {
+            o.description ? (Z(), he(Dl, { key: 0 }, {
               default: Y(() => [
                 re("div", {
                   innerHTML: O(e)(o.description)
-                }, null, 8, KM)
+                }, null, 8, ZM)
               ]),
               _: 2
             }, 1024)) : Me("", !0)
@@ -32496,20 +32481,20 @@ Ti ringraziamo per il contatto`);
       _: 1
     }));
   }
-}, JM = /* @__PURE__ */ Ut(qM, [["__scopeId", "data-v-8395df3e"]]), QM = $({
+}, qM = /* @__PURE__ */ Ut(KM, [["__scopeId", "data-v-8395df3e"]]), JM = W({
   color: String,
   ...wn(),
   ...de(),
   ...Ci(),
   ...rn(),
   ...Lr(),
-  ...Dl(),
+  ...Fl(),
   ...pt(),
   ...Le(),
   ...ke()
-}, "VSheet"), ex = K()({
+}, "VSheet"), QM = K()({
   name: "VSheet",
-  props: QM(),
+  props: JM(),
   setup(t, e) {
     let {
       slots: n
@@ -32529,7 +32514,7 @@ Ti ringraziamo per il contatto`);
       locationStyles: c
     } = Vr(t), {
       positionClasses: u
-    } = Gl(t), {
+    } = kl(t), {
       roundedClasses: d
     } = yt(t);
     return ie(() => v(t.tag, {
@@ -32537,11 +32522,11 @@ Ti ringraziamo per il contatto`);
       style: [o.value, s.value, c.value, t.style]
     }, n)), {};
   }
-}), tx = ["innerHTML"], nx = ["innerHTML"], ix = ["innerHTML"], ax = ["href"], ox = "right", rx = "bottom", sx = {
+}), ex = ["innerHTML"], tx = ["innerHTML"], nx = ["innerHTML"], ix = ["href"], ax = "right", ox = "bottom", rx = {
   __name: "DualSection",
   props: ["content", "info"],
   setup(t) {
-    const e = ya(), { getText: n } = Zn(), i = x(() => (t.content.orientationDesktop || ox) === "left"), a = x(() => (t.content.orientationMobile || rx) === "top"), o = x(() => e.value ? a.value : i.value);
+    const e = ya(), { getText: n } = Zn(), i = x(() => (t.content.orientationDesktop || ax) === "left"), a = x(() => (t.content.orientationMobile || ox) === "top"), o = x(() => e.value ? a.value : i.value);
     return (r, s) => (Z(), he(tn, null, {
       default: Y(() => [
         v(da, { align: "center" }, {
@@ -32564,24 +32549,24 @@ Ti ringraziamo per il contatto`);
               md: "6"
             }, {
               default: Y(() => [
-                v(ex, { style: { "background-color": "transparent" } }, {
+                v(QM, { style: { "background-color": "transparent" } }, {
                   default: Y(() => [
                     t.content.title ? (Z(), Pe("p", {
                       key: 0,
                       class: "text-h3 font-weight-black",
                       style: dt({ color: t.info.primaryColor + " !important" }),
                       innerHTML: O(n)(t.content.title)
-                    }, null, 12, tx)) : Me("", !0),
+                    }, null, 12, ex)) : Me("", !0),
                     s[0] || (s[0] = re("br", null, null, -1)),
                     t.content.subtitle ? (Z(), Pe("p", {
                       key: 1,
                       class: "text-subtitle-1 font-weight-black",
                       innerHTML: O(n)(t.content.subtitle) + "<br>"
-                    }, null, 8, nx)) : Me("", !0),
+                    }, null, 8, tx)) : Me("", !0),
                     t.content.description ? (Z(), Pe("p", {
                       key: 2,
                       innerHTML: O(n)(t.content.description)
-                    }, null, 8, ix)) : Me("", !0),
+                    }, null, 8, nx)) : Me("", !0),
                     s[1] || (s[1] = re("br", null, null, -1)),
                     t.content.url && t.content.button ? (Z(), Pe("a", {
                       key: 3,
@@ -32594,7 +32579,7 @@ Ti ringraziamo per il contatto`);
                         color: t.info.primaryColor,
                         style: { marginTop: "7px" }
                       }, null, 8, ["innerHTML", "color"])
-                    ], 8, ax)) : Me("", !0)
+                    ], 8, ix)) : Me("", !0)
                   ]),
                   _: 1
                 })
@@ -32624,30 +32609,30 @@ Ti ringraziamo per il contatto`);
 }, qg = {
   __name: "Home",
   setup(t) {
-    const { getAncor: e } = Zn(), n = bn(), { data: i } = $t(n), a = {
-      map: iM,
-      blog: lM,
-      line: cM,
-      gallery: _M,
-      services: RM,
+    const { getAncor: e } = Zn(), n = bn(), { data: i } = Wt(n), a = {
+      map: nM,
+      blog: sM,
+      line: lM,
+      gallery: yM,
+      services: AM,
       contacts: WM,
-      brandlist: YM,
-      advantages: JM,
-      dualSection: sx
+      brandlist: UM,
+      advantages: qM,
+      dualSection: rx
     }, o = i.value.addOn, r = i.value.info, s = x(() => i.value.components.filter((l) => l.type === "blog" ? o == null ? void 0 : o.some((c) => c.toLowerCase() === "blog") : !0));
-    return (l, c) => (Z(!0), Pe(fe, null, Tt(s.value, (u) => (Z(), he(Bd(a[u.type]), {
+    return (l, c) => (Z(!0), Pe(fe, null, Tt(s.value, (u) => (Z(), he(zd(a[u.type]), {
       id: O(e)(u.menu) ? O(e)(u.menu).toLowerCase() : null,
       content: u.content,
       info: O(r)
     }, null, 8, ["id", "content", "info"]))), 256));
   }
-}, lx = ["href"], cx = {
+}, sx = ["href"], lx = {
   __name: "SocialBubbles",
   props: {
     chattyActive: Boolean
   },
   setup(t) {
-    const e = bn(), { data: n } = $t(e), i = n.value.info, a = i.socialBubbles;
+    const e = bn(), { data: n } = Wt(e), i = n.value.info, a = i.socialBubbles;
     return (o, r) => (Z(!0), Pe(fe, null, Tt(O(a), (s, l) => (Z(), Pe("div", {
       key: l,
       class: "social-container shadown",
@@ -32666,18 +32651,18 @@ Ti ringraziamo per il contatto`);
           style: dt({ backgroundColor: O(i).primaryColor, color: "#fff" }),
           size: "x-large"
         }, null, 8, ["icon", "style"])
-      ], 8, lx)
+      ], 8, sx)
     ], 4))), 128));
   }
-}, Jg = /* @__PURE__ */ Ut(cx, [["__scopeId", "data-v-8ea47031"]]), ux = $({
+}, Jg = /* @__PURE__ */ Ut(lx, [["__scopeId", "data-v-8ea47031"]]), cx = W({
   ...de(),
-  ...Zp({
+  ...Hp({
     fullHeight: !0
   }),
   ...ke()
 }, "VApp"), Qg = K()({
   name: "VApp",
-  props: ux(),
+  props: cx(),
   setup(t, e) {
     let {
       slots: n
@@ -32687,7 +32672,7 @@ Ti ringraziamo per il contatto`);
       getLayoutItem: o,
       items: r,
       layoutRef: s
-    } = Jp(t), {
+    } = qp(t), {
       rtlClasses: l
     } = on();
     return ie(() => {
@@ -32705,7 +32690,7 @@ Ti ringraziamo per il contatto`);
       theme: i
     };
   }
-}), dx = $({
+}), ux = W({
   scrollable: Boolean,
   ...de(),
   ...Le({
@@ -32713,16 +32698,16 @@ Ti ringraziamo per il contatto`);
   })
 }, "VMain"), em = K()({
   name: "VMain",
-  props: dx(),
+  props: ux(),
   setup(t, e) {
     let {
       slots: n
     } = e;
     const {
       mainStyles: i
-    } = Kp(), {
+    } = Zp(), {
       ssrBootStyles: a
-    } = xo();
+    } = Po();
     return ie(() => v(t.tag, {
       class: ["v-main", {
         "v-main--scrollable": t.scrollable
@@ -32737,13 +32722,13 @@ Ti ringraziamo per il contatto`);
       }
     })), {};
   }
-}), Cx = {
+}), vx = {
   __name: "DemoLayout",
   props: {
     json: Object
   },
   setup(t) {
-    const e = j(!1), n = j(!1), i = bn(), { data: a, ready: o } = $t(i), r = t, s = x(() => a.value.info.backgroundImage ? {
+    const e = j(!1), n = j(!1), i = bn(), { data: a, ready: o } = Wt(i), r = t, s = x(() => a.value.info.backgroundImage ? {
       backgroundImage: `url(${a.value.info.backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
@@ -32789,14 +32774,14 @@ Ti ringraziamo per il contatto`);
       _: 1
     })) : Me("", !0);
   }
-}, px = {
+}, Cx = {
   __name: "DemoViewLayout",
   props: {
     hostname: String,
     id: Number
   },
   setup(t) {
-    const e = j(!1), n = j(!1), i = bn(), { data: a, ready: o } = $t(i), r = t, s = x(() => a.value.info.backgroundImage ? {
+    const e = j(!1), n = j(!1), i = bn(), { data: a, ready: o } = Wt(i), r = t, s = x(() => a.value.info.backgroundImage ? {
       backgroundImage: `url(${a.value.info.backgroundImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
@@ -32844,6 +32829,6 @@ Ti ringraziamo per il contatto`);
   }
 };
 export {
-  Cx as DemoLayout,
-  px as DemoViewLayout
+  vx as DemoLayout,
+  Cx as DemoViewLayout
 };
