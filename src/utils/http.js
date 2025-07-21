@@ -18,6 +18,25 @@ const getRequestDemo = (hostname, endpoint, params, func) => {
   });
 };
 
+const postRequestModule = (endpoint, body, func, method = 'POST') => {
+  fetch(endpoint, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body)
+  }).then(response => {
+    if (!response.ok)
+      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
+    return response.json();
+  }).then(data => {
+    func(data);
+  }).catch(error => {
+    console.error('Errore nella richiesta:', error);
+  });
+};
+
+
 const postRequest = (endpoint, body, func, method = 'POST', router = undefined) => {
   fetch(`${hostnameGenericBackend}${endpoint}`, {
     method: method,
@@ -77,5 +96,6 @@ const sessionHandler = (data, func, router) => {
 export default {
   postRequest,
   getRequest,
-  getRequestDemo
+  getRequestDemo,
+  postRequestModule
 };
