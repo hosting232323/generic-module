@@ -31,5 +31,8 @@ const { content, info } = defineProps(['content', 'info']);
 .brand_item {
   margin-right: 25px;
   border: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
