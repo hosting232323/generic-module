@@ -9,6 +9,7 @@
 </template>
 
 <script setup>
+import { useHead } from '@vueuse/head';
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
@@ -50,5 +51,13 @@ const sections = computed(() => {
     }
     return true;
   });
+});
+
+
+useHead({
+  title: 'FastSite',
+  meta: [
+    { name: 'FastSite', content: 'This is the home page' }
+  ]
 });
 </script>
