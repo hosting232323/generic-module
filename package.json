@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "node server.js",
-    "prepare": "npm run build"
+    "serve": "node server.js"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
