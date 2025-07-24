@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build:app": "vite build --config vite.config.app.js",
-    "build:lib": "vite build --config vite.config.lib.js",
+    "build:module": "vite build --config vite.config.module.js",
     "serve": "node server.js"
   },
   "dependencies": {
