@@ -5,7 +5,8 @@
   "module": "dist/generic-fe.es.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:app": "vite build --config vite.config.app.js",
+    "build:module": "vite build --config vite.config.module.js",
     "serve": "node server.js"
   },
   "dependencies": {

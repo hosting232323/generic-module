@@ -33,7 +33,7 @@ start = "typescript-language-server --stdio"
 
 [deployment]
 deploymentTarget = "cloudrun"
-build = ["npm", "run", "build"]
+build = ["npm", "run", "build:app"]
 run = ["sh", "-c", "npm run serve"]
 
 [unitTest]
