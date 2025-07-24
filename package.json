@@ -4,7 +4,7 @@
   "main": "dist/generic-fe.cjs.js",
   "module": "dist/generic-fe.es.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --config vite.config.app.js",
     "build:app": "vite build --config vite.config.app.js",
     "build:module": "vite build --config vite.config.module.js",
     "serve": "node server.js"
