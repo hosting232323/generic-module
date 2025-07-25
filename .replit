@@ -34,7 +34,7 @@ start = "typescript-language-server --stdio"
 [deployment]
 deploymentTarget = "cloudrun"
 build = ["npm", "run", "build:app"]
-publicDir = "dist"
+run = ["sh", "-c", "npm run serve"]
 
 [unitTest]
 language = "nodejs"
