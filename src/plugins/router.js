@@ -13,7 +13,7 @@ const routes = [
       {
         path: '/blog',
         name: 'Blog',
-        component: () => import('@/views/Blog'),
+        component: () => import('@/views/Blog')
       },
       {
         path: '/shop',
@@ -30,6 +30,11 @@ const routes = [
         path: '/demo/:id',
         name: 'Demo',
         component: () => import('@/views/Home')
+      },
+      {
+        path: '/menu',
+        name: 'Menu',
+        component: () => import('@/views/Menu')
       }
     ]
   }
