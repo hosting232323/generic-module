@@ -149,3 +149,59 @@ La sezione **Blog** permette di mostrare un elenco di articoli o aggiornamenti, 
 | `type`         | `string`   | ✅           | Può essere o Static o Dynamic, con Static **DEVI** aggiungere i post a mano seguendo articles, con Dynamic fa tutto l'endpoint collegato |
 
 ---
+
+## 🏰 Add-on: VirtualTour
+L’add-on VirtualTour consente di aggiungere un collegamento diretto al tour virtuale del locale o dell’azienda, direttamente all’interno della barra superiore (App Bar) del sito.
+
+### 📦 Tipo JSON richiesto
+
+```json
+{
+  "addOn": ["VirtualTour"]
+}
+```
+
+### ✅ Campi disponibili
+
+| Chiave           | Tipo     | Obbligatoria | Descrizione                                                  |
+| ---------------- | -------- | ------------ | ------------------------------------------------------------ |
+| `virtualTour` | `string` | ✅            | URL al tour virtuale |
+
+### 🧠 Comportamento
+
+* Se presente nell’array `addOn` e se `virtualTour` è valorizzato correttamente, il sistema **mostrerà un pulsante nella App Bar** con testo "Tour Virtuale" che apre il link in una nuova scheda.
+* L’ordine e il posizionamento del link è gestito automaticamente.
+
+---
+
+## 🛒 Add-on: Shop
+
+L’add-on **Shop** abilita un sistema di e-commerce completo collegato alla piattaforma `generic-be`. I prodotti vengono mostrati **raggruppati per categoria**, con **immagini, prezzo, descrizione e pulsanti per i dettagli e l’aggiunta al carrello**.
+
+### 📦 Tipo JSON richiesto
+
+```json
+{
+  "store": {
+    "username": "bro.users.info@gmail.com",
+    "password": "Ciao1234",
+    "addressMode": 1,
+    "province": "Barletta-Andria-Trani",
+    "cities": [
+      "Bisceglie",
+      "Trani"
+    ]
+  },
+  "addOn": ["Shop"]
+}
+```
+
+### ✅ Campi disponibili
+
+| Chiave        | Tipo     | Obbligatoria | Descrizione                                                             |
+| ------------- | -------- | ------------ | ----------------------------------------------------------------------- |
+| `username`    | `string` | ✅            | Credenziali dell'account `generic-be` per ottenere i prodotti           |
+| `password`    | `string` | ✅            | Password dell'account `generic-be`                                      |
+| `addressMode` | `number` | ✅            | Modalità gestione indirizzo: `0 = Nessun indirizzo`, `1 = Obbligatorio` |
+| `province`    | `string` | ❌            | Provincia di riferimento per le consegne o disponibilità prodotti       |
+| `cities`      | `array`  | ❌            | Elenco di città in cui è attivo lo shop (filtraggio opzionale)          |
