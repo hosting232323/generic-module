@@ -1,44 +1,8 @@
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
-const getRequestDemo = (hostname, endpoint, params, func) => {
-  const url = new URL(`${hostname}${endpoint}`);
-  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-
-  fetch(url, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  }).then(response => {
-    if (!response.ok)
-      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-    return response.json();
-  }).then(data => {
-    func(data);
-  }).catch(error => {
-    console.error('Errore nella richiesta:', error);
-  });
-};
-
-const postRequestModule = (endpoint, body, func, method = 'POST') => {
-  fetch(endpoint, {
-    method: method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body)
-  }).then(response => {
-    if (!response.ok)
-      throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-    return response.json();
-  }).then(data => {
-    func(data);
-  }).catch(error => {
-    console.error('Errore nella richiesta:', error);
-  });
-};
-
-
-const postRequest = (endpoint, body, func, method = 'POST', router = undefined) => {
-  fetch(`${hostnameGenericBackend}${endpoint}`, {
+const postRequest = (endpoint, body, func, method = 'POST', router = undefined, hostname = undefined) => {
+  const finalHostname = hostname || hostnameGenericBackend;
+  fetch(`${finalHostname}${endpoint}`, {
     method: method,
     headers: createHeader(),
     body: JSON.stringify(body)
@@ -53,8 +17,9 @@ const postRequest = (endpoint, body, func, method = 'POST', router = undefined) 
   });
 };
 
-const getRequest = (endpoint, params, func, method = 'GET', router = undefined) => {
-  const url = new URL(`${hostnameGenericBackend}${endpoint}`);
+const getRequest = (endpoint, params, func, method = 'GET', router = undefined, hostname = undefined) => {
+  const finalHostname = hostname || hostnameGenericBackend;
+  const url = new URL(`${finalHostname}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
   fetch(url, {
@@ -95,7 +60,5 @@ const sessionHandler = (data, func, router) => {
 
 export default {
   postRequest,
-  getRequest,
-  getRequestDemo,
-  postRequestModule
+  getRequest
 };

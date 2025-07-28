@@ -118,8 +118,7 @@ const registerUser = () => {
     !validation.validateInput(name.value, validation.requiredRules)
   ) {
     message.value = '';
-    http.postRequestModule(
-      `${props.hostname}register-user`,
+    http.postRequest('register-user',
       {
         name: name.value,
         email: mail.value,
@@ -132,7 +131,7 @@ const registerUser = () => {
           messageType.value = 'error';
           message.value = data.error;
         }
-      }
+      }, 'POST', undefined, props.hostname
     );
   }
 };

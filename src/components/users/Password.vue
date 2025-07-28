@@ -126,8 +126,7 @@ const changePassword = () => {
       message.value = 'Le password non coincidono';
     } else {
       message.value = '';
-      http.postRequestModule(
-        `${props.hostname}change-password`,
+      http.postRequest('change-password',
         {
           pass_token: route.params.token,
           new_password: SHA256(pass.value).toString(),
@@ -140,7 +139,7 @@ const changePassword = () => {
             messageType.value = 'error';
             message.value = data.error;
           }
-        }
+        }, 'POST', undefined, props.hostname
       );
     }
   }

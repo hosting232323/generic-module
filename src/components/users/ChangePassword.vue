@@ -104,8 +104,7 @@ const changeStatus = (value) => {
 const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
     message.value = '';
-    http.postRequestModule(
-      `${props.hostname}ask-change-password`,
+    http.postRequest('ask-change-password',
       {
         email: mail.value,
       },
@@ -117,7 +116,7 @@ const askChangePassword = () => {
           messageType.value = 'error';
           message.value = data.error;
         }
-      }
+      }, 'POST', undefined, props.hostname
     );
   }
 };

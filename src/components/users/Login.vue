@@ -157,8 +157,7 @@ const handleGoogleLogin = () => {
 const handleCredentialResponse = (response) => {
   const jwt = response.credential;
 
-  http.postRequestModule(
-    `${props.hostname}google-login`,
+  http.postRequest('google-login',
     { token: jwt },
     (data) => {
       if (data.status === 'ok') {
@@ -170,7 +169,7 @@ const handleCredentialResponse = (response) => {
       } else {
         message.value = data.error;
       }
-    }
+    }, 'POST', undefined, props.hostname
   );
 };
 
@@ -192,8 +191,7 @@ const emits = defineEmits(['changeStatus']);
 const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
-    http.postRequestModule(
-      `${props.hostname}login`,
+    http.postRequest('login',
       {
         email: mail.value,
         password: props.signUp ? SHA256(pass.value).toString() : pass.value,
@@ -208,7 +206,7 @@ const login = () => {
         } else {
           message.value = data.error;
         }
-      }
+      }, 'POST', undefined, props.hostname
     );
   }
 };
