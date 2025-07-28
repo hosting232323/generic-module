@@ -13,9 +13,9 @@ export const useDataStore = defineStore('data', {
       this.updateData(productionData);
     },
     initDataByDemoLayout(hostname, id){
-      http.getRequestDemo(hostname, `get-data/${id}`, {}, (data) => {
+      http.getRequest(`get-data/${id}`, {}, (data) => {
         this.updateData(data.data);
-      });
+      }, 'GET', undefined, hostname);
     },
     initDataByJson(json) {
       this.updateData(json);
