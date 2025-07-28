@@ -106,6 +106,7 @@
 import { ref, onMounted, computed } from 'vue';
 import http from '@/utils/http';
 import { SHA256 } from 'crypto-js';
+import { useRouter } from 'vue-router';
 
 const props = defineProps({
   logo: {
@@ -165,7 +166,7 @@ const handleCredentialResponse = (response) => {
           if (data.user_info)
             for (const info of Object.keys(data.user_info))
               localStorage.setItem(`user_${info}`, data.user_info[info]);
-          window.location.href = interpolatePath(props.redirectLink, data);
+          router.push(interpolatePath(props.redirectLink, data));
       } else {
         message.value = data.error;
       }
@@ -185,6 +186,8 @@ const mail = ref('');
 const pass = ref('');
 const message = ref('');
 const showPassword = ref(false);
+const router = useRouter();
+console.log(router);
 const emits = defineEmits(['changeStatus']);
 
 const login = () => {
@@ -202,7 +205,7 @@ const login = () => {
           if (data.user_info)
             for (const info of Object.keys(data.user_info))
               localStorage.setItem(`user_${info}`, data.user_info[info]);
-          window.location.href = interpolatePath(props.redirectLink, data);
+          router.push(interpolatePath(props.redirectLink, data));
         } else {
           message.value = data.error;
         }
