@@ -52,12 +52,14 @@ export default defineConfig({
       formats: ['es', 'cjs']
     },
     rollupOptions: {
-      external: ['vue', 'vuetify', 'pinia'],
+      external: ['vue', 'vuetify', 'pinia', 'crypto-js', 'vue-router'],
       output: {
         globals: {
           vue: 'Vue',
           vuetify: 'Vuetify',
-          pinia: 'Pinia'
+          pinia: 'Pinia',
+          'crypto-js': 'CryptoJS',
+          'vue-router': 'VueRouter',
         }
       }
     }

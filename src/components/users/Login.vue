@@ -187,7 +187,6 @@ const pass = ref('');
 const message = ref('');
 const showPassword = ref(false);
 const router = useRouter();
-console.log(router);
 const emits = defineEmits(['changeStatus']);
 
 const login = () => {
