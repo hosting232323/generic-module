@@ -47,17 +47,19 @@ export default defineConfig({
     outDir: 'dist',
     lib: {
       entry: fileURLToPath(new URL('./src/components/index.js', import.meta.url)),
-      name: 'generic-fe',
-      fileName: (format) => `generic-fe.${format}.js`,
+      name: 'generic-module',
+      fileName: (format) => `generic-module.${format}.js`,
       formats: ['es', 'cjs']
     },
     rollupOptions: {
-      external: ['vue', 'vuetify', 'pinia'],
+      external: ['vue', 'vuetify', 'pinia', 'crypto-js', 'vue-router'],
       output: {
         globals: {
           vue: 'Vue',
           vuetify: 'Vuetify',
-          pinia: 'Pinia'
+          pinia: 'Pinia',
+          'crypto-js': 'CryptoJS',
+          'vue-router': 'VueRouter',
         }
       }
     }
