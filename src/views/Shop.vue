@@ -81,7 +81,7 @@ const groupProductsByCategory = (productsArray) => {
 };
 
 const fetchProducts = () => {
-  http.getRequest(`products/${store.userId}`, {}, function (data) {
+  http.getRequest(`products/${store.user_id}`, {}, function (data) {
     groupedProducts.value = groupProductsByCategory(data);
     loading.value = false;
 

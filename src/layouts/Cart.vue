@@ -90,7 +90,7 @@ const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const store = data.value.store;
 
-http.getRequest(`products/${store.userId}`, {}, function (data) {
+http.getRequest(`products/${store.user_id}`, {}, function (data) {
   products.value = data;
 });
 
@@ -117,7 +117,7 @@ const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
 
   http.postRequest('stripe-session', {
-    userId: store.userId,
+    user_id: store.userId,
     products: products.value
   }, function(data) {
     if (data.checkout_url)
