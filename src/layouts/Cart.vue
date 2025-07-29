@@ -90,7 +90,7 @@ const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const store = data.value.store;
 
-http.getRequest('products', {}, function (data) {
+http.getRequest(`products/${store.userId}`, {}, function (data) {
   products.value = data;
 });
 

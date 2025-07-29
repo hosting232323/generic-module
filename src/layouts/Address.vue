@@ -152,7 +152,6 @@ const setCittaPredefinite = () => {
 
 watch(() => addressStore.region, () => {
   if (addressMode == 1) {
-    console.log("Cambio regione");
     updateProvince(true);
   }
 });
