@@ -51,6 +51,7 @@ const popupStore = usePopupStore();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
+const store = data.value.store;
 
 const route = useRoute();
 const loading = ref(true);
@@ -80,7 +81,7 @@ const groupProductsByCategory = (productsArray) => {
 };
 
 const fetchProducts = () => {
-  http.getRequest('products', {}, function (data) {
+  http.getRequest(`products/${store.userId}`, {}, function (data) {
     groupedProducts.value = groupProductsByCategory(data);
     loading.value = false;
 

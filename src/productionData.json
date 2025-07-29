@@ -1,8 +1,24 @@
 {
   "addOn": [
     "Chatty",
-    "Menu"
+    "Menu",
+    "Shop"
   ],
+  "info": {
+    "chattyId": "10",
+    "name": "Pizzeria - Molfetta",
+    "primaryColor": "#F26C4F",
+    "secondaryColor": "#FFD166"
+  },
+  "store": {
+    "userId": 3,
+    "addressMode": 1,
+    "province": "Barletta-Andria-Trani",
+    "cities": [
+      "Lanzo Torinese",
+      "Cafasse"
+    ]
+  },
   "components": [
     {
       "content": {
@@ -86,178 +102,216 @@
       "type": "map"
     }
   ],
-  "info": {
-    "chattyId": "10",
-    "name": "Pizzeria - Molfetta",
-    "primaryColor": "#F26C4F",
-    "secondaryColor": "#FFD166"
-  },
   "menu": [
-  {
-    "name": "Antipasti",
-    "icon": "mdi-food",
-    "image": "/menu/antipasti.jpg",
-    "items": [
-      {
-        "name": "Bruschette al Pomodoro",
-        "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Tagliere di Salumi",
-        "description": "Selezione di salumi italiani, accompagnati da focaccia",
-        "price": 12,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Mozzarella in Carrozza",
-        "description": "Mozzarella fritta con crosta dorata di pane",
-        "price": 7,
-        "allergens": ["glutine", "uova", "lattosio"]
-      },
-      {
-        "name": "Frittura Mista",
-        "description": "Verdure pastellate croccanti con salsa yogurt",
-        "price": 9,
-        "allergens": ["glutine", "uova", "lattosio"]
-      }
-    ]
-  },
-  {
-    "name": "Pizze classiche",
-    "icon": "mdi-pizza",
-    "image": "/menu/pizze_classiche.jpg",
-    "items": [
-      {
-        "name": "Margherita",
-        "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-        "image": "/menu/pizza_margherita.png",
-        "price": 7,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Marinara",
-        "description": "Pomodoro, aglio fresco, origano e olio EVO",
-        "image": "/menu/pizza_marinara.png",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Diavola",
-        "description": "Mozzarella, salame piccante, pomodoro",
-        "image": "/menu/pizza_diavola.png",
-        "price": 8,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Capricciosa",
-        "description": "Mozzarella, prosciutto, funghi, carciofi e olive",
-        "image": "/menu/pizza_capricciosa.png",
-        "price": 9,
-        "allergens": ["glutine", "lattosio"]
-      }
-    ]
-  },
-  {
-    "name": "Pizze Gourmet",
-    "icon": "mdi-star",
-    "image": "/menu/pizze_gourmet.jpg",
-    "items": [
-      {
-        "name": "Tartufo e Porcini",
-        "description": "Mozzarella, crema al tartufo nero, funghi porcini",
-        "price": 15,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Bufala e Pachino",
-        "description": "Mozzarella di bufala DOP, pomodorini Pachino, olio EVO",
-        "price": 13,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Speck e Brie",
-        "description": "Base bianca, speck dell'Alto Adige, brie fuso",
-        "price": 14,
-        "allergens": ["glutine", "lattosio"]
-      },
-      {
-        "name": "Mortadella e Pistacchio",
-        "description": "Cremosa al pistacchio, mortadella IGP e granella di pistacchi",
-        "price": 16,
-        "allergens": ["glutine", "lattosio", "frutta_a_guscio"]
-      }
-    ]
-  },
-  {
-    "name": "Beverage",
-    "icon": "mdi-cup-water",
-    "image": "/menu/bevande.jpg",
-    "items": [
-      {
-        "name": "Acqua Naturale",
-        "description": "Bottiglia da 50cl",
-        "price": 1.5,
-        "allergens": []
-      },
-      {
-        "name": "Acqua Frizzante",
-        "description": "Bottiglia da 50cl",
-        "price": 1.5,
-        "allergens": []
-      },
-      {
-        "name": "Coca Cola",
-        "description": "Lattina da 33cl",
-        "price": 2.5,
-        "allergens": []
-      },
-      {
-        "name": "Fanta",
-        "description": "Lattina da 33cl",
-        "price": 2.5,
-        "allergens": []
-      },
-      {
-        "name": "Tè al Limone",
-        "description": "Bottiglietta fredda da 50cl",
-        "price": 3,
-        "allergens": []
-      }
-    ]
-  },
-  {
-    "name": "Birre artigianali",
-    "icon": "mdi-beer",
-    "image": "/menu/birre.jpg",
-    "items": [
-      {
-        "name": "IPA Artigianale",
-        "description": "India Pale Ale luppolata e agrumata, 6.5%",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Stout Nera",
-        "description": "Birra scura con note di caffè, 7%",
-        "price": 6.5,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Weiss",
-        "description": "Birra di frumento, dolce e leggermente fruttata",
-        "price": 6,
-        "allergens": ["glutine"]
-      },
-      {
-        "name": "Blonde Ale",
-        "description": "Birra chiara, leggera e rinfrescante",
-        "price": 5.5,
-        "allergens": ["glutine"]
-      }
-    ]
-  }
-]
-  
+    {
+      "name": "Antipasti",
+      "icon": "mdi-food",
+      "image": "/menu/antipasti.jpg",
+      "items": [
+        {
+          "name": "Bruschette al Pomodoro",
+          "description": "Pane tostato con pomodorini freschi, aglio e basilico",
+          "price": 6,
+          "allergens": [
+            "glutine"
+          ]
+        },
+        {
+          "name": "Tagliere di Salumi",
+          "description": "Selezione di salumi italiani, accompagnati da focaccia",
+          "price": 12,
+          "allergens": [
+            "glutine",
+            "lattosio"
+          ]
+        },
+        {
+          "name": "Mozzarella in Carrozza",
+          "description": "Mozzarella fritta con crosta dorata di pane",
+          "price": 7,
+          "allergens": [
+            "glutine",
+            "uova",
+            "lattosio"
+          ]
+        },
+        {
+          "name": "Frittura Mista",
+          "description": "Verdure pastellate croccanti con salsa yogurt",
+          "price": 9,
+          "allergens": [
+            "glutine",
+            "uova",
+            "lattosio"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pizze classiche",
+      "icon": "mdi-pizza",
+      "image": "/menu/pizze_classiche.jpg",
+      "items": [
+        {
+          "name": "Margherita",
+          "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
+          "image": "/menu/pizza_margherita.png",
+          "price": 7,
+          "allergens": [
+            "glutine",
+            "lattosio"
+          ]
+        },
+        {
+          "name": "Marinara",
+          "description": "Pomodoro, aglio fresco, origano e olio EVO",
+          "image": "/menu/pizza_marinara.png",
+          "price": 6,
+          "allergens": [
+            "glutine"
+          ]
+        },
+        {
+          "name": "Diavola",
+          "description": "Mozzarella, salame piccante, pomodoro",
+          "image": "/menu/pizza_diavola.png",
+          "price": 8,
+          "allergens": [
+            "glutine",
+            "lattosio"
+          ]
+        },
+        {
+          "name": "Capricciosa",
+          "description": "Mozzarella, prosciutto, funghi, carciofi e olive",
+          "image": "/menu/pizza_capricciosa.png",
+          "price": 9,
+          "allergens": [
+            "glutine",
+            "lattosio"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pizze Gourmet",
+      "icon": "mdi-star",
+      "image": "/menu/pizze_gourmet.jpg",
+      "items": [
+        {
+          "name": "Tartufo e Porcini",
+          "description": "Mozzarella, crema al tartufo nero, funghi porcini",
+          "price": 15,
+          "allergens": [
+            "glutine",
+            "lattosio"
+          ]
+        },
+        {
+          "name": "Bufala e Pachino",
+          "description": "Mozzarella di bufala DOP, pomodorini Pachino, olio EVO",
+          "price": 13,
+          "allergens": [
+            "glutine",
+            "lattosio"
+          ]
+        },
+        {
+          "name": "Speck e Brie",
+          "description": "Base bianca, speck dell'Alto Adige, brie fuso",
+          "price": 14,
+          "allergens": [
+            "glutine",
+            "lattosio"
+          ]
+        },
+        {
+          "name": "Mortadella e Pistacchio",
+          "description": "Cremosa al pistacchio, mortadella IGP e granella di pistacchi",
+          "price": 16,
+          "allergens": [
+            "glutine",
+            "lattosio",
+            "frutta_a_guscio"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Beverage",
+      "icon": "mdi-cup-water",
+      "image": "/menu/bevande.jpg",
+      "items": [
+        {
+          "name": "Acqua Naturale",
+          "description": "Bottiglia da 50cl",
+          "price": 1.5,
+          "allergens": []
+        },
+        {
+          "name": "Acqua Frizzante",
+          "description": "Bottiglia da 50cl",
+          "price": 1.5,
+          "allergens": []
+        },
+        {
+          "name": "Coca Cola",
+          "description": "Lattina da 33cl",
+          "price": 2.5,
+          "allergens": []
+        },
+        {
+          "name": "Fanta",
+          "description": "Lattina da 33cl",
+          "price": 2.5,
+          "allergens": []
+        },
+        {
+          "name": "Tè al Limone",
+          "description": "Bottiglietta fredda da 50cl",
+          "price": 3,
+          "allergens": []
+        }
+      ]
+    },
+    {
+      "name": "Birre artigianali",
+      "icon": "mdi-beer",
+      "image": "/menu/birre.jpg",
+      "items": [
+        {
+          "name": "IPA Artigianale",
+          "description": "India Pale Ale luppolata e agrumata, 6.5%",
+          "price": 6,
+          "allergens": [
+            "glutine"
+          ]
+        },
+        {
+          "name": "Stout Nera",
+          "description": "Birra scura con note di caffè, 7%",
+          "price": 6.5,
+          "allergens": [
+            "glutine"
+          ]
+        },
+        {
+          "name": "Weiss",
+          "description": "Birra di frumento, dolce e leggermente fruttata",
+          "price": 6,
+          "allergens": [
+            "glutine"
+          ]
+        },
+        {
+          "name": "Blonde Ale",
+          "description": "Birra chiara, leggera e rinfrescante",
+          "price": 5.5,
+          "allergens": [
+            "glutine"
+          ]
+        }
+      ]
+    }
+  ]
 }

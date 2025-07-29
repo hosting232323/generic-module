@@ -1,11 +1,11 @@
 <template>
-    <v-alert
-      v-if="showAlert"
-      :type="alertType"
-      transition="scale-transition"
-      class="popupResponse"
-      v-html="alertMessage"
-    />
+  <v-alert
+    v-if="showAlert"
+    :type="alertType"
+    transition="scale-transition"
+    class="popupResponse"
+    v-html="alertMessage"
+  />
 </template>
 
 <script setup>
@@ -19,11 +19,10 @@ const { message, type } = storeToRefs(responseStore);
 const showAlert = ref(false);
 
 const alertType = computed(() => {
-    return type.value;
+  const allowedTypes = ['success', 'info', 'warning', 'error'];
+  return allowedTypes.includes(type.value) ? type.value : 'info';
 });
-const alertMessage = computed(() => {
-    return message.value;
-});
+const alertMessage = computed(() => message.value);
 
 watch(message, (newValue) => {
   if (newValue) {
@@ -31,7 +30,7 @@ watch(message, (newValue) => {
 
     setTimeout(() => {
       showAlert.value = false;
-    }, 3000);
+    }, 1500);
   }
 });
 </script>
