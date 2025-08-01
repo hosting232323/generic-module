@@ -68,28 +68,28 @@ import validation from '@/utils/validation';
 const props = defineProps({
   logo: {
     type: String,
-    required: true,
+    required: true
   },
   title: {
     type: String,
-    required: true,
+    required: true
   },
   primaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   secondaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   redirectLink: {
     type: String,
-    required: true,
+    required: true
   },
   hostname: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const mail = ref('');
@@ -104,20 +104,18 @@ const changeStatus = (value) => {
 const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
     message.value = '';
-    http.postRequest('ask-change-password',
-      {
-        email: mail.value,
-      },
-      function (data) {
-        if (data.status == 'ok') {
-          messageType.value = 'success';
-          message.value = data.message;
-        } else {
-          messageType.value = 'error';
-          message.value = data.error;
-        }
-      }, 'POST', undefined, props.hostname
-    );
+    http.postRequest('ask-change-password', {
+      email: mail.value,
+    },
+    function (data) {
+      if (data.status == 'ok') {
+        messageType.value = 'success';
+        message.value = data.message;
+      } else {
+        messageType.value = 'error';
+        message.value = data.error;
+      }
+    }, 'POST', undefined, props.hostname);
   }
 };
 </script>

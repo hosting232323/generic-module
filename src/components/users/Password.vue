@@ -74,35 +74,43 @@
 <script setup>
 import { ref } from 'vue';
 import http from '@/utils/http';
-import { SHA256 } from 'crypto-js';
+import encrypt from '@/utils/encrypt';
 import validation from '@/utils/validation';
 import { useRouter, useRoute } from 'vue-router';
 
 const props = defineProps({
   logo: {
     type: String,
-    required: true,
+    required: true
   },
   title: {
     type: String,
-    required: true,
+    required: true
   },
   primaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   secondaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   redirectLink: {
     type: String,
-    required: true,
+    required: true
+  },
+    secretKey: {
+    type: String,
+    required: true
+  },
+  iv: {
+    type: String,
+    required: true
   },
   hostname: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const pass = ref('');
@@ -126,21 +134,19 @@ const changePassword = () => {
       message.value = 'Le password non coincidono';
     } else {
       message.value = '';
-      http.postRequest('change-password',
-        {
-          pass_token: route.params.token,
-          new_password: SHA256(pass.value).toString(),
-        },
-        function (data) {
-          if (data.status === 'ok') {
-            messageType.value = 'success';
-            message.value = data.message;
-          } else {
-            messageType.value = 'error';
-            message.value = data.error;
-          }
-        }, 'POST', undefined, props.hostname
-      );
+      http.postRequest('change-password', {
+        pass_token: route.params.token,
+        new_password: encrypt.encryptPassword(pass.value, props.secretKey, props.iv)
+      },
+      function (data) {
+        if (data.status === 'ok') {
+          messageType.value = 'success';
+          message.value = data.message;
+        } else {
+          messageType.value = 'error';
+          message.value = data.error;
+        }
+      }, 'POST', undefined, props.hostname);
     }
   }
 };

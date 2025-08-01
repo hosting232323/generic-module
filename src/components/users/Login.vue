@@ -45,7 +45,7 @@
                 variant="elevated"
                 :color="secondaryColor"
                 type="submit"
-                :width="$vuetify.display.width > 400 ? 350 : 280"
+                block
               >
                 Login
               </v-btn>
@@ -58,7 +58,7 @@
                 variant="elevated"
                 @click="handleGoogleLogin"
                 height="40"
-                :width="$vuetify.display.width > 400 ? 350 : 280"
+                block
               >
                 <div class="google-icon-wrapper">
                   <img
@@ -72,23 +72,21 @@
             </v-col>
           </v-row>
           <v-row v-if="signUp">
-            <v-col cols="12" md="12">
-              <div class="d-flex flex-column flex-sm-row justify-center" :style="{ maxWidth: $vuetify.display.width > 400 ? '350px' : '280px', margin: '0 auto', gap: '16px' }">
-                <v-btn
-                  text="Registrati qui"
-                  @click="changeStatus(2)"
-                  class="custom-btn flex-grow-1"
-                  :color="primaryColor"
-                  :block="$vuetify.display.xs"
-                />
-                <v-btn
-                  text="Reset password"
-                  @click="changeStatus(3)"
-                  class="custom-btn flex-grow-1"
-                  :color="primaryColor"
-                  :block="$vuetify.display.xs"
-                />
-              </div>
+            <v-col cols="12" md="6">
+              <v-btn
+                text="Registrati qui"
+                @click="changeStatus(2)"
+                :color="primaryColor"
+                block
+              />
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-btn
+                text="Reset password"
+                @click="changeStatus(3)"
+                :color="primaryColor"
+                block
+              />
             </v-col>
           </v-row>
           <v-row v-if="message">
@@ -103,10 +101,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
 import http from '@/utils/http';
-import { SHA256 } from 'crypto-js';
+import encrypt from '@/utils/encrypt';
 import { useRouter } from 'vue-router';
+import { ref, onMounted, computed } from 'vue';
 
 const props = defineProps({
   logo: {
@@ -132,6 +130,14 @@ const props = defineProps({
   signUp: {
     type: Boolean,
     default: true
+  },
+  secretKey: {
+    type: String,
+    required: true
+  },
+  iv: {
+    type: String,
+    required: true
   },
   hostname: {
     type: String,
@@ -184,30 +190,28 @@ onMounted(() => {
 const mail = ref('');
 const pass = ref('');
 const message = ref('');
-const showPassword = ref(false);
 const router = useRouter();
+const showPassword = ref(false);
 const emits = defineEmits(['changeStatus']);
 
 const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
-    http.postRequest('login',
-      {
-        email: mail.value,
-        password: props.signUp ? SHA256(pass.value).toString() : pass.value,
-      },
-      function (data) {
-        if (data.status === 'ok') {
-          localStorage.setItem('token', data.token);
-          if (data.user_info)
-            for (const info of Object.keys(data.user_info))
-              localStorage.setItem(`user_${info}`, data.user_info[info]);
-          router.push(interpolatePath(props.redirectLink, data));
-        } else {
-          message.value = data.error;
-        }
-      }, 'POST', undefined, props.hostname
-    );
+    http.postRequest('login', {
+      email: mail.value,
+      password: encrypt.encryptPassword(pass.value, props.secretKey, props.iv)
+    },
+    function (data) {
+      if (data.status === 'ok') {
+        localStorage.setItem('token', data.token);
+        if (data.user_info)
+          for (const info of Object.keys(data.user_info))
+            localStorage.setItem(`user_${info}`, data.user_info[info]);
+        router.push(interpolatePath(props.redirectLink, data));
+      } else {
+        message.value = data.error;
+      }
+    }, 'POST', undefined, props.hostname);
   }
 };
 
@@ -252,15 +256,6 @@ const changeStatus = (value) => {
 
 .google-btn-text {
   color: #757575;
-}
-
-.custom-btn {
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 10px 16px;
-  min-height: 48px;
-  line-height: 1.5;
-  width: 100%;
 }
 
 .google-btn:hover {

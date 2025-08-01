@@ -78,28 +78,28 @@ import validation from '@/utils/validation';
 const props = defineProps({
   logo: {
     type: String,
-    required: true,
+    required: true
   },
   title: {
     type: String,
-    required: true,
+    required: true
   },
   primaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   secondaryColor: {
     type: String,
-    required: true,
+    required: true
   },
   redirectLink: {
     type: String,
-    required: true,
+    required: true
   },
   hostname: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const mail = ref('');
@@ -118,21 +118,19 @@ const registerUser = () => {
     !validation.validateInput(name.value, validation.requiredRules)
   ) {
     message.value = '';
-    http.postRequest('register-user',
-      {
-        name: name.value,
-        email: mail.value,
-      },
-      function (data) {
-        if (data.status === 'ok') {
-          messageType.value = 'success';
-          message.value = data.message;
-        } else {
-          messageType.value = 'error';
-          message.value = data.error;
-        }
-      }, 'POST', undefined, props.hostname
-    );
+    http.postRequest('register-user', {
+      name: name.value,
+      email: mail.value,
+    },
+    function (data) {
+      if (data.status === 'ok') {
+        messageType.value = 'success';
+        message.value = data.message;
+      } else {
+        messageType.value = 'error';
+        message.value = data.error;
+      }
+    }, 'POST', undefined, props.hostname);
   }
 };
 </script>

@@ -9,6 +9,8 @@
       :secondaryColor="secondaryColor"
       :redirectLink="redirectLink"
       :signUp="signUp"
+      :secretKey="secretKey"
+      :iv="iv"
       :hostname="hostname"
       :googleClientId="googleClientId"
     />
@@ -30,6 +32,8 @@
       :primaryColor="primaryColor"
       :secondaryColor="secondaryColor"
       :redirectLink="redirectLink"
+      :secretKey="secretKey"
+      :iv="iv"
       :hostname="hostname"
     />
     <Password
@@ -87,6 +91,14 @@ const props = defineProps({
   signUp: {
     type: Boolean,
     default: true
+  },
+  secretKey: {
+    type: String,
+    required: true
+  },
+  iv: {
+    type: String,
+    required: true
   },
   hostname: {
     type: String,
