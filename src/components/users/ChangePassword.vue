@@ -12,49 +12,36 @@
       </v-card-title>
       <v-card-text>
         <v-form @submit.prevent="askChangePassword">
+          <v-text-field
+            label="Email"
+            v-model="mail"
+            type="email"
+            outlined
+            class="mb-4"
+          />
+          <v-btn
+            block
+            variant="elevated"
+            :color="secondaryColor"
+            type="submit"
+            class="mb-4"
+            text="Invia mail"
+            :loading="loading"
+          />
           <v-row>
-            <v-col cols="12" md="12">
-              <v-text-field
-                label="Email"
-                v-model="mail"
-                type="email"
-                outlined
+            <v-col cols="12" md="5" no-gutters>
+              <v-btn
+                @click="changeStatus(1)"
+                :color="primaryColor"
                 class="mb-4"
-                :loading="loading"
+                text="Torna al login"
+                block
               />
             </v-col>
           </v-row>
-          <v-row>
-            <v-col cols="12" md="12" class="text-center">
-              <v-btn
-                block
-                variant="elevated"
-                :color="secondaryColor"
-                type="submit"
-                class="mb-4 custom-btn"
-              >
-                Invia mail
-              </v-btn>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="12" md="12">
-              <div class="d-flex justify-start align-center">
-                <v-btn
-                  text @click="changeStatus(1)"
-                  :color="primaryColor"
-                  class="custom-btn full-width-btn"
-                >
-                  Torna al login
-                </v-btn>
-              </div>
-            </v-col>
-          </v-row>
-          <v-row v-if="message">
-            <v-col cols="12" md="12">
-              <v-alert :type="messageType" dense>{{ message }}</v-alert>
-            </v-col>
-          </v-row>
+          <v-alert v-if="message" :type="messageType" dense>
+            {{ message }}
+          </v-alert>
         </v-form>
       </v-card-text>
     </v-card>
@@ -123,13 +110,3 @@ const askChangePassword = () => {
   }
 };
 </script>
-
-<style scoped>
-.custom-btn {
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 10px 16px;
-  min-height: 48px;
-  line-height: 1.5;
-}
-</style>
