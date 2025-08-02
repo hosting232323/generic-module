@@ -20,6 +20,7 @@
                 type="email"
                 outlined
                 class="mb-4"
+                :loading="loading"
               />
             </v-col>
           </v-row>
@@ -28,7 +29,7 @@
               <v-btn
                 block
                 variant="elevated"
-                :style="{'background-color': secondaryColor}"
+                :color="secondaryColor"
                 type="submit"
                 class="mb-4 custom-btn"
               >
@@ -36,22 +37,22 @@
               </v-btn>
             </v-col>
           </v-row>
-          <v-row v-if="message">
-            <v-col cols="12" md="12">
-              <v-alert :type="messageType" dense>{{ message }}</v-alert>
-            </v-col>
-          </v-row>
           <v-row>
             <v-col cols="12" md="12">
               <div class="d-flex justify-start align-center">
                 <v-btn
                   text @click="changeStatus(1)"
-                  :style="{'background-color': primaryColor}"
+                  :color="primaryColor"
                   class="custom-btn full-width-btn"
                 >
                   Torna al login
                 </v-btn>
               </div>
+            </v-col>
+          </v-row>
+          <v-row v-if="message">
+            <v-col cols="12" md="12">
+              <v-alert :type="messageType" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
         </v-form>
@@ -94,6 +95,7 @@ const props = defineProps({
 
 const mail = ref('');
 const message = ref('');
+const loading = ref(false);
 const messageType = ref('error');
 const emits = defineEmits(['changeStatus']);
 
@@ -104,10 +106,12 @@ const changeStatus = (value) => {
 const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
     message.value = '';
+    loading.value = true;
     http.postRequest('ask-change-password', {
       email: mail.value,
     },
     function (data) {
+      loading.value = false;
       if (data.status == 'ok') {
         messageType.value = 'success';
         message.value = data.message;

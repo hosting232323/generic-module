@@ -39,17 +39,13 @@
               <v-btn
                 block
                 variant="elevated"
-                :style="{'background-color': secondaryColor}"
+                :color="secondaryColor"
                 type="submit"
                 class="mb-4 custom-btn"
+                :loading="loading"
               >
                 Invia
               </v-btn>
-            </v-col>
-          </v-row>
-          <v-row v-if="message">
-            <v-col cols="12">
-              <v-alert :type="messageType" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
           <v-row>
@@ -57,12 +53,17 @@
               <div class="d-flex justify-start align-center">
                 <v-btn 
                   text @click="goToLogin" 
-                  :style="{'background-color': primaryColor}"
+                  :color="primaryColor"
                   class="custom-btn full-width-btn"
                 >
                   Torna al login
                 </v-btn>
               </div>
+            </v-col>
+          </v-row>
+          <v-row v-if="message">
+            <v-col cols="12">
+              <v-alert :type="messageType" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
         </v-form>
@@ -114,11 +115,12 @@ const props = defineProps({
 });
 
 const pass = ref('');
-const confirmPass = ref('');
 const message = ref('');
-const messageType = ref('error');
-const router = useRouter();
 const route = useRoute();
+const router = useRouter();
+const loading = ref(false);
+const confirmPass = ref('');
+const messageType = ref('error');
 
 const goToLogin = () => {
   router.push(props.redirectLink);
@@ -134,11 +136,12 @@ const changePassword = () => {
       message.value = 'Le password non coincidono';
     } else {
       message.value = '';
+      loading.value = true;
       http.postRequest('change-password', {
         pass_token: route.params.token,
         new_password: encrypt.encryptPassword(pass.value, props.secretKey, props.iv)
-      },
-      function (data) {
+      }, function (data) {
+        loading.value = false;
         if (data.status === 'ok') {
           messageType.value = 'success';
           message.value = data.message;

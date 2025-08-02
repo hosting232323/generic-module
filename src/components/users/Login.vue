@@ -46,6 +46,7 @@
                 :color="secondaryColor"
                 type="submit"
                 block
+                :loading="loginLoading"
               >
                 Login
               </v-btn>
@@ -59,6 +60,7 @@
                 @click="handleGoogleLogin"
                 height="40"
                 block
+                :loading="googleLoading"
               >
                 <div class="google-icon-wrapper">
                   <img
@@ -149,12 +151,18 @@ const props = defineProps({
   }
 });
 
+const loginLoading = ref(false);
+const googleLoading = ref(false);
 const showGoogleLogin = computed(() => !!props.googleClientId);
 
 const handleGoogleLogin = () => {
+  googleLoading.value = true;
   google.accounts.id.initialize({
     client_id: props.googleClientId,
-    callback: handleCredentialResponse,
+    callback: (response) => {
+      handleCredentialResponse(response);
+      googleLoading.value = false;
+    }
   });
 
   google.accounts.id.prompt();
@@ -163,20 +171,18 @@ const handleGoogleLogin = () => {
 const handleCredentialResponse = (response) => {
   const jwt = response.credential;
 
-  http.postRequest('google-login',
-    { token: jwt },
-    (data) => {
-      if (data.status === 'ok') {
-          localStorage.setItem('token', data.token);
-          if (data.user_info)
-            for (const info of Object.keys(data.user_info))
-              localStorage.setItem(`user_${info}`, data.user_info[info]);
-          router.push(interpolatePath(props.redirectLink, data));
-      } else {
-        message.value = data.error;
-      }
-    }, 'POST', undefined, props.hostname
-  );
+  http.postRequest('google-login', {
+    token: jwt
+  }, (data) => {
+    if (data.status === 'ok') {
+      localStorage.setItem('token', data.token);
+      if (data.user_info)
+        for (const info of Object.keys(data.user_info))
+          localStorage.setItem(`user_${info}`, data.user_info[info]);
+      router.push(interpolatePath(props.redirectLink, data));
+    } else
+      message.value = data.error;
+  }, 'POST', undefined, props.hostname);
 };
 
 onMounted(() => {
@@ -197,11 +203,12 @@ const emits = defineEmits(['changeStatus']);
 const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
+    loginLoading.value = true;
     http.postRequest('login', {
       email: mail.value,
       password: encrypt.encryptPassword(pass.value, props.secretKey, props.iv)
-    },
-    function (data) {
+    }, function (data) {
+      loginLoading.value = false;
       if (data.status === 'ok') {
         localStorage.setItem('token', data.token);
         if (data.user_info)

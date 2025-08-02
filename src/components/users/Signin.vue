@@ -38,17 +38,13 @@
               <v-btn
                 block
                 variant="elevated"
-                :style="{'background-color': secondaryColor}"
+                :color="secondaryColor"
                 type="submit"
                 class="mb-4 custom-btn"
+                :loading="loading"
               >
                 Registrati
               </v-btn>
-            </v-col>
-          </v-row>
-          <v-row v-if="message">
-            <v-col cols="12" md="12">
-              <v-alert :type="messageType" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
           <v-row>
@@ -56,12 +52,17 @@
               <div class="d-flex justify-start align-center">
                 <v-btn 
                   text @click="changeStatus(1)" 
-                  :style="{'background-color': primaryColor}"
+                  :color="primaryColor"
                   class="custom-btn full-width-btn"
                 >
                 Torna al login
               </v-btn>
               </div>
+            </v-col>
+          </v-row>
+          <v-row v-if="message">
+            <v-col cols="12" md="12">
+              <v-alert :type="messageType" dense>{{ message }}</v-alert>
             </v-col>
           </v-row>
         </v-form>
@@ -105,6 +106,7 @@ const props = defineProps({
 const mail = ref('');
 const name = ref('');
 const message = ref('');
+const loading = ref(false);
 const messageType = ref('error');
 const emits = defineEmits(['changeStatus']);
 
@@ -118,11 +120,12 @@ const registerUser = () => {
     !validation.validateInput(name.value, validation.requiredRules)
   ) {
     message.value = '';
+    loading.value = true;
     http.postRequest('register-user', {
       name: name.value,
       email: mail.value,
-    },
-    function (data) {
+    }, function (data) {
+      loading.value = false;
       if (data.status === 'ok') {
         messageType.value = 'success';
         message.value = data.message;
