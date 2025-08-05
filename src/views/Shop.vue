@@ -33,27 +33,26 @@
 </template>
 
 <script setup>
-import http from '@/utils/http';
 import { storeToRefs } from 'pinia';
 import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
 
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
+import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
+const shopStore = useShopStore();
 const orderStore = useOrderStore();
 const popupStore = usePopupStore();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+const { products } = storeToRefs(shopStore);
 const info = data.value.info;
-const store = data.value.store;
 
-const route = useRoute();
 const loading = ref(true);
 const groupedProducts = ref({});
 
@@ -65,8 +64,8 @@ const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
-const groupProductsByCategory = (productsArray) => {
-  const grouped = productsArray.reduce((acc, product) => {
+const groupProductsByCategory = () => {
+  const grouped = products.value.reduce((acc, product) => {
     const category = product.product_type || 'Non specificata';
     if (!acc[category]) acc[category] = [];
     acc[category].push(product);
@@ -77,17 +76,8 @@ const groupProductsByCategory = (productsArray) => {
     grouped[category].sort((a, b) => a.name.localeCompare(b.name));
   });
 
-  return grouped;
-};
-
-const fetchProducts = () => {
-  http.getRequest(`products/${store.userId}`, {}, function (data) {
-    groupedProducts.value = groupProductsByCategory(data);
-    loading.value = false;
-
-    if (route.query.order)
-      popupStore.setPopup('Ordine effettuato con successo!', 'success');
-  });
+  groupedProducts.value = grouped;
+  loading.value = false;
 };
 
 const addToCart = (productId) => {
@@ -103,6 +93,6 @@ const addToCart = (productId) => {
 }
 
 onMounted(() => {
-  fetchProducts();
+  groupProductsByCategory();
 });
 </script>
