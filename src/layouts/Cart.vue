@@ -74,25 +74,23 @@ import { storeToRefs } from 'pinia';
 
 import Address from './Address';
 
+import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
+const shopStore = useShopStore();
 const popupStore = usePopupStore();
 const orderStore = useOrderStore();
 
-const products = ref([]);
 const isCheckout = ref(false);
 const isMenuVisible = ref(false);
 const isMobile = setupMobileUtils();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+const { products } = storeToRefs(shopStore);
 const store = data.value.store;
-
-http.getRequest(`products/${store.userId}`, {}, function (data) {
-  products.value = data;
-});
 
 const totalItems = computed(() => {
   return orderStore.products.reduce((total, product) => total + product.quantity, 0);

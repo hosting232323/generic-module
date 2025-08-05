@@ -56,7 +56,6 @@
 </template>
 
 <script setup>
-import http from '@/utils/http';
 import { storeToRefs } from 'pinia';
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
@@ -64,15 +63,20 @@ import { useRoute, useRouter } from 'vue-router';
 import Loading from '@/layouts/Loading.vue';
 import Popup from '@/components/sections/Popup.vue';
 
+import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { usePopupStore } from '@/stores/popup';
 import { useOrderStore } from '@/stores/order';
 
-const popupStore = usePopupStore();
+const shopStore = useShopStore();
 const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
-const info = data.value.info;
 const orderStore = useOrderStore();
+const popupStore = usePopupStore();
+
+const { data } = storeToRefs(dataStore);
+const { products } = storeToRefs(shopStore);
+
+const info = data.value.info;
 
 const formatPrice = (price) => {
   return (parseFloat(price) / 100).toFixed(2) + ' €';
@@ -87,12 +91,10 @@ const loading = ref(true);
 const route = useRoute();
 const router = useRouter();
 
-const fetchProductDetails = () => {
+const getProductById = () => {
   const productId = parseInt(route.params.id);
-  http.getRequest('products', {}, function (data) {
-    product.value = data.find(product => product.id == productId);
-    loading.value = false;
-  });
+  loading.value = false;
+  product.value = products.value.find(product => product.id == productId)
 };
 
 const addToCart = () => {
@@ -112,7 +114,7 @@ const goBack = () => {
 };
 
 onMounted(() => {
-  fetchProductDetails();
+  getProductById();
 });
 </script>
 

@@ -19,10 +19,12 @@ import SocialBubbles from './SocialBubbles.vue';
 import { storeToRefs } from 'pinia';
 import { onMounted, watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
+import { useShopStore } from '@/stores/shop';
 
 const showChatty = ref(false);
 const showBubbles = ref(false);
 const dataStore = useDataStore();
+const shopStore = useShopStore();
 const { data, ready } = storeToRefs(dataStore);
 
 const backgroundStyle = computed(() => {
@@ -42,6 +44,7 @@ const backgroundStyle = computed(() => {
 
 onMounted(() => {
   dataStore.initData();
+  shopStore.initData(data.value.store.userId);
 });
 
 watch(ready, (newValue) => {
