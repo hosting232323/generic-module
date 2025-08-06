@@ -1,5 +1,5 @@
 <template>
-  <v-app  v-if="ready">
+  <v-app v-if="ready">
     <AppBar />
     <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
     <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>

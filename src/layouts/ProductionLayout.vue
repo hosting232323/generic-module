@@ -26,6 +26,7 @@ const showBubbles = ref(false);
 const dataStore = useDataStore();
 const shopStore = useShopStore();
 const { data, ready } = storeToRefs(dataStore);
+const addOn = data.value.addOn;
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage) {
@@ -44,13 +45,13 @@ const backgroundStyle = computed(() => {
 
 onMounted(() => {
   dataStore.initData();
-  shopStore.initData(data.value.store.userId);
+  if(addOn.includes('Shop'))
+    shopStore.initData(data.value.store.userId);
 });
 
 watch(ready, (newValue) => {
   if (!newValue) return
 
-  const addOn = data.value.addOn;
   if (addOn && addOn.includes('Chatty')) {
     const script = document.createElement('script');
     script.type = 'module';

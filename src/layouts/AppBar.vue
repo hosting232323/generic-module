@@ -47,6 +47,7 @@ import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { setupMobileUtils } from '@/utils/mobile';
+import { useRouter } from 'vue-router';
 
 import Cart from './Cart.vue';
 import Language from '@/components/sections/Language.vue';
@@ -56,6 +57,7 @@ const { getText, getAncor } = useLanguageStore();
 const orderStore = useOrderStore();
 
 const drawer = ref(null);
+const router = useRouter();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -79,7 +81,7 @@ const link = (item) => {
   } else if (item.type === 'externalLink') {
     window.open(item.path, '_blank');
   } else if (item.type === 'internalLink') {
-    window.location.href = item.path;
+     router.value.push(item.path);
   }
 }
 
