@@ -34,12 +34,8 @@ const { content, info } = defineProps(['content', 'info']);
 
 const contentTypes = computed(() => {
   if (isMobile.value)
-    return (content.orientationMobile || 'bottom') === 'bottom'
-      ? ['text', 'image']
-      : ['image', 'text'];
+    return (content.orientationMobile || 'bottom') === 'bottom' ? ['text', 'image'] : ['image', 'text'];
   else
-    return (content.orientationDesktop || 'right') === 'right'
-      ? ['text', 'image']
-      : ['image', 'text'];
+    return (content.orientationDesktop || 'right') === 'right' ? ['text', 'image'] : ['image', 'text'];
 });
 </script>
