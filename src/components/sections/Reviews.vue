@@ -1,102 +1,116 @@
 <template>
   <v-container>
     <v-row class="mt-9 justify-center" dense style="max-height: max-content;">
-      <v-col v-for="(review, index) in content.reviews" :key="index" cols="12" sm="6" md="4">
-        <div class="review pa-4">
-          <img src="/google.png" alt="logo google" style="height: 28px; margin-bottom: 5px;">
-          <p>{{ review.descrizione }}</p>
-          <div class="dotted-line-big" :style="{
-            backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)`
-          }"></div>
-          <p>{{ review.nome }}</p>
-        </div>
-      </v-col>
-      <div class="controls-with-indicators">
-        <v-btn icon @click="prevReview" variant="text" class="nav-arrow">
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-
-        <div class="indicator-container">
-          <span v-for="(r, i) in content.reviews" :key="i" :class="['dot', { active: currentIndex === i }]"
-            :style="currentIndex === i ? { backgroundColor: info.primaryColor } : {}" @click="currentIndex = i" />
-        </div>
-
-        <v-btn icon @click="nextReview" variant="text" class="nav-arrow">
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-      </div>
+      <transition-group name="fade" tag="div" class="d-flex flex-wrap justify-center" style="width: 100%; position: relative;">
+        <v-col
+          v-for="(review, index) in visibleReviews"
+          :key="review.nome + index"
+          cols="12"
+          sm="6"
+          md="4"
+        >
+          <div class="review pa-4">
+            <img src="/google.png" alt="logo google" style="height: 28px; margin-bottom: 5px;">
+            <p>{{ review.descrizione }}</p>
+            <div
+              class="dotted-line-big"
+              :style="{
+                backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)`
+              }"
+            ></div>
+            <p>{{ review.nome }}</p>
+          </div>
+        </v-col>
+      </transition-group>
     </v-row>
-    <!-- <div>
-        <transition-group name="fade" tag="div">
-          <div
-            v-for="(review, index) in [content.reviews[currentIndex]]"
-            :key="index"
-            class="review mt-4"
-          >
-            <p class="description" style="margin: 0 !important;">{{ review.descrizione }}</p>
-            <div class="dotted-line-big"></div>
-            <p class="description name" style="margin: 0 !important;">{{ review.nome }}</p>
-          </div>
-        </transition-group>
 
-        <div class="controls-with-indicators">
-          <v-btn icon @click="prevReview" variant="text" class="nav-arrow" color="white">
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
+    <div v-if="totalGroups > 1" class="controls-with-indicators mt-4">
+      <v-btn icon @click="prevReview" variant="text" class="nav-arrow">
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
 
-          <div class="indicator-container">
-            <span
-              v-for="(r, i) in reviews"
-              :key="i"
-              :class="['dot', { active: currentIndex === i }]"
-              @click="currentIndex = i"
-            />
-          </div>
+      <div class="indicator-container">
+        <span
+          v-for="(group, i) in totalGroups"
+          :key="i"
+          :class="['dot', { active: currentGroupIndex === i }]"
+          :style="currentGroupIndex === i ? { backgroundColor: info.primaryColor } : {}"
+          @click="setGroup(i)"
+        />
+      </div>
 
-          <v-btn icon @click="nextReview" variant="text" class="nav-arrow" color="white">
-            <v-icon>mdi-chevron-right</v-icon>
-          </v-btn>
-        </div>
-      </div> -->
+      <v-btn icon @click="nextReview" variant="text" class="nav-arrow">
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+    </div>
   </v-container>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { setupMobileUtils, resolveImg } from '@/utils/mobile';
-const { content, info } = defineProps(['content', 'info']);
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
+import { useDisplay } from 'vuetify'
 
-const currentIndex = ref(0);
-let intervalId;
+const { content, info } = defineProps(['content', 'info'])
 
-const startInterval = () => {
-  intervalId = setInterval(nextReview, 4000);
-};
+const currentGroupIndex = ref(0)
+let intervalId
 
-const resetInterval = () => {
-  clearInterval(intervalId);
-  startInterval();
-};
+const { smAndDown, mdAndDown } = useDisplay()
 
+const reviewsPerPage = computed(() => {
+  if (smAndDown.value) return 1
+  if (mdAndDown.value) return 2
+  return 3
+})
+
+const totalGroups = computed(() => {
+  return Math.ceil(content.reviews.length / reviewsPerPage.value)
+})
+
+const visibleReviews = computed(() => {
+  const start = currentGroupIndex.value * reviewsPerPage.value
+  return content.reviews.slice(start, start + reviewsPerPage.value)
+})
 
 const nextReview = () => {
-  currentIndex.value = (currentIndex.value + 1) % content.reviews.length;
-  resetInterval();
-};
+  currentGroupIndex.value = (currentGroupIndex.value + 1) % totalGroups.value
+  resetInterval()
+}
 
 const prevReview = () => {
-  currentIndex.value = (currentIndex.value - 1 + content.reviews.length) % content.reviews.length;
-  resetInterval();
-};
+  currentGroupIndex.value = (currentGroupIndex.value - 1 + totalGroups.value) % totalGroups.value
+  resetInterval()
+}
+
+const setGroup = (index) => {
+  currentGroupIndex.value = index
+  resetInterval()
+}
+
+const startInterval = () => {
+  intervalId = setInterval(nextReview, 4000)
+}
+
+const resetInterval = () => {
+  clearInterval(intervalId)
+  startInterval()
+}
 
 onMounted(() => {
-  startInterval();
-});
+  startInterval()
+})
 
 onBeforeUnmount(() => {
-  clearInterval(intervalId);
-});
+  clearInterval(intervalId)
+})
+
+watch(reviewsPerPage, () => {
+  if (currentGroupIndex.value >= totalGroups.value) {
+    currentGroupIndex.value = 0
+  }
+})
 </script>
+
 
 <style scoped>
 .dotted-line-big {
@@ -128,13 +142,42 @@ onBeforeUnmount(() => {
   transition: background-color 0.3s ease;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.6s;
+.dot.active {
+  background-color: #666;
 }
 
-.fade-enter-from,
+.fade-enter-active,
+.fade-leave-active {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: relative;
+  display: flex;
+}
+
+.fade-enter-from {
+  opacity: 0;
+  transform: translateX(100%);
+  position: absolute;
+  width: 100%;
+}
+
+.fade-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+  width: 100%;
+}
+
+.fade-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+  width: 100%;
+}
+
 .fade-leave-to {
   opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+  width: 100%;
 }
 </style>
