@@ -1,13 +1,12 @@
 <template>
   <v-container>
+    <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Ciò che dicono di noi'"/>
     <v-row class="mt-9 justify-center" dense style="max-height: max-content;">
       <transition-group name="fade" tag="div" class="d-flex flex-wrap justify-center" style="width: 100%; position: relative;">
         <v-col
           v-for="(review, index) in visibleReviews"
           :key="review.nome + index"
-          cols="12"
-          sm="6"
-          md="4"
+          :cols="reviewsPerPage === 1 ? 12 : (reviewsPerPage === 2 ? 6 : 4)"
         >
           <div class="review pa-4">
             <img src="/google.png" alt="logo google" style="height: 28px; margin-bottom: 5px;">
@@ -49,7 +48,9 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useDisplay } from 'vuetify'
+import { useLanguageStore } from '@/stores/language';
 
+const { getText } = useLanguageStore();
 const { content, info } = defineProps(['content', 'info'])
 
 const currentGroupIndex = ref(0)
