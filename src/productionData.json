@@ -22,6 +22,17 @@
   "components": [
     {
       "content": {
+        "images": [
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
+        ],
+        "type": "automatic"
+      },
+      "type": "gallery"
+    },
+    {
+      "content": {
         "button": "Vai al menu!",
         "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
@@ -34,28 +45,55 @@
       "type": "dualSection"
     },
     {
-      "content": [
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
-        "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
-      ],
-      "type": "gallery"
+      "content": {
+        "title": "Consulenza personalizzata",
+        "orientationTitle": "left",
+        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
+        "orientationDescription": "left"
+      },
+      "type": "text"
     },
     {
-      "content": [
-        {
-          "description": "Crea la tua pizza scegliendo gli ingredienti che preferisci. Da gustare calda e appena sfornata.",
-          "name": "Pizza Personalizzata"
-        },
-        {
-          "description": "Scopri una selezione dei nostri migliori piatti con il menu degustazione che include antipasti, pizze speciali e dolci fatti in casa.",
-          "name": "Menu Degustazione"
-        },
-        {
-          "description": "Organizza una festa o un evento speciale con il nostro servizio di pizza party a domicilio. Scegli le pizze da gustare comodamente a casa tua.",
-          "name": "Pizza Party a Domicilio"
-        }
-      ],
+      "content": {
+        "reviews": [
+          {
+            "descrizione":"Servizio impeccabile. Consigliatissimo!",
+            "nome":"Anna"
+          },
+          {
+            "descrizione":"Esperienza molto positiva! Il team si è mostrato disponibile e competente in ogni fase del progetto. Grazie a loro sono riuscita a realizzare esattamente ciò che avevo in mente.",
+            "nome":"Luca"
+          },
+          {
+            "descrizione":"Collaborare con questo team è stato entusiasmante sin dall'inizio. Hanno ascoltato con attenzione ogni mia esigenza e hanno trasformato le mie idee in soluzioni concrete e ben strutturate. La loro professionalità e l’attenzione ai dettagli hanno davvero fatto la differenza. Non potrei essere più soddisfatto del risultato finale.",
+            "nome":"Chiara"
+          }
+        ],
+        "title": "Consulenza",
+        "orientationTitle": "left",
+        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
+        "orientationDescription": "left"
+      },
+      "type": "reviews"
+    },
+    {
+      "content": {
+        "title": "I servizi",
+        "services": [
+          {
+            "description": "Crea la tua pizza scegliendo gli ingredienti che preferisci. Da gustare calda e appena sfornata.",
+            "name": "Pizza Personalizzata"
+          },
+          {
+            "description": "Scopri una selezione dei nostri migliori piatti con il menu degustazione che include antipasti, pizze speciali e dolci fatti in casa.",
+            "name": "Menu Degustazione"
+          },
+          {
+            "description": "Organizza una festa o un evento speciale con il nostro servizio di pizza party a domicilio. Scegli le pizze da gustare comodamente a casa tua.",
+            "name": "Pizza Party a Domicilio"
+          }
+        ]
+      },
       "menu": "Servizi",
       "type": "services"
     },
@@ -63,18 +101,20 @@
       "type": "line"
     },
     {
-      "content": [
-        {
-          "description": "Le nostre pizze vengono cotte in un forno a legna che garantisce una cottura perfetta e conferisce quel caratteristico sapore affumicato.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png",
-          "name": "Forno a Legna"
-        },
-        {
-          "description": "Il nostro staff è ben addestrato a garantire un servizio rapido e cordiale, creando un'atmosfera accogliente per i nostri clienti.",
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png",
-          "name": "Servizio Veloce e Accogliente"
-        }
-      ],
+      "content": {
+        "advantages": [
+          {
+            "description": "Le nostre pizze vengono cotte in un forno a legna che garantisce una cottura perfetta e conferisce quel caratteristico sapore affumicato.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png",
+            "name": "Forno a Legna"
+          },
+          {
+            "description": "Il nostro staff è ben addestrato a garantire un servizio rapido e cordiale, creando un'atmosfera accogliente per i nostri clienti.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png",
+            "name": "Servizio Veloce e Accogliente"
+          }
+        ]
+      },
       "menu": "Vantaggi",
       "type": "advantages"
     },
