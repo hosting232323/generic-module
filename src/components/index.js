@@ -5,3 +5,5 @@ export { default as DemoViewLayout } from '../layouts/DemoViewLayout.vue';
 
 export { default as AuthManager } from './users/AuthManager.vue';
 export { default as Password } from './users/Password.vue';
+
+export { encryptPassword } from '../utils/encrypt.js';

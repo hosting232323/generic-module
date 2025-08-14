@@ -60,7 +60,7 @@
 <script setup>
 import { ref } from 'vue';
 import http from '@/utils/http';
-import encrypt from '@/utils/encrypt';
+import { encryptPassword } from '@/components';
 import validation from '@/utils/validation';
 import { useRouter, useRoute } from 'vue-router';
 
@@ -124,7 +124,7 @@ const changePassword = () => {
       loading.value = true;
       http.postRequest('change-password', {
         pass_token: route.params.token,
-        new_password: encrypt.encryptPassword(pass.value, props.secretKey, props.iv)
+        new_password: encryptPassword(pass.value, props.secretKey, props.iv)
       }, function (data) {
         loading.value = false;
         if (data.status === 'ok') {

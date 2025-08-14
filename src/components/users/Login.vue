@@ -89,7 +89,7 @@
 
 <script setup>
 import http from '@/utils/http';
-import encrypt from '@/utils/encrypt';
+import { encryptPassword } from '@/components';
 import { useRouter } from 'vue-router';
 import { ref, onMounted, computed } from 'vue';
 
@@ -191,7 +191,7 @@ const login = () => {
     loginLoading.value = true;
     http.postRequest('login', {
       email: mail.value,
-      password: encrypt.encryptPassword(pass.value, props.secretKey, props.iv)
+      password: encryptPassword(pass.value, props.secretKey, props.iv)
     }, function (data) {
       loginLoading.value = false;
       if (data.status === 'ok') {
