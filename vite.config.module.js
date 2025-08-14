@@ -46,7 +46,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     lib: {
-      entry: fileURLToPath(new URL('./src/components/index.js', import.meta.url)),
+      entry: fileURLToPath(new URL('./src/index.js', import.meta.url)),
       name: 'generic-module',
       fileName: (format) => `generic-module.${format}.js`,
       formats: ['es', 'cjs']
