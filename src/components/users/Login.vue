@@ -89,9 +89,9 @@
 
 <script setup>
 import http from '@/utils/http';
-import { encryptPassword } from '@/components';
 import { useRouter } from 'vue-router';
 import { ref, onMounted, computed } from 'vue';
+import { encryptPassword } from '@/utils/encrypt';
 
 const props = defineProps({
   logo: {
