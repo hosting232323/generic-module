@@ -11,20 +11,17 @@ export const encryptPassword = (password, secretKey, ivString) => {
     padding: CryptoJS.pad.Pkcs7,
   });
 
-  const ivAndCiphertext = iv.concat(encrypted.ciphertext);
-  const encryptedBase64 = ivAndCiphertext.toString(CryptoJS.enc.Base64);
-  return encryptedBase64;
+  return encrypted.ciphertext.toString(CryptoJS.enc.Base64);
 };
 
-export const decryptPassword = (encryptedBase64, secretKey) => {
-  const key = CryptoJS.enc.Utf8.parse(secretKey);
 
-  const ivAndCiphertext = CryptoJS.enc.Base64.parse(encryptedBase64);
-  const iv = CryptoJS.lib.WordArray.create(ivAndCiphertext.words.slice(0, 4), 16);
-  const ciphertext = CryptoJS.lib.WordArray.create(ivAndCiphertext.words.slice(4), ivAndCiphertext.sigBytes - 16);
+export const decryptPassword = (encryptedBase64, secretKey, ivString) => {
+  const key = CryptoJS.enc.Utf8.parse(secretKey);
+  const iv = CryptoJS.enc.Utf8.parse(ivString);
+  const ciphertext = CryptoJS.enc.Base64.parse(encryptedBase64);
 
   const decrypted = CryptoJS.AES.decrypt({ ciphertext }, key, {
-    iv,
+    iv: iv,
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.Pkcs7,
   });

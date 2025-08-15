@@ -189,11 +189,9 @@ const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
     loginLoading.value = true;
-    const iv = import.meta.env.VITE_IV;
-    const secretKey = import.meta.env.VITE_SECRET_KEY;
     http.postRequest('login', {
       email: mail.value,
-      password: encryptPassword(pass.value, secretKey, iv)
+      password: encryptPassword(pass.value, props.secretKey, props.iv)
     }, function (data) {
       loginLoading.value = false;
       if (data.status === 'ok') {
