@@ -1,16 +1,23 @@
 <template class="app-bar">
-  <v-navigation-drawer v-model="drawer" location="bottom" temporary touchless>
-    <v-list>
-      <v-list-item v-for="item in items" :key="item.path">
-        <div @click="link(item)">
+  <transition name="slide">
+    <div v-if="drawer" class="mobile-drawer" :style="{ backgroundColor: info.primaryColor }">
+      <div class="drawer-items">
+        <p
+          v-for="item in items"
+          :key="item.path"
+          @click="link(item)"
+          class="drawer-title"
+        >
           {{ item.title }}
-        </div>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
-  
-  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="isMobile">
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+        </p>
+      </div>
+    </div>
+  </transition>
+
+  <v-app-bar :elevation="2" class="navbar-mobile" :color="info.primaryColor" v-if="isMobile">
+    <div class="hamburger" :class="{ 'hamb-active': drawer }"  @click="drawer = !drawer">
+      <div class="bar"></div>
+    </div>
     <v-app-bar-title>
       <div class="d-flex align-center">
         <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
@@ -22,7 +29,6 @@
   </v-app-bar>
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
-    <v-app-bar-nav-icon v-if="isMobile" @click.stop="drawer = !drawer" />
     <v-app-bar-title>
       <div class="d-flex align-center">
         <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
@@ -37,8 +43,8 @@
       <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
       <Language v-if="multilingualActive" />
     </div>
-
   </v-app-bar>
+
 </template>
 
 <script setup>
@@ -68,6 +74,7 @@ const multilingualActive = addOn && addOn.includes('Multilingual') && info.local
 const isMobile = setupMobileUtils();
 
 const link = (item) => {
+  if (isMobile) drawer.value = !drawer.value;
   if (item.type === 'ancor') {
     const id = getAncor(item.path).toLowerCase();
     const target = document.getElementById(id);
@@ -116,5 +123,100 @@ const getCartQuantity = computed(() => {
 .app-logo {
   height: 40px;
   max-width: 150px;
+}
+
+.navbar-mobile {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hamburger {
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  margin-left: 4px;
+}
+
+.bar{
+  width: 20px;
+  height: 2px;
+  transition: .5s;
+  position: relative;
+  background-color: #fff;
+}
+
+.bar::before, .bar::after{
+  content: "";
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  transition: .5s;
+  background-color: #fff;
+}
+
+.bar::before{
+  transform: translateY(-7px);
+}
+.bar::after{
+  transform: translateY(7px);
+}
+
+
+.hamb-active .bar{
+  transform: rotate(-360deg);
+  background-color: transparent;
+}
+.hamb-active .bar::before{
+  transform: translateY(0) rotate(45deg);
+}
+.hamb-active .bar::after{
+  transform: translateY(0) rotate(-45deg);
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+.slide-enter-from, .slide-leave-to {
+  transform: translateX(-100%);
+}
+.slide-enter-to, .slide-leave-from {
+  transform: translateX(0);
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 64px 0;
+}
+
+.drawer-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.drawer-title {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 </style>
