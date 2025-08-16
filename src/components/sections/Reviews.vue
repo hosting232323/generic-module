@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Ciò che dicono di noi'"/>
-    <v-row class="mt-9 justify-center" dense style="max-height: max-content;">
+    <v-row class="mt-9 justify-center" dense>
       <transition-group name="fade" tag="div" class="d-flex flex-wrap justify-center" style="width: 100%; position: relative;">
         <v-col
           v-for="(review, index) in visibleReviews"
@@ -11,17 +11,29 @@
           <div class="review pa-4">
             <div class="d-flex align-center" style="margin-bottom: 15px;">
               <v-avatar size="35" class="mr-3">
-                <canvas :ref="el => setCanvasRef(el, review.name)" width="40" height="40"></canvas>
+                <canvas 
+                  ref="canvasRefs"
+                  :data-name="review.name"
+                  width="40"
+                  height="40"
+                ></canvas>
               </v-avatar>
-              <p>{{ review.name }}</p>
+              <p class="d-flex align-center justify-center">
+                {{ review.name }}
+                <span class="ml-2 d-flex align-center justify-center">
+                  <v-icon
+                    v-for="i in 5"
+                    :key="i"
+                    size="18"
+                    :color="i <= review.stars ? info.primaryColor : 'grey'"
+                  >
+                    mdi-star
+                  </v-icon>
+                </span>
+                </p>
             </div>
             <p>{{ review.descrizione }}</p>
-            <div
-              class="dotted-line-big"
-              :style="{
-                backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)`
-              }"
-            ></div>
+            <div class="dotted-line-big" :style="{ backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)` }"></div>
           </div>
         </v-col>
       </transition-group>
@@ -50,23 +62,17 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 import { useDisplay } from 'vuetify'
-import { useLanguageStore } from '@/stores/language';
+import { useLanguageStore } from '@/stores/language'
 
 const { getText } = useLanguageStore();
 const { content, info } = defineProps(['content', 'info'])
-const canvasRefs = ref({});
+const canvasRefs = ref([]) // array gestito da Vue
 const currentGroupIndex = ref(0)
 let intervalId
 
 const { smAndDown, mdAndDown } = useDisplay();
-
-const setCanvasRef = (el, name) => {
-  if (el) {
-    canvasRefs.value[name] = el;
-  }
-};
 
 // Funzione hash per colore coerente
 const hashColor = (name) => {
@@ -77,6 +83,10 @@ const hashColor = (name) => {
   const colors = ['#FF5733', '#33FF57', '#3357FF', '#F39C12', '#8E44AD', '#16A085', '#E74C3C'];
   return colors[Math.abs(hash) % colors.length];
 };
+
+const getStars = (stars) => {
+  console.log(stars);
+}
 
 // Generazione avatar
 const generateProfileImage = (canvas, name) => {
@@ -133,24 +143,23 @@ const resetInterval = () => {
   startInterval();
 }
 
+const drawAllAvatars = async () => {
+  await nextTick()
+  canvasRefs.value.forEach(canvas => {
+    if (canvas) {
+      generateProfileImage(canvas, canvas.dataset.name)
+    }
+  })
+}
+
 onMounted(() => {
   startInterval();
-  visibleReviews.value.forEach(review => {
-    const canvas = canvasRefs.value[review.name];
-    if (canvas) {
-      generateProfileImage(canvas, review.name);
-    }
-  });
+  drawAllAvatars();
 });
 
-watch(visibleReviews, (newReviews) => {
-  newReviews.forEach(review => {
-    const canvas = canvasRefs.value[review.name];
-    if (canvas) {
-      generateProfileImage(canvas, review.name);
-    }
-  });
-}, { immediate: true });
+watch(visibleReviews, () => {
+  drawAllAvatars()
+})
 
 onBeforeUnmount(() => {
   clearInterval(intervalId);
