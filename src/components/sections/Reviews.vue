@@ -1,23 +1,39 @@
 <template>
   <v-container>
     <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Ciò che dicono di noi'"/>
-    <v-row class="mt-9 justify-center" dense style="max-height: max-content;">
+    <v-row class="mt-9 justify-center" dense>
       <transition-group name="fade" tag="div" class="d-flex flex-wrap justify-center" style="width: 100%; position: relative;">
         <v-col
           v-for="(review, index) in visibleReviews"
-          :key="review.nome + index"
+          :key="review.name + '-' + index"
           :cols="reviewsPerPage === 1 ? 12 : (reviewsPerPage === 2 ? 6 : 4)"
         >
           <div class="review pa-4">
-            <img src="/google.png" alt="logo google" style="height: 28px; margin-bottom: 5px;">
+            <div class="d-flex align-center" style="margin-bottom: 15px;">
+              <v-avatar size="35" class="mr-3">
+                <canvas 
+                  ref="canvasRefs"
+                  :data-name="review.name"
+                  width="40"
+                  height="40"
+                ></canvas>
+              </v-avatar>
+              <p class="d-flex align-center justify-center">
+                {{ review.name }}
+                <span class="ml-2 d-flex align-center justify-center">
+                  <v-icon
+                    v-for="i in 5"
+                    :key="i"
+                    size="18"
+                    :color="i <= review.stars ? info.primaryColor : 'grey'"
+                  >
+                    mdi-star
+                  </v-icon>
+                </span>
+                </p>
+            </div>
             <p>{{ review.descrizione }}</p>
-            <div
-              class="dotted-line-big"
-              :style="{
-                backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)`
-              }"
-            ></div>
-            <p>{{ review.nome }}</p>
+            <div class="dotted-line-big" :style="{ backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)` }"></div>
           </div>
         </v-col>
       </transition-group>
@@ -46,17 +62,45 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
 import { useDisplay } from 'vuetify'
-import { useLanguageStore } from '@/stores/language';
+import { useLanguageStore } from '@/stores/language'
 
 const { getText } = useLanguageStore();
 const { content, info } = defineProps(['content', 'info'])
-
+const canvasRefs = ref([]) // array gestito da Vue
 const currentGroupIndex = ref(0)
 let intervalId
 
-const { smAndDown, mdAndDown } = useDisplay()
+const { smAndDown, mdAndDown } = useDisplay();
+
+// Funzione hash per colore coerente
+const hashColor = (name) => {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const colors = ['#FF5733', '#33FF57', '#3357FF', '#F39C12', '#8E44AD', '#16A085', '#E74C3C'];
+  return colors[Math.abs(hash) % colors.length];
+};
+
+const getStars = (stars) => {
+  console.log(stars);
+}
+
+// Generazione avatar
+const generateProfileImage = (canvas, name) => {
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const bgColor = hashColor(name);
+  ctx.fillStyle = bgColor;
+  ctx.fillRect(0, 0, 40, 40);
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '16px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(name.charAt(0).toUpperCase(), 20, 22);
+};
 
 const reviewsPerPage = computed(() => {
   if (smAndDown.value) return 1
@@ -74,44 +118,59 @@ const visibleReviews = computed(() => {
 })
 
 const nextReview = () => {
-  currentGroupIndex.value = (currentGroupIndex.value + 1) % totalGroups.value
-  resetInterval()
+  currentGroupIndex.value = (currentGroupIndex.value + 1) % totalGroups.value;
+  resetInterval();
 }
 
 const prevReview = () => {
-  currentGroupIndex.value = (currentGroupIndex.value - 1 + totalGroups.value) % totalGroups.value
-  resetInterval()
+  currentGroupIndex.value = (currentGroupIndex.value - 1 + totalGroups.value) % totalGroups.value;
+  resetInterval();
 }
 
 const setGroup = (index) => {
-  currentGroupIndex.value = index
-  resetInterval()
+  currentGroupIndex.value = index;
+  resetInterval();
 }
 
 const startInterval = () => {
-  intervalId = setInterval(nextReview, 4000)
+  if (totalGroups.value > 1) {
+    intervalId = setInterval(nextReview, 4000);
+  }
 }
 
 const resetInterval = () => {
-  clearInterval(intervalId)
-  startInterval()
+  clearInterval(intervalId);
+  startInterval();
+}
+
+const drawAllAvatars = async () => {
+  await nextTick()
+  canvasRefs.value.forEach(canvas => {
+    if (canvas) {
+      generateProfileImage(canvas, canvas.dataset.name)
+    }
+  })
 }
 
 onMounted(() => {
-  startInterval()
+  startInterval();
+  drawAllAvatars();
+});
+
+watch(visibleReviews, () => {
+  drawAllAvatars()
 })
 
 onBeforeUnmount(() => {
-  clearInterval(intervalId)
+  clearInterval(intervalId);
 })
 
 watch(reviewsPerPage, () => {
   if (currentGroupIndex.value >= totalGroups.value) {
-    currentGroupIndex.value = 0
+    currentGroupIndex.value = 0;
   }
 })
 </script>
-
 
 <style scoped>
 .dotted-line-big {

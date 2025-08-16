@@ -58,15 +58,18 @@
         "reviews": [
           {
             "descrizione":"Servizio impeccabile. Consigliatissimo!",
-            "nome":"Anna"
+            "stars": 5,
+            "name":"Anna"
           },
           {
             "descrizione":"Esperienza molto positiva! Il team si è mostrato disponibile e competente in ogni fase del progetto. Grazie a loro sono riuscita a realizzare esattamente ciò che avevo in mente.",
-            "nome":"Luca"
+            "stars": 4,
+            "name":"Luca"
           },
           {
             "descrizione":"Collaborare con questo team è stato entusiasmante sin dall'inizio. Hanno ascoltato con attenzione ogni mia esigenza e hanno trasformato le mie idee in soluzioni concrete e ben strutturate. La loro professionalità e l’attenzione ai dettagli hanno davvero fatto la differenza. Non potrei essere più soddisfatto del risultato finale.",
-            "nome":"Chiara"
+            "stars": 3,
+            "name":"Chiara"
           }
         ],
         "title": "Consulenza",
