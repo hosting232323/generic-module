@@ -16,25 +16,17 @@
 .calendar-header {
   padding: 1rem;
   margin-bottom: 1rem;
-}
-
-.calendar-nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
-
-.month-nav {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
 .nav-btn {
   background: none;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  width: 34px;
+  padding: 0.25rem;
   cursor: pointer;
   color: #666;
   transition: all 0.2s;
@@ -44,23 +36,20 @@
   background-color: #f5f5f5;
 }
 
-.today-btn {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  padding: 0.25rem 0.75rem;
-  cursor: pointer;
-  color: #666;
-  transition: all 0.2s;
+.month-before {
+  color: #bbb;
+  cursor: default;
 }
 
-.today-btn:hover {
-  background-color: #f5f5f5;
+.month-before:hover {
+  background: none !important;
 }
 
 .current-month {
   font-size: 1rem;
   font-weight: 500;
+  text-transform: capitalize;
+  font-weight: bold;
   color: #333;
   min-width: 150px;
   text-align: center;

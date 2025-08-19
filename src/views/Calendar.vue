@@ -1,33 +1,35 @@
 <template>
   <div class="calendar">
+
     <div class="calendar-header">
-      <div class="calendar-nav">
-        <button class="today-btn" @click="goToCurrentMonth">Oggi</button>
-        <div class="month-nav">
-          <button class="nav-btn" @click="prevMonth">&lt;</button>
-          <span class="current-month">{{ currentMonth }} {{ currentYear }}</span>
-          <button class="nav-btn" @click="nextMonth">&gt;</button>
-        </div>
-      </div>
+      <button 
+        :class="['nav-btn', { 'month-before': isPrevMonthBeforeToday() }]" 
+        :disabled="isPrevMonthBeforeToday()"
+        @click="prevMonth"
+      >
+      <v-icon>mdi-chevron-left</v-icon>
+    </button>
+      <span class="current-month">{{ currentMonth }} {{ currentYear }}</span>
+      <button class="nav-btn" @click="nextMonth"><v-icon>mdi-chevron-right</v-icon></button>
     </div>
+
     <div class="calendar-weekdays">
       <div v-for="day in weekdays" :key="day" class="weekday"><b>{{ day }}</b></div>
     </div>
+
     <div class="calendar-days">
       <div
         v-for="day in days"
         :key="day.key"
         class="day"
         :class="{ 
-          'other-month': !day.isCurrentMonth, 
           'is-today': isToday(day.date, day.isCurrentMonth),
-          'has-events': day.events.length > 0,
           'past-day': isPastDay(day)
         }"
         @click="day.events.length > 0 && goToDayEvents(day)"
       >
         <div class="day-header">
-          <span class="day-number">{{ day.date }}</span>
+          <span class="day-number" :style="{ textDecoration: isPastDay(day) ? 'line-through' : '' }">{{ day.date }}</span>
         </div>
         <div class="events-container">
           <div v-if="day.events.length > 0">
@@ -43,6 +45,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -122,9 +125,6 @@ const nextMonth = () => {
   currentDate.value = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() + 1, 1);
 };
 
-const goToCurrentMonth = () => {
-  currentDate.value = new Date();
-};
 
 const isToday = (date, isCurrentMonth) => {
   if (!isCurrentMonth) return false;
@@ -153,11 +153,20 @@ const isPastDay = (day) => {
     day.date
   );
 
-  // Se il giorno non appartiene al mese corrente, NON colorarlo
-  if (!day.isCurrentMonth) return false;
-
-  // Se la data del giorno è più piccola di oggi → giorno passato
+  if (day.key.startsWith('prev')) return true;
+  if (day.key.startsWith('next')) return false;
   return dayDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+};
+
+const isPrevMonthBeforeToday = () => {
+  const today = new Date();
+  const prevMonthDate = new Date(
+    currentDate.value.getFullYear(),
+    currentDate.value.getMonth() - 1,
+    1
+  );
+
+  return prevMonthDate < new Date(today.getFullYear(), today.getMonth(), 1);
 };
 </script>
 
