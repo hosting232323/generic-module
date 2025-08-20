@@ -18,7 +18,7 @@ import Home from '../views/Home.vue';
 
 import SocialBubbles from './SocialBubbles.vue';
 import { defineProps } from 'vue';
-
+import {setIsMobile } from '@/utils/mobile';
 import { storeToRefs } from 'pinia';
 import { onMounted, watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
@@ -29,7 +29,9 @@ const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
 
 const props = defineProps({
-  json: Object
+  json: Object,
+  sectionsKey: String, // o il tipo corretto
+  isMobile: Boolean
 })
 
 const backgroundStyle = computed(() => {
@@ -49,6 +51,10 @@ const backgroundStyle = computed(() => {
 
 onMounted(() => {
   dataStore.initDataByJson(props.json);
+  setIsMobile(props.isMobile);
+  if (props.sectionsKey) {
+    dataStore.setSectionsKey(props.sectionsKey);
+  }
 });
 
 watch(ready, (newValue) => {

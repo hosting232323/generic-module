@@ -192,13 +192,12 @@ const getCartQuantity = computed(() => {
 }
 
 .mobile-drawer {
-  position: fixed;
+  position: absolute;
   top: 64px;
   right: 0;
   width: 100%;
   height: 100vh;
   z-index: 1000;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 0 64px 0;
