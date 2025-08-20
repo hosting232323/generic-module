@@ -1,6 +1,5 @@
 <template>
   <div class="calendar">
-
     <div class="calendar-header">
       <button 
         :class="['nav-btn', { 'month-before': isPrevMonthBeforeToday() }]" 
@@ -32,20 +31,15 @@
           <span class="day-number" :style="{ textDecoration: isPastDay(day) ? 'line-through' : '' }">{{ day.date }}</span>
         </div>
         <div class="events-container">
-          <div v-if="day.events.length > 0">
-            <div
-              v-for="event in day.events"
-              :key="event.id"
-              class="event"
-            >
-              <b>{{ event.name }}</b>
-            </div>
-          </div>
-          <div v-else class="no-event">Nessun evento</div>
+          <button 
+            v-if="!isPastDay(day) && isOpen(day)" 
+            class="event"
+          >
+            Prenota un tavolo
+          </button>
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -60,6 +54,7 @@ const isModalVisible = ref(false);
 const selectedEvent = ref(null);
 
 const weekdays = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
+const openingDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const currentMonth = computed(() => {
   return currentDate.value.toLocaleString('it-IT', { month: 'long' });
@@ -156,6 +151,22 @@ const isPastDay = (day) => {
   if (day.key.startsWith('prev')) return true;
   if (day.key.startsWith('next')) return false;
   return dayDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+};
+
+const getDayDate = (day) => {
+  const [type, year, month, date] = day.key.split('-'); 
+  return new Date(parseInt(year), parseInt(month) - 1, parseInt(date));
+};
+
+const isOpen = (day) => {
+  const dayDate = getDayDate(day);
+  console.log(dayDate);
+
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const dayName = daysOfWeek[dayDate.getDay()];
+  console.log(dayName);
+
+  return openingDays.includes(dayName);
 };
 
 const isPrevMonthBeforeToday = () => {
