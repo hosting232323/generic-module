@@ -146,7 +146,32 @@
     }
   ],
   "calendar": [
-
+    {
+      "name": "Prenota un tavolo",
+      "type": "WEEKLY",
+      "enrichment": {
+        "slot": [
+          {
+            "start_date": "2025-08-21",
+            "start_time": "10:00",
+            "capacity": 25,
+            "partecipants": 0
+          },
+          {
+            "start_date": "2025-08-21",
+            "start_time": "11:00",
+            "capacity": 25,
+            "partecipants": 0
+          },
+          {
+            "start_date": "2025-08-21",
+            "start_time": "12:00",
+            "capacity": 25,
+            "partecipants": 0
+          }
+        ]
+      }
+    }
   ],
   "menu": [
     {

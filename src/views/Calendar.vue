@@ -47,6 +47,15 @@
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 
+import { storeToRefs } from 'pinia';
+import { useDataStore } from '@/stores/data';
+
+const dataStore = useDataStore();
+const { data } = storeToRefs(dataStore);
+const calendar = data.value.calendar;
+
+console.log(calendar);
+
 const emit = defineEmits(['day-click']);
 
 const currentDate = ref(new Date());
