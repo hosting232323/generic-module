@@ -32,7 +32,7 @@
         </div>
         <div class="events-container">
           <button 
-            v-if="!isPastDay(day) && isOpen(day)" 
+            v-if="!isPastDay(day)" 
             class="event"
           >
             Prenota un tavolo
@@ -53,8 +53,6 @@ import { useDataStore } from '@/stores/data';
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 const calendar = data.value.calendar;
-
-console.log(calendar);
 
 const emit = defineEmits(['day-click']);
 
@@ -83,13 +81,14 @@ const days = computed(() => {
 
   let days = [];
 
-    // Riempie le celle vuote prima del primo giorno del mese (giorni del mese precedente)
+  // Riempie le celle vuote prima del primo giorno del mese (giorni del mese precedente)
   for (let i = 0; i < startDay; i++) {
     const prevMonthDate = new Date(year, month, -(startDay - i) + 1);
+    const events = getEventsForDate(prevMonthDate);
     days.push({
       date: prevMonthDate.getDate(),
       isCurrentMonth: false,
-      events: [],
+      events: events,
       key: `prev-${prevMonthDate.getFullYear()}-${prevMonthDate.getMonth()}-${prevMonthDate.getDate()}`
     });
   }
@@ -97,10 +96,11 @@ const days = computed(() => {
   // Aggiungi i giorni del mese corrente
   for (let i = 1; i <= daysInMonth; i++) {
     const date = new Date(year, month, i);
+    const events = getEventsForDate(date);
     days.push({
       date: i,
       isCurrentMonth: true,
-      events: [],
+      events: events,
       key: `current-${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
     });
   }
@@ -109,17 +109,67 @@ const days = computed(() => {
   const totalDays = days.length + (7 - (days.length % 7));
   for (let i = 1; days.length < totalDays; i++) {
     const nextMonthDate = new Date(year, month + 1, i);
+    const events = getEventsForDate(nextMonthDate);
     days.push({
       date: nextMonthDate.getDate(),
       isCurrentMonth: false,
-      events: [],
+      events: events,
       key: `next-${nextMonthDate.getFullYear()}-${nextMonthDate.getMonth()}-${nextMonthDate.getDate()}`
     });
   }
-
-
+  console.log(days);
   return days;
 });
+
+
+function getEventsForDate(date) {
+  // Assicuriamoci di usare la data locale, non UTC
+  const localDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
+  const dateStr = localDate.toISOString().split('T')[0];
+  const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
+  const dayOfMonth = date.getDate();
+
+  const filteredEvents = calendar.filter(event => {
+    if (!event.type || !event.name) return false;
+
+    // Verifica se la data corrente è all'interno del range di date dell'evento
+    const isWithinDateRange = (info) => {
+      if (!info.start_date || !info.end_date) return true;
+      return dateStr >= info.start_date && dateStr <= info.end_date;
+    };
+
+    switch (event.type) {
+      case 'Single':
+        return event.info.start_date === dateStr;
+      
+      case 'Weekly':
+        return event.info?.some(info => 
+          info.start_day === dayOfWeek && 
+          isWithinDateRange(info)
+        );
+      
+      case 'Monthly':
+        return event.info?.some(info => 
+          info.start_day === dayOfMonth && 
+          isWithinDateRange(info)
+        );
+      
+      default:
+        return false;
+    }
+  });
+
+  // Raggruppa gli eventi per nome
+  const eventsByName = new Map();
+
+  filteredEvents.forEach(event => {
+    if (!eventsByName.has(event.name)) {
+      eventsByName.set(event.name, event);
+    }
+  });
+
+  return Array.from(eventsByName.values());
+}
 
 const prevMonth = () => {
   currentDate.value = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() - 1, 1);
@@ -167,16 +217,16 @@ const getDayDate = (day) => {
   return new Date(parseInt(year), parseInt(month) - 1, parseInt(date));
 };
 
-const isOpen = (day) => {
-  const dayDate = getDayDate(day);
-  console.log(dayDate);
+// const isOpen = (day) => {
+//   const dayDate = getDayDate(day);
+//   console.log(dayDate);
 
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const dayName = daysOfWeek[dayDate.getDay()];
-  console.log(dayName);
+//   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+//   const dayName = daysOfWeek[dayDate.getDay()];
+//   console.log(dayName);
 
-  return openingDays.includes(dayName);
-};
+//   return openingDays.includes(dayName);
+// };
 
 const isPrevMonthBeforeToday = () => {
   const today = new Date();
