@@ -48,12 +48,11 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { setupMobileUtils } from '@/utils/mobile';
-
 import Cart from './Cart.vue';
 import Language from '@/components/sections/Language.vue';
 import { useLanguageStore } from '@/stores/language';
@@ -117,6 +116,25 @@ const items = computed(() => {
 const getCartQuantity = computed(() => {
   return orderStore.products.reduce((total, product) => total + product.quantity, 0);
 });
+
+watch(drawer, (newVal) => {
+  const previewCard = document.querySelector('.preview-card');
+  
+  if (previewCard) {
+    if (newVal) {
+      previewCard.style.overflow = 'hidden';
+      previewCard.classList.add('no-scroll');
+    } else { 
+      previewCard.style.overflow = 'auto';
+      previewCard.classList.remove('no-scroll');
+    }
+  }
+  if (newVal) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+});
 </script>
 
 <style scoped>
@@ -127,6 +145,8 @@ const getCartQuantity = computed(() => {
 
 .navbar-mobile {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 999;
   height: 64px;
@@ -208,6 +228,7 @@ const getCartQuantity = computed(() => {
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  padding-top: 40px;
 }
 
 .drawer-title {
