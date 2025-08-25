@@ -7,9 +7,9 @@
   ],
   "info": {
     "chattyId": "10",
-    "name": "Pizzeria - Molfetta",
-    "primaryColor": "#F26C4F",
-    "secondaryColor": "#FFD166"
+    "name": "Sotto Le Spine (Caffetteria, Cucine & Cantine...)",
+    "primaryColor": "#4f521d",
+    "secondaryColor": "#d39b36"
   },
   "store": {
     "userId": 5,
@@ -24,9 +24,9 @@
     {
       "content": {
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantgallery1.png",
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantgallery2.png",
+          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantgallery0.png"
         ],
         "type": "automatic"
       },
@@ -35,11 +35,11 @@
     {
       "content": {
         "button": "Vai al menu!",
-        "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
+        "description": "Nel cuore del nostro ristorante 'Sotto Le Spine', ogni piatto è una fusione perfetta di tradizione e innovazione. Offriamo una varietà di piatti artigianali, una selezione di caffè pregiati e una cantina di vini eccellenti. Dalla caffetteria alle cucine gourmet, ogni angolo del nostro ristorante racconta una storia unica.",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantbase0.png",
         "orientationDesktop": "right",
         "orientationMobile": "top",
-        "subtitle": "Tradizione e creatività in ogni fetta",
+        "subtitle": "Gusto e passione in ogni piatto",
         "title": "Esplora il nostro menu",
         "url": "/menu"
       },
@@ -47,9 +47,9 @@
     },
     {
       "content": {
-        "title": "Consulenza personalizzata",
+        "title": "La nostra storia",
         "orientationTitle": "left",
-        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
+        "description": "Sotto Le Spine non è solo un ristorante, ma un luogo dove l'arte della cucina si mescola con l'amore per il buon cibo e la convivialità. Con una selezione di piatti preparati con ingredienti freschi e locali, il nostro ristorante vuole offrire un'esperienza gastronomica unica.",
         "orientationDescription": "left"
       },
       "type": "text"
@@ -58,43 +58,43 @@
       "content": {
         "reviews": [
           {
-            "descrizione":"Servizio impeccabile. Consigliatissimo!",
+            "descrizione": "Un'esperienza fantastica! I piatti sono eccellenti e il servizio impeccabile.",
             "stars": 5,
-            "name":"Anna"
+            "name": "Giulia"
           },
           {
-            "descrizione":"Esperienza molto positiva! Il team si è mostrato disponibile e competente in ogni fase del progetto. Grazie a loro sono riuscita a realizzare esattamente ciò che avevo in mente.",
+            "descrizione": "Piatti deliziosi e un ambiente accogliente. Ottimo posto per una cena speciale.",
             "stars": 4,
-            "name":"Luca"
+            "name": "Marco"
           },
           {
-            "descrizione":"Collaborare con questo team è stato entusiasmante sin dall'inizio. Hanno ascoltato con attenzione ogni mia esigenza e hanno trasformato le mie idee in soluzioni concrete e ben strutturate. La loro professionalità e l’attenzione ai dettagli hanno davvero fatto la differenza. Non potrei essere più soddisfatto del risultato finale.",
+            "descrizione": "Ambiente elegante e piatti gustosi, ma la attesa è stata un po' lunga.",
             "stars": 3,
-            "name":"Chiara"
+            "name": "Francesco"
           }
         ],
-        "title": "Consulenza",
+        "title": "Cosa dicono i nostri clienti",
         "orientationTitle": "left",
-        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
+        "description": "Scopri cosa pensano i nostri clienti del nostro cibo, dei servizi e dell'atmosfera unica di Sotto Le Spine.",
         "orientationDescription": "left"
       },
       "type": "reviews"
     },
     {
       "content": {
-        "title": "I servizi",
+        "title": "I nostri servizi",
         "services": [
           {
-            "description": "Crea la tua pizza scegliendo gli ingredienti che preferisci. Da gustare calda e appena sfornata.",
-            "name": "Pizza Personalizzata"
+            "description": "Piatto del giorno: una selezione speciale di piatti preparati con ingredienti freschi e stagionali.",
+            "name": "Piatto del Giorno"
           },
           {
-            "description": "Scopri una selezione dei nostri migliori piatti con il menu degustazione che include antipasti, pizze speciali e dolci fatti in casa.",
-            "name": "Menu Degustazione"
+            "description": "Assapora una selezione di caffè pregiati provenienti dalle migliori torrefazioni. Sia in tazza che da asporto.",
+            "name": "Caffetteria"
           },
           {
-            "description": "Organizza una festa o un evento speciale con il nostro servizio di pizza party a domicilio. Scegli le pizze da gustare comodamente a casa tua.",
-            "name": "Pizza Party a Domicilio"
+            "description": "Vasta selezione di vini locali e internazionali, scelti per accompagnare perfettamente ogni piatto.",
+            "name": "Cantina e Vini"
           }
         ]
       },
@@ -108,14 +108,14 @@
       "content": {
         "advantages": [
           {
-            "description": "Le nostre pizze vengono cotte in un forno a legna che garantisce una cottura perfetta e conferisce quel caratteristico sapore affumicato.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png",
-            "name": "Forno a Legna"
+            "description": "La nostra cantina offre una selezione unica di vini, con particolare attenzione ai prodotti locali e alle etichette più rare.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantadvantages1.png",
+            "name": "Cantina Esclusiva"
           },
           {
-            "description": "Il nostro staff è ben addestrato a garantire un servizio rapido e cordiale, creando un'atmosfera accogliente per i nostri clienti.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png",
-            "name": "Servizio Veloce e Accogliente"
+            "description": "Lo staff di Sotto Le Spine è altamente qualificato, pronto a offrire un servizio attento e accogliente per ogni esigenza.",
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantadvantages3.png",
+            "name": "Servizio Eccellente"
           }
         ]
       },
@@ -127,7 +127,7 @@
     },
     {
       "content": {
-        "Address": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy",
+        "Address": "Via Dante Alighieri, 98, 70056 Molfetta BA, Italy",
         "Phone": "+39 080 964 8969"
       },
       "menu": "Contatti",
@@ -144,276 +144,6 @@
         "zoom": 10
       },
       "type": "map"
-    }
-  ],
-  "calendar": [
-    {
-      "id": 1,
-      "name": "Prenota un tavolo",
-      "type": "Weekly",
-      "enrichment": {
-        "slot": [
-          {
-            "start_time": "10:00",
-            "end_time": "11:00"
-          },
-          {
-            "start_time": "11:00",
-            "end_time": "12:00"
-          },
-          {
-            "start_time": "12:00",
-            "end_time": "13:00"
-          }
-        ]
-      },
-      "info": [
-        {
-          "start_time": "10:00",
-          "end_time": "23:00",
-          "start_day": "Tuesday"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Prenota un tavolo",
-      "type": "Weekly",
-      "enrichment": {
-        "slot": [
-          {
-            "start_time": "10:00",
-            "end_time": "11:00"
-          },
-          {
-            "start_time": "11:00",
-            "end_time": "12:00"
-          },
-          {
-            "start_time": "12:00",
-            "end_time": "13:00"
-          }
-        ]
-      },
-      "info": [
-        {
-          "start_time": "10:00",
-          "end_time": "23:00",
-          "start_day": "Wednesday"
-        }
-      ]
-    }
-  ],
-  "menu": [
-    {
-      "name": "Antipasti",
-      "icon": "mdi-food",
-      "image": "/menu/antipasti.jpg",
-      "items": [
-        {
-          "name": "Bruschette al Pomodoro",
-          "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Tagliere di Salumi",
-          "description": "Selezione di salumi italiani, accompagnati da focaccia",
-          "price": 12,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Mozzarella in Carrozza",
-          "description": "Mozzarella fritta con crosta dorata di pane",
-          "price": 7,
-          "allergens": [
-            "glutine",
-            "uova",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Frittura Mista",
-          "description": "Verdure pastellate croccanti con salsa yogurt",
-          "price": 9,
-          "allergens": [
-            "glutine",
-            "uova",
-            "lattosio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Pizze classiche",
-      "icon": "mdi-pizza",
-      "image": "/menu/pizze_classiche.jpg",
-      "items": [
-        {
-          "name": "Margherita",
-          "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-          "image": "/menu/pizza_margherita.png",
-          "price": 7,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Marinara",
-          "description": "Pomodoro, aglio fresco, origano e olio EVO",
-          "image": "/menu/pizza_marinara.png",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Diavola",
-          "description": "Mozzarella, salame piccante, pomodoro",
-          "image": "/menu/pizza_diavola.png",
-          "price": 8,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Capricciosa",
-          "description": "Mozzarella, prosciutto, funghi, carciofi e olive",
-          "image": "/menu/pizza_capricciosa.png",
-          "price": 9,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Pizze Gourmet",
-      "icon": "mdi-star",
-      "image": "/menu/pizze_gourmet.jpg",
-      "items": [
-        {
-          "name": "Tartufo e Porcini",
-          "description": "Mozzarella, crema al tartufo nero, funghi porcini",
-          "price": 15,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Bufala e Pachino",
-          "description": "Mozzarella di bufala DOP, pomodorini Pachino, olio EVO",
-          "price": 13,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Speck e Brie",
-          "description": "Base bianca, speck dell'Alto Adige, brie fuso",
-          "price": 14,
-          "allergens": [
-            "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Mortadella e Pistacchio",
-          "description": "Cremosa al pistacchio, mortadella IGP e granella di pistacchi",
-          "price": 16,
-          "allergens": [
-            "glutine",
-            "lattosio",
-            "frutta_a_guscio"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Beverage",
-      "icon": "mdi-cup-water",
-      "image": "/menu/bevande.jpg",
-      "items": [
-        {
-          "name": "Acqua Naturale",
-          "description": "Bottiglia da 50cl",
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": "Acqua Frizzante",
-          "description": "Bottiglia da 50cl",
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": "Coca Cola",
-          "description": "Lattina da 33cl",
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": "Fanta",
-          "description": "Lattina da 33cl",
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": "Tè al Limone",
-          "description": "Bottiglietta fredda da 50cl",
-          "price": 3,
-          "allergens": []
-        }
-      ]
-    },
-    {
-      "name": "Birre artigianali",
-      "icon": "mdi-beer",
-      "image": "/menu/birre.jpg",
-      "items": [
-        {
-          "name": "IPA Artigianale",
-          "description": "India Pale Ale luppolata e agrumata, 6.5%",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Stout Nera",
-          "description": "Birra scura con note di caffè, 7%",
-          "price": 6.5,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Weiss",
-          "description": "Birra di frumento, dolce e leggermente fruttata",
-          "price": 6,
-          "allergens": [
-            "glutine"
-          ]
-        },
-        {
-          "name": "Blonde Ale",
-          "description": "Birra chiara, leggera e rinfrescante",
-          "price": 5.5,
-          "allergens": [
-            "glutine"
-          ]
-        }
-      ]
     }
   ]
 }
