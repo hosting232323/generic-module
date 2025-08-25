@@ -147,68 +147,58 @@
   ],
   "calendar": [
     {
+      "id": 1,
       "name": "Prenota un tavolo",
       "type": "Weekly",
       "enrichment": {
         "slot": [
           {
-            "start_date": "2025-08-25",
             "start_time": "10:00",
-            "end_time": "11:00",
-            "capacity": 25,
-            "partecipants": 0
+            "end_time": "11:00"
           },
           {
-            "start_date": "2025-08-25",
             "start_time": "11:00",
-            "end_time": "12:00",
-            "capacity": 25,
-            "partecipants": 0
+            "end_time": "12:00"
           },
           {
-            "start_date": "2025-08-25",
             "start_time": "12:00",
-            "end_time": "13:00",
-            "capacity": 25,
-            "partecipants": 0
-          }
-        ]
-      }
-    },
-    {
-      "name": "Prenota un tavolo",
-      "type": "Weekly",
-      "enrichment": {
-        "slot": [
-          {
-            "start_date": "2025-08-26",
-            "start_time": "10:00",
-            "end_time": "11:00",
-            "capacity": 25,
-            "partecipants": 0
-          },
-          {
-            "start_date": "2025-08-26",
-            "start_time": "11:00",
-            "end_time": "12:00",
-            "capacity": 25,
-            "partecipants": 0
-          },
-          {
-            "start_date": "2025-08-26",
-            "start_time": "12:00",
-            "end_time": "13:00",
-            "capacity": 25,
-            "partecipants": 0
+            "end_time": "13:00"
           }
         ]
       },
       "info": [
         {
-          "start_date": "2025-08-26",
           "start_time": "10:00",
           "end_time": "23:00",
           "start_day": "Tuesday"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Wednesday"
         }
       ]
     }

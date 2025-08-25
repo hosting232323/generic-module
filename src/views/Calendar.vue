@@ -31,12 +31,16 @@
           <span class="day-number" :style="{ textDecoration: isPastDay(day) ? 'line-through' : '' }">{{ day.date }}</span>
         </div>
         <div class="events-container">
-          <button 
-            v-if="!isPastDay(day)" 
-            class="event"
-          >
-            Prenota un tavolo
-          </button>
+          <div v-if="day.events.length > 0">
+            <div
+              v-for="event in day.events"
+              :key="event.id"
+              class="event"
+            >
+              <b>{{ event.name }}</b>
+            </div>
+          </div>
+          <div v-else class="no-event">Nessun evento</div>
         </div>
       </div>
     </div>
@@ -44,17 +48,24 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed,onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { useEventsStore } from '@/stores/events';
 
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
 const dataStore = useDataStore();
+const eventsStore = useEventsStore();
 const { data } = storeToRefs(dataStore);
 const calendar = data.value.calendar;
 
-const emit = defineEmits(['day-click']);
+onMounted(() => {
+  eventsStore.initEvents(calendar);
+});
+
+
+const router = useRouter();
 
 const currentDate = ref(new Date());
 const isModalVisible = ref(false);
@@ -117,7 +128,6 @@ const days = computed(() => {
       key: `next-${nextMonthDate.getFullYear()}-${nextMonthDate.getMonth()}-${nextMonthDate.getDate()}`
     });
   }
-  console.log(days);
   return days;
 });
 
@@ -128,9 +138,12 @@ function getEventsForDate(date) {
   const dateStr = localDate.toISOString().split('T')[0];
   const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
   const dayOfMonth = date.getDate();
+  const today = new Date();
+  const todayStr = today.toISOString().split('T')[0];
 
   const filteredEvents = calendar.filter(event => {
     if (!event.type || !event.name) return false;
+    if (dateStr < todayStr) return false;
 
     // Verifica se la data corrente è all'interno del range di date dell'evento
     const isWithinDateRange = (info) => {
@@ -192,11 +205,19 @@ const isToday = (date, isCurrentMonth) => {
 
 const goToDayEvents = (day) => {
   if (!day.isCurrentMonth || day.events.length === 0) return;
-  
+
   const date = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), day.date);
   const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(day.date).padStart(2, '0')}`;
-  
-  emit('day-click', formattedDate);
+  const event = day.events[0];
+
+  const query = {
+    selectedDate: formattedDate
+  };
+
+  router.push({
+    name: 'EventDetails',
+    params: { id: event.id }
+  });
 };
 
 const isPastDay = (day) => {
@@ -211,22 +232,6 @@ const isPastDay = (day) => {
   if (day.key.startsWith('next')) return false;
   return dayDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
 };
-
-const getDayDate = (day) => {
-  const [type, year, month, date] = day.key.split('-'); 
-  return new Date(parseInt(year), parseInt(month) - 1, parseInt(date));
-};
-
-// const isOpen = (day) => {
-//   const dayDate = getDayDate(day);
-//   console.log(dayDate);
-
-//   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-//   const dayName = daysOfWeek[dayDate.getDay()];
-//   console.log(dayName);
-
-//   return openingDays.includes(dayName);
-// };
 
 const isPrevMonthBeforeToday = () => {
   const today = new Date();

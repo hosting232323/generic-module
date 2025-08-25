@@ -40,7 +40,12 @@ const routes = [
         path: '/calendar',
         name: 'Calendar',
         component: () => import('@/views/Calendar')
-      }
+      },
+      {
+        path: '/calendar/:id',
+        name: 'EventDetails',
+        component: () => import('@/views/EventDetails')
+      },
     ]
   }
 ];
