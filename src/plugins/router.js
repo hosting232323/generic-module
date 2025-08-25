@@ -37,12 +37,12 @@ const routes = [
         component: () => import('@/views/Menu')
       },
       {
-        path: '/calendar',
-        name: 'Calendar',
-        component: () => import('@/views/Calendar')
+        path: '/booking',
+        name: 'Booking',
+        component: () => import('@/views/Booking')
       },
       {
-        path: '/calendar/:id',
+        path: '/booking/:id',
         name: 'EventDetails',
         component: () => import('@/views/EventDetails')
       },

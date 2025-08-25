@@ -132,7 +132,7 @@
                 :class="{ 'error': showPrivacyError }"
               >
               <label for="privacyPolicy" class="checkbox-label" :class="{ 'text-error': showPrivacyError }">
-                Ho letto e accetto la <a href="https://www.museocivicobari.it/privacy-policy/" target="_blank" class="privacy-link">privacy policy</a>
+                Ho letto e accetto la privacy policy
               </label>
             </div>
           </div>
@@ -141,7 +141,7 @@
             type="submit" 
             class="submit-button" 
             :class="{ 'disabled': !bookingForm.privacyAccepted }"
-            :disabled="isSubmitting || !selectedSlot || !bookingForm.privacyAccepted"
+            disabled="true"
           >
             {{ isSubmitting ? 'Invio in corso...' : 'Conferma prenotazione' }}
           </button>
@@ -197,6 +197,7 @@ const bookingForm = ref({
   lastName: '',
   email: '',
   phone: '',
+  timeSlot: '',
   participants: '',
   participant_names: [],
   notes: '',

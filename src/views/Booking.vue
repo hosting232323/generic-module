@@ -64,7 +64,6 @@ onMounted(() => {
   eventsStore.initEvents(calendar);
 });
 
-
 const router = useRouter();
 
 const currentDate = ref(new Date());
@@ -204,11 +203,13 @@ const isToday = (date, isCurrentMonth) => {
 };
 
 const goToDayEvents = (day) => {
-  if (!day.isCurrentMonth || day.events.length === 0) return;
+  if (day.events.length === 0) return;
 
   const date = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), day.date);
   const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(day.date).padStart(2, '0')}`;
   const event = day.events[0];
+
+  console.log(day)
 
   const query = {
     selectedDate: formattedDate

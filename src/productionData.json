@@ -2,7 +2,8 @@
   "addOn": [
     "Chatty",
     "Menu",
-    "Shop"
+    "Shop",
+    "Booking"
   ],
   "info": {
     "chattyId": "10",
