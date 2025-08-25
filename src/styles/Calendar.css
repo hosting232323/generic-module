@@ -1,0 +1,241 @@
+/* Stile generale del calendario */
+.calendar {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  margin: 0 auto;
+  min-width: 300px;
+}
+
+/* Intestazione del calendario */
+.calendar-header {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.nav-btn {
+  background: none;
+  border-radius: 6px;
+  width: 34px;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.month-before {
+  color: #bbb;
+  cursor: default;
+}
+
+.month-before:hover {
+  background: none !important;
+}
+
+.current-month {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: #333;
+  min-width: 150px;
+  text-align: center;
+}
+
+/* Sezione giorni della settimana */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1.5px solid #e0e0e0;
+}
+
+.weekday {
+  text-align: center;
+  font-weight: 500;
+  color: #666;
+  padding: 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+/* Griglia dei giorni */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: none;
+  width: 100%;
+}
+
+/* Giorni del calendario con forma quadrata */
+.day {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Questo mantiene il rapporto 1:1 */
+  border-right: 1.5px solid #e0e0e0;
+  border-bottom: 1.5px solid #e0e0e0;
+  background: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.day:nth-child(7n) {
+  border-right: none;
+}
+
+.day-header {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: auto;
+  border: none;
+  padding: 0;
+}
+
+.day-number {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.other-month .day-number {
+  color: #bbb;
+}
+
+.events-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+}
+
+.event {
+  background: #0066cc;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event:hover {
+  background: #0052a3;
+}
+
+.no-event {
+  display: none;
+}
+
+.day.other-month {
+  background: #f9f9f9;
+}
+
+.day.is-today .day-number {
+  background: #0066cc;
+  color: white;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.day.has-events:not(.other-month) {
+  background-color: #f8f9ff;
+}
+
+.day.has-events:hover:not(.other-month) {
+  background-color: #eef0ff;
+}
+
+.day:hover:not(.other-month) {
+  background-color: #f5f5f5;
+}
+
+.other-month {
+  cursor: default;
+}
+
+.past-day {
+  background-color: #f9f9f9;
+}
+.past-day .day-header .day-number{
+  color: #bbb;
+}
+
+
+@media (max-width: 768px) {
+  .calendar-header {
+    padding: 10px;
+  }
+
+  .day-header {
+    top: 4px;
+    right: 4px;
+  }
+
+  .events-container {
+    top: 30px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar {
+    border: none;
+  }
+
+  .calendar-header {
+    padding: 8px;
+  }
+
+  .calendar-header h2 {
+    font-size: 16px;
+  }
+
+  .day {
+    min-height: 60px;
+  }
+
+  .day-number {
+    font-size: 12px;
+  }
+
+  .events-container {
+    top: 25px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+  }
+
+  .event {
+    padding: 2px 4px;
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+
+  .weekday {
+    font-size: 11px;
+    padding: 6px;
+  }
+}

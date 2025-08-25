@@ -2,7 +2,8 @@
   "addOn": [
     "Chatty",
     "Menu",
-    "Shop"
+    "Shop",
+    "Booking"
   ],
   "info": {
     "chattyId": "10",
@@ -143,6 +144,64 @@
         "zoom": 10
       },
       "type": "map"
+    }
+  ],
+  "calendar": [
+    {
+      "id": 1,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Tuesday"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Wednesday"
+        }
+      ]
     }
   ],
   "menu": [

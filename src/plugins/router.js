@@ -35,7 +35,17 @@ const routes = [
         path: '/menu',
         name: 'Menu',
         component: () => import('@/views/Menu')
-      }
+      },
+      {
+        path: '/booking',
+        name: 'Booking',
+        component: () => import('@/views/Booking')
+      },
+      {
+        path: '/booking/:id',
+        name: 'EventDetails',
+        component: () => import('@/views/EventDetails')
+      },
     ]
   }
 ];
