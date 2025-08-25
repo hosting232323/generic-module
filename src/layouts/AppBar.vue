@@ -61,7 +61,7 @@ import { useLanguageStore } from '@/stores/language';
 const { getText, getAncor } = useLanguageStore();
 const orderStore = useOrderStore();
 
-const drawer = ref(null);
+const drawer = ref(false);
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -74,7 +74,7 @@ const multilingualActive = addOn && addOn.includes('Multilingual') && info.local
 const isMobile = setupMobileUtils();
 
 const link = (item) => {
-  if (isMobile) drawer.value = !drawer.value;
+  if (isMobile.value) drawer.value = !drawer.value;
   if (item.type === 'ancor') {
     const id = getAncor(item.path).toLowerCase();
     const target = document.getElementById(id);
