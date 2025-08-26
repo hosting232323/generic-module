@@ -36,8 +36,10 @@
               v-for="event in day.events"
               :key="event.id"
               class="event"
+              :style="isMobile ? 'width: 26px' : ''"
             >
-              <b>{{ event.name }}</b>
+              <b v-if="!isMobile">{{ event.name }}</b>
+              <v-icon v-else>mdi-calendar-check</v-icon>
             </div>
           </div>
           <div v-else class="no-event">Nessun evento</div>
@@ -51,6 +53,9 @@
 import { ref, computed,onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useEventsStore } from '@/stores/events';
+import { setupMobileUtils } from '@/utils/mobile';
+
+const isMobile = setupMobileUtils();
 
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
