@@ -1,32 +1,20 @@
 {
   "addOn": [
-    "Chatty",
-    "Menu",
-    "Shop",
     "Booking"
   ],
   "info": {
     "chattyId": "10",
-    "name": "Sotto Le Spine (Caffetteria, Cucine & Cantine...)",
+    "name": "Sotto Le Spine",
     "primaryColor": "#4f521d",
     "secondaryColor": "#d39b36"
-  },
-  "store": {
-    "userId": 5,
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
-    ]
   },
   "components": [
     {
       "content": {
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantgallery1.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantgallery2.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantgallery0.png"
+          "/gallery/img-01.jpg",
+          "/gallery/img-02.jpg",
+          "/gallery/img-03.jpg"
         ],
         "type": "automatic"
       },
@@ -34,25 +22,43 @@
     },
     {
       "content": {
-        "button": "Vai al menu!",
-        "description": "Nel cuore del nostro ristorante 'Sotto Le Spine', ogni piatto è una fusione perfetta di tradizione e innovazione. Offriamo una varietà di piatti artigianali, una selezione di caffè pregiati e una cantina di vini eccellenti. Dalla caffetteria alle cucine gourmet, ogni angolo del nostro ristorante racconta una storia unica.",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantbase0.png",
+        "title": "La nostra storia",
+        "orientationTitle": "center",
+        "description": "Sotto Le Spine non è solo un ristorante, ma un luogo dove l'arte della cucina si intreccia con la passione per l’ospitalità. Nato dall’idea di trasformare l’amore per il buon cibo in un’esperienza da condividere, il nostro locale è cresciuto negli anni diventando un punto di riferimento per chi cerca autenticità e qualità. Ogni piatto racconta la storia dei nostri territori, con ingredienti freschi e stagionali scelti con cura dai produttori locali. Dalla caffetteria artigianale alle cucine gourmet, fino alla nostra cantina di vini pregiati, ogni dettaglio è pensato per accogliere i nostri ospiti in un’atmosfera calda e conviviale.",
+        "orientationDescription": "center"
+      },
+      "type": "text"
+    },
+    {
+      "content": {
+        "button": "Prenota un tavolo!",
+        "description": "Vuoi vivere un’esperienza unica da Sotto Le Spine? Prenota subito il tuo tavolo e assicurati un posto nel cuore del nostro ristorante. Che sia una cena romantica, una serata tra amici o un’occasione speciale, ti aspettiamo per offrirti piatti artigianali, vini selezionati e un’atmosfera accogliente. La tua esperienza inizia con un click!",
+        "image": "/prenotazione.jpg",
         "orientationDesktop": "right",
         "orientationMobile": "top",
-        "subtitle": "Gusto e passione in ogni piatto",
-        "title": "Esplora il nostro menu",
-        "url": "/menu"
+        "subtitle": "La tua esperienza inizia qui",
+        "title": "Prenota il tuo tavolo",
+        "url": "/booking"
       },
       "type": "dualSection"
     },
     {
       "content": {
-        "title": "La nostra storia",
-        "orientationTitle": "left",
-        "description": "Sotto Le Spine non è solo un ristorante, ma un luogo dove l'arte della cucina si mescola con l'amore per il buon cibo e la convivialità. Con una selezione di piatti preparati con ingredienti freschi e locali, il nostro ristorante vuole offrire un'esperienza gastronomica unica.",
-        "orientationDescription": "left"
+        "advantages": [
+          {
+            "description": "La nostra cantina offre una selezione unica di vini, con particolare attenzione ai prodotti locali e alle etichette più rare.",
+            "image": "/cantina.jpg",
+            "name": "Cantina Esclusiva"
+          },
+          {
+            "description": "Lo staff di Sotto Le Spine è altamente qualificato, pronto a offrire un servizio attento e accogliente per ogni esigenza.",
+            "image": "/staff.jpg",
+            "name": "Servizio Eccellente"
+          }
+        ]
       },
-      "type": "text"
+      "menu": "Vantaggi",
+      "type": "advantages"
     },
     {
       "content": {
@@ -82,51 +88,6 @@
     },
     {
       "content": {
-        "title": "I nostri servizi",
-        "services": [
-          {
-            "description": "Piatto del giorno: una selezione speciale di piatti preparati con ingredienti freschi e stagionali.",
-            "name": "Piatto del Giorno"
-          },
-          {
-            "description": "Assapora una selezione di caffè pregiati provenienti dalle migliori torrefazioni. Sia in tazza che da asporto.",
-            "name": "Caffetteria"
-          },
-          {
-            "description": "Vasta selezione di vini locali e internazionali, scelti per accompagnare perfettamente ogni piatto.",
-            "name": "Cantina e Vini"
-          }
-        ]
-      },
-      "menu": "Servizi",
-      "type": "services"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": {
-        "advantages": [
-          {
-            "description": "La nostra cantina offre una selezione unica di vini, con particolare attenzione ai prodotti locali e alle etichette più rare.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantadvantages1.png",
-            "name": "Cantina Esclusiva"
-          },
-          {
-            "description": "Lo staff di Sotto Le Spine è altamente qualificato, pronto a offrire un servizio attento e accogliente per ogni esigenza.",
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Restaurantadvantages3.png",
-            "name": "Servizio Eccellente"
-          }
-        ]
-      },
-      "menu": "Vantaggi",
-      "type": "advantages"
-    },
-    {
-      "type": "line"
-    },
-    {
-      "content": {
         "Address": "Via Dante Alighieri, 98, 70056 Molfetta BA, Italy",
         "Phone": "+39 080 964 8969"
       },
@@ -141,9 +102,179 @@
           "16.5978131",
           "41.2051935"
         ],
-        "zoom": 10
+        "zoom": 15
       },
       "type": "map"
+    }
+  ],
+  "calendar": [
+    {
+      "id": 1,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Tuesday"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Wednesday"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Thursday"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Friday"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Saturday"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Prenota un tavolo",
+      "type": "Weekly",
+      "enrichment": {
+        "slot": [
+          {
+            "start_time": "10:00",
+            "end_time": "11:00"
+          },
+          {
+            "start_time": "11:00",
+            "end_time": "12:00"
+          },
+          {
+            "start_time": "12:00",
+            "end_time": "13:00"
+          }
+        ]
+      },
+      "info": [
+        {
+          "start_time": "10:00",
+          "end_time": "23:00",
+          "start_day": "Sunday"
+        }
+      ]
     }
   ]
 }
