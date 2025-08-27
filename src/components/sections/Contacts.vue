@@ -57,7 +57,7 @@ const sendMail = () => {
     !validation.validateInput(name.value, validation.requiredRules) &&
     !validation.validateInput(body.value, validation.requiredRules)
   ) {
-    http.postRequest('send-email', {
+    http.postRequest('send-mail', {
       email: mail,
       subject: `Qualcuno ho usato il form del sito ${info.name}`,
       body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
