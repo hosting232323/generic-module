@@ -118,8 +118,18 @@
     },
     {
       "content": {
-        "Address": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy",
-        "Phone": "+39 080 964 8969"
+        "title": "I nostri contatti",
+        "subtitle": "Contattaci direttamente con questo form",
+        "contacts": [
+          {
+            "icon": "mdi-map-marker",
+            "title": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy"
+          },
+          {
+            "icon": "mdi-phone",
+            "title": "+39 080 964 8969"
+          }
+        ]
       },
       "menu": "Contatti",
       "type": "contacts"
