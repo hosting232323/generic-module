@@ -50,7 +50,8 @@ const backgroundStyle = computed(() => {
 
 onMounted(() => {
   dataStore.initDataByJson(props.json);
-  setIsMobile(props.isMobile);
+  if (props.isMobile !== undefined)
+    setIsMobile(props.isMobile);
 });
 
 watch(ready, (newValue) => {
