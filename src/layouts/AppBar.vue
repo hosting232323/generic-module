@@ -213,12 +213,13 @@ watch(drawer, (newVal) => {
 }
 
 .mobile-drawer {
-  position: absolute;
+  position: fixed;
   top: 64px;
   right: 0;
   width: 100%;
   height: 100vh;
   z-index: 1000;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 0 64px 0;
@@ -229,7 +230,7 @@ watch(drawer, (newVal) => {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  padding-top: 40px;
+  padding-bottom: 64px;
 }
 
 .drawer-title {
