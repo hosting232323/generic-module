@@ -48,13 +48,14 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import Cart from './Cart.vue';
+import Language from '@/components/sections/Language.vue';
+
 import { storeToRefs } from 'pinia';
+import { ref, computed, watch } from 'vue';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { setupMobileUtils } from '@/utils/mobile';
-import Cart from './Cart.vue';
-import Language from '@/components/sections/Language.vue';
 import { useLanguageStore } from '@/stores/language';
 
 const { getText, getAncor } = useLanguageStore();
