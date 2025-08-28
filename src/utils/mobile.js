@@ -2,6 +2,10 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const isMobile = ref(false);
 
+const setIsMobile = (value) => {
+  isMobile.value = value;
+};
+
 const checkMobile = () => {
   isMobile.value = window.innerWidth < 600;
 };
@@ -23,4 +27,4 @@ const resolveImg = (slide) => {
   return '';
 };
 
-export { setupMobileUtils, resolveImg };
+export { setupMobileUtils, resolveImg, setIsMobile };
