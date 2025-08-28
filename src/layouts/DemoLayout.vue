@@ -11,17 +11,17 @@
 </template>
 
 <script setup>
-import UpArrow from './UpArrow.vue';
 import AppBar from './AppBar.vue';
 import Footer from './Footer.vue';
+import UpArrow from './UpArrow.vue';
 import Home from '../views/Home.vue';
-
 import SocialBubbles from './SocialBubbles.vue';
+
 import { defineProps } from 'vue';
-import {setIsMobile } from '@/utils/mobile';
 import { storeToRefs } from 'pinia';
-import { onMounted, watch, ref, computed } from 'vue';
+import { setIsMobile } from '@/utils/mobile';
 import { useDataStore } from '@/stores/data';
+import { onMounted, watch, ref, computed } from 'vue';
 
 const showChatty = ref(false);
 const showBubbles = ref(false);
@@ -30,7 +30,6 @@ const { data, ready } = storeToRefs(dataStore);
 
 const props = defineProps({
   json: Object,
-  sectionsKey: String, // o il tipo corretto
   isMobile: Boolean
 })
 
@@ -52,9 +51,6 @@ const backgroundStyle = computed(() => {
 onMounted(() => {
   dataStore.initDataByJson(props.json);
   setIsMobile(props.isMobile);
-  if (props.sectionsKey) {
-    dataStore.setSectionsKey(props.sectionsKey);
-  }
 });
 
 watch(ready, (newValue) => {
