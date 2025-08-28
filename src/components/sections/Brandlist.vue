@@ -23,7 +23,7 @@
 <script setup>
 import { setupMobileUtils } from '@/utils/mobile';
 
-const isMobile = setupMobileUtils();
+const isMobile = setupMobileUtils()
 const { content, info } = defineProps(['content', 'info']);
 </script>
 
