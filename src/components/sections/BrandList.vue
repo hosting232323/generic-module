@@ -13,7 +13,7 @@
           :width="isMobile ? 150 : 300"
           class="brand_item"
         >
-          <v-img :src="brand" />
+          <v-img :src="resolveImg(brand)" />
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { setupMobileUtils } from '@/utils/mobile';
+import { setupMobileUtils, resolveImg } from '@/utils/mobile';
 
 const isMobile = setupMobileUtils()
 const { content, info } = defineProps(['content', 'info']);
