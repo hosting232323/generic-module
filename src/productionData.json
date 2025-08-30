@@ -34,6 +34,47 @@
     },
     {
       "content": {
+        "title": "I nostri articoli",
+        "url": "Scopri di più",
+        "shop": [
+            {
+              "description": "Scarponcini in pelle con interno imbottito<br>Colore: Verde Bosco<br>Materiali: pelle sintetica resistente, suola in gomma antiscivolo, chiusura con lacci elasticizzati e zip laterale<br>Ideali per le passeggiate all'aperto anche nei giorni più freddi<br>Disponibili dal numero 24 al 35",
+              "id": 1,
+              "image": "/shoes/scarponcini_verdi.jpeg",
+              "name": "Scarponcini Avventura Verde From JSON",
+              "price": "3200",
+              "product_type": "Scarpe Invernali"
+            },
+            {
+              "description": "Sneakers leggere per tutti i giorni<br>Colore: Bianco con dettagli pastello<br>Materiali: tessuto traspirante, suola flessibile in EVA, chiusura in velcro<br>Perfette per la scuola o il tempo libero<br>Disponibili dal numero 22 al 34",
+              "id": 2,
+              "image": "/shoes/sneakers_bianche.jpeg",
+              "name": "Sneakers Classiche Bianche From JSON",
+              "price": "2500",
+              "product_type": "Sneakers"
+            },
+            {
+              "description": "Stivaletti invernali foderati in pelliccia sintetica<br>Colore: Blu Notte<br>Materiali: ecopelle impermeabile, suola in gomma, chiusura con doppio velcro<br>Ideali per le giornate fredde e piovose<br>Disponibili dal numero 24 al 36",
+              "id": 4,
+              "image": "/shoes/stivaletti_blu.jpeg",
+              "name": "Stivaletti Foderati Blu From JSON",
+              "price": "3500",
+              "product_type": "Scarpe Invernali"
+            },
+            {
+              "description": "Sneakers sportive con design tricolore<br>Colori: Rosso, Bianco, Verde<br>Materiali: rete tecnica traspirante, rinforzi in PU, chiusura a lacci elastici<br>Ideali per attività sportive e tempo libero<br>Disponibili dal numero 25 al 37",
+              "id": 5,
+              "image": "/shoes/sneakers_tricolore.jpeg",
+              "name": "Sneakers Tricolore Sport From JSON",
+              "price": "3200",
+              "product_type": "Sneakers"
+            }
+          ]
+      },
+      "type": "shop"
+    },
+    {
+      "content": {
         "button": "Vai al menu!",
         "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",

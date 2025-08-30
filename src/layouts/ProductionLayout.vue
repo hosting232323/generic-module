@@ -44,7 +44,9 @@ const backgroundStyle = computed(() => {
 
 onMounted(() => {
   dataStore.initData();
-  if(data.value.store)
+  if(data.value.store && data.value.shop)
+    shopStore.initDataByJson(data.value.shop);
+  else 
     shopStore.initData(data.value.store.userId);
 });
 

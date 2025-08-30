@@ -10,6 +10,9 @@ export const useShopStore = defineStore('shop', {
       http.getRequest(`products/${userId}`, {}, (data) => {
         this.products = data;
       });
+    },
+    initDataByJson(data) {
+      this.products = data;
     }
   },
   persist: true

@@ -19,6 +19,7 @@ import Map from '@/components/sections/Map';
 import Blog from '@/components/sections/Blog';
 import Text from '@/components/sections/Text';
 import Line from '@/components/sections/Line';
+import Shop from '@/components/sections/Shop.vue';
 import Reviews from '@/components/sections/Reviews';
 import Gallery from '@/components/sections/Gallery';
 import Services from '@/components/sections/Services';
@@ -36,6 +37,7 @@ const componentMap = {
   blog: Blog,
   text: Text,
   line: Line,
+  shop: Shop,
   reviews: Reviews,
   gallery: Gallery,
   services: Services,
