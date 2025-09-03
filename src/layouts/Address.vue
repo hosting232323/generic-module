@@ -88,7 +88,7 @@ const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
 const store = data.value.store;
-const addressMode = store.addressMode;
+const addressMode = store?.addressMode;
 
 const addressStore = useAddressStore();
 

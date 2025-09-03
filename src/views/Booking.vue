@@ -57,7 +57,7 @@ import { useDataStore } from '@/stores/data';
 
 const dataStore = useDataStore();
 const eventsStore = useEventsStore();
-const { data } = storeToRefs(dataStore);
+const { data, demoId } = storeToRefs(dataStore);
 const calendar = data.value.calendar;
 
 onMounted(() => {
@@ -209,16 +209,24 @@ const goToDayEvents = (day) => {
   const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(day.date).padStart(2, '0')}`;
   const event = day.events[0];
 
-  console.log(day)
-
   const query = {
     selectedDate: formattedDate
   };
 
-  router.push({
-    name: 'EventDetails',
-    params: { id: event.id }
-  });
+  if(demoId.value) {
+    router.push({
+      name: 'Demo Event Details',
+      params: {
+        demoId: demoId.value,
+        bookingId: event.id,
+      },
+    });
+  } else {
+    router.push({
+      name: 'EventDetails',
+      params: { id: event.id }
+    });
+  }
 };
 
 const isPastDay = (day) => {
