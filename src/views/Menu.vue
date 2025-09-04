@@ -9,7 +9,7 @@
           :style="{ backgroundImage: `url(${cat.image})` }"
           @click="openCategory(cat)"
         >
-          <div class="category-overlay">
+          <div class="category-overlay" :style="{ backgroundColor: data.info.primaryColor }">
             <h2 class="category-title">{{ cat.name }}</h2>
           </div>
         </v-card>
@@ -26,7 +26,7 @@
         elevation="3"
         :style="{ backgroundImage: `url(${selectedCategory.image})` }"
       >
-        <div class="category-overlay">
+        <div class="category-overlay" :style="{ backgroundColor: data.info.primaryColor }">
           <h2 class="category-title">{{ selectedCategory.name }}</h2>
         </div>
       </v-sheet>
@@ -106,8 +106,6 @@ const openCategory = async (cat) => {
 }
 
 .category-overlay {
-  background-color: black;
-  color: white;
   height: 16%;
   width: 100%;
   display: flex;
