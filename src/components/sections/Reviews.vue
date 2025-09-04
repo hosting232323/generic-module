@@ -84,10 +84,6 @@ const hashColor = (name) => {
   return colors[Math.abs(hash) % colors.length];
 };
 
-const getStars = (stars) => {
-  console.log(stars);
-}
-
 // Generazione avatar
 const generateProfileImage = (canvas, name) => {
   if (!canvas) return;

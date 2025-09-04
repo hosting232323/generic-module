@@ -1,15 +1,13 @@
-import vue from '@vitejs/plugin-vue';
-import ViteFonts from 'unplugin-fonts/vite';
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import vue from '@vitejs/plugin-vue'
+import ViteFonts from 'unplugin-fonts/vite'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
-import dotenv from "dotenv";
-import { defineConfig } from 'vite';
-import { fileURLToPath, URL } from 'node:url';
+import dotenv from 'dotenv'
+import { defineConfig } from 'vite'
+import { fileURLToPath, URL } from 'node:url'
 
-
-dotenv.config();
-
+dotenv.config()
 
 export default defineConfig({
   plugins: [
@@ -52,16 +50,22 @@ export default defineConfig({
       formats: ['es', 'cjs']
     },
     rollupOptions: {
-      external: ['vue', 'vuetify', 'pinia', 'crypto-js', 'vue-router'],
+      external: [
+        'vue',
+        'vuetify',
+        'vue-router',
+        'pinia',
+        'pinia-plugin-persistedstate'
+      ],
       output: {
         globals: {
           vue: 'Vue',
           vuetify: 'Vuetify',
-          pinia: 'Pinia',
-          'crypto-js': 'CryptoJS',
           'vue-router': 'VueRouter',
+          pinia: 'Pinia',
+          'pinia-plugin-persistedstate': 'PiniaPluginPersistedState'
         }
       }
     }
   }
-});
+})
