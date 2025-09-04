@@ -4,7 +4,7 @@
     <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
     <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
     <v-main :style="backgroundStyle">
-      <Booking />
+      <EventDetails />
     </v-main>
     <Footer />
   </v-app>
@@ -14,7 +14,7 @@
 import UpArrow from '../UpArrow.vue';
 import AppBar from '../AppBar.vue';
 import Footer from '../Footer.vue';
-import Booking from '../../views/Booking.vue';
+import EventDetails from '../../views/EventDetails.vue';
 
 import SocialBubbles from '../SocialBubbles.vue';
 import { defineProps } from 'vue';
