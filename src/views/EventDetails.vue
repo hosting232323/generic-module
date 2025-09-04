@@ -164,7 +164,12 @@ const route = useRoute();
 const router = useRouter();
 const eventsStore = useEventsStore();
 
-const event = computed(() => eventsStore.getEventById(Number(route.params.id)));
+const event = computed(() => {
+  if (route.params.bookingId) {
+    return eventsStore.getEventById(Number(route.params.bookingId));
+  }
+  return eventsStore.getEventById(Number(route.params.id));
+});
 const selectedSlot = ref(null);
 
 // Imposta lo slot selezionato se presente nei parametri URL

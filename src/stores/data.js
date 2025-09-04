@@ -6,7 +6,8 @@ import productionData from '@/productionData';
 export const useDataStore = defineStore('data', {
   state: () => ({
     data: {},
-    ready: false
+    ready: false,
+    demoId: undefined
   }),
   actions: {
     initData() {
@@ -14,6 +15,7 @@ export const useDataStore = defineStore('data', {
     },
     initDataByDemoLayout(hostname, id){
       http.getRequest(`get-data/${id}`, {}, (data) => {
+        this.demoId = id;
         this.updateData(data.data);
       }, 'GET', undefined, hostname);
     },
