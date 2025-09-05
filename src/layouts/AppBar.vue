@@ -19,9 +19,9 @@
       <div class="bar"></div>
     </div>
     <v-app-bar-title>
-      <div class="d-flex align-center">
-        <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
+      <div class="d-flex align-center" @click="goHome">
+        <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo cursor-pointer">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;" class="cursor-pointer">{{ info.name }}</b>
       </div>
     </v-app-bar-title>
     <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
@@ -30,9 +30,9 @@
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
     <v-app-bar-title>
-      <div class="d-flex align-center">
-        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
+      <div class="d-flex align-center" @click="goHome">
+        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo cursor-pointer">
+        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;" class="cursor-pointer">{{ info.name }}</b>
       </div>
     </v-app-bar-title>
 
@@ -57,11 +57,14 @@ import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
+import { useRoute, useRouter } from 'vue-router'
 
 const { getText, getAncor } = useLanguageStore();
 const orderStore = useOrderStore();
 
 const drawer = ref(false);
+const route = useRoute();
+const router = useRouter();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -90,28 +93,44 @@ const link = (item) => {
   }
 }
 
+
 const items = computed(() => {
   let menuItems = [];
-  if (addOn && addOn.includes('VirtualTour'))
+  const onHome = route.path === '/';
+
+  if (addOn && addOn.includes('VirtualTour')) {
     menuItems.push({
       title: 'Virtual Tour',
       path: 'https://test-virtual-tour.replit.app/',
       type: 'externalLink'
     });
-  if (addOn && addOn.includes('Blog'))
-    menuItems.push({
-      title: 'Blog',
-      path: '/blog',
-      type: 'internalLink'
-    });
-  menuItems = menuItems.concat(content
-    .filter(section => section.menu)
-    .map(section => ({
-      title: getText(section.menu),
-      path: getAncor(section.menu).toLowerCase(),
-      type: 'ancor'
-    })));
-  return info.menuHomeLink ? [{ title: 'Home', path: '/', type: 'internalLink' }, ...menuItems] : menuItems;
+  }
+
+  if (addOn && addOn.includes('Blog')) 
+    menuItems.push({ title: 'Blog', path: '/blog', type: 'internalLink' });
+  if (addOn && addOn.includes('Menu')) 
+    menuItems.push({ title: 'Menu', path: '/menu', type: 'internalLink' });
+  if (addOn && addOn.includes('Shop')) 
+    menuItems.push({ title: 'Shop', path: '/shop', type: 'internalLink' });
+  if (addOn && addOn.includes('Booking'))
+    menuItems.push({ title: 'Booking', path: '/booking', type: 'internalLink' });
+
+  if (!onHome) {
+    menuItems.unshift({ title: 'Home', path: '/', type: 'internalLink' });
+  }
+
+  if (onHome) {
+    const anchorItems = content
+      .filter(section => section.menu)
+      .map(section => ({
+        title: getText(section.menu),
+        path: getAncor(section.menu).toLowerCase(),
+        type: 'ancor'
+      }));
+    menuItems = [...anchorItems, ...menuItems];
+  }
+
+  return menuItems;
 });
 
 const getCartQuantity = computed(() => {
@@ -136,6 +155,14 @@ watch(drawer, (newVal) => {
     document.body.style.overflow = '';
   }
 });
+
+const goHome = () => {
+  if (window.location.pathname === '/') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } else {
+    router.push('/')
+  }
+}
 </script>
 
 <style scoped>

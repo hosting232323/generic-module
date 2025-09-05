@@ -47,15 +47,6 @@
     },
     {
       "content": {
-        "title": "Consulenza personalizzata",
-        "orientationTitle": "left",
-        "description": "Ogni piede è diverso, ogni bambino ha le sue esigenze.<br>Ecco perché offriamo una consulenza personalizzata in negozio, guidata da anni di esperienza e da una conoscenza approfondita dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di primi passi, piedini delicati o semplicemente esigenze particolari, siamo qui per aiutarti a scegliere il modello giusto, senza fretta e con tutta la disponibilità possibile.<br><br>Carpe Diem non è solo un punto vendita: è un luogo di fiducia.",
-        "orientationDescription": "left"
-      },
-      "type": "text"
-    },
-    {
-      "content": {
         "reviews": [
           {
             "descrizione":"Servizio impeccabile. Consigliatissimo!",
@@ -127,8 +118,18 @@
     },
     {
       "content": {
-        "Address": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy",
-        "Phone": "+39 080 964 8969"
+        "title": "I nostri contatti",
+        "subtitle": "Contattaci direttamente con questo form",
+        "contacts": [
+          {
+            "icon": "mdi-map-marker",
+            "title": "Corso Dante Alighieri, 98, 70056 Molfetta BA, Italy"
+          },
+          {
+            "icon": "mdi-phone",
+            "title": "+39 080 964 8969"
+          }
+        ]
       },
       "menu": "Contatti",
       "type": "contacts"
@@ -208,11 +209,12 @@
     {
       "name": "Antipasti",
       "icon": "mdi-food",
-      "image": "/menu/antipasti.jpg",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/antipasti.png",
       "items": [
         {
-          "name": "Bruschette al Pomodoro",
+          "name": "Bruschette Pomodoro",
           "description": "Pane tostato con pomodorini freschi, aglio e basilico",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
           "price": 6,
           "allergens": [
             "glutine"
@@ -221,6 +223,7 @@
         {
           "name": "Tagliere di Salumi",
           "description": "Selezione di salumi italiani, accompagnati da focaccia",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/salumi.png",
           "price": 12,
           "allergens": [
             "glutine",
@@ -230,6 +233,7 @@
         {
           "name": "Mozzarella in Carrozza",
           "description": "Mozzarella fritta con crosta dorata di pane",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/mozzarella.png",
           "price": 7,
           "allergens": [
             "glutine",
@@ -239,12 +243,14 @@
         },
         {
           "name": "Frittura Mista",
-          "description": "Verdure pastellate croccanti con salsa yogurt",
+          "description": "Verdure e pesce pastellati croccanti",
           "price": 9,
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/frittura.png",
           "allergens": [
             "glutine",
             "uova",
-            "lattosio"
+            "lattosio",
+            "pesce"
           ]
         }
       ]
@@ -252,12 +258,12 @@
     {
       "name": "Pizze classiche",
       "icon": "mdi-pizza",
-      "image": "/menu/pizze_classiche.jpg",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_classiche.jpg",
       "items": [
         {
           "name": "Margherita",
           "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-          "image": "/menu/pizza_margherita.png",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
           "price": 7,
           "allergens": [
             "glutine",
@@ -267,7 +273,7 @@
         {
           "name": "Marinara",
           "description": "Pomodoro, aglio fresco, origano e olio EVO",
-          "image": "/menu/pizza_marinara.png",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_marinara.png",
           "price": 6,
           "allergens": [
             "glutine"
@@ -276,7 +282,7 @@
         {
           "name": "Diavola",
           "description": "Mozzarella, salame piccante, pomodoro",
-          "image": "/menu/pizza_diavola.png",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
           "price": 8,
           "allergens": [
             "glutine",
@@ -286,7 +292,7 @@
         {
           "name": "Capricciosa",
           "description": "Mozzarella, prosciutto, funghi, carciofi e olive",
-          "image": "/menu/pizza_capricciosa.png",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
           "price": 9,
           "allergens": [
             "glutine",
@@ -298,11 +304,12 @@
     {
       "name": "Pizze Gourmet",
       "icon": "mdi-star",
-      "image": "/menu/pizze_gourmet.jpg",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_gourmet.png",
       "items": [
         {
-          "name": "Tartufo e Porcini",
-          "description": "Mozzarella, crema al tartufo nero, funghi porcini",
+          "name": "La Melone",
+          "description": "Focaccina croccante, Prosciutto crudo di Parma, Burrata artigianale in crema, Velo di melone",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
           "price": 15,
           "allergens": [
             "glutine",
@@ -310,8 +317,9 @@
           ]
         },
         {
-          "name": "Bufala e Pachino",
-          "description": "Mozzarella di bufala DOP, pomodorini Pachino, olio EVO",
+          "name": "O Fiore Mio",
+          "description": "Fiori di zucca, mozzarella fior di latte e della burratina artigianale",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_ofioremio.png",
           "price": 13,
           "allergens": [
             "glutine",
@@ -319,22 +327,14 @@
           ]
         },
         {
-          "name": "Speck e Brie",
-          "description": "Base bianca, speck dell'Alto Adige, brie fuso",
+          "name": "TAHINA",
+          "description": "Mozzarella fior di latte, Babaganoush, Porchetta Trevigiana di nostra produzione, Pomodorini confit, Sesamo nero tostato",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_tahina.png",
           "price": 14,
           "allergens": [
             "glutine",
-            "lattosio"
-          ]
-        },
-        {
-          "name": "Mortadella e Pistacchio",
-          "description": "Cremosa al pistacchio, mortadella IGP e granella di pistacchi",
-          "price": 16,
-          "allergens": [
-            "glutine",
             "lattosio",
-            "frutta_a_guscio"
+            "sesamo"
           ]
         }
       ]
@@ -342,34 +342,39 @@
     {
       "name": "Beverage",
       "icon": "mdi-cup-water",
-      "image": "/menu/bevande.jpg",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bevande.png",
       "items": [
         {
           "name": "Acqua Naturale",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
           "description": "Bottiglia da 50cl",
           "price": 1.5,
           "allergens": []
         },
         {
           "name": "Acqua Frizzante",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
           "description": "Bottiglia da 50cl",
           "price": 1.5,
           "allergens": []
         },
         {
           "name": "Coca Cola",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/cocacola.png",
           "description": "Lattina da 33cl",
           "price": 2.5,
           "allergens": []
         },
         {
           "name": "Fanta",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/fanta.png",
           "description": "Lattina da 33cl",
           "price": 2.5,
           "allergens": []
         },
         {
           "name": "Tè al Limone",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/estathe.png",
           "description": "Bottiglietta fredda da 50cl",
           "price": 3,
           "allergens": []
@@ -379,11 +384,12 @@
     {
       "name": "Birre artigianali",
       "icon": "mdi-beer",
-      "image": "/menu/birre.jpg",
+      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/birre.png",
       "items": [
         {
           "name": "IPA Artigianale",
           "description": "India Pale Ale luppolata e agrumata, 6.5%",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
           "price": 6,
           "allergens": [
             "glutine"
@@ -392,6 +398,7 @@
         {
           "name": "Stout Nera",
           "description": "Birra scura con note di caffè, 7%",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/stout.png",
           "price": 6.5,
           "allergens": [
             "glutine"
@@ -400,6 +407,7 @@
         {
           "name": "Weiss",
           "description": "Birra di frumento, dolce e leggermente fruttata",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/weiss.png",
           "price": 6,
           "allergens": [
             "glutine"
@@ -408,6 +416,7 @@
         {
           "name": "Blonde Ale",
           "description": "Birra chiara, leggera e rinfrescante",
+          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/blondale.png",
           "price": 5.5,
           "allergens": [
             "glutine"
