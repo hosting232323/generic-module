@@ -19,7 +19,7 @@
       <div class="bar"></div>
     </div>
     <v-app-bar-title>
-      <div class="d-flex align-center">
+      <div class="d-flex align-center cursor-pointer" @click="goHome">
         <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
         <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
       </div>
@@ -30,7 +30,7 @@
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
     <v-app-bar-title>
-      <div class="d-flex align-center">
+      <div class="d-flex align-center cursor-pointer" @click="goHome">
         <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
         <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
       </div>
@@ -57,11 +57,13 @@ import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
+import { useRouter } from 'vue-router'
 
 const { getText, getAncor } = useLanguageStore();
 const orderStore = useOrderStore();
 
 const drawer = ref(false);
+const router = useRouter();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -136,6 +138,14 @@ watch(drawer, (newVal) => {
     document.body.style.overflow = '';
   }
 });
+
+const goHome = () => {
+  if (window.location.pathname === '/') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } else {
+    router.push('/')
+  }
+}
 </script>
 
 <style scoped>

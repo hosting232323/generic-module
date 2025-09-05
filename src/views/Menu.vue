@@ -9,9 +9,12 @@
           :style="{ backgroundImage: `url(${cat.image})` }"
           @click="openCategory(cat)"
         >
-          <div class="category-overlay" :style="{ backgroundColor: data.info.primaryColor }">
+          <v-sheet
+            class="d-flex align-center justify-center category-overlay"
+            :color="data.info.primaryColor"
+          >
             <h2 class="category-title">{{ cat.name }}</h2>
-          </div>
+          </v-sheet>
         </v-card>
       </v-col>
     </v-row>
@@ -20,16 +23,19 @@
       <v-btn class="mb-4" @click="selectedCategory = null" :style="{ color: data.info.primaryColor }">
         ← Torna alle categorie
       </v-btn>
-      <v-sheet
-        class="category-header mb-6"
-        height="180"
+      <v-card
+        class="category-card mb-6"
+        height="200"
         elevation="3"
-        :style="{ backgroundImage: `url(${selectedCategory.image})` }"
+        :style="{ backgroundImage: `url(${selectedCategory.image})`, cursor: 'default' }"
       >
-        <div class="category-overlay" :style="{ backgroundColor: data.info.primaryColor }">
+        <v-sheet
+          class="d-flex align-center justify-center category-overlay"
+          :color="data.info.primaryColor"
+        >
           <h2 class="category-title">{{ selectedCategory.name }}</h2>
-        </div>
-      </v-sheet>
+        </v-sheet>
+      </v-card>
       <v-row>
         <v-col v-for="item in filteredItems" :key="item.name" cols="12" md="6">
           <v-card class="mb-4" elevation="2">
