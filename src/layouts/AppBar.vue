@@ -66,7 +66,7 @@ const drawer = ref(false);
 const route = useRoute();
 const router = useRouter();
 const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
+const { data, demoId } = storeToRefs(dataStore);
 
 const info = data.value.info;
 const content = data.value.components;
@@ -93,10 +93,10 @@ const link = (item) => {
   }
 }
 
-
 const items = computed(() => {
   let menuItems = [];
   const onHome = route.path === '/';
+  const onDemo = route.path.startsWith('/demo/');
 
   if (addOn && addOn.includes('VirtualTour')) {
     menuItems.push({
@@ -116,10 +116,15 @@ const items = computed(() => {
     menuItems.push({ title: 'Booking', path: '/booking', type: 'internalLink' });
 
   if (!onHome) {
-    menuItems.unshift({ title: 'Home', path: '/', type: 'internalLink' });
+    const homePath = onDemo && demoId ? `/demo/${demoId}` : '/';
+    menuItems.unshift({
+      title: 'Home',
+      path: homePath,
+      type: 'internalLink'
+    });
   }
 
-  if (onHome) {
+  if (onHome || onDemo) {
     const anchorItems = content
       .filter(section => section.menu)
       .map(section => ({
@@ -157,12 +162,17 @@ watch(drawer, (newVal) => {
 });
 
 const goHome = () => {
-  if (window.location.pathname === '/') {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  const currentPath = window.location.pathname;
+  
+  const isDemo = currentPath.startsWith('/demo/');
+  const targetPath = isDemo && demoId ? `/demo/${demoId}` : '/';
+
+  if (currentPath === targetPath) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
-    router.push('/')
+    router.push(targetPath);
   }
-}
+};
 </script>
 
 <style scoped>
