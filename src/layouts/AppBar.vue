@@ -57,7 +57,7 @@ import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router';
 
 const { getText, getAncor } = useLanguageStore();
 const orderStore = useOrderStore();
@@ -76,96 +76,100 @@ const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const isMobile = setupMobileUtils();
 
-const link = (item) => {
-  if (isMobile.value) drawer.value = !drawer.value;
-  if (item.type === 'ancor') {
-    const id = getAncor(item.path).toLowerCase();
-    const target = document.getElementById(id);
-    if (target) {
-      const offset = 64;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  } else if (item.type === 'externalLink') {
-    window.open(item.path, '_blank');
-  } else if (item.type === 'internalLink') {
-    window.location.href = item.path;
-  }
-}
+const onHome = computed(() => route.path === '/');
+const onDemoHome = computed(() => route.path === `/demo/${demoId.value}`);
+const onDemo = computed(() => route.path.startsWith('/demo/'));
+const homePath = computed(() =>
+  onDemo.value && demoId.value ? `/demo/${demoId.value}` : '/'
+);
+
+const getInternalPath = (path) => {
+  return onDemo.value && demoId.value ? `/demo/${demoId.value}${path}` : path;
+};
+
+const buildAddOnLinks = (addOns) => {
+  const map = {
+    Blog: '/blog',
+    Menu: '/menu',
+    Shop: '/shop',
+    Booking: '/booking',
+  };
+
+  return Object.entries(map)
+    .filter(([key]) => addOns?.includes(key))
+    .map(([title, path]) => ({
+      title,
+      path: getInternalPath(path),
+      type: 'internalLink',
+    }));
+};
 
 const items = computed(() => {
   let menuItems = [];
-  const onHome = route.path === '/';
-  const onDemo = route.path.startsWith('/demo/');
 
-  if (addOn && addOn.includes('VirtualTour')) {
+  menuItems.push(...buildAddOnLinks(addOn));
+
+  if (addOn?.includes('VirtualTour')) {
     menuItems.push({
       title: 'Virtual Tour',
       path: 'https://test-virtual-tour.replit.app/',
-      type: 'externalLink'
+      type: 'externalLink',
     });
   }
 
-  if (addOn && addOn.includes('Blog')) 
-    menuItems.push({ title: 'Blog', path: '/blog', type: 'internalLink' });
-  if (addOn && addOn.includes('Menu')) 
-    menuItems.push({ title: 'Menu', path: '/menu', type: 'internalLink' });
-  if (addOn && addOn.includes('Shop')) 
-    menuItems.push({ title: 'Shop', path: '/shop', type: 'internalLink' });
-  if (addOn && addOn.includes('Booking'))
-    menuItems.push({ title: 'Booking', path: '/booking', type: 'internalLink' });
-
-  if (!onHome) {
-    const homePath = onDemo && demoId ? `/demo/${demoId}` : '/';
-    menuItems.unshift({
-      title: 'Home',
-      path: homePath,
-      type: 'internalLink'
-    });
-  }
-
-  if (onHome || onDemo) {
+  if (onHome.value || onDemoHome.value) {
     const anchorItems = content
-      .filter(section => section.menu)
-      .map(section => ({
+      .filter((section) => section.menu)
+      .map((section) => ({
         title: getText(section.menu),
         path: getAncor(section.menu).toLowerCase(),
-        type: 'ancor'
+        type: 'ancor',
       }));
-    menuItems = [...anchorItems, ...menuItems];
+    menuItems = [
+      { title: 'Home', type: 'home' },
+      ...anchorItems, 
+      ...menuItems
+    ];
+  } else {
+    menuItems = [
+      { title: 'Home', type: 'home' },
+      ...menuItems
+    ];
   }
 
   return menuItems;
 });
 
-const getCartQuantity = computed(() => {
-  return orderStore.products.reduce((total, product) => total + product.quantity, 0);
-});
+const link = (item) => {
+  if (isMobile.value) drawer.value = false;
 
-watch(drawer, (newVal) => {
-  const previewCard = document.querySelector('.preview-card');
-  
-  if (previewCard) {
-    if (newVal) {
-      previewCard.style.overflow = 'hidden';
-      previewCard.classList.add('no-scroll');
-    } else { 
-      previewCard.style.overflow = 'auto';
-      previewCard.classList.remove('no-scroll');
+  switch (item.type) {
+    case 'ancor': {
+      const id = getAncor(item.path).toLowerCase();
+      const target = document.getElementById(id);
+      if (target) {
+        const offset = 64;
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      break;
     }
+    case 'externalLink':
+      window.open(item.path, '_blank');
+      break;
+    case 'internalLink':
+      router.push(item.path);
+      break;
+    case 'home':
+      goHome();
+      break;
   }
-  if (newVal) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-});
+};
 
 const goHome = () => {
   const currentPath = window.location.pathname;
-  
-  const isDemo = currentPath.startsWith('/demo/');
-  const targetPath = isDemo && demoId ? `/demo/${demoId}` : '/';
+  const targetPath = homePath.value;
 
   if (currentPath === targetPath) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -173,6 +177,20 @@ const goHome = () => {
     router.push(targetPath);
   }
 };
+
+const getCartQuantity = computed(() => {
+  return orderStore.products.reduce((total, product) => total + product.quantity, 0);
+});
+
+watch(drawer, (newVal) => {
+  const previewCard = document.querySelector('.preview-card');
+
+  if (previewCard) {
+    previewCard.style.overflow = newVal ? 'hidden' : 'auto';
+    previewCard.classList.toggle('no-scroll', newVal);
+  }
+  document.body.style.overflow = newVal ? 'hidden' : '';
+});
 </script>
 
 <style scoped>
