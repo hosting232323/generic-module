@@ -6,11 +6,16 @@ export const useShopStore = defineStore('shop', {
     products: []
   }),
   actions: {
-    initData(userId) {
-      http.getRequest(`products/${userId}`, {}, (data) => {
-        this.products = data;
-      });
+    initData(data) {
+      if(Array.isArray(data)) this.setShopFromJson(data);
+      else {
+        http.getRequest(`products/${data}`, {}, (res) => {
+          this.products = res;
+        });
+      }
+    },
+    setShopFromJson(products) {
+      this.products = products;
     }
-  },
-  persist: true
+  }
 });

@@ -26,6 +26,7 @@ const showBubbles = ref(false);
 const dataStore = useDataStore();
 const shopStore = useShopStore();
 const { data, ready } = storeToRefs(dataStore);
+const store = data.value.store ?? null;
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage) {
@@ -44,8 +45,10 @@ const backgroundStyle = computed(() => {
 
 onMounted(() => {
   dataStore.initData();
-  if(data.value.store)
-    shopStore.initData(data.value.store.userId);
+  if(store && store.userId)
+    shopStore.initData(store.userId);
+  else
+    shopStore.initData(data.value.shop)
 });
 
 watch(ready, (newValue) => {
