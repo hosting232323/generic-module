@@ -20,13 +20,14 @@ import { storeToRefs } from 'pinia';
 import { onMounted, watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
 import { useShopStore } from '@/stores/shop';
+import { useBlogStore } from '@/stores/blog';
 
 const showChatty = ref(false);
 const showBubbles = ref(false);
 const dataStore = useDataStore();
 const shopStore = useShopStore();
+const blogStore = useBlogStore();
 const { data, ready } = storeToRefs(dataStore);
-const store = data.value.store ?? null;
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage) {
@@ -45,10 +46,16 @@ const backgroundStyle = computed(() => {
 
 onMounted(() => {
   dataStore.initData();
-  if(store && store.userId)
+
+  if (data.value.store && data.value.store.userId)
     shopStore.initData(store.userId);
+  else 
+    shopStore.initData(data.value.shop);
+
+  if (data.value.blog && data.value.blog.length > 0)
+    blogStore.initData(data.value.blog);
   else
-    shopStore.initData(data.value.shop)
+    blogStore.initData('doriana');
 });
 
 watch(ready, (newValue) => {
