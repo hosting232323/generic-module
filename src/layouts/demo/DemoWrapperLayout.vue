@@ -21,11 +21,14 @@ import { defineProps } from 'vue';
 import { storeToRefs } from 'pinia';
 import { onMounted, watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
+import { useShopStore } from '@/stores/shop';
 
 const showChatty = ref(false);
 const showBubbles = ref(false);
 const dataStore = useDataStore();
+const shopStore = useShopStore();
 const { data, ready } = storeToRefs(dataStore);
+const store = data.value.store ?? null;
 
 const props = defineProps({
   hostname: String,
@@ -49,9 +52,11 @@ const backgroundStyle = computed(() => {
 });
 
 onMounted(() => {
-  dataStore.initDataByDemoLayout(props.hostname, props.id);
-  if(data.value.store)
-    shopStore.initData(data.value.store.userId);
+  dataStore.initData();
+  if(store && store.userId)
+    shopStore.initData(store.userId);
+  else
+    shopStore.initData(data.value.shop)
 });
 
 watch(ready, (newValue) => {

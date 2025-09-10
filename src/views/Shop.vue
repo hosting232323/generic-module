@@ -47,8 +47,8 @@ import { usePopupStore } from '@/stores/popup';
 const shopStore = useShopStore();
 const orderStore = useOrderStore();
 const popupStore = usePopupStore();
-
 const dataStore = useDataStore();
+
 const { data } = storeToRefs(dataStore);
 const { products } = storeToRefs(shopStore);
 const info = data.value.info;

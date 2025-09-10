@@ -16,7 +16,6 @@ import { useDataStore } from '@/stores/data';
 import { useLanguageStore } from '@/stores/language';
 
 import Map from '@/components/sections/Map';
-import Blog from '@/components/sections/Blog';
 import Text from '@/components/sections/Text';
 import Line from '@/components/sections/Line';
 import Reviews from '@/components/sections/Reviews';
@@ -33,7 +32,6 @@ const { data } = storeToRefs(dataStore);
 
 const componentMap = {
   map: Map,
-  blog: Blog,
   text: Text,
   line: Line,
   reviews: Reviews,
