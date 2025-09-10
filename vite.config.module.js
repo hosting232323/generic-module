@@ -47,7 +47,7 @@ export default defineConfig({
       entry: fileURLToPath(new URL('./src/index.js', import.meta.url)),
       name: 'generic-module',
       fileName: (format) => `generic-module.${format}.js`,
-      formats: ['es', 'cjs']
+      formats: ['es']
     },
     rollupOptions: {
       external: [
