@@ -52,7 +52,7 @@ const backgroundStyle = computed(() => {
 });
 
 onMounted(() => {
-  dataStore.initData();
+  dataStore.initDataByDemoLayout(props.hostname, props.id);
   if(store && store.userId)
     shopStore.initData(store.userId);
   else
