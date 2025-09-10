@@ -6,6 +6,6 @@
 import DemoWrapperLayout from './DemoWrapperLayout.vue';
 import ProductDetails from '../../views/ProductDetails.vue';
 
-const hostname = 'https://fastsite-be.replit.app/';
+const hostname = import.meta.env.VITE_HOSTNAME_FASTSITEBACKEND;
 const id = -1;
 </script>
