@@ -27,12 +27,15 @@ Questa sezione viene utilizzata per mostrare una lista di **vantaggi o punti di 
 
 ### ✅ Campi disponibili
 
-| Chiave         | Tipo              | Obbligatoria | Descrizione |
-|----------------|-------------------|--------------|-------------|
-| `title`        | `string`          | ✅ (solo nel primo oggetto) | Titolo generale della sezione, es: "I nostri vantaggi". |
-| `name`         | `string`          | ✅           | Titolo specifico di ogni vantaggio. |
-| `description`  | `string (HTML)`   | ✅           | Descrizione del vantaggio. Supporta HTML. |
-| `image`        | `string` _oppure_ `object` | ✅ | L’immagine da mostrare. Può essere una stringa (`url`) oppure un oggetto con `{ desktop, mobile }`. |
+| Chiave        | Tipo                | Obbligatoria               | Descrizione                                                                      |
+| ------------- | ------------------- | -------------------------- | -------------------------------------------------------------------------------- |
+| `title`       | `string`            | ✅ (solo nel primo oggetto) | Titolo generale della sezione.                                                   |
+| `advantages`  | `array`             | ✅                          | Lista dei vantaggi. Ogni elemento deve contenere `name`, `description`, `image`. |
+| `name`        | `string`            | ✅                          | Titolo specifico di ogni vantaggio.                                              |
+| `description` | `string (HTML)`     | ✅                          | Descrizione del vantaggio, supporta HTML.                                        |
+| `image`       | `string` o `object` | ✅                          | Immagine del vantaggio. Può essere una stringa (URL) o `{ desktop, mobile }`.    |
+| `menu`        | `string`            | ✅                          | Nome della voce nel menu laterale.                                               |
+| `type`        | `string`            | ✅                          | Deve essere `"advantages"`.                                                      |
 
 ---
 
@@ -64,16 +67,18 @@ La sezione **DualSection** permette di mostrare **un’immagine affiancata a un 
 
 ### ✅ Campi disponibili
 
-| Chiave               | Tipo              | Obbligatoria | Descrizione |
-|----------------------|-------------------|--------------|-------------|
-| `title`              | `string`          | ✅           | Titolo principale della sezione. |
-| `subtitle`           | `string`          | ❌           | Sottotitolo opzionale. |
-| `description`        | `string (HTML)`   | ✅           | Descrizione della sezione, supporta HTML. |
-| `button`             | `string`          | ❌           | Testo da mostrare nel bottone. Necessita anche del campo `url`. |
-| `url`                | `string (URL)`    | ❌           | Link su cui reindirizza il bottone. Necessita anche del campo `button`. |
-| `image`              | `string` o `object` | ✅         | Immagine da mostrare. Può essere una stringa (`url`) o un oggetto con `{ desktop, mobile }`. |
-| `orientationDesktop` | `string` (`left`/`right`) | ❌ | Posizione dell’immagine su desktop. Default: `"right"`. |
-| `orientationMobile`  | `string` (`top`/`bottom`) | ❌ | Posizione dell’immagine su mobile. Default: `"bottom"`. |
+| Chiave               | Tipo                      | Obbligatoria | Descrizione                                                           |
+| -------------------- | ------------------------- | ------------ | --------------------------------------------------------------------- |
+| `title`              | `string`                  | ✅            | Titolo principale della sezione.                                      |
+| `subtitle`           | `string`                  | ❌            | Sottotitolo opzionale.                                                |
+| `description`        | `string (HTML)`           | ✅            | Descrizione testuale, supporta HTML.                                  |
+| `button`             | `string`                  | ❌            | Testo del bottone. Necessita anche del campo `url`.                   |
+| `url`                | `string (URL)`            | ❌            | Link di destinazione del bottone. Necessita anche del campo `button`. |
+| `image`              | `string` o `object`       | ✅            | Immagine da mostrare. Può essere `{ desktop, mobile }`.               |
+| `orientationDesktop` | `string` (`left`/`right`) | ❌            | Posizione dell’immagine su desktop. Default: `"right"`.               |
+| `orientationMobile`  | `string` (`top`/`bottom`) | ❌            | Posizione dell’immagine su mobile. Default: `"bottom"`.               |
+| `menu`               | `string`                  | ✅            | Nome della voce nel menu laterale.                                    |
+| `type`               | `string`                  | ✅            | Deve essere `"dualSection"`.                                          |
 
 ---
 
@@ -85,13 +90,14 @@ La sezione **Gallery/Carosello** mostra una **galleria a scorrimento** di immagi
 
 ```json
 {
-  "content": [
-    "url_immagine_singola.jpg",
-    {
-      "desktop": "url_immagine_desktop.jpg",
-      "mobile": "url_immagine_mobile.jpg"
-    }
-  ],
+  "content": {
+    "images": [
+      "url_immagine_singola.jpg",
+      "url_immagine_singola.jpg",
+      "url_immagine_singola.jpg"
+    ],
+    "type": "automatic"
+  },
   "menu": "Nome della voce nel menu",
   "type": "gallery"
 }
@@ -99,11 +105,11 @@ La sezione **Gallery/Carosello** mostra una **galleria a scorrimento** di immagi
 
 ### ✅ Campi disponibili
 
-| Chiave     | Tipo                | Obbligatoria | Descrizione |
-|------------|---------------------|--------------|-------------|
-| `content`  | `array` di stringhe o oggetti | ✅ | Ogni elemento rappresenta un'immagine nel carousel. Può essere una `string` (immagine unica) oppure un oggetto `{ desktop, mobile }`. |
-| `menu`     | `string`            | ✅           | Nome della voce nel menu laterale. |
-| `type`     | `string`            | ✅           | Deve essere `"gallery"` per attivare il componente a scorrimento manuale o `"carusel"` per lo scorrimento automatico. |
+| Chiave   | Tipo                          | Obbligatoria | Descrizione                                                              |
+| -------- | ----------------------------- | ------------ | ------------------------------------------------------------------------ |
+| `images` | `array` di stringhe o oggetti | ✅            | Lista di immagini, ciascuna può essere `string` o `{ desktop, mobile }`. |
+| `type`   | `string`                      | ✅            | `"gallery"` per scorrimento manuale, `"carusel"` per automatico.         |
+| `menu`   | `string`                      | ✅            | Nome della voce nel menu laterale.                                       |
 
 ---
 
@@ -115,15 +121,19 @@ La sezione **Servizi** mostra un elenco espandibile dei servizi offerti, ciascun
 
 ```json
 {
-  "content": [
-    {
-      "title": "Titolo sezione (opzionale)"
-    },
-    {
-      "name": "Nome servizio",
-      "description": "Descrizione dettagliata del servizio"
-    }
-  ],
+  "content": {
+    "title": "Titolo sezione (opzionale)"
+    "services": [
+      {
+        "name": "Nome servizio",
+        "description": "Descrizione dettagliata del servizio"
+      },
+      {
+        "name": "Nome servizio",
+        "description": "Descrizione dettagliata del servizio"
+      }
+    ],
+  },
   "menu": "Nome della voce nel menu",
   "type": "services"
 }
@@ -131,11 +141,14 @@ La sezione **Servizi** mostra un elenco espandibile dei servizi offerti, ciascun
 
 ### ✅ Campi disponibili
 
-| Chiave     | Tipo        | Obbligatoria | Descrizione |
-|------------|-------------|--------------|-------------|
-| `content`  | `array`     | ✅           | Una lista di oggetti. Il primo può contenere un `title` per la sezione (opzionale), i successivi devono contenere `name` e `description` per ogni servizio. |
-| `menu`     | `string`    | ✅           | Nome della voce nel menu laterale. |
-| `type`     | `string`    | ✅           | Deve essere `"services"` per attivare correttamente il componente. |
+| Chiave        | Tipo     | Obbligatoria | Descrizione                                                     |
+| ------------- | -------- | ------------ | --------------------------------------------------------------- |
+| `title`       | `string` | ❌            | Titolo opzionale della sezione.                                 |
+| `services`    | `array`  | ✅            | Lista dei servizi, ciascun servizio con `name` e `description`. |
+| `name`        | `string` | ✅            | Nome del servizio.                                              |
+| `description` | `string` | ✅            | Descrizione dettagliata del servizio.                           |
+| `menu`        | `string` | ✅            | Nome della voce nel menu laterale.                              |
+| `type`        | `string` | ✅            | Deve essere `"services"`.                                       |
 
 ---
 
@@ -216,14 +229,15 @@ La sezione **Contatti** mostra le informazioni di contatto dell’attività (ema
 
 ### ✅ Campi disponibili
 
-| Chiave     | Tipo     | Obbligatoria | Descrizione                                                                 |
-|------------|----------|--------------|-----------------------------------------------------------------------------|
-| `type`     | `string` | ✅           | Deve essere `"contacts"`                                                   |
-| `menu`     | `string` | ✅           | Etichetta da mostrare nel menu di navigazione                              |
-| `content`  | `object` | ✅           | Oggetto contenente uno o più dei seguenti campi                            |
-| `title`    | `string` | ❌           | Titolo della sezione                                                            |
-| `subtitle`    | `string` | ❌           | Sottotitolo della sezione                                                         |
-| `contacts`    | `array` | ❌           | Lista dei contatti con i vari social, prendere l'icon da https://pictogrammers.com/library/mdi/|
+| Chiave     | Tipo     | Obbligatoria        | Descrizione                                       |
+| ---------- | -------- | ------------------- | ------------------------------------------------- |
+| `title`    | `string` | ❌                   | Titolo della sezione.                             |
+| `subtitle` | `string` | ❌                   | Sottotitolo della sezione.                        |
+| `contacts` | `array`  | ❌                   | Lista dei contatti con `icon` e `title`.          |
+| `icon`     | `string` | ✅ per ogni contatto | Icona corrispondente al contatto (es. mdi-email). |
+| `title`    | `string` | ✅ per ogni contatto | Valore del contatto (email, telefono ecc.).       |
+| `menu`     | `string` | ✅                   | Nome della voce nel menu.                         |
+| `type`     | `string` | ✅                   | Deve essere `"contacts"`.                         |
 
         
 ---
@@ -249,11 +263,10 @@ La sezione **Indirizzo** consente agli utenti di inserire il loro nome, cognome,
 
 ### ✅ Campi disponibili
 
-| Chiave     | Tipo     | Obbligatoria | Descrizione                                                                 |
-|------------|----------|--------------|-----------------------------------------------------------------------------|
-| `username`     | `string` | ✅           | Indirizzo email dell'utente, utilizzato per identificare l'account     |
-| `password`     | `string` | ✅           | La password dell'utente per l'accesso.                                 |
-| `addressMode`    | `number` | ❌           | La modalità di visualizzazione dell'indirizzo. Se non inserita manda direttamente su stripe.|
-| `province`    | `string` | ❌           | La provincia selezionata per l'indirizzo. Se fornita, il componente mostrerà solo questa provincia nell'elenco|
-| `cities` | `array` | ❌ | Un array che contiene le città limitate alla provincia selezionata. Se non specificato, tutte le città della provincia saranno disponibili.|
-
+| Chiave        | Tipo     | Obbligatoria | Descrizione                             |
+| ------------- | -------- | ------------ | --------------------------------------- |
+| `username`    | `string` | ✅            | Email dell’utente.                      |
+| `password`    | `string` | ✅            | Password dell’utente.                   |
+| `addressMode` | `number` | ❌            | Modalità di visualizzazione.            |
+| `province`    | `string` | ❌            | Provincia da limitare nell’elenco.      |
+| `cities`      | `array`  | ❌            | Array di città limitate alla provincia. |

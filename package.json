@@ -17,16 +17,17 @@
     "crypto-js": "^4.2.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "marked": "^16.2.1",
     "ol": "^9.1.0",
     "roboto-fontface": "*",
     "uuid": "10.0.0"
   },
   "peerDependencies": {
+    "pinia": "^3.0.0",
+    "pinia-plugin-persistedstate": "^4.4.0",
     "vue": "^3.3.0",
     "vue-router": "^4.0.0",
-    "vuetify": "^3.0.0",
-    "pinia": "^3.0.0",
-    "pinia-plugin-persistedstate": "^4.4.0"
+    "vuetify": "^3.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.4",
@@ -35,7 +36,7 @@
     "sass": "^1.60.0",
     "unplugin-fonts": "^1.1.1",
     "vite": "^6.3.5",
-    "vite-plugin-vuetify": "^2.1.1",
-    "vite-plugin-css-injected-by-js": "^3.5.2"
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-vuetify": "^2.1.1"
   }
 }

@@ -147,6 +147,78 @@
       "type": "map"
     }
   ],
+  "blog": [
+    {
+      "content": "La nostra Pizza Margherita è un classico intramontabile: pomodoro San Marzano, mozzarella fior di latte e basilico fresco per un sapore autentico e genuino.",
+      "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
+      "id": 1,
+      "enrichment": {},
+      "updated_at": "25/03/2025 12:59",
+      "ordinal": 1,
+      "project_id": 3,
+      "title": "Pizza Margherita"
+    },
+    {
+      "content": "La Pizza Diavola è perfetta per chi ama i sapori decisi: mozzarella, salame piccante e pomodoro creano una combinazione irresistibile.",
+      "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
+      "id": 2,
+      "enrichment": {},
+      "updated_at": "25/03/2025 12:59",
+      "ordinal": 2,
+      "project_id": 3,
+      "title": "Pizza Diavola"
+    },
+    {
+      "content": "La Pizza Capricciosa è un trionfo di gusto: mozzarella, prosciutto cotto, funghi, carciofi e olive per soddisfare tutti i palati.",
+      "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
+      "id": 3,
+      "ordinal": 3,
+      "enrichment": {},
+      "updated_at": "25/03/2025 12:59",
+      "project_id": 3,
+      "title": "Pizza Capricciosa"
+    },
+    {
+      "content": "La Pizza Gourmet 'La Melone' unisce tradizione e creatività: focaccina croccante, prosciutto crudo di Parma, burrata artigianale e un delicato velo di melone.",
+      "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
+      "id": 4,
+      "ordinal": 4,
+      "enrichment": {},
+      "updated_at": "25/03/2025 12:59",
+      "project_id": 3,
+      "title": "Pizza Gourmet - La Melone"
+    },
+    {
+      "content": "Le Bruschette Pomodoro sono un antipasto semplice ma delizioso: pane tostato con pomodorini freschi, aglio e basilico.",
+      "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
+      "id": 5,
+      "enrichment": {},
+      "updated_at": "25/03/2025 12:59",
+      "ordinal": 5,
+      "project_id": 3,
+      "title": "Bruschette Pomodoro"
+    },
+    {
+      "content": "La Birra Artigianale IPA è un’esplosione di aromi luppolati e agrumati, con 6.5% di gradazione alcolica, ideale per accompagnare le nostre pizze.",
+      "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
+      "id": 6,
+      "enrichment": {},
+      "updated_at": "25/03/2025 12:59",
+      "ordinal": 6,
+      "project_id": 3,
+      "title": "Birra Artigianale IPA"
+    },
+    {
+      "content": "L'Acqua Naturale da 50cl è perfetta per rinfrescare il palato durante il pasto, semplice e naturale.",
+      "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
+      "id": 7,
+      "enrichment": {},
+      "updated_at": "25/03/2025 12:59",
+      "ordinal": 7,
+      "project_id": 3,
+      "title": "Acqua Naturale"
+    }
+  ],
   "shop": [
     {
       "id": 1,
