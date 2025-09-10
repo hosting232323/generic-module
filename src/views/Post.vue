@@ -17,66 +17,65 @@
       <hr class="mobile-separator" v-if="isMobile">
     </div>
     <hr v-if="!isMobile" style="border: none; height: 1px; background-color: #767677;">
-    <h1 class="post-title">{{ post.title }}</h1>
+    <h1 class="post-title" :style="{ color: info.primaryColor }">{{ post.title }}</h1>
     <div v-html="renderedContent" class="markdown-content"></div>
   </v-container>
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia';
 import { marked } from 'marked';
-import { ref } from 'vue';
-import http from '@/utils/http';
-import mobile from '@/utils/mobile';
+import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
+import { useDataStore } from '@/stores/data';
+import { useBlogStore } from '@/stores/blog';
+import { setupMobileUtils } from '@/utils/mobile';
 
+const renderedContent = ref('');
 const post = ref({});
 const route = useRoute();
 const breadcrumbs = ref([]);
-const isMobile = mobile.setupMobileUtils();
+const isMobile = setupMobileUtils();
 
-const renderedContent = ref('');
+const dataStore = useDataStore();
+const blogStore = useBlogStore();
 
-http.getRequest(`post/${route.params.id}`, {
-  project: 'dorianadinanni.it'
-}, function (data) {
-  post.value = data.post;
-  renderedContent.value = marked(post.value.content);
-  breadcrumbs.value = [
-    {
-      title: 'Home',
-      disabled: false,
-      href: '/'
-    }, {
-      title: 'Agenda',
-      disabled: false,
-      href: '/agenda'
-    }, {
-      title: data.post.title,
-      disabled: true
-    }
-  ];
-});
+const { data } = storeToRefs(dataStore);
+const { posts } = storeToRefs(blogStore);
+const info = data.value.info;
+
+const updatePostFromId = () => {
+  const foundPost = posts.value.find(p => p.id === Number(route.params.id));
+  if (foundPost) {
+    post.value = foundPost;
+    renderedContent.value = marked(post.value.content);
+
+    breadcrumbs.value = [
+      { title: 'Home', disabled: false, href: '/' },
+      { title: 'Agenda', disabled: false, href: '/agenda' },
+      { title: post.value.title, disabled: true }
+    ];
+  }
+};
+updatePostFromId();
 
 const formatDate = (dateString) => {
   const months = [
     "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
     "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
   ];
-
   const [day, month, year] = dateString.split(" ")[0].split("/");
   return `${months[parseInt(month) - 1]} ${parseInt(day)}, ${year}`;
 };
 
 const formatTopics = (topics = []) => {
-  if(topics.length) return `${topics.join(' - ')} / `;
-}
+  if (topics.length) return `${topics.join(' - ')} / `;
+};
 
 const calculateReadingTime = (content, wordsPerMinute = 200) => {
   if (!content) return "0 min"; 
-
-  const wordCount = content.trim().split(/\s+/).length; // Conta le parole
-  const minutes = Math.ceil(wordCount / wordsPerMinute); // Arrotonda per eccesso
-
+  const wordCount = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
   return `${minutes} min di lettura`;
 };
 
@@ -141,7 +140,6 @@ const shareUrl = (platform) => {
 
 .post-title {
   text-transform: uppercase;
-  color: #7d2636;
   margin: 15px 0;
 }
 </style>

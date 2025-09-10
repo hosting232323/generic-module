@@ -85,13 +85,14 @@ La sezione **Gallery/Carosello** mostra una **galleria a scorrimento** di immagi
 
 ```json
 {
-  "content": [
-    "url_immagine_singola.jpg",
-    {
-      "desktop": "url_immagine_desktop.jpg",
-      "mobile": "url_immagine_mobile.jpg"
-    }
-  ],
+  "content": {
+    "images": [
+      "url_immagine_singola.jpg",
+      "url_immagine_singola.jpg",
+      "url_immagine_singola.jpg"
+    ],
+    "type": "automatic"
+  },
   "menu": "Nome della voce nel menu",
   "type": "gallery"
 }
@@ -115,15 +116,19 @@ La sezione **Servizi** mostra un elenco espandibile dei servizi offerti, ciascun
 
 ```json
 {
-  "content": [
-    {
-      "title": "Titolo sezione (opzionale)"
-    },
-    {
-      "name": "Nome servizio",
-      "description": "Descrizione dettagliata del servizio"
-    }
-  ],
+  "content": {
+    "title": "Titolo sezione (opzionale)"
+    "services": [
+      {
+        "name": "Nome servizio",
+        "description": "Descrizione dettagliata del servizio"
+      },
+      {
+        "name": "Nome servizio",
+        "description": "Descrizione dettagliata del servizio"
+      }
+    ],
+  },
   "menu": "Nome della voce nel menu",
   "type": "services"
 }

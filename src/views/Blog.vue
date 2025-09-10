@@ -1,7 +1,7 @@
 <template>
   <Loading :home="false" v-if="loading"/>
   <v-container v-else>
-    <h1 class="text-h3 font-weight-bold" style="color: #7d2636; margin: 10px 0;">Ultimi post</h1>
+    <h1 class="text-h3 font-weight-bold" :style="{ color: info.primaryColor, margin: '10px 0'}">Ultimi post</h1>
     <div v-for="(post, index) in displayedPosts" :key="post.id">
       <BlogItem :post="post" :isFeatured="index === 0"/>
     </div>
@@ -9,7 +9,7 @@
       <a @click="loadMorePosts" class="more-posts" :style="{ color: info.primaryColor }">Mostra più articoli</a>
     </div>
     <div v-else class="mt-4">
-      <a @click="removeMorePosts" class="more-posts">Mostra meno</a>
+      <a @click="removeMorePosts" class="more-posts" :style="{ color: info.primaryColor }">Mostra meno</a>
     </div>
   </v-container>
 </template>
