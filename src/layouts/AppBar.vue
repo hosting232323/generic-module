@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import Cart from './Cart.vue';
+import Cart from '@/layouts/Cart.vue';
 import Language from '@/components/sections/Language.vue';
 
 import { storeToRefs } from 'pinia';
@@ -59,7 +59,7 @@ import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 import { useRoute, useRouter } from 'vue-router';
 
-const { getText, getAncor } = useLanguageStore();
+const { getText } = useLanguageStore();
 const orderStore = useOrderStore();
 
 const drawer = ref(false);
@@ -76,8 +76,6 @@ const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;
 const isMobile = setupMobileUtils();
 
-const onHome = computed(() => route.path === '/');
-const onDemoHome = computed(() => route.path === `/demo/${demoId.value}`);
 const onDemo = computed(() => route.path.startsWith('/demo/'));
 const homePath = computed(() =>
   onDemo.value && demoId.value ? `/demo/${demoId.value}` : '/'
@@ -106,55 +104,34 @@ const buildAddOnLinks = (addOns) => {
 
 const items = computed(() => {
   let menuItems = [];
-
   menuItems.push(...buildAddOnLinks(addOn));
 
-  if (addOn?.includes('VirtualTour')) {
+  if (addOn?.includes('VirtualTour'))
     menuItems.push({
       title: 'Virtual Tour',
       path: 'https://test-virtual-tour.replit.app/',
       type: 'externalLink',
     });
-  }
 
-  if (onHome.value || onDemoHome.value) {
-    const anchorItems = content
-      .filter((section) => section.menu)
-      .map((section) => ({
-        title: getText(section.menu),
-        path: getAncor(section.menu).toLowerCase(),
-        type: 'ancor',
-      }));
-    menuItems = [
-      { title: 'Home', type: 'home' },
-      ...anchorItems, 
-      ...menuItems
-    ];
-  } else {
-    menuItems = [
-      { title: 'Home', type: 'home' },
-      ...menuItems
-    ];
-  }
+  const anchorItems = content
+    .filter((section) => section.menu)
+    .map((section) => ({
+      title: getText(section.menu),
+      path: `/#${section.type}`,
+      type: 'internalLink'
+    }));
 
-  return menuItems;
+  return [
+    { title: 'Home', type: 'home' },
+    ...anchorItems, 
+    ...menuItems
+  ];
 });
 
 const link = (item) => {
   if (isMobile.value) drawer.value = false;
 
   switch (item.type) {
-    case 'ancor': {
-      const id = getAncor(item.path).toLowerCase();
-      const target = document.getElementById(id);
-      if (target) {
-        const offset = 64;
-        const top =
-          target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-      break;
-    }
     case 'externalLink':
       window.open(item.path, '_blank');
       break;
