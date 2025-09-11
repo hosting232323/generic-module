@@ -1,16 +1,17 @@
 <template>
   <v-app  v-if="ready">
-    <AppBar />
+    <AppBar v-if="!isNotFound" />
     <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
-    <SocialBubbles v-if="showBubbles" :chattyActive="showChatty"/>
+    <SocialBubbles v-if="showBubbles || !isNotFound" :chattyActive="showChatty"/>
     <v-main :style="backgroundStyle">
       <router-view />
     </v-main>
-    <Footer />
+    <Footer v-if="!isNotFound" />
   </v-app>
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router'
 import UpArrow from './UpArrow.vue';
 import AppBar from './AppBar.vue';
 import Footer from './Footer.vue';
@@ -28,6 +29,9 @@ const dataStore = useDataStore();
 const shopStore = useShopStore();
 const blogStore = useBlogStore();
 const { data, ready } = storeToRefs(dataStore);
+
+const route = useRoute();
+const isNotFound = computed(() => route.name === 'NotFound');
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage) {
@@ -62,7 +66,7 @@ watch(ready, (newValue) => {
   if (!newValue) return
 
   const addOn = data.value.addOn;
-  if (addOn && addOn.includes('Chatty')) {
+  if (addOn && addOn.includes('Chatty') && !isNotFound) {
     const script = document.createElement('script');
     script.type = 'module';
     script.src = `https://chatty-be.replit.app/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
