@@ -6,6 +6,14 @@
 import DemoWrapperLayout from './DemoWrapperLayout.vue';
 import Menu from '../../views/Menu.vue';
 
-const hostname = import.meta.env.VITE_HOSTNAME_FASTSITEBACKEND;
-const id = -1;
+defineProps({
+  hostname: {
+    type: String,
+    required: true
+  },
+  id: {
+    type: [String, Number],
+    required: true
+  }
+})
 </script>

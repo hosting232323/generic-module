@@ -51,6 +51,11 @@ const routes = [
         name: 'EventDetails',
         component: () => import('@/views/EventDetails')
       },
+      {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('@/views/NotFound.vue'),
+      }
     ]
   }
 ];
