@@ -33,6 +33,13 @@
       "type": "gallery"
     },
     {
+      "menu": "Articoli",
+      "type": "shopSummary",
+      "content": {
+        "title": "I nostri ultimi articoli"
+      }
+    },
+    {
       "content": {
         "button": "Vai al menu!",
         "description": "La nostra pizzeria offre una vasta selezione di pizze artigianali, realizzate con ingredienti di alta qualità e una maestria culinaria unica. Dalla classica margherita alle creazioni gourmet, ogni pizza è un'esperienza culinaria indimenticabile.",
@@ -225,6 +232,7 @@
       "name": "Pizza Margherita",
       "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico fresco",
       "price": 700,
+      "highlight": true,
       "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
       "product_type": "Pizze Classiche"
     },
@@ -232,6 +240,7 @@
       "id": 2,
       "name": "Pizza Diavola",
       "description": "Mozzarella, salame piccante e pomodoro",
+      "highlight": true,
       "price": 800,
       "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
       "product_type": "Pizze Classiche"
@@ -240,6 +249,7 @@
       "id": 3,
       "name": "Pizza Capricciosa",
       "description": "Mozzarella, prosciutto cotto, funghi, carciofi e olive",
+      "highlight": true,
       "price": 900,
       "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
       "product_type": "Pizze Classiche"
