@@ -1,10 +1,15 @@
 <template>
-  <DemoWrapperLayout :hostname="hostname" :id="id" :content="Blog" />
+  <BaseLayout>
+    <Blog />
+  </BaseLayout>
 </template>
 
 <script setup>
-import DemoWrapperLayout from './DemoWrapperLayout.vue';
-import Blog from '../../views/Blog.vue';
+import Blog from '@/views/Blog.vue';
+import BaseLayout from '@/layouts/BaseLayout.vue';
+
+import { useDataStore } from '@/stores/data';
+import { onMounted, defineProps } from 'vue';
 
 defineProps({
   hostname: {
@@ -15,5 +20,8 @@ defineProps({
     type: [String, Number],
     required: true
   }
-})
+});
+
+const dataStore = useDataStore();
+onMounted(() => dataStore.initDataByDemoLayout(props.hostname, props.id));
 </script>

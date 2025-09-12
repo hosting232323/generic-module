@@ -1,6 +1,6 @@
 import '@mdi/font/css/materialdesignicons.css';
 
-export { default as DemoLayout } from './layouts/DemoLayout.vue';
+export { default as InteractiveDemoLayout } from './layouts/demo/InteractiveDemoLayout.vue';
 
 export { default as DemoHomeLayout } from './layouts/demo/HomeLayout.vue';
 export { default as DemoBlogLayout } from './layouts/demo/BlogLayout.vue';
