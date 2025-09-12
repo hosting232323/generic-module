@@ -11,7 +11,7 @@ import EventDetails from '@/views/EventDetails.vue';
 import { useDataStore } from '@/stores/data';
 import { onMounted, defineProps } from 'vue';
 
-defineProps({
+const props = defineProps({
   hostname: {
     type: String,
     required: true
