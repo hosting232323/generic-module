@@ -1,7 +1,7 @@
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
 import productionData from '@/productionData';
-
+import { useRouter } from 'vue-router';
 
 export const useDataStore = defineStore('data', {
   state: () => ({
@@ -14,9 +14,13 @@ export const useDataStore = defineStore('data', {
       this.updateData(productionData);
     },
     initDataByDemoLayout(hostname, id){
+      const router = useRouter();
       http.getRequest(`get-data/${id}`, {}, (data) => {
-        this.demoId = id;
-        this.updateData(data.data);
+        if(data.status == 'ok') {
+          this.demoId = id;
+          this.updateData(data.data);
+        } else
+          router.push({ name: 'DemoNotFound' }); 
       }, 'GET', undefined, hostname);
     },
     initDataByJson(json) {
