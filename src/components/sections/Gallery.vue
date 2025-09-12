@@ -1,101 +1,129 @@
 <template>
-  <v-carousel v-if="content.type === 'manual'" :id="id" :height="isMobile ? 400 : 600" delimiter-icon="mdi-square">
+  <v-carousel
+    v-if="content.type === 'manual'"
+    :id="id"
+    :height="isMobile ? 400 : 600"
+    delimiter-icon="mdi-square"
+  >
     <v-carousel-item v-for="(slide, index) in content.images" :key="index">
       <v-img :src="resolveImg(slide)" cover />
     </v-carousel-item>
   </v-carousel>
-  <v-carousel v-if="content.type === 'automatic'" :id="id" style="height: 96vh;" @click="resetTimer" v-model="selected" hide-delimiters>
-    <v-carousel-item v-for="img in content.images" :src="resolveImg(img)" cover />
-    <template #prev></template>
-    <template #next></template>
-  </v-carousel>
+
+  <div v-else class="carousel-wrapper" @mouseenter="pause" @mouseleave="start">
+    <div
+      class="carousel-track"
+      :style="{
+        transform: `translateX(-${currentIndex * 100}%)`,
+        transition: transitioning ? 'transform 0.5s ease-in-out' : 'none'
+      }"
+      @transitionend="handleTransitionEnd"
+    >
+      <div class="carousel-item" v-for="(img, index) in extendedImages" :key="index">
+        <img :src="resolveImg(img)" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { setupMobileUtils, resolveImg } from '@/utils/mobile';
 
 const isMobile = setupMobileUtils();
-const { id, content, info } = defineProps(['id', 'content', 'info']);
+const { id, content } = defineProps(['id', 'content']);
 
-const selected = ref(0);
-const intervalId = ref(null);
+const isAnimating = ref(false);
+const currentIndex = ref(0);
+const transitioning = ref(true);
+let intervalId = null;
+
+const extendedImages = computed(() => [...content.images, content.images[0]]);
 
 const prev = () => {
-  selected.value = (selected.value + content.images.length - 1) % content.images.length;
+  if (isAnimating.value) return;
+  isAnimating.value = true;
+  currentIndex.value =
+    (currentIndex.value + content.images.length - 1) % content.images.length;
+  transitioning.value = true;
 };
 
 const next = () => {
-  selected.value = (selected.value + 1) % content.images.length;
+  if (isAnimating.value) return;
+  isAnimating.value = true;
+  currentIndex.value += 1;
+  transitioning.value = true;
 };
 
-const startTimer = () => {
-  intervalId.value = setInterval(() => {
-    next();
-  }, 4000);
+const handleTransitionEnd = () => {
+  if (currentIndex.value === content.images.length) {
+    transitioning.value = false;
+    currentIndex.value = 0;
+  }
+  isAnimating.value = false; 
 };
 
-const resetTimer = () => {
-  if (intervalId.value) {
-    clearInterval(intervalId.value);
-    intervalId.value = null;
-  } else
-    startTimer();
+const start = () => {
+  intervalId = setInterval(next, 4000);
+};
+
+const pause = () => {
+  clearInterval(intervalId);
 };
 
 const handleKeydown = (event) => {
   if (event.key === 'ArrowLeft') {
     prev();
-    resetTimer();
+    pause();
+    start();
   } else if (event.key === 'ArrowRight') {
     next();
-    resetTimer();
+    pause();
+    start();
   }
 };
 
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown);
-  startTimer();
+onUnmounted(() => {
+  pause();
+  window.removeEventListener('keydown', handleKeydown);
 });
 
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown);
-  clearInterval(intervalId.value);
+const preloadImages = () => {
+  content.images.forEach((img) => {
+    const image = new Image();
+    image.src = resolveImg(img);
+  });
+};
+
+onMounted(() => {
+  preloadImages();
+  if (content.type !== 'manual') start();
+  window.addEventListener('keydown', handleKeydown);
 });
 </script>
 
 <style scoped>
-.caption {
-  position: absolute;
-  bottom: 25px;
-  left: 15px;
-  color: white;
-  font-size: larger;
+.carousel-wrapper {
+  width: 100vw;
+  height: 96vh;
+  overflow: hidden;
+  position: relative;
 }
 
-.caption-mobile {
-  position: absolute;
-  bottom: 60px;
-  right: 25px;
-  text-align: right;
-  color: white;
-  font-size: larger;
-}
-
-.custom-controls {
-  position: absolute;
-  bottom: 25px;
-  right: 25px;
+.carousel-track {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
 }
 
-.custom-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: white;
-  cursor: pointer;
+.carousel-item {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-item img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
