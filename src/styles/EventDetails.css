@@ -151,7 +151,7 @@ h2 {
   flex: 1;
 }
 
-input, select, textarea {
+.booking-input, .select-input, .booking-textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -164,12 +164,12 @@ input, select, textarea {
 }
 
 @media (max-width: 768px) {
-  input, select, textarea {
+  .booking-input, .select-input, .booking-textarea {
     font-size: 14px;
   }
 }
 
-input:focus, select:focus, textarea:focus {
+.booking-input:focus, .select-input:focus, .booking-textarea:focus {
   outline: 3px solid #0066cc;
   outline-offset: -3px;
   border-color: #0066cc;

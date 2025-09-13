@@ -43,6 +43,7 @@
               <label for="firstName">Nome *</label>
               <input 
                 id="firstName"
+                class="booking-input"
                 v-model="bookingForm.firstName"
                 type="text"
                 required
@@ -54,6 +55,7 @@
               <label for="lastName">Cognome *</label>
               <input 
                 id="lastName"
+                class="booking-input"
                 v-model="bookingForm.lastName"
                 type="text"
                 required
@@ -66,6 +68,7 @@
             <label for="email">Email *</label>
             <input 
               id="email"
+              class="booking-input"
               v-model="bookingForm.email"
               type="email"
               required
@@ -77,6 +80,7 @@
             <label for="phone">Telefono *</label>
             <input 
               id="phone"
+              class="booking-input"
               v-model="bookingForm.phone"
               type="tel"
               required
@@ -88,6 +92,7 @@
             <label for="timeSlot">Fascia Oraria *</label>
               <select 
                 id="timeSlot"
+                class="select-input"
                 v-model="bookingForm.timeSlot"
                 required
               >
@@ -104,6 +109,7 @@
             <select 
               v-else
               id="participants"
+              class="select-input"
               v-model="bookingForm.participants"
               required
             >
@@ -116,6 +122,7 @@
             <label for="notes">Note aggiuntive</label>
             <textarea 
               id="notes"
+              class="booking-textarea"
               v-model="bookingForm.notes"
               rows="4"
               placeholder="Inserisci eventuali note o richieste particolari"
@@ -126,6 +133,7 @@
             <div class="checkbox-container">
               <input 
                 type="checkbox" 
+                class="booking-input"
                 id="privacyPolicy"
                 v-model="bookingForm.privacyAccepted"
                 required
