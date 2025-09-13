@@ -13,7 +13,7 @@
             class="d-flex align-center justify-center category-overlay"
             :color="data.info.primaryColor"
           >
-            <h2 class="category-title">{{ cat.name }}</h2>
+            <p class="category-title">{{ cat.name }}</p>
           </v-sheet>
         </v-card>
       </v-col>
@@ -33,7 +33,7 @@
           class="d-flex align-center justify-center category-overlay"
           :color="data.info.primaryColor"
         >
-          <h2 class="category-title">{{ selectedCategory.name }}</h2>
+          <p class="category-title">{{ selectedCategory.name }}</p>
         </v-sheet>
       </v-card>
       <v-row>
@@ -125,5 +125,6 @@ const openCategory = async (cat) => {
   text-transform: uppercase;
   font-size: 17px;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 </style>
