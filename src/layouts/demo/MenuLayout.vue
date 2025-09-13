@@ -1,12 +1,17 @@
 <template>
-  <DemoWrapperLayout :hostname="hostname" :id="id" :content="Menu" />
+  <BaseLayout>
+    <Menu />
+  </BaseLayout>
 </template>
 
 <script setup>
-import DemoWrapperLayout from './DemoWrapperLayout.vue';
-import Menu from '../../views/Menu.vue';
+import Menu from '@/views/Menu.vue';
+import BaseLayout from '@/layouts/BaseLayout.vue';
 
-defineProps({
+import { useDataStore } from '@/stores/data';
+import { onMounted, defineProps } from 'vue';
+
+const props = defineProps({
   hostname: {
     type: String,
     required: true
@@ -15,5 +20,8 @@ defineProps({
     type: [String, Number],
     required: true
   }
-})
+});
+
+const dataStore = useDataStore();
+onMounted(() => dataStore.initDataByDemoLayout(props.hostname, props.id));
 </script>
