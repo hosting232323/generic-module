@@ -54,17 +54,3 @@ const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 </script>
-
-<style scoped>
-.shop-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 1.5rem;
-}
-
-.shop-item {
-  width: 300px;
-  border-radius: 8px;
-}
-</style>

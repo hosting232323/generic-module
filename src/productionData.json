@@ -33,6 +33,13 @@
       "type": "gallery"
     },
     {
+      "menu": "Blog",
+      "type": "blogSummary",
+      "content": {
+        "title": "I nostri ultimi post"
+      }
+    },
+    {
       "menu": "Articoli",
       "type": "shopSummary",
       "content": {
