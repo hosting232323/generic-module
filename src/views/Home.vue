@@ -23,6 +23,8 @@ import Services from '@/components/sections/Services';
 import Contacts from '@/components/sections/Contacts';
 import BrandList from '@/components/sections/BrandList';
 import Advantages from '@/components/sections/Advantages';
+import ShopSummary from '@/components/sections/ShopSummary';
+import BlogSummary from '@/components/sections/BlogSummary';
 import DualSection from '@/components/sections/DualSection';
 
 const dataStore = useDataStore();
@@ -38,6 +40,8 @@ const componentMap = {
   contacts: Contacts,
   brandlist: BrandList,
   advantages: Advantages,
+  shopSummary: ShopSummary,
+  blogSummary: BlogSummary,
   dualSection: DualSection
 };
 
