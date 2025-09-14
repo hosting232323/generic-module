@@ -117,7 +117,7 @@ const items = computed(() => {
     .filter((section) => section.menu)
     .map((section) => ({
       title: getText(section.menu),
-      path: `/#${section.type}`,
+      path: getInternalPath(`/#${section.type}`),
       type: 'internalLink'
     }));
 
