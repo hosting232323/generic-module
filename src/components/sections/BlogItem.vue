@@ -9,7 +9,7 @@
       <p class="reading-time">{{ calculateReadingTime(post.content) }}</p>
 
       <router-link :to="postLink" style="text-decoration: none;">
-        <h2 class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</h2>
+        <p class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</p>
       </router-link>
 
       <p class="truncate-text">{{ post.content }}</p>
@@ -25,7 +25,7 @@
       <p class="topic-date">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }} - {{ calculateReadingTime(post.content) }}</p>
 
       <router-link :to="postLink" style="text-decoration: none;">
-        <h2 class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</h2>
+        <p class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</p>
       </router-link>
 
       <p class="truncate-text">{{ post.content }}</p>
