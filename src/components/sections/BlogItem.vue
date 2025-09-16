@@ -89,7 +89,7 @@ const calculateReadingTime = (content, wordsPerMinute = 200) => {
 };
 
 const postLink = computed(() => {
-  return demoId.value ? `/demo/${demoId.value}/blog/${props.post.demoId}` : `/blog/${props.post.id}`;
+  return demoId.value ? `/demo/${demoId.value}/blog/${props.post.id}` : `/blog/${props.post.id}`;
 });
 </script>
 
