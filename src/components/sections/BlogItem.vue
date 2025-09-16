@@ -1,6 +1,6 @@
 <template>
   <v-container class="d-flex mt-4 mb-4" v-if="!isMobile">
-    <router-link :to="`/blog/${post.id}`">
+    <router-link :to="postLink">
       <v-img :src="post.cover" width="170px" class="featured-image"/>
     </router-link>
 
@@ -8,7 +8,7 @@
       <p class="topic-date">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }}</p>
       <p class="reading-time">{{ calculateReadingTime(post.content) }}</p>
 
-      <router-link :to="`/blog/${post.id}`" style="text-decoration: none;">
+      <router-link :to="postLink" style="text-decoration: none;">
         <h2 class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</h2>
       </router-link>
 
@@ -17,14 +17,14 @@
   </v-container>
 
   <v-container class="mt-4 mb-4 d-flex flex-column" v-else>
-    <router-link :to="`/blog/${post.id}`">
+    <router-link :to="postLink">
       <img :src="post.cover" class="featured-image">
     </router-link>
 
     <div>
       <p class="topic-date">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }} - {{ calculateReadingTime(post.content) }}</p>
 
-      <router-link :to="`/blog/${post.id}`" style="text-decoration: none;">
+      <router-link :to="postLink" style="text-decoration: none;">
         <h2 class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</h2>
       </router-link>
 
@@ -41,7 +41,7 @@ import { useDataStore } from '@/stores/data';
 const isMobile = setupMobileUtils();
 
 const dataStore = useDataStore();
-const { data } = storeToRefs(dataStore);
+const { data, demoId } = storeToRefs(dataStore);
 const info = data.value.info;
 
 const props = defineProps({
@@ -86,6 +86,10 @@ const calculateReadingTime = (content, wordsPerMinute = 200) => {
 
   return `${minutes} min di lettura`;
 };
+
+const postLink = computed(() => {
+  return demoId.value ? `/demo/${demoId.value}/blog/${props.post.demoId}` : `/blog/${props.post.id}`;
+});
 </script>
 
 
