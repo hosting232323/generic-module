@@ -35,9 +35,10 @@
             <div
               v-for="event in day.events"
               :key="event.id"
-              class="event"
+              :class="{ 'event': !isMobile, 'event-mobile': isMobile }"
             >
-              <b>{{ event.name }}</b>
+              <b v-if="!isMobile">{{ event.name }}</b>
+              <b v-else><v-icon>mdi mdi-notebook-heart-outline</v-icon></b>
             </div>
           </div>
           <div v-else class="no-event">Nessun evento</div>
@@ -55,6 +56,9 @@ import { useEventsStore } from '@/stores/events';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
+import { setupMobileUtils } from '@/utils/mobile';
+
+const isMobile = setupMobileUtils();
 const dataStore = useDataStore();
 const eventsStore = useEventsStore();
 const { data, demoId } = storeToRefs(dataStore);
