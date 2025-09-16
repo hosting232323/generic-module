@@ -34,6 +34,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useDataStore } from '@/stores/data';
