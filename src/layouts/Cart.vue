@@ -114,6 +114,8 @@ const proceedToCheckout = async () => {
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
 
+  console.log(products.value)
+
   http.postRequest('stripe-session', {
     user_id: store.userId,
     products: products.value
@@ -128,7 +130,6 @@ const placeOrder = async () => {
 const cancelCheckout = () => {
   isCheckout.value = false;
 };
-
 const clearCart = () => {
   try {
     orderStore.removeAllProduct();

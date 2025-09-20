@@ -58,7 +58,7 @@ watch(ready, (newValue) => {
     blogStore.initData('doriana');
 
   if (data.value.store && data.value.store.userId)
-    shopStore.initData(store.userId);
+    shopStore.initData(data.value.store.userId);
   else 
     shopStore.initData(data.value.shop);
 

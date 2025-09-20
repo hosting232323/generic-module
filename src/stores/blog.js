@@ -3,13 +3,14 @@ import http from '@/utils/http';
 
 export const useBlogStore = defineStore('blog', {
   state: () => ({
-    posts: []
+    posts: [],
+    ready: false
   }),
   actions: {
     initData(data) {
       if(Array.isArray(data)) this.setShopFromJson(data);
       else {
-        http.getRequest(`products/${data}`, {
+        http.getRequest(`blog/${data}`, {
           project: 'dorianadinanni.it'
         }, (res) => {
           this.posts = res.data.reverse();
@@ -18,6 +19,7 @@ export const useBlogStore = defineStore('blog', {
     },
     setShopFromJson(posts) {
       this.posts = posts;
+      this.ready = true;
     }
   }
 });

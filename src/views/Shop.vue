@@ -34,7 +34,7 @@
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
@@ -50,7 +50,7 @@ const popupStore = usePopupStore();
 const dataStore = useDataStore();
 
 const { data } = storeToRefs(dataStore);
-const { products } = storeToRefs(shopStore);
+const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 
 const loading = ref(true);
@@ -92,7 +92,8 @@ const addToCart = (productId) => {
   }
 }
 
-onMounted(() => {
+watch(ready, (newValue) => {
+  if (!newValue) return;
   groupProductsByCategory();
-});
+})
 </script>
