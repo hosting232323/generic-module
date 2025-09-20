@@ -6,20 +6,23 @@
       class="ma-1"
       style="padding: 5px 10px 5px 0;"
       size="small"
-      :color="allergenIcons[a]?.color"
-      :text-color="allergenIcons[a]?.color"
+      :color="allergenIcons[a['it']]?.color"
+      :text-color="allergenIcons[a['it']]?.color"
       outlined
     >
       <v-avatar left size="25" class="me-1" tile>
-        <v-img :src="allergenIcons[a]?.src" alt="Icona allergene" cover />
+        <v-img :src="allergenIcons[a['it']]?.src" alt="Icona allergene" cover />
       </v-avatar>
-      {{ formatAllergenName(a) }}
+      {{ formatAllergenName(getText(a)) }}
     </v-chip>
   </div>
 </template>
 
 <script setup>
 import { allergenIcons, formatAllergenName } from '@/utils/allergens';
+import { useLanguageStore } from '@/stores/language';
+
+const { getText } = useLanguageStore();
 
 const props = defineProps({
   allergens: {

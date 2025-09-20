@@ -35,6 +35,9 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { ref, onMounted, watch } from 'vue';
+import { useLanguageStore } from '@/stores/language';
+
+const { getText } = useLanguageStore();
 
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
