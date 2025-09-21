@@ -12,7 +12,8 @@
               <v-card-title class="text-h6">{{ product.name }}</v-card-title>
               <v-card-text>
                 <div>
-                  Prezzo: {{ product.price ? formatPrice(product.price) : 'Non disponibile' }}
+                  Prezzo:
+                  {{ product.price ? ((parseFloat(product.price) / 100).toFixed(2) + ' €') : 'Non disponibile' }}
                 </div>
               </v-card-text>
               <v-card-actions>
@@ -33,37 +34,41 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { ref, onMounted, watch } from 'vue';
-import { useLanguageStore } from '@/stores/language';
-
-const { getText } = useLanguageStore();
 
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
+import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
 
+const groupedProducts = ref({});
+const dataStore = useDataStore();
 const shopStore = useShopStore();
 const orderStore = useOrderStore();
 const popupStore = usePopupStore();
-const dataStore = useDataStore();
 
 const { data } = storeToRefs(dataStore);
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 
-const groupedProducts = ref({});
-
-const formatPrice = (price) => {
-  return (parseFloat(price) / 100).toFixed(2) + ' €';
-};
-
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
+};
+
+const addToCart = (productId) => {
+  try {
+    orderStore.addProduct({
+      product: productId,
+      quantity: 1
+    });
+    popupStore.setPopup('Aggiunto al carrello!', 'success');
+  } catch (error) {
+    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
+  }
 };
 
 const groupProductsByCategory = () => {
@@ -81,20 +86,10 @@ const groupProductsByCategory = () => {
   groupedProducts.value = grouped;
 };
 
-const addToCart = (productId) => {
-  try {
-    orderStore.addProduct({
-      product: productId,
-      quantity: 1
-    });
-    popupStore.setPopup('Aggiunto al carrello!', 'success');
-  } catch (error) {
-    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
-  }
-}
-
-watch(ready, (newValue) => {
-  if (!newValue) return;
+if (ready.value)
   groupProductsByCategory();
-})
+else
+  shopStore.initData(data.value.store, function () {
+    groupProductsByCategory();
+  });
 </script>

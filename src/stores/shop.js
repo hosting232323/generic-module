@@ -7,12 +7,22 @@ export const useShopStore = defineStore('shop', {
     ready: false
   }),
   actions: {
-    initDataByUser(data) {
-      http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data));
+    initData(storeData, func) {
+      if (storeData) {
+        if (storeData.userId)
+          this.initDataByUser(storeData.userId, func);
+        else
+          this.initDataFromJson(storeData, func);
+      } else
+        console.error('No store data found');
     },
-    initDataFromJson(products) {
+    initDataByUser(data, func) {
+      http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data, func));
+    },
+    initDataFromJson(products, func) {
       this.products = products;
       this.ready = true;
+      func();
     }
   }
 });

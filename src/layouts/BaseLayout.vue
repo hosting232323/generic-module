@@ -20,7 +20,6 @@ import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
-import { useShopStore } from '@/stores/shop';
 import { useBlogStore } from '@/stores/blog';
 
 const route = useRoute();
@@ -28,7 +27,6 @@ const showChatty = ref(false);
 const showBubbles = ref(false);
 const dataStore = useDataStore();
 const blogStore = useBlogStore();
-const shopStore = useShopStore();
 const { data, ready } = storeToRefs(dataStore);
 const isNotFound = computed(() => route.name === 'NotFound');
 
@@ -41,9 +39,7 @@ const backgroundStyle = computed(() => {
       backgroundRepeat: 'no-repeat'
     };
   else
-    return {
-      backgroundColor: data.value.info.secondaryColor
-    };
+    return {backgroundColor: data.value.info.secondaryColor};
 });
 
 watch(ready, (newValue) => {
@@ -57,13 +53,6 @@ watch(ready, (newValue) => {
       blogStore.initDataByUser(data.value.blog.userId);
     else
       blogStore.initDataFromJson(data.value.blog);
-  }
-
-  if (data.value.store) {
-    if (data.value.store.userId)
-      shopStore.initDataByUser(data.value.store.userId);
-    else
-      shopStore.initDataFromJson(data.value.store);
   }
 
   if (data.value.addOn && data.value.addOn.includes('Chatty')) {
