@@ -52,15 +52,19 @@ watch(ready, (newValue) => {
   if(data.value.info.socialBubbles)
     showBubbles.value = true;
 
-  if (data.value.blog && data.value.blog.length > 0)
-    blogStore.initData(data.value.blog);
-  else
-    blogStore.initData('doriana');
+  if (data.value.blog) {
+    if (data.value.blog.userId)
+      blogStore.initDataByUser(data.value.blog.userId);
+    else
+      blogStore.initDataFromJson(data.value.blog);
+  }
 
-  if (data.value.store && data.value.store.userId)
-    shopStore.initData(data.value.store.userId);
-  else 
-    shopStore.initData(data.value.shop);
+  if (data.value.store) {
+    if (data.value.store.userId)
+      shopStore.initDataByUser(data.value.store.userId);
+    else
+      shopStore.initDataFromJson(data.value.store);
+  }
 
   if (data.value.addOn && data.value.addOn.includes('Chatty')) {
     const script = document.createElement('script');

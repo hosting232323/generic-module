@@ -7,16 +7,10 @@ export const useShopStore = defineStore('shop', {
     ready: false
   }),
   actions: {
-    initData(data) {
-      if(Array.isArray(data)) this.setShopFromJson(data);
-      else {
-        http.getRequest(`products/${data}`, {}, (res) => {
-          this.products = res;
-          this.ready = true;
-        });
-      }
+    initDataByUser(data) {
+      http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data));
     },
-    setShopFromJson(products) {
+    initDataFromJson(products) {
       this.products = products;
       this.ready = true;
     }

@@ -7,17 +7,12 @@ export const useBlogStore = defineStore('blog', {
     ready: false
   }),
   actions: {
-    initData(data) {
-      if(Array.isArray(data)) this.setShopFromJson(data);
-      else {
-        http.getRequest(`blog/${data}`, {
-          project: 'dorianadinanni.it'
-        }, (res) => {
-          this.posts = res.data.reverse();
-        });
-      }
+    initDataByUser(data) {
+      http.getRequest(`blog/${data}`, {
+        project: 'dorianadinanni.it'
+      }, (res) => this.initDataFromJson(res.data.reverse()));
     },
-    setShopFromJson(posts) {
+    initDataFromJson(posts) {
       this.posts = posts;
       this.ready = true;
     }

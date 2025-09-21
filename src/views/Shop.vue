@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <Loading v-if="loading" />
+    <Loading v-if="!ready" />
     <v-row v-else>
       <v-col cols="12" v-for="(group, category) in groupedProducts" :key="category">
         <h3 class="text-h5 mb-3" :style="{ color: info.primaryColor }">{{ category }}</h3>
@@ -56,7 +56,6 @@ const { data } = storeToRefs(dataStore);
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 
-const loading = ref(true);
 const groupedProducts = ref({});
 
 const formatPrice = (price) => {
@@ -80,7 +79,6 @@ const groupProductsByCategory = () => {
   });
 
   groupedProducts.value = grouped;
-  loading.value = false;
 };
 
 const addToCart = (productId) => {
