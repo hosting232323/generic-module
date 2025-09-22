@@ -27,7 +27,45 @@
     ]
   },
   "store": {
-    "userId": 1
+    "userId": 15,
+    "content": {
+      "name": {
+        "it": "Carrello",
+        "gb": "Cart"
+      },
+      "orderSummary": {
+        "it": "Riepilogo Ordini",
+        "gb": "Order Summary"
+      },
+      "shippingAddress": {
+        "it": "Indirizzo di Spedizione",
+        "gb": "Shipping Address"
+      },
+      "amount": {
+        "it": "Quantità",
+        "gb": "Amount"
+      },
+      "totalPrice": {
+        "it": "Prezzo Totale",
+        "gb": "Total Price"
+      },
+      "sendOrder": {
+        "it": "Invia Ordine",
+        "gb": "Send Order"
+      },
+      "proceedCheckout": {
+        "it": "Procedi al Checkout",
+        "gb": "Proceed to Checkout"
+      },
+      "goBack": {
+        "it": "Torna Indietro",
+        "gb": "Go back"
+      },
+      "emptyCart": {
+        "it": "Svuota Carrello",
+        "gb": "Empty Cart"
+      }
+    }
   },
   "components": [
     {

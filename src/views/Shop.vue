@@ -34,7 +34,6 @@
 </template>
 
 <script setup>
-
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
