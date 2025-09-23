@@ -64,6 +64,26 @@
       "emptyCart": {
         "it": "Svuota Carrello",
         "gb": "Empty Cart"
+      },
+      "price": {
+        "it": "Prezzo",
+        "gb": "Price"
+      },
+      "details": {
+        "it": "Dettagli",
+        "gb": "Details"
+      },
+      "addToCart": {
+        "it": "Aggiungi al carrello",
+        "gb": "Add to cart"
+      },
+      "description": {
+        "it": "Descrizione",
+        "gb": "Description"
+      },
+      "category": {
+        "it": "Categoria",
+        "gb": "Category"
       }
     }
   },

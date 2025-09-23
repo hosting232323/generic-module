@@ -12,16 +12,16 @@
               <v-card-title class="text-h6">{{ product.name }}</v-card-title>
               <v-card-text>
                 <div>
-                  Prezzo:
+                  {{ getText(store.content.price) || 'Prezzo' }}
                   {{ product.price ? ((parseFloat(product.price) / 100).toFixed(2) + ' €') : 'Non disponibile' }}
                 </div>
               </v-card-text>
               <v-card-actions>
                 <v-btn class="text-none" :to="`/product/${product.id}`" variant="flat" :color="info.primaryColor">
-                  Dettagli
+                  {{ getText(store.content.details) || 'Dettagli' }}
                 </v-btn>
                 <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)">
-                  Aggiungi al carrello
+                  {{ getText(store.content.addToCart) || 'Aggiungi al carrello' }}
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -43,16 +43,19 @@ import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
+import { useLanguageStore } from '@/stores/language';
 
 const groupedProducts = ref({});
 const dataStore = useDataStore();
 const shopStore = useShopStore();
 const orderStore = useOrderStore();
 const popupStore = usePopupStore();
+const { getText } = useLanguageStore();
 
 const { data } = storeToRefs(dataStore);
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
+const store = data.value.store;
 
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';

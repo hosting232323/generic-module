@@ -18,18 +18,18 @@
         <v-card>
           <v-card-title class="text-h5">{{ product.name }}</v-card-title>
           <v-card-subtitle>
-            Prezzo: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
+            {{ getText(store.content.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
           </v-card-subtitle>
           <v-divider></v-divider>
 
           <v-card-text>
             <div class="mb-3">
-              <strong>Descrizione:</strong>
+              <strong>{{ getText(store.content.description) || 'Descrizione' }}:</strong>
               <p v-html="product.description" />
             </div>
 
             <div class="mb-3">
-              <strong>Categoria:</strong>
+              <strong>{{ getText(store.content.category) || 'Categoria' }}:</strong>
               {{ product.product_type || 'Non specificata' }}
             </div>
           </v-card-text>
@@ -37,12 +37,12 @@
           <v-card-actions>
             <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
-              Aggiungi al carrello
+              {{ getText(store.content.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>
             <v-divider />
             <v-btn :color="info.primaryColor" @click="router.back()">
               <v-icon icon="mdi-arrow-left" start></v-icon>
-              Torna indietro
+              {{ getText(store.content.goBack) || 'Torna indietro' }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -68,6 +68,8 @@ import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { usePopupStore } from '@/stores/popup';
 import { useOrderStore } from '@/stores/order';
+import { useLanguageStore } from '@/stores/language';
+
 import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
@@ -80,7 +82,9 @@ const popupStore = usePopupStore();
 
 const { data } = storeToRefs(dataStore);
 const { products, ready } = storeToRefs(shopStore);
+const { getText } = useLanguageStore();
 const info = data.value.info;
+const store = data.value.store;
 
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
