@@ -7,14 +7,20 @@ export const useBlogStore = defineStore('blog', {
     ready: false
   }),
   actions: {
+    initDat(storeData, func) {
+      if (storeData)
+        this.initDataFromJson(storeData, func);
+    },
     initDataByUser(data) {
       http.getRequest(`blog/${data}`, {
         project: 'dorianadinanni.it'
       }, (res) => this.initDataFromJson(res.data.reverse()));
     },
-    initDataFromJson(posts) {
+    initDataFromJson(posts, func) {
       this.posts = posts;
       this.ready = true;
+      func()
     }
-  }
+  },
+  persist: true
 });

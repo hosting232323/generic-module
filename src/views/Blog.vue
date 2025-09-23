@@ -25,6 +25,7 @@ import { useBlogStore } from '@/stores/blog';
 import { useDataStore } from '@/stores/data';
 
 const loading = ref(false);
+const displayedPosts = ref();
 const isMobile = setupMobileUtils();
 const maxItems = 4;
 const itemsToShow = ref(maxItems);
@@ -32,12 +33,14 @@ const itemsToShow = ref(maxItems);
 const dataStore = useDataStore();
 const blogStore = useBlogStore();
 
-const { posts } = storeToRefs(blogStore);
+const { posts, ready } = storeToRefs(blogStore);
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
 
 
-const displayedPosts = computed(() => posts.value.slice(0, itemsToShow.value));
+const displayPosts = () => {
+  displayedPosts.value = posts.value.slice(0, itemsToShow.value)
+}
 
 const loadMorePosts = () => {
   itemsToShow.value += 5;
@@ -46,6 +49,14 @@ const loadMorePosts = () => {
 const removeMorePosts = () => {
   itemsToShow.value = maxItems;
 };
+
+if (ready.value)
+  displayPosts();
+else
+  blogStore.initData(data.value.blog, function () {
+    displayPosts();
+  });
+
 </script>
 
 <style scoped>

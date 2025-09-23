@@ -20,13 +20,11 @@ import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
-import { useBlogStore } from '@/stores/blog';
 
 const route = useRoute();
 const showChatty = ref(false);
 const showBubbles = ref(false);
 const dataStore = useDataStore();
-const blogStore = useBlogStore();
 const { data, ready } = storeToRefs(dataStore);
 const isNotFound = computed(() => route.name === 'NotFound');
 
@@ -47,13 +45,6 @@ watch(ready, (newValue) => {
 
   if(data.value.info.socialBubbles)
     showBubbles.value = true;
-
-  if (data.value.blog) {
-    if (data.value.blog.userId)
-      blogStore.initDataByUser(data.value.blog.userId);
-    else
-      blogStore.initDataFromJson(data.value.blog);
-  }
 
   if (data.value.addOn && data.value.addOn.includes('Chatty')) {
     const script = document.createElement('script');
