@@ -11,45 +11,19 @@ const routes = [
         component: () => import('@/views/Home')
       },
       {
-        path: '/blog',
+        path: '/blog/:type',
         name: 'Blog',
         component: () => import('@/views/Blog')
+      },
+      {
+        path: '/contributi-pa',
+        name: 'ContributiPA',
+        component: () => import('@/views/ContributiPA')
       },
       {
         path: '/blog/:id',
         name: 'Dettaglio Post',
         component: () => import('@/views/Post')
-      },
-      {
-        path: '/shop',
-        name: 'Shop Page',
-        component: () => import('@/views/Shop')
-      },
-      {
-        path: '/product/:id',
-        name: 'ProductDetails',
-        component: () => import('@/views/ProductDetails'),
-        props: true
-      },
-      {
-        path: '/demo/:id',
-        name: 'Demo',
-        component: () => import('@/views/Home')
-      },
-      {
-        path: '/menu',
-        name: 'Menu',
-        component: () => import('@/views/Menu')
-      },
-      {
-        path: '/booking',
-        name: 'Booking',
-        component: () => import('@/views/Booking')
-      },
-      {
-        path: '/booking/:id',
-        name: 'EventDetails',
-        component: () => import('@/views/EventDetails')
       },
       {
         path: '/:pathMatch(.*)*',

@@ -123,6 +123,10 @@ const items = computed(() => {
 
   return [
     { title: 'Home', type: 'home' },
+    { title: 'Comunicazione', path: 'blog/marketing', type: 'internalLink' },
+    { title: 'Progetti', path: 'blog/progetti', type: 'internalLink' },
+    { title: 'Catalogazione', path: 'blog/catalogazione', type: 'internalLink', type: 'internalLink' },
+    { title: 'Grandi mostre', path: 'blog/mostre', type: 'internalLink' },
     ...anchorItems, 
     ...menuItems
   ];

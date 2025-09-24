@@ -96,7 +96,7 @@ onMounted(async () => {
       duration: 250
     },
     positioning: 'bottom-center',
-    offset: [0, -235]
+    offset: [0, -155]
   });
 
   map.addOverlay(overlay);

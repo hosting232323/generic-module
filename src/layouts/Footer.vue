@@ -3,9 +3,12 @@
     <v-container>
       <v-row>
         <v-col cols="6">
-          {{ new Date().getFullYear() }} —
-          <strong>{{ data.info.name }}</strong>
+          <p>
+            {{ new Date().getFullYear() }} —
+            <strong>{{ data.info.name }}</strong>
+          </p>
           <div v-if="data.info.iva">P. IVA {{ data.info.iva }}</div>
+          <a href="/contributi-pa" class="fast-site-link">Contributi PA</a>
         </v-col>
         <v-col cols="6" class="text-right">
           <a href="/PrivacyPolicyForm.pdf" class="footer-link" target="_blank">Privacy Policy</a>

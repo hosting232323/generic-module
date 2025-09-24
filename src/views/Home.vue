@@ -59,9 +59,9 @@ const sections = computed(() => {
 
 
 useHead({
-  title: 'FastSite',
+  title: 'Consorzio Idria',
   meta: [
-    { name: 'FastSite', content: 'This is the home page' }
+    { name: 'Consorzio Idria', content: 'This is the home page' }
   ]
 });
 </script>

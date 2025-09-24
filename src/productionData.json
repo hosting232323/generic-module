@@ -1,92 +1,12 @@
 {
   "addOn": [
-    "Multilingual",
-    "Menu",
-    "Shop",
-    "Blog"
+    "Chatty"
   ],
   "info": {
-    "name": "Trattoria Bella Napoli",
-    "primaryColor": "#D63447",
-    "secondaryColor": "#FFF2E8",
-    "logo": "logo.png",
-    "backgroundImage": "/restaurant-bg.jpg",
-    "locales": ["it", "gb"],
-    "socialBubbles": [
-      {
-        "icon": "mdi-whatsapp",
-        "url": "/demo/"
-      },
-      {
-        "icon": "mdi-instagram",
-        "url": "/demo/"
-      },
-      {
-        "icon": "mdi-facebook",
-        "url": "/demo/"
-      }
-    ]
-  },
-  "store": {
-    "projectName": "string",
-    "content": {
-      "name": {
-        "it": "Carrello",
-        "gb": "Cart"
-      },
-      "orderSummary": {
-        "it": "Riepilogo Ordini",
-        "gb": "Order Summary"
-      },
-      "shippingAddress": {
-        "it": "Indirizzo di Spedizione",
-        "gb": "Shipping Address"
-      },
-      "amount": {
-        "it": "Quantità",
-        "gb": "Amount"
-      },
-      "totalPrice": {
-        "it": "Prezzo Totale",
-        "gb": "Total Price"
-      },
-      "sendOrder": {
-        "it": "Invia Ordine",
-        "gb": "Send Order"
-      },
-      "proceedCheckout": {
-        "it": "Procedi al Checkout",
-        "gb": "Proceed to Checkout"
-      },
-      "goBack": {
-        "it": "Torna Indietro",
-        "gb": "Go back"
-      },
-      "emptyCart": {
-        "it": "Svuota Carrello",
-        "gb": "Empty Cart"
-      },
-      "price": {
-        "it": "Prezzo",
-        "gb": "Price"
-      },
-      "details": {
-        "it": "Dettagli",
-        "gb": "Details"
-      },
-      "addToCart": {
-        "it": "Aggiungi al carrello",
-        "gb": "Add to cart"
-      },
-      "description": {
-        "it": "Descrizione",
-        "gb": "Description"
-      },
-      "category": {
-        "it": "Categoria",
-        "gb": "Category"
-      }
-    }
+    "name": "Consorzio IDRIA",
+    "primaryColor": "#ED6F6D",
+    "secondaryColor": "#ffffff",
+    "chattyId": "12"
   },
   "components": [
     {
@@ -94,138 +14,105 @@
       "content": {
         "type": "automatic",
         "images": [
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery1.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery2.png",
-          "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriagallery0.png"
+          "gallery/img01.png",
+          "gallery/img02.png",
+          "gallery/img03.png"
         ]
       }
     },
     {
       "type": "dualSection",
       "content": {
-        "title": {
-          "it": "Chi Siamo",
-          "gb": "About Us"
-        },
-        "subtitle": {
-          "it": "Tradizione e passione dalla cucina napoletana",
-          "gb": "Tradition and passion from Neapolitan cuisine"
-        },
-        "description": {
-          "it": "La Trattoria Bella Napoli nasce nel cuore di Napoli, con l’obiettivo di portare i sapori autentici della cucina partenopea direttamente sulla tua tavola. Ogni piatto è preparato con ingredienti freschi e di alta qualità, seguendo ricette tramandate da generazioni.",
-          "gb": "Trattoria Bella Napoli was born in the heart of Naples, aiming to bring the authentic flavors of Neapolitan cuisine straight to your table. Every dish is made with fresh, high-quality ingredients following recipes passed down for generations."
-        },
-        "button": {
-          "it": "Il nostro shop!",
-          "gb": "Our shop!"
-        },
-        "url": "/shop",
-        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriabase0.png",
-        "orientationDesktop": "left",
+        "title": "Chi siamo",
+        "subtitle": "Informatizzazione, digitalizzazione e ricerca per l'arte e l'archeologia",
+        "description": "IDRIA è un'impresa culturale da oltre 25 anni operante per la conoscenza, la fruizione, la valorizzazione e la protezione dei beni culturali italiani. Nasce dalla convergenza di tre aziende leader: Mario Adda Editore, CAST s.c.r.l. e Extra Moenia s.r.l. Collaboriamo dal 1992 con il MIBACT e le principali Soprintendenze del Mezzogiorno d’Italia, specializzandoci nella catalogazione informatizzata secondo le normative ICCD e nell'utilizzo della piattaforma SIGECweb.",
+        "image": "img01.png",
+        "orientationDesktop": "right",
         "orientationMobile": "top"
-      },
-      "menu": {
-        "it": "Chi Siamo",
-        "gb": "About Us"
       }
     },
     {
       "type": "dualSection",
       "content": {
-        "title": {
-          "it": "Esplora il nostro menu",
-          "gb": "Explore our menu"
-        },
-        "subtitle": {
-          "it": "Piatti tradizionali e creazioni gourmet",
-          "gb": "Traditional dishes and gourmet creations"
-        },
-        "description": {
-          "it": "Dalla pizza margherita ai piatti gourmet, ogni preparazione viene curata con passione per offrirti un’esperienza unica.",
-          "gb": "From Margherita pizza to gourmet dishes, every preparation is crafted with passion to give you a unique experience."
-        },
-        "image": "menu-section.png",
-        "orientationDesktop": "right",
-        "orientationMobile": "top",
-        "button": "Vai al menu!",
-        "url": "/menu"
+        "title": "Le nostre competenze",
+        "subtitle": "Un team multidisciplinare al servizio dei beni culturali",
+        "description": "IDRIA riunisce archeologi, storici dell’arte, architetti, ingegneri, geologi, numismatici, restauratori, informatici, designer, grafici e operatori turistico-culturali. Questa pluralità di professionalità consente di affrontare ogni progetto in maniera completa, dall’analisi scientifica alla valorizzazione e comunicazione. La collaborazione sinergica tra discipline garantisce qualità, innovazione e un approccio integrato nella gestione del patrimonio culturale.",
+        "image": "img02.png",
+        "orientationDesktop": "left",
+        "orientationMobile": "top"
       }
     },
     {
-      "type": "advantages",
-      "menu": {
-        "it": "Vantaggi",
-        "gb": "Advantages"
-      },
+      "type": "line"
+    },
+    {
       "content": {
-        "advantages": [
+        "brands": [
+          "brandlist/img01.png",
+          "brandlist/img02.png",
+          "brandlist/img03.png",
+          "brandlist/img04.png"
+        ]
+      },
+      "type": "brandlist"
+    },
+    {
+      "type": "line"
+    },
+    {
+      "type": "services",
+      "content": {
+        "title": "I nostri servizi",
+        "services": [
           {
-            "name": {
-              "it": "Ingredienti Freschi",
-              "gb": "Fresh Ingredients"
-            },
-            "description": {
-              "it": "Utilizziamo solo prodotti di alta qualità, selezionati quotidianamente dai migliori fornitori locali.",
-              "gb": "We use only high-quality products, selected daily from the best local suppliers."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages1.png"
+            "name": "Catalogazione informatizzata",
+            "description": "Catalogazione dei beni culturali secondo normative ICCD e utilizzo della piattaforma SIGECweb."
           },
           {
-            "name": {
-              "it": "Servizio Accogliente",
-              "gb": "Friendly Service"
-            },
-            "description": {
-              "it": "Il nostro staff è sempre pronto ad accoglierti con un sorriso e consigliarti al meglio.",
-              "gb": "Our staff is always ready to welcome you with a smile and provide the best advice."
-            },
-            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/Pizzeriaadvantages3.png"
+            "name": "Banche dati e immagini",
+            "description": "Creazione e gestione di database e archivi digitali dei beni culturali."
+          },
+          {
+            "name": "Progettazione archeologica",
+            "description": "Studi, interventi su siti archeologici, centri storici e aree urbane."
+          },
+          {
+            "name": "Gestione musei e musealizzazione",
+            "description": "Progettazione, valorizzazione e consulenza per musei e percorsi espositivi."
+          },
+          {
+            "name": "Editorie e multimedia",
+            "description": "Produzione editoriale, editoria elettronica, video-documentari e contenuti 3D."
+          },
+          {
+            "name": "Consulenza tecnica",
+            "description": "Supporto nell’archeologia preventiva, GIS e georeferenziazione dei Beni Culturali."
           }
         ]
       }
     },
     {
       "type": "contacts",
-      "menu": {
-        "it": "Contatti",
-        "gb": "Contacts"
-      },
+      "menu": "Contatti",
       "content": {
-        "title": {
-          "it": "I nostri contatti",
-          "gb": "Our contacts"
-        },
-        "subtitle": {
-          "it": "Contattaci direttamente",
-          "gb": "Contact us directly"
-        },
+        "title": "I nostri contatti",
+        "subtitle": "Scrivici per informazioni o collaborazioni",
         "contacts": [
           {
+            "icon": "mdi-map-marker",
+            "title": "Sede<br>Via Rodolfo Redi, 5, 70124 Bari, Italy"
+          },
+          {
+            "icon": "mdi-map-marker",
+            "title": "Sede Operativa <br>Corte Colagualano, 1, 70122 Bari, Italy"
+          },
+          {
             "icon": "mdi-phone",
-            "title": {
-              "it": "+39 081 123 4567",
-              "gb": "+39 081 123 4567"
-            }
+            "title": "+39 080 5212377"
           },
           {
             "icon": "mdi-email",
-            "title": "info@bellanapoli.it"
-          },
-          {
-            "icon": "mdi-facebook",
-            "title": {
-              "it": "Seguici su Facebook",
-              "gb": "Follow us on Facebook"
-            },
-            "url": "https://www.facebook.com/bellanapoli"
-          },
-          {
-            "icon": "mdi-instagram",
-            "title": {
-              "it": "Seguici su Instagram",
-              "gb": "Follow us on Instagram"
-            },
-            "url": "https://www.instagram.com/bellanapoli"
+            "title": "info@idria.it"
           }
         ]
       }
@@ -233,505 +120,14 @@
     {
       "type": "map",
       "content": {
-        "title": {
-          "it": "Puoi venirci a trovare qui",
-          "gb": "You can visit us here"
-        },
-        "address": "Via Napoli, 15, 80100 Napoli NA, Italy",
-        "coordinates": [14.2681, 40.8518],
+        "title": "Puoi venirci a conoscere qui",
+        "address": "Via Rodolfo Redi, 5, 70124 Bari, Italy",
+        "coordinates": [
+          "16.8533",
+          "41.0995"
+        ],
         "zoom": 15
       }
-    }
-  ],
-  "blog": {
-    "projectName": "string",
-    "content": [
-      {
-        "content": "La nostra Pizza Margherita è un classico intramontabile: pomodoro San Marzano, mozzarella fior di latte e basilico fresco per un sapore autentico e genuino.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-        "id": 1,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 1,
-        "project_id": 3,
-        "title": "Pizza Margherita"
-      },
-      {
-        "content": "La Pizza Diavola è perfetta per chi ama i sapori decisi: mozzarella, salame piccante e pomodoro creano una combinazione irresistibile.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-        "id": 2,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 2,
-        "project_id": 3,
-        "title": "Pizza Diavola"
-      },
-      {
-        "content": "La Pizza Capricciosa è un trionfo di gusto: mozzarella, prosciutto cotto, funghi, carciofi e olive per soddisfare tutti i palati.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-        "id": 3,
-        "ordinal": 3,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "project_id": 3,
-        "title": "Pizza Capricciosa"
-      },
-      {
-        "content": "La Pizza Gourmet 'La Melone' unisce tradizione e creatività: focaccina croccante, prosciutto crudo di Parma, burrata artigianale e un delicato velo di melone.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-        "id": 4,
-        "ordinal": 4,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "project_id": 3,
-        "title": "Pizza Gourmet - La Melone"
-      },
-      {
-        "content": "Le Bruschette Pomodoro sono un antipasto semplice ma delizioso: pane tostato con pomodorini freschi, aglio e basilico.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-        "id": 5,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 5,
-        "project_id": 3,
-        "title": "Bruschette Pomodoro"
-      },
-      {
-        "content": "La Birra Artigianale IPA è un’esplosione di aromi luppolati e agrumati, con 6.5% di gradazione alcolica, ideale per accompagnare le nostre pizze.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-        "id": 6,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 6,
-        "project_id": 3,
-        "title": "Birra Artigianale IPA"
-      },
-      {
-        "content": "L'Acqua Naturale da 50cl è perfetta per rinfrescare il palato durante il pasto, semplice e naturale.",
-        "cover": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-        "id": 7,
-        "enrichment": {},
-        "updated_at": "25/03/2025 12:59",
-        "ordinal": 7,
-        "project_id": 3,
-        "title": "Acqua Naturale"
-      }
-    ]
-  },
-  "shop": [
-    {
-      "id": 1,
-      "name": "Pizza Margherita",
-      "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico fresco",
-      "price": 700,
-      "highlight": true,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-      "product_type": "Pizze Classiche"
-    },
-    {
-      "id": 2,
-      "name": "Pizza Diavola",
-      "description": "Mozzarella, salame piccante e pomodoro",
-      "highlight": true,
-      "price": 800,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-      "product_type": "Pizze Classiche"
-    },
-    {
-      "id": 3,
-      "name": "Pizza Capricciosa",
-      "description": "Mozzarella, prosciutto cotto, funghi, carciofi e olive",
-      "highlight": true,
-      "price": 900,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-      "product_type": "Pizze Classiche"
-    },
-    {
-      "id": 4,
-      "name": "Pizza Gourmet - La Melone",
-      "description": "Focaccina croccante, prosciutto crudo di Parma, burrata artigianale, velo di melone",
-      "price": 1500,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-      "product_type": "Pizze Gourmet"
-    },
-    {
-      "id": 5,
-      "name": "Bruschette Pomodoro",
-      "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-      "price": 600,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-      "product_type": "Antipasti"
-    },
-    {
-      "id": 6,
-      "name": "Birra Artigianale IPA",
-      "description": "India Pale Ale luppolata e agrumata, 6.5%",
-      "price": 600,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-      "product_type": "Bevande"
-    },
-    {
-      "id": 7,
-      "name": "Acqua Naturale",
-      "description": "Bottiglia da 50cl",
-      "price": 150,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-      "product_type": "Bevande"
-    }
-  ],
-  "menu": [
-    {
-      "name": {
-        "it": "Antipasti",
-        "gb": "Appetizers"
-      },
-      "icon": "mdi-food",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/antipasti.png",
-      "items": [
-        {
-          "name": {
-            "it": "Bruschette Pomodoro",
-            "gb": "Tomato Bruschetta"
-          },
-          "description": {
-            "it": "Pane tostato con pomodorini freschi, aglio e basilico",
-            "gb": "Toasted bread with fresh cherry tomatoes, garlic and basil"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Tagliere di Salumi",
-            "gb": "Cured Meats Board"
-          },
-          "description": {
-            "it": "Selezione di salumi italiani, accompagnati da focaccia",
-            "gb": "Selection of Italian cured meats, served with focaccia"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/salumi.png",
-          "price": 12,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Mozzarella in Carrozza",
-            "gb": "Fried Mozzarella Sandwich"
-          },
-          "description": {
-            "it": "Mozzarella fritta con crosta dorata di pane",
-            "gb": "Fried mozzarella with a golden bread crust"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/mozzarella.png",
-          "price": 7,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "uova", "gb": "eggs" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Frittura Mista",
-            "gb": "Mixed Fry"
-          },
-          "description": {
-            "it": "Verdure e pesce pastellati croccanti",
-            "gb": "Crispy battered vegetables and fish"
-          },
-          "price": 9,
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/frittura.png",
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "uova", "gb": "eggs" },
-            { "it": "lattosio", "gb": "lactose" },
-            { "it": "pesce", "gb": "fish" }
-          ]
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Pizze classiche",
-        "gb": "Classic Pizzas"
-      },
-      "icon": "mdi-pizza",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_classiche.jpg",
-      "items": [
-        {
-          "name": {
-            "it": "Margherita",
-            "gb": "Margherita"
-          },
-          "description": {
-            "it": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-            "gb": "San Marzano tomato, fior di latte mozzarella, basil"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-          "price": 7,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Marinara",
-            "gb": "Marinara"
-          },
-          "description": {
-            "it": "Pomodoro, aglio fresco, origano e olio EVO",
-            "gb": "Tomato, fresh garlic, oregano and extra virgin olive oil"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_marinara.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Diavola",
-            "gb": "Diavola (Spicy Salami)"
-          },
-          "description": {
-            "it": "Mozzarella, salame piccante, pomodoro",
-            "gb": "Mozzarella, spicy salami, tomato"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-          "price": 8,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Capricciosa",
-            "gb": "Capricciosa"
-          },
-          "description": {
-            "it": "Mozzarella, prosciutto, funghi, carciofi e olive",
-            "gb": "Mozzarella, ham, mushrooms, artichokes and olives"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-          "price": 9,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Pizze Gourmet",
-        "gb": "Gourmet Pizzas"
-      },
-      "icon": "mdi-star",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_gourmet.png",
-      "items": [
-        {
-          "name": {
-            "it": "La Melone",
-            "gb": "The Melon"
-          },
-          "description": {
-            "it": "Focaccina croccante, Prosciutto crudo di Parma, Burrata artigianale in crema, Velo di melone",
-            "gb": "Crispy focaccina, Parma ham, artisan burrata cream, thin slices of melon"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-          "price": 15,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "O Fiore Mio",
-            "gb": "O Fiore Mio"
-          },
-          "description": {
-            "it": "Fiori di zucca, mozzarella fior di latte e della burratina artigianale",
-            "gb": "Zucchini flowers, fior di latte mozzarella and artisan burratina"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_ofioremio.png",
-          "price": 13,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "TAHINA",
-            "gb": "TAHINA"
-          },
-          "description": {
-            "it": "Mozzarella fior di latte, Babaganoush, Porchetta Trevigiana di nostra produzione, Pomodorini confit, Sesamo nero tostato",
-            "gb": "Fior di latte mozzarella, babaganoush, our homemade Treviso porchetta, confit cherry tomatoes, toasted black sesame"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_tahina.png",
-          "price": 14,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" },
-            { "it": "sesamo", "gb": "sesame" }
-          ]
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Beverage",
-        "gb": "Beverages"
-      },
-      "icon": "mdi-cup-water",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bevande.png",
-      "items": [
-        {
-          "name": {
-            "it": "Acqua Naturale",
-            "gb": "Still Water"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-          "description": {
-            "it": "Bottiglia da 50cl",
-            "gb": "50cl bottle"
-          },
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": {
-            "it": "Acqua Frizzante",
-            "gb": "Sparkling Water"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-          "description": {
-            "it": "Bottiglia da 50cl",
-            "gb": "50cl bottle"
-          },
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": {
-            "it": "Coca Cola",
-            "gb": "Coca Cola"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/cocacola.png",
-          "description": {
-            "it": "Lattina da 33cl",
-            "gb": "33cl can"
-          },
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": {
-            "it": "Fanta",
-            "gb": "Fanta"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/fanta.png",
-          "description": {
-            "it": "Lattina da 33cl",
-            "gb": "33cl can"
-          },
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": {
-            "it": "Tè al Limone",
-            "gb": "Lemon Iced Tea"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/estathe.png",
-          "description": {
-            "it": "Bottiglietta fredda da 50cl",
-            "gb": "Cold 50cl bottle"
-          },
-          "price": 3,
-          "allergens": []
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Birre artigianali",
-        "gb": "Craft Beers"
-      },
-      "icon": "mdi-beer",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/birre.png",
-      "items": [
-        {
-          "name": {
-            "it": "IPA Artigianale",
-            "gb": "Craft IPA"
-          },
-          "description": {
-            "it": "India Pale Ale luppolata e agrumata, 6.5%",
-            "gb": "Hoppy and citrusy India Pale Ale, 6.5%"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Stout Nera",
-            "gb": "Dark Stout"
-          },
-          "description": {
-            "it": "Birra scura con note di caffè, 7%",
-            "gb": "Dark beer with coffee notes, 7%"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/stout.png",
-          "price": 6.5,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Weiss",
-            "gb": "Weissbier"
-          },
-          "description": {
-            "it": "Birra di frumento, dolce e leggermente fruttata",
-            "gb": "Wheat beer, sweet and slightly fruity"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/weiss.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Blonde Ale",
-            "gb": "Blonde Ale"
-          },
-          "description": {
-            "it": "Birra chiara, leggera e rinfrescante",
-            "gb": "Light, refreshing pale beer"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/blondale.png",
-          "price": 5.5,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        }
-      ]
     }
   ]
 }
