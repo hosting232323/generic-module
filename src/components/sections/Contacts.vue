@@ -4,7 +4,7 @@
       <v-container>
         <h2 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri contatti'"/>
         <v-list>
-          <v-list-item height="20" v-for="contact in content.contacts" :key="contact">
+          <v-list-item v-for="contact in content.contacts" :key="contact">
             <template v-slot:prepend>
               <v-icon :icon="contact.icon" :color="info.primaryColor" />
             </template>
