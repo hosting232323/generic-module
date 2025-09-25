@@ -26,6 +26,5 @@ export const useBlogStore = defineStore('blog', {
       this.ready = true;
       func()
     }
-  }, 
-  persist: true
+  }
 });

@@ -24,6 +24,5 @@ export const useShopStore = defineStore('shop', {
       this.ready = true;
       func();
     }
-  },
-  persist: true
+  }
 });
