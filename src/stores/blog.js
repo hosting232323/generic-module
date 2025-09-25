@@ -7,13 +7,18 @@ export const useBlogStore = defineStore('blog', {
     ready: false
   }),
   actions: {
-    initDat(storeData, func) {
-      if (storeData)
-        this.initDataFromJson(storeData, func);
+    initData(storeData, func) {
+      if (storeData) {
+        if (storeData.project_name)
+          this.initDataByUser(storeData.project_name, func)
+        else
+          this.initDataFromJson(storeData.content, func);
+      } else
+        console.error('No store data found');
     },
-    initDataByUser(data) {
-      http.getRequest(`blog/${data}`, {
-        project: 'dorianadinanni.it'
+    initDataByUser(project_name) {
+      http.getRequest(`blog`, {
+        project: project_name
       }, (res) => this.initDataFromJson(res.data.reverse()));
     },
     initDataFromJson(posts, func) {
@@ -21,6 +26,6 @@ export const useBlogStore = defineStore('blog', {
       this.ready = true;
       func()
     }
-  },
+  }, 
   persist: true
 });
