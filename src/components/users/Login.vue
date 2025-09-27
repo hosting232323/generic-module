@@ -133,6 +133,10 @@ const props = defineProps({
   googleClientId: {
     type: String,
     default: ''
+  },
+  callBack: {
+    type: Function,
+    required: false
   }
 });
 
@@ -199,6 +203,8 @@ const login = () => {
         if (data.user_info)
           for (const info of Object.keys(data.user_info))
             localStorage.setItem(`user_${info}`, data.user_info[info]);
+
+        props.callBack(data);    
         router.push(interpolatePath(props.redirectLink, data));
       } else {
         message.value = data.error;
