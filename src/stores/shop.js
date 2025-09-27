@@ -9,14 +9,14 @@ export const useShopStore = defineStore('shop', {
   actions: {
     initData(storeData, func) {
       if (storeData) {
-        if (storeData.userId)
-          this.initDataByUser(storeData.userId, func);
+        if (storeData.projectName)
+          this.initDataByProject(storeData.projectName, func);
         else
           this.initDataFromJson(storeData, func);
       } else
         console.error('No store data found');
     },
-    initDataByUser(data, func) {
+    initDataByProject(data, func) {
       http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data, func));
     },
     initDataFromJson(products, func) {

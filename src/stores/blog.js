@@ -9,16 +9,16 @@ export const useBlogStore = defineStore('blog', {
   actions: {
     initData(storeData, func) {
       if (storeData) {
-        if (storeData.project_name)
-          this.initDataByUser(storeData.project_name, func)
+        if (storeData.projectName)
+          this.initDataByProject(storeData.projectName, func)
         else
           this.initDataFromJson(storeData.content, func);
       } else
         console.error('No store data found');
     },
-    initDataByUser(project_name) {
+    initDataByProject(projectName) {
       http.getRequest(`blog`, {
-        project: project_name
+        project: projectName
       }, (res) => this.initDataFromJson(res.data.reverse()));
     },
     initDataFromJson(posts, func) {

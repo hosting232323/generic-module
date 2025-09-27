@@ -28,7 +28,7 @@
     ]
   },
   "store": {
-    "project": "nome progetto",
+    "projectName": "string",
     "content": {
       "name": {
         "it": "Carrello",
@@ -244,7 +244,7 @@
     }
   ],
   "blog": {
-    "project_name": "dorianadinanni.it",
+    "projectName": "string",
     "content": [
       {
         "content": "La nostra Pizza Margherita è un classico intramontabile: pomodoro San Marzano, mozzarella fior di latte e basilico fresco per un sapore autentico e genuino.",
