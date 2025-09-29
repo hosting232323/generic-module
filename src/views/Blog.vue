@@ -1,5 +1,5 @@
 <template>
-  <Loading :home="false" v-if="loading"/>
+  <Loading :home="false" v-if="!ready"/>
   <v-container v-else>
     <h1 class="text-h3 font-weight-bold" :style="{ color: info.primaryColor, margin: '10px 0'}">Ultimi post</h1>
     <div v-for="(post, index) in displayedPosts" :key="post.id">
@@ -16,17 +16,13 @@
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { ref, computed } from 'vue';
-import http from '@/utils/http';
+import { ref } from 'vue';
 import BlogItem from '@/components/sections/BlogItem';
 import Loading from '@/layouts/Loading.vue';
-import { setupMobileUtils } from '@/utils/mobile';
 import { useBlogStore } from '@/stores/blog';
 import { useDataStore } from '@/stores/data';
 
-const loading = ref(false);
 const displayedPosts = ref();
-const isMobile = setupMobileUtils();
 const maxItems = 4;
 const itemsToShow = ref(maxItems);
 
