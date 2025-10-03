@@ -3,19 +3,26 @@ import http from '@/utils/http';
 
 export const useShopStore = defineStore('shop', {
   state: () => ({
-    products: []
+    products: [],
+    ready: false
   }),
   actions: {
-    initData(data) {
-      if(Array.isArray(data)) this.setShopFromJson(data);
-      else {
-        http.getRequest(`products/${data}`, {}, (res) => {
-          this.products = res;
-        });
-      }
+    initData(storeData, func) {
+      if (storeData) {
+        if (storeData.projectName)
+          this.initDataByProject(storeData.projectName, func);
+        else
+          this.initDataFromJson(storeData, func);
+      } else
+        console.error('No store data found');
     },
-    setShopFromJson(products) {
+    initDataByProject(data, func) {
+      http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data, func));
+    },
+    initDataFromJson(products, func) {
       this.products = products;
+      this.ready = true;
+      func();
     }
   }
 });

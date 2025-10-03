@@ -13,7 +13,7 @@
             class="d-flex align-center justify-center category-overlay"
             :color="data.info.primaryColor"
           >
-            <p class="category-title">{{ cat.name }}</p>
+            <p class="category-title">{{ getText(cat.name) }}</p>
           </v-sheet>
         </v-card>
       </v-col>
@@ -33,7 +33,7 @@
           class="d-flex align-center justify-center category-overlay"
           :color="data.info.primaryColor"
         >
-          <p class="category-title">{{ selectedCategory.name }}</p>
+          <p class="category-title">{{ getText(selectedCategory.name) }}</p>
         </v-sheet>
       </v-card>
       <v-row>
@@ -45,11 +45,11 @@
               </v-col>
               <v-col cols="8">
                 <v-card-title class="d-flex justify-space-between" style="font-size: 16px;">
-                  <span class="font-weight-bold" >{{ item.name }}</span>
+                  <span class="font-weight-bold" >{{ getText(item.name) }}</span>
                   <span class="text-primary">{{ item.price }} €</span>
                 </v-card-title>
                 <v-card-text class="text-grey-darken-1">
-                  {{ item.description }}
+                  {{ getText(item.description) }}
                 </v-card-text>
                 <AllergenChips :allergens="item.allergens" />
               </v-col>
@@ -65,7 +65,10 @@
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
+import { useLanguageStore } from '@/stores/language';
 import AllergenChips from '@/components/menu/AllergenChips.vue';
+
+const { getText } = useLanguageStore();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);

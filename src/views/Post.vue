@@ -1,22 +1,36 @@
 <template>
-  <v-container>
+  <Loading :home="false" v-if="!ready"/>
+  <v-container v-else>
     <img v-if="post.cover" :src="post.cover" class="post-image">
     <div class="container-header" :class="{ 'mobile-layout': isMobile }">
+
       <div>
-        <p class="topic-date" v-if="post.topics && post.updated_at">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }}</p>
-        <p class="reading-time">{{ calculateReadingTime(post.content) }}</p>
+        <span v-for="(crumb, index) in breadcrumbs" :key="index">
+          <template v-if="!crumb.disabled">
+            <a :href="crumb.href">{{ crumb.title }}</a>
+          </template>
+          <template v-else>
+            <span>{{ crumb.title }}</span>
+          </template>
+          <span v-if="index < breadcrumbs.length - 1"> / </span>
+        </span>
       </div>
-      <hr class="mobile-separator" v-if="isMobile">
-      <div class="share-buttons">
-        <a :href="shareUrl('facebook')" target="_blank" class="share-button"><span class="mdi mdi-facebook" style="color: #1877f2;"></span></a>
-        <a :href="shareUrl('twitter')" target="_blank" class="share-button"><span class="mdi mdi-twitter" style="color: #1da1f2;"></span></a>
-        <a :href="shareUrl('whatsapp')" target="_blank" class="share-button"><span class="mdi mdi-whatsapp" style="color: #2eb943;"></span></a>
-        <a :href="shareUrl('linkedin')" target="_blank" class="share-button"><span class="mdi mdi-linkedin" style="color: #007ebb;"></span></a>
-        <a :href="shareUrl('email')" target="_blank" class="share-button"><span class="mdi mdi-email" style="color: #000;"></span></a>
+      
+      <div class="container-sub">
+        <div>
+          <p class="topic-date" v-if="post.topics && post.updated_at">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }}</p>
+          <p class="reading-time">{{ calculateReadingTime(post.content) }}</p>
+        </div>
+        <div class="share-buttons">
+          <a :href="shareUrl('facebook')" target="_blank" class="share-button"><span class="mdi mdi-facebook" style="color: #1877f2;"></span></a>
+          <a :href="shareUrl('twitter')" target="_blank" class="share-button"><span class="mdi mdi-twitter" style="color: #1da1f2;"></span></a>
+          <a :href="shareUrl('whatsapp')" target="_blank" class="share-button"><span class="mdi mdi-whatsapp" style="color: #2eb943;"></span></a>
+          <a :href="shareUrl('linkedin')" target="_blank" class="share-button"><span class="mdi mdi-linkedin" style="color: #007ebb;"></span></a>
+          <a :href="shareUrl('email')" target="_blank" class="share-button"><span class="mdi mdi-email" style="color: #000;"></span></a>
+        </div>
       </div>
-      <hr class="mobile-separator" v-if="isMobile">
     </div>
-    <hr v-if="!isMobile" style="border: none; height: 1px; background-color: #767677;">
+    <hr style="border: none; height: 1px; background-color: #767677;">
     <h1 class="post-title" :style="{ color: info.primaryColor }">{{ post.title }}</h1>
     <div v-html="renderedContent" class="markdown-content"></div>
   </v-container>
@@ -25,15 +39,16 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { marked } from 'marked';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useDataStore } from '@/stores/data';
-import { useBlogStore } from '@/stores/blog';
 import { setupMobileUtils } from '@/utils/mobile';
+import { useBlogStore } from '@/stores/blog';
+import Loading from '@/layouts/Loading.vue';
 
+const route = useRoute();
 const renderedContent = ref('');
 const post = ref({});
-const route = useRoute();
 const breadcrumbs = ref([]);
 const isMobile = setupMobileUtils();
 
@@ -41,23 +56,8 @@ const dataStore = useDataStore();
 const blogStore = useBlogStore();
 
 const { data } = storeToRefs(dataStore);
-const { posts } = storeToRefs(blogStore);
+const { posts, ready } = storeToRefs(blogStore);
 const info = data.value.info;
-
-const updatePostFromId = () => {
-  const foundPost = posts.value.find(p => p.id === Number(route.params.id));
-  if (foundPost) {
-    post.value = foundPost;
-    renderedContent.value = marked(post.value.content);
-
-    breadcrumbs.value = [
-      { title: 'Home', disabled: false, href: '/' },
-      { title: 'Agenda', disabled: false, href: '/agenda' },
-      { title: post.value.title, disabled: true }
-    ];
-  }
-};
-updatePostFromId();
 
 const formatDate = (dateString) => {
   const months = [
@@ -92,6 +92,24 @@ const shareUrl = (platform) => {
     default: return '#';
   }
 };
+
+const displayPost = () => {
+  post.value = posts.value.find(post => post.id == route.params.id);
+  renderedContent.value = marked(post.value.content);
+
+  breadcrumbs.value = [
+    { title: 'Home', disabled: false, href: '/' },
+    { title: 'Blog', disabled: false, href: '/blog' },
+    { title: post.value.title, disabled: true }
+  ];
+}
+
+if (ready.value)
+  displayPost();
+else
+  blogStore.initData(data.value.blog, function () {
+    displayPost();
+  });
 </script>
 
 <style scoped>
@@ -102,6 +120,7 @@ const shareUrl = (platform) => {
   max-height: 450px;
   box-sizing: border-box;
 }
+
 .margin-desktop {
   margin-right: 500px;
 }
@@ -111,6 +130,7 @@ const shareUrl = (platform) => {
   font-size: 15px;
   text-transform: uppercase;
 }
+
 .share-button {
   border-radius: 5px;
   text-decoration: none;
@@ -120,22 +140,19 @@ const shareUrl = (platform) => {
 
 .container-header {
   display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.container-sub {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
 }
 
-.container-header.mobile-layout {
+.container-sub.mobile-layout {
   flex-direction: column;
   align-items: flex-start;
-}
-
-.mobile-separator {
-  width: 100%;
-  height: 1px;
-  background-color: #767677;
-  margin: 10px 0;
-  border: none;
 }
 
 .post-title {
