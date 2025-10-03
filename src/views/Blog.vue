@@ -1,5 +1,5 @@
 <template>
-  <Loading :home="false" v-if="loading"/>
+  <Loading :home="false" v-if="!ready"/>
   <v-container v-else>
     <h1 class="text-h3 font-weight-bold" :style="{ color: info.primaryColor, margin: '10px 0'}">Ultimi post</h1>
     <div v-for="(post, index) in displayedPosts" :key="post.id">
@@ -16,28 +16,27 @@
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { ref, computed } from 'vue';
-import http from '@/utils/http';
+import { ref } from 'vue';
 import BlogItem from '@/components/sections/BlogItem';
 import Loading from '@/layouts/Loading.vue';
-import { setupMobileUtils } from '@/utils/mobile';
 import { useBlogStore } from '@/stores/blog';
 import { useDataStore } from '@/stores/data';
 
-const loading = ref(false);
-const isMobile = setupMobileUtils();
+const displayedPosts = ref();
 const maxItems = 4;
 const itemsToShow = ref(maxItems);
 
 const dataStore = useDataStore();
 const blogStore = useBlogStore();
 
-const { posts } = storeToRefs(blogStore);
+const { posts, ready } = storeToRefs(blogStore);
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
 
 
-const displayedPosts = computed(() => posts.value.slice(0, itemsToShow.value));
+const displayPosts = () => {
+  displayedPosts.value = posts.value.slice(0, itemsToShow.value)
+}
 
 const loadMorePosts = () => {
   itemsToShow.value += 5;
@@ -46,6 +45,14 @@ const loadMorePosts = () => {
 const removeMorePosts = () => {
   itemsToShow.value = maxItems;
 };
+
+if (ready.value)
+  displayPosts();
+else
+  blogStore.initData(data.value.blog, function () {
+    displayPosts();
+  });
+
 </script>
 
 <style scoped>

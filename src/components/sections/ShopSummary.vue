@@ -10,7 +10,7 @@
       <template #default="{ item }">
         <v-card class="mb-5">
           <v-img height="300" :src="getImageForProduct(item)" fill />
-          <v-card-title class="text-h6">{{ item.name }}</v-card-title>
+          <v-card-title class="text-h6">{{ getText(item.name) }}</v-card-title>
           <v-card-text>
             <div>
               Prezzo: {{ item.price ? formatPrice(item.price) : 'Non disponibile' }}

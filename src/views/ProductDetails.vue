@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <Loading v-if="loading" />
+    <Loading v-if="!ready" />
 
     <v-row v-else-if="product">
       <v-col cols="12" md="6">
@@ -17,29 +17,32 @@
       <v-col cols="12" md="6">
         <v-card>
           <v-card-title class="text-h5">{{ product.name }}</v-card-title>
-          <v-card-subtitle>Prezzo: <strong>{{ formatPrice(product.price) }}</strong></v-card-subtitle>
+          <v-card-subtitle>
+            {{ getText(store.content.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
+          </v-card-subtitle>
           <v-divider></v-divider>
 
           <v-card-text>
             <div class="mb-3">
-              <strong>Descrizione:</strong>
+              <strong>{{ getText(store.content.description) || 'Descrizione' }}:</strong>
               <p v-html="product.description" />
             </div>
 
             <div class="mb-3">
-              <strong>Categoria:</strong>
+              <strong>{{ getText(store.content.category) || 'Categoria' }}:</strong>
               {{ product.product_type || 'Non specificata' }}
             </div>
           </v-card-text>
 
           <v-card-actions>
-            <v-btn class="text-none ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
+            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
-              Aggiungi al carrello
+              {{ getText(store.content.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>
-            <v-btn class="ma-2" :color="info.secondaryColor" @click="goBack">
+            <v-divider />
+            <v-btn :color="info.primaryColor" @click="router.back()">
               <v-icon icon="mdi-arrow-left" start></v-icon>
-              Torna indietro
+              {{ getText(store.content.goBack) || 'Torna indietro' }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -56,70 +59,57 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { ref, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-
 import Loading from '@/layouts/Loading.vue';
 import Popup from '@/components/sections/Popup.vue';
 
+import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { usePopupStore } from '@/stores/popup';
 import { useOrderStore } from '@/stores/order';
+import { useLanguageStore } from '@/stores/language';
 
+import { useRoute, useRouter } from 'vue-router';
+
+const route = useRoute();
+const product = ref(null);
+const router = useRouter();
 const shopStore = useShopStore();
 const dataStore = useDataStore();
 const orderStore = useOrderStore();
 const popupStore = usePopupStore();
 
 const { data } = storeToRefs(dataStore);
-const { products } = storeToRefs(shopStore);
-
+const { products, ready } = storeToRefs(shopStore);
+const { getText } = useLanguageStore();
 const info = data.value.info;
-
-const formatPrice = (price) => {
-  return (parseFloat(price) / 100).toFixed(2) + ' €';
-};
+const store = data.value.store;
 
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
-const product = ref(null);
-const loading = ref(true);
-const route = useRoute();
-const router = useRouter();
-
-const getProductById = () => {
-  const productId = parseInt(route.params.id);
-  loading.value = false;
-  product.value = products.value.find(product => product.id == productId)
-};
-
 const addToCart = () => {
   try {
     orderStore.addProduct({
-      product: parseInt(route.params.id),
+      product: route.params.id,
       quantity: 1
     });
     popupStore.setPopup('Aggiunto al carrello!', "success");
   } catch (error) {
     popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
   }
-}
-
-const goBack = () => {
-  router.back();
 };
 
-onMounted(() => {
-  getProductById();
-});
-</script>
+const initProductByRoute = () => {
+  product.value = products.value.find(product => product.id == route.params.id);
+};
 
-<style scoped>
-.mb-3 {
-  margin-bottom: 16px;
-}
-</style>
+if (ready.value)
+  initProductByRoute();
+else
+  shopStore.initData(data.value.store, function () {
+    initProductByRoute();
+  });
+</script>
