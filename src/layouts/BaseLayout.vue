@@ -37,7 +37,9 @@ const backgroundStyle = computed(() => {
       backgroundRepeat: 'no-repeat'
     };
   else
-    return {backgroundColor: data.value.info.secondaryColor};
+    return {
+      backgroundColor: data.value.info.secondaryColor
+    };
 });
 
 watch(ready, (newValue) => {
