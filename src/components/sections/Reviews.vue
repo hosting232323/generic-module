@@ -33,7 +33,7 @@
                 </span>
               </p>
             </div>
-            <p>{{ item.descrizione }}</p>
+            <p>{{ item.description }}</p>
             <div
               class="dotted-line-big"
               :style="{ backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)` }"
@@ -45,33 +45,33 @@
 </template>
 
 <script setup>
-import { useLanguageStore } from '@/stores/language'
-import CarouselWrapper from '@/components/sections/CarouselWrapper.vue'
+import { useLanguageStore } from '@/stores/language';
+import CarouselWrapper from '@/components/sections/CarouselWrapper.vue';
 
-const { getText } = useLanguageStore()
-const { content, info } = defineProps(['content', 'info'])
+const { getText } = useLanguageStore();
+const { content, info } = defineProps(['content', 'info']);
 
 const hashColor = (name) => {
-  let hash = 0
-  for (let i = 0; i < name.length; i++) {
-    hash = name.charCodeAt(i) + ((hash << 5) - hash)
-  }
-  const colors = ['#FF5733', '#33FF57', '#3357FF', '#F39C12', '#8E44AD', '#16A085', '#E74C3C']
-  return colors[Math.abs(hash) % colors.length]
-}
+  let hash = 0;
+  for (let i = 0; i < name.length; i++)
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  const colors = ['#FF5733', '#33FF57', '#3357FF', '#F39C12', '#8E44AD', '#16A085', '#E74C3C'];
+  return colors[Math.abs(hash) % colors.length];
+};
 
-const generateProfileImage = (canvas, name) => {
-  if (!canvas) return
-  const ctx = canvas.getContext('2d')
-  const bgColor = hashColor(name)
-  ctx.fillStyle = bgColor
-  ctx.fillRect(0, 0, 40, 40)
-  ctx.fillStyle = '#FFFFFF'
-  ctx.font = '16px Arial'
-  ctx.textAlign = 'center'
-  ctx.textBaseline = 'middle'
-  ctx.fillText(name.charAt(0).toUpperCase(), 20, 22)
-}
+const generateProfileImage = (canvas, name) => {;
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const bgColor = hashColor(name);
+  ctx.fillStyle = bgColor;
+  ctx.fillRect(0, 0, 40, 40);
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '16px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(name.charAt(0).toUpperCase(), 20, 22);
+};
 </script>
 
 <style scoped>
