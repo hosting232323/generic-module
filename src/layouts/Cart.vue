@@ -124,7 +124,7 @@ const placeOrder = async () => {
       window.location.href = data.checkout_url;
     else if (data.status == 'ko')
       alert(data.message);
-  })
+  });
 };
 
 const cancelCheckout = () => {
@@ -157,7 +157,7 @@ const getProductName = (productId) => {
 
 const productPrices = ref({});
 const getProductPrice = (productId) => {
-  const price = products.value.find(product => product.id == productId).price
+  const price = products.value.find(product => product.id == productId).price;
   productPrices.value[productId] = parseFloat(price) / 100;
 
   if (productPrices.value[productId])

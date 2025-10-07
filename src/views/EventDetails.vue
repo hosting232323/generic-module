@@ -220,7 +220,7 @@ const bookingForm = ref({
 const availableTimeSlot = computed(() => {
   const slots = event.value.enrichment.slot;
   return slots.map(s => `${s.start_time} - ${s.end_time}`);
-})
+});
 
 const availableSpots = computed(() => {
   if (!event.value) return 0;

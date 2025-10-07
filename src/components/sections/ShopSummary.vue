@@ -35,7 +35,7 @@ import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
 import { useLanguageStore } from '@/stores/language';
-import CarouselWrapper from '@/components/sections/CarouselWrapper.vue'
+import CarouselWrapper from '@/components/sections/CarouselWrapper.vue';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);

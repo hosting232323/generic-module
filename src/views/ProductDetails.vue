@@ -96,9 +96,9 @@ const addToCart = () => {
       product: route.params.id,
       quantity: 1
     });
-    popupStore.setPopup('Aggiunto al carrello!', "success");
+    popupStore.setPopup('Aggiunto al carrello!', 'success');
   } catch (error) {
-    popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
+    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
   }
 };
 

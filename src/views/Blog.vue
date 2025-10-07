@@ -35,8 +35,8 @@ const info = data.value.info;
 
 
 const displayPosts = () => {
-  displayedPosts.value = posts.value.slice(0, itemsToShow.value)
-}
+  displayedPosts.value = posts.value.slice(0, itemsToShow.value);
+};
 
 const loadMorePosts = () => {
   itemsToShow.value += 5;

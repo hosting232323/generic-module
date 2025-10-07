@@ -61,10 +61,10 @@ const info = data.value.info;
 
 const formatDate = (dateString) => {
   const months = [
-    "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+    'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+    'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
   ];
-  const [day, month, year] = dateString.split(" ")[0].split("/");
+  const [day, month, year] = dateString.split(' ')[0].split('/');
   return `${months[parseInt(month) - 1]} ${parseInt(day)}, ${year}`;
 };
 
@@ -73,7 +73,7 @@ const formatTopics = (topics = []) => {
 };
 
 const calculateReadingTime = (content, wordsPerMinute = 200) => {
-  if (!content) return "0 min"; 
+  if (!content) return '0 min'; 
   const wordCount = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(wordCount / wordsPerMinute);
   return `${minutes} min di lettura`;
@@ -102,7 +102,7 @@ const displayPost = () => {
     { title: 'Blog', disabled: false, href: '/blog' },
     { title: post.value.title, disabled: true }
   ];
-}
+};
 
 if (ready.value)
   displayPost();

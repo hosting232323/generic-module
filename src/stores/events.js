@@ -67,7 +67,7 @@ export const useEventsStore = defineStore('events', {
       this.events = events;
     },
     initEvents(events = undefined) {
-      if(events) this.setEventsFromJson(events)
+      if(events) this.setEventsFromJson(events);
       else http.getRequest('event', {}, this.setEvents);
     },
 

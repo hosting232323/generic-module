@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { allergenIcons, formatAllergenName } from '@/utils/allergens'
+import { allergenIcons, formatAllergenName } from '@/utils/allergens';
 
 const props = defineProps({
   allergens: Array,
@@ -27,19 +27,19 @@ const props = defineProps({
     type: Array,
     default: () => []
   }
-})
-const emit = defineEmits(['update:modelValue'])
+});
+const emit = defineEmits(['update:modelValue']);
 
 function isSelected(a) {
-  return props.modelValue.includes(a)
+  return props.modelValue.includes(a);
 }
 
 function toggleSelection(a) {
   const newSelection = isSelected(a)
     ? props.modelValue.filter(x => x !== a)
-    : [...props.modelValue, a]
+    : [...props.modelValue, a];
 
-  emit('update:modelValue', newSelection)
+  emit('update:modelValue', newSelection);
 }
 </script>
 

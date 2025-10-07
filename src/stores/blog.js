@@ -10,7 +10,7 @@ export const useBlogStore = defineStore('blog', {
     initData(storeData, func) {
       if (storeData) {
         if (storeData.projectName)
-          this.initDataByProject(storeData.projectName, func)
+          this.initDataByProject(storeData.projectName, func);
         else
           this.initDataFromJson(storeData.content, func);
       } else
@@ -24,7 +24,7 @@ export const useBlogStore = defineStore('blog', {
     initDataFromJson(posts, func) {
       this.posts = posts;
       this.ready = true;
-      func()
+      func();
     }
   }
 });

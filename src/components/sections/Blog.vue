@@ -40,7 +40,7 @@ onMounted(() => {
       articles.value = data.posts.slice(0, 3).reverse();
     });
   }
-})
+});
 </script>
 
 <style scoped>

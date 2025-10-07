@@ -77,7 +77,7 @@ const formatDate = (dateString) => {
 
 const formatTopics = (topics = []) => {
   if(topics.length) return `${topics.join(' - ')} / `;
-}
+};
 
 const calculateReadingTime = (content, wordsPerMinute = 200) => {
   if (!content) return "0 min"; 

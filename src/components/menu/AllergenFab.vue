@@ -34,8 +34,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import AllergenFilter from '@/components/menu/AllergenFilter.vue'
+import { ref } from 'vue';
+import AllergenFilter from '@/components/menu/AllergenFilter.vue';
 
 const props = defineProps({
   allergens: {
@@ -46,16 +46,16 @@ const props = defineProps({
     type: Array,
     default: () => []
   }
-})
+});
 
-const emit = defineEmits(['update:modelValue'])
-const fabOpen = ref(false)
+const emit = defineEmits(['update:modelValue']);
+const fabOpen = ref(false);
 
 function updateValue(newValue) {
-  emit('update:modelValue', newValue)
-}
+  emit('update:modelValue', newValue);
+};
 
 function clearAll() {
-  emit('update:modelValue', [])
-}
+  emit('update:modelValue', []);
+};
 </script>

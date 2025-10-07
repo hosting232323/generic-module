@@ -59,7 +59,7 @@ const hashColor = (name) => {
   return colors[Math.abs(hash) % colors.length];
 };
 
-const generateProfileImage = (canvas, name) => {;
+const generateProfileImage = (canvas, name) => {
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');

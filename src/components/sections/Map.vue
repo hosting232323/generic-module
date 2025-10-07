@@ -47,7 +47,7 @@ let popupContent = ref(null);
 let map;
 let overlay;
 
-const link = `https://www.google.com/maps/search/?api=1&query=${content.coordinates[1]},${content.coordinates[0]}`
+const link = `https://www.google.com/maps/search/?api=1&query=${content.coordinates[1]},${content.coordinates[0]}`;
 
 onMounted(async () => {
   await nextTick();

@@ -28,7 +28,7 @@
   
 <script setup>
 import { computed } from 'vue';
-import { storeToRefs } from 'pinia'
+import { storeToRefs } from 'pinia';
 import { useLanguageStore } from '@/stores/language';
 import { useDataStore } from '@/stores/data';
 

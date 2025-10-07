@@ -16,13 +16,13 @@ const orientationTitle = computed(() => {
   if (content.orientationTitle)
     return content.orientationTitle;
   else 
-    return 'left'
-})
+    return 'left';
+});
 
 const orientationDescription = computed(() => {
   if (content.orientationDescription)
     return content.orientationDescription;
   else 
-    return 'left'
-})
+    return 'left';
+});
 </script>
