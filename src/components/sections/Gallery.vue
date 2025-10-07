@@ -5,12 +5,23 @@
     :height="isMobile ? 400 : 600"
     delimiter-icon="mdi-square"
   >
-    <v-carousel-item v-for="(slide, index) in content.images" :key="index">
-      <v-img :src="resolveImg(slide)" cover />
+    <v-carousel-item
+      v-for="(slide, index) in content.images"
+      :key="index"
+    >
+      <v-img
+        :src="resolveImg(slide)"
+        cover
+      />
     </v-carousel-item>
   </v-carousel>
 
-  <div v-else class="carousel-wrapper" @mouseenter="pause" @mouseleave="start">
+  <div
+    v-else
+    class="carousel-wrapper"
+    @mouseenter="pause"
+    @mouseleave="start"
+  >
     <div
       class="carousel-track"
       :style="{
@@ -19,8 +30,12 @@
       }"
       @transitionend="handleTransitionEnd"
     >
-      <div class="carousel-item" v-for="(img, index) in extendedImages" :key="index">
-        <img :src="resolveImg(img)" />
+      <div
+        v-for="(img, index) in extendedImages"
+        :key="index"
+        class="carousel-item"
+      >
+        <img :src="resolveImg(img)">
       </div>
     </div>
   </div>

@@ -3,24 +3,47 @@
     <Loading v-if="!ready" />
 
     <v-row v-else-if="product">
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-card>
-          <v-carousel v-if="product.images && product.images.length > 0" hide-delimiter-background>
-            <v-carousel-item v-for="(image, index) in product.images" :key="index">
-              <v-img :src="image" height="600" cover></v-img>
+          <v-carousel
+            v-if="product.images && product.images.length > 0"
+            hide-delimiter-background
+          >
+            <v-carousel-item
+              v-for="(image, index) in product.images"
+              :key="index"
+            >
+              <v-img
+                :src="image"
+                height="600"
+                cover
+              />
             </v-carousel-item>
           </v-carousel>
-          <v-img v-else :src="getImageForProduct(product)" height="600" cover />
+          <v-img
+            v-else
+            :src="getImageForProduct(product)"
+            height="600"
+            cover
+          />
         </v-card>
       </v-col>
 
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-card>
-          <v-card-title class="text-h5">{{ product.name }}</v-card-title>
+          <v-card-title class="text-h5">
+            {{ product.name }}
+          </v-card-title>
           <v-card-subtitle>
             {{ getText(store.content.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
           </v-card-subtitle>
-          <v-divider></v-divider>
+          <v-divider />
 
           <v-card-text>
             <div class="mb-3">
@@ -35,13 +58,28 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
-              <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
+            <v-btn
+              class="ma-2"
+              variant="flat"
+              :color="info.primaryColor"
+              @click="addToCart"
+            >
+              <v-icon
+                icon="mdi-cart-outline"
+                class="ml-1"
+                start
+              />
               {{ getText(store.content.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>
             <v-divider />
-            <v-btn :color="info.primaryColor" @click="router.back()">
-              <v-icon icon="mdi-arrow-left" start></v-icon>
+            <v-btn
+              :color="info.primaryColor"
+              @click="router.back()"
+            >
+              <v-icon
+                icon="mdi-arrow-left"
+                start
+              />
               {{ getText(store.content.goBack) || 'Torna indietro' }}
             </v-btn>
           </v-card-actions>
@@ -51,7 +89,9 @@
 
     <v-row v-else>
       <v-col cols="12">
-        <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
+        <v-alert type="error">
+          Errore: nessun prodotto trovato.
+        </v-alert>
       </v-col>
     </v-row>
     <Popup />

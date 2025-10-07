@@ -17,7 +17,7 @@ export const useBlogStore = defineStore('blog', {
         console.error('No store data found');
     },
     initDataByProject(projectName, func) {
-      http.getRequest(`blog/post`, {
+      http.getRequest('blog/post', {
         project: projectName
       }, (res) => this.initDataFromJson(res.posts.reverse(), func));
     },

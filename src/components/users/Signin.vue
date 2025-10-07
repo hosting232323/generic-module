@@ -1,6 +1,10 @@
 <template>
   <v-container class="d-flex align-center justify-center fill-height">
-    <v-card :elevation="20" width="500" class="pa-5">
+    <v-card
+      :elevation="20"
+      width="500"
+      class="pa-5"
+    >
       <v-img
         :src="logo"
         max-width="100"
@@ -13,14 +17,14 @@
       <v-card-text>
         <v-form @submit.prevent="registerUser">
           <v-text-field
-            label="Nome"
             v-model="name"
+            label="Nome"
             outlined
             class="mb-2"
           />
           <v-text-field
-            label="Email"
             v-model="mail"
+            label="Email"
             type="email"
             outlined
             class="mb-4"
@@ -35,19 +39,27 @@
             text="Registrati"
           />
           <v-row>
-            <v-col cols="12" md="5" no-gutters>
+            <v-col
+              cols="12"
+              md="5"
+              no-gutters
+            >
               <div class="d-flex justify-start align-center">
                 <v-btn 
-                  @click="changeStatus(1)" 
-                  :color="primaryColor"
+                  :color="primaryColor" 
                   class="mb-4"
                   block
                   text="Torna al login"
+                  @click="changeStatus(1)"
                 />
               </div>
             </v-col>
           </v-row>
-          <v-alert v-if="message" :type="messageType" dense>
+          <v-alert
+            v-if="message"
+            :type="messageType"
+            dense
+          >
             {{ message }}
           </v-alert>
         </v-form>

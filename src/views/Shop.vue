@@ -2,14 +2,34 @@
   <v-container>
     <Loading v-if="!ready" />
     <v-row v-else>
-      <v-col cols="12" v-for="(group, category) in groupedProducts" :key="category">
-        <h3 class="text-h5 mb-3" :style="{ color: info.primaryColor }">{{ category }}</h3>
-        <hr :style="{ height: '3px', margin: '-10px 0 10px', backgroundColor: info.primaryColor, border: 'none' }" />
+      <v-col
+        v-for="(group, category) in groupedProducts"
+        :key="category"
+        cols="12"
+      >
+        <h3
+          class="text-h5 mb-3"
+          :style="{ color: info.primaryColor }"
+        >
+          {{ category }}
+        </h3>
+        <hr :style="{ height: '3px', margin: '-10px 0 10px', backgroundColor: info.primaryColor, border: 'none' }">
         <v-row>
-          <v-col cols="12" md="4" v-for="product in group" :key="product.id">
+          <v-col
+            v-for="product in group"
+            :key="product.id"
+            cols="12"
+            md="4"
+          >
             <v-card class="mb-5">
-              <v-img height="400" :src="getImageForProduct(product)" cover />
-              <v-card-title class="text-h6">{{ product.name }}</v-card-title>
+              <v-img
+                height="400"
+                :src="getImageForProduct(product)"
+                cover
+              />
+              <v-card-title class="text-h6">
+                {{ product.name }}
+              </v-card-title>
               <v-card-text>
                 <div>
                   {{ getText(store.content.price) || 'Prezzo' }}
@@ -17,10 +37,20 @@
                 </div>
               </v-card-text>
               <v-card-actions>
-                <v-btn class="text-none" :to="`/product/${product.id}`" variant="flat" :color="info.primaryColor">
+                <v-btn
+                  class="text-none"
+                  :to="`/product/${product.id}`"
+                  variant="flat"
+                  :color="info.primaryColor"
+                >
                   {{ getText(store.content.details) || 'Dettagli' }}
                 </v-btn>
-                <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)">
+                <v-btn
+                  class="text-none ma-2"
+                  variant="flat"
+                  :color="info.secondaryColor"
+                  @click="addToCart(product.id)"
+                >
                   {{ getText(store.content.addToCart) || 'Aggiungi al carrello' }}
                 </v-btn>
               </v-card-actions>

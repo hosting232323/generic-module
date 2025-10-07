@@ -1,26 +1,44 @@
 <template>
-  <img v-if="locals.length == 2" :src="getFlag(otherLang)" class="flag" @click="toggleLang" style="margin: 16px;"/>
+  <img
+    v-if="locals.length == 2"
+    :src="getFlag(otherLang)"
+    class="flag"
+    style="margin: 16px;"
+    @click="toggleLang"
+  >
 
   <v-menu v-if="locals.length > 2">
     <template #activator="{ props }">
-      <div v-bind="props" class="flag-wrapper">
-        <img :src="getFlag(locale)" class="flag" style="width: 20px; height: 20px;"/>
-        <v-icon class="arrow">mdi-menu-down</v-icon>
+      <div
+        v-bind="props"
+        class="flag-wrapper"
+      >
+        <img
+          :src="getFlag(locale)"
+          class="flag"
+          style="width: 20px; height: 20px;"
+        >
+        <v-icon class="arrow">
+          mdi-menu-down
+        </v-icon>
       </div>
     </template>
 
-    <v-list style="width: 48px; height: fit-content;" class="d-flex justify-center flex-column align-center">
+    <v-list
+      style="width: 48px; height: fit-content;"
+      class="d-flex justify-center flex-column align-center"
+    >
       <v-list-item
         v-for="lang in locals"
         :key="lang"
-        @click="selectLang(lang)"
         style="padding: 0; height: 35px; min-height: auto;"
+        @click="selectLang(lang)"
       >
         <img
           :src="getFlag(lang)"
           style="width: 20px; height: 20px;"
           class="flag"
-        />
+        >
       </v-list-item>
     </v-list>
   </v-menu>

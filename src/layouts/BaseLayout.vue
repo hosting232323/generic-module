@@ -1,8 +1,14 @@
 <template>
-  <v-app  v-if="ready">
+  <v-app v-if="ready">
     <AppBar v-if="!isNotFound" />
-    <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
-    <SocialBubbles v-if="showBubbles || !isNotFound" :chattyActive="showChatty"/>
+    <UpArrow
+      v-if="!showBubbles"
+      :bottom-offset="showChatty ? 100 : 20"
+    />
+    <SocialBubbles
+      v-if="showBubbles || !isNotFound"
+      :chatty-active="showChatty"
+    />
     <v-main :style="backgroundStyle">
       <slot />
     </v-main>

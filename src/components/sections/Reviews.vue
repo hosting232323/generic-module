@@ -1,46 +1,55 @@
 <template>
   <v-container>
-    <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Ciò che dicono di noi'" />
-      <CarouselWrapper
-        :items="content.reviews"
-        :primaryColor="info.primaryColor"
-        :itemKey="(item, index) => item.name + '-' + index"
-      >
-        <template #default="{ item }">
-          <div class="review pa-4">
-            <div class="d-flex align-center" style="margin-bottom: 15px;">
-              <v-avatar size="35" class="mr-3">
-                <canvas
-                  :ref="el => {
-                    if (el) generateProfileImage(el, item.name)
-                  }"
-                  :data-name="item.name"
-                  width="40"
-                  height="40"
-                ></canvas>
-              </v-avatar>
-              <p class="d-flex align-center justify-center">
-                {{ item.name }}
-                <span class="ml-2 d-flex align-center justify-center">
-                  <v-icon
-                    v-for="i in 5"
-                    :key="i"
-                    size="18"
-                    :color="i <= item.stars ? info.primaryColor : 'grey'"
-                  >
-                    mdi-star
-                  </v-icon>
-                </span>
-              </p>
-            </div>
-            <p>{{ item.description }}</p>
-            <div
-              class="dotted-line-big"
-              :style="{ backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)` }"
-            ></div>
+    <h1
+      :style="{ color: info.primaryColor }"
+      v-html="getText(content.title) || 'Ciò che dicono di noi'"
+    />
+    <CarouselWrapper
+      :items="content.reviews"
+      :primary-color="info.primaryColor"
+      :item-key="(item, index) => item.name + '-' + index"
+    >
+      <template #default="{ item }">
+        <div class="review pa-4">
+          <div
+            class="d-flex align-center"
+            style="margin-bottom: 15px;"
+          >
+            <v-avatar
+              size="35"
+              class="mr-3"
+            >
+              <canvas
+                :ref="el => {
+                  if (el) generateProfileImage(el, item.name)
+                }"
+                :data-name="item.name"
+                width="40"
+                height="40"
+              />
+            </v-avatar>
+            <p class="d-flex align-center justify-center">
+              {{ item.name }}
+              <span class="ml-2 d-flex align-center justify-center">
+                <v-icon
+                  v-for="i in 5"
+                  :key="i"
+                  size="18"
+                  :color="i <= item.stars ? info.primaryColor : 'grey'"
+                >
+                  mdi-star
+                </v-icon>
+              </span>
+            </p>
           </div>
-        </template>
-      </CarouselWrapper>
+          <p>{{ item.description }}</p>
+          <div
+            class="dotted-line-big"
+            :style="{ backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)` }"
+          />
+        </div>
+      </template>
+    </CarouselWrapper>
   </v-container>
 </template>
 

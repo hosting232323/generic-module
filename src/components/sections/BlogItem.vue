@@ -1,34 +1,73 @@
 <template>
-  <v-container class="d-flex mt-4 mb-4" v-if="!isMobile">
+  <v-container
+    v-if="!isMobile"
+    class="d-flex mt-4 mb-4"
+  >
     <router-link :to="postLink">
-      <v-img :src="post.cover" width="170px" class="featured-image"/>
+      <v-img
+        :src="post.cover"
+        width="170px"
+        class="featured-image"
+      />
     </router-link>
 
     <div style="margin-left: 15px;">
-      <p class="topic-date">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }}</p>
-      <p class="reading-time">{{ calculateReadingTime(post.content) }}</p>
+      <p class="topic-date">
+        {{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }}
+      </p>
+      <p class="reading-time">
+        {{ calculateReadingTime(post.content) }}
+      </p>
 
-      <router-link :to="postLink" style="text-decoration: none;">
-        <p class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</p>
+      <router-link
+        :to="postLink"
+        style="text-decoration: none;"
+      >
+        <p
+          class="truncate-title"
+          :style="{ color: info.primaryColor }"
+        >
+          {{ post.title }}
+        </p>
       </router-link>
 
-      <p class="truncate-text">{{ post.content }}</p>
+      <p class="truncate-text">
+        {{ post.content }}
+      </p>
     </div>
   </v-container>
 
-  <v-container class="mt-4 mb-4 d-flex flex-column" v-else>
+  <v-container
+    v-else
+    class="mt-4 mb-4 d-flex flex-column"
+  >
     <router-link :to="postLink">
-      <img :src="post.cover" class="featured-image">
+      <img
+        :src="post.cover"
+        class="featured-image"
+      >
     </router-link>
 
     <div>
-      <p class="topic-date">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }} - {{ calculateReadingTime(post.content) }}</p>
+      <p class="topic-date">
+        {{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }} - {{ calculateReadingTime(post.content) }}
+      </p>
 
-      <router-link :to="postLink" style="text-decoration: none;">
-        <p class="truncate-title" :style="{ color: info.primaryColor }">{{ post.title }}</p>
+      <router-link
+        :to="postLink"
+        style="text-decoration: none;"
+      >
+        <p
+          class="truncate-title"
+          :style="{ color: info.primaryColor }"
+        >
+          {{ post.title }}
+        </p>
       </router-link>
 
-      <p class="truncate-text">{{ post.content }}</p>
+      <p class="truncate-text">
+        {{ post.content }}
+      </p>
     </div>
   </v-container>
 </template>
@@ -67,11 +106,11 @@ const getStyle = () => {
 
 const formatDate = (dateString) => {
   const months = [
-    "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+    'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+    'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
   ];
 
-  const [day, month, year] = dateString.split(" ")[0].split("/");
+  const [day, month, year] = dateString.split(' ')[0].split('/');
   return `${months[parseInt(month) - 1]} ${parseInt(day)}, ${year}`;
 };
 
@@ -80,7 +119,7 @@ const formatTopics = (topics = []) => {
 };
 
 const calculateReadingTime = (content, wordsPerMinute = 200) => {
-  if (!content) return "0 min"; 
+  if (!content) return '0 min'; 
 
   const wordCount = content.trim().split(/\s+/).length; // Conta le parole
   const minutes = Math.ceil(wordCount / wordsPerMinute); // Arrotonda per eccesso

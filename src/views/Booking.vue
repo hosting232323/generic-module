@@ -6,14 +6,25 @@
         :disabled="isPrevMonthBeforeToday()"
         @click="prevMonth"
       >
-      <v-icon>mdi-chevron-left</v-icon>
-    </button>
+        <v-icon>mdi-chevron-left</v-icon>
+      </button>
       <span class="current-month">{{ currentMonth }} {{ currentYear }}</span>
-      <button class="nav-btn" @click="nextMonth"><v-icon>mdi-chevron-right</v-icon></button>
+      <button
+        class="nav-btn"
+        @click="nextMonth"
+      >
+        <v-icon>mdi-chevron-right</v-icon>
+      </button>
     </div>
 
     <div class="calendar-weekdays">
-      <div v-for="day in weekdays" :key="day" class="weekday"><b>{{ day }}</b></div>
+      <div
+        v-for="day in weekdays"
+        :key="day"
+        class="weekday"
+      >
+        <b>{{ day }}</b>
+      </div>
     </div>
 
     <div class="calendar-days">
@@ -28,7 +39,10 @@
         @click="day.events.length > 0 && goToDayEvents(day)"
       >
         <div class="day-header">
-          <span class="day-number" :style="{ textDecoration: isPastDay(day) ? 'line-through' : '' }">{{ day.date }}</span>
+          <span
+            class="day-number"
+            :style="{ textDecoration: isPastDay(day) ? 'line-through' : '' }"
+          >{{ day.date }}</span>
         </div>
         <div class="events-container">
           <div v-if="day.events.length > 0">
@@ -41,7 +55,12 @@
               <b v-else><v-icon>mdi mdi-notebook-heart-outline</v-icon></b>
             </div>
           </div>
-          <div v-else class="no-event">Nessun evento</div>
+          <div
+            v-else
+            class="no-event"
+          >
+            Nessun evento
+          </div>
         </div>
       </div>
     </div>
@@ -155,23 +174,23 @@ function getEventsForDate(date) {
     };
 
     switch (event.type) {
-      case 'Single':
-        return event.info.start_date === dateStr;
+    case 'Single':
+      return event.info.start_date === dateStr;
       
-      case 'Weekly':
-        return event.info?.some(info => 
-          info.start_day === dayOfWeek && 
+    case 'Weekly':
+      return event.info?.some(info => 
+        info.start_day === dayOfWeek && 
           isWithinDateRange(info)
-        );
+      );
       
-      case 'Monthly':
-        return event.info?.some(info => 
-          info.start_day === dayOfMonth && 
+    case 'Monthly':
+      return event.info?.some(info => 
+        info.start_day === dayOfMonth && 
           isWithinDateRange(info)
-        );
+      );
       
-      default:
-        return false;
+    default:
+      return false;
     }
   });
 

@@ -2,12 +2,15 @@
   <v-container>
     <v-slide-group show-arrows>
       <template #prev>
-          <v-icon>mdi-chevron-left</v-icon>
+        <v-icon>mdi-chevron-left</v-icon>
       </template>
       <template #next>
-          <v-icon>mdi-chevron-right</v-icon>
+        <v-icon>mdi-chevron-right</v-icon>
       </template>
-      <v-slide-group-item v-for="(brand, index) in content.brands" :key="index">
+      <v-slide-group-item
+        v-for="(brand, index) in content.brands"
+        :key="index"
+      >
         <v-card
           :height="isMobile ? 150 : 300"
           :width="isMobile ? 150 : 300"
@@ -23,7 +26,7 @@
 <script setup>
 import { setupMobileUtils, resolveImg } from '@/utils/mobile';
 
-const isMobile = setupMobileUtils()
+const isMobile = setupMobileUtils();
 const { content, info } = defineProps(['content', 'info']);
 </script>
 

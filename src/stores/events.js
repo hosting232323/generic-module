@@ -18,33 +18,33 @@ export const useEventsStore = defineStore('events', {
         const targetDayOfMonth = targetDate.getDate();
 
         switch (event.type) {
-          case 'Single':
-            // Per eventi Single, info è un oggetto non un array
-            return event.info.start_date === date;
+        case 'Single':
+          // Per eventi Single, info è un oggetto non un array
+          return event.info.start_date === date;
           
-          case 'Weekly':
-            // Verifica se almeno una delle info ha il giorno corrispondente
-            // e se la data è nel range di validità
-            return event.info.some(info => {
-              if (info.start_day !== targetDay) return false;
+        case 'Weekly':
+          // Verifica se almeno una delle info ha il giorno corrispondente
+          // e se la data è nel range di validità
+          return event.info.some(info => {
+            if (info.start_day !== targetDay) return false;
               
-              // Verifica il range di date
-              const isAfterStart = !info.start_date || date >= info.start_date;
-              const isBeforeEnd = !info.end_date || date <= info.end_date;
-              return isAfterStart && isBeforeEnd;
-            });
+            // Verifica il range di date
+            const isAfterStart = !info.start_date || date >= info.start_date;
+            const isBeforeEnd = !info.end_date || date <= info.end_date;
+            return isAfterStart && isBeforeEnd;
+          });
           
-          case 'Monthly':
-            // Verifica se almeno una delle info ha il giorno del mese corrispondente
-            // e se la data è nel range di validità
-            return event.info.some(info => {
-              if (parseInt(info.start_day) !== targetDayOfMonth) return false;
+        case 'Monthly':
+          // Verifica se almeno una delle info ha il giorno del mese corrispondente
+          // e se la data è nel range di validità
+          return event.info.some(info => {
+            if (parseInt(info.start_day) !== targetDayOfMonth) return false;
               
-              // Verifica il range di date
-              const isAfterStart = !info.start_date || date >= info.start_date;
-              const isBeforeEnd = !info.end_date || date <= info.end_date;
-              return isAfterStart && isBeforeEnd;
-            });
+            // Verifica il range di date
+            const isAfterStart = !info.start_date || date >= info.start_date;
+            const isBeforeEnd = !info.end_date || date <= info.end_date;
+            return isAfterStart && isBeforeEnd;
+          });
         }
         return false;
       });

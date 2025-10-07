@@ -1,10 +1,17 @@
 <template>
   <v-container>
-    <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri servizi'"/>
+    <h1
+      :style="{ color: info.primaryColor }"
+      v-html="getText(content.title) || 'I nostri servizi'"
+    />
     <v-expansion-panels multiple>
-      <v-expansion-panel elevation="20" v-for="service in content.services" class="margin_top__default">
+      <v-expansion-panel
+        v-for="service in content.services"
+        elevation="20"
+        class="margin_top__default"
+      >
         <v-expansion-panel-title>
-          <b v-html="getText(service.name)"/>
+          <b v-html="getText(service.name)" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <div v-html="getText(service.description)" />

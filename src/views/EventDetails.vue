@@ -1,22 +1,37 @@
 <template>
   <div class="event-details">
     <div class="header">
-      <button class="back-button" @click="router.back()">
+      <button
+        class="back-button"
+        @click="router.back()"
+      >
         ← Torna indietro
       </button>
     </div>
 
-    <div v-if="event" class="content">
+    <div
+      v-if="event"
+      class="content"
+    >
       <div class="event-info-card">
         <h1>{{ event.name }}</h1>
         <div class="info-grid">
           <div class="info-item full-width">
-            <div class="info-label">Descrizione</div>
-            <div class="info-value">{{ event.description || 'Nessuna descrizione disponibile' }}</div>
+            <div class="info-label">
+              Descrizione
+            </div>
+            <div class="info-value">
+              {{ event.description || 'Nessuna descrizione disponibile' }}
+            </div>
           </div>
 
-          <div v-if="selectedSlot" class="info-item full-width">
-            <div class="info-label">Dettagli prenotazione</div>
+          <div
+            v-if="selectedSlot"
+            class="info-item full-width"
+          >
+            <div class="info-label">
+              Dettagli prenotazione
+            </div>
             <div class="info-value booking-details">
               <div class="detail-row">
                 <span class="detail-label">Giorno:</span>
@@ -26,7 +41,10 @@
                 <span class="detail-label">Orario:</span>
                 <span class="detail-value">{{ formatTime(selectedSlot.info.start_time) }} - {{ formatTime(selectedSlot.info.end_time) }}</span>
               </div>
-              <div v-if="event.price" class="detail-row">
+              <div
+                v-if="event.price"
+                class="detail-row"
+              >
                 <span class="detail-label">Prezzo:</span>
                 <span class="detail-value">€{{ event.price }}</span>
               </div>
@@ -37,14 +55,17 @@
 
       <div class="booking-form-card">
         <h2>Prenota</h2>
-        <form @submit.prevent="submitBooking" class="booking-form">
+        <form
+          class="booking-form"
+          @submit.prevent="submitBooking"
+        >
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">Nome *</label>
               <input 
                 id="firstName"
-                class="booking-input"
                 v-model="bookingForm.firstName"
+                class="booking-input"
                 type="text"
                 required
                 placeholder="Inserisci il tuo nome"
@@ -55,8 +76,8 @@
               <label for="lastName">Cognome *</label>
               <input 
                 id="lastName"
-                class="booking-input"
                 v-model="bookingForm.lastName"
+                class="booking-input"
                 type="text"
                 required
                 placeholder="Inserisci il tuo cognome"
@@ -68,8 +89,8 @@
             <label for="email">Email *</label>
             <input 
               id="email"
-              class="booking-input"
               v-model="bookingForm.email"
+              class="booking-input"
               type="email"
               required
               placeholder="Inserisci la tua email"
@@ -80,8 +101,8 @@
             <label for="phone">Telefono *</label>
             <input 
               id="phone"
-              class="booking-input"
               v-model="bookingForm.phone"
+              class="booking-input"
               type="tel"
               required
               placeholder="Inserisci il tuo numero di telefono"
@@ -90,31 +111,50 @@
 
           <div class="form-group">
             <label for="timeSlot">Fascia Oraria *</label>
-              <select 
-                id="timeSlot"
-                class="select-input"
-                v-model="bookingForm.timeSlot"
-                required
+            <select 
+              id="timeSlot"
+              v-model="bookingForm.timeSlot"
+              class="select-input"
+              required
+            >
+              <option value="">
+                Seleziona
+              </option>
+              <option
+                v-for="n in availableTimeSlot"
+                :key="n"
+                :value="n"
               >
-              <option value="">Seleziona</option>
-              <option v-for="n in availableTimeSlot" :key="n" :value="n">{{ n }}</option>
+                {{ n }}
+              </option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="participants">Numero di partecipanti *</label>
-            <div v-if="isEventFull" class="full-warning">
+            <div
+              v-if="isEventFull"
+              class="full-warning"
+            >
               L'evento è al completo
             </div>
             <select 
               v-else
               id="participants"
-              class="select-input"
               v-model="bookingForm.participants"
+              class="select-input"
               required
             >
-              <option value="">Seleziona</option>
-              <option v-for="n in availableSpots" :key="n" :value="n">{{ n }}</option>
+              <option value="">
+                Seleziona
+              </option>
+              <option
+                v-for="n in availableSpots"
+                :key="n"
+                :value="n"
+              >
+                {{ n }}
+              </option>
             </select>
           </div>
 
@@ -122,24 +162,28 @@
             <label for="notes">Note aggiuntive</label>
             <textarea 
               id="notes"
-              class="booking-textarea"
               v-model="bookingForm.notes"
+              class="booking-textarea"
               rows="4"
               placeholder="Inserisci eventuali note o richieste particolari"
-            ></textarea>
+            />
           </div>
 
           <div class="form-group privacy-policy-section">
             <div class="checkbox-container">
               <input 
-                type="checkbox" 
-                class="booking-input"
-                id="privacyPolicy"
+                id="privacyPolicy" 
                 v-model="bookingForm.privacyAccepted"
+                type="checkbox"
+                class="booking-input"
                 required
                 :class="{ 'error': showPrivacyError }"
               >
-              <label for="privacyPolicy" class="checkbox-label" :class="{ 'text-error': showPrivacyError }">
+              <label
+                for="privacyPolicy"
+                class="checkbox-label"
+                :class="{ 'text-error': showPrivacyError }"
+              >
                 Ho letto e accetto la privacy policy
               </label>
             </div>
@@ -318,7 +362,7 @@ async function submitBooking() {
     });
   }
   isSubmitting.value = false;
-};
+}
 </script>
 
 <style>

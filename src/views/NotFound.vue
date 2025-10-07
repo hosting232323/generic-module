@@ -1,6 +1,14 @@
 <template>
-  <v-container fluid class="background">
-    <h1 class="text-9xl font-weight-bold mb-4" :style="{ color: info.primaryColor }">404</h1>
+  <v-container
+    fluid
+    class="background"
+  >
+    <h1
+      class="text-9xl font-weight-bold mb-4"
+      :style="{ color: info.primaryColor }"
+    >
+      404
+    </h1>
 
     <h2 class="text-h4-responsive font-weight-medium mb-2">
       Oops! Pagina non trovata

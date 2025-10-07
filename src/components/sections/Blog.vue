@@ -4,13 +4,28 @@
       {{ getText(content.title) || 'I miei articoli' }}
     </h1>
     <div class="articles-wrapper margin_top__default">
-      <div v-for="(article, index) in articles" :key="index" class="article-item mt-2">
-        <img :src="resolveImg(article.cover)" class="img"/>
-        <p :style="{ color: info.primaryColor, fontWeight: 700 }">{{ getText(article.title) }}</p>
+      <div
+        v-for="(article, index) in articles"
+        :key="index"
+        class="article-item mt-2"
+      >
+        <img
+          :src="resolveImg(article.cover)"
+          class="img"
+        >
+        <p :style="{ color: info.primaryColor, fontWeight: 700 }">
+          {{ getText(article.title) }}
+        </p>
         <p>{{ truncate(getText(article.content)) }}</p>
       </div>
     </div>
-    <p class="margin_top__default"><a href="/blog" class="link" :style="{ color: info.primaryColor }">{{ getText(content.url)}} </a></p>
+    <p class="margin_top__default">
+      <a
+        href="/blog"
+        class="link"
+        :style="{ color: info.primaryColor }"
+      >{{ getText(content.url) }} </a>
+    </p>
   </v-container>
 </template>
 

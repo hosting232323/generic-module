@@ -1,5 +1,8 @@
 <template>
-  <div class="d-flex flex-wrap px-3 pb-3" v-if="allergens?.length">
+  <div
+    v-if="allergens?.length"
+    class="d-flex flex-wrap px-3 pb-3"
+  >
     <v-chip
       v-for="a in allergens"
       :key="a"
@@ -10,8 +13,17 @@
       :text-color="allergenIcons[a['it']]?.color"
       outlined
     >
-      <v-avatar left size="25" class="me-1" tile>
-        <v-img :src="allergenIcons[a['it']]?.src" alt="Icona allergene" cover />
+      <v-avatar
+        left
+        size="25"
+        class="me-1"
+        tile
+      >
+        <v-img
+          :src="allergenIcons[a['it']]?.src"
+          alt="Icona allergene"
+          cover
+        />
       </v-avatar>
       {{ formatAllergenName(getText(a)) }}
     </v-chip>

@@ -10,4 +10,4 @@ export function registerPlugins(app) {
     use(pinia).
     use(router).
     use(vuetify);
-};
+}

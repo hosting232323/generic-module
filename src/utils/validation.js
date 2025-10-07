@@ -1,15 +1,15 @@
 const requiredRules = [
   (value) => {
     if (value) return true;
-      return 'Campo obbligatorio';
+    return 'Campo obbligatorio';
   },
 ];
 
 const emailRules = requiredRules.concat([
   (value) => {
     if (/.+@.+\..+/.test(value)) return true;
-      return 'E-mail non valida.';
-    }
+    return 'E-mail non valida.';
+  }
 ]);
 
 const siteRules = requiredRules.concat([

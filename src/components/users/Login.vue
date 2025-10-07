@@ -1,6 +1,10 @@
 <template>
   <v-container class="d-flex align-center justify-center fill-height">
-    <v-card :elevation="20" width="500" class="pa-5">
+    <v-card
+      :elevation="20"
+      width="500"
+      class="pa-5"
+    >
       <v-img
         :src="logo"
         max-width="100"
@@ -13,22 +17,22 @@
       <v-card-text>
         <v-form @submit.prevent="login">
           <v-text-field
-            label="Email"
             v-model="mail"
+            label="Email"
             type="email"
             prepend-icon="mdi-email"
             outlined
             class="mb-2"
           />
           <v-text-field
+            v-model="pass"
             :type="showPassword ? 'text' : 'password'"
             label="Password"
-            v-model="pass"
             prepend-icon="mdi-lock"
             :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
-            @click:append-inner="togglePasswordVisibility"
             outlined
             class="mb-4"
+            @click:append-inner="togglePasswordVisibility"
           />
           <v-btn
             class="mb-4"
@@ -43,42 +47,55 @@
             v-if="showGoogleLogin"
             class="mb-4 google-btn"
             variant="elevated"
-            @click="handleGoogleLogin"
             height="40"
             block
             :loading="googleLoading"
+            @click="handleGoogleLogin"
           >
             <div class="google-icon-wrapper">
               <img
                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4="
                 alt="Google logo"
                 class="google-icon"
-              />
+              >
             </div>
             <span class="google-btn-text">Accedi con Google</span>
           </v-btn>
-          <v-row v-if="signUp" no-gutters>
-            <v-col cols="12" md="5">
+          <v-row
+            v-if="signUp"
+            no-gutters
+          >
+            <v-col
+              cols="12"
+              md="5"
+            >
               <v-btn
                 text="Registrati qui"
-                @click="changeStatus(2)"
                 :color="primaryColor"
                 block
                 class="mb-4"
+                @click="changeStatus(2)"
               />
             </v-col>
             <v-spacer />
-            <v-col cols="12" md="5">
+            <v-col
+              cols="12"
+              md="5"
+            >
               <v-btn
                 text="Reset password"
-                @click="changeStatus(3)"
                 :color="primaryColor"
                 block
                 class="mb-4"
+                @click="changeStatus(3)"
               />
             </v-col>
           </v-row>
-          <v-alert v-if="message" type="error" dense>
+          <v-alert
+            v-if="message"
+            type="error"
+            dense
+          >
             {{ message }}
           </v-alert>
         </v-form>

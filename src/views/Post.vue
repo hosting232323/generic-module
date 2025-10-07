@@ -1,11 +1,23 @@
 <template>
-  <Loading :home="false" v-if="!ready"/>
+  <Loading
+    v-if="!ready"
+    :home="false"
+  />
   <v-container v-else>
-    <img v-if="post.cover" :src="post.cover" class="post-image">
-    <div class="container-header" :class="{ 'mobile-layout': isMobile }">
-
+    <img
+      v-if="post.cover"
+      :src="post.cover"
+      class="post-image"
+    >
+    <div
+      class="container-header"
+      :class="{ 'mobile-layout': isMobile }"
+    >
       <div>
-        <span v-for="(crumb, index) in breadcrumbs" :key="index">
+        <span
+          v-for="(crumb, index) in breadcrumbs"
+          :key="index"
+        >
           <template v-if="!crumb.disabled">
             <a :href="crumb.href">{{ crumb.title }}</a>
           </template>
@@ -18,21 +30,71 @@
       
       <div class="container-sub">
         <div>
-          <p class="topic-date" v-if="post.topics && post.updated_at">{{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }}</p>
-          <p class="reading-time">{{ calculateReadingTime(post.content) }}</p>
+          <p
+            v-if="post.topics && post.updated_at"
+            class="topic-date"
+          >
+            {{ formatTopics(post.topics) }} {{ formatDate(post.updated_at) }}
+          </p>
+          <p class="reading-time">
+            {{ calculateReadingTime(post.content) }}
+          </p>
         </div>
         <div class="share-buttons">
-          <a :href="shareUrl('facebook')" target="_blank" class="share-button"><span class="mdi mdi-facebook" style="color: #1877f2;"></span></a>
-          <a :href="shareUrl('twitter')" target="_blank" class="share-button"><span class="mdi mdi-twitter" style="color: #1da1f2;"></span></a>
-          <a :href="shareUrl('whatsapp')" target="_blank" class="share-button"><span class="mdi mdi-whatsapp" style="color: #2eb943;"></span></a>
-          <a :href="shareUrl('linkedin')" target="_blank" class="share-button"><span class="mdi mdi-linkedin" style="color: #007ebb;"></span></a>
-          <a :href="shareUrl('email')" target="_blank" class="share-button"><span class="mdi mdi-email" style="color: #000;"></span></a>
+          <a
+            :href="shareUrl('facebook')"
+            target="_blank"
+            class="share-button"
+          ><span
+            class="mdi mdi-facebook"
+            style="color: #1877f2;"
+          /></a>
+          <a
+            :href="shareUrl('twitter')"
+            target="_blank"
+            class="share-button"
+          ><span
+            class="mdi mdi-twitter"
+            style="color: #1da1f2;"
+          /></a>
+          <a
+            :href="shareUrl('whatsapp')"
+            target="_blank"
+            class="share-button"
+          ><span
+            class="mdi mdi-whatsapp"
+            style="color: #2eb943;"
+          /></a>
+          <a
+            :href="shareUrl('linkedin')"
+            target="_blank"
+            class="share-button"
+          ><span
+            class="mdi mdi-linkedin"
+            style="color: #007ebb;"
+          /></a>
+          <a
+            :href="shareUrl('email')"
+            target="_blank"
+            class="share-button"
+          ><span
+            class="mdi mdi-email"
+            style="color: #000;"
+          /></a>
         </div>
       </div>
     </div>
     <hr style="border: none; height: 1px; background-color: #767677;">
-    <h1 class="post-title" :style="{ color: info.primaryColor }">{{ post.title }}</h1>
-    <div v-html="renderedContent" class="markdown-content"></div>
+    <h1
+      class="post-title"
+      :style="{ color: info.primaryColor }"
+    >
+      {{ post.title }}
+    </h1>
+    <div
+      class="markdown-content"
+      v-html="renderedContent"
+    />
   </v-container>
 </template>
 
@@ -84,12 +146,12 @@ const shareUrl = (platform) => {
   const text = encodeURIComponent(post.value.title);
   
   switch (platform) {
-    case 'facebook': return `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    case 'twitter': return `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
-    case 'whatsapp': return `https://api.whatsapp.com/send?text=${text} ${url}`;
-    case 'linkedin': return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-    case 'email': return `mailto:?subject=${text}&body=${url}`;
-    default: return '#';
+  case 'facebook': return `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+  case 'twitter': return `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+  case 'whatsapp': return `https://api.whatsapp.com/send?text=${text} ${url}`;
+  case 'linkedin': return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+  case 'email': return `mailto:?subject=${text}&body=${url}`;
+  default: return '#';
   }
 };
 

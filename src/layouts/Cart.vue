@@ -6,17 +6,29 @@
     @click:outside="isMenuVisible = false" 
   >
     <template #activator="{ props }">
-      <v-btn v-bind="props" v-if="isMobile">
-        <v-icon icon="mdi-cart-outline"></v-icon>
+      <v-btn
+        v-if="isMobile"
+        v-bind="props"
+      >
+        <v-icon icon="mdi-cart-outline" />
         ({{ totalItems }})
       </v-btn>
-      <v-btn v-bind="props" v-if="!isMobile">
-        <v-icon icon="mdi-cart-outline" start></v-icon>
+      <v-btn
+        v-if="!isMobile"
+        v-bind="props"
+      >
+        <v-icon
+          icon="mdi-cart-outline"
+          start
+        />
         <p>{{ getText(store.content.name) || 'Carrello' }} ({{ totalItems }})</p>
       </v-btn>
     </template>
 
-    <v-card class="mt-4" style="width: 400px; background-color: #f5f5f5;">
+    <v-card
+      class="mt-4"
+      style="width: 400px; background-color: #f5f5f5;"
+    >
       <v-card-title>
         <span class="font-weight-bold">{{ isCheckout ? (getText(store.content.shippingAddress) || 'Indirizzo di Spedizione') : (getText(store.content.orderSummary) || 'Riepilogo Ordini') }}</span>
       </v-card-title>
@@ -27,22 +39,49 @@
         </template>
         <template v-else>
           <v-list>
-            <v-list-item v-for="product in orderStore.products" class="py-4">
-              <v-row align="center" style="width: 100%;">
+            <v-list-item
+              v-for="product in orderStore.products"
+              class="py-4"
+            >
+              <v-row
+                align="center"
+                style="width: 100%;"
+              >
                 <v-col class="d-flex align-center">
-                  <v-img :src="getImageForProduct(product.product)" alt="product image" width="40" class="mr-3" />
+                  <v-img
+                    :src="getImageForProduct(product.product)"
+                    alt="product image"
+                    width="40"
+                    class="mr-3"
+                  />
                   
                   <div style="flex-grow: 1;">
-                    <p style="font-size: 16px; font-weight: bold;">{{ getProductName(product.product) }}</p>
+                    <p style="font-size: 16px; font-weight: bold;">
+                      {{ getProductName(product.product) }}
+                    </p>
                     <div style="display: flex; align-items: center;">
-                      <p class="text-caption">{{ getText(store.content.amount) || 'Quantità' }}:</p>
-                      <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
+                      <p class="text-caption">
+                        {{ getText(store.content.amount) || 'Quantità' }}:
+                      </p>
+                      <v-btn
+                        icon="mdi-minus"
+                        size="x-small"
+                        style="margin: 0 5px; box-shadow: none;"
+                        @click.stop="decreaseQuantity(product)"
+                      />
                       {{ product.quantity }}
-                      <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
+                      <v-btn
+                        icon="mdi-plus"
+                        size="x-small"
+                        style="margin: 0 0 0 5px; box-shadow: none;"
+                        @click.stop="increaseQuantity(product)"
+                      />
                     </div>
                   </div>
                   
-                  <p style="font-size: 15px; font-weight: bold;">{{ getProductPrice(product.product) + ' €'}}</p>
+                  <p style="font-size: 15px; font-weight: bold;">
+                    {{ getProductPrice(product.product) + ' €' }}
+                  </p>
                 </v-col>
               </v-row>
             </v-list-item>
@@ -50,15 +89,25 @@
         </template>
       </v-card-text>
 
-      <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;" v-if="!isCheckout">
+      <v-card-subtitle
+        v-if="!isCheckout"
+        class="text-right"
+        style="font-size: 18px; font-weight: bold; padding-right: 16px;"
+      >
         {{ getText(store.content.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
       </v-card-subtitle>
 
       <v-card-actions>
-        <v-btn @click="isCheckout ? placeOrder() : proceedToCheckout()" color="primary">
+        <v-btn
+          color="primary"
+          @click="isCheckout ? placeOrder() : proceedToCheckout()"
+        >
           {{ isCheckout ? (getText(store.content.sendOrder) || 'Invia Ordine') : (getText(store.content.proceedCheckout) || 'Procedi al Checkout') }}
         </v-btn>
-        <v-btn @click="isCheckout ? cancelCheckout() : clearCart()" color="error">
+        <v-btn
+          color="error"
+          @click="isCheckout ? cancelCheckout() : clearCart()"
+        >
           {{ isCheckout ? (getText(store.content.goBack) || 'Torna Indietro') : (getText(store.content.emptyCart) || 'Svuota Carrello') }}
         </v-btn>
       </v-card-actions>

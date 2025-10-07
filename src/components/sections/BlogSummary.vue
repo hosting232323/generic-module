@@ -1,17 +1,34 @@
 <template>
   <v-container>
-    <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri ultimi post'"/>
+    <h1
+      :style="{ color: info.primaryColor }"
+      v-html="getText(content.title) || 'I nostri ultimi post'"
+    />
     <CarouselWrapper
       :items="latestItems"
-      :primaryColor="info.primaryColor"
-      :itemKey="(item, index) => item.name + '-' + index"
+      :primary-color="info.primaryColor"
+      :item-key="(item, index) => item.name + '-' + index"
     >
       <template #default="{ item }">
         <div>
-          <v-img height="300" :src="getImageForProduct(item)" fill />
-          <p class="title" :style="{ color: info.primaryColor }">{{ item.title }}</p>
+          <v-img
+            height="300"
+            :src="getImageForProduct(item)"
+            fill
+          />
+          <p
+            class="title"
+            :style="{ color: info.primaryColor }"
+          >
+            {{ item.title }}
+          </p>
           <p>{{ truncate(item.content) }}</p>
-          <p class="more" @click="goToPost(item.id)">Scopri di più...</p>
+          <p
+            class="more"
+            @click="goToPost(item.id)"
+          >
+            Scopri di più...
+          </p>
         </div>
       </template>
     </CarouselWrapper>
@@ -23,10 +40,10 @@ import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
 import { useLanguageStore } from '@/stores/language';
-import CarouselWrapper from '@/components/sections/CarouselWrapper.vue'
-import { useRouter } from 'vue-router'
+import CarouselWrapper from '@/components/sections/CarouselWrapper.vue';
+import { useRouter } from 'vue-router';
 
-const router = useRouter()
+const router = useRouter();
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
@@ -48,7 +65,7 @@ const getImageForProduct = (product) => {
 
 const goToPost = (id) => {
   router.push(`/blog/${id}`);
-}
+};
 </script>
 
 <style scoped>

@@ -2,35 +2,82 @@
   <v-container>
     <v-card elevation="20">
       <v-container>
-        <h2 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'I nostri contatti'"/>
+        <h2
+          :style="{ color: info.primaryColor }"
+          v-html="getText(content.title) || 'I nostri contatti'"
+        />
         <v-list>
-          <v-list-item v-for="contact in content.contacts" :key="contact">
-            <template v-slot:prepend>
-              <v-icon :icon="contact.icon" :color="info.primaryColor" />
+          <v-list-item
+            v-for="contact in content.contacts"
+            :key="contact"
+          >
+            <template #prepend>
+              <v-icon
+                :icon="contact.icon"
+                :color="info.primaryColor"
+              />
             </template>
             <v-list-item-title class="contact__text">
-              <a :href="contact.url" target="_blank" style="text-decoration: none; color: inherit;" v-html="getText(contact.title)"/>
+              <a
+                :href="contact.url"
+                target="_blank"
+                style="text-decoration: none; color: inherit;"
+                v-html="getText(contact.title)"
+              />
             </v-list-item-title>
           </v-list-item>
         </v-list><br>
-        <hr :style="{ height: '5px', backgroundColor: info.primaryColor }" />
-        <br><b v-html="getText(content.subtitle) || 'Contattaci direttamente con questo form'"/>
+        <hr :style="{ height: '5px', backgroundColor: info.primaryColor }">
+        <br><b v-html="getText(content.subtitle) || 'Contattaci direttamente con questo form'" />
         <br><br>
-        <v-form fast-fail @submit.prevent="sendMail">
+        <v-form
+          fast-fail
+          @submit.prevent="sendMail"
+        >
           <v-row>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="name" :rules="validation.requiredRules" variant="outlined" label="Name" />
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-text-field
+                v-model="name"
+                :rules="validation.requiredRules"
+                variant="outlined"
+                label="Name"
+              />
             </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="email" :rules="validation.emailRules" variant="outlined" label="Email" />
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-text-field
+                v-model="email"
+                :rules="validation.emailRules"
+                variant="outlined"
+                label="Email"
+              />
             </v-col>
           </v-row>
           <v-row>
-            <v-col cols="12" md="12">
-              <v-textarea label="Body" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
+            <v-col
+              cols="12"
+              md="12"
+            >
+              <v-textarea
+                v-model="body"
+                label="Body"
+                rows="4"
+                :rules="validation.requiredRules"
+                variant="outlined"
+              />
             </v-col>
           </v-row><br>
-          <v-btn block text="Send" type="submit" :color="info.primaryColor" />
+          <v-btn
+            block
+            text="Send"
+            type="submit"
+            :color="info.primaryColor"
+          />
         </v-form>
       </v-container>
     </v-card>
@@ -65,7 +112,7 @@ const sendMail = () => {
         `Mail: ${email.value}\n\n` +
         `Testo:\n${body.value}`
     }, function () {
-      alert("Mail inviata\nTi ringraziamo per il contatto");
+      alert('Mail inviata\nTi ringraziamo per il contatto');
     });
   }
 };
