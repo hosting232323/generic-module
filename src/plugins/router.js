@@ -21,7 +21,7 @@ const routes = [
         component: () => import('@/views/ContributiPA')
       },
       {
-        path: '/blog/:id',
+        path: '/blog/:type/:id',
         name: 'Dettaglio Post',
         component: () => import('@/views/Post')
       },

@@ -8,6 +8,9 @@
     "secondaryColor": "#ffffff",
     "chattyId": "12"
   },
+  "blog": {
+    "projectName": "dorianadinanni.it"
+  },
   "components": [
     {
       "type": "gallery",

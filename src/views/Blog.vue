@@ -17,6 +17,7 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 import BlogItem from '@/components/sections/BlogItem';
 import Loading from '@/layouts/Loading.vue';
 import { useBlogStore } from '@/stores/blog';
@@ -28,6 +29,8 @@ const itemsToShow = ref(maxItems);
 
 const dataStore = useDataStore();
 const blogStore = useBlogStore();
+
+const route = useRoute();
 
 const { posts, ready } = storeToRefs(blogStore);
 const { data } = storeToRefs(dataStore);
@@ -49,7 +52,7 @@ const removeMorePosts = () => {
 if (ready.value)
   displayPosts();
 else
-  blogStore.initData(data.value.blog, function () {
+  blogStore.initData(data.value.blog, route.params.type, function () {
     displayPosts();
   });
 
