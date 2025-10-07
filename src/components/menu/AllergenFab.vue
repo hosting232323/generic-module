@@ -55,7 +55,7 @@
 import { ref } from 'vue';
 import AllergenFilter from '@/components/menu/AllergenFilter.vue';
 
-const props = defineProps({
+defineProps({
   allergens: {
     type: Array,
     required: true

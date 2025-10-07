@@ -1,8 +1,9 @@
 <template>
   <component
     :is="componentMap[section.type]"
-    v-for="section in sections"
+    v-for="(section, index) in sections"
     :id="section.type"
+    :key="index"
     :content="section.content"
     :info="info"
   />

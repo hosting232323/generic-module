@@ -90,11 +90,8 @@ onMounted(() => {
 const router = useRouter();
 
 const currentDate = ref(new Date());
-const isModalVisible = ref(false);
-const selectedEvent = ref(null);
 
 const weekdays = ['Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab', 'Dom'];
-const openingDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const currentMonth = computed(() => {
   return currentDate.value.toLocaleString('it-IT', { month: 'long' });
@@ -228,14 +225,7 @@ const isToday = (date, isCurrentMonth) => {
 const goToDayEvents = (day) => {
   if (day.events.length === 0) return;
 
-  const date = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), day.date);
-  const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(day.date).padStart(2, '0')}`;
   const event = day.events[0];
-
-  const query = {
-    selectedDate: formattedDate
-  };
-
   if(demoId.value) {
     router.push({
       name: 'Demo Event Details',

@@ -2,7 +2,7 @@
   <v-container>
     <v-row v-if="!selectedCategory">
       <v-col
-        v-for="(cat, index) in data.menu"
+        v-for="cat in data.menu"
         :key="cat.name"
         cols="12"
         md="4"

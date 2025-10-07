@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKEND;
 
 const postRequest = (endpoint, body, func, method = 'POST', router = undefined, hostname = undefined) => {

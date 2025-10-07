@@ -36,7 +36,7 @@ import { useLanguageStore } from '@/stores/language';
 
 const { getText } = useLanguageStore();
 
-const props = defineProps({
+defineProps({
   allergens: {
     type: Array,
     required: true
