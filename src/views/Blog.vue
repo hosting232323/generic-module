@@ -1,11 +1,11 @@
 <template>
-  <Loading :home="false" v-if="!ready"/>
+  <Loading :home="false" v-if="!(ready && route.params.type == topic)"/>
   <v-container v-else>
     <h1 class="text-h3 font-weight-bold" :style="{ color: info.primaryColor, margin: '10px 0'}">Ultimi post</h1>
     <div v-for="(post, index) in displayedPosts" :key="post.id">
-      <BlogItem :post="post" :isFeatured="index === 0"/>
+      <BlogItem :post="post" :topic="topic" :isFeatured="index === 0"/>
     </div>
-    <div v-if="displayedPosts.length < posts.length" class="mt-4">
+    <div v-if="displayedPosts.length && displayedPosts.length < posts.length" class="mt-4">
       <a @click="loadMorePosts" class="more-posts" :style="{ color: info.primaryColor }">Mostra più articoli</a>
     </div>
     <div v-else class="mt-4">
@@ -16,7 +16,7 @@
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import BlogItem from '@/components/sections/BlogItem';
 import Loading from '@/layouts/Loading.vue';
@@ -32,14 +32,14 @@ const blogStore = useBlogStore();
 
 const route = useRoute();
 
-const { posts, ready } = storeToRefs(blogStore);
+const { posts, ready, topic } = storeToRefs(blogStore);
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
 
-
 const displayPosts = () => {
+  topic.value = route.params.type;
   displayedPosts.value = posts.value.slice(0, itemsToShow.value)
-}
+};
 
 const loadMorePosts = () => {
   itemsToShow.value += 5;
@@ -49,13 +49,22 @@ const removeMorePosts = () => {
   itemsToShow.value = maxItems;
 };
 
-if (ready.value)
+if (ready.value && route.params.type == topic.value)
   displayPosts();
 else
   blogStore.initData(data.value.blog, route.params.type, function () {
     displayPosts();
   });
-
+  
+watch(
+  () => route.fullPath,
+  () => {
+    ready.value = false;
+    blogStore.initData(data.value.blog, route.params.type, function () {
+      displayPosts();
+    });
+  }
+);
 </script>
 
 <style scoped>

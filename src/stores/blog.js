@@ -3,12 +3,12 @@ import http from '@/utils/http';
 
 export const useBlogStore = defineStore('blog', {
   state: () => ({
+    topic: '',
     posts: [],
     ready: false
   }),
   actions: {
     initData(storeData, topicName, func) {
-      console.log(topicName);
       if (storeData) {
         if (storeData.projectName)
           this.initDataByProject(storeData.projectName, topicName, func)
@@ -20,7 +20,7 @@ export const useBlogStore = defineStore('blog', {
     initDataByProject(projectName, topicName = null, func) {
       http.getRequest(`blog/post`, {
         project: projectName,
-        topic: topicName
+        topics: [topicName]
       }, (res) => this.initDataFromJson(res.posts.reverse(), func));
     },
     initDataFromJson(posts, func) {
