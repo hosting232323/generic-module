@@ -34,13 +34,9 @@
     {
       "content": {
         "brands": [
-          "/brand/Guess.jpg",
           "/brand/Save the Duck.jpg",
-          "/brand/Guess Jeans.jpg",
           "/brand/Deha.jpg",
-          "/brand/Guess Original.jpg",
-          "/brand/Ganesh Camiceria.jpg",
-          "/brand/Freaky Nation.jpeg"
+          "/brand/Ganesh Camiceria.jpg"
         ]
       },
       "menu": "Brandlist",
