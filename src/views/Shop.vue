@@ -12,16 +12,16 @@
               <v-card-title class="text-h6">{{ product.name }}</v-card-title>
               <v-card-text>
                 <div>
-                  {{ getText(store.content.price) || 'Prezzo' }}
+                  {{ getText(store?.content?.price) || 'Prezzo' }}
                   {{ product.price ? ((parseFloat(product.price) / 100).toFixed(2) + ' €') : 'Non disponibile' }}
                 </div>
               </v-card-text>
               <v-card-actions>
                 <v-btn class="text-none" :to="`/product/${product.id}`" variant="flat" :color="info.primaryColor">
-                  {{ getText(store.content.details) || 'Dettagli' }}
+                  {{ getText(store?.content?.details) || 'Dettagli' }}
                 </v-btn>
                 <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)">
-                  {{ getText(store.content.addToCart) || 'Aggiungi al carrello' }}
+                  {{ getText(store?.content?.addToCart) || 'Aggiungi al carrello' }}
                 </v-btn>
               </v-card-actions>
             </v-card>
@@ -74,6 +74,7 @@ const addToCart = (productId) => {
 };
 
 const groupProductsByCategory = () => {
+  console.log(products.value)
   const grouped = products.value.reduce((acc, product) => {
     const category = product.product_type || 'Non specificata';
     if (!acc[category]) acc[category] = [];
