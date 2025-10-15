@@ -13,6 +13,7 @@
       :iv="iv"
       :hostname="hostname"
       :googleClientId="googleClientId"
+      :callBack="callBack"
     />
     <Signin 
       v-if="status == 2 && signUp" 
@@ -107,6 +108,10 @@ const props = defineProps({
   googleClientId: {
     type: String,
     default: ''
+  },
+  callBack: {
+    type: Function,
+    required: false
   }
 });
 
