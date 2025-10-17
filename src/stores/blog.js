@@ -12,7 +12,7 @@ export const useBlogStore = defineStore('blog', {
         if (storeData.projectName)
           this.initDataByProject(storeData.projectName, func)
         else
-          this.initDataFromJson(storeData.content, func);
+          this.initDataFromJson(storeData, func);
       } else
         console.error('No store data found');
     },
