@@ -34,9 +34,10 @@
     {
       "content": {
         "brands": [
-          "/brand/Trussardi.jpg",
           "/brand/Save the Duck.jpg",
+          "/brand/Trussardi.jpg",
           "/brand/Deha.jpg",
+          "/brand/Mauna Kea.png",
           "/brand/Ganesh Camiceria.jpg"
         ]
       },
