@@ -16,6 +16,10 @@ const props = defineProps({
     type: String,
     required: true
   },
+  type: {
+    type: String,
+    required: true
+  },
   id: {
     type: [String, Number],
     required: true
@@ -23,5 +27,5 @@ const props = defineProps({
 });
 
 const dataStore = useDataStore();
-onMounted(() => dataStore.initDataByDemoLayout(props.hostname, props.id));
+onMounted(() => dataStore.initDataByDemoOrTemplateLayout(props.hostname, props.type, props.id));
 </script>
