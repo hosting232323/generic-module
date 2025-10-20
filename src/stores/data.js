@@ -13,9 +13,9 @@ export const useDataStore = defineStore('data', {
     initData() {
       this.updateData(productionData);
     },
-    initDataByDemoLayout(hostname, id){
+    initDataByDemoOrTemplateLayout(hostname, type, id){
       const router = useRouter();
-      http.getRequest(`get-data/${id}`, {}, (data) => {
+      http.getRequest(`get-data/${type}/${id}`, {}, (data) => {
         if(data.status == 'ok') {
           this.demoId = id;
           this.updateData(data.data);
