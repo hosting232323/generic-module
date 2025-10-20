@@ -4,7 +4,7 @@
       <v-img :src="resolveImg(slide)" cover />
     </v-carousel-item>
   </v-carousel>
-  <v-carousel v-if="content.type === 'automatic'" :id="id" :height="isMobile ? '100vh' : '96vh'" @click="resetTimer" v-model="selected" hide-delimiters>
+  <v-carousel v-else-if="content.type === 'automatic'" :id="id" :height="isMobile ? '100vh' : '96vh'" @click="resetTimer" v-model="selected" hide-delimiters>
     <h1 class="logo" :style="{ fontSize: isMobile ? '20px' : '50px' }">DICARNESHOWROOM</h1>
     <v-carousel-item v-for="img in content.images" :src="resolveImg(img)" cover />
     <template #prev></template>

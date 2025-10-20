@@ -17,9 +17,18 @@
       "type": "gallery",
       "content": {
         "images": [
-          "gallery1.jpg",
-          "gallery2.png",
-          "gallery3.jpg"
+          {
+            "desktop": "gallery/gallery1.png",
+            "mobile": "galleryCrop/gallery1.png"
+          },
+          {
+            "desktop": "gallery/gallery2.png",
+            "mobile": "galleryCrop/gallery2.png"
+          },
+          {
+            "desktop": "gallery/gallery3.png",
+            "mobile": "galleryCrop/gallery3.png"
+          }
         ],
         "type": "automatic"
       }
@@ -53,7 +62,7 @@
       "content": {
           "title": "Mission e Vision",
           "description": "La nostra missione è costruire rapporti duraturi e di reciproca soddisfazione, tra il cliente e l’aziende mandante.<br>Consci della strada percorsa, siamo certi di poter affrontare le sfide che ci sottoporrà il futuro, sapendoci adattare alle richieste e alle innovazioni del mercato.",
-          "image": "/gallery/gallery1.png"
+          "image": "/dualSection/gallery3.jpg"
         }
     },
     {
