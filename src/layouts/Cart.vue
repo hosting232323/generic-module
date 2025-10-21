@@ -117,7 +117,7 @@ const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
 
   http.postRequest('stripe-session', {
-    user_id: store.userId,
+    project_name: store.projectName,
     products: products.value
   }, function(data) {
     if (data.checkout_url)
