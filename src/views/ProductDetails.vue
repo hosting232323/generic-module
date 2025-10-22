@@ -16,7 +16,7 @@
 
       <v-col cols="12" md="6">
         <v-card>
-          <v-card-title class="text-h5">{{ product.name }}</v-card-title>
+          <v-card-title class="text-h5">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle>
             {{ getText(store.content.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
           </v-card-subtitle>
@@ -25,12 +25,12 @@
           <v-card-text>
             <div class="mb-3">
               <strong>{{ getText(store.content.description) || 'Descrizione' }}:</strong>
-              <p v-html="product.description" />
+              <p v-html="getText(product.description)" />
             </div>
 
             <div class="mb-3">
               <strong>{{ getText(store.content.category) || 'Categoria' }}:</strong>
-              {{ product.product_type || 'Non specificata' }}
+              {{ getText(product.product_type) || 'Non specificata' }}
             </div>
           </v-card-text>
 

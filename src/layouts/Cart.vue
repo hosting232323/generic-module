@@ -33,7 +33,7 @@
                   <v-img :src="getImageForProduct(product.product)" alt="product image" width="40" class="mr-3" />
                   
                   <div style="flex-grow: 1;">
-                    <p style="font-size: 16px; font-weight: bold;">{{ getProductName(product.product) }}</p>
+                    <p style="font-size: 16px; font-weight: bold;">{{ getText(getProductName(product.product)) }}</p>
                     <div style="display: flex; align-items: center;">
                       <p class="text-caption">{{ getText(store.content.amount) || 'Quantità' }}:</p>
                       <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
