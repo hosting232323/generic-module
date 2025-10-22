@@ -12,6 +12,9 @@ export const useLanguageStore = defineStore('language', {
       if (typeof text === 'string') return text
       if (typeof text === 'object') return text[this.locale]
       return ''
+    },
+    getLocale() {
+      return this.locale;
     }
   },
   persist: {
