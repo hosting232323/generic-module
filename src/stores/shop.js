@@ -12,7 +12,7 @@ export const useShopStore = defineStore('shop', {
         if (storeData.projectName)
           this.initDataByProject(storeData.projectName, func);
         else
-          this.initDataFromJson(storeData, func);
+          this.initDataFromJson(storeData.products, func);
       } else
         console.error('No store data found');
     },
