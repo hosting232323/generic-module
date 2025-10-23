@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row v-if="!selectedCategory">
-      <v-col v-for="(cat, index) in data.menu" :key="cat.name" cols="12" md="4">
+      <v-col v-for="(cat, index) in data.menu.products" :key="cat.name" cols="12" md="4">
         <v-card
           class="category-card"
           height="200"
@@ -21,7 +21,7 @@
 
     <div v-else>
       <v-btn class="mb-4" @click="selectedCategory = null" :style="{ color: data.info.primaryColor }">
-        ← Torna alle categorie
+        ← {{ getText(data.menu.content.backCategories) }}
       </v-btn>
       <v-card
         class="category-card mb-6"

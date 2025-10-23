@@ -9,7 +9,7 @@
           <v-col cols="12" md="4" v-for="product in group" :key="product.id">
             <v-card class="mb-5">
               <v-img height="400" :src="getImageForProduct(product)" cover />
-              <v-card-title class="text-h6">{{ product.name }}</v-card-title>
+              <v-card-title class="text-h6">{{ getText(product.name) }}</v-card-title>
               <v-card-text>
                 <div>
                   {{ getText(store.content.price) || 'Prezzo' }}
@@ -37,7 +37,7 @@
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
@@ -50,7 +50,7 @@ const dataStore = useDataStore();
 const shopStore = useShopStore();
 const orderStore = useOrderStore();
 const popupStore = usePopupStore();
-const { getText } = useLanguageStore();
+const { getText, getLocale } = useLanguageStore();
 
 const { data } = storeToRefs(dataStore);
 const { products, ready } = storeToRefs(shopStore);
@@ -75,14 +75,14 @@ const addToCart = (productId) => {
 
 const groupProductsByCategory = () => {
   const grouped = products.value.reduce((acc, product) => {
-    const category = product.product_type || 'Non specificata';
+    const category = getText(product.product_type) || 'Non specificata';
     if (!acc[category]) acc[category] = [];
     acc[category].push(product);
     return acc;
   }, {});
 
   Object.keys(grouped).forEach((category) => {
-    grouped[category].sort((a, b) => a.name.localeCompare(b.name));
+    grouped[category].sort((a, b) => getText(a.name).localeCompare(getText(b.name)));
   });
 
   groupedProducts.value = grouped;
@@ -94,4 +94,8 @@ else
   shopStore.initData(data.value.store, function () {
     groupProductsByCategory();
   });
+
+watch([getLocale, products], () => {
+  if (ready.value) groupProductsByCategory();
+}, { immediate: true });
 </script>
