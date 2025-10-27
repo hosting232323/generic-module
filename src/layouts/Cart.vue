@@ -12,13 +12,13 @@
       </v-btn>
       <v-btn v-bind="props" v-if="!isMobile">
         <v-icon icon="mdi-cart-outline" start></v-icon>
-        <p>{{ getText(store.content.name) || 'Carrello' }} ({{ totalItems }})</p>
+        <p>{{ getText(store.content?.name) || 'Carrello' }} ({{ totalItems }})</p>
       </v-btn>
     </template>
 
     <v-card class="mt-4" style="width: 400px; background-color: #f5f5f5;">
       <v-card-title>
-        <span class="font-weight-bold">{{ isCheckout ? (getText(store.content.shippingAddress) || 'Indirizzo di Spedizione') : (getText(store.content.orderSummary) || 'Riepilogo Ordini') }}</span>
+        <span class="font-weight-bold">{{ isCheckout ? (getText(store.content?.shippingAddress) || 'Indirizzo di Spedizione') : (getText(store.content?.orderSummary) || 'Riepilogo Ordini') }}</span>
       </v-card-title>
 
       <v-card-text>
@@ -35,7 +35,7 @@
                   <div style="flex-grow: 1;">
                     <p style="font-size: 16px; font-weight: bold;">{{ getText(getProductName(product.product)) }}</p>
                     <div style="display: flex; align-items: center;">
-                      <p class="text-caption">{{ getText(store.content.amount) || 'Quantità' }}:</p>
+                      <p class="text-caption">{{ getText(store.content?.amount) || 'Quantità' }}:</p>
                       <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
                       {{ product.quantity }}
                       <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
@@ -51,15 +51,15 @@
       </v-card-text>
 
       <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;" v-if="!isCheckout">
-        {{ getText(store.content.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
+        {{ getText(store.content?.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
       </v-card-subtitle>
 
       <v-card-actions>
         <v-btn @click="isCheckout ? placeOrder() : proceedToCheckout()" color="primary">
-          {{ isCheckout ? (getText(store.content.sendOrder) || 'Invia Ordine') : (getText(store.content.proceedCheckout) || 'Procedi al Checkout') }}
+          {{ isCheckout ? (getText(store.content?.sendOrder) || 'Invia Ordine') : (getText(store.content?.proceedCheckout) || 'Procedi al Checkout') }}
         </v-btn>
         <v-btn @click="isCheckout ? cancelCheckout() : clearCart()" color="error">
-          {{ isCheckout ? (getText(store.content.goBack) || 'Torna Indietro') : (getText(store.content.emptyCart) || 'Svuota Carrello') }}
+          {{ isCheckout ? (getText(store.content?.goBack) || 'Torna Indietro') : (getText(store.content?.emptyCart) || 'Svuota Carrello') }}
         </v-btn>
       </v-card-actions>
     </v-card>
