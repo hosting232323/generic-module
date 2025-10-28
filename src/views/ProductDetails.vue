@@ -18,18 +18,18 @@
         <v-card>
           <v-card-title class="text-h5">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle>
-            {{ getText(store.content.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
+            {{ getText(store.content?.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
           </v-card-subtitle>
           <v-divider></v-divider>
 
           <v-card-text>
             <div class="mb-3">
-              <strong>{{ getText(store.content.description) || 'Descrizione' }}:</strong>
+              <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
               <p v-html="getText(product.description)" />
             </div>
 
             <div class="mb-3">
-              <strong>{{ getText(store.content.category) || 'Categoria' }}:</strong>
+              <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
               {{ getText(product.product_type) || 'Non specificata' }}
             </div>
           </v-card-text>
@@ -37,12 +37,12 @@
           <v-card-actions>
             <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
-              {{ getText(store.content.addToCart) || 'Aggiungi al carrello' }}
+              {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>
             <v-divider />
             <v-btn :color="info.primaryColor" @click="router.back()">
               <v-icon icon="mdi-arrow-left" start></v-icon>
-              {{ getText(store.content.goBack) || 'Torna indietro' }}
+              {{ getText(store.content?.goBack) || 'Torna indietro' }}
             </v-btn>
           </v-card-actions>
         </v-card>
