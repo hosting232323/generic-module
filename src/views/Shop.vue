@@ -11,9 +11,13 @@
               <v-img height="400" :src="getImageForProduct(product)" cover />
               <v-card-title class="text-h6">{{ getText(product.name) }}</v-card-title>
               <v-card-text>
-                <div>
-                  {{ getText(store.content?.price) || 'Prezzo' }}
-                  {{ product.price ? ((parseFloat(product.price) / 100).toFixed(2) + ' €') : 'Non disponibile' }}
+                <div class="d-flex">
+                  {{ getText(store.content?.price) || 'Prezzo' }}:
+                  <p v-html="getPrice(product)" style="margin-left: 5px;"></p>
+                </div>
+                <div class="d-flex">
+                  {{ getText(store.content?.quantity) || 'Quantità' }}:
+                  <p v-html="getQuantity(product)" style="margin-left: 5px;"></p>
                 </div>
               </v-card-text>
               <v-card-actions>
@@ -87,6 +91,24 @@ const groupProductsByCategory = () => {
 
   groupedProducts.value = grouped;
 };
+
+const getPrice = (product) => {
+  if(product.discount) {
+    return `${parseFloat((product.discount) / 100).toFixed(2)}€ - <s style='color: red;'>${parseFloat((product.price) / 100).toFixed(2)}€</s>`;
+  } else if (product.price) {
+    return parseFloat((product.price) / 100).toFixed(2) + ' €';
+  } else {
+    return 'Non disponibile';
+  }
+}
+
+const getQuantity = (product) => {
+  if(product.quantity) {
+    return product.quantity;
+  } else {
+    return 'Non specificata';
+  }
+}
 
 if (ready.value)
   groupProductsByCategory();
