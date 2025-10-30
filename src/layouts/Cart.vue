@@ -27,7 +27,7 @@
         </template>
         <template v-else>
           <v-list>
-            <v-list-item v-for="product in orderStore.products" class="py-4">
+            <v-list-item v-for="product in validCartProducts" class="py-4">
               <v-row align="center" style="width: 100%;">
                 <v-col class="d-flex align-center">
                   <v-img :src="getImageForProduct(product.product)" alt="product image" width="40" class="mr-3" />
@@ -95,11 +95,11 @@ const { products } = storeToRefs(shopStore);
 const store = data.value.store;
 
 const totalItems = computed(() => {
-  return orderStore.products.reduce((total, product) => total + product.quantity, 0);
+  return validCartProducts.value.reduce((total, product) => total + product.quantity, 0);
 });
 
 const totalPrice = computed(() => {
-  return orderStore.products.reduce((total, product) => {
+  return validCartProducts.value.reduce((total, product) => {
     const price = getProductPrice(product.product); 
     return total + (price * product.quantity); 
   }, 0).toFixed(2) + ' €'; 
@@ -142,7 +142,9 @@ const clearCart = () => {
 
 const productNames = ref({});
 const getProductName = (productId) => {
-  productNames.value[productId] = products.value.find(product => product.id == productId).name;
+  const product = products.value.find(p => p.id === productId);
+  if (!product) return 'Prodotto non disponibile';
+  productNames.value[productId] = product.name;
 
   if (productNames.value[productId]) {
     const name = productNames.value[productId];
@@ -157,7 +159,9 @@ const getProductName = (productId) => {
 
 const productPrices = ref({});
 const getProductPrice = (productId) => {
-  const price = products.value.find(product => product.id == productId).price
+  const product = products.value.find(p => p.id === productId);
+  if (!product) return 'Prodotto non disponibile';
+  const price = product.price
   productPrices.value[productId] = parseFloat(price) / 100;
 
   if (productPrices.value[productId])
@@ -177,6 +181,12 @@ const getImageForProduct = (productId) => {
   const product = products.value.find(product => product.id == productId);
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
+
+const validCartProducts = computed(() => {
+  return orderStore.products.filter(cartItem => 
+    products.value.some(product => product.id === cartItem.product)
+  );
+});
 </script>
 
 <style scoped>
