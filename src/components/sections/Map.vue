@@ -2,14 +2,14 @@
   <v-container>
     <v-card elevation="20">
       <v-container>
-        <h3 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Puoi venirci a conoscere qui'"/>
+        <h3 :style="{ color: info.primaryColor }" v-html="getText(info.title) || 'Puoi venirci a conoscere qui'"/>
         <div ref="mapContainer" style="width: 100%; height: 400px;" />
         <div ref="popupContainer" class="ol-popup">
           <v-icon icon="mdi-window-close" class="popup-close-btn" @click="closePopup"/>
           <div ref="popupContent" class="d-flex flex-column align-start" >
             <v-img :src="info.logo" width="80" height="auto" object-fit style="margin-bottom: 10px;"/>
             <p style="font-size: 14px; font-weight: bold;" class="mb-1">{{ info.name }}</p>
-            <p style="font-size: 13px;" class="mb-1">{{ content.address }}</p>
+            <p style="font-size: 13px;" class="mb-1">{{ getText(content.address) }}</p>
             <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.primaryColor }">
               <v-icon icon="mdi-directions" :color="info.primaryColor" style="font-size: 16px;" class="mr-1"/>
               Navigazione
@@ -47,13 +47,15 @@ let popupContent = ref(null);
 let map;
 let overlay;
 
-const link = `https://www.google.com/maps/search/?api=1&query=${content.coordinates[1]},${content.coordinates[0]}`
+const link = `https://www.google.com/maps/search/?api=1&query=${content.coordinates.lat},${content.coordinates.lng}`
+
+const coordinatesArray = [content.coordinates.lng, content.coordinates.lat];
 
 onMounted(async () => {
   await nextTick();
 
   const iconFeature = new Feature({
-    geometry: new Point(fromLonLat(content.coordinates))
+    geometry: new Point(fromLonLat(coordinatesArray))
   });
 
   const iconStyle = new Style({
@@ -84,8 +86,8 @@ onMounted(async () => {
       vectorLayer
     ],
     view: new View({
-      center: fromLonLat(content.coordinates),
-      zoom: content.zoom
+      center: fromLonLat(coordinatesArray),
+      zoom: content.zoom || 15
     })
   });
 

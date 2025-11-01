@@ -19,28 +19,21 @@ export const useEventsStore = defineStore('events', {
 
         switch (event.type) {
           case 'Single':
-            // Per eventi Single, info è un oggetto non un array
             return event.info.start_date === date;
           
           case 'Weekly':
-            // Verifica se almeno una delle info ha il giorno corrispondente
-            // e se la data è nel range di validità
             return event.info.some(info => {
               if (info.start_day !== targetDay) return false;
               
-              // Verifica il range di date
               const isAfterStart = !info.start_date || date >= info.start_date;
               const isBeforeEnd = !info.end_date || date <= info.end_date;
               return isAfterStart && isBeforeEnd;
             });
           
           case 'Monthly':
-            // Verifica se almeno una delle info ha il giorno del mese corrispondente
-            // e se la data è nel range di validità
             return event.info.some(info => {
               if (parseInt(info.start_day) !== targetDayOfMonth) return false;
               
-              // Verifica il range di date
               const isAfterStart = !info.start_date || date >= info.start_date;
               const isBeforeEnd = !info.end_date || date <= info.end_date;
               return isAfterStart && isBeforeEnd;
@@ -72,7 +65,6 @@ export const useEventsStore = defineStore('events', {
     },
 
     async createEvent(eventData) {
-      // Simula una chiamata API
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const event = {
@@ -84,14 +76,12 @@ export const useEventsStore = defineStore('events', {
         enrichment: eventData.enrichment || {},
         info: [
           {
-            // Campi comuni opzionali
             start_time: eventData.info.start_time,
             end_time: eventData.info.end_time,
           }
         ]
       };
 
-      // Aggiungi campi specifici in base al tipo
       if (event.type === 'Single') {
         event.info[0].start_date = eventData.info.start_date;
         event.info[0].end_date = eventData.info.end_date;
@@ -108,7 +98,6 @@ export const useEventsStore = defineStore('events', {
     },
 
     async updateEvent(id, eventData) {
-      // Simula una chiamata API
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const index = this.events.findIndex(event => event.id === id);
@@ -128,7 +117,6 @@ export const useEventsStore = defineStore('events', {
           ]
         };
 
-        // Aggiorna campi specifici in base al tipo
         if (updatedEvent.type === 'Single') {
           updatedEvent.info[0].start_date = eventData.info.start_date;
           updatedEvent.info[0].end_date = eventData.info.end_date;
@@ -147,7 +135,6 @@ export const useEventsStore = defineStore('events', {
     },
 
     async deleteEvent(id) {
-      // Simula una chiamata API
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const index = this.events.findIndex(event => event.id === id);
@@ -195,7 +182,6 @@ export const useEventsStore = defineStore('events', {
     },
 
     async cancelBooking(eventId) {
-      // Simula una chiamata API
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const index = this.bookings.findIndex(booking => booking.event_id === eventId);

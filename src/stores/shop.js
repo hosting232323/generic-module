@@ -19,10 +19,10 @@ export const useShopStore = defineStore('shop', {
     initDataByProject(data, func) {
       http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data, func));
     },
-    initDataFromJson(products, func) {
-      this.products = products;
+    initDataFromJson(storeData, func) {
+      this.products = storeData.products || storeData;
       this.ready = true;
-      func();
+      if (func) func();
     }
   }
 });

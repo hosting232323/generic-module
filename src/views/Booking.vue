@@ -95,7 +95,6 @@ const days = computed(() => {
 
   let days = [];
 
-  // Riempie le celle vuote prima del primo giorno del mese (giorni del mese precedente)
   for (let i = 0; i < startDay; i++) {
     const prevMonthDate = new Date(year, month, -(startDay - i) + 1);
     const events = getEventsForDate(prevMonthDate);
@@ -107,7 +106,6 @@ const days = computed(() => {
     });
   }
 
-  // Aggiungi i giorni del mese corrente
   for (let i = 1; i <= daysInMonth; i++) {
     const date = new Date(year, month, i);
     const events = getEventsForDate(date);
@@ -119,7 +117,6 @@ const days = computed(() => {
     });
   }
 
-  // Riempie la riga finale con i giorni del mese successivo
   const totalDays = days.length + (7 - (days.length % 7));
   for (let i = 1; days.length < totalDays; i++) {
     const nextMonthDate = new Date(year, month + 1, i);
@@ -136,7 +133,6 @@ const days = computed(() => {
 
 
 function getEventsForDate(date) {
-  // Assicuriamoci di usare la data locale, non UTC
   const localDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
   const dateStr = localDate.toISOString().split('T')[0];
   const dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
@@ -148,7 +144,6 @@ function getEventsForDate(date) {
     if (!event.type || !event.name) return false;
     if (dateStr < todayStr) return false;
 
-    // Verifica se la data corrente è all'interno del range di date dell'evento
     const isWithinDateRange = (info) => {
       if (!info.start_date || !info.end_date) return true;
       return dateStr >= info.start_date && dateStr <= info.end_date;
@@ -175,7 +170,6 @@ function getEventsForDate(date) {
     }
   });
 
-  // Raggruppa gli eventi per nome
   const eventsByName = new Map();
 
   filteredEvents.forEach(event => {

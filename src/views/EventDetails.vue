@@ -180,7 +180,6 @@ const event = computed(() => {
 });
 const selectedSlot = ref(null);
 
-// Imposta lo slot selezionato se presente nei parametri URL
 onMounted(() => {
   const slotIndex = route.query.slotIndex;
   if (slotIndex !== undefined && event.value?.info) {
@@ -277,7 +276,7 @@ const formatFullDate = (dayOfWeek, date) => {
 
 const formatTime = (time) => {
   if (!time) return '';
-  return time.substring(0, 5); // Prende solo HH:mm
+  return time.substring(0, 5);
 };
 
 const showPrivacyError = ref(false);

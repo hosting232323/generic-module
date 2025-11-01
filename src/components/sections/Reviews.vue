@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <h1 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Ciò che dicono di noi'" />
+    <h1 :style="{ color: info.primaryColor }" v-html="getText(info.title) || 'Ciò che dicono di noi'" />
       <CarouselWrapper
-        :items="content.reviews"
+        :items="content"
         :primaryColor="info.primaryColor"
-        :itemKey="(item, index) => item.name + '-' + index"
+        :itemKey="(item, index) => getText(item.name) + '-' + index"
       >
         <template #default="{ item }">
           <div class="review pa-4">
@@ -12,28 +12,28 @@
               <v-avatar size="35" class="mr-3">
                 <canvas
                   :ref="el => {
-                    if (el) generateProfileImage(el, item.name)
+                    if (el) generateProfileImage(el, getText(item.name))
                   }"
-                  :data-name="item.name"
+                  :data-name="getText(item.name)"
                   width="40"
                   height="40"
                 ></canvas>
               </v-avatar>
               <p class="d-flex align-center justify-center">
-                {{ item.name }}
+                {{ getText(item.name) }}
                 <span class="ml-2 d-flex align-center justify-center">
                   <v-icon
                     v-for="i in 5"
                     :key="i"
                     size="18"
-                    :color="i <= item.stars ? info.primaryColor : 'grey'"
+                    :color="i <= item.rating ? info.primaryColor : 'grey'"
                   >
                     mdi-star
                   </v-icon>
                 </span>
               </p>
             </div>
-            <p>{{ item.description }}</p>
+            <p>{{ getText(item.text) }}</p>
             <div
               class="dotted-line-big"
               :style="{ backgroundImage: `radial-gradient(${info.primaryColor} 1px, transparent 2px)` }"

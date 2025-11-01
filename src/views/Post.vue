@@ -94,8 +94,17 @@ const shareUrl = (platform) => {
 };
 
 const displayPost = () => {
+  if (!Array.isArray(posts.value) || posts.value.length === 0) {
+    return;
+  }
+  
   post.value = posts.value.find(post => post.id == route.params.id);
-  renderedContent.value = marked(post.value.content);
+  
+  if (!post.value) {
+    return;
+  }
+  
+  renderedContent.value = marked(post.value.content || '');
 
   breadcrumbs.value = [
     { title: 'Home', disabled: false, href: '/' },

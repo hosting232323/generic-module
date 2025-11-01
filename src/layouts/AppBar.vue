@@ -1,6 +1,6 @@
 <template class="app-bar">
   <transition name="slide">
-    <div v-if="drawer" class="mobile-drawer" :style="{ backgroundColor: info.primaryColor }">
+    <div v-if="drawer" class="mobile-drawer" :style="{ background: `linear-gradient(135deg, ${info.primaryColor} 0%, ${adjustColor(info.primaryColor, 20)} 100%)` }">
       <div class="drawer-items">
         <p
           v-for="item in items"
@@ -14,7 +14,7 @@
     </div>
   </transition>
 
-  <v-app-bar :elevation="2" class="navbar-mobile" :color="info.primaryColor" v-if="isMobile">
+  <v-app-bar :elevation="2" class="navbar-mobile gradient-bg" v-if="isMobile" :style="{ background: `linear-gradient(135deg, ${info.primaryColor} 0%, ${adjustColor(info.primaryColor, 20)} 100%)` }">
     <div class="hamburger" :class="{ 'hamb-active': drawer }"  @click="drawer = !drawer">
       <div class="bar"></div>
     </div>
@@ -28,7 +28,7 @@
     <Language v-if="multilingualActive" />
   </v-app-bar>
 
-  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
+  <v-app-bar :elevation="2" class="gradient-bg" v-if="!isMobile" :style="{ background: `linear-gradient(135deg, ${info.primaryColor} 0%, ${adjustColor(info.primaryColor, 20)} 100%)` }">
     <v-app-bar-title>
       <div class="d-flex align-center" @click="goHome">
         <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo cursor-pointer">
@@ -71,6 +71,18 @@ const { data, demoId } = storeToRefs(dataStore);
 const info = data.value.info;
 const content = data.value.components;
 const addOn = data.value.addOn;
+
+const adjustColor = (color, percent) => {
+  const num = parseInt(color.replace('#', ''), 16);
+  const amt = Math.round(2.55 * percent);
+  const R = (num >> 16) + amt;
+  const G = (num >> 8 & 0x00FF) + amt;
+  const B = (num & 0x0000FF) + amt;
+  return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+    (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+    (B < 255 ? B < 1 ? 0 : B : 255))
+    .toString(16).slice(1);
+};
 
 const cartActive = addOn && addOn.includes('Shop');
 const multilingualActive = addOn && addOn.includes('Multilingual') && info.locales.length > 1;

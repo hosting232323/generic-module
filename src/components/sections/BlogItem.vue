@@ -82,8 +82,8 @@ const formatTopics = (topics = []) => {
 const calculateReadingTime = (content, wordsPerMinute = 200) => {
   if (!content) return "0 min"; 
 
-  const wordCount = content.trim().split(/\s+/).length; // Conta le parole
-  const minutes = Math.ceil(wordCount / wordsPerMinute); // Arrotonda per eccesso
+  const wordCount = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
 
   return `${minutes} min di lettura`;
 };
@@ -131,6 +131,7 @@ const postLink = computed(() => {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   max-height: 4.5em;
   line-height: 1.5em;
 }
@@ -142,7 +143,6 @@ const postLink = computed(() => {
   text-transform: uppercase;
 }
 
-/* Responsività */
 @media (max-width: 960px) {
   .text-container {
     left: 50%;

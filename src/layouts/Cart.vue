@@ -12,13 +12,13 @@
       </v-btn>
       <v-btn v-bind="props" v-if="!isMobile">
         <v-icon icon="mdi-cart-outline" start></v-icon>
-        <p>{{ getText(store.content.name) || 'Carrello' }} ({{ totalItems }})</p>
+        <p>{{ getText(store?.content?.name) || 'Carrello' }} ({{ totalItems }})</p>
       </v-btn>
     </template>
 
     <v-card class="mt-4" style="width: 400px; background-color: #f5f5f5;">
       <v-card-title>
-        <span class="font-weight-bold">{{ isCheckout ? (getText(store.content.shippingAddress) || 'Indirizzo di Spedizione') : (getText(store.content.orderSummary) || 'Riepilogo Ordini') }}</span>
+        <span class="font-weight-bold">{{ isCheckout ? (getText(store?.content?.shippingAddress) || 'Indirizzo di Spedizione') : (getText(store?.content?.orderSummary) || 'Riepilogo Ordini') }}</span>
       </v-card-title>
 
       <v-card-text>
@@ -35,7 +35,7 @@
                   <div style="flex-grow: 1;">
                     <p style="font-size: 16px; font-weight: bold;">{{ getProductName(product.product) }}</p>
                     <div style="display: flex; align-items: center;">
-                      <p class="text-caption">{{ getText(store.content.amount) || 'Quantità' }}:</p>
+                      <p class="text-caption">{{ getText(store?.content?.amount) || 'Quantità' }}:</p>
                       <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
                       {{ product.quantity }}
                       <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
@@ -51,15 +51,15 @@
       </v-card-text>
 
       <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;" v-if="!isCheckout">
-        {{ getText(store.content.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
+        {{ getText(store?.content?.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
       </v-card-subtitle>
 
       <v-card-actions>
         <v-btn @click="isCheckout ? placeOrder() : proceedToCheckout()" color="primary">
-          {{ isCheckout ? (getText(store.content.sendOrder) || 'Invia Ordine') : (getText(store.content.proceedCheckout) || 'Procedi al Checkout') }}
+          {{ isCheckout ? (getText(store?.content?.sendOrder) || 'Invia Ordine') : (getText(store?.content?.proceedCheckout) || 'Procedi al Checkout') }}
         </v-btn>
         <v-btn @click="isCheckout ? cancelCheckout() : clearCart()" color="error">
-          {{ isCheckout ? (getText(store.content.goBack) || 'Torna Indietro') : (getText(store.content.emptyCart) || 'Svuota Carrello') }}
+          {{ isCheckout ? (getText(store?.content?.goBack) || 'Torna Indietro') : (getText(store?.content?.emptyCart) || 'Svuota Carrello') }}
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -106,7 +106,7 @@ const totalPrice = computed(() => {
 });
 
 const proceedToCheckout = async () => {
-  if (!store.addressMode) {
+  if (!store?.addressMode) {
     await placeOrder();
   } else {
     isCheckout.value = true;
@@ -117,7 +117,7 @@ const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
 
   http.postRequest('stripe-session', {
-    user_id: store.userId,
+    user_id: store?.userId,
     products: products.value
   }, function(data) {
     if (data.checkout_url)
@@ -142,7 +142,14 @@ const clearCart = () => {
 
 const productNames = ref({});
 const getProductName = (productId) => {
-  productNames.value[productId] = products.value.find(product => product.id == productId).name;
+  if (!Array.isArray(products.value) || products.value.length === 0) {
+    return 'Caricamento...';
+  }
+  
+  const product = products.value.find(product => product.id == productId);
+  if (!product) return 'Prodotto non trovato';
+  
+  productNames.value[productId] = product.name;
 
   if (productNames.value[productId]) {
     const name = productNames.value[productId];
@@ -157,7 +164,14 @@ const getProductName = (productId) => {
 
 const productPrices = ref({});
 const getProductPrice = (productId) => {
-  const price = products.value.find(product => product.id == productId).price
+  if (!Array.isArray(products.value) || products.value.length === 0) {
+    return 0;
+  }
+  
+  const product = products.value.find(product => product.id == productId);
+  if (!product) return 0;
+  
+  const price = product.price;
   productPrices.value[productId] = parseFloat(price) / 100;
 
   if (productPrices.value[productId])
@@ -174,6 +188,10 @@ const decreaseQuantity = (product) => {
 };
 
 const getImageForProduct = (productId) => {
+  if (!Array.isArray(products.value) || products.value.length === 0) {
+    return 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
+  }
+  
   const product = products.value.find(product => product.id == productId);
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };

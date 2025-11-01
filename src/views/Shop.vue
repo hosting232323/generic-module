@@ -57,6 +57,73 @@ const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 const store = data.value.store;
 
+const exampleProducts = [
+  {
+    id: 1,
+    name: 'Pizza Margherita',
+    description: 'Pomodoro, mozzarella e basilico fresco',
+    price: 700,
+    image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400',
+    product_type: 'Pizze'
+  },
+  {
+    id: 2,
+    name: 'Pizza Diavola',
+    description: 'Mozzarella, salame piccante e pomodoro',
+    price: 850,
+    image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400',
+    product_type: 'Pizze'
+  },
+  {
+    id: 3,
+    name: 'Pizza Quattro Formaggi',
+    description: 'Mozzarella, gorgonzola, parmigiano e fontina',
+    price: 900,
+    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400',
+    product_type: 'Pizze'
+  },
+  {
+    id: 4,
+    name: 'Tiramisù',
+    description: 'Classico dolce al cucchiaio con caffè',
+    price: 600,
+    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400',
+    product_type: 'Dolci'
+  },
+  {
+    id: 5,
+    name: 'Panna Cotta',
+    description: 'Dolce a base di panna con frutti di bosco',
+    price: 500,
+    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400',
+    product_type: 'Dolci'
+  },
+  {
+    id: 6,
+    name: 'Birra Artigianale IPA',
+    description: 'India Pale Ale luppolata e agrumata, 6.5%',
+    price: 600,
+    image: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=400',
+    product_type: 'Bevande'
+  },
+  {
+    id: 7,
+    name: 'Coca Cola',
+    description: 'Lattina da 33cl',
+    price: 250,
+    image: 'https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400',
+    product_type: 'Bevande'
+  },
+  {
+    id: 8,
+    name: 'Acqua Naturale',
+    description: 'Bottiglia da 50cl',
+    price: 150,
+    image: 'https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400',
+    product_type: 'Bevande'
+  }
+];
+
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
@@ -74,7 +141,9 @@ const addToCart = (productId) => {
 };
 
 const groupProductsByCategory = () => {
-  const grouped = products.value.reduce((acc, product) => {
+  const productsToUse = (products.value && products.value.length > 0) ? products.value : exampleProducts;
+  
+  const grouped = productsToUse.reduce((acc, product) => {
     const category = product.product_type || 'Non specificata';
     if (!acc[category]) acc[category] = [];
     acc[category].push(product);

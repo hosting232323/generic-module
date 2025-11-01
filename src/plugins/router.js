@@ -64,12 +64,16 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, savedPosition) {
-    if (to.hash)
-      return {
-        behavior: 'smooth',
-        top: document.getElementById(to.hash.replace('#','')).getBoundingClientRect().top +
-          window.scrollY - window.innerHeight * 0.2
-      };
+    if (to.hash) {
+      const element = document.getElementById(to.hash.replace('#',''));
+      if (element) {
+        return {
+          behavior: 'smooth',
+          top: element.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.2
+        };
+      }
+      return { left: 0, top: 0 };
+    }
     else if (savedPosition) return savedPosition;
     else return { left: 0, top: 0 };
   }
