@@ -39,6 +39,10 @@
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>
+            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="fastCheckout">
+              <v-icon icon="mdi-credit-card-outline" class="ml-1" start></v-icon>
+              {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
+            </v-btn>
             <v-divider />
             <v-btn :color="info.primaryColor" @click="router.back()">
               <v-icon icon="mdi-arrow-left" start></v-icon>
@@ -55,12 +59,30 @@
       </v-col>
     </v-row>
     <Popup />
+    <v-dialog v-model="isCheckout" max-width="600px">
+      <v-card>
+        <v-card-title class="text-h6">
+          {{ getText(store.content?.addressTitle) || 'Inserisci indirizzo di spedizione' }}
+        </v-card-title>
+
+        <v-card-text>
+          <Address @update:valid="isFormValid = $event" />
+        </v-card-text>
+
+        <v-card-actions>
+          <v-btn @click="placeOrder" :disabled="!isFormValid">{{ getText(store.content?.buy) || 'Acquista' }}</v-btn>
+          <v-btn @click="isCheckout = false">{{ getText(store.content?.close) || 'Chiudi' }}</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
 <script setup>
+import http from '@/utils/http';
 import Loading from '@/layouts/Loading.vue';
 import Popup from '@/components/sections/Popup.vue';
+import Address from '@/layouts/Address';
 
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -74,6 +96,7 @@ import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
 const product = ref(null);
+const isCheckout = ref(null);
 const router = useRouter();
 const shopStore = useShopStore();
 const dataStore = useDataStore();
@@ -85,6 +108,7 @@ const { products, ready } = storeToRefs(shopStore);
 const { getText } = useLanguageStore();
 const info = data.value.info;
 const store = data.value.store;
+const isFormValid = ref(false);
 
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
@@ -93,7 +117,7 @@ const getImageForProduct = (product) => {
 const addToCart = () => {
   try {
     orderStore.addProduct({
-      product: route.params.id,
+      product: Number(route.params.id),
       quantity: 1
     });
     popupStore.setPopup('Aggiunto al carrello!', "success");
@@ -101,6 +125,31 @@ const addToCart = () => {
     popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
   }
 };
+
+const fastCheckout = async () => {
+  if (!store.addressMode) {
+    await placeOrder();
+  } else {
+    isCheckout.value = true;
+  }
+};
+
+const placeOrder = async () => {
+  const productItem = {
+    product: route.params.id,
+    quantity: 1
+  };
+
+  http.postRequest('payment/stripe-session', {
+    project_name: store.projectName,
+    products: [productItem]
+  }, function(data) {
+    if (data.checkout_url)
+      window.location.href = data.checkout_url;
+    else if (data.status === 'ko')
+      popupStore.setPopup(data.message, 'error');
+  });
+}
 
 const initProductByRoute = () => {
   product.value = products.value.find(product => product.id == route.params.id);

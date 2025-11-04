@@ -28,7 +28,7 @@
     ]
   },
   "store": {
-    "projectName": "string",
+    "addressMode": 1,
     "content": {
       "name": {
         "it": "Carrello",
@@ -86,7 +86,68 @@
         "it": "Categoria",
         "gb": "Category"
       }
-    }
+    },
+     "products": [
+      {
+        "id": 1,
+        "name": "Pizza Margherita",
+        "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico fresco",
+        "price": 700,
+        "highlight": true,
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
+        "product_type": "Pizze Classiche"
+      },
+      {
+        "id": 2,
+        "name": "Pizza Diavola",
+        "description": "Mozzarella, salame piccante e pomodoro",
+        "highlight": true,
+        "price": 800,
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
+        "product_type": "Pizze Classiche"
+      },
+      {
+        "id": 3,
+        "name": "Pizza Capricciosa",
+        "description": "Mozzarella, prosciutto cotto, funghi, carciofi e olive",
+        "highlight": true,
+        "price": 900,
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
+        "product_type": "Pizze Classiche"
+      },
+      {
+        "id": 4,
+        "name": "Pizza Gourmet - La Melone",
+        "description": "Focaccina croccante, prosciutto crudo di Parma, burrata artigianale, velo di melone",
+        "price": 1500,
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
+        "product_type": "Pizze Gourmet"
+      },
+      {
+        "id": 5,
+        "name": "Bruschette Pomodoro",
+        "description": "Pane tostato con pomodorini freschi, aglio e basilico",
+        "price": 600,
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
+        "product_type": "Antipasti"
+      },
+      {
+        "id": 6,
+        "name": "Birra Artigianale IPA",
+        "description": "India Pale Ale luppolata e agrumata, 6.5%",
+        "price": 600,
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
+        "product_type": "Bevande"
+      },
+      {
+        "id": 7,
+        "name": "Acqua Naturale",
+        "description": "Bottiglia da 50cl",
+        "price": 150,
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
+        "product_type": "Bevande"
+      }
+    ]
   },
   "components": [
     {
@@ -318,67 +379,6 @@
       }
     ]
   },
-  "shop": [
-    {
-      "id": 1,
-      "name": "Pizza Margherita",
-      "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico fresco",
-      "price": 700,
-      "highlight": true,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-      "product_type": "Pizze Classiche"
-    },
-    {
-      "id": 2,
-      "name": "Pizza Diavola",
-      "description": "Mozzarella, salame piccante e pomodoro",
-      "highlight": true,
-      "price": 800,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-      "product_type": "Pizze Classiche"
-    },
-    {
-      "id": 3,
-      "name": "Pizza Capricciosa",
-      "description": "Mozzarella, prosciutto cotto, funghi, carciofi e olive",
-      "highlight": true,
-      "price": 900,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-      "product_type": "Pizze Classiche"
-    },
-    {
-      "id": 4,
-      "name": "Pizza Gourmet - La Melone",
-      "description": "Focaccina croccante, prosciutto crudo di Parma, burrata artigianale, velo di melone",
-      "price": 1500,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-      "product_type": "Pizze Gourmet"
-    },
-    {
-      "id": 5,
-      "name": "Bruschette Pomodoro",
-      "description": "Pane tostato con pomodorini freschi, aglio e basilico",
-      "price": 600,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-      "product_type": "Antipasti"
-    },
-    {
-      "id": 6,
-      "name": "Birra Artigianale IPA",
-      "description": "India Pale Ale luppolata e agrumata, 6.5%",
-      "price": 600,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-      "product_type": "Bevande"
-    },
-    {
-      "id": 7,
-      "name": "Acqua Naturale",
-      "description": "Bottiglia da 50cl",
-      "price": 150,
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-      "product_type": "Bevande"
-    }
-  ],
   "menu": [
     {
       "name": {

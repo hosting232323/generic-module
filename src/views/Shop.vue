@@ -15,9 +15,9 @@
                   {{ getText(store.content?.price) || 'Prezzo' }}:
                   <p v-html="getPrice(product)" style="margin-left: 5px;"></p>
                 </div>
-                <div class="d-flex">
+                <div v-if="product.quantity" class="d-flex">
                   {{ getText(store.content?.quantity) || 'Quantità' }}:
-                  <p v-html="getQuantity(product)" style="margin-left: 5px;"></p>
+                  <p v-html="product.quantity" style="margin-left: 5px;"></p>
                 </div>
               </v-card-text>
               <v-card-actions>
@@ -99,14 +99,6 @@ const getPrice = (product) => {
     return parseFloat((product.price) / 100).toFixed(2) + ' €';
   } else {
     return 'Non disponibile';
-  }
-}
-
-const getQuantity = (product) => {
-  if(product.quantity) {
-    return product.quantity;
-  } else {
-    return 'Non specificata';
   }
 }
 

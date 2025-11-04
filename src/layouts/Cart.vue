@@ -116,7 +116,7 @@ const proceedToCheckout = async () => {
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
 
-  http.postRequest('stripe-session', {
+  http.postRequest('payment/stripe-session', {
     project_name: store.projectName,
     products: products.value
   }, function(data) {
