@@ -14,17 +14,17 @@ import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
-import Map from '@/components/sections/MapDefault';
-import Text from '@/components/sections/TextDefault';
-import Line from '@/components/sections/LineDefault';
-import Reviews from '@/components/sections/ReviewsDefault';
-import Gallery from '@/components/sections/GalleryDefault';
-import Services from '@/components/sections/ServicesDefault';
-import Contacts from '@/components/sections/ContactsDefault';
-import BrandList from '@/components/sections/BrandListDefault';
-import ShopSummary from '@/components/sections/ShopSummaryDefault';
-import BlogSummary from '@/components/sections/BlogSummaryDefault';
-import DualSection from '@/components/sections/DualSectionDefault';
+import Map from '@/components/sections/Map';
+import Text from '@/components/sections/Text';
+import Line from '@/components/sections/Line';
+import Reviews from '@/components/sections/Reviews';
+import Gallery from '@/components/sections/Gallery';
+import Services from '@/components/sections/Services';
+import Contacts from '@/components/sections/Contacts';
+import BrandList from '@/components/sections/BrandList';
+import ShopSummary from '@/components/sections/ShopSummary';
+import BlogSummary from '@/components/sections/BlogSummary';
+import DualSection from '@/components/sections/DualSection';
 
 import AdvantagesDefault from '@/components/sections/Advantages/AdvantagesDefault';
 import AdvantagesBusiness from '@/components/sections/Advantages/AdvantagesBusiness';
