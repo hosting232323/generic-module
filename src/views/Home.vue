@@ -26,10 +26,10 @@ import ShopSummary from '@/components/sections/ShopSummary';
 import BlogSummary from '@/components/sections/BlogSummary';
 import DualSection from '@/components/sections/DualSection';
 
-import AdvantagesDefault from '@/components/sections/Advantages/AdvantagesDefault';
-import AdvantagesBusiness from '@/components/sections/Advantages/AdvantagesBusiness';
-import AdvantagesCreative from '@/components/sections/Advantages/AdvantagesCreative';
-import AdvantagesEcommerce from '@/components/sections/Advantages/AdvantagesEcommerce';
+import AdvantagesDefault from '@/components/sections/advantages/AdvantagesDefault';
+import AdvantagesBusiness from '@/components/sections/advantages/AdvantagesBusiness';
+import AdvantagesCreative from '@/components/sections/advantages/AdvantagesCreative';
+import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcommerce';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
