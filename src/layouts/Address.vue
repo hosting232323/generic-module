@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-form v-model="valid" lazy-validation>
     <v-row>
       <v-col cols="6">
         <v-text-field
@@ -74,7 +74,7 @@
       dense
       :rules="[value => !!value || 'Campo obbligatorio']"
     />
-  </div>
+  </v-form>
 </template>
 
 <script setup>
@@ -86,6 +86,8 @@ import { useAddressStore } from '@/stores/address';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+const emit = defineEmits(['update:valid']);
+const valid = ref(false);
 
 const store = data.value.store;
 const addressMode = store?.addressMode;
@@ -162,6 +164,10 @@ watch(() => addressStore.province, () => {
   } else if (addressMode === 2) {
     updateRegionForProvince();
   }
+});
+
+watch(valid, (val) => {
+  emit('update:valid', val);
 });
 
 onMounted(() => {
