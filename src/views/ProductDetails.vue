@@ -79,12 +79,12 @@
 </template>
 
 <script setup>
-import http from '@/utils/http';
-import Loading from '@/layouts/Loading.vue';
-import Popup from '@/components/sections/Popup.vue';
 import Address from '@/layouts/Address';
+import Loading from '@/layouts/Loading';
+import Popup from '@/components/sections/Popup';
 
 import { ref } from 'vue';
+import http from '@/utils/http';
 import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
