@@ -217,6 +217,7 @@
     },
     {
       "type": "advantages",
+      "variant": "business",
       "menu": {
         "it": "Vantaggi",
         "gb": "Advantages"

@@ -1,7 +1,7 @@
 <template>
   <component
     v-for="section in sections"
-    :is="componentMap[section.type]"
+    :is="getComponent(section.type, section.variant)"
     :id="section.type"
     :content="section.content"
     :info="info"
@@ -14,18 +14,23 @@ import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
-import Map from '@/components/sections/Map';
-import Text from '@/components/sections/Text';
-import Line from '@/components/sections/Line';
-import Reviews from '@/components/sections/Reviews';
-import Gallery from '@/components/sections/Gallery';
-import Services from '@/components/sections/Services';
-import Contacts from '@/components/sections/Contacts';
-import BrandList from '@/components/sections/BrandList';
-import Advantages from '@/components/sections/Advantages';
-import ShopSummary from '@/components/sections/ShopSummary';
-import BlogSummary from '@/components/sections/BlogSummary';
-import DualSection from '@/components/sections/DualSection';
+import Map from '@/components/sections/Map/MapDefault';
+import Text from '@/components/sections/Text/TextDefault';
+import Line from '@/components/sections/Line/LineDefault';
+import Reviews from '@/components/sections/Reviews/ReviewsDefault';
+import Gallery from '@/components/sections/Gallery/GalleryDefault';
+import Services from '@/components/sections/Services/ServicesDefault';
+import Contacts from '@/components/sections/Contacts/ContactsDefault';
+import BrandList from '@/components/sections/BrandList/BrandListDefault';
+import Advantages from '@/components/sections/Advantages/AdvantagesDefault';
+import ShopSummary from '@/components/sections/ShopSummary/ShopSummaryDefault';
+import BlogSummary from '@/components/sections/BlogSummary/BlogSummaryDefault';
+import DualSection from '@/components/sections/DualSection/DualSectionDefault';
+
+import AdvantagesDefault from '@/components/sections/Advantages/AdvantagesDefault';
+import AdvantagesBusiness from '@/components/sections/Advantages/AdvantagesBusiness';
+import AdvantagesCreative from '@/components/sections/Advantages/AdvantagesCreative';
+import AdvantagesEcommerce from '@/components/sections/Advantages/AdvantagesEcommerce';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
@@ -43,6 +48,27 @@ const componentMap = {
   shopSummary: ShopSummary,
   blogSummary: BlogSummary,
   dualSection: DualSection
+};
+
+const variantsMap = {
+  advantages: {
+    default: AdvantagesDefault,
+    business: AdvantagesBusiness,
+    creative: AdvantagesCreative,
+    ecommerce: AdvantagesEcommerce
+  }
+};
+
+const getComponent = (type, variant) => {
+  if (variant && variantsMap[type]?.[variant]) {
+    return variantsMap[type][variant];
+  }
+  
+  if (variant && variantsMap[type]?.default) {
+    return variantsMap[type].default;
+  }
+  
+  return componentMap[type];
 };
 
 const addOn = data.value.addOn;
