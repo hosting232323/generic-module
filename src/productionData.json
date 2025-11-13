@@ -195,6 +195,7 @@
   },
   "store": {
     "projectName": "carpediembisceglie.it",
+    "stripeProduct": false,
     "addressMode": 1,
     "province": "Barletta-Andria-Trani",
     "cities": [
