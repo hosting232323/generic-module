@@ -10,14 +10,17 @@ export const useShopStore = defineStore('shop', {
     initData(storeData, func) {
       if (storeData) {
         if (storeData.projectName)
-          this.initDataByProject(storeData.projectName, func);
+          this.initDataByProject(storeData, func);
         else
           this.initDataFromJson(storeData.products, func);
       } else
         console.error('No store data found');
     },
     initDataByProject(data, func) {
-      http.getRequest(`products/${data}`, {}, (res) => this.initDataFromJson(res.data, func));
+      if(data.stripeProduct)
+        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.initDataFromJson(res.data, func));
+      else
+        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res.data, func));
     },
     initDataFromJson(products, func) {
       this.products = products;
