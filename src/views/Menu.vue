@@ -21,7 +21,7 @@
 
     <div v-else>
       <v-btn class="mb-4" @click="selectedCategory = null" :style="{ color: data.info.primaryColor }">
-        ← {{ getText(data.menu.content.backCategories) }}
+        ← {{ getText(data.menu.content?.backCategories) || 'Torna Indietro' }}
       </v-btn>
       <v-card
         class="category-card mb-6"

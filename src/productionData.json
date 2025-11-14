@@ -11,7 +11,10 @@
     "secondaryColor": "#FFF2E8",
     "logo": "logo.png",
     "backgroundImage": "/restaurant-bg.jpg",
-    "locales": ["it", "gb"],
+    "locales": [
+      "it",
+      "gb"
+    ],
     "socialBubbles": [
       {
         "icon": "mdi-whatsapp",
@@ -87,7 +90,7 @@
         "gb": "Category"
       }
     },
-     "products": [
+    "products": [
       {
         "id": 1,
         "name": "Pizza Margherita",
@@ -299,7 +302,10 @@
           "gb": "You can visit us here"
         },
         "address": "Via Napoli, 15, 80100 Napoli NA, Italy",
-        "coordinates": [14.2681, 40.8518],
+        "coordinates": [
+          14.2681,
+          40.8518
+        ],
         "zoom": 15
       }
     }
@@ -379,359 +385,445 @@
       }
     ]
   },
-  "menu": [
-    {
-      "name": {
-        "it": "Antipasti",
-        "gb": "Appetizers"
+  "menu": {
+    "products": [
+      {
+        "name": {
+          "it": "Antipasti",
+          "gb": "Appetizers"
+        },
+        "icon": "mdi-food",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/antipasti.png",
+        "items": [
+          {
+            "name": {
+              "it": "Bruschette Pomodoro",
+              "gb": "Tomato Bruschetta"
+            },
+            "description": {
+              "it": "Pane tostato con pomodorini freschi, aglio e basilico",
+              "gb": "Toasted bread with fresh cherry tomatoes, garlic and basil"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
+            "price": 6,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              }
+            ]
+          },
+          {
+            "name": {
+              "it": "Tagliere di Salumi",
+              "gb": "Cured Meats Board"
+            },
+            "description": {
+              "it": "Selezione di salumi italiani, accompagnati da focaccia",
+              "gb": "Selection of Italian cured meats, served with focaccia"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/salumi.png",
+            "price": 12,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              }
+            ]
+          },
+          {
+            "name": {
+              "it": "Mozzarella in Carrozza",
+              "gb": "Fried Mozzarella Sandwich"
+            },
+            "description": {
+              "it": "Mozzarella fritta con crosta dorata di pane",
+              "gb": "Fried mozzarella with a golden bread crust"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/mozzarella.png",
+            "price": 7,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "uova",
+                "gb": "eggs"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              }
+            ]
+          },
+          {
+            "name": {
+              "it": "Frittura Mista",
+              "gb": "Mixed Fry"
+            },
+            "description": {
+              "it": "Verdure e pesce pastellati croccanti",
+              "gb": "Crispy battered vegetables and fish"
+            },
+            "price": 9,
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/frittura.png",
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "uova",
+                "gb": "eggs"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              },
+              {
+                "it": "pesce",
+                "gb": "fish"
+              }
+            ]
+          }
+        ]
       },
-      "icon": "mdi-food",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/antipasti.png",
-      "items": [
-        {
-          "name": {
-            "it": "Bruschette Pomodoro",
-            "gb": "Tomato Bruschetta"
-          },
-          "description": {
-            "it": "Pane tostato con pomodorini freschi, aglio e basilico",
-            "gb": "Toasted bread with fresh cherry tomatoes, garlic and basil"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bruschette_pomodoro.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
+      {
+        "name": {
+          "it": "Pizze classiche",
+          "gb": "Classic Pizzas"
         },
-        {
-          "name": {
-            "it": "Tagliere di Salumi",
-            "gb": "Cured Meats Board"
+        "icon": "mdi-pizza",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_classiche.jpg",
+        "items": [
+          {
+            "name": {
+              "it": "Margherita",
+              "gb": "Margherita"
+            },
+            "description": {
+              "it": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
+              "gb": "San Marzano tomato, fior di latte mozzarella, basil"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
+            "price": 7,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              }
+            ]
           },
-          "description": {
-            "it": "Selezione di salumi italiani, accompagnati da focaccia",
-            "gb": "Selection of Italian cured meats, served with focaccia"
+          {
+            "name": {
+              "it": "Marinara",
+              "gb": "Marinara"
+            },
+            "description": {
+              "it": "Pomodoro, aglio fresco, origano e olio EVO",
+              "gb": "Tomato, fresh garlic, oregano and extra virgin olive oil"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_marinara.png",
+            "price": 6,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              }
+            ]
           },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/salumi.png",
-          "price": 12,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Mozzarella in Carrozza",
-            "gb": "Fried Mozzarella Sandwich"
+          {
+            "name": {
+              "it": "Diavola",
+              "gb": "Diavola (Spicy Salami)"
+            },
+            "description": {
+              "it": "Mozzarella, salame piccante, pomodoro",
+              "gb": "Mozzarella, spicy salami, tomato"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
+            "price": 8,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              }
+            ]
           },
-          "description": {
-            "it": "Mozzarella fritta con crosta dorata di pane",
-            "gb": "Fried mozzarella with a golden bread crust"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/mozzarella.png",
-          "price": 7,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "uova", "gb": "eggs" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Frittura Mista",
-            "gb": "Mixed Fry"
-          },
-          "description": {
-            "it": "Verdure e pesce pastellati croccanti",
-            "gb": "Crispy battered vegetables and fish"
-          },
-          "price": 9,
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/frittura.png",
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "uova", "gb": "eggs" },
-            { "it": "lattosio", "gb": "lactose" },
-            { "it": "pesce", "gb": "fish" }
-          ]
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Pizze classiche",
-        "gb": "Classic Pizzas"
+          {
+            "name": {
+              "it": "Capricciosa",
+              "gb": "Capricciosa"
+            },
+            "description": {
+              "it": "Mozzarella, prosciutto, funghi, carciofi e olive",
+              "gb": "Mozzarella, ham, mushrooms, artichokes and olives"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
+            "price": 9,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              }
+            ]
+          }
+        ]
       },
-      "icon": "mdi-pizza",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_classiche.jpg",
-      "items": [
-        {
-          "name": {
-            "it": "Margherita",
-            "gb": "Margherita"
-          },
-          "description": {
-            "it": "Pomodoro San Marzano, mozzarella fior di latte, basilico",
-            "gb": "San Marzano tomato, fior di latte mozzarella, basil"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
-          "price": 7,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
+      {
+        "name": {
+          "it": "Pizze Gourmet",
+          "gb": "Gourmet Pizzas"
         },
-        {
-          "name": {
-            "it": "Marinara",
-            "gb": "Marinara"
+        "icon": "mdi-star",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_gourmet.png",
+        "items": [
+          {
+            "name": {
+              "it": "La Melone",
+              "gb": "The Melon"
+            },
+            "description": {
+              "it": "Focaccina croccante, Prosciutto crudo di Parma, Burrata artigianale in crema, Velo di melone",
+              "gb": "Crispy focaccina, Parma ham, artisan burrata cream, thin slices of melon"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
+            "price": 15,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              }
+            ]
           },
-          "description": {
-            "it": "Pomodoro, aglio fresco, origano e olio EVO",
-            "gb": "Tomato, fresh garlic, oregano and extra virgin olive oil"
+          {
+            "name": {
+              "it": "O Fiore Mio",
+              "gb": "O Fiore Mio"
+            },
+            "description": {
+              "it": "Fiori di zucca, mozzarella fior di latte e della burratina artigianale",
+              "gb": "Zucchini flowers, fior di latte mozzarella and artisan burratina"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_ofioremio.png",
+            "price": 13,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              }
+            ]
           },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_marinara.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Diavola",
-            "gb": "Diavola (Spicy Salami)"
-          },
-          "description": {
-            "it": "Mozzarella, salame piccante, pomodoro",
-            "gb": "Mozzarella, spicy salami, tomato"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_diavola.png",
-          "price": 8,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Capricciosa",
-            "gb": "Capricciosa"
-          },
-          "description": {
-            "it": "Mozzarella, prosciutto, funghi, carciofi e olive",
-            "gb": "Mozzarella, ham, mushrooms, artichokes and olives"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_capricciosa.png",
-          "price": 9,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Pizze Gourmet",
-        "gb": "Gourmet Pizzas"
+          {
+            "name": {
+              "it": "TAHINA",
+              "gb": "TAHINA"
+            },
+            "description": {
+              "it": "Mozzarella fior di latte, Babaganoush, Porchetta Trevigiana di nostra produzione, Pomodorini confit, Sesamo nero tostato",
+              "gb": "Fior di latte mozzarella, babaganoush, our homemade Treviso porchetta, confit cherry tomatoes, toasted black sesame"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_tahina.png",
+            "price": 14,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              },
+              {
+                "it": "lattosio",
+                "gb": "lactose"
+              },
+              {
+                "it": "sesamo",
+                "gb": "sesame"
+              }
+            ]
+          }
+        ]
       },
-      "icon": "mdi-star",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizze_gourmet.png",
-      "items": [
-        {
-          "name": {
-            "it": "La Melone",
-            "gb": "The Melon"
-          },
-          "description": {
-            "it": "Focaccina croccante, Prosciutto crudo di Parma, Burrata artigianale in crema, Velo di melone",
-            "gb": "Crispy focaccina, Parma ham, artisan burrata cream, thin slices of melon"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_lamelone.png",
-          "price": 15,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
+      {
+        "name": {
+          "it": "Beverage",
+          "gb": "Beverages"
         },
-        {
-          "name": {
-            "it": "O Fiore Mio",
-            "gb": "O Fiore Mio"
+        "icon": "mdi-cup-water",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bevande.png",
+        "items": [
+          {
+            "name": {
+              "it": "Acqua Naturale",
+              "gb": "Still Water"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
+            "description": {
+              "it": "Bottiglia da 50cl",
+              "gb": "50cl bottle"
+            },
+            "price": 1.5,
+            "allergens": []
           },
-          "description": {
-            "it": "Fiori di zucca, mozzarella fior di latte e della burratina artigianale",
-            "gb": "Zucchini flowers, fior di latte mozzarella and artisan burratina"
+          {
+            "name": {
+              "it": "Acqua Frizzante",
+              "gb": "Sparkling Water"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
+            "description": {
+              "it": "Bottiglia da 50cl",
+              "gb": "50cl bottle"
+            },
+            "price": 1.5,
+            "allergens": []
           },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_ofioremio.png",
-          "price": 13,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" }
-          ]
-        },
-        {
-          "name": {
-            "it": "TAHINA",
-            "gb": "TAHINA"
+          {
+            "name": {
+              "it": "Coca Cola",
+              "gb": "Coca Cola"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/cocacola.png",
+            "description": {
+              "it": "Lattina da 33cl",
+              "gb": "33cl can"
+            },
+            "price": 2.5,
+            "allergens": []
           },
-          "description": {
-            "it": "Mozzarella fior di latte, Babaganoush, Porchetta Trevigiana di nostra produzione, Pomodorini confit, Sesamo nero tostato",
-            "gb": "Fior di latte mozzarella, babaganoush, our homemade Treviso porchetta, confit cherry tomatoes, toasted black sesame"
+          {
+            "name": {
+              "it": "Fanta",
+              "gb": "Fanta"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/fanta.png",
+            "description": {
+              "it": "Lattina da 33cl",
+              "gb": "33cl can"
+            },
+            "price": 2.5,
+            "allergens": []
           },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_tahina.png",
-          "price": 14,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" },
-            { "it": "lattosio", "gb": "lactose" },
-            { "it": "sesamo", "gb": "sesame" }
-          ]
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Beverage",
-        "gb": "Beverages"
+          {
+            "name": {
+              "it": "Tè al Limone",
+              "gb": "Lemon Iced Tea"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/estathe.png",
+            "description": {
+              "it": "Bottiglietta fredda da 50cl",
+              "gb": "Cold 50cl bottle"
+            },
+            "price": 3,
+            "allergens": []
+          }
+        ]
       },
-      "icon": "mdi-cup-water",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/bevande.png",
-      "items": [
-        {
-          "name": {
-            "it": "Acqua Naturale",
-            "gb": "Still Water"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-          "description": {
-            "it": "Bottiglia da 50cl",
-            "gb": "50cl bottle"
-          },
-          "price": 1.5,
-          "allergens": []
+      {
+        "name": {
+          "it": "Birre artigianali",
+          "gb": "Craft Beers"
         },
-        {
-          "name": {
-            "it": "Acqua Frizzante",
-            "gb": "Sparkling Water"
+        "icon": "mdi-beer",
+        "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/birre.png",
+        "items": [
+          {
+            "name": {
+              "it": "IPA Artigianale",
+              "gb": "Craft IPA"
+            },
+            "description": {
+              "it": "India Pale Ale luppolata e agrumata, 6.5%",
+              "gb": "Hoppy and citrusy India Pale Ale, 6.5%"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
+            "price": 6,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              }
+            ]
           },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/acqua_frizzante.png",
-          "description": {
-            "it": "Bottiglia da 50cl",
-            "gb": "50cl bottle"
+          {
+            "name": {
+              "it": "Stout Nera",
+              "gb": "Dark Stout"
+            },
+            "description": {
+              "it": "Birra scura con note di caffè, 7%",
+              "gb": "Dark beer with coffee notes, 7%"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/stout.png",
+            "price": 6.5,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              }
+            ]
           },
-          "price": 1.5,
-          "allergens": []
-        },
-        {
-          "name": {
-            "it": "Coca Cola",
-            "gb": "Coca Cola"
+          {
+            "name": {
+              "it": "Weiss",
+              "gb": "Weissbier"
+            },
+            "description": {
+              "it": "Birra di frumento, dolce e leggermente fruttata",
+              "gb": "Wheat beer, sweet and slightly fruity"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/weiss.png",
+            "price": 6,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              }
+            ]
           },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/cocacola.png",
-          "description": {
-            "it": "Lattina da 33cl",
-            "gb": "33cl can"
-          },
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": {
-            "it": "Fanta",
-            "gb": "Fanta"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/fanta.png",
-          "description": {
-            "it": "Lattina da 33cl",
-            "gb": "33cl can"
-          },
-          "price": 2.5,
-          "allergens": []
-        },
-        {
-          "name": {
-            "it": "Tè al Limone",
-            "gb": "Lemon Iced Tea"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/estathe.png",
-          "description": {
-            "it": "Bottiglietta fredda da 50cl",
-            "gb": "Cold 50cl bottle"
-          },
-          "price": 3,
-          "allergens": []
-        }
-      ]
-    },
-    {
-      "name": {
-        "it": "Birre artigianali",
-        "gb": "Craft Beers"
-      },
-      "icon": "mdi-beer",
-      "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/birre.png",
-      "items": [
-        {
-          "name": {
-            "it": "IPA Artigianale",
-            "gb": "Craft IPA"
-          },
-          "description": {
-            "it": "India Pale Ale luppolata e agrumata, 6.5%",
-            "gb": "Hoppy and citrusy India Pale Ale, 6.5%"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/ipa.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Stout Nera",
-            "gb": "Dark Stout"
-          },
-          "description": {
-            "it": "Birra scura con note di caffè, 7%",
-            "gb": "Dark beer with coffee notes, 7%"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/stout.png",
-          "price": 6.5,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Weiss",
-            "gb": "Weissbier"
-          },
-          "description": {
-            "it": "Birra di frumento, dolce e leggermente fruttata",
-            "gb": "Wheat beer, sweet and slightly fruity"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/weiss.png",
-          "price": 6,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        },
-        {
-          "name": {
-            "it": "Blonde Ale",
-            "gb": "Blonde Ale"
-          },
-          "description": {
-            "it": "Birra chiara, leggera e rinfrescante",
-            "gb": "Light, refreshing pale beer"
-          },
-          "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/blondale.png",
-          "price": 5.5,
-          "allergens": [
-            { "it": "glutine", "gb": "gluten" }
-          ]
-        }
-      ]
-    }
-  ]
+          {
+            "name": {
+              "it": "Blonde Ale",
+              "gb": "Blonde Ale"
+            },
+            "description": {
+              "it": "Birra chiara, leggera e rinfrescante",
+              "gb": "Light, refreshing pale beer"
+            },
+            "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/blondale.png",
+            "price": 5.5,
+            "allergens": [
+              {
+                "it": "glutine",
+                "gb": "gluten"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
