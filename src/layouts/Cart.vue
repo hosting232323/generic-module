@@ -67,17 +67,15 @@
 </template>
 
 <script setup>
-import http from '@/utils/http';
-import { setupMobileUtils } from '@/utils/mobile';
-import { ref, computed } from 'vue';
-import { storeToRefs } from 'pinia';
-
 import Address from './Address';
 
+import { ref, computed } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
+import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 
 const shopStore = useShopStore();

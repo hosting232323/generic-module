@@ -84,15 +84,13 @@ import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
 import { ref } from 'vue';
-import http from '@/utils/http';
 import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { usePopupStore } from '@/stores/popup';
 import { useOrderStore } from '@/stores/order';
-import { useLanguageStore } from '@/stores/language';
-
 import { useRoute, useRouter } from 'vue-router';
+import { useLanguageStore } from '@/stores/language';
 
 const route = useRoute();
 const product = ref(null);
@@ -120,9 +118,9 @@ const addToCart = () => {
       product: Number(route.params.id),
       quantity: 1
     });
-    popupStore.setPopup('Aggiunto al carrello!', "success");
+    popupStore.setPopup('Aggiunto al carrello!', 'success');
   } catch (error) {
-    popupStore.setPopup('Impossibile aggiungere al carrello!', "error");
+    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
   }
 };
 
@@ -136,7 +134,7 @@ const fastCheckout = async () => {
 
 const placeOrder = async () => {
   shopStore.placeOrder(store.projectName, [{
-    product: route.params.id,
+    product: Number(route.params.id),
     quantity: 1
   }]);
 }
