@@ -115,16 +115,7 @@ const proceedToCheckout = async () => {
 
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
-
-  http.postRequest('payment/stripe-session', {
-    project_name: store.projectName,
-    products: products.value
-  }, function(data) {
-    if (data.checkout_url)
-      window.location.href = data.checkout_url;
-    else if (data.status == 'ko')
-      alert(data.message);
-  })
+  shopStore.placeOrder(store.projectName, products.value);
 };
 
 const cancelCheckout = () => {

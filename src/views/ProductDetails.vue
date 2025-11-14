@@ -135,20 +135,10 @@ const fastCheckout = async () => {
 };
 
 const placeOrder = async () => {
-  const productItem = {
+  shopStore.placeOrder(store.projectName, [{
     product: route.params.id,
     quantity: 1
-  };
-
-  http.postRequest('payment/stripe-session', {
-    project_name: store.projectName,
-    products: [productItem]
-  }, function(data) {
-    if (data.checkout_url)
-      window.location.href = data.checkout_url;
-    else if (data.status === 'ko')
-      popupStore.setPopup(data.message, 'error');
-  });
+  }]);
 }
 
 const initProductByRoute = () => {

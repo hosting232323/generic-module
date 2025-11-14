@@ -23,6 +23,17 @@ export const useShopStore = defineStore('shop', {
       this.products = products;
       this.ready = true;
       func();
+    },
+    placeOrder(projectName, products) {
+      http.postRequest('payment/stripe-session', {
+        project_name: projectName,
+        products: products
+      }, function(data) {
+        if (data.checkout_url)
+          window.location.href = data.checkout_url;
+        else if (data.status == 'ko')
+          alert(data.message);
+      })
     }
   }
 });
