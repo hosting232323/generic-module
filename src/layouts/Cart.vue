@@ -67,17 +67,15 @@
 </template>
 
 <script setup>
-import http from '@/utils/http';
-import { setupMobileUtils } from '@/utils/mobile';
-import { ref, computed } from 'vue';
-import { storeToRefs } from 'pinia';
-
 import Address from './Address';
 
+import { ref, computed } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { usePopupStore } from '@/stores/popup';
+import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 
 const shopStore = useShopStore();
@@ -115,16 +113,7 @@ const proceedToCheckout = async () => {
 
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
-
-  http.postRequest('payment/stripe-session', {
-    project_name: store.projectName,
-    products: products.value
-  }, function(data) {
-    if (data.checkout_url)
-      window.location.href = data.checkout_url;
-    else if (data.status == 'ko')
-      alert(data.message);
-  })
+  shopStore.placeOrder(store.projectName, products.value);
 };
 
 const cancelCheckout = () => {
