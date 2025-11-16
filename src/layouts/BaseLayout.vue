@@ -20,6 +20,7 @@ import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { watch, ref, computed } from 'vue';
 import { useDataStore } from '@/stores/data';
+import { useShopStore } from '@/stores/shop';
 
 const route = useRoute();
 const showChatty = ref(false);
@@ -27,6 +28,7 @@ const showBubbles = ref(false);
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
 const isNotFound = computed(() => route.name === 'NotFound');
+const shopStore = useShopStore();
 
 const backgroundStyle = computed(() => {
   if (data.value.info.backgroundImage)
@@ -56,5 +58,8 @@ watch(ready, (newValue) => {
     script.onload = () => showChatty.value = true;
     script.onerror = () => showChatty.value = false;
   }
+  
+  if (data.value.store) 
+    shopStore.initData(data.value.store, () => {});
 });
 </script>
