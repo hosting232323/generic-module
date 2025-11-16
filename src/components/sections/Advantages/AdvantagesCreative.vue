@@ -58,7 +58,6 @@ const { content, info } = defineProps(['content', 'info']);
 <style scoped>
 .creative-advantages {
   padding: 80px 20px;
-  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
 }
 
 .creative-header {

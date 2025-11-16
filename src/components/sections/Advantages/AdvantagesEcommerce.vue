@@ -70,7 +70,6 @@ const { content, info } = defineProps(['content', 'info']);
 <style scoped>
 .ecommerce-advantages {
   padding: 70px 20px;
-  background-color: #f8f9fa;
 }
 
 .ecommerce-header {
