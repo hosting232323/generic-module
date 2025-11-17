@@ -1,7 +1,7 @@
 <template>
   <component
     v-for="section in sections"
-    :is="componentMap[section.type]"
+    :is="getComponent(section.type, section.variant)"
     :id="section.type"
     :content="section.content"
     :info="info"
@@ -22,10 +22,14 @@ import Gallery from '@/components/sections/Gallery';
 import Services from '@/components/sections/Services';
 import Contacts from '@/components/sections/Contacts';
 import BrandList from '@/components/sections/BrandList';
-import Advantages from '@/components/sections/Advantages';
 import ShopSummary from '@/components/sections/ShopSummary';
 import BlogSummary from '@/components/sections/BlogSummary';
 import DualSection from '@/components/sections/DualSection';
+
+import AdvantagesDefault from '@/components/sections/advantages/AdvantagesDefault';
+import AdvantagesBusiness from '@/components/sections/advantages/AdvantagesBusiness';
+import AdvantagesCreative from '@/components/sections/advantages/AdvantagesCreative';
+import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcommerce';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
@@ -39,10 +43,25 @@ const componentMap = {
   services: Services,
   contacts: Contacts,
   brandlist: BrandList,
-  advantages: Advantages,
+  advantages: {
+    default: AdvantagesDefault,
+    business: AdvantagesBusiness,
+    creative: AdvantagesCreative,
+    ecommerce: AdvantagesEcommerce
+  },
   shopSummary: ShopSummary,
   blogSummary: BlogSummary,
   dualSection: DualSection
+};
+
+const getComponent = (type, variant) => {
+  if (variant && componentMap[type]?.[variant])
+    return componentMap[type][variant];
+  
+  if (componentMap[type]?.default)
+    return componentMap[type].default;
+  
+  return componentMap[type];
 };
 
 const addOn = data.value.addOn;

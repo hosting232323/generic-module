@@ -217,6 +217,7 @@
     },
     {
       "type": "advantages",
+      "variant": "default",
       "menu": {
         "it": "Vantaggi",
         "gb": "Advantages"
