@@ -30,7 +30,8 @@ export const useShopStore = defineStore('shop', {
     placeOrder(projectName, products) {
       http.postRequest('payment/stripe-session', {
         project_name: projectName,
-        products: products
+        products: products,
+        from_db: true,
       }, function(data) {
         if (data.checkout_url)
           window.location.href = data.checkout_url;

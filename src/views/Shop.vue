@@ -79,7 +79,7 @@ const addToCart = (productId) => {
 
 const groupProductsByCategory = () => {
   const grouped = products.value.reduce((acc, product) => {
-    const category = getText(product.product_type) || 'Non specificata';
+    const category = getText(product.category) || 'Non specificata';
     if (!acc[category]) acc[category] = [];
     acc[category].push(product);
     return acc;

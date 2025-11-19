@@ -188,6 +188,7 @@
     }
   ],
   "info": {
+    "name": "CarpeDiem",
     "iva": "IT05665730726",
     "logo": "logo.png",
     "logoMode": "logo",
@@ -197,7 +198,6 @@
   "store": {
     "projectName": "carpediembisceglie.it",
     "stripeProduct": false,
-    "addressMode": 1,
     "province": "Barletta-Andria-Trani",
     "cities": [
       "Lanzo Torinese",
