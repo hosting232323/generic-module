@@ -14,22 +14,22 @@ import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
-import Map from '@/components/sections/Map';
-import Text from '@/components/sections/Text';
-import Line from '@/components/sections/Line';
-import Reviews from '@/components/sections/Reviews';
-import Gallery from '@/components/sections/Gallery';
-import Services from '@/components/sections/Services';
-import Contacts from '@/components/sections/Contacts';
-import BrandList from '@/components/sections/BrandList';
-import ShopSummary from '@/components/sections/ShopSummary';
-import BlogSummary from '@/components/sections/BlogSummary';
-import DualSection from '@/components/sections/DualSection';
+import Map from '@/components/sections/Map.vue';
+import Text from '@/components/sections/Text.vue';
+import Line from '@/components/sections/Line.vue';
+import Reviews from '@/components/sections/Reviews.vue';
+import Gallery from '@/components/sections/Gallery.vue';
+import Services from '@/components/sections/Services.vue';
+import Contacts from '@/components/sections/Contacts.vue';
+import BrandList from '@/components/sections/BrandList.vue';
+import ShopSummary from '@/components/sections/ShopSummary.vue';
+import BlogSummary from '@/components/sections/BlogSummary.vue';
+import DualSection from '@/components/sections/DualSection.vue';
 
-import AdvantagesDefault from '@/components/sections/advantages/AdvantagesDefault';
-import AdvantagesBusiness from '@/components/sections/advantages/AdvantagesBusiness';
-import AdvantagesCreative from '@/components/sections/advantages/AdvantagesCreative';
-import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcommerce';
+import AdvantagesDefault from '@/components/sections/advantages/AdvantagesDefault.vue';
+import AdvantagesBusiness from '@/components/sections/advantages/AdvantagesBusiness.vue';
+import AdvantagesCreative from '@/components/sections/advantages/AdvantagesCreative.vue';
+import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcommerce.vue';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
