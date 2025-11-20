@@ -146,6 +146,10 @@ const getProductName = (productId) => {
   return 'Caricamento...';
 };
 
+const getProductQuantity = (productId) => {
+  return products.value.find(p => p.id === productId).quantity;
+};
+
 const productPrices = ref({});
 const getProductPrice = (productId) => {
   const product = products.value.find(p => p.id === productId);
@@ -159,7 +163,10 @@ const getProductPrice = (productId) => {
 };
 
 const increaseQuantity = (product) => {
-  orderStore.addProduct(product);
+  const cartItem = orderStore.products.find(p => p.product === product.product);
+  const availableQuantity = getProductQuantity(product.product);
+  if (cartItem.quantity < availableQuantity)
+    orderStore.addProduct(product);
 };
 
 const decreaseQuantity = (product) => {
