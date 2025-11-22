@@ -38,7 +38,7 @@
             </div>
           </v-card-text>
 
-          <v-card-actions>
+          <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
             <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
@@ -94,6 +94,7 @@ import { useDataStore } from '@/stores/data';
 import { usePopupStore } from '@/stores/popup';
 import { useOrderStore } from '@/stores/order';
 import { useRoute, useRouter } from 'vue-router';
+import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 
 const route = useRoute();
@@ -111,6 +112,7 @@ const { getText } = useLanguageStore();
 const info = data.value.info;
 const store = data.value.store;
 const isFormValid = ref(false);
+const isMobile = setupMobileUtils();
 
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';

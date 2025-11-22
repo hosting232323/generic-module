@@ -28,22 +28,21 @@
         <template v-else>
           <v-list>
             <v-list-item v-for="product in validCartProducts" class="py-4">
-              <v-row align="center" style="width: 100%;">
-                <v-col class="d-flex align-center">
-                  <v-img :src="getImageForProduct(product.product)" alt="product image" width="40" class="mr-3" />
-                  
-                  <div style="flex-grow: 1;">
-                    <p style="font-size: 16px; font-weight: bold;">{{ getText(getProductName(product.product)) }}</p>
-                    <div style="display: flex; align-items: center;">
-                      <p class="text-caption">{{ getText(store.content?.amount) || 'Quantità' }}:</p>
-                      <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
-                      {{ product.quantity }}
-                      <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
-                    </div>
-                    {{ product.variant }}
+              <v-row no-gutters>
+                <v-col cols="4">
+                  <v-img :src="getImageForProduct(product.product)" alt="product image" width="70" max-width="70" class="mr-3" />
+                </v-col>
+                <v-col cols="6">
+                  <p style="font-size: 16px; font-weight: bold; padding-right: 10px;">{{ getText(getProductName(product.product)) }}</p>
+                  <div style="display: flex; align-items: center;">
+                    <p class="text-caption">{{ getText(store.content?.amount) || 'Quantità' }}:</p>
+                    <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>
+                    {{ product.quantity }}
+                    <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
                   </div>
-                  
-                  <p style="font-size: 15px; font-weight: bold;">{{ getProductPrice(product.product) + ' €'}}</p>
+                </v-col>
+                <v-col cols="2">
+                  <p style="font-size: 15px; font-weight: bold; width: max-content;">{{ getProductPrice(product.product) + ' €'}}</p>
                 </v-col>
               </v-row>
             </v-list-item>
@@ -55,23 +54,13 @@
         {{ getText(store.content?.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
       </v-card-subtitle>
 
-      <v-card-actions>
+      <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
         <v-btn @click="isCheckout ? placeOrder() : proceedToCheckout()" color="primary">
           {{ isCheckout ? (getText(store.content?.sendOrder) || 'Invia Ordine') : (getText(store.content?.proceedCheckout) || 'Procedi al Checkout') }}
         </v-btn>
-        <v-btn @click="isCheckout ? cancelCheckout() : clearCart()" color="error">
-          <template v-if="isCheckout">
-            {{ getText(store.content?.goBack) || 'Torna Indietro' }}
-          </template>
-          <template v-else>
-            <v-icon v-if="isMobile">mdi-delete</v-icon>
-            <span v-else>
-              {{ getText(store.content?.emptyCart) || 'Svuota Carrello' }}
-            </span>
-          </template>
+          <v-btn @click="isCheckout ? cancelCheckout() : clearCart()" color="error">
+          {{ isCheckout ? (getText(store.content?.goBack) || 'Torna Indietro') : (getText(store.content?.emptyCart) || 'Svuota Carrello') }}
         </v-btn>
-
-
       </v-card-actions>
     </v-card>
   </v-menu>
