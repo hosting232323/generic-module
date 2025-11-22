@@ -42,7 +42,7 @@
                   </div>
                 </v-col>
                 <v-col cols="2">
-                  <p style="font-size: 15px; font-weight: bold; width: max-content;">{{ getProductPrice(product.product) + ' €'}}</p>
+                  <p style="font-size: 15px; font-weight: bold; width: max-content;" v-html="getPrice(product)"></p>
                 </v-col>
               </v-row>
             </v-list-item>
@@ -149,13 +149,28 @@ const productPrices = ref({});
 const getProductPrice = (productId) => {
   const product = products.value.find(p => p.id === productId);
   if (!product) return 'Prodotto non disponibile';
-  const price = product.price
+  let price;
+  if(product.discount)
+    price = product.discount
+  else
+    price = product.price
   productPrices.value[productId] = parseFloat(price) / 100;
 
   if (productPrices.value[productId])
     return productPrices.value[productId];
   return 0;
 };
+
+const getPrice = (prod) => {
+  const product = products.value.find(p => p.id === prod.product);
+  if(product.discount) {
+    return `${parseFloat((product.discount) / 100).toFixed(2)} €`;
+  } else if (product.price) {
+    return parseFloat((product.price) / 100).toFixed(2) + ' €';
+  } else {
+    return 'Non disponibile';
+  }
+}
 
 const increaseQuantity = (product) => {
   const cartItem = orderStore.products.find(p => p.product === product.product);

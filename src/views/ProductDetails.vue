@@ -18,7 +18,7 @@
         <v-card>
           <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle>
-            {{ getText(store.content?.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
+            {{ getText(store.content?.price) || 'Prezzo' }}: <strong v-html="getPrice(product)"></strong>
           </v-card-subtitle>
           <v-divider></v-divider>
 
@@ -47,7 +47,6 @@
               <v-icon icon="mdi-credit-card-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
             </v-btn>
-            <v-divider />
             <v-btn :color="info.primaryColor" @click="router.back()">
               <v-icon icon="mdi-arrow-left" start></v-icon>
               {{ getText(store.content?.goBack) || 'Torna indietro' }}
@@ -149,6 +148,16 @@ const placeOrder = async () => {
 const initProductByRoute = () => {
   product.value = products.value.find(product => product.id == route.params.id);
 };
+
+const getPrice = (product) => {
+  if(product.discount) {
+    return `${parseFloat((product.discount) / 100).toFixed(2)}€ - <s style='color: red;'>${parseFloat((product.price) / 100).toFixed(2)}€</s>`;
+  } else if (product.price) {
+    return parseFloat((product.price) / 100).toFixed(2) + ' €';
+  } else {
+    return 'Non disponibile';
+  }
+}
 
 if (ready.value)
   initProductByRoute();
