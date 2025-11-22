@@ -32,6 +32,10 @@
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
               {{ getText(product.product_type) || 'Non specificata' }}
             </div>
+
+            <div v-if="product.variant" v-for="value in product.variant">
+              <v-btn style="border-radius: 100%;" @click="addToCart(value.name)">{{ value.name }}</v-btn>
+            </div>
           </v-card-text>
 
           <v-card-actions>
@@ -112,11 +116,12 @@ const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
-const addToCart = () => {
+const addToCart = (variant = null) => {
   try {
     orderStore.addProduct({
       product: Number(route.params.id),
-      quantity: 1
+      quantity: 1,
+      variant: variant
     });
     popupStore.setPopup('Aggiunto al carrello!', 'success');
   } catch (error) {

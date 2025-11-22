@@ -40,6 +40,7 @@
                       {{ product.quantity }}
                       <v-btn @click.stop="increaseQuantity(product)" icon="mdi-plus" size="x-small" style="margin: 0 0 0 5px; box-shadow: none;"/>
                     </div>
+                    {{ product.variant }}
                   </div>
                   
                   <p style="font-size: 15px; font-weight: bold;">{{ getProductPrice(product.product) + ' €'}}</p>
