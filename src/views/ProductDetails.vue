@@ -16,21 +16,21 @@
 
       <v-col cols="12" md="6">
         <v-card>
-          <v-card-title class="text-h5">{{ getText(product.name) }}</v-card-title>
+          <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle>
             {{ getText(store.content?.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
           </v-card-subtitle>
           <v-divider></v-divider>
 
           <v-card-text>
-            <div class="mb-3">
+            <div class="mb-3" v-if="product.description">
               <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
               <p v-html="getText(product.description)" />
             </div>
 
             <div class="mb-3">
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
-              {{ getText(product.product_type) || 'Non specificata' }}
+              {{ getText(product.category) || 'Non specificata' }}
             </div>
 
             <div v-if="product.variant" v-for="value in product.variant">

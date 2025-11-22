@@ -16,7 +16,7 @@
       </v-btn>
     </template>
 
-    <v-card class="mt-4" style="width: 400px; background-color: #f5f5f5;">
+    <v-card class="mt-4" :style="{ width: isMobile ? '100%' : '400px', backgroundColor: '#f5f5f5' }">
       <v-card-title>
         <span class="font-weight-bold">{{ isCheckout ? (getText(store.content?.shippingAddress) || 'Indirizzo di Spedizione') : (getText(store.content?.orderSummary) || 'Riepilogo Ordini') }}</span>
       </v-card-title>
@@ -60,8 +60,18 @@
           {{ isCheckout ? (getText(store.content?.sendOrder) || 'Invia Ordine') : (getText(store.content?.proceedCheckout) || 'Procedi al Checkout') }}
         </v-btn>
         <v-btn @click="isCheckout ? cancelCheckout() : clearCart()" color="error">
-          {{ isCheckout ? (getText(store.content?.goBack) || 'Torna Indietro') : (getText(store.content?.emptyCart) || 'Svuota Carrello') }}
+          <template v-if="isCheckout">
+            {{ getText(store.content?.goBack) || 'Torna Indietro' }}
+          </template>
+          <template v-else>
+            <v-icon v-if="isMobile">mdi-delete</v-icon>
+            <span v-else>
+              {{ getText(store.content?.emptyCart) || 'Svuota Carrello' }}
+            </span>
+          </template>
         </v-btn>
+
+
       </v-card-actions>
     </v-card>
   </v-menu>
@@ -137,12 +147,7 @@ const getProductName = (productId) => {
   productNames.value[productId] = product.name;
 
   if (productNames.value[productId]) {
-    const name = productNames.value[productId];
-    if (name.length > 18) {
-      const truncatedName = name.slice(0, 19); 
-      return truncatedName.endsWith(' ') ? truncatedName.trimEnd() + '...' : truncatedName + '...';
-    }
-    return name;
+    return productNames.value[productId];
   }
   return 'Caricamento...';
 };
@@ -166,7 +171,10 @@ const getProductPrice = (productId) => {
 const increaseQuantity = (product) => {
   const cartItem = orderStore.products.find(p => p.product === product.product);
   const availableQuantity = getProductQuantity(product.product);
-  if (cartItem.quantity < availableQuantity)
+  console.log()
+  if (availableQuantity && cartItem.quantity < availableQuantity)
+    orderStore.addProduct(product);
+  else 
     orderStore.addProduct(product);
 };
 

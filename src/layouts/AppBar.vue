@@ -19,7 +19,7 @@
       <div class="bar"></div>
     </div>
     <v-app-bar-title>
-      <div class="d-flex align-center">
+      <div class="d-flex align-center" style="cursor: pointer;" @click="goHome">
         <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
         <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
         <b style="margin-left: 10px;" class="logo-text"><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
@@ -31,7 +31,7 @@
 
   <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
     <v-app-bar-title>
-      <div class="d-flex align-center">
+      <div class="d-flex align-center" style="cursor: pointer;" @click="goHome">
         <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo">
         <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;">{{ info.name }}</b>
         <b style="margin-left: 10px;" class="logo-text"><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
@@ -124,7 +124,6 @@ const items = computed(() => {
     }));
 
   return [
-    { title: 'Home', type: 'home' },
     ...anchorItems, 
     ...menuItems
   ];
@@ -140,9 +139,6 @@ const link = (item) => {
     case 'internalLink':
       router.push(item.path);
       break;
-    case 'home':
-      goHome();
-      break;
   }
 };
 
@@ -152,6 +148,10 @@ const goHome = () => {
 
   if (currentPath === targetPath) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (window.location.hash) {
+      history.replaceState(null, '', currentPath);
+    }
   } else {
     router.push(targetPath);
   }

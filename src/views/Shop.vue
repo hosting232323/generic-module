@@ -9,7 +9,7 @@
           <v-col cols="12" md="4" v-for="product in group" :key="product.id">
             <v-card class="mb-5">
               <v-img height="400" :src="getImageForProduct(product)" cover />
-              <v-card-title class="text-h6">{{ getText(product.name) }}</v-card-title>
+              <v-card-title class="text-h6" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
               <v-card-text>
                 <div class="d-flex">
                   {{ getText(store.content?.price) || 'Prezzo' }}:
