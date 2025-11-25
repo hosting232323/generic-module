@@ -20,10 +20,22 @@ export const useOrderStore = defineStore('order', {
       }
     },
     removeProduct(product) {
-      const existingProduct = this.products.find(item => item.product === product.product);
-      if (existingProduct) {
-        if (existingProduct.quantity > 1) existingProduct.quantity -= 1;
-        else this.products = this.products.filter(item => item.product !== product.product);
+      const existingProduct = this.products.find(item => {
+        if (item.variant && product.variant) {
+          return item.product === product.product && item.variant === product.variant;
+        }
+        return item.product === product.product
+      });
+
+      if (existingProduct.quantity > 1) {
+        existingProduct.quantity -= 1;
+      } else {
+        this.products = this.products.filter(item => {
+          if (item.variant && product.variant) {
+            return !(item.product === product.product && item.variant === product.variant);
+          }
+          return !(item.product === product.product);
+        });
       }
     },
     removeAllProduct() {
