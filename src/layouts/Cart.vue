@@ -34,6 +34,7 @@
                 </v-col>
                 <v-col cols="6">
                   <p style="font-size: 16px; font-weight: bold; padding-right: 10px;">{{ getText(getProductName(product.product)) }}</p>
+                  <p v-if="product.variant" style="font-size: 13px; padding-right: 10px;">Taglia: {{ product.variant.name }}</p>
                   <div style="display: flex; align-items: center;">
                     <p class="text-caption">{{ getText(store.content?.amount) || 'Quantità' }}:</p>
                     <v-btn @click.stop="decreaseQuantity(product)" icon="mdi-minus" size="x-small" style="margin: 0 5px; box-shadow: none;"/>

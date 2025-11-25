@@ -33,13 +33,18 @@
               {{ getText(product.category) || 'Non specificata' }}
             </div>
 
-            <div v-if="product.variant" v-for="value in product.variant">
-              <v-btn style="border-radius: 100%;" @click="addToCart(value.name)">{{ value.name }}</v-btn>
+            <div class="mb-3">
+              <strong>{{ getText(store.content?.size) || 'Taglia' }}:</strong>
+              <div class="d-flex" style="gap: 0 5px;">
+                <div v-if="product.variant" v-for="value in product.variant">
+                  <v-btn v-if="value.quantity" style="border-radius: 100%;" @click="addToCart(value)">{{ value.name }}</v-btn>
+                </div>
+              </div>
             </div>
           </v-card-text>
 
           <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
+            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart" :disabled="product.variant">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>

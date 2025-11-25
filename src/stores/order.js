@@ -7,7 +7,12 @@ export const useOrderStore = defineStore('order', {
   }),
   actions: {
     addProduct(product) {
-      const existingProduct = this.products.find(item => item.product === product.product);
+      const existingProduct = this.products.find(item => {
+        if (item.variant && product.variant) {
+          return item.product === product.product && item.variant === product.variant;
+        } 
+        return item.product === product.product;
+      });
       if (existingProduct) existingProduct.quantity += 1;
       else {
         product.quantity = 1;
