@@ -4,7 +4,9 @@ import http from '@/utils/http';
 export const useShopStore = defineStore('shop', {
   state: () => ({
     products: [],
-    ready: false
+    ready: false,
+    shipping_cost: 0,
+    free_shipping_threshold: 0
   }),
   actions: {
     initData(storeData, func) {
@@ -18,13 +20,15 @@ export const useShopStore = defineStore('shop', {
     },
     initDataByProject(data, func) {
       if(data.stripeProduct)
-        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.initDataFromJson(res.data, func));
+        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.initDataFromJson(res, func));
       else
-        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res.data, func));
+        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res, func));
     },
-    initDataFromJson(products, func) {
-      this.products = products;
+    initDataFromJson(data, func) {
+      this.products = data.data;
       this.ready = true;
+      this.shipping_cost = data.shipping_cost;
+      this.free_shipping_threshold = data.free_shipping_threshold;
       func();
     },
     placeOrder(projectName, products) {

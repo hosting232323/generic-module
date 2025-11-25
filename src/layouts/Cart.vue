@@ -51,6 +51,12 @@
         </template>
       </v-card-text>
 
+      <v-card-subtitle class="text-right" style="font-size: 16px; font-weight: normal; padding-right: 16px;" v-if="!isCheckout">
+        {{ getText(store.content?.shipping) || 'Spedizione' }}: 
+        <span v-if="shippingPrice === 0">{{ getText(store.content?.freeShipping) || 'Gratuita' }}</span>
+        <span v-else>{{ shippingPrice.toFixed(2) }} €</span>
+      </v-card-subtitle>
+
       <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;" v-if="!isCheckout">
         {{ getText(store.content?.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
       </v-card-subtitle>
@@ -70,7 +76,7 @@
 <script setup>
 import Address from './Address';
 
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
@@ -90,7 +96,7 @@ const isMobile = setupMobileUtils();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
-const { products } = storeToRefs(shopStore);
+const { products, shipping_cost, free_shipping_threshold } = storeToRefs(shopStore);
 const store = data.value.store;
 
 const totalItems = computed(() => {
@@ -98,11 +104,24 @@ const totalItems = computed(() => {
 });
 
 const totalPrice = computed(() => {
-  return validCartProducts.value.reduce((total, product) => {
+  const totalProducts = validCartProducts.value.reduce((total, product) => {
     const price = getProductPrice(product.product); 
     return total + (price * product.quantity); 
-  }, 0).toFixed(2) + ' €'; 
+  }, 0);
+
+  const shipping = shippingPrice.value;
+  return (totalProducts + shipping).toFixed(2) + ' €'; 
 });
+
+const shippingPrice = computed(() => {
+  const total = validCartProducts.value.reduce((sum, product) => {
+    const price = getProductPrice(product.product);
+    return sum + price * product.quantity;
+  }, 0);
+  if (total >= (free_shipping_threshold.value / 100)) return 0;
+  return (shipping_cost.value / 100) || 0;
+});
+
 
 const proceedToCheckout = async () => {
   if (!store.addressMode) {
@@ -196,6 +215,27 @@ const validCartProducts = computed(() => {
     products.value.some(product => product.id === cartItem.product)
   );
 });
+
+watch(() => shippingPrice.value, (newShipping) => {
+  console.log(shippingPrice.value);
+  const existing = orderStore.products.find(p => p.product === 'shipping');
+  if (newShipping === 0) {
+    if (existing) {
+      orderStore.products = orderStore.products.filter(p => p.product !== 'shipping');
+    }
+  } else {
+    if (existing) {
+      existing.price = newShipping * 100;
+    } else {
+      orderStore.products.push({
+        product: 'shipping',
+        name: 'Spedizione',
+        quantity: 1,
+        price: newShipping * 100,
+      });
+    }
+  }
+},{ immediate: true });
 </script>
 
 <style scoped>
