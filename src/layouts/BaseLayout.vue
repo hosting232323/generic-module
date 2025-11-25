@@ -1,12 +1,12 @@
 <template>
   <v-app  v-if="ready">
-    <AppBar v-if="!isNotFound" />
+    <AppBar v-if="!isSpecialPage" />
     <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
-    <SocialBubbles v-if="showBubbles || !isNotFound" :chattyActive="showChatty"/>
+    <SocialBubbles v-if="showBubbles || !isSpecialPage" :chattyActive="showChatty"/>
     <v-main :style="backgroundStyle">
       <slot />
     </v-main>
-    <Footer v-if="!isNotFound" />
+    <Footer v-if="!isSpecialPage" />
   </v-app>
 </template>
 
@@ -27,7 +27,9 @@ const showChatty = ref(false);
 const showBubbles = ref(false);
 const dataStore = useDataStore();
 const { data, ready } = storeToRefs(dataStore);
-const isNotFound = computed(() => route.name === 'NotFound');
+const isSpecialPage = computed(() => {
+  return ['NotFound', 'Pagamento Riuscito', 'Pagamento Fallito'].includes(route.name);
+});
 const shopStore = useShopStore();
 
 const backgroundStyle = computed(() => {
