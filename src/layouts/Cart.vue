@@ -176,7 +176,6 @@ const getPrice = (prod) => {
 const increaseQuantity = (product) => {
   const cartItem = orderStore.products.find(p => p.product === product.product);
   const availableQuantity = getProductQuantity(product.product);
-  console.log()
   if (availableQuantity && cartItem.quantity < availableQuantity)
     orderStore.addProduct(product);
   else 
