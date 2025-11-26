@@ -32,6 +32,16 @@ const routes = [
         props: true
       },
       {
+        path: '/payment/success',
+        name: 'Pagamento Riuscito',
+        component: () => import('@/views/payment/SuccessPage'),
+      },
+      {
+        path: '/payment/failed',
+        name: 'Pagamento Fallito',
+        component: () => import('@/views/payment/CancelPage'),
+      },
+      {
         path: '/demo/:id',
         name: 'Demo',
         component: () => import('@/views/Home')
