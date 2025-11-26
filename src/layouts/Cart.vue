@@ -96,7 +96,7 @@ const isMobile = setupMobileUtils();
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
-const { products, shipping_cost, free_shipping_threshold } = storeToRefs(shopStore);
+const { products, shippingCost, freeShippingThreshold } = storeToRefs(shopStore);
 const store = data.value.store;
 
 const totalItems = computed(() => {
@@ -118,8 +118,8 @@ const shippingPrice = computed(() => {
     const price = getProductPrice(product.product);
     return sum + price * product.quantity;
   }, 0);
-  if (total >= (free_shipping_threshold.value / 100)) return 0;
-  return (shipping_cost.value / 100) || 0;
+  if (total >= (freeShippingThreshold.value / 100)) return 0;
+  return (shippingCost.value / 100) || 0;
 });
 
 

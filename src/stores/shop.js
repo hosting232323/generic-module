@@ -5,8 +5,8 @@ export const useShopStore = defineStore('shop', {
   state: () => ({
     products: [],
     ready: false,
-    shipping_cost: 0,
-    free_shipping_threshold: 0
+    shippingCost: undefined,
+    freeShippingThreshold: undefined
   }),
   actions: {
     initData(storeData, func) {
@@ -27,8 +27,8 @@ export const useShopStore = defineStore('shop', {
     initDataFromJson(data, func) {
       this.products = data.data;
       this.ready = true;
-      this.shipping_cost = data.shipping_cost;
-      this.free_shipping_threshold = data.free_shipping_threshold;
+      this.shippingCost = data.shipping_cost;
+      this.freeShippingThreshold = data.free_shipping_threshold;
       func();
     },
     placeOrder(projectName, products) {
