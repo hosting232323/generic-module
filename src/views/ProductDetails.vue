@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <Loading v-if="!ready" />
-
     <v-row v-else-if="product">
       <v-col cols="12" md="6">
         <v-card>
@@ -13,29 +12,35 @@
           <v-img v-else :src="getImageForProduct(product)" height="600" cover />
         </v-card>
       </v-col>
-
       <v-col cols="12" md="6">
         <v-card>
-          <v-card-title class="text-h5">{{ getText(product.name) }}</v-card-title>
+          <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle>
-            {{ getText(store.content?.price) || 'Prezzo' }}: <strong>{{ (parseFloat(product.price) / 100).toFixed(2) }} €</strong>
+            {{ getText(store.content?.price) || 'Prezzo' }}: <strong v-html="getPrice(product)"></strong>
           </v-card-subtitle>
-          <v-divider></v-divider>
-
+          <v-divider />
           <v-card-text>
-            <div class="mb-3">
+            <div class="mb-3" v-if="product.description">
               <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
               <p v-html="getText(product.description)" />
             </div>
-
             <div class="mb-3">
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
-              {{ getText(product.product_type) || 'Non specificata' }}
+              {{ getText(product.category) || 'Non specificata' }}
+            </div>
+            <div v-if="product.variant && product.variant.length > 0" class="mb-3">
+              <v-divider class="mb-3" />
+              <strong>{{ getText(store.content?.size) || 'Taglie' }}</strong>
+              <div class="d-flex mt-2">
+                <div v-for="value in product.variant">
+                  <v-btn v-if="value.quantity" @click="addToCart(value)" :color="info.primaryColor">{{ value.name }}</v-btn>
+                </div>
+              </div>
+              <v-divider class="mt-3" />
             </div>
           </v-card-text>
-
-          <v-card-actions>
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart">
+          <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
+            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart" :disabled="product.variant">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>
@@ -43,16 +48,10 @@
               <v-icon icon="mdi-credit-card-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
             </v-btn>
-            <v-divider />
-            <v-btn :color="info.primaryColor" @click="router.back()">
-              <v-icon icon="mdi-arrow-left" start></v-icon>
-              {{ getText(store.content?.goBack) || 'Torna indietro' }}
-            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
-
     <v-row v-else>
       <v-col cols="12">
         <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
@@ -64,11 +63,9 @@
         <v-card-title class="text-h6">
           {{ getText(store.content?.addressTitle) || 'Inserisci indirizzo di spedizione' }}
         </v-card-title>
-
         <v-card-text>
           <Address @update:valid="isFormValid = $event" />
         </v-card-text>
-
         <v-card-actions>
           <v-btn @click="placeOrder" :disabled="!isFormValid">{{ getText(store.content?.buy) || 'Acquista' }}</v-btn>
           <v-btn @click="isCheckout = false">{{ getText(store.content?.close) || 'Chiudi' }}</v-btn>
@@ -90,6 +87,7 @@ import { useDataStore } from '@/stores/data';
 import { usePopupStore } from '@/stores/popup';
 import { useOrderStore } from '@/stores/order';
 import { useRoute, useRouter } from 'vue-router';
+import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 
 const route = useRoute();
@@ -107,16 +105,18 @@ const { getText } = useLanguageStore();
 const info = data.value.info;
 const store = data.value.store;
 const isFormValid = ref(false);
+const isMobile = setupMobileUtils();
 
 const getImageForProduct = (product) => {
   return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
-const addToCart = () => {
+const addToCart = (variant = null) => {
   try {
     orderStore.addProduct({
       product: Number(route.params.id),
-      quantity: 1
+      quantity: 1,
+      variant: variant
     });
     popupStore.setPopup('Aggiunto al carrello!', 'success');
   } catch (error) {
@@ -125,11 +125,10 @@ const addToCart = () => {
 };
 
 const fastCheckout = async () => {
-  if (!store.addressMode) {
+  if (!store.addressMode)
     await placeOrder();
-  } else {
+  else
     isCheckout.value = true;
-  }
 };
 
 const placeOrder = async () => {
@@ -142,6 +141,15 @@ const placeOrder = async () => {
 const initProductByRoute = () => {
   product.value = products.value.find(product => product.id == route.params.id);
 };
+
+const getPrice = (product) => {
+  if(product.discount)
+    return `${parseFloat((product.discount) / 100).toFixed(2)}€ - <s style='color: red;'>${parseFloat((product.price) / 100).toFixed(2)}€</s>`;
+  else if (product.price)
+    return parseFloat((product.price) / 100).toFixed(2) + ' €';
+  else
+    return 'Non disponibile';
+}
 
 if (ready.value)
   initProductByRoute();
