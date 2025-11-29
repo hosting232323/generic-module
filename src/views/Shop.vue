@@ -40,42 +40,23 @@
 <script setup>
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
+import { getImageForProduct, addToCart, getPrice } from '@/utils/shop'
 
 import { ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
-import { useOrderStore } from '@/stores/order';
-import { usePopupStore } from '@/stores/popup';
 import { useLanguageStore } from '@/stores/language';
 
 const groupedProducts = ref({});
 const dataStore = useDataStore();
 const shopStore = useShopStore();
-const orderStore = useOrderStore();
-const popupStore = usePopupStore();
 const { getText, getLocale } = useLanguageStore();
 
 const { data } = storeToRefs(dataStore);
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 const store = data.value.store;
-
-const getImageForProduct = (product) => {
-  return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
-};
-
-const addToCart = (productId) => {
-  try {
-    orderStore.addProduct({
-      product: productId,
-      quantity: 1
-    });
-    popupStore.setPopup('Aggiunto al carrello!', 'success');
-  } catch (error) {
-    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
-  }
-};
 
 const groupProductsByCategory = () => {
   const grouped = products.value.reduce((acc, product) => {
@@ -91,16 +72,6 @@ const groupProductsByCategory = () => {
 
   groupedProducts.value = grouped;
 };
-
-const getPrice = (product) => {
-  if(product.discount) {
-    return `${parseFloat((product.discount) / 100).toFixed(2)}€ - <s style='color: red;'>${parseFloat((product.price) / 100).toFixed(2)}€</s>`;
-  } else if (product.price) {
-    return parseFloat((product.price) / 100).toFixed(2) + ' €';
-  } else {
-    return 'Non disponibile';
-  }
-}
 
 if (ready.value)
   groupProductsByCategory();
