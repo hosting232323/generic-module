@@ -1,5 +1,9 @@
-import { defineStore } from 'pinia';
+import { defineStore, storeToRefs } from 'pinia';
 import { useAddressStore } from '@/stores/address';
+import { useShopStore } from '@/stores/shop';
+
+const shopStore = useShopStore();
+const { products: shop } = storeToRefs(shopStore);
 
 export const useOrderStore = defineStore('order', {
   state: () => ({
@@ -13,7 +17,20 @@ export const useOrderStore = defineStore('order', {
         }
         return item.product === product.product;
       });
-      const availableQuantity = product.available ?? 1;
+
+      let availableQuantity = 1;
+      const el = shop.value.find(item => item.id == product.product)
+
+      if(el.quantity) {
+        availableQuantity = el.quantity;
+      }
+      if(el.variant) {
+        const variant = el.variant.find(item => item.id == product.variant.id);
+        if(variant.quantity) {
+          availableQuantity = variant.quantity;
+        }
+      }
+
       if (cartItem) {
         if (cartItem.quantity < availableQuantity) {
           cartItem.quantity += 1;
