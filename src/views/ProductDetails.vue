@@ -79,30 +79,29 @@
 import Address from '@/layouts/Address';
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
-import { getImageForProduct, addToCart, getPrice } from '@/utils/shop'
 
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useRoute } from 'vue-router';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
-import { useRoute } from 'vue-router';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
+import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
 
 const route = useRoute();
 const product = ref(null);
 const isCheckout = ref(null);
+const isFormValid = ref(false);
 const shopStore = useShopStore();
 const dataStore = useDataStore();
-
-const { data } = storeToRefs(dataStore);
-const { products, ready } = storeToRefs(shopStore);
-const { getText } = useLanguageStore();
-const info = data.value.info;
-const store = data.value.store;
-const isFormValid = ref(false);
 const isMobile = setupMobileUtils();
 
+const { data } = storeToRefs(dataStore);
+const { getText } = useLanguageStore();
+const { products, ready } = storeToRefs(shopStore);
+const info = data.value.info;
+const store = data.value.store;
 
 const fastCheckout = async () => {
   if (!store.addressMode)

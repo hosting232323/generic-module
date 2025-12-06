@@ -40,20 +40,20 @@
 <script setup>
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
-import { getImageForProduct, addToCart, getPrice } from '@/utils/shop'
 
 import { ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useLanguageStore } from '@/stores/language';
+import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
 
 const groupedProducts = ref({});
 const dataStore = useDataStore();
 const shopStore = useShopStore();
-const { getText, getLocale } = useLanguageStore();
 
 const { data } = storeToRefs(dataStore);
+const { getText, getLocale } = useLanguageStore();
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 const store = data.value.store;
