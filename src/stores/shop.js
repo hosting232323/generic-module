@@ -20,12 +20,12 @@ export const useShopStore = defineStore('shop', {
     },
     initDataByProject(data, func) {
       if(data.stripeProduct)
-        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.initDataFromJson(res, func));
+        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.initDataFromJson(res.data, func));
       else
-        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res, func));
+        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res.data, func));
     },
     initDataFromJson(data, func) {
-      this.products = data.data;
+      this.products = data;
       this.ready = true;
       this.shippingCost = data.shipping_cost;
       this.freeShippingThreshold = data.free_shipping_threshold;
