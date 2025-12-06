@@ -40,7 +40,6 @@
 <script setup>
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
-import { getImageForProduct, addToCart, getPrice } from '@/utils/shop'
 
 import { ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
