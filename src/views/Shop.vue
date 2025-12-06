@@ -59,7 +59,6 @@ const info = data.value.info;
 const store = data.value.store;
 
 const groupProductsByCategory = () => {
-  console.log(data.value.store)
   const grouped = products.value.reduce((acc, product) => {
     const category = getText(product.category) || 'Non specificata';
     if (!acc[category]) acc[category] = [];
