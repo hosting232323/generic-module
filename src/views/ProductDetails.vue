@@ -33,14 +33,14 @@
               <strong>{{ getText(store.content?.size) || 'Taglie' }}</strong>
               <div class="d-flex mt-2">
                 <div v-for="value in product.variant">
-                  <v-btn v-if="value.quantity" @click="addToCart(value)" :color="info.primaryColor">{{ value.name }}</v-btn>
+                  <v-btn v-if="value.quantity" @click="addToCart(Number(route.params.id), value)" :color="info.primaryColor">{{ value.name }}</v-btn>
                 </div>
               </div>
               <v-divider class="mt-3" />
             </div>
           </v-card-text>
           <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart" :disabled="product.variant">
+            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart(Number(route.params.id))" :disabled="product.variant > 0">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
             </v-btn>
@@ -82,47 +82,26 @@ import Popup from '@/components/sections/Popup';
 
 import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useRoute } from 'vue-router';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
-import { usePopupStore } from '@/stores/popup';
-import { useOrderStore } from '@/stores/order';
-import { useRoute, useRouter } from 'vue-router';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
+import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
 
 const route = useRoute();
 const product = ref(null);
 const isCheckout = ref(null);
-const router = useRouter();
+const isFormValid = ref(false);
 const shopStore = useShopStore();
 const dataStore = useDataStore();
-const orderStore = useOrderStore();
-const popupStore = usePopupStore();
-
-const { data } = storeToRefs(dataStore);
-const { products, ready } = storeToRefs(shopStore);
-const { getText } = useLanguageStore();
-const info = data.value.info;
-const store = data.value.store;
-const isFormValid = ref(false);
 const isMobile = setupMobileUtils();
 
-const getImageForProduct = (product) => {
-  return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
-};
-
-const addToCart = (variant = null) => {
-  try {
-    orderStore.addProduct({
-      product: Number(route.params.id),
-      quantity: 1,
-      variant: variant
-    });
-    popupStore.setPopup('Aggiunto al carrello!', 'success');
-  } catch (error) {
-    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
-  }
-};
+const { data } = storeToRefs(dataStore);
+const { getText } = useLanguageStore();
+const { products, ready } = storeToRefs(shopStore);
+const info = data.value.info;
+const store = data.value.store;
 
 const fastCheckout = async () => {
   if (!store.addressMode)
@@ -141,15 +120,6 @@ const placeOrder = async () => {
 const initProductByRoute = () => {
   product.value = products.value.find(product => product.id == route.params.id);
 };
-
-const getPrice = (product) => {
-  if(product.discount)
-    return `${parseFloat((product.discount) / 100).toFixed(2)}€ - <s style='color: red;'>${parseFloat((product.price) / 100).toFixed(2)}€</s>`;
-  else if (product.price)
-    return parseFloat((product.price) / 100).toFixed(2) + ' €';
-  else
-    return 'Non disponibile';
-}
 
 if (ready.value)
   initProductByRoute();
