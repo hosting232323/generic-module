@@ -31,13 +31,15 @@ export const useShopStore = defineStore('shop', {
       this.freeShippingThreshold = data.free_shipping_threshold;
       func();
     },
-    placeOrder(projectName, products) {
+    placeOrder(projectName, products, orderStore = false) {
       http.postRequest('payment/stripe-session', {
         project_name: projectName,
         products: products
       }, function(data) {
-        if (data.checkout_url)
+        if (data.checkout_url) {
           window.location.href = data.checkout_url;
+          if (orderStore) orderStore.removeAllProduct();
+        }
         else if (data.status == 'ko')
           alert(data.message);
       })
