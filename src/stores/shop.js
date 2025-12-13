@@ -22,13 +22,13 @@ export const useShopStore = defineStore('shop', {
       if(data.stripeProduct)
         http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.initDataFromJson(res.data, func));
       else
-        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res.data, func));
+        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res.data, func, res));
     },
-    initDataFromJson(data, func) {
+    initDataFromJson(data, func, enrichment = undefined) {
       this.products = data;
       this.ready = true;
-      this.shippingCost = data.shipping_cost;
-      this.freeShippingThreshold = data.free_shipping_threshold;
+      this.shippingCost = enrichment.shipping_cost;
+      this.freeShippingThreshold = enrichment.free_shipping_threshold;
       func();
     },
     placeOrder(projectName, products) {
