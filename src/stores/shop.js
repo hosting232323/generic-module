@@ -14,21 +14,26 @@ export const useShopStore = defineStore('shop', {
         if (storeData.projectName)
           this.initDataByProject(storeData, func);
         else
-          this.initDataFromJson(storeData.products, func);
+          this.formatData(storeData.products, func);
       } else
         console.error('No store data found');
     },
     initDataByProject(data, func) {
       if(data.stripeProduct)
-        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.initDataFromJson(res.data, func));
+        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.formatData(res.data, func));
       else
-        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.initDataFromJson(res.data, func));
+        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.formatData(
+          res.data,
+          func,
+          res.shipping_cost,
+          res.free_shipping_threshold
+        ));
     },
-    initDataFromJson(data, func) {
+    formatData(data, func, shippingCost = undefined, freeShippingThreshold = undefined) {
       this.products = data;
       this.ready = true;
-      this.shippingCost = data.shipping_cost;
-      this.freeShippingThreshold = data.free_shipping_threshold;
+      this.shippingCost = shippingCost;
+      this.freeShippingThreshold = freeShippingThreshold;
       func();
     },
     placeOrder(projectName, products) {

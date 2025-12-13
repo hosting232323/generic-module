@@ -18,12 +18,13 @@ export const useOrderStore = defineStore('order', {
         return item.product === product.product;
       });
 
-      let availableQuantity = 1;
-      const el = shop.value.find(item => item.id == product.product)
+      let availableQuantity = Infinity;
+      const el = shop.value.find(item => item.id == product.product);
+
       if(el.quantity) availableQuantity = el.quantity;
       if(el.variant) {
         const variant = el.variant.find(item => item.id == product.variant.id);
-        if(variant.quantity) availableQuantity = variant.quantity;
+        if(variant && variant.quantity) availableQuantity = variant.quantity;
       }
 
       if (cartItem) {
