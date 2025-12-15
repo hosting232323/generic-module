@@ -45,12 +45,19 @@
                 </v-col>
               </v-row>
             </v-list-item>
+            <v-checkbox
+              v-if="pickupInStore"
+              v-model="pickup"
+              label="Ritiro in negozio (gratuito)"
+              color="primary"
+              hide-details
+            />
           </v-list>
         </template>
       </v-card-text>
+
       <v-card-subtitle class="text-right" style="font-size: 16px; font-weight: normal; padding-right: 16px;" v-if="!isCheckout">
         {{ getText(store.content?.shipping) || 'Spedizione' }}: 
-        {{ shippingPrice }}
         <span v-if="shippingPrice === 0">{{ getText(store.content?.freeShipping) || 'Gratuita' }}</span>
         <span v-else>{{ shippingPrice.toFixed(2) }} €</span>
       </v-card-subtitle>
@@ -83,6 +90,7 @@ import { useLanguageStore } from '@/stores/language';
 
 const productPrices = ref({});
 const isCheckout = ref(false);
+const pickup = ref(false);
 const isMenuVisible = ref(false);
 const shopStore = useShopStore();
 const dataStore = useDataStore();
@@ -92,7 +100,7 @@ const isMobile = setupMobileUtils();
 const { getText } = useLanguageStore();
 
 const { data } = storeToRefs(dataStore);
-const { products, shippingCost, freeShippingThreshold } = storeToRefs(shopStore);
+const { products, pickupInStore, shippingCost, freeShippingThreshold } = storeToRefs(shopStore);
 const store = data.value.store;
 
 const totalItems = computed(() => {
@@ -110,11 +118,11 @@ const totalPrice = computed(() => {
 });
 
 const shippingPrice = computed(() => {
+  if (pickup.value) return 0;
   const total = validCartProducts.value.reduce((sum, product) => {
     const price = getProductPrice(product.product);
     return sum + price * product.quantity;
   }, 0);
-  console.log(freeShippingThreshold.value)
   if (total >= (freeShippingThreshold.value / 100)) return 0;
   return (shippingCost.value / 100) || 0;
 });
@@ -128,7 +136,7 @@ const proceedToCheckout = async () => {
 
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
-  shopStore.placeOrder(store.projectName, products.value, orderStore);
+  shopStore.placeOrder(store.projectName, products.value, pickup.value, orderStore);
 };
 
 const clearCart = () => {
