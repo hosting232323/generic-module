@@ -55,7 +55,6 @@
           </v-list>
         </template>
       </v-card-text>
-
       <v-card-subtitle class="text-right" style="font-size: 16px; font-weight: normal; padding-right: 16px;" v-if="!isCheckout">
         {{ getText(store.content?.shipping) || 'Spedizione' }}: 
         <span v-if="shippingPrice === 0">{{ getText(store.content?.freeShipping) || 'Gratuita' }}</span>
@@ -88,9 +87,9 @@ import { usePopupStore } from '@/stores/popup';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 
+const pickup = ref(false);
 const productPrices = ref({});
 const isCheckout = ref(false);
-const pickup = ref(false);
 const isMenuVisible = ref(false);
 const shopStore = useShopStore();
 const dataStore = useDataStore();
@@ -119,6 +118,7 @@ const totalPrice = computed(() => {
 
 const shippingPrice = computed(() => {
   if (pickup.value) return 0;
+
   const total = validCartProducts.value.reduce((sum, product) => {
     const price = getProductPrice(product.product);
     return sum + price * product.quantity;
