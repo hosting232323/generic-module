@@ -40,7 +40,7 @@ const info = data.value.info;
 
 orderStore.removeAllProduct();
 
-const confetti = Array.from({ length: 40 }, () => ({
+const confetti = Array.from({ length: 30 }, () => ({
   left: `${Math.random() * 100}%`,
   duration: `${2 + Math.random() * 3}s`,
   delay: `${Math.random() * 0.8}s`,
