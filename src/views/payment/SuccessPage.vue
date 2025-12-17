@@ -12,10 +12,15 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
+import { useOrderStore } from '@/stores/order';
 
 const dataStore = useDataStore();
+const orderStore = useOrderStore();
+
 const { data } = storeToRefs(dataStore);
 const info = data.value.info;
+
+orderStore.removeAllProduct();
 </script>
 
 <style scoped>
