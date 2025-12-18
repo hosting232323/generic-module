@@ -37,16 +37,14 @@ export const useShopStore = defineStore('shop', {
       this.freeShippingThreshold = freeShippingThreshold;
       func();
     },
-    placeOrder(projectName, products, pickup = false, orderStore = false) {
+    placeOrder(projectName, products, pickup = false) {
       http.postRequest('payment/stripe-session', {
         project_name: projectName,
         products: products,
         pickup: pickup
       }, function(data) {
-        if (data.checkout_url) {
+        if (data.checkout_url)
           window.location.href = data.checkout_url;
-          if (orderStore) orderStore.removeAllProduct();
-        }
         else if (data.status == 'ko')
           alert(data.message);
       })
