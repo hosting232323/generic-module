@@ -16,8 +16,9 @@
       </v-btn>
     </template>
     <v-card class="mt-4" :style="{ width: isMobile ? '100%' : '400px', backgroundColor: '#f5f5f5' }">
-      <v-card-title>
+      <v-card-title class="d-flex align-center justify-space-between">
         <span class="font-weight-bold">{{ isCheckout ? (getText(store.content?.shippingAddress) || 'Indirizzo di Spedizione') : (getText(store.content?.orderSummary) || 'Riepilogo Ordini') }}</span>
+        <v-icon @click="isMenuVisible = false"   color="grey-darken-1">mdi-close</v-icon>
       </v-card-title>
       <v-card-text>
         <template v-if="isCheckout">
@@ -45,20 +46,35 @@
                 </v-col>
               </v-row>
             </v-list-item>
-            <v-checkbox
-              v-if="pickupInStore"
-              v-model="pickup"
-              label="Ritiro in negozio (gratuito)"
-              color="primary"
-              hide-details
-            />
           </v-list>
         </template>
       </v-card-text>
       <v-card-subtitle class="text-right" style="font-size: 16px; font-weight: normal; padding-right: 16px;" v-if="!isCheckout">
-        {{ getText(store.content?.shipping) || 'Spedizione' }}: 
-        <span v-if="shippingPrice === 0">{{ getText(store.content?.freeShipping) || 'Gratuita' }}</span>
-        <span v-else>{{ shippingPrice.toFixed(2) }} €</span>
+        <v-checkbox
+          v-if="pickupInStore"
+          v-model="pickup"
+          label="Ritiro in negozio (gratuito)"
+          color="primary"
+          style="margin: -10px auto;"
+          hide-details
+        />
+        <div>
+          {{ getText(store.content?.shipping) || 'Spedizione' }}: 
+          <span v-if="shippingPrice === 0">{{ getText(store.content?.freeShipping) || 'Gratuita' }}</span>
+          <span v-else>
+            {{ shippingPrice.toFixed(2) }} €
+            <v-tooltip :text="`La spedizione è gratuita sopra i ${freeShippingThreshold / 100}€`">
+              <template #activator="{ props }">
+                <v-icon
+                  v-bind="props"
+                  icon="mdi-information"
+                  style="font-size: 18px; cursor: pointer;"
+                  color="grey-darken-1"
+                />
+              </template>
+            </v-tooltip>
+          </span>
+        </div>
       </v-card-subtitle>
       <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;" v-if="!isCheckout">
         {{ getText(store.content?.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
