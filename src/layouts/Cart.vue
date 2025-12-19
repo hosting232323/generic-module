@@ -53,28 +53,28 @@
         <v-checkbox
           v-if="pickupInStore"
           v-model="pickup"
-          label="Ritiro in negozio (gratuito)"
+          label="Ritiro in negozio"
           color="primary"
-          style="margin: -10px auto;"
+          style="margin: -15px auto; display: flex; justify-content: flex-end;"
           hide-details
         />
-        <div>
-          {{ getText(store.content?.shipping) || 'Spedizione' }}: 
-          <span v-if="shippingPrice === 0">{{ getText(store.content?.freeShipping) || 'Gratuita' }}</span>
-          <span v-else>
-            {{ shippingPrice.toFixed(2) }} €
-            <v-tooltip :text="`La spedizione è gratuita sopra i ${freeShippingThreshold / 100}€`">
-              <template #activator="{ props }">
-                <v-icon
-                  v-bind="props"
-                  icon="mdi-information"
-                  style="font-size: 18px; cursor: pointer;"
-                  color="grey-darken-1"
-                />
-              </template>
-            </v-tooltip>
-          </span>
-        </div>
+        <v-tooltip :text="`La spedizione è gratuita sopra i ${freeShippingThreshold / 100}€ o con ritiro in negozio`">
+          <template #activator="{ props }">
+            <v-icon
+              v-bind="props"
+              icon="mdi-information"
+              style="font-size: 20px; cursor: pointer;"
+              color="grey-darken-1"
+            />
+          </template>
+        </v-tooltip>
+        {{ getText(store.content?.shipping) || 'Spedizione' }}: 
+        <span v-if="shippingPrice === 0">
+          {{ getText(store.content?.freeShipping) || 'Gratuita' }}
+        </span>
+        <span v-else>
+          {{ shippingPrice.toFixed(2) }} €
+        </span>
       </v-card-subtitle>
       <v-card-subtitle class="text-right" style="font-size: 18px; font-weight: bold; padding-right: 16px;" v-if="!isCheckout">
         {{ getText(store.content?.totalPrice) || 'Prezzo Totale' }}: {{ totalPrice }}
