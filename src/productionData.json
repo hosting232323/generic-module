@@ -1,7 +1,4 @@
 {
-  "addOn": [
-    "Shop"
-  ],
   "components": [
     {
       "type": "gallery",
@@ -194,14 +191,5 @@
     "logoMode": "logo",
     "primaryColor": "#2E4D29",
     "secondaryColor": "#9CAF88"
-  },
-  "store": {
-    "projectName": "carpediembisceglie.it",
-    "stripeProduct": false,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Lanzo Torinese",
-      "Cafasse"
-    ]
   }
 }
