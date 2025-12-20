@@ -9,16 +9,17 @@ export const getImageForProduct = (product) => {
 };
 
 export const addToCart = (productId, variant = null) => {
-  try {
-    orderStore.addProduct({
-      product: productId,
-      quantity: 1,
-      variant: variant
-    });
-    popupStore.setPopup('Aggiunto al carrello!', 'success');
-  } catch (error) {
-    popupStore.setPopup('Impossibile aggiungere al carrello!', 'error');
+  const added = orderStore.addProduct({
+    product: productId,
+    quantity: 1,
+    variant: variant
+  });
+
+  if (!added) {
+    popupStore.setPopup('Quantità massima raggiunta per questo prodotto', 'error');
+    return;
   }
+  popupStore.setPopup('Aggiunto al carrello!', 'success');
 };
 
 export const getPrice = (product) => {
