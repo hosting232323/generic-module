@@ -58,15 +58,21 @@
           style="margin: -15px auto; display: flex; justify-content: flex-end;"
           hide-details
         />
-        <v-tooltip :text="`La spedizione è gratuita sopra i ${freeShippingThreshold / 100}€ o con ritiro in negozio`">
+        <v-tooltip
+          v-if="freeShippingThreshold"
+          v-model="shippingTooltip"
+          location="left"
+        >
           <template #activator="{ props }">
             <v-icon
               v-bind="props"
               icon="mdi-information"
-              style="font-size: 20px; cursor: pointer;"
               color="grey-darken-1"
+              style="font-size: 20px; cursor: pointer"
+              @click.stop="shippingTooltip = !shippingTooltip"
             />
           </template>
+          La spedizione è gratuita sopra i {{ freeShippingThreshold / 100 }}€ o con ritiro in negozio
         </v-tooltip>
         {{ getText(store.content?.shipping) || 'Spedizione' }}: 
         <span v-if="shippingPrice === 0">
@@ -107,6 +113,7 @@ const pickup = ref(false);
 const productPrices = ref({});
 const isCheckout = ref(false);
 const isMenuVisible = ref(false);
+const shippingTooltip = ref(false); 
 const shopStore = useShopStore();
 const dataStore = useDataStore();
 const popupStore = usePopupStore();
