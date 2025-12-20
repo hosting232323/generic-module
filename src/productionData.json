@@ -96,6 +96,7 @@
         "name": "Pizza Margherita",
         "description": "Pomodoro San Marzano, mozzarella fior di latte, basilico fresco",
         "price": 700,
+        "quantity": 2,
         "highlight": true,
         "image": "https://fastsitepictures.s3.eu-north-1.amazonaws.com/pizza_margherita.png",
         "product_type": "Pizze Classiche"
