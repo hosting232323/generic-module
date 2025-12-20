@@ -21,19 +21,19 @@ export const useOrderStore = defineStore('order', {
       let availableQuantity = Infinity;
       const el = shop.value.find(item => item.id == product.product);
 
-      if(el.quantity) availableQuantity = el.quantity;
-      if(el.variant) {
-        const variant = el.variant.find(item => item.id == product.variant.id);
-        if(variant && variant.quantity) availableQuantity = variant.quantity;
+      if(el?.quantity) availableQuantity = el.quantity;
+      if(el?.variant && product.variant) {
+        const variant = el.variant.find(v => v.id == product.variant.id);
+        if (variant?.quantity) availableQuantity = variant.quantity;
       }
-
+      
       if (cartItem) {
-        if (cartItem.quantity < availableQuantity) cartItem.quantity += 1;
-        return; 
+        if (cartItem.quantity >= availableQuantity) return false;
+        cartItem.quantity += 1;
+        return true;
       }
-
-      if (availableQuantity > 0)
-        this.products.push({ ...product, quantity: 1 });
+      this.products.push({ ...product, quantity: 1 });
+      return true;
     },
     removeProduct(product) {
       const existingProduct = this.products.find(item => {

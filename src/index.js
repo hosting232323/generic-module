@@ -3,6 +3,7 @@ import '@mdi/font/css/materialdesignicons.css';
 export { default as InteractiveDemoLayout } from './layouts/demo/InteractiveDemoLayout.vue';
 
 export { default as DemoHomeLayout } from './layouts/demo/HomeLayout.vue';
+export { default as DemoPostLayout } from './layouts/demo/PostLayout.vue';
 export { default as DemoBlogLayout } from './layouts/demo/BlogLayout.vue';
 export { default as DemoMenuLayout } from './layouts/demo/MenuLayout.vue';
 export { default as DemoShopLayout } from './layouts/demo/ShopLayout.vue';
