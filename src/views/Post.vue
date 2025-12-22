@@ -55,7 +55,7 @@ const isMobile = setupMobileUtils();
 const dataStore = useDataStore();
 const blogStore = useBlogStore();
 
-const { data } = storeToRefs(dataStore);
+const { data, demoId } = storeToRefs(dataStore);
 const { posts, ready } = storeToRefs(blogStore);
 const info = data.value.info;
 
@@ -94,12 +94,14 @@ const shareUrl = (platform) => {
 };
 
 const displayPost = () => {
-  post.value = posts.value.find(post => post.id == route.params.id);
-  renderedContent.value = marked(post.value.content);
+  const id = route.params.postId ?? route.params.id;
+  post.value = posts.value.find(post => post.id == id);
 
+  renderedContent.value = marked(post.value.content);
+  const basePath = demoId.value ? `/demo/${demoId.value}` : '';
   breadcrumbs.value = [
-    { title: 'Home', disabled: false, href: '/' },
-    { title: 'Blog', disabled: false, href: '/blog' },
+    { title: 'Home', disabled: false, href: `${basePath}/` },
+    { title: 'Blog', disabled: false, href: `${basePath}/blog` },
     { title: post.value.title, disabled: true }
   ];
 }
