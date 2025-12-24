@@ -2,17 +2,33 @@
   <v-container>
     <Loading v-if="!ready" />
     <v-row v-else-if="product">
-      <v-col cols="12" md="6">
-        <v-card>
-          <v-carousel v-if="product.images && product.images.length > 0" hide-delimiter-background>
+      <v-col cols="12" md="7">
+        <v-card class="position-relative">
+
+          <v-carousel v-model="activeImage" hide-delimiter-background show-arrows="hover" height="600" hide-delimiters>
+            <template #prev="{ props }">
+              <v-btn icon class="carousel-arrow left" :color="info.primaryColor" variant="flat" v-bind="props">
+                <v-icon>mdi-chevron-left</v-icon>
+              </v-btn>
+            </template>
+
+            <template #next="{ props }">
+              <v-btn icon class="carousel-arrow right" :color="info.primaryColor" variant="flat" v-bind="props">
+                <v-icon>mdi-chevron-right</v-icon>
+              </v-btn>
+            </template>
             <v-carousel-item v-for="(image, index) in product.images" :key="index">
-              <v-img :src="image" height="600" cover></v-img>
+              <v-img :src="image" height="600" cover />
             </v-carousel-item>
           </v-carousel>
-          <v-img v-else :src="getImageForProduct(product)" height="600" cover />
+
+          <div v-if="product.images.length > 1" class="thumbnails">
+            <v-img v-for="(image, index) in product.images" :key="index" :src="image" width="60" height="60" cover
+              class="thumbnail" :class="{ active: activeImage === index }" @click="activeImage = index" />
+          </div>
         </v-card>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="5">
         <v-card>
           <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle>
@@ -32,8 +48,9 @@
               <v-divider class="mb-3" />
               <strong>{{ getText(store.content?.size) || 'Taglie' }}</strong>
               <div class="d-flex mt-2">
-                <div v-for="value in product.variant">
-                  <v-btn v-if="value.quantity" @click="addToCart(Number(route.params.id), value)" :color="info.primaryColor">{{ value.name }}</v-btn>
+                <div v-for="value in product.variant" class="mr-4">
+                  <v-btn v-if="value.quantity" @click="addToCart(Number(route.params.id), value)"
+                    :color="info.primaryColor">{{ value.name }}</v-btn>
                 </div>
               </div>
               <v-divider class="mt-3" />
@@ -102,6 +119,8 @@ const { getText } = useLanguageStore();
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 const store = data.value.store;
+const activeImage = ref(0);
+
 
 const fastCheckout = async () => {
   if (!store.addressMode)
@@ -128,3 +147,34 @@ else
     initProductByRoute();
   });
 </script>
+
+<style scoped>
+.thumbnails {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  border-radius: 6px;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: white;
+}
+</style>
