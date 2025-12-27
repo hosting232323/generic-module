@@ -90,7 +90,7 @@ const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
     message.value = '';
     loading.value = true;
-    http.postRequest('ask-change-password', {
+    http.postRequest('user/ask-change-password', {
       email: mail.value,
     },
     function (data) {

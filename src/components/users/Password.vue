@@ -118,7 +118,7 @@ const changePassword = () => {
     } else {
       message.value = '';
       loading.value = true;
-      http.postRequest('change-password', {
+      http.postRequest('user/change-password', {
         pass_token: route.params.token,
         new_password: encryptPassword(pass.value, props.secretKey, props.iv)
       }, function (data) {

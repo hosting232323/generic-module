@@ -102,7 +102,7 @@ const registerUser = () => {
   ) {
     message.value = '';
     loading.value = true;
-    http.postRequest('register-user', {
+    http.postRequest('user/register-user', {
       name: name.value,
       email: mail.value,
     }, function (data) {

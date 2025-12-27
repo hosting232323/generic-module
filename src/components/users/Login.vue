@@ -157,7 +157,7 @@ const handleGoogleLogin = () => {
 };
 
 const handleCredentialResponse = (response) => {
-  http.postRequest('google-login', {
+  http.postRequest('user/google-login', {
     token: response.credential
   }, (data) => {
     if (data.status === 'ok') {
@@ -172,7 +172,7 @@ const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
     loginLoading.value = true;
-    http.postRequest('login', {
+    http.postRequest('user/login', {
       email: mail.value,
       password: encryptPassword(pass.value, props.secretKey, props.iv)
     }, function (data) {
