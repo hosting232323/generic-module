@@ -103,7 +103,7 @@ const props = defineProps({
   },
   primaryColor: {
     type: String,
-    required: true
+    required: false
   },
   secondaryColor: {
     type: String,
@@ -160,10 +160,9 @@ const handleCredentialResponse = (response) => {
   http.postRequest('user/google-login', {
     token: response.credential
   }, (data) => {
-    if (data.status === 'ok') {
-      localStorage.setItem('token', data.token);
+    if (data.status === 'ok')
       emits('callBack', data);
-    } else
+    else
       message.value = data.error;
   }, 'POST', undefined, props.hostname);
 };
@@ -177,10 +176,9 @@ const login = () => {
       password: encryptPassword(pass.value, props.secretKey, props.iv)
     }, function (data) {
       loginLoading.value = false;
-      if (data.status === 'ok') {
-        localStorage.setItem('token', data.token);
+      if (data.status === 'ok')
         emits('callBack', data);
-      } else
+      else
         message.value = data.error;
     }, 'POST', undefined, props.hostname);
   }
