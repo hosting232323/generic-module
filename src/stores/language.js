@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export const useLanguageStore = defineStore('language', {
+export const useLanguageStore = defineStore('language:genericFeStore', {
   state: () => ({
     locale: 'it'
   }),

@@ -1,7 +1,7 @@
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
 
-export const useEventsStore = defineStore('events', {
+export const useEventsStore = defineStore('events:genericFeStore', {
   state: () => ({
     events: [],
     bookings: [],

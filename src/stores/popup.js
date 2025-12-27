@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 
-export const usePopupStore = defineStore('popup', {
+export const usePopupStore = defineStore('popup:genericFeStore', {
   state: () => ({
     message: '',
     type: ''

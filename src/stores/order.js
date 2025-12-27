@@ -5,7 +5,7 @@ import { useAddressStore } from '@/stores/address';
 const shopStore = useShopStore();
 const { products: shop } = storeToRefs(shopStore);
 
-export const useOrderStore = defineStore('order', {
+export const useOrderStore = defineStore('order:genericFeStore', {
   state: () => ({
     products: []
   }),

@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import productionData from '@/productionData';
 import { useRouter } from 'vue-router';
 
-export const useDataStore = defineStore('data', {
+export const useDataStore = defineStore('data:genericFeStore', {
   state: () => ({
     data: {},
     ready: false,

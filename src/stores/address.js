@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-export const useAddressStore = defineStore('address', {
+export const useAddressStore = defineStore('address:genericFeStore', {
   state: () => ({
     firstname: '',
     lastname: '',
