@@ -3,7 +3,7 @@
     <Login 
       v-if="status == 1" 
       @changeStatus="changeStatus"
-      @callBack="emits('callBack')"
+      @callBack="emits('callBack', $event)"
       :logo="logo"
       :title="title"
       :primaryColor="primaryColor"
@@ -106,10 +106,6 @@ const props = defineProps({
   googleClientId: {
     type: String,
     default: ''
-  },
-  callBack: {
-    type: Function,
-    required: false
   }
 });
 
