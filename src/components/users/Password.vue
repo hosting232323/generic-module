@@ -40,7 +40,7 @@
           <v-row cols="12" md="6" no-gutters>
             <v-col class="d-flex justify-start align-center">
               <v-btn 
-                @click="goToLogin" 
+                @click="router.push(props.redirectLink)" 
                 :color="primaryColor"
                 class="mb-4"
                 block
@@ -106,10 +106,6 @@ const router = useRouter();
 const loading = ref(false);
 const confirmPass = ref('');
 const messageType = ref('error');
-
-const goToLogin = () => {
-  router.push(props.redirectLink);
-};
 
 const changePassword = () => {
   if (

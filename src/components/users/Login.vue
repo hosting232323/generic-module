@@ -26,7 +26,7 @@
             v-model="pass"
             prepend-icon="mdi-lock"
             :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
-            @click:append-inner="togglePasswordVisibility"
+            @click:append-inner="!showPassword"
             outlined
             class="mb-4"
           />
@@ -61,7 +61,7 @@
             <v-col cols="12" md="5">
               <v-btn
                 text="Registrati qui"
-                @click="changeStatus(2)"
+                @click="emits('changeStatus', 2)"
                 :color="primaryColor"
                 block
                 class="mb-4"
@@ -71,7 +71,7 @@
             <v-col cols="12" md="5">
               <v-btn
                 text="Reset password"
-                @click="changeStatus(3)"
+                @click="emits('changeStatus', 3)"
                 :color="primaryColor"
                 block
                 class="mb-4"
@@ -89,7 +89,6 @@
 
 <script setup>
 import http from '@/utils/http';
-import { useRouter } from 'vue-router';
 import { ref, onMounted, computed } from 'vue';
 import { encryptPassword } from '@/utils/encrypt';
 
@@ -133,15 +132,16 @@ const props = defineProps({
   googleClientId: {
     type: String,
     default: ''
-  },
-  callBack: {
-    type: Function,
-    required: false
   }
 });
 
+const mail = ref('');
+const pass = ref('');
+const message = ref('');
+const showPassword = ref(false);
 const loginLoading = ref(false);
 const googleLoading = ref(false);
+const emits = defineEmits(['callBack', 'changeStatus']);
 const showGoogleLogin = computed(() => !!props.googleClientId);
 
 const handleGoogleLogin = () => {
@@ -153,41 +153,20 @@ const handleGoogleLogin = () => {
       googleLoading.value = false;
     }
   });
-
   google.accounts.id.prompt();
 };
 
 const handleCredentialResponse = (response) => {
-  const jwt = response.credential;
-
   http.postRequest('google-login', {
-    token: jwt
+    token: response.credential
   }, (data) => {
     if (data.status === 'ok') {
       localStorage.setItem('token', data.token);
-      if (data.user_info)
-        for (const info of Object.keys(data.user_info))
-          localStorage.setItem(`user_${info}`, data.user_info[info]);
-      router.push(interpolatePath(props.redirectLink, data));
+      emits('callBack', data);
     } else
       message.value = data.error;
   }, 'POST', undefined, props.hostname);
 };
-
-onMounted(() => {
-  const script = document.createElement('script');
-  script.src = 'https://accounts.google.com/gsi/client';
-  script.async = true;
-  script.defer = true;
-  document.body.appendChild(script);
-});
-
-const mail = ref('');
-const pass = ref('');
-const message = ref('');
-const router = useRouter();
-const showPassword = ref(false);
-const emits = defineEmits(['changeStatus']);
 
 const login = () => {
   if (mail.value && pass.value) {
@@ -200,34 +179,20 @@ const login = () => {
       loginLoading.value = false;
       if (data.status === 'ok') {
         localStorage.setItem('token', data.token);
-        if (data.user_info)
-          for (const info of Object.keys(data.user_info))
-            localStorage.setItem(`user_${info}`, data.user_info[info]);
-
-        props.callBack(data);    
-        router.push(interpolatePath(props.redirectLink, data));
-      } else {
+        emits('callBack', data);
+      } else
         message.value = data.error;
-      }
     }, 'POST', undefined, props.hostname);
   }
 };
 
-const interpolatePath = (path, data) => {
-  return path.replace(/:([a-zA-Z0-9_]+)/g, (match, paramName) => {
-    if (paramName in data)
-      return data[paramName];
-    return match;
-  });
-};
-
-const togglePasswordVisibility = () => {
-  showPassword.value = !showPassword.value;
-};
-
-const changeStatus = (value) => {
-  emits('changeStatus', value);
-};
+onMounted(() => {
+  const script = document.createElement('script');
+  script.src = 'https://accounts.google.com/gsi/client';
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
+});
 </script>
 
 <style scoped>

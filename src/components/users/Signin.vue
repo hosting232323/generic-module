@@ -38,7 +38,7 @@
             <v-col cols="12" md="5" no-gutters>
               <div class="d-flex justify-start align-center">
                 <v-btn 
-                  @click="changeStatus(1)" 
+                  @click="emits('changeStatus', 1)" 
                   :color="primaryColor"
                   class="mb-4"
                   block
@@ -94,10 +94,6 @@ const message = ref('');
 const loading = ref(false);
 const messageType = ref('error');
 const emits = defineEmits(['changeStatus']);
-
-const changeStatus = (value) => {
-  emits('changeStatus', value);
-};
 
 const registerUser = () => {
   if (

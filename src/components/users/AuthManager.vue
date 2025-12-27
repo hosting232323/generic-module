@@ -3,6 +3,7 @@
     <Login 
       v-if="status == 1" 
       @changeStatus="changeStatus"
+      @callBack="emits('callBack')"
       :logo="logo"
       :title="title"
       :primaryColor="primaryColor"
@@ -13,7 +14,6 @@
       :iv="iv"
       :hostname="hostname"
       :googleClientId="googleClientId"
-      :callBack="callBack"
     />
     <Signin 
       v-if="status == 2 && signUp" 
@@ -56,8 +56,6 @@ import Login from '@/components/users/Login.vue';
 import Signin from '@/components/users/Signin.vue';
 import ChangePassword from '@/components/users/ChangePassword.vue';
 import Password from '@/components/users/Password.vue';
-
-const status = ref(1);
 
 const props = defineProps({
   logo: {
@@ -114,6 +112,9 @@ const props = defineProps({
     required: false
   }
 });
+
+const status = ref(1);
+const emits = defineEmits(['callBack']);
 
 const changeStatus = (value) => {
   status.value = value;

@@ -31,7 +31,7 @@
           <v-row>
             <v-col cols="12" md="5" no-gutters>
               <v-btn
-                @click="changeStatus(1)"
+                @click="emits('changeStatus', 1)"
                 :color="primaryColor"
                 class="mb-4"
                 text="Torna al login"
@@ -85,10 +85,6 @@ const message = ref('');
 const loading = ref(false);
 const messageType = ref('error');
 const emits = defineEmits(['changeStatus']);
-
-const changeStatus = (value) => {
-  emits('changeStatus', value);
-};
 
 const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
