@@ -72,11 +72,11 @@ const props = defineProps({
   },
   primaryColor: {
     type: String,
-    required: true
+    required: false
   },
   secondaryColor: {
     type: String,
-    required: true
+    required: false
   },
   redirectLink: {
     type: String,

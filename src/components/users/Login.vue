@@ -107,7 +107,7 @@ const props = defineProps({
   },
   secondaryColor: {
     type: String,
-    required: true
+    required: false
   },
   redirectLink: {
     type: String,
