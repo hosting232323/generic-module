@@ -26,7 +26,7 @@
             v-model="pass"
             prepend-icon="mdi-lock"
             :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
-            @click:append-inner="!showPassword"
+            @click:append-inner="showPassword = !showPassword"
             outlined
             class="mb-4"
           />
