@@ -61,7 +61,7 @@
             <v-col cols="12" md="5">
               <v-btn
                 text="Registrati qui"
-                @click="emits('changeStatus', 2)"
+                @click="emits('changeStatus', 'sign-in')"
                 :color="primaryColor"
                 block
                 class="mb-4"
@@ -71,7 +71,7 @@
             <v-col cols="12" md="5">
               <v-btn
                 text="Reset password"
-                @click="emits('changeStatus', 3)"
+                @click="emits('changeStatus', 'change-password')"
                 :color="primaryColor"
                 block
                 class="mb-4"
@@ -108,10 +108,6 @@ const props = defineProps({
   secondaryColor: {
     type: String,
     required: false
-  },
-  redirectLink: {
-    type: String,
-    required: true
   },
   signUp: {
     type: Boolean,

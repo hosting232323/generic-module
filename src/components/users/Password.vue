@@ -40,7 +40,7 @@
           <v-row cols="12" md="6" no-gutters>
             <v-col class="d-flex justify-start align-center">
               <v-btn 
-                @click="router.push(props.redirectLink)" 
+                @click="router.push(props.loginLink)" 
                 :color="primaryColor"
                 class="mb-4"
                 block
@@ -81,11 +81,11 @@ const props = defineProps({
     type: String,
     required: false
   },
-  redirectLink: {
+  loginLink: {
     type: String,
     required: true
   },
-    secretKey: {
+  secretKey: {
     type: String,
     required: true
   },

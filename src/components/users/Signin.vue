@@ -38,7 +38,7 @@
             <v-col cols="12" md="5" no-gutters>
               <div class="d-flex justify-start align-center">
                 <v-btn 
-                  @click="emits('changeStatus', 1)" 
+                  @click="emits('changeStatus', 'login')" 
                   :color="primaryColor"
                   class="mb-4"
                   block
@@ -77,10 +77,6 @@ const props = defineProps({
   secondaryColor: {
     type: String,
     required: false
-  },
-  redirectLink: {
-    type: String,
-    required: true
   },
   hostname: {
     type: String,

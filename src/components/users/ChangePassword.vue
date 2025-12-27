@@ -31,7 +31,7 @@
           <v-row>
             <v-col cols="12" md="5" no-gutters>
               <v-btn
-                @click="emits('changeStatus', 1)"
+                @click="emits('changeStatus', 'login')"
                 :color="primaryColor"
                 class="mb-4"
                 text="Torna al login"
@@ -69,10 +69,6 @@ const props = defineProps({
   secondaryColor: {
     type: String,
     required: false
-  },
-  redirectLink: {
-    type: String,
-    required: true
   },
   hostname: {
     type: String,
