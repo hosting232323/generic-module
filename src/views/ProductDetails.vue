@@ -16,18 +16,36 @@
         <v-card>
           <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle class="text-h7 mb-2 d-flex">
-            {{ getText(store.content?.price) || 'Prezzo' }}: &nbsp; <p v-html="getPrice(product)"/>
+            {{ getText(store.content?.price) || 'Prezzo' }}: &nbsp;
+            <p v-html="getPrice(product)" />
           </v-card-subtitle>
           <v-divider />
+          <ProductVariantSelector v-if="product.variant && product.variant.length > 0" :variants="product.variant"
+            @update:selectedVariant="selectedVariant = $event" />
           <v-card-text>
-            <div v-if="product.variant && product.variant.length > 0" class="mb-3">
-              <strong>{{ getText(store.content?.size) || 'Taglie' }}</strong>
-              <div class="d-flex mt-2">
-                <div v-for="value in product.variant" class="mr-4">
-                  <v-btn v-if="value.quantity" @click="addToCart(Number(route.params.id), value)" :color="info.primaryColor">{{ value.name }}</v-btn>
-                </div>
-              </div>
-              <v-divider class="mt-3" />
+            <v-row align="center" class="mb-3">
+              <v-col cols="12" md="6">
+                <v-btn block variant="flat" :color="info.primaryColor" :disabled="!selectedVariant"
+                  @click="addToCart(Number(route.params.id), selectedVariant)">
+                  <v-icon start icon="mdi-cart-outline" />
+                  {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
+                </v-btn>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-btn block variant="outlined" :color="info.primaryColor" :disabled="!selectedVariant"
+                  v-if="isCartEmpty">
+                  <v-icon start icon="mdi-credit-card-outline" @click="fastCheckout" />
+                  {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
+                </v-btn>
+              </v-col>
+            </v-row>
+            <div class="mb-3">
+              <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
+              {{ getText(product.category) || 'Non specificata' }}
+            </div>
+            <div class="mb-5" v-if="product.description">
+              <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
+              <p v-html="getText(product.description)" />
             </div>
             <div class="mb-3">
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
@@ -38,16 +56,6 @@
               <p v-html="getText(product.description)" />
             </div>
           </v-card-text>
-          <!-- <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart(Number(route.params.id))" :disabled="product.variant > 0">
-              <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
-              {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
-            </v-btn>
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="fastCheckout">
-              <v-icon icon="mdi-credit-card-outline" class="ml-1" start></v-icon>
-              {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
-            </v-btn>
-          </v-card-actions> -->
         </v-card>
       </v-col>
     </v-row>
@@ -79,14 +87,17 @@ import Address from '@/layouts/Address';
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
-import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
+import ProductVariantSelector from '@/components/shop/ProductVariantSelector';
+import { useOrderStore } from '@/stores/order';
+
+const orderStore = useOrderStore();
 
 const route = useRoute();
 const product = ref(null);
@@ -94,20 +105,17 @@ const isCheckout = ref(null);
 const isFormValid = ref(false);
 const shopStore = useShopStore();
 const dataStore = useDataStore();
-const isMobile = setupMobileUtils();
+
+const selectedVariant = ref(null);
 
 const { data } = storeToRefs(dataStore);
+const { products: cart } = storeToRefs(orderStore);
 const { getText } = useLanguageStore();
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 const store = data.value.store;
 
-const fastCheckout = async () => {
-  if (!store.addressMode)
-    await placeOrder();
-  else
-    isCheckout.value = true;
-};
+const isCartEmpty = computed(() => cart.value.length === 0)
 
 const placeOrder = async () => {
   shopStore.placeOrder(store.projectName, [{
@@ -115,6 +123,13 @@ const placeOrder = async () => {
     quantity: 1
   }]);
 }
+
+const fastCheckout = async () => {
+  if (!store.addressMode)
+    await placeOrder();
+  else
+    isCheckout.value = true;
+};
 
 const initProductByRoute = () => {
   product.value = products.value.find(product => product.id == route.params.id);
