@@ -92,7 +92,7 @@ const props = defineProps({
   }
 });
 
-const status = ref(1);
+const status = ref('login');
 const emits = defineEmits(['callBack']);
 
 const changeStatus = (value) => {
