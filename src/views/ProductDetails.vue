@@ -3,9 +3,9 @@
     <Loading v-if="!ready" />
     <v-row v-else-if="product">
       <v-col cols="12" md="7">
-        <v-card class="position-relative">
+        <v-card class="position-relative" >
 
-          <v-carousel v-model="activeImage" hide-delimiter-background show-arrows="hover" height="600" hide-delimiters>
+          <v-carousel v-model="activeImage" hide-delimiter-background show-arrows="hover" height="600" hide-delimiters v-if="product.images?.length > 1">
             <template #prev="{ props }">
               <v-btn icon class="carousel-arrow left" :color="info.primaryColor" variant="flat" v-bind="props">
                 <v-icon>mdi-chevron-left</v-icon>
@@ -22,10 +22,12 @@
             </v-carousel-item>
           </v-carousel>
 
-          <div v-if="product.images.length > 1" class="thumbnails">
+          <div v-if="product.images?.length > 1" class="thumbnails">
             <v-img v-for="(image, index) in product.images" :key="index" :src="image" width="60" height="60" cover
               class="thumbnail" :class="{ active: activeImage === index }" @click="activeImage = index" />
           </div>
+
+          <v-img v-else :src="getImageForProduct(product)" height="600" cover />
         </v-card>
       </v-col>
       <v-col cols="12" md="5">
