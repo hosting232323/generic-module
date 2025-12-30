@@ -24,7 +24,7 @@ export const addToCart = (productId, variant = null) => {
 
 export const getPrice = (product) => {
   if(product.discount)
-    return `${parseFloat((product.discount) / 100).toFixed(2)}€ - <s style='color: red;'>${parseFloat((product.price) / 100).toFixed(2)}€</s>`;
+    return `<strong>${parseFloat((product.discount) / 100).toFixed(2)}€</strong> - <s style='color: red;'>${parseFloat((product.price) / 100).toFixed(2)}€</s>`;
   else if (product.price)
     return parseFloat((product.price) / 100).toFixed(2) + ' €';
   else

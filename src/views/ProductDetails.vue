@@ -15,21 +15,12 @@
       <v-col cols="12" md="6">
         <v-card>
           <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
-          <v-card-subtitle>
-            {{ getText(store.content?.price) || 'Prezzo' }}: <strong v-html="getPrice(product)"></strong>
+          <v-card-subtitle class="text-h7 mb-2 d-flex">
+            {{ getText(store.content?.price) || 'Prezzo' }}: &nbsp; <p v-html="getPrice(product)"/>
           </v-card-subtitle>
           <v-divider />
           <v-card-text>
-            <div class="mb-3" v-if="product.description">
-              <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
-              <p v-html="getText(product.description)" />
-            </div>
-            <div class="mb-3">
-              <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
-              {{ getText(product.category) || 'Non specificata' }}
-            </div>
             <div v-if="product.variant && product.variant.length > 0" class="mb-3">
-              <v-divider class="mb-3" />
               <strong>{{ getText(store.content?.size) || 'Taglie' }}</strong>
               <div class="d-flex mt-2">
                 <div v-for="value in product.variant" class="mr-4">
@@ -38,17 +29,25 @@
               </div>
               <v-divider class="mt-3" />
             </div>
+            <div class="mb-3" v-if="product.description">
+              <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
+              <p v-html="getText(product.description)" />
+            </div>
+            <div class="mb-3">
+              <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
+              {{ getText(product.category) || 'Non specificata' }}
+            </div>
           </v-card-text>
-          <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
-            <!-- <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart(Number(route.params.id))" :disabled="product.variant > 0">
+          <!-- <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
+            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart(Number(route.params.id))" :disabled="product.variant > 0">
               <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
-            </v-btn> -->
-            <!-- <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="fastCheckout">
+            </v-btn>
+            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="fastCheckout">
               <v-icon icon="mdi-credit-card-outline" class="ml-1" start></v-icon>
               {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
-            </v-btn> -->
-          </v-card-actions>
+            </v-btn>
+          </v-card-actions> -->
         </v-card>
       </v-col>
     </v-row>
