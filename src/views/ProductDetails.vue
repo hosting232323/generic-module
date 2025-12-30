@@ -2,10 +2,11 @@
   <v-container>
     <Loading v-if="!ready" />
     <v-row v-else-if="product">
-      <v-col cols="12" md="7">
-        <v-card class="position-relative" >
+      <v-col cols="12" md="6">
+        <v-card class="position-relative">
 
-          <v-carousel v-model="activeImage" hide-delimiter-background show-arrows="hover" height="600" hide-delimiters v-if="product.images?.length > 1">
+          <v-carousel v-model="activeImage" hide-delimiter-background show-arrows="hover" height="600" hide-delimiters
+            v-if="product.images?.length > 1">
             <template #prev="{ props }">
               <v-btn icon class="carousel-arrow left" :color="info.primaryColor" variant="flat" v-bind="props">
                 <v-icon>mdi-chevron-left</v-icon>
@@ -30,14 +31,14 @@
           <v-img v-else :src="getImageForProduct(product)" height="600" cover />
         </v-card>
       </v-col>
-      <v-col cols="12" md="5">
+      <v-col cols="12" md="6">
         <v-card>
           <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
           <v-card-subtitle>
             {{ getText(store.content?.price) || 'Prezzo' }}: <strong v-html="getPrice(product)"></strong>
           </v-card-subtitle>
           <v-divider />
-          <v-card-text>
+          <v-card-text style="padding-bottom: 0 !important;">
             <div class="mb-3" v-if="product.description">
               <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
               <p v-html="getText(product.description)" />
@@ -46,28 +47,23 @@
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
               {{ getText(product.category) || 'Non specificata' }}
             </div>
-            <div v-if="product.variant && product.variant.length > 0" class="mb-3">
-              <v-divider class="mb-3" />
-              <strong>{{ getText(store.content?.size) || 'Taglie' }}</strong>
-              <div class="d-flex mt-2">
-                <div v-for="value in product.variant" class="mr-4">
-                  <v-btn v-if="value.quantity" @click="addToCart(Number(route.params.id), value)"
-                    :color="info.primaryColor">{{ value.name }}</v-btn>
-                </div>
-              </div>
-              <v-divider class="mt-3" />
-            </div>
+            <ProductSelector v-if="product.variant && product.variant.length > 0" :variants="product.variant" />
+            <v-row align="center" v-else>
+              <v-col cols="12" md="6">
+                <v-btn class="ma-2" variant="flat" :color="info.primaryColor"
+                  @click="addToCart(Number(route.params.id))">
+                  <v-icon start icon="mdi-cart-outline" />
+                  {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
+                </v-btn>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-btn block variant="outlined" :color="info.primaryColor" @click="fastCheckout">
+                  <v-icon start icon="mdi-credit-card-outline" />
+                  {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-card-text>
-          <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="addToCart(Number(route.params.id))" :disabled="product.variant > 0">
-              <v-icon icon="mdi-cart-outline" class="ml-1" start></v-icon>
-              {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
-            </v-btn>
-            <v-btn class="ma-2" variant="flat" :color="info.primaryColor" @click="fastCheckout">
-              <v-icon icon="mdi-credit-card-outline" class="ml-1" start></v-icon>
-              {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
-            </v-btn>
-          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -107,6 +103,7 @@ import { useDataStore } from '@/stores/data';
 import { setupMobileUtils } from '@/utils/mobile';
 import { useLanguageStore } from '@/stores/language';
 import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
+import ProductVariantSelector from '@/components/shop/ProductVariantSelector';
 
 const route = useRoute();
 const product = ref(null);
