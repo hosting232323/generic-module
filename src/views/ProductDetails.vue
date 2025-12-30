@@ -29,13 +29,13 @@
               </div>
               <v-divider class="mt-3" />
             </div>
-            <div class="mb-3" v-if="product.description">
-              <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
-              <p v-html="getText(product.description)" />
-            </div>
             <div class="mb-3">
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
               {{ getText(product.category) || 'Non specificata' }}
+            </div>
+            <div class="mb-3" v-if="product.description">
+              <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
+              <p v-html="getText(product.description)" />
             </div>
           </v-card-text>
           <!-- <v-card-actions :class="[isMobile ? 'd-flex flex-column align-start' : '']" :style="{gap: isMobile ? '0' : '0.5rem'}">
