@@ -33,8 +33,8 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-btn block variant="outlined" :color="info.primaryColor" :disabled="!selectedVariant"
-                  v-if="isCartEmpty">
-                  <v-icon start icon="mdi-credit-card-outline" @click="fastCheckout" />
+                  v-if="isCartEmpty" @click="fastCheckout">
+                  <v-icon start icon="mdi-credit-card-outline" />
                   {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
                 </v-btn>
               </v-col>
@@ -109,16 +109,16 @@ const store = data.value.store;
 
 const isCartEmpty = computed(() => cart.value.length === 0)
 
-const placeOrder = async () => {
+const placeOrder = () => {
   shopStore.placeOrder(store.projectName, [{
     product: Number(route.params.id),
     quantity: 1
   }]);
 }
 
-const fastCheckout = async () => {
+const fastCheckout = () => {
   if (!store.addressMode)
-    await placeOrder();
+    placeOrder();
   else
     isCheckout.value = true;
 };

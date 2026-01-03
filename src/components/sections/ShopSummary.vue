@@ -28,7 +28,7 @@
         </v-card>
       </template>
     </CarouselWrapper>
-    <p class="more" @click="router.push('/shop')">Scopri di più...</p>
+    <p class="more mb-4" @click="router.push('/shop')">Vai alla pagina shop...</p>
   </v-container>
 </template>
 
