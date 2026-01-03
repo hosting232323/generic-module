@@ -47,14 +47,6 @@
               <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
               <p v-html="getText(product.description)" />
             </div>
-            <div class="mb-3">
-              <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
-              {{ getText(product.category) || 'Non specificata' }}
-            </div>
-            <div class="mb-3" v-if="product.description">
-              <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
-              <p v-html="getText(product.description)" />
-            </div>
           </v-card-text>
         </v-card>
       </v-col>
