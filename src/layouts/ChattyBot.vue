@@ -174,9 +174,6 @@ const exportSuccess = ref(false);
 const { hostname, id } = defineProps(['hostname', 'id']);
 const messages = ref(['Ciao! Sono qui per rispondere alle tue domande sugli ordini.<br>Chiedimi quello che ti serve sapere specificando la data di creazione degli ordini interessati.']);
 
-console.log(hostname);
-console.log(id);
-
 const toggleWheel = (mode) => {
   fabWheel.value.style.transform = mode == 'open' ? 'scale(1)' : 'scale(0)';
   fabButton.value.style.transform = mode == 'open' ? 'scale(0)' : 'scale(1)';
@@ -189,11 +186,8 @@ const sendMessage = () => {
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
-  http.postRequest('chat', {
-    message: messageToSend,
-    bot_id: id,
-    thread_id: threadId.value,
-    assistant_id: 'asst_figXucZ6i33UiohdGvXii1pf'
+  http.postRequest('ask-document', {
+    message: messageToSend
   }, (data) => {
     loading.value = false;
     if(data.status == 'ok') {
