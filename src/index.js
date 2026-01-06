@@ -23,5 +23,8 @@ export { default as DemoProductDetailsLayout } from './layouts/demo/ProductDetai
 export { default as DemoBookingLayout } from './layouts/demo/BookingLayout.vue';
 export { default as DemoEventDetailsLayout } from './layouts/demo/EventDetailsLayout.vue';
 
+// Add On: Chatty
+export { default as ChattyBot } from './components/ChattyBot.vue';
+
 // Demo Interattiva per Seller Dashboard
 export { default as InteractiveDemoLayout } from './layouts/demo/InteractiveDemoLayout.vue';
