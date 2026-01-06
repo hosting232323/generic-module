@@ -186,7 +186,7 @@ const sendMessage = () => {
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
-  http.postRequest('ask-document', {
+  http.postRequest('vector-store/chat', {
     message: messageToSend
   }, (data) => {
     loading.value = false;
