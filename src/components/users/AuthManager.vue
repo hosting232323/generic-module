@@ -59,9 +59,6 @@ const props = defineProps({
   changePasswordTitle: {
     type: String
   },
-  newPasswordTitle: {
-    type: String
-  },
   primaryColor: {
     type: String,
     required: false
