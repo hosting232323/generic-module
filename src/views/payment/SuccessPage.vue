@@ -1,9 +1,27 @@
 <template>
   <v-container fluid class="background">
-    <h1 class="text-9xl font-weight-bold mb-4" :style="{ color: info.primaryColor }">YEAH!</h1>
+    <span
+      v-for="(c, i) in confetti"
+      :key="i"
+      class="confetti"
+      :style="{
+        left: c.left,
+        backgroundColor: c.color,
+        animationDuration: c.duration,
+        animationDelay: c.delay,
+        transform: `rotate(${c.rotate}deg)`
+      }"
+    />
 
-    <h2 class="text-h4-responsive font-weight-medium mb-2">
-      Pagamento completato!
+    <h1
+      class="text-9xl font-weight-bold mb-4 title-animate"
+      :style="{ color: info.primaryColor }"
+    >
+      YEAH!
+    </h1>
+
+    <h2 class="text-h4-responsive font-weight-medium mb-6">
+      Pagamento completato 🎉
     </h2>
     <a href="/" class="text-subtitle-responsive" :style="{ color: info.primaryColor }">Torna alla home</a>
   </v-container>
@@ -21,6 +39,14 @@ const { data } = storeToRefs(dataStore);
 const info = data.value.info;
 
 orderStore.removeAllProduct();
+
+const confetti = Array.from({ length: 30 }, () => ({
+  left: `${Math.random() * 100}%`,
+  duration: `${2 + Math.random() * 3}s`,
+  delay: `${Math.random() * 0.8}s`,
+  rotate: Math.random() * 180,
+  color: `hsl(${Math.random() * 360}, 85%, 60%)`,
+}))
 </script>
 
 <style scoped>
@@ -31,6 +57,8 @@ orderStore.removeAllProduct();
   align-items: center;
   flex-direction: column;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 .text-9xl {
   font-size: clamp(5rem, 20vw, 12rem);
@@ -68,5 +96,20 @@ orderStore.removeAllProduct();
   width: 100%;
   left: 0;
   transform: none;
+}
+
+.confetti{
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 14px;
+  opacity: .9;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
 }
 </style>
