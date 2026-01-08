@@ -24,7 +24,7 @@
                 <v-btn class="text-none" :to="`/product/${product.id}`" variant="flat" :color="info.primaryColor">
                   {{ getText(store.content?.details) || 'Dettagli' }}
                 </v-btn>
-                <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)">
+                <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)" v-if="!hasVariant">
                   {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
                 </v-btn>
               </v-card-actions>
@@ -41,8 +41,8 @@
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
-import { ref, watch } from 'vue';
 import { storeToRefs } from 'pinia';
+import { ref, computed, watch } from 'vue';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useLanguageStore } from '@/stores/language';
@@ -57,6 +57,10 @@ const { getText, getLocale } = useLanguageStore();
 const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 const store = data.value.store;
+
+const hasVariant = computed(() => {
+  return products.value.some(product => product.variant && product.variant.length > 0)
+})
 
 const groupProductsByCategory = () => {
   const grouped = products.value.reduce((acc, product) => {
