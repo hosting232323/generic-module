@@ -24,25 +24,25 @@
             <v-btn class="text-none" :to="`/product/${item.id}`" variant="flat" :color="info.primaryColor">
               {{ getText(store.content?.details) || 'Dettagli' }}
             </v-btn>
-            <!-- <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(item.id)">
-              Aggiungi al carrello
-            </v-btn> -->
           </v-card-actions>
         </v-card>
       </template>
     </CarouselWrapper>
+    <p class="more mb-4" @click="router.push('/shop')">Vai alla pagina shop...</p>
   </v-container>
 </template>
 
 <script setup>
 import { computed } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 import { useDataStore } from '@/stores/data';
 import { useShopStore } from '@/stores/shop';
 import { useLanguageStore } from '@/stores/language';
 import { getImageForProduct, getPrice } from '@/utils/shop';
 import CarouselWrapper from '@/components/sections/CarouselWrapper.vue';
 
+const router = useRouter();
 const dataStore = useDataStore();
 const shopStore = useShopStore();
 const { getText } = useLanguageStore();
@@ -61,3 +61,32 @@ const latestItems = computed(() => {
   return highlighted.length ? highlighted.slice(0, 3) : products.value.slice(-3);
 });
 </script>
+
+<style scoped>
+.more {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.more::after {
+  content: '';
+  position: absolute;
+  left: 0%;
+  bottom: -2px;
+  width: 50%;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.more:hover::after {
+  width: 100%;
+  left: 0;
+  transform: none;
+}
+</style>

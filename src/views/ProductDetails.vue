@@ -79,6 +79,7 @@
 import Address from '@/layouts/Address';
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
+import ProductVariantSelector from '@/components/shop/ProductVariantSelector';
 
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -88,7 +89,6 @@ import { useDataStore } from '@/stores/data';
 import { useOrderStore } from '@/stores/order';
 import { useLanguageStore } from '@/stores/language';
 import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
-import ProductVariantSelector from '@/components/shop/ProductVariantSelector';
 
 const route = useRoute();
 const product = ref(null);
@@ -106,7 +106,7 @@ const { products, ready } = storeToRefs(shopStore);
 const info = data.value.info;
 const store = data.value.store;
 const selectedVariant = ref(null);
-const isCartEmpty = computed(() => cart.value.length === 0)
+const isCartEmpty = computed(() => cart.value.length === 0);
 
 const placeOrder = () => {
   shopStore.placeOrder(store.projectName, [{
@@ -114,7 +114,7 @@ const placeOrder = () => {
     quantity: 1,
     variant: selectedVariant.value
   }]);
-}
+};
 
 const fastCheckout = () => {
   if (!store.addressMode)

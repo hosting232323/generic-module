@@ -5,7 +5,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
   state: () => ({
     products: [],
     ready: false,
-    pickupInStore: true,
+    pickupInStore: false,
     shippingCost: undefined,
     freeShippingThreshold: undefined
   }),
@@ -27,13 +27,15 @@ export const useShopStore = defineStore('shop:genericFeStore', {
           res.data,
           func,
           res.shipping_cost,
+          res.pickup_in_store,
           res.free_shipping_threshold
         ));
     },
-    formatData(data, func, shippingCost = undefined, freeShippingThreshold = undefined) {
+    formatData(data, func, shippingCost = undefined, freeShippingThreshold = undefined, pickupInStore = undefined) {
       this.products = data;
       this.ready = true;
       this.shippingCost = shippingCost;
+      this.pickupInStore = pickupInStore;
       this.freeShippingThreshold = freeShippingThreshold;
       func();
     },
