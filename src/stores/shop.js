@@ -43,7 +43,8 @@ export const useShopStore = defineStore('shop:genericFeStore', {
       http.postRequest('payment/stripe-session', {
         project_name: projectName,
         products: products,
-        pickup: pickup
+        pickup: pickup,
+        from_db: !data.stripeProduct
       }, function(data) {
         if (data.checkout_url)
           window.location.href = data.checkout_url;
