@@ -39,12 +39,12 @@ export const useShopStore = defineStore('shop:genericFeStore', {
       this.freeShippingThreshold = freeShippingThreshold;
       func();
     },
-    placeOrder(projectName, products, pickup = false) {
+    placeOrder(storeData, products, pickup = false) {
       http.postRequest('payment/stripe-session', {
-        project_name: projectName,
+        project_name: storeData.projectName,
         products: products,
         pickup: pickup,
-        from_db: !data.stripeProduct
+        from_db: !storeData.stripeProduct
       }, function(data) {
         if (data.checkout_url)
           window.location.href = data.checkout_url;

@@ -159,7 +159,7 @@ const proceedToCheckout = async () => {
 
 const placeOrder = async () => {
   const { products } = storeToRefs(orderStore);
-  shopStore.placeOrder(store.projectName, products.value, pickup.value);
+  shopStore.placeOrder(store, products.value, pickup.value);
 };
 
 const clearCart = () => {
