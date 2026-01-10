@@ -109,7 +109,7 @@ const selectedVariant = ref(null);
 const isCartEmpty = computed(() => cart.value.length === 0);
 
 const placeOrder = () => {
-  shopStore.placeOrder(store.projectName, [{
+  shopStore.placeOrder(store, [{
     product: Number(route.params.id),
     quantity: 1,
     variant: selectedVariant.value
