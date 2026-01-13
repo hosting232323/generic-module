@@ -5,7 +5,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
   state: () => ({
     products: [],
     ready: false,
-    pickupInStore: true,
+    pickupInStore: false,
     shippingCost: undefined,
     freeShippingThreshold: undefined
   }),
@@ -27,21 +27,24 @@ export const useShopStore = defineStore('shop:genericFeStore', {
           res.data,
           func,
           res.shipping_cost,
+          res.pickup_in_store,
           res.free_shipping_threshold
         ));
     },
-    formatData(data, func, shippingCost = undefined, freeShippingThreshold = undefined) {
+    formatData(data, func, shippingCost = undefined, freeShippingThreshold = undefined, pickupInStore = undefined) {
       this.products = data;
       this.ready = true;
       this.shippingCost = shippingCost;
+      this.pickupInStore = pickupInStore;
       this.freeShippingThreshold = freeShippingThreshold;
       func();
     },
-    placeOrder(projectName, products, pickup = false) {
+    placeOrder(storeData, products, pickup = false) {
       http.postRequest('payment/stripe-session', {
-        project_name: projectName,
+        project_name: storeData.projectName,
         products: products,
-        pickup: pickup
+        pickup: pickup,
+        from_db: !storeData.stripeProduct
       }, function(data) {
         if (data.checkout_url)
           window.location.href = data.checkout_url;
