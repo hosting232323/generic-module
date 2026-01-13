@@ -40,4 +40,4 @@ const selectVariant = (variant) => {
   selectedVariant.value = variant;
   emit('update:selectedVariant', variant);
 }
-</script>8
+</script>
