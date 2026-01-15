@@ -8,10 +8,10 @@
       "content": {
         "type": "automatic",
         "images": [
-          "gallery/1.png",
-          "gallery/2.png",
-          "gallery/3.png",
-          "gallery/4.png"
+          "gallery/1.webp",
+          "gallery/2.webp",
+          "gallery/3.webp",
+          "gallery/4.webp"
         ]
       }
     },
@@ -22,7 +22,7 @@
       "type": "dualSection",
       "content": {
         "description": "Dal 2001 Carpe Diem è cresciuta da semplice negozio di calzature a realtà specializzata nel mondo dei bambini. Ci siamo dedicati al “primo passo”, offrendo scarpe studiate per accompagnare i più piccoli nella loro crescita. Con gli anni abbiamo ampliato la gamma, abbracciato il mondo vegan e sostenibile, e reso la qualità il nostro punto fermo.",
-        "image": "lanostrastoria.png",
+        "image": "lanostrastoria.webp",
         "orientationDesktop": "right",
         "orientationMobile": "top",
         "title": "La nostra storia"
@@ -38,8 +38,8 @@
           {
             "description": "Ogni piede è diverso, <span style=\"color: #416342; font-weight: bold;\">ogni bambino ha le sue esigenze</span>.<br>Ecco perché offriamo una <span style=\"color: #416342; font-weight: bold;\">consulenza personalizzata in negozio</span>, guidata da <span style=\"color: #416342; font-weight: bold;\">anni di esperienza</span> e da una <span style=\"color: #416342; font-weight: bold;\">conoscenza approfondita</span> dei materiali, delle forme e delle funzionalità di ogni scarpa.<br><br>Che si tratti di <span style=\"color: #416342; font-weight: bold;\">primi passi</span>, <span style=\"color: #416342; font-weight: bold;\">piedini delicati</span> o semplicemente <span style=\"color: #416342; font-weight: bold;\">esigenze particolari</span>, siamo qui per aiutarti a scegliere il <span style=\"color: #416342; font-weight: bold;\">modello giusto</span>, senza fretta e con tutta la disponibilità possibile.<br><br><span style=\"color: #416342; font-weight: bold;\">Carpe Diem non è solo un punto vendita</span>: è <span style=\"color: #416342; font-weight: bold;\">un luogo di fiducia</span>.",
             "image": [
-              "advantages/1.png",
-              "advantages/2.png"
+              "advantages/1.webp",
+              "advantages/2.webp"
             ],
             "name": ""
           }
@@ -52,22 +52,22 @@
         "services": [
           {
             "name": "<strong>Biomecanics</strong>",
-            "image": "services/biomecanics.png",
+            "image": "services/biomecanics.webp",
             "description": "Progettate in collaborazione con il Collegio Ufficiale dei Podologi di Spagna, le scarpe Biomecanics sono pensate per seguire lo sviluppo del piede del bambino in ogni fase. Libertà di movimento, stabilità e sicurezza: il mix perfetto per i primi passi e oltre."
           },
           {
             "name": "<strong>Natural World Eco</strong>",
-            "image": "services/naturalworldeco.jpg",
+            "image": "services/naturalworldeco.webp",
             "description": "Una scelta etica e sostenibile, prodotta in Spagna con materiali naturali e processi ecologici. Le scarpe Natural World Eco sono 100% vegan, realizzate con cotone organico e colori enzimatici, ideali per chi vuole unire stile e rispetto per l’ambiente."
           },
           {
             "name": "<strong>ShopArt</strong>",
-            "image": "services/shopart.png",
+            "image": "services/shopart.webp",
             "description": "Colore, energia e uno stile deciso. ShopArt propone scarpe dal design contemporaneo, perfette per bambini e ragazzi che vogliono esprimere la propria personalità attraverso ogni dettaglio del loro outfit."
           },
           {
             "name": "<strong>Garvalín</strong>",
-            "image": "services/garvalin.png",
+            "image": "services/garvalin.webp",
             "description": "Comfort, design e qualità si incontrano in ogni modello Garvalín. Con linee allegre e materiali sicuri, è il brand perfetto per accompagnare la crescita con calzature affidabili e attente al benessere del piede."
           }
         ]
@@ -81,16 +81,16 @@
     {
       "content": {
         "brands": [
-          "brandlist/adidas.png",
-          "brandlist/bullboys.png",
-          "brandlist/gianfrancoferre.png",
-          "brandlist/paciotti.png",
-          "brandlist/puma.png",
-          "brandlist/pablosky.png",
-          "brandlist/lellikelly.png",
-          "brandlist/nike.png",
-          "brandlist/gaelle.jpg",
-          "brandlist/levis.png"
+          "brandlist/adidas.webp",
+          "brandlist/bullboys.webp",
+          "brandlist/gianfrancoferre.webp",
+          "brandlist/paciotti.webp",
+          "brandlist/puma.webp",
+          "brandlist/pablosky.webp",
+          "brandlist/lellikelly.webp",
+          "brandlist/nike.webp",
+          "brandlist/gaelle.webp",
+          "brandlist/levis.webp"
         ]
       },
       "menu": "Brandlist",

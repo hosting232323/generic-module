@@ -10,7 +10,7 @@
 
 <script setup>
 import { useHead } from '@vueuse/head';
-import { computed } from 'vue';
+import { ref, computed, onMounted} from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
@@ -81,5 +81,59 @@ useHead({
   meta: [
     { name: 'Carpediem', content: 'This is the home page' }
   ]
+});
+
+const preloadedSections = ref([]);
+
+const extractImages = (obj) => {
+  let urls = [];
+  if (!obj) return urls;
+
+  if (typeof obj === 'string' && /\.(jpe?g|png|webp)$/i.test(obj)) {
+    urls.push(obj);
+  } else if (Array.isArray(obj)) {
+    obj.forEach(item => urls.push(...extractImages(item)));
+  } else if (typeof obj === 'object') {
+    Object.values(obj).forEach(val => urls.push(...extractImages(val)));
+  }
+  return urls;
+};
+
+const preloadImages = (sectionsToPreload) => {
+  const allImages = sectionsToPreload.flatMap(section => extractImages(section.content));
+  allImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+
+const preloadAboveFold = (sectionsList) => {
+  const firstSections = sectionsList.slice(0, 4);
+  preloadImages(firstSections);
+  preloadedSections.value = firstSections.map(s => s.type);
+};
+
+const lazyLoadImages = () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+        const section = data.value.components.find(s => s.type === sectionId);
+        if (section && !preloadedSections.value.includes(sectionId)) {
+          preloadImages([section]);
+          preloadedSections.value.push(sectionId);
+        }
+      }
+    });
+  }, { rootMargin: '200px' });
+
+  document.querySelectorAll('[id]').forEach(el => observer.observe(el));
+};
+
+onMounted(() => {
+  if (data.value?.components) {
+    preloadAboveFold(data.value.components);
+    lazyLoadImages();
+  }
 });
 </script>
