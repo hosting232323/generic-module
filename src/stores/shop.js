@@ -31,7 +31,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
           res.free_shipping_threshold
         ));
     },
-    formatData(data, func, shippingCost = 0, pickupInStore = undefined, freeShippingThreshold = 0) {
+    formatData(data, func, shippingCost = 0, pickupInStore = false, freeShippingThreshold = 0) {
       this.products = data;
       this.ready = true;
       this.shippingCost = shippingCost;
