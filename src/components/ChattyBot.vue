@@ -173,7 +173,7 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { hostname, vectorStoreId, botName, botImage } = defineProps(['vectorStoreId', 'botName', 'botImage']);
+const { hostname, vectorStoreId, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botName', 'botImage']);
 const messages = ref(['Ciao! Sono qui per rispondere alle tue domande sugli ordini.<br>Chiedimi quello che ti serve sapere specificando la data di creazione degli ordini interessati.']);
 
 const toggleWheel = (mode) => {
