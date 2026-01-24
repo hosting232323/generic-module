@@ -173,7 +173,7 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { vectorStoreId, botName, botImage } = defineProps(['vectorStoreId', 'botName', 'botImage']);
+const { hostname, vectorStoreId, botName, botImage } = defineProps(['vectorStoreId', 'botName', 'botImage']);
 const messages = ref(['Ciao! Sono qui per rispondere alle tue domande sugli ordini.<br>Chiedimi quello che ti serve sapere specificando la data di creazione degli ordini interessati.']);
 
 const toggleWheel = (mode) => {
@@ -197,7 +197,7 @@ const sendMessage = () => {
       messages.value.push(data.response);
       threadId.value = data.thread_id;
     }
-  }, 'POST', router);
+  }, 'POST', router, hostname);
 };
 
 const checkScroll = () => {
