@@ -27,6 +27,7 @@
       </v-icon>
       <div class="avatar">
         <img
+          :src="botImage"
           alt="botAvatar"
         >
       </div> 
@@ -51,9 +52,10 @@
         <div :class="{sender: true, bot_s: index % 2 === 0, user_s: index % 2 !== 0}">
           <img
             v-if="index % 2 === 0"
+            :src="botImage"
             alt="botAvatar"
           >
-          <p>{{ index % 2 === 0 ? 'Italco.mi Bot' : 'Tu' }}</p>
+          <p>{{ index % 2 === 0 ? botName  : 'Tu' }}</p>
         </div>
 
         <!-- eslint-disable vue/no-v-html -->
@@ -171,7 +173,7 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { hostname, id } = defineProps(['hostname', 'id']);
+const { hostname, vectorStoreId, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botName', 'botImage']);
 const messages = ref(['Ciao! Sono qui per rispondere alle tue domande sugli ordini.<br>Chiedimi quello che ti serve sapere specificando la data di creazione degli ordini interessati.']);
 
 const toggleWheel = (mode) => {
@@ -187,14 +189,15 @@ const sendMessage = () => {
   userMessage.value = '';
   messages.value.push(messageToSend);
   http.postRequest('vector-store/chat', {
-    message: messageToSend
+    message: messageToSend,
+    vector_store_id: vectorStoreId
   }, (data) => {
     loading.value = false;
     if(data.status == 'ok') {
       messages.value.push(data.response);
       threadId.value = data.thread_id;
     }
-  }, 'POST', router);
+  }, 'POST', router, hostname);
 };
 
 const checkScroll = () => {
@@ -219,7 +222,7 @@ const exportChat = async () => {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(new Blob([
     messages.value.map((msg, index) => {
-      return `${index % 2 === 0 ? 'Italco.mi Bot' : 'Utente'}: ${msg.replace(/<[^>]+>/g, '').trim()}`;
+      return `${index % 2 === 0 ? botName : 'Utente'}: ${msg.replace(/<[^>]+>/g, '').trim()}`;
     }).join('\n')
   ], { type: 'text/plain' }));
   link.download = 'chat_messages.txt';
