@@ -108,9 +108,8 @@ const preloadImages = (sectionsToPreload) => {
 };
 
 const preloadAboveFold = (sectionsList) => {
-  const firstSections = sectionsList.slice(0, 4);
-  preloadImages(firstSections);
-  preloadedSections.value = firstSections.map(s => s.type);
+  preloadImages(sectionsList);
+  preloadedSections.value = sectionsList.map(s => s.type);
 };
 
 const lazyLoadImages = () => {
