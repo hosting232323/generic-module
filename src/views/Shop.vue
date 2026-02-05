@@ -41,12 +41,14 @@
 import Loading from '@/layouts/Loading';
 import Popup from '@/components/sections/Popup';
 
+import { useHead } from '@vueuse/head';
 import { storeToRefs } from 'pinia';
 import { ref, computed, watch } from 'vue';
 import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useLanguageStore } from '@/stores/language';
 import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
+import { head } from "@/utils/seo.shop.js";
 
 const groupedProducts = ref({});
 const dataStore = useDataStore();
@@ -87,4 +89,6 @@ else
 watch([getLocale, products], () => {
   if (ready.value) groupProductsByCategory();
 }, { immediate: true });
+
+useHead(head)
 </script>
