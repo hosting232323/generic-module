@@ -173,8 +173,8 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { hostname, vectorStoreId, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botName', 'botImage']);
-const messages = ref(['Ciao! Sono qui per rispondere alle tue domande sugli ordini.<br>Chiedimi quello che ti serve sapere specificando la data di creazione degli ordini interessati.']);
+const { hostname, vectorStoreId, botMessage, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botMessage', 'botName', 'botImage']);
+const messages = ref([botMessage]);
 
 const toggleWheel = (mode) => {
   fabWheel.value.style.transform = mode == 'open' ? 'scale(1)' : 'scale(0)';
