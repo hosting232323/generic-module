@@ -44,6 +44,17 @@
       ref="fabContent"
       class="fab-content"
     >
+      <div v-if="showFaq && filteredFaqs.length" class="faq-container">
+        <button
+          v-for="(faq, index) in filteredFaqs"
+          :key="index"
+          class="faq-card"
+          @click="clickFaq(faq, index)"
+        >
+          {{ faq.name }}
+        </button>
+      </div>
+
       <div
         v-for="(message, index) in messages"
         :key="index"
@@ -161,7 +172,7 @@ import '@/styles/chatty.scss';
 import http from '@/utils/http';
 import { marked } from 'marked';
 import { useRouter } from 'vue-router';
-import { ref, onMounted, nextTick, watch } from 'vue';
+import { ref, onMounted, nextTick, watch, computed } from 'vue';
 
 const router = useRouter();
 const loading = ref(false);
@@ -173,7 +184,11 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { hostname, vectorStoreId, botId, botMessage, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botId', 'botMessage', 'botName', 'botImage']);
+
+const showFaq = ref(true)
+const clickedFaqs = ref(new Set())
+
+const { hostname, vectorStoreId, botId, botMessage, botName, botImage, botFaq } = defineProps(['hostname', 'vectorStoreId', 'botId', 'botMessage', 'botName', 'botImage', 'botFaq']);
 const messages = ref([botMessage]);
 
 const toggleWheel = (mode) => {
@@ -248,6 +263,20 @@ const exportChat = async () => {
     exportMode.value = false;
   }, 2000);
 };
+
+const filteredFaqs = computed(() => {
+  return botFaq || [];
+})
+
+const clickFaq = (faq, index) => {
+  if (clickedFaqs.value.has(index)) return
+
+  clickedFaqs.value.add(index)
+  showFaq.value = false
+
+  userMessage.value = faq.value
+  sendMessage()
+}
 
 
 watch(messages, async () => {
