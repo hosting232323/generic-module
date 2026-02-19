@@ -61,6 +61,7 @@
 
         <!-- eslint-disable vue/no-v-html -->
         <div
+          v-show="message !== ''"
           :class="{msg: true, bot: index % 2 === 0, user: index % 2 !== 0}"
           v-html="marked.parse(message)"
         />
@@ -73,10 +74,7 @@
           <span class="loading-dots"><span /><span /><span /></span>
         </div>
       </div>
-      <div
-        v-if="showFaq && filteredFaqs.length"
-        class="faq-container"
-      >
+      <div v-if="showFaq && filteredFaqs.length" class="faq-container">
         <button
           v-for="(faq, index) in filteredFaqs"
           :key="index"
@@ -87,6 +85,7 @@
         </button>
       </div>
     </main>
+
     <div 
       v-if="!exportMode"
       class="fab-send"
@@ -105,6 +104,7 @@
         <v-icon>mdi-send-circle</v-icon>
       </button>
     </div>
+
     <div
       v-else
       class="export-chat"
@@ -149,6 +149,7 @@
         </div>
       </div>
     </div>
+
     <footer class="fab-footer">
       <p>
         Powered by
@@ -159,6 +160,7 @@
         >FastSite</a>
       </p>
     </footer>
+
     <div
       v-show="showArrow"
       class="arrow-dynamic"
@@ -171,7 +173,6 @@
 
 <script setup>
 import '@/styles/chatty.scss';
-
 import http from '@/utils/http';
 import { marked } from 'marked';
 import { useRouter } from 'vue-router';
@@ -212,12 +213,12 @@ const colorPaletteDefault = {
 };
 
 const toggleWheel = (mode) => {
-  fabWheel.value.style.transform = mode == 'open' ? 'scale(1)' : 'scale(0)';
-  fabButton.value.style.transform = mode == 'open' ? 'scale(0)' : 'scale(1)';
+  fabWheel.value.style.transform = mode === 'open' ? 'scale(1)' : 'scale(0)';
+  fabButton.value.style.transform = mode === 'open' ? 'scale(0)' : 'scale(1)';
 };
 
-const sendMessage = () => {
-  if(!userMessage.value) return;
+const sendMessage = async () => {
+  if (!userMessage.value) return;
 
   loading.value = true;
   showFaq.value = false;
@@ -225,7 +226,9 @@ const sendMessage = () => {
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
-  if(botData.vectorStoreId) {
+
+  if (botData.vectorStoreId) {
+    // fallback normale
     http.postRequest('vector-store/chat', {
       message: messageToSend,
       vector_store_id: botData.vectorStoreId
@@ -238,31 +241,70 @@ const sendMessage = () => {
       showFaq.value = true;
     }, 'POST', router, hostname);
   } else {
-    http.postRequest('chat', {
-      message: messageToSend,
-      bot_id: botData.id,
-      assistant_id: botData.assistantId
-    }, (data) => {
-      if(data.status == 'ok') {
-        messages.value.push(data.response);
-        threadId.value = data.thread_id;
+    // stream
+    let botIndex = messages.value.length;
+    messages.value.push(''); // placeholder per il messaggio stream
+
+    const response = await fetch(`${hostname}stream-chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: messageToSend,
+        bot_id: botData.id,
+        assistant_id: botData.assistantId,
+        thread_id: threadId.value
+      })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+
+    let done = false;
+    let firstContentReceived = false;
+
+    while (!done) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+
+      let chunk = decoder.decode(value);
+
+      // estrai thread_id se presente
+      if (chunk.includes('"thread_id"')) {
+        const jsonEnd = chunk.indexOf("}") + 1;
+        const jsonPart = chunk.slice(0, jsonEnd);
+        threadId.value = JSON.parse(jsonPart).thread_id;
+        chunk = chunk.slice(jsonEnd);
       }
-      loading.value = false;
-      showFaq.value = true;
-    }, 'POST', router, hostname);
+
+      // se il chunk contiene **contenuto reale**, aggiorna il messaggio
+      if (chunk.trim()) {
+        messages.value[botIndex] += chunk;
+
+        // stoppa il loader solo al primo chunk reale
+        if (!firstContentReceived) {
+          firstContentReceived = true;
+          loading.value = false;
+        }
+      }
+
+      await nextTick();
+      scrollToBottom();
+    }
+
+    // assicuriamoci che loader sia disattivato alla fine, se non l'ha già fatto
+    loading.value = false;
+    showFaq.value = true;
   }
 };
 
 const checkScroll = () => {
   if (!fabContent.value) return;
-
   const el = fabContent.value;
   showArrow.value = el.scrollHeight - el.scrollTop - el.clientHeight > 10;
 };
 
 const scrollToBottom = () => {
   if (!fabContent.value) return;
-
   fabContent.value.scrollTo({
     top: fabContent.value.scrollHeight,
     behavior: 'smooth'
@@ -303,7 +345,6 @@ const clickFaq = (faq, index) => {
   userMessage.value = faq.value;
   sendMessage();
 };
-
 
 watch(messages, async () => {
   await nextTick();
