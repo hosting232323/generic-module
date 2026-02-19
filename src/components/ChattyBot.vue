@@ -173,7 +173,7 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { hostname, vectorStoreId, botMessage, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botMessage', 'botName', 'botImage']);
+const { hostname, vectorStoreId, botId, botMessage, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botId', 'botMessage', 'botName', 'botImage']);
 const messages = ref([botMessage]);
 
 const toggleWheel = (mode) => {
@@ -188,16 +188,30 @@ const sendMessage = () => {
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
-  http.postRequest('vector-store/chat', {
-    message: messageToSend,
-    vector_store_id: vectorStoreId
-  }, (data) => {
-    loading.value = false;
-    if(data.status == 'ok') {
-      messages.value.push(data.response);
-      threadId.value = data.thread_id;
-    }
-  }, 'POST', router, hostname);
+  if(vectorStoreId) {
+    http.postRequest('vector-store/chat', {
+      message: messageToSend,
+      vector_store_id: vectorStoreId
+    }, (data) => {
+      loading.value = false;
+      if(data.status == 'ok') {
+        messages.value.push(data.response);
+        threadId.value = data.thread_id;
+      }
+    }, 'POST', router, hostname);
+  } else {
+    http.postRequest('stream-chat', {
+      message: messageToSend,
+      vector_store_id: vectorStoreId
+    }, (data) => {
+      loading.value = false;
+      if(data.status == 'ok') {
+        messages.value.push(data.response);
+        threadId.value = data.thread_id;
+      }
+    }, 'POST', router, hostname);
+  }
+
 };
 
 const checkScroll = () => {
