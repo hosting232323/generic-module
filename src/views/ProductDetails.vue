@@ -6,7 +6,7 @@
         <v-card>
           <v-carousel v-if="product.images && product.images.length > 0" hide-delimiter-background>
             <v-carousel-item v-for="(image, index) in product.images" :key="index">
-              <v-img :src="image" height="600" cover></v-img>
+              <v-img :src="image.preview" height="600" cover></v-img>
             </v-carousel-item>
           </v-carousel>
           <v-img v-else :src="getImageForProduct(product)" height="600" cover />

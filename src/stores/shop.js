@@ -21,9 +21,13 @@ export const useShopStore = defineStore('shop:genericFeStore', {
     },
     initDataByProject(data, func) {
       if(data.stripeProduct)
-        http.getRequest(`product/${data.projectName}/stripe`, {}, (res) => this.formatData(res.data, func));
+        http.getRequest(`shop/stripe-product`, {
+          project: data.projectName
+        }, (res) => this.formatData(res.data, func));
       else
-        http.getRequest(`product/${data.projectName}/db`, {}, (res) => this.formatData(
+        http.getRequest(`shop/db-product`, {
+          project: data.projectName
+        }, (res) => this.formatData(
           res.data,
           func,
           res.shipping_cost,
