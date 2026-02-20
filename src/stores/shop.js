@@ -44,7 +44,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
       func();
     },
     placeOrder(storeData, products, pickup = false) {
-      http.postRequest('payment/stripe-session', {
+      http.postRequest('shop/stripe-session', {
         project_name: storeData.projectName,
         products: products,
         pickup: pickup,
