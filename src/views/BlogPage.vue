@@ -1,15 +1,42 @@
 <template>
-  <Loading :home="false" v-if="!ready"/>
+  <AppLoading
+    v-if="!ready"
+    :home="false"
+  />
   <v-container v-else>
-    <h1 class="text-h3 font-weight-bold" :style="{ color: info.primaryColor, margin: '10px 0'}">Ultimi post</h1>
-    <div v-for="(post, index) in displayedPosts" :key="post.id">
-      <BlogItem :post="post" :isFeatured="index === 0"/>
+    <h1
+      class="text-h3 font-weight-bold"
+      :style="{ color: info.primaryColor, margin: '10px 0'}"
+    >
+      Ultimi post
+    </h1>
+    <div
+      v-for="post in displayedPosts"
+      :key="post.id"
+    >
+      <BlogItem
+        :post="post"
+      />
     </div>
-    <div v-if="displayedPosts.length < posts.length" class="mt-4">
-      <a @click="loadMorePosts" class="more-posts" :style="{ color: info.primaryColor }">Mostra più articoli</a>
+    <div
+      v-if="displayedPosts.length < posts.length"
+      class="mt-4"
+    >
+      <a
+        class="more-posts"
+        :style="{ color: info.primaryColor }"
+        @click="loadMorePosts"
+      >Mostra più articoli</a>
     </div>
-    <div v-else class="mt-4">
-      <a @click="removeMorePosts" class="more-posts" :style="{ color: info.primaryColor }">Mostra meno</a>
+    <div
+      v-else
+      class="mt-4"
+    >
+      <a
+        class="more-posts"
+        :style="{ color: info.primaryColor }"
+        @click="removeMorePosts"
+      >Mostra meno</a>
     </div>
   </v-container>
 </template>
@@ -18,7 +45,7 @@
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import BlogItem from '@/components/sections/BlogItem';
-import Loading from '@/layouts/Loading.vue';
+import AppLoading from '@/layouts/AppLoading.vue';
 import { useBlogStore } from '@/stores/blog';
 import { useDataStore } from '@/stores/data';
 
@@ -35,8 +62,8 @@ const info = data.value.info;
 
 
 const displayPosts = () => {
-  displayedPosts.value = posts.value.slice(0, itemsToShow.value)
-}
+  displayedPosts.value = posts.value.slice(0, itemsToShow.value);
+};
 
 const loadMorePosts = () => {
   itemsToShow.value += 5;

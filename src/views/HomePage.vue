@@ -1,8 +1,9 @@
 <template>
   <component
-    v-for="section in sections"
     :is="getComponent(section.type, section.variant)"
+    v-for="(section, index) in sections"
     :id="section.type"
+    :key="index"
     :content="section.content"
     :info="info"
   />
@@ -14,13 +15,13 @@ import { useHead } from '@vueuse/head';
 import { useDataStore } from '@/stores/data';
 import { ref, computed, onMounted} from 'vue';
 
-import Map from '@/components/sections/Map';
-import Text from '@/components/sections/Text';
-import Line from '@/components/sections/Line';
-import Reviews from '@/components/sections/Reviews';
-import Gallery from '@/components/sections/Gallery';
-import Services from '@/components/sections/Services';
-import Contacts from '@/components/sections/Contacts';
+import MapViewer from '@/components/sections/MapViewer';
+import BaseText from '@/components/sections/BaseText';
+import LineDivider from '@/components/sections/LineDivider';
+import ReviewsSection from '@/components/sections/ReviewsSection';
+import GallerySection from '@/components/sections/GallerySection';
+import ServicesSection from '@/components/sections/ServicesSection';
+import ContactsSection from '@/components/sections/ContactsSection';
 import BrandList from '@/components/sections/BrandList';
 import ShopSummary from '@/components/sections/ShopSummary';
 import BlogSummary from '@/components/sections/BlogSummary';
@@ -35,13 +36,13 @@ const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
 
 const componentMap = {
-  map: Map,
-  text: Text,
-  line: Line,
-  reviews: Reviews,
-  gallery: Gallery,
-  services: Services,
-  contacts: Contacts,
+  map: MapViewer,
+  text: BaseText,
+  line: LineDivider,
+  reviews: ReviewsSection,
+  gallery: GallerySection,
+  services: ServicesSection,
+  contacts: ContactsSection,
   brandlist: BrandList,
   advantages: {
     default: AdvantagesDefault,

@@ -1,30 +1,73 @@
 <template>
   <v-container>
-    <Loading v-if="!ready" />
+    <AppLoading v-if="!ready" />
     <v-row v-else>
-      <v-col cols="12" v-for="(group, category) in groupedProducts" :key="category">
-        <h3 class="text-h5 mb-3" :style="{ color: info.primaryColor }">{{ category }}</h3>
-        <hr :style="{ height: '3px', margin: '-10px 0 10px', backgroundColor: info.primaryColor, border: 'none' }" />
+      <v-col
+        v-for="(group, category) in groupedProducts"
+        :key="category"
+        cols="12"
+      >
+        <h3
+          class="text-h5 mb-3"
+          :style="{ color: info.primaryColor }"
+        >
+          {{ category }}
+        </h3>
+        <hr :style="{ height: '3px', margin: '-10px 0 10px', backgroundColor: info.primaryColor, border: 'none' }">
         <v-row>
-          <v-col cols="12" md="4" v-for="product in group" :key="product.id">
+          <v-col
+            v-for="product in group"
+            :key="product.id"
+            cols="12"
+            md="4"
+          >
             <v-card class="mb-5">
-              <v-img height="400" :src="getImageForProduct(product)" cover />
-              <v-card-title class="text-h6" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
+              <v-img
+                height="400"
+                :src="getImageForProduct(product)"
+                cover
+              />
+              <v-card-title
+                class="text-h6"
+                style="white-space: normal;"
+              >
+                {{ getText(product.name) }}
+              </v-card-title>
               <v-card-text>
                 <div class="d-flex">
                   {{ getText(store.content?.price) || 'Prezzo' }}:
-                  <p v-html="getPrice(product)" style="margin-left: 5px;"></p>
+                  <p
+                    style="margin-left: 5px;"
+                    v-html="getPrice(product)"
+                  />
                 </div>
-                <div v-if="product.quantity" class="d-flex">
+                <div
+                  v-if="product.quantity"
+                  class="d-flex"
+                >
                   {{ getText(store.content?.quantity) || 'Quantità' }}:
-                  <p v-html="product.quantity" style="margin-left: 5px;"></p>
+                  <p
+                    style="margin-left: 5px;"
+                    v-html="product.quantity"
+                  />
                 </div>
               </v-card-text>
               <v-card-actions>
-                <v-btn class="text-none" :to="`/product/${product.id}`" variant="flat" :color="info.primaryColor">
+                <v-btn
+                  class="text-none"
+                  :to="`/product/${product.id}`"
+                  variant="flat"
+                  :color="info.primaryColor"
+                >
                   {{ getText(store.content?.details) || 'Dettagli' }}
                 </v-btn>
-                <v-btn class="text-none ma-2" variant="flat" :color="info.secondaryColor" @click="addToCart(product.id)" v-if="!hasVariant">
+                <v-btn
+                  v-if="!hasVariant"
+                  class="text-none ma-2"
+                  variant="flat"
+                  :color="info.secondaryColor"
+                  @click="addToCart(product.id)"
+                >
                   {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
                 </v-btn>
               </v-card-actions>
@@ -32,14 +75,14 @@
           </v-col>
         </v-row>
       </v-col>
-      <Popup />
+      <PopUpAlert />
     </v-row>
   </v-container>
 </template>
 
 <script setup>
-import Loading from '@/layouts/Loading';
-import Popup from '@/components/sections/Popup';
+import AppLoading from '@/layouts/AppLoading';
+import PopUpAlert from '@/components/sections/PopUpAlert';
 
 import { storeToRefs } from 'pinia';
 import { ref, computed, watch } from 'vue';
@@ -59,8 +102,8 @@ const info = data.value.info;
 const store = data.value.store;
 
 const hasVariant = computed(() => {
-  return products.value.some(product => product.variant && product.variant.length > 0)
-})
+  return products.value.some(product => product.variant && product.variant.length > 0);
+});
 
 const groupProductsByCategory = () => {
   const grouped = products.value.reduce((acc, product) => {

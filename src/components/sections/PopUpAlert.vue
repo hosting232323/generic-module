@@ -4,8 +4,9 @@
     :type="alertType"
     transition="scale-transition"
     class="popupResponse"
-    v-html="alertMessage"
-  />
+  >
+    <div v-html="alertMessage" />
+  </v-alert>
 </template>
 
 <script setup>

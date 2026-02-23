@@ -1,5 +1,8 @@
 <template>
-  <v-container class="creative-advantages" fluid>
+  <v-container
+    class="creative-advantages"
+    fluid
+  >
     <div class="creative-header">
       <h1 
         class="creative-title" 
@@ -26,19 +29,37 @@
               cycle
               interval="4000"
             >
-              <v-carousel-item v-for="(img, imgIndex) in advantage.image" :key="imgIndex">
-                <img :src="resolveImg(img)" class="img-creative"/>
+              <v-carousel-item
+                v-for="(img, imgIndex) in advantage.image"
+                :key="imgIndex"
+              >
+                <img
+                  :src="resolveImg(img)"
+                  class="img-creative"
+                >
               </v-carousel-item>
             </v-carousel>
-            <img v-else :src="resolveImg(advantage.image)" class="img-creative"/>
+            <img
+              v-else
+              :src="resolveImg(advantage.image)"
+              class="img-creative"
+            >
             
-            <div class="creative-overlay" :style="{ background: `linear-gradient(135deg, ${info.primaryColor}40 0%, ${info.secondaryColor}60 100%)` }">
-              <v-card-title class="advantage-name-overlay" v-html="getText(advantage.name)"/>
+            <div
+              class="creative-overlay"
+              :style="{ background: `linear-gradient(135deg, ${info.primaryColor}40 0%, ${info.secondaryColor}60 100%)` }"
+            >
+              <v-card-title class="advantage-name-overlay">
+                <span v-html="getText(advantage.name)" />
+              </v-card-title>
             </div>
           </div>
           
-          <v-card-text v-if="advantage.description" class="advantage-description-creative">
-            <div v-html="getText(advantage.description)"/>
+          <v-card-text
+            v-if="advantage.description"
+            class="advantage-description-creative"
+          >
+            <div v-html="getText(advantage.description)" />
           </v-card-text>
         </div>
       </v-card>
@@ -52,7 +73,16 @@ import { useLanguageStore } from '@/stores/language';
 
 const { getText } = useLanguageStore();
 const isMobile = setupMobileUtils();
-const { content, info } = defineProps(['content', 'info']);
+const { content, info } = defineProps({
+  content: {
+    type: Object,
+    required: true
+  },
+  info: {
+    type: Object,
+    required: true
+  }
+});
 </script>
 
 <style scoped>

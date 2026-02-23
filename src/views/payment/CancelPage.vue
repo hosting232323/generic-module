@@ -1,11 +1,23 @@
 <template>
-  <v-container fluid class="background">
-    <h1 class="text-9xl font-weight-bold mb-4" :style="{ color: info.primaryColor }">OH NO!</h1>
+  <v-container
+    fluid
+    class="background"
+  >
+    <h1
+      class="text-9xl font-weight-bold mb-4"
+      :style="{ color: info.primaryColor }"
+    >
+      OH NO!
+    </h1>
 
     <h2 class="text-h4-responsive font-weight-medium mb-2">
       Qualcosa è andato storto!
     </h2>
-    <a href="/" class="text-subtitle-responsive" :style="{ color: info.primaryColor }">Torna alla home</a>
+    <a
+      href="/"
+      class="text-subtitle-responsive"
+      :style="{ color: info.primaryColor }"
+    >Torna alla home</a>
   </v-container>
 </template>
 

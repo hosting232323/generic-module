@@ -2,20 +2,63 @@
   <v-container>
     <v-card elevation="20">
       <v-container>
-        <h3 :style="{ color: info.primaryColor }" v-html="getText(content.title) || 'Puoi venirci a conoscere qui'"/>
-        <div ref="mapContainer" style="width: 100%; height: 400px;" />
-        <div ref="popupContainer" class="ol-popup">
-          <v-icon icon="mdi-window-close" class="popup-close-btn" @click="closePopup"/>
-          <div ref="popupContent" class="d-flex flex-column align-start" >
-            <v-img :src="info.logo" width="80" height="auto" object-fit style="margin-bottom: 10px;"/>
-            <p style="font-size: 14px; font-weight: bold;" class="mb-1">{{ info.name }}</p>
-            <p style="font-size: 13px;" class="mb-1">{{ content.address }}</p>
-            <a :href="link" target="_blank" rel="noopener noreferrer" class="nav" :style="{ color: info.primaryColor }">
-              <v-icon icon="mdi-directions" :color="info.primaryColor" style="font-size: 16px;" class="mr-1"/>
+        <h3
+          :style="{ color: info.primaryColor }"
+          v-html="getText(content.title) || 'Puoi venirci a conoscere qui'"
+        />
+        <div
+          ref="mapContainer"
+          style="width: 100%; height: 400px;"
+        />
+        <div
+          ref="popupContainer"
+          class="ol-popup"
+        >
+          <v-icon
+            icon="mdi-window-close"
+            class="popup-close-btn"
+            @click="closePopup"
+          />
+          <div
+            ref="popupContent"
+            class="d-flex flex-column align-start"
+          >
+            <v-img
+              :src="info.logo"
+              width="80"
+              height="auto"
+              object-fit
+              style="margin-bottom: 10px;"
+            />
+            <p
+              style="font-size: 14px; font-weight: bold;"
+              class="mb-1"
+            >
+              {{ info.name }}
+            </p>
+            <p
+              style="font-size: 13px;"
+              class="mb-1"
+            >
+              {{ content.address }}
+            </p>
+            <a
+              :href="link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav"
+              :style="{ color: info.primaryColor }"
+            >
+              <v-icon
+                icon="mdi-directions"
+                :color="info.primaryColor"
+                style="font-size: 16px;"
+                class="mr-1"
+              />
               Navigazione
             </a>
           </div>
-          <div class="ol-popup-arrow"></div>
+          <div class="ol-popup-arrow" />
         </div>
       </v-container>
     </v-card>
@@ -29,7 +72,7 @@ import View from 'ol/View';
 import OSM from 'ol/source/OSM';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import { fromLonLat, toLonLat } from 'ol/proj';
+import { fromLonLat } from 'ol/proj';
 import { onMounted, ref, nextTick } from 'vue';
 import TileLayer from 'ol/layer/Tile';
 import { Icon, Style } from 'ol/style';
@@ -39,7 +82,16 @@ import Overlay from 'ol/Overlay';
 import { useLanguageStore } from '@/stores/language';
 
 const { getText } = useLanguageStore();
-const { content, info } = defineProps(['content', 'info']);
+const { content, info } = defineProps({
+  content: {
+    type: Object,
+    required: true
+  },
+  info: {
+    type: Object,
+    required: true
+  }
+});
 
 let mapContainer = ref(null);
 let popupContainer = ref(null);
@@ -47,7 +99,7 @@ let popupContent = ref(null);
 let map;
 let overlay;
 
-const link = `https://www.google.com/maps/search/?api=1&query=${content.coordinates[1]},${content.coordinates[0]}`
+const link = `https://www.google.com/maps/search/?api=1&query=${content.coordinates[1]},${content.coordinates[0]}`;
 
 onMounted(async () => {
   await nextTick();

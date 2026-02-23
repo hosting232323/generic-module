@@ -1,11 +1,11 @@
 <template>
   <BaseLayout>
-    <Post />
+    <PostPage />
   </BaseLayout>
 </template>
 
 <script setup>
-import Post from '@/views/Post.vue';
+import PostPage from '@/views/PostPage.vue';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 
 import { useDataStore } from '@/stores/data';

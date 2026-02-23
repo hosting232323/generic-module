@@ -99,7 +99,7 @@ const availableProvinces = ref([]);
 const availableCities = ref([]);
 
 const updateProvince = (isInput = false) => {
-  if (addressStore.region && addressStore.province && !isInput) return 
+  if (addressStore.region && addressStore.province && !isInput) return; 
   if (addressStore.region && comuniData[addressStore.region]) {
     availableProvinces.value = Object.keys(comuniData[addressStore.region]);
     addressStore.province = '';
@@ -109,7 +109,7 @@ const updateProvince = (isInput = false) => {
 };
 
 const updateCity = (isInput = false) => {
-  if (addressStore.region && addressStore.province && addressStore.city && !isInput) return 
+  if (addressStore.region && addressStore.province && addressStore.city && !isInput) return; 
   if (addressStore.province && comuniData[addressStore.region]?.[addressStore.province]) {
     availableCities.value = comuniData[addressStore.region][addressStore.province];
     addressStore.city = '';

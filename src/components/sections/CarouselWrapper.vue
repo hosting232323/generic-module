@@ -11,12 +11,23 @@
         :key="itemKey(item, index)"
         :cols="cols"
       >
-        <slot :item="item" :index="index"></slot>
+        <slot
+          :item="item"
+          :index="index"
+        />
       </v-col>
     </transition-group>
 
-    <div v-if="totalGroups > 1" class="controls-with-indicators mt-4">
-      <v-btn icon @click="prevGroup" variant="text" class="nav-arrow">
+    <div
+      v-if="totalGroups > 1"
+      class="controls-with-indicators mt-4"
+    >
+      <v-btn
+        icon
+        variant="text"
+        class="nav-arrow"
+        @click="prevGroup"
+      >
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
 
@@ -30,7 +41,12 @@
         />
       </div>
 
-      <v-btn icon @click="nextGroup" variant="text" class="nav-arrow">
+      <v-btn
+        icon
+        variant="text"
+        class="nav-arrow"
+        @click="nextGroup"
+      >
         <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
     </div>
@@ -38,12 +54,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
-import { useDisplay } from "vuetify";
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue';
+import { useDisplay } from 'vuetify';
 
 const props = defineProps({
   items: { type: Array, required: true },
-  primaryColor: { type: String, default: "#000" },
+  primaryColor: { type: String, default: '#000' },
   interval: { type: Number, default: 4000 },
   itemKey: { type: Function, default: (item, index) => index },
 });

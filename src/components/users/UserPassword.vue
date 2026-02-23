@@ -1,6 +1,10 @@
 <template>
   <v-container class="d-flex align-center justify-center fill-height">
-    <v-card :elevation="20" width="500" class="pa-5">
+    <v-card
+      :elevation="20"
+      width="500"
+      class="pa-5"
+    >
       <v-img
         :src="logo"
         max-width="100"
@@ -13,16 +17,16 @@
       <v-card-text>
         <v-form @submit.prevent="changePassword">
           <v-text-field
-            label="Password"
             v-model="pass"
+            label="Password"
             :rules="validation.passwordRules"
             type="password"
             outlined
             class="mb-2"
           />
           <v-text-field
-            label="Conferma password"
             v-model="confirmPass"
+            label="Conferma password"
             :rules="validation.passwordRules"
             type="password"
             outlined
@@ -37,18 +41,26 @@
             :loading="loading"
             text="Invia"
           />
-          <v-row cols="12" md="6" no-gutters>
+          <v-row
+            cols="12"
+            md="6"
+            no-gutters
+          >
             <v-col class="d-flex justify-start align-center">
               <v-btn 
-                @click="router.push(props.loginLink)" 
-                :color="primaryColor"
+                :color="primaryColor" 
                 class="mb-4"
                 block
                 text="Torna al login"
+                @click="router.push(props.loginLink)"
               />
             </v-col>
           </v-row>
-          <v-alert v-if="message" :type="messageType" dense>
+          <v-alert
+            v-if="message"
+            :type="messageType"
+            dense
+          >
             {{ message }}
           </v-alert>
         </v-form>
@@ -75,11 +87,11 @@ const props = defineProps({
   },
   primaryColor: {
     type: String,
-    required: false
+    default: ''
   },
   secondaryColor: {
     type: String,
-    required: false
+    default: ''
   },
   loginLink: {
     type: String,

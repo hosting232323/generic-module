@@ -1,11 +1,11 @@
 <template>
   <BaseLayout>
-    <Home />
+    <HomePage />
   </BaseLayout>
 </template>
 
 <script setup>
-import Home from '@/views/Home.vue';
+import HomePage from '@/views/HomePage.vue';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 
 import { useDataStore } from '@/stores/data';

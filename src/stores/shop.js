@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { defineStore } from 'pinia';
 import http from '@/utils/http';
 
@@ -54,7 +56,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
           window.location.href = data.checkout_url;
         else if (data.status == 'ko')
           alert(data.message);
-      })
+      });
     }
   }
 });

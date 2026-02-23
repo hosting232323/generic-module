@@ -22,17 +22,17 @@ const setupMobileUtils = () => {
 };
 
 const resolveImg = (slide) => {
-  let url = "";
+  let url = '';
 
-  if (typeof slide === "string") url = slide;
-  else if (typeof slide === "object") url = isMobile.value ? slide.mobile : slide.desktop;
+  if (typeof slide === 'string') url = slide;
+  else if (typeof slide === 'object') url = isMobile.value ? slide.mobile : slide.desktop;
 
   if (url) {
-    const sep = url.includes("?") ? "&" : "?";
+    const sep = url.includes('?') ? '&' : '?';
     return `${url}${sep}v=${Date.now()}`;
   }
 
-  return "";
+  return '';
 };
 
 export { setupMobileUtils, resolveImg, setIsMobile };

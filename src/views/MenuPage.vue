@@ -1,7 +1,12 @@
 <template>
   <v-container>
     <v-row v-if="!selectedCategory">
-      <v-col v-for="(cat, index) in data.menu.products" :key="cat.name" cols="12" md="4">
+      <v-col
+        v-for="cat in data.menu.products"
+        :key="cat.name"
+        cols="12"
+        md="4"
+      >
         <v-card
           class="category-card"
           height="200"
@@ -13,14 +18,20 @@
             class="d-flex align-center justify-center category-overlay"
             :color="data.info.primaryColor"
           >
-            <p class="category-title">{{ getText(cat.name) }}</p>
+            <p class="category-title">
+              {{ getText(cat.name) }}
+            </p>
           </v-sheet>
         </v-card>
       </v-col>
     </v-row>
 
     <div v-else>
-      <v-btn class="mb-4" @click="selectedCategory = null" :style="{ color: data.info.primaryColor }">
+      <v-btn
+        class="mb-4"
+        :style="{ color: data.info.primaryColor }"
+        @click="selectedCategory = null"
+      >
         ← {{ getText(data.menu.content?.backCategories) || 'Torna Indietro' }}
       </v-btn>
       <v-card
@@ -33,19 +44,39 @@
           class="d-flex align-center justify-center category-overlay"
           :color="data.info.primaryColor"
         >
-          <p class="category-title">{{ getText(selectedCategory.name) }}</p>
+          <p class="category-title">
+            {{ getText(selectedCategory.name) }}
+          </p>
         </v-sheet>
       </v-card>
       <v-row>
-        <v-col v-for="item in filteredItems" :key="item.name" cols="12" md="6">
-          <v-card class="mb-4" elevation="2">
+        <v-col
+          v-for="item in filteredItems"
+          :key="item.name"
+          cols="12"
+          md="6"
+        >
+          <v-card
+            class="mb-4"
+            elevation="2"
+          >
             <v-row no-gutters>
-              <v-col cols="4" class="d-flex align-center justify-center">
-                <v-img :src="item.image" aspect-ratio="1" class="rounded-l"></v-img>
+              <v-col
+                cols="4"
+                class="d-flex align-center justify-center"
+              >
+                <v-img
+                  :src="item.image"
+                  aspect-ratio="1"
+                  class="rounded-l"
+                />
               </v-col>
               <v-col cols="8">
-                <v-card-title class="d-flex justify-space-between" style="font-size: 16px;">
-                  <span class="font-weight-bold" >{{ getText(item.name) }}</span>
+                <v-card-title
+                  class="d-flex justify-space-between"
+                  style="font-size: 16px;"
+                >
+                  <span class="font-weight-bold">{{ getText(item.name) }}</span>
                   <span class="text-primary">{{ item.price }} €</span>
                 </v-card-title>
                 <v-card-text class="text-grey-darken-1">
