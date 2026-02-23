@@ -1,7 +1,7 @@
 <template>
   <Loading :home="false" v-if="!ready"/>
   <v-container v-else>
-    <img v-if="post.cover" :src="post.cover" class="post-image">
+    <img v-if="post.files" :src="post.files[0].preview" class="post-image">
     <div class="container-header" :class="{ 'mobile-layout': isMobile }">
 
       <div>

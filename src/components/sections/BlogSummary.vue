@@ -8,7 +8,7 @@
     >
       <template #default="{ item }">
         <div>
-          <v-img height="300" :src="getImageForProduct(item)" fill />
+          <v-img height="300" :src="getImageForPost(item)" fill />
           <p class="title" :style="{ color: info.primaryColor }">{{ item.title }}</p>
           <p>{{ truncate(item.content) }}</p>
           <p class="more" @click="goToPost(item.id)">Scopri di più...</p>
@@ -42,8 +42,8 @@ const truncate = (text) => {
   return text.length > 150 ? text.slice(0, 150) + '...' : text;
 };
 
-const getImageForProduct = (product) => {
-  return product?.cover ? product.cover : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
+const getImageForPost = (post) => {
+  return post.files ? post.files[0].preview : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
 const goToPost = (id) => {
