@@ -227,7 +227,7 @@ const decreaseQuantity = (product) => {
 
 const getImageForProduct = (productId) => {
   const product = products.value.find(product => product.id == productId);
-  return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
+  return product.images.length ? product.images[0].preview : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
 const validCartProducts = computed(() => {
