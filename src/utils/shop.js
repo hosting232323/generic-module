@@ -5,7 +5,7 @@ const orderStore = useOrderStore();
 const popupStore = usePopupStore();
 
 export const getImageForProduct = (product) => {
-  return product?.image ? product.image : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
+  return product.images.length ? product.images[0].preview : 'https://4kwallpapers.com/images/walls/thumbs_3t/11056.jpg';
 };
 
 export const addToCart = (productId, variant = null) => {
