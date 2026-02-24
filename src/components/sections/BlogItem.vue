@@ -1,7 +1,7 @@
 <template>
   <v-container class="d-flex mt-4 mb-4" v-if="!isMobile">
     <router-link :to="postLink">
-      <v-img :src="post.cover" width="170px" class="featured-image"/>
+      <v-img :src="post.files && post.files[0].preview" width="170px" class="featured-image"/>
     </router-link>
 
     <div style="margin-left: 15px;">
@@ -18,7 +18,7 @@
 
   <v-container class="mt-4 mb-4 d-flex flex-column" v-else>
     <router-link :to="postLink">
-      <img :src="post.cover" class="featured-image">
+      <img :src="post.files && post.files[0].preview" class="featured-image">
     </router-link>
 
     <div>
