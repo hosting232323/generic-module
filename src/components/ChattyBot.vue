@@ -44,17 +44,6 @@
       ref="fabContent"
       class="fab-content"
     >
-      <div v-if="showFaq && filteredFaqs.length" class="faq-container">
-        <button
-          v-for="(faq, index) in filteredFaqs"
-          :key="index"
-          class="faq-card"
-          @click="clickFaq(faq, index)"
-        >
-          {{ faq.name }}
-        </button>
-      </div>
-
       <div
         v-for="(message, index) in messages"
         :key="index"
@@ -82,6 +71,16 @@
         >
           <span class="loading-dots"><span /><span /><span /></span>
         </div>
+      </div>
+      <div v-if="showFaq && filteredFaqs.length" class="faq-container">
+        <button
+          v-for="(faq, index) in filteredFaqs"
+          :key="index"
+          class="faq-card"
+          @click="clickFaq(faq, index)"
+        >
+          {{ faq.name }}
+        </button>
       </div>
     </main>
     <div 
@@ -188,8 +187,16 @@ const exportSuccess = ref(false);
 const showFaq = ref(true)
 const clickedFaqs = ref(new Set())
 
-const { hostname, vectorStoreId, botId, botMessage, botName, botImage, botFaq } = defineProps(['hostname', 'vectorStoreId', 'botId', 'botMessage', 'botName', 'botImage', 'botFaq']);
+const { hostname, vectorStoreId, botId, assistantId, botMessage, botName, botImage, botFaq, botColor } = defineProps(['hostname', 'vectorStoreId', 'botId', 'assistantId', 'botMessage', 'botName', 'botImage', 'botFaq', 'botColor']);
 const messages = ref([botMessage]);
+
+const colorPaletteDefault = {
+  theme_color: '#126EE2',
+  theme_color_hover: '#2C87E8',
+  fab_hover: '#2C87E8',
+  fab_shadow: '#81A4F1',
+  fab_border: '#0C50A7'
+}
 
 const toggleWheel = (mode) => {
   fabWheel.value.style.transform = mode == 'open' ? 'scale(1)' : 'scale(0)';
@@ -200,6 +207,8 @@ const sendMessage = () => {
   if(!userMessage.value) return;
 
   loading.value = true;
+  showFaq.value = false;
+
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
@@ -213,20 +222,23 @@ const sendMessage = () => {
         messages.value.push(data.response);
         threadId.value = data.thread_id;
       }
+      showFaq.value = true;
     }, 'POST', router, hostname);
   } else {
-    http.postRequest('stream-chat', {
+    http.postRequest('chat', {
       message: messageToSend,
-      vector_store_id: vectorStoreId
+      bot_id: botId,
+      vector_store_id: vectorStoreId,
+      assistant_id: assistantId
     }, (data) => {
       loading.value = false;
       if(data.status == 'ok') {
         messages.value.push(data.response);
         threadId.value = data.thread_id;
       }
+      showFaq.value = true;
     }, 'POST', router, hostname);
   }
-
 };
 
 const checkScroll = () => {
@@ -268,12 +280,14 @@ const filteredFaqs = computed(() => {
   return botFaq || [];
 })
 
+const colorPalette = computed(() => {
+  return botColor || colorPaletteDefault;
+})
+
 const clickFaq = (faq, index) => {
   if (clickedFaqs.value.has(index)) return
 
   clickedFaqs.value.add(index)
-  showFaq.value = false
-
   userMessage.value = faq.value
   sendMessage()
 }
@@ -283,6 +297,14 @@ watch(messages, async () => {
   await nextTick();
   checkScroll();
 });
+
+watch(colorPalette, (palette) => {
+  document.documentElement.style.setProperty("--theme-color", palette.theme_color);
+  document.documentElement.style.setProperty("--theme-color-hover", palette.theme_color_hover);
+  document.documentElement.style.setProperty("--fab-hover", palette.fab_hover);
+  document.documentElement.style.setProperty("--fab-shadow", palette.fab_shadow);
+  document.documentElement.style.setProperty("--fab-border", palette.fab_border);
+}, { immediate: true });
 
 onMounted(() => {
   if (fabContent.value) {
