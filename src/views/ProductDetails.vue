@@ -1,41 +1,95 @@
 <template>
   <v-container>
-    <Loading v-if="!ready" />
+    <AppLoading v-if="!ready" />
     <v-row v-else-if="product">
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-card>
-          <v-carousel v-if="product.images && product.images.length > 0" hide-delimiter-background>
-            <v-carousel-item v-for="(image, index) in product.images" :key="index">
-              <v-img :src="image.preview" height="600" cover></v-img>
+          <v-carousel
+            v-if="product.images && product.images.length > 0"
+            hide-delimiter-background
+          >
+            <v-carousel-item
+              v-for="(image, index) in product.images"
+              :key="index"
+            >
+              <v-img
+                :src="image.preview"
+                height="600"
+                cover
+              />
             </v-carousel-item>
           </v-carousel>
-          <v-img v-else :src="getImageForProduct(product)" height="600" cover />
+          <v-img
+            v-else
+            :src="getImageForProduct(product)"
+            height="600"
+            cover
+          />
         </v-card>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-card>
-          <v-card-title class="text-h5" style="white-space: normal;">{{ getText(product.name) }}</v-card-title>
+          <v-card-title
+            class="text-h5"
+            style="white-space: normal;"
+          >
+            {{ getText(product.name) }}
+          </v-card-title>
           <v-card-subtitle class="text-h7 mb-2 d-flex">
             {{ getText(store.content?.price) || 'Prezzo' }}: &nbsp;
             <p v-html="getPrice(product)" />
           </v-card-subtitle>
           <v-divider />
-          <ProductVariantSelector v-if="product.variant && product.variant.length > 0" :variants="product.variant"
-            @update:selectedVariant="selectedVariant = $event" />
+          <ProductVariantSelector
+            v-if="product.variant && product.variant.length > 0"
+            :variants="product.variant"
+            @update:selected-variant="selectedVariant = $event"
+          />
           <v-card-text>
-            <v-row align="center" class="mb-3">
-              <v-col cols="12" :md="isCartEmpty ? 6 : 12">
-                <v-btn block variant="flat" :color="info.primaryColor"
+            <v-row
+              align="center"
+              class="mb-3"
+            >
+              <v-col
+                cols="12"
+                :md="isCartEmpty ? 6 : 12"
+              >
+                <v-btn
+                  block
+                  variant="flat"
+                  :color="info.primaryColor"
                   :disabled="product.variant && product.variant.length > 0 && !selectedVariant"
-                  @click="addToCart(Number(route.params.id), selectedVariant)">
-                  <v-icon start icon="mdi-cart-outline" />
+                  @click="addToCart(Number(route.params.id), selectedVariant)"
+                >
+                  <v-icon
+                    start
+                    icon="mdi-cart-outline"
+                  />
                   {{ getText(store.content?.addToCart) || 'Aggiungi al carrello' }}
                 </v-btn>
               </v-col>
-              <v-col cols="12" md="6" v-if="isCartEmpty">
-                <v-btn block variant="outlined" :color="info.primaryColor"
-                  :disabled="product.variant && product.variant.length > 0 && !selectedVariant" @click="fastCheckout">
-                  <v-icon start icon="mdi-credit-card-outline" />
+              <v-col
+                v-if="isCartEmpty"
+                cols="12"
+                md="6"
+              >
+                <v-btn
+                  block
+                  variant="outlined"
+                  :color="info.primaryColor"
+                  :disabled="product.variant && product.variant.length > 0 && !selectedVariant"
+                  @click="fastCheckout"
+                >
+                  <v-icon
+                    start
+                    icon="mdi-credit-card-outline"
+                  />
                   {{ getText(store.content?.fastCheckout) || 'Compra ora' }}
                 </v-btn>
               </v-col>
@@ -44,7 +98,10 @@
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
               {{ getText(product.category) || 'Non specificata' }}
             </div>
-            <div class="mb-5" v-if="product.description">
+            <div
+              v-if="product.description"
+              class="mb-5"
+            >
               <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
               <p v-html="getText(product.description)" />
             </div>
@@ -54,21 +111,33 @@
     </v-row>
     <v-row v-else>
       <v-col cols="12">
-        <v-alert type="error">Errore: nessun prodotto trovato.</v-alert>
+        <v-alert type="error">
+          Errore: nessun prodotto trovato.
+        </v-alert>
       </v-col>
     </v-row>
-    <Popup />
-    <v-dialog v-model="isCheckout" max-width="600px">
+    <PopUpAlert />
+    <v-dialog
+      v-model="isCheckout"
+      max-width="600px"
+    >
       <v-card>
         <v-card-title class="text-h6">
           {{ getText(store.content?.addressTitle) || 'Inserisci indirizzo di spedizione' }}
         </v-card-title>
         <v-card-text>
-          <Address @update:valid="isFormValid = $event" />
+          <AddressForm @update:valid="isFormValid = $event" />
         </v-card-text>
         <v-card-actions>
-          <v-btn @click="placeOrder" :disabled="!isFormValid">{{ getText(store.content?.buy) || 'Acquista' }}</v-btn>
-          <v-btn @click="isCheckout = false">{{ getText(store.content?.close) || 'Chiudi' }}</v-btn>
+          <v-btn
+            :disabled="!isFormValid"
+            @click="placeOrder"
+          >
+            {{ getText(store.content?.buy) || 'Acquista' }}
+          </v-btn>
+          <v-btn @click="isCheckout = false">
+            {{ getText(store.content?.close) || 'Chiudi' }}
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -76,9 +145,9 @@
 </template>
 
 <script setup>
-import Address from '@/layouts/Address';
-import Loading from '@/layouts/Loading';
-import Popup from '@/components/sections/Popup';
+import AddressForm from '@/layouts/AddressForm';
+import AppLoading from '@/layouts/AppLoading';
+import PopUpAlert from '@/components/sections/PopUpAlert';
 import ProductVariantSelector from '@/components/shop/ProductVariantSelector';
 
 import { ref, computed } from 'vue';

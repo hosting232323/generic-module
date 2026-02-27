@@ -8,7 +8,11 @@
       backgroundColor: 'transparent'
     }"
   >
-    <a :href="social.url" target="_blank" rel="noopener noreferrer">
+    <a
+      :href="social.url"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <v-btn
         :icon="social.icon"
         :style="{ backgroundColor: info.primaryColor, color: '#fff' }"

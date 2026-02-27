@@ -55,7 +55,7 @@
             :src="botImage"
             alt="botAvatar"
           >
-          <p>{{ index % 2 === 0 ? botName  : 'Tu' }}</p>
+          <p>{{ index % 2 === 0 ? botName : 'Tu' }}</p>
         </div>
 
         <!-- eslint-disable vue/no-v-html -->
@@ -173,7 +173,29 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { hostname, vectorStoreId, botMessage, botName, botImage } = defineProps(['hostname', 'vectorStoreId', 'botMessage', 'botName', 'botImage']);
+const { hostname, vectorStoreId, botMessage, botName, botImage } = defineProps({
+  hostname: {
+    type: String,
+    required: true
+  },
+  vectorStoreId: {
+    type: String,
+    default: null
+  },
+  botMessage: {
+    type: String,
+    required: true
+  },
+  botName: {
+    type: String,
+    default: 'Bot'
+  },
+  botImage: {
+    type: String,
+    default: ''
+  }
+});
+
 const messages = ref([botMessage]);
 
 const toggleWheel = (mode) => {

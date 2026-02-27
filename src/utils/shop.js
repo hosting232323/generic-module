@@ -29,4 +29,4 @@ export const getPrice = (product) => {
     return parseFloat((product.price) / 100).toFixed(2) + ' €';
   else
     return 'Non disponibile';
-}
+};

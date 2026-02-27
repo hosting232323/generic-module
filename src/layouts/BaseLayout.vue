@@ -1,18 +1,24 @@
 <template>
-  <v-app  v-if="ready">
+  <v-app v-if="ready">
     <AppBar v-if="!isSpecialPage" />
-    <UpArrow v-if="!showBubbles" :bottomOffset="showChatty ? 100 : 20"/>
-    <SocialBubbles v-if="showBubbles || !isSpecialPage" :chattyActive="showChatty"/>
+    <UpArrow
+      v-if="!showBubbles"
+      :bottom-offset="showChatty ? 100 : 20"
+    />
+    <SocialBubbles
+      v-if="showBubbles || !isSpecialPage"
+      :chatty-active="showChatty"
+    />
     <v-main :style="backgroundStyle">
       <slot />
     </v-main>
-    <Footer v-if="!isSpecialPage" />
+    <AppFooter v-if="!isSpecialPage" />
   </v-app>
 </template>
 
 <script setup>
 import AppBar from '@/layouts/AppBar.vue';
-import Footer from '@/layouts/Footer.vue';
+import AppFooter from '@/layouts/AppFooter.vue';
 import UpArrow from '@/layouts/UpArrow.vue';
 import SocialBubbles from '@/layouts/SocialBubbles.vue';
 

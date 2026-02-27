@@ -1,11 +1,11 @@
 <template>
   <BaseLayout>
-    <Menu />
+    <MenuPage />
   </BaseLayout>
 </template>
 
 <script setup>
-import Menu from '@/views/Menu.vue';
+import MenuPage from '@/views/MenuPage.vue';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 
 import { useDataStore } from '@/stores/data';

@@ -1,5 +1,8 @@
 <template>
-  <div class="d-flex flex-wrap px-3 pb-3" v-if="allergens?.length">
+  <div
+    v-if="allergens?.length"
+    class="d-flex flex-wrap px-3 pb-3"
+  >
     <v-chip
       v-for="a in allergens"
       :key="a"
@@ -10,8 +13,17 @@
       :text-color="isSelected(a) ? 'white' : allergenIcons[a]?.color"
       @click="toggleSelection(a)"
     >
-      <v-avatar left size="30" class="me-1" tile>
-        <v-img :src="allergenIcons[a]?.src" alt="Icona allergene" cover />
+      <v-avatar
+        left
+        size="30"
+        class="me-1"
+        tile
+      >
+        <v-img
+          :src="allergenIcons[a]?.src"
+          alt="Icona allergene"
+          cover
+        />
       </v-avatar>
       {{ formatAllergenName(a) }}
     </v-chip>
@@ -19,27 +31,30 @@
 </template>
 
 <script setup>
-import { allergenIcons, formatAllergenName } from '@/utils/allergens'
+import { allergenIcons, formatAllergenName } from '@/utils/allergens';
 
 const props = defineProps({
-  allergens: Array,
+  allergens: {
+    type: Array,
+    default: () => []
+  },
   modelValue: {
     type: Array,
     default: () => []
   }
-})
-const emit = defineEmits(['update:modelValue'])
+});
+const emit = defineEmits(['update:modelValue']);
 
 function isSelected(a) {
-  return props.modelValue.includes(a)
+  return props.modelValue.includes(a);
 }
 
 function toggleSelection(a) {
   const newSelection = isSelected(a)
     ? props.modelValue.filter(x => x !== a)
-    : [...props.modelValue, a]
+    : [...props.modelValue, a];
 
-  emit('update:modelValue', newSelection)
+  emit('update:modelValue', newSelection);
 }
 </script>
 

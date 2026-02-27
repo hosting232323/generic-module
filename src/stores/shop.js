@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { defineStore } from 'pinia';
 import http from '@/utils/http';
 
@@ -21,11 +23,11 @@ export const useShopStore = defineStore('shop:genericFeStore', {
     },
     initDataByProject(data, func) {
       if(data.stripeProduct)
-        http.getRequest(`shop/stripe-product`, {
+        http.getRequest('shop/stripe-product', {
           project: data.projectName
         }, (res) => this.formatData(res.data, func));
       else
-        http.getRequest(`shop/db-product`, {
+        http.getRequest('shop/db-product', {
           project: data.projectName
         }, (res) => this.formatData(
           res.data,
@@ -54,7 +56,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
           window.location.href = data.checkout_url;
         else if (data.status == 'ko')
           alert(data.message);
-      })
+      });
     }
   }
 });

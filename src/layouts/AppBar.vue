@@ -1,12 +1,16 @@
 <template class="app-bar">
   <transition name="slide">
-    <div v-if="drawer" class="mobile-drawer" :style="{ backgroundColor: info.primaryColor }">
+    <div
+      v-if="drawer"
+      class="mobile-drawer"
+      :style="{ backgroundColor: info.primaryColor }"
+    >
       <div class="drawer-items">
         <p
           v-for="item in items"
           :key="item.path"
-          @click="link(item)"
           class="drawer-title"
+          @click="link(item)"
         >
           {{ item.title }}
         </p>
@@ -14,42 +18,83 @@
     </div>
   </transition>
 
-  <v-app-bar :elevation="2" class="navbar-mobile" :color="info.primaryColor" v-if="isMobile">
-    <div class="hamburger" :class="{ 'hamb-active': drawer }"  @click="drawer = !drawer">
-      <div class="bar"></div>
+  <v-app-bar
+    v-if="isMobile"
+    :elevation="2"
+    class="navbar-mobile"
+    :color="info.primaryColor"
+  >
+    <div
+      class="hamburger"
+      :class="{ 'hamb-active': drawer }"
+      @click="drawer = !drawer"
+    >
+      <div class="bar" />
     </div>
     <v-app-bar-title>
-      <div class="d-flex align-center" @click="goHome">
-        <img  v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo cursor-pointer">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;" class="cursor-pointer">{{ info.name }}</b>
+      <div
+        class="d-flex align-center"
+        @click="goHome"
+      >
+        <img
+          v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')"
+          :src="info.logo"
+          alt="Logo"
+          class="app-logo cursor-pointer"
+        >
+        <b
+          v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode"
+          style="margin-left: 10px;"
+          class="cursor-pointer"
+        >{{ info.name }}</b>
       </div>
     </v-app-bar-title>
-    <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
-    <Language v-if="multilingualActive" />
+    <ShoppingCart v-if="cartActive && getCartQuantity != 0" />
+    <LanguageSelector v-if="multilingualActive" />
   </v-app-bar>
 
-  <v-app-bar :elevation="2" :color="info.primaryColor" v-if="!isMobile">
+  <v-app-bar
+    v-if="!isMobile"
+    :elevation="2"
+    :color="info.primaryColor"
+  >
     <v-app-bar-title>
-      <div class="d-flex align-center" @click="goHome">
-        <img v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')" :src="info.logo" alt="Logo" class="app-logo cursor-pointer">
-        <b v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode" style="margin-left: 10px;" class="cursor-pointer">{{ info.name }}</b>
+      <div
+        class="d-flex align-center"
+        @click="goHome"
+      >
+        <img
+          v-if="info.logo && (info.logoMode === 'logo' || info.logoMode === 'both')"
+          :src="info.logo"
+          alt="Logo"
+          class="app-logo cursor-pointer"
+        >
+        <b
+          v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode"
+          style="margin-left: 10px;"
+          class="cursor-pointer"
+        >{{ info.name }}</b>
       </div>
     </v-app-bar-title>
 
-    <div class="desktop-menu d-flex justify-center align-center" >
-      <v-btn v-for="item in items" :key="item.path" variant="text" @click="link(item)">
+    <div class="desktop-menu d-flex justify-center align-center">
+      <v-btn
+        v-for="item in items"
+        :key="item.path"
+        variant="text"
+        @click="link(item)"
+      >
         {{ item.title }}
       </v-btn>
-      <Cart v-if="cartActive && getCartQuantity != 0"></Cart>
-      <Language v-if="multilingualActive" />
+      <ShoppingCart v-if="cartActive && getCartQuantity != 0" />
+      <LanguageSelector v-if="multilingualActive" />
     </div>
   </v-app-bar>
-
 </template>
 
 <script setup>
-import Cart from '@/layouts/Cart.vue';
-import Language from '@/components/sections/Language.vue';
+import ShoppingCart from '@/layouts/ShoppingCart.vue';
+import LanguageSelector from '@/components/sections/LanguageSelector.vue';
 
 import { storeToRefs } from 'pinia';
 import { ref, computed, watch } from 'vue';
@@ -132,15 +177,15 @@ const link = (item) => {
   if (isMobile.value) drawer.value = false;
 
   switch (item.type) {
-    case 'externalLink':
-      window.open(item.path, '_blank');
-      break;
-    case 'internalLink':
-      router.push(item.path);
-      break;
-    case 'home':
-      goHome();
-      break;
+  case 'externalLink':
+    window.open(item.path, '_blank');
+    break;
+  case 'internalLink':
+    router.push(item.path);
+    break;
+  case 'home':
+    goHome();
+    break;
   }
 };
 

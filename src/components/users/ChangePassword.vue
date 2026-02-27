@@ -1,6 +1,10 @@
 <template>
   <v-container class="d-flex align-center justify-center fill-height">
-    <v-card :elevation="20" width="500" class="pa-5">
+    <v-card
+      :elevation="20"
+      width="500"
+      class="pa-5"
+    >
       <v-img
         :src="logo"
         max-width="100"
@@ -13,8 +17,8 @@
       <v-card-text>
         <v-form @submit.prevent="askChangePassword">
           <v-text-field
-            label="Email"
             v-model="mail"
+            label="Email"
             type="email"
             outlined
             class="mb-4"
@@ -29,17 +33,25 @@
             :loading="loading"
           />
           <v-row>
-            <v-col cols="12" md="5" no-gutters>
+            <v-col
+              cols="12"
+              md="5"
+              no-gutters
+            >
               <v-btn
-                @click="emits('changeStatus', 'login')"
                 :color="primaryColor"
                 class="mb-4"
                 text="Torna al login"
                 block
+                @click="emits('changeStatus', 'login')"
               />
             </v-col>
           </v-row>
-          <v-alert v-if="message" :type="messageType" dense>
+          <v-alert
+            v-if="message"
+            :type="messageType"
+            dense
+          >
             {{ message }}
           </v-alert>
         </v-form>
@@ -64,11 +76,11 @@ const props = defineProps({
   },
   primaryColor: {
     type: String,
-    required: false
+    default: ''
   },
   secondaryColor: {
     type: String,
-    required: false
+    default: ''
   },
   hostname: {
     type: String,
