@@ -1,11 +1,11 @@
 <template>
   <BaseLayout>
-    <Booking />
+    <BookingPage />
   </BaseLayout>
 </template>
 
 <script setup>
-import Booking from '@/views/Booking.vue';
+import BookingPage from '@/views/BookingPage.vue';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 
 import { useDataStore } from '@/stores/data';

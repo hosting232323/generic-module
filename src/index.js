@@ -2,7 +2,7 @@ import '@mdi/font/css/materialdesignicons.css';
 
 // Utenti e Login
 export { encryptPassword, decryptPassword } from './utils/encrypt.js';
-export { default as Password } from './components/users/Password.vue';
+export { default as Password } from './components/users/UserPassword.vue';
 export { default as AuthManager } from './components/users/AuthManager.vue';
 
 // Base Demo Home Page

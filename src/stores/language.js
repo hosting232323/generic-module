@@ -6,13 +6,13 @@ export const useLanguageStore = defineStore('language:genericFeStore', {
   }),
   actions: {
     setLocale(lang) {
-      this.locale = lang
+      this.locale = lang;
     },
     getText(text) {
-      if(!text) return ''
-      if (typeof text === 'string') return text
-      if (typeof text === 'object') return text[this.locale]
-      return ''
+      if(!text) return '';
+      if (typeof text === 'string') return text;
+      if (typeof text === 'object') return text[this.locale];
+      return '';
     },
     getLocale() {
       return this.locale;

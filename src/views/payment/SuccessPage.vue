@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="background">
+  <v-container
+    fluid
+    class="background"
+  >
     <span
       v-for="(c, i) in confetti"
       :key="i"
@@ -23,7 +26,11 @@
     <h2 class="text-h4-responsive font-weight-medium mb-6">
       Pagamento completato 🎉
     </h2>
-    <a href="/" class="text-subtitle-responsive" :style="{ color: info.primaryColor }">Torna alla home</a>
+    <a
+      href="/"
+      class="text-subtitle-responsive"
+      :style="{ color: info.primaryColor }"
+    >Torna alla home</a>
   </v-container>
 </template>
 
@@ -46,7 +53,7 @@ const confetti = Array.from({ length: 30 }, () => ({
   delay: `${Math.random() * 0.8}s`,
   rotate: Math.random() * 180,
   color: `hsl(${Math.random() * 360}, 85%, 60%)`,
-}))
+}));
 </script>
 
 <style scoped>

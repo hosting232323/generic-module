@@ -8,22 +8,22 @@ const routes = [
       {
         path: '/',
         name: 'Production Home',
-        component: () => import('@/views/Home')
+        component: () => import('@/views/HomePage')
       },
       {
         path: '/blog',
         name: 'Blog',
-        component: () => import('@/views/Blog')
+        component: () => import('@/views/BlogPage')
       },
       {
         path: '/blog/:id',
         name: 'Dettaglio Post',
-        component: () => import('@/views/Post')
+        component: () => import('@/views/PostPage')
       },
       {
         path: '/shop',
         name: 'Shop Page',
-        component: () => import('@/views/Shop')
+        component: () => import('@/views/ShopPage')
       },
       {
         path: '/product/:id',
@@ -44,17 +44,17 @@ const routes = [
       {
         path: '/demo/:id',
         name: 'Demo',
-        component: () => import('@/views/Home')
+        component: () => import('@/views/HomePage')
       },
       {
         path: '/menu',
         name: 'Menu',
-        component: () => import('@/views/Menu')
+        component: () => import('@/views/MenuPage')
       },
       {
         path: '/booking',
         name: 'Booking',
-        component: () => import('@/views/Booking')
+        component: () => import('@/views/BookingPage')
       },
       {
         path: '/booking/:id',

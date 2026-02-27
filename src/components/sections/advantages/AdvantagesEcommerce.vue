@@ -6,7 +6,9 @@
         :style="{ color: info.primaryColor }" 
         v-html="getText(content.title) || 'I nostri vantaggi'"
       />
-      <p class="ecommerce-subtitle">Scopri cosa ci rende unici</p>
+      <p class="ecommerce-subtitle">
+        Scopri cosa ci rende unici
+      </p>
     </div>
     
     <v-row class="advantages-row">
@@ -22,7 +24,10 @@
           elevation="0"
           :class="{ 'carousel--mobile': isMobile }"
         >
-          <div class="card-badge" :style="{ background: info.primaryColor }">
+          <div
+            class="card-badge"
+            :style="{ background: info.primaryColor }"
+          >
             <span>{{ index + 1 }}</span>
           </div>
           
@@ -33,23 +38,46 @@
               hide-delimiters 
               :height="isMobile ? '280px' : '350px'"
             >
-              <v-carousel-item v-for="(img, imgIndex) in advantage.image" :key="imgIndex">
-                <img :src="resolveImg(img)" class="img-ecommerce"/>
+              <v-carousel-item
+                v-for="(img, imgIndex) in advantage.image"
+                :key="imgIndex"
+              >
+                <img
+                  :src="resolveImg(img)"
+                  class="img-ecommerce"
+                >
               </v-carousel-item>
             </v-carousel>
-            <img v-else :src="resolveImg(advantage.image)" class="img-ecommerce"/>
+            <img
+              v-else
+              :src="resolveImg(advantage.image)"
+              class="img-ecommerce"
+            >
           </div>
           
           <div class="card-body">
-            <v-card-title class="advantage-name-ecommerce" v-html="getText(advantage.name)"/>
-            
-            <v-card-text v-if="advantage.description" class="advantage-description-ecommerce">
-              <div v-html="getText(advantage.description)"/>
+            <v-card-title class="advantage-name-ecommerce">
+              <span v-html="getText(advantage.name)" />
+            </v-card-title>
+          
+            <v-card-text
+              v-if="advantage.description"
+              class="advantage-description-ecommerce"
+            >
+              <div v-html="getText(advantage.description)" />
             </v-card-text>
             
             <div class="card-footer">
-              <v-icon :color="info.primaryColor" size="small">mdi-check-circle</v-icon>
-              <span class="verified-text" :style="{ color: info.primaryColor }">Verificato</span>
+              <v-icon
+                :color="info.primaryColor"
+                size="small"
+              >
+                mdi-check-circle
+              </v-icon>
+              <span
+                class="verified-text"
+                :style="{ color: info.primaryColor }"
+              >Verificato</span>
             </div>
           </div>
         </v-card>
@@ -64,7 +92,16 @@ import { useLanguageStore } from '@/stores/language';
 
 const { getText } = useLanguageStore();
 const isMobile = setupMobileUtils();
-const { content, info } = defineProps(['content', 'info']);
+const { content, info } = defineProps({
+  content: {
+    type: Object,
+    required: true
+  },
+  info: {
+    type: Object,
+    required: true
+  }
+});
 </script>
 
 <style scoped>

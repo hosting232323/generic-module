@@ -1,6 +1,14 @@
 <template>
-  <div class="sup-container shadown" :style="{ bottom: `${props.bottomOffset}px` }" ref="topButton" @click="scrollToTop">
-    <i class="fas fa-arrow-up" id="UpArrow" />
+  <div
+    ref="topButton"
+    class="sup-container shadown"
+    :style="{ bottom: `${props.bottomOffset}px` }"
+    @click="scrollToTop"
+  >
+    <i
+      id="UpArrow"
+      class="fas fa-arrow-up"
+    />
   </div>
 </template>
 
@@ -24,7 +32,7 @@ const topButton = ref(null);
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: 'smooth'
   });
 };
 const handleScroll = () => {

@@ -6,9 +6,15 @@
       <strong style="font-size: 14px;">{{ getText(store.content?.size) || 'Taglie' }}</strong>
 
       <div class="d-flex flex-wrap mt-3">
-        <v-chip v-for="variant in variants" :key="variant.name" class="ma-1" pill :disabled="!variant.quantity"
+        <v-chip
+          v-for="variant in variants"
+          :key="variant.name"
+          class="ma-1"
+          pill
+          :disabled="!variant.quantity"
           :color="selectedVariant === variant ? info.primaryColor : info.secondaryColor"
-          @click="selectVariant(variant)">
+          @click="selectVariant(variant)"
+        >
           {{ variant.name }}
         </v-chip>
       </div>
@@ -29,7 +35,7 @@ const { getText } = useLanguageStore();
 const info = data.value.info;
 const store = data.value.store;
 
-const props = defineProps({
+const variants = defineProps({
   variants: { type: Array, required: true }
 });
 
@@ -39,5 +45,5 @@ const emit = defineEmits(['update:selectedVariant']);
 const selectVariant = (variant) => {
   selectedVariant.value = variant;
   emit('update:selectedVariant', variant);
-}
+};
 </script>

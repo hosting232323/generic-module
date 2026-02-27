@@ -1,50 +1,50 @@
 <template>
   <v-container class="login-container">
-    <Login 
+    <UserLogin 
       v-if="status == 'login'" 
-      @changeStatus="changeStatus"
-      @callBack="emits('callBack', $event)"
       :logo="logo"
       :title="title"
-      :primaryColor="primaryColor"
-      :secondaryColor="secondaryColor"
-      :signUp="signUp"
-      :secretKey="secretKey"
+      :primary-color="primaryColor"
+      :secondary-color="secondaryColor"
+      :sign-up="signUp"
+      :secret-key="secretKey"
       :iv="iv"
       :hostname="hostname"
-      :googleClientId="googleClientId"
+      :google-client-id="googleClientId"
+      @change-status="changeStatus"
+      @call-back="emits('callBack', $event)"
     />
-    <Signin 
+    <UserSignin 
       v-if="status == 'sign-in' && signUp" 
-      @changeStatus="changeStatus"
       :logo="logo"
       :title="signinTitle"
-      :primaryColor="primaryColor"
-      :secondaryColor="secondaryColor"
+      :primary-color="primaryColor"
+      :secondary-color="secondaryColor"
       :hostname="hostname"
+      @change-status="changeStatus"
     />
     <ChangePassword 
       v-if="status == 'change-password' && signUp" 
-      @changeStatus="changeStatus"
       :logo="logo"
       :title="changePasswordTitle"
-      :primaryColor="primaryColor"
-      :secondaryColor="secondaryColor"
-      :secretKey="secretKey"
+      :primary-color="primaryColor"
+      :secondary-color="secondaryColor"
+      :secret-key="secretKey"
       :iv="iv"
       :hostname="hostname"
+      @change-status="changeStatus"
     />
   </v-container>
 </template>
 
 <script setup>
-import Login from '@/components/users/Login';
-import Signin from '@/components/users/Signin';
+import UserLogin from '@/components/users/UserLogin';
+import UserSignin from '@/components/users/UserSignin';
 import ChangePassword from '@/components/users/ChangePassword';
 
 import { ref } from 'vue';
 
-const props = defineProps({
+defineProps({
   logo: {
     type: String,
     required: true
@@ -54,18 +54,20 @@ const props = defineProps({
     required: true
   },
   signinTitle: {
-    type: String
+    type: String,
+    required: true
   },
   changePasswordTitle: {
-    type: String
+    type: String,
+    required: true
   },
   primaryColor: {
     type: String,
-    required: false
+    default: ''
   },
   secondaryColor: {
     type: String,
-    required: false
+    default: ''
   },
   signUp: {
     type: Boolean,
