@@ -27,9 +27,10 @@
       </v-icon>
       <div class="avatar">
         <img
-          :src="botImage"
+          :src="botData.image"
           alt="botAvatar"
         >
+        <p>{{ botData.name }}</p>
       </div> 
       <div
         class="close"
@@ -52,10 +53,10 @@
         <div :class="{sender: true, bot_s: index % 2 === 0, user_s: index % 2 !== 0}">
           <img
             v-if="index % 2 === 0"
-            :src="botImage"
+            :src="botData.image"
             alt="botAvatar"
           >
-          <p>{{ index % 2 === 0 ? botName  : 'Tu' }}</p>
+          <p>{{ index % 2 === 0 ? botData.name  : 'Tu' }}</p>
         </div>
 
         <!-- eslint-disable vue/no-v-html -->
@@ -187,8 +188,8 @@ const exportSuccess = ref(false);
 const showFaq = ref(true)
 const clickedFaqs = ref(new Set())
 
-const { hostname, vectorStoreId, botId, assistantId, botMessage, botName, botImage, botFaq, botColor } = defineProps(['hostname', 'vectorStoreId', 'botId', 'assistantId', 'botMessage', 'botName', 'botImage', 'botFaq', 'botColor']);
-const messages = ref([botMessage]);
+const { hostname, botData } = defineProps(['hostname', 'botData']);
+const messages = ref([botData.message]);
 
 const colorPaletteDefault = {
   theme_color: '#126EE2',
@@ -212,30 +213,29 @@ const sendMessage = () => {
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
-  if(vectorStoreId) {
+  if(botData.vectorStoreId) {
     http.postRequest('vector-store/chat', {
       message: messageToSend,
-      vector_store_id: vectorStoreId
+      vector_store_id: botData.vectorStoreId
     }, (data) => {
-      loading.value = false;
       if(data.status == 'ok') {
         messages.value.push(data.response);
         threadId.value = data.thread_id;
       }
+      loading.value = false;
       showFaq.value = true;
     }, 'POST', router, hostname);
   } else {
     http.postRequest('chat', {
       message: messageToSend,
-      bot_id: botId,
-      vector_store_id: vectorStoreId,
-      assistant_id: assistantId
+      bot_id: botData.id,
+      assistant_id: botData.assistantId
     }, (data) => {
-      loading.value = false;
       if(data.status == 'ok') {
         messages.value.push(data.response);
         threadId.value = data.thread_id;
       }
+      loading.value = false;
       showFaq.value = true;
     }, 'POST', router, hostname);
   }
@@ -263,7 +263,7 @@ const exportChat = async () => {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(new Blob([
     messages.value.map((msg, index) => {
-      return `${index % 2 === 0 ? botName : 'Utente'}: ${msg.replace(/<[^>]+>/g, '').trim()}`;
+      return `${index % 2 === 0 ? botData.name : 'Utente'}: ${msg.replace(/<[^>]+>/g, '').trim()}`;
     }).join('\n')
   ], { type: 'text/plain' }));
   link.download = 'chat_messages.txt';
@@ -277,11 +277,11 @@ const exportChat = async () => {
 };
 
 const filteredFaqs = computed(() => {
-  return botFaq || [];
+  return botData.faq || [];
 })
 
 const colorPalette = computed(() => {
-  return botColor || colorPaletteDefault;
+  return botData.color || colorPaletteDefault;
 })
 
 const clickFaq = (faq, index) => {
