@@ -1,7 +1,74 @@
+stages:
+  - test
+  - deploy
+
+
 lint_frontend:
+  stage: test
   image: node:18
   script:
     - npm ci
     - npx eslint "src/**/*.{js,vue}"
   tags:
     - linux
+
+.deploy_template: &deploy_template
+  stage: deploy
+  script:
+    - |
+      if [ "$CI_JOB_NAME" = "deploy_test" ]; then
+        PJ_NAME="${PROJECT_NAME}-test"
+        CONTAINER_ACTIVE="${PROJECT_NAME}-test"
+        CONTAINER_NEXT="${PROJECT_NAME}-test-next"
+        FIRST_PORT="${PORT_TEST%%-*}"
+        SECOND_PORT="${PORT_TEST#*-}"
+        VITE_HOSTNAME_GENERICBACKEND="${VITE_HOSTNAME_GENERIC_BACKEND_TEST}"
+      else
+        PJ_NAME="${PROJECT_NAME}"
+        CONTAINER_ACTIVE="${PROJECT_NAME}"
+        CONTAINER_NEXT="${PROJECT_NAME}-next"
+        FIRST_PORT="${PORT_PROD%%-*}"
+        SECOND_PORT="${PORT_PROD#*-}"
+        VITE_HOSTNAME_GENERICBACKEND="${VITE_HOSTNAME_GENERIC_BACKEND}"
+      fi
+    
+      docker build \
+        --build-arg VITE_HOSTNAME_GENERICBACKEND=$VITE_HOSTNAME_GENERICBACKEND \
+        -t $PJ_NAME:latest .
+    
+      set -e
+      docker rm -f "${CONTAINER_NEXT}" 2>/dev/null || true
+
+      docker run -d --name ${CONTAINER_NEXT} \
+        -p ${SECOND_PORT}:3000 \
+        $PJ_NAME:latest
+
+      sleep 10
+
+      if curl -fs http://localhost:$SECOND_PORT; then
+        docker rm -f ${CONTAINER_ACTIVE} 2>/dev/null || true
+
+        docker run -d --restart unless-stopped \
+          --name ${CONTAINER_ACTIVE} \
+          -p ${FIRST_PORT}:3000 \
+          $PJ_NAME:latest
+
+        docker rm -f ${CONTAINER_NEXT} 2>/dev/null || true
+      else
+        docker logs ${CONTAINER_NEXT} || true
+        exit 1
+      fi
+
+deploy_test:
+  <<: *deploy_template
+  tags:
+    - deploy-local-ralts
+  when: manual
+
+deploy_prod:
+  <<: *deploy_template
+  tags:
+    - deploy-local-ralts
+  when: manual
+  only:
+    - main

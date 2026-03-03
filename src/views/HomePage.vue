@@ -12,7 +12,7 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useHead } from '@vueuse/head';
-import { head } from "@/utils/seo.home.js";
+import { head } from '@/utils/seo.home.js';
 import { useDataStore } from '@/stores/data';
 import { ref, computed, onMounted} from 'vue';
 

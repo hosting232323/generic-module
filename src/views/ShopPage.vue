@@ -91,7 +91,7 @@ import { useShopStore } from '@/stores/shop';
 import { useDataStore } from '@/stores/data';
 import { useLanguageStore } from '@/stores/language';
 import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
-import { head } from "@/utils/seo.shop.js";
+import { head } from '@/utils/seo.shop.js';
 
 const groupedProducts = ref({});
 const dataStore = useDataStore();
@@ -133,5 +133,5 @@ watch([getLocale, products], () => {
   if (ready.value) groupProductsByCategory();
 }, { immediate: true });
 
-useHead(head)
+useHead(head);
 </script>

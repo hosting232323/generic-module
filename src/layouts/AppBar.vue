@@ -48,7 +48,10 @@
           style="margin-left: 10px;"
           class="cursor-pointer"
         >{{ info.name }}</b>
-        <b style="margin-left: 10px;" class="logo-text"><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
+        <b
+          style="margin-left: 10px;"
+          class="logo-text"
+        ><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
       </div>
     </v-app-bar-title>
     <ShoppingCart v-if="cartActive && getCartQuantity != 0" />
@@ -76,7 +79,10 @@
           v-if="info.logoMode === 'text' || info.logoMode === 'both' || !info.logoMode"
           style="margin-left: 10px;"
         >{{ info.name }}</b>
-        <b style="margin-left: 10px;" class="logo-text"><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
+        <b
+          style="margin-left: 10px;"
+          class="logo-text"
+        ><span style="color: #fbd903">Carpe</span><span style="color: #e34647;">Diem</span></b>
       </div>
     </v-app-bar-title>
 
@@ -179,12 +185,12 @@ const link = (item) => {
   if (isMobile.value) drawer.value = false;
 
   switch (item.type) {
-    case 'externalLink':
-      window.open(item.path, '_blank');
-      break;
-    case 'internalLink':
-      router.push(item.path);
-      break;
+  case 'externalLink':
+    window.open(item.path, '_blank');
+    break;
+  case 'internalLink':
+    router.push(item.path);
+    break;
   }
 };
 
