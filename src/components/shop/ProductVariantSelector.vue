@@ -1,10 +1,8 @@
 <template>
   <v-container style="padding-top: 0 !important; padding-bottom: 0 !important;">
-    <div v-if="variants && variants.length > 0">
       <v-divider class="mb-3" />
 
       <strong style="font-size: 14px;">{{ getText(store.content?.size) || 'Taglie' }}</strong>
-
       <div class="d-flex flex-wrap mt-3">
         <v-chip
           v-for="variant in variants"
@@ -17,7 +15,6 @@
         >
           {{ variant.name }}
         </v-chip>
-      </div>
     </div>
   </v-container>
 </template>
@@ -35,7 +32,7 @@ const { getText } = useLanguageStore();
 const info = data.value.info;
 const store = data.value.store;
 
-const variants = defineProps({
+const { variants } = defineProps({
   variants: { type: Array, required: true }
 });
 
