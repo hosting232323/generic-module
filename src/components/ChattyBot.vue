@@ -204,7 +204,7 @@ const toggleWheel = (mode) => {
   fabButton.value.style.transform = mode == 'open' ? 'scale(0)' : 'scale(1)';
 };
 
-const sendMessage = () => {
+const sendMessage = async () => {
   if(!userMessage.value) return;
 
   loading.value = true;
@@ -213,6 +213,7 @@ const sendMessage = () => {
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
+
   if(botData.vectorStoreId) {
     http.postRequest('vector-store/chat', {
       message: messageToSend,
@@ -226,18 +227,45 @@ const sendMessage = () => {
       showFaq.value = true;
     }, 'POST', router, hostname);
   } else {
-    http.postRequest('chat', {
-      message: messageToSend,
-      bot_id: botData.id,
-      assistant_id: botData.assistantId
-    }, (data) => {
-      if(data.status == 'ok') {
-        messages.value.push(data.response);
-        threadId.value = data.thread_id;
+    messages.value.push("");
+    const botIndex = messages.value.length - 1;
+    const response = await fetch(`${hostname}stream-chat`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: messageToSend,
+        bot_id: botData.id,
+        assistant_id: botData.assistantId,
+        thread_id: threadId.value
+      })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+
+    let done = false;
+
+    while (!done) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+
+      let chunk = decoder.decode(value);
+      if (chunk.includes('"thread_id"')) {
+        const jsonEnd = chunk.indexOf("}") + 1
+        const jsonPart = chunk.slice(0, jsonEnd)
+        threadId.value = JSON.parse(jsonPart).thread_id
+        chunk = chunk.slice(jsonEnd)
       }
-      loading.value = false;
-      showFaq.value = true;
-    }, 'POST', router, hostname);
+
+      messages.value[botIndex] += chunk
+
+      await nextTick();
+      scrollToBottom();
+    }
+    loading.value = false;
+    showFaq.value = true;
   }
 };
 
