@@ -7,13 +7,15 @@
         :key="category"
         cols="12"
       >
-        <h3
-          class="text-h5 mb-3"
-          :style="{ color: info.primaryColor }"
-        >
-          {{ category }}
-        </h3>
-        <hr :style="{ height: '3px', margin: '-10px 0 10px', backgroundColor: info.primaryColor, border: 'none' }">
+        <template v-if="category">
+          <h3
+            class="text-h5 mb-3"
+            :style="{ color: info.primaryColor }"
+          >
+            {{ category }}
+          </h3>
+          <hr :style="{ height: '3px', margin: '-10px 0 10px', backgroundColor: info.primaryColor, border: 'none' }">
+        </template>
         <v-row>
           <v-col
             v-for="product in group"
@@ -98,6 +100,7 @@ const shopStore = useShopStore();
 const { data } = storeToRefs(dataStore);
 const { getText, getLocale } = useLanguageStore();
 const { products, ready } = storeToRefs(shopStore);
+
 const info = data.value.info;
 const store = data.value.store;
 
@@ -106,18 +109,35 @@ const hasVariant = computed(() => {
 });
 
 const groupProductsByCategory = () => {
+  const hasAnyCategory = products.value.some(p => p.category);
   const grouped = products.value.reduce((acc, product) => {
-    const category = getText(product.category) || 'Non specificata';
+    let category = product.category;
+    if (!category) {
+      category = hasAnyCategory ? 'Altri Prodotti' : '';
+    };
+
     if (!acc[category]) acc[category] = [];
     acc[category].push(product);
+
     return acc;
   }, {});
 
   Object.keys(grouped).forEach((category) => {
-    grouped[category].sort((a, b) => getText(a.name).localeCompare(getText(b.name)));
+    grouped[category].sort((a, b) => a.name.localeCompare(b.name));
   });
 
-  groupedProducts.value = grouped;
+  const sortedGrouped = {};
+  Object.keys(grouped)
+    .sort((a, b) => {
+      if (a === 'Altri Prodotti') return 1;
+      if (b === 'Altri Prodotti') return -1;
+      return a.localeCompare(b);
+    })
+    .forEach(category => {
+      sortedGrouped[category] = grouped[category];
+    });
+
+  groupedProducts.value = sortedGrouped;
 };
 
 if (ready.value)
