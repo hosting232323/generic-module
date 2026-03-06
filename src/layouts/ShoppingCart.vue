@@ -232,7 +232,7 @@ const clearCart = () => {
   try {
     orderStore.removeAllProduct();
     popupStore.setPopup('Carrello svuotato correttamente!', 'success');
-  } catch (error) {
+  } catch {
     popupStore.setPopup('Impossibile svuotare il carrello!', 'error');
   }
 };

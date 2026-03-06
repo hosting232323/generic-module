@@ -1,6 +1,7 @@
 {
   "name": "generic-module",
   "version": "0.0.1",
+  "type": "module",
   "main": "dist/generic-module.cjs.js",
   "module": "dist/generic-module.es.js",
   "scripts": {
@@ -30,9 +31,9 @@
     "vuetify": "^3.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@vitejs/plugin-vue": "^6.0.4",
-    "eslint": "^10.0.2",
-    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.4.0",
     "sass": "^1.97.3",
     "unplugin-fonts": "^1.4.0",
     "vite": "^7.3.1",
