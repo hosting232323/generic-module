@@ -1,5 +1,5 @@
 lint_frontend:
-  image: node:18
+  image: node:22
   script:
     - npm ci
     - npx eslint "src/**/*.{js,vue}"
