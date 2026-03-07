@@ -83,30 +83,30 @@
 </template>
 
 <script setup>
-import AppLoading from '@/layouts/AppLoading'
-import PopUpAlert from '@/components/sections/PopUpAlert'
+import AppLoading from '@/layouts/AppLoading';
+import PopUpAlert from '@/components/sections/PopUpAlert';
 
-import { storeToRefs } from 'pinia'
-import { ref, computed, watch } from 'vue'
-import { useShopStore } from '@/stores/shop'
-import { useDataStore } from '@/stores/data'
-import { useLanguageStore } from '@/stores/language'
-import { getImageForProduct, addToCart, getPrice } from '@/utils/shop'
+import { storeToRefs } from 'pinia';
+import { ref, computed, watch } from 'vue';
+import { useShopStore } from '@/stores/shop';
+import { useDataStore } from '@/stores/data';
+import { useLanguageStore } from '@/stores/language';
+import { getImageForProduct, addToCart, getPrice } from '@/utils/shop';
 
-const groupedProducts = ref({})
-const dataStore = useDataStore()
-const shopStore = useShopStore()
+const groupedProducts = ref({});
+const dataStore = useDataStore();
+const shopStore = useShopStore();
 
-const { data } = storeToRefs(dataStore)
-const { getText, getLocale } = useLanguageStore()
-const { products, ready } = storeToRefs(shopStore)
+const { data } = storeToRefs(dataStore);
+const { getText, getLocale } = useLanguageStore();
+const { products, ready } = storeToRefs(shopStore);
 
-const info = data.value.info
-const store = data.value.store
+const info = data.value.info;
+const store = data.value.store;
 
 const hasVariant = computed(() => {
-  return products.value.some(product => product.variant && product.variant.length > 0)
-})
+  return products.value.some(product => product.variant && product.variant.length > 0);
+});
 
 const groupProductsByCategory = () => {
   const hasAnyCategory = products.value.some(p => getText(p.category));
