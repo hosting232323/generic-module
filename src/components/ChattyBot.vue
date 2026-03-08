@@ -342,11 +342,11 @@ const clickFaq = (faq, index) => {
   sendMessage();
 };
 
+
 watch(messages, async () => {
   await nextTick();
   checkScroll();
 });
-
 
 watch(colorPalette, (palette) => {
   document.documentElement.style.setProperty('--theme-color', palette.theme_color);
