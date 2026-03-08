@@ -88,7 +88,6 @@
         </button>
       </div>
     </main>
-
     <div 
       v-if="!exportMode"
       class="fab-send"
@@ -107,7 +106,6 @@
         <v-icon>mdi-send-circle</v-icon>
       </button>
     </div>
-
     <div
       v-else
       class="export-chat"
@@ -152,7 +150,6 @@
         </div>
       </div>
     </div>
-
     <footer class="fab-footer">
       <p>
         Powered by
@@ -163,7 +160,6 @@
         >FastSite</a>
       </p>
     </footer>
-
     <div
       v-show="showArrow"
       class="arrow-dynamic"
@@ -350,6 +346,7 @@ watch(messages, async () => {
   await nextTick();
   checkScroll();
 });
+
 
 watch(colorPalette, (palette) => {
   document.documentElement.style.setProperty('--theme-color', palette.theme_color);
