@@ -74,7 +74,10 @@
           <span class="loading-dots"><span /><span /><span /></span>
         </div>
       </div>
-      <div v-if="showFaq && filteredFaqs.length" class="faq-container">
+      <div
+        v-if="showFaq && filteredFaqs.length"
+        class="faq-container"
+      >
         <button
           v-for="(faq, index) in filteredFaqs"
           :key="index"
@@ -173,6 +176,7 @@
 
 <script setup>
 import '@/styles/chatty.scss';
+
 import http from '@/utils/http';
 import { marked } from 'marked';
 import { useRouter } from 'vue-router';
@@ -213,8 +217,8 @@ const colorPaletteDefault = {
 };
 
 const toggleWheel = (mode) => {
-  fabWheel.value.style.transform = mode === 'open' ? 'scale(1)' : 'scale(0)';
-  fabButton.value.style.transform = mode === 'open' ? 'scale(0)' : 'scale(1)';
+  fabWheel.value.style.transform = mode == 'open' ? 'scale(1)' : 'scale(0)';
+  fabButton.value.style.transform = mode == 'open' ? 'scale(0)' : 'scale(1)';
 };
 
 const sendMessage = async () => {
@@ -228,7 +232,6 @@ const sendMessage = async () => {
   messages.value.push(messageToSend);
 
   if (botData.vectorStoreId) {
-    // fallback normale
     http.postRequest('vector-store/chat', {
       message: messageToSend,
       vector_store_id: botData.vectorStoreId
@@ -241,13 +244,12 @@ const sendMessage = async () => {
       showFaq.value = true;
     }, 'POST', router, hostname);
   } else {
-    // stream
     let botIndex = messages.value.length;
-    messages.value.push(''); // placeholder per il messaggio stream
+    messages.value.push('');
 
     const response = await fetch(`${hostname}stream-chat`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         message: messageToSend,
         bot_id: botData.id,
@@ -268,19 +270,16 @@ const sendMessage = async () => {
 
       let chunk = decoder.decode(value);
 
-      // estrai thread_id se presente
       if (chunk.includes('"thread_id"')) {
-        const jsonEnd = chunk.indexOf("}") + 1;
+        const jsonEnd = chunk.indexOf('}') + 1;
         const jsonPart = chunk.slice(0, jsonEnd);
         threadId.value = JSON.parse(jsonPart).thread_id;
         chunk = chunk.slice(jsonEnd);
       }
 
-      // se il chunk contiene **contenuto reale**, aggiorna il messaggio
       if (chunk.trim()) {
         messages.value[botIndex] += chunk;
 
-        // stoppa il loader solo al primo chunk reale
         if (!firstContentReceived) {
           firstContentReceived = true;
           loading.value = false;
@@ -291,7 +290,6 @@ const sendMessage = async () => {
       scrollToBottom();
     }
 
-    // assicuriamoci che loader sia disattivato alla fine, se non l'ha già fatto
     loading.value = false;
     showFaq.value = true;
   }
@@ -299,12 +297,14 @@ const sendMessage = async () => {
 
 const checkScroll = () => {
   if (!fabContent.value) return;
+
   const el = fabContent.value;
   showArrow.value = el.scrollHeight - el.scrollTop - el.clientHeight > 10;
 };
 
 const scrollToBottom = () => {
   if (!fabContent.value) return;
+
   fabContent.value.scrollTo({
     top: fabContent.value.scrollHeight,
     behavior: 'smooth'
