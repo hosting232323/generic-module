@@ -39,7 +39,7 @@
             class="text-h5"
             style="white-space: normal;"
           >
-            {{ getText(product.name) }}
+            {{ product.name }}
           </v-card-title>
           <v-card-subtitle class="text-h7 mb-2 d-flex">
             {{ getText(store.content?.price) || 'Prezzo' }}: &nbsp;
@@ -94,16 +94,19 @@
                 </v-btn>
               </v-col>
             </v-row>
-            <div class="mb-3">
+            <div
+              v-if="product.category"
+              class="mb-3"
+            >
               <strong>{{ getText(store.content?.category) || 'Categoria' }}:</strong>
-              {{ getText(product.category) || 'Non specificata' }}
+              {{ product.category }}
             </div>
             <div
               v-if="product.description"
               class="mb-5"
             >
               <strong>{{ getText(store.content?.description) || 'Descrizione' }}:</strong>
-              <p v-html="getText(product.description)" />
+              <p v-html="product.description" />
             </div>
           </v-card-text>
         </v-card>
