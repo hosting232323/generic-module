@@ -33,7 +33,7 @@
                 class="text-h6"
                 style="white-space: normal;"
               >
-                {{ getText(product.name) }}
+                {{ product.name }}
               </v-card-title>
               <v-card-text>
                 <div class="d-flex">
