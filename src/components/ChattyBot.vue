@@ -61,6 +61,7 @@
 
         <!-- eslint-disable vue/no-v-html -->
         <div
+          v-show="message !== ''"
           :class="{msg: true, bot: index % 2 === 0, user: index % 2 !== 0}"
           v-html="marked.parse(message)"
         />
@@ -216,8 +217,8 @@ const toggleWheel = (mode) => {
   fabButton.value.style.transform = mode == 'open' ? 'scale(0)' : 'scale(1)';
 };
 
-const sendMessage = () => {
-  if(!userMessage.value) return;
+const sendMessage = async () => {
+  if (!userMessage.value) return;
 
   loading.value = true;
   showFaq.value = false;
@@ -225,7 +226,8 @@ const sendMessage = () => {
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
-  if(botData.vectorStoreId) {
+
+  if (botData.vectorStoreId) {
     http.postRequest('vector-store/chat', {
       message: messageToSend,
       vector_store_id: botData.vectorStoreId
@@ -238,18 +240,54 @@ const sendMessage = () => {
       showFaq.value = true;
     }, 'POST', router, hostname);
   } else {
-    http.postRequest('chat', {
-      message: messageToSend,
-      bot_id: botData.id,
-      assistant_id: botData.assistantId
-    }, (data) => {
-      if(data.status == 'ok') {
-        messages.value.push(data.response);
-        threadId.value = data.thread_id;
+    let botIndex = messages.value.length;
+    messages.value.push('');
+
+    const response = await fetch(`${hostname}stream-chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: messageToSend,
+        bot_id: botData.id,
+        assistant_id: botData.assistantId,
+        thread_id: threadId.value
+      })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+
+    let done = false;
+    let firstContentReceived = false;
+
+    while (!done) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+
+      let chunk = decoder.decode(value);
+
+      if (chunk.includes('"thread_id"')) {
+        const jsonEnd = chunk.indexOf('}') + 1;
+        const jsonPart = chunk.slice(0, jsonEnd);
+        threadId.value = JSON.parse(jsonPart).thread_id;
+        chunk = chunk.slice(jsonEnd);
       }
-      loading.value = false;
-      showFaq.value = true;
-    }, 'POST', router, hostname);
+
+      if (chunk.trim()) {
+        messages.value[botIndex] += chunk;
+
+        if (!firstContentReceived) {
+          firstContentReceived = true;
+          loading.value = false;
+        }
+      }
+
+      await nextTick();
+      scrollToBottom();
+    }
+
+    loading.value = false;
+    showFaq.value = true;
   }
 };
 
