@@ -17,7 +17,7 @@
             cover
           />
           <v-card-title class="text-h6">
-            {{ getText(item.name) }}
+            {{ item.name }}
           </v-card-title>
           <v-card-text>
             <div class="d-flex">
