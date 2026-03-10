@@ -27,9 +27,10 @@
       </v-icon>
       <div class="avatar">
         <img
-          :src="botImage"
+          :src="botData.image"
           alt="botAvatar"
         >
+        <p>{{ botData.name }}</p>
       </div> 
       <div
         class="close"
@@ -52,14 +53,15 @@
         <div :class="{sender: true, bot_s: index % 2 === 0, user_s: index % 2 !== 0}">
           <img
             v-if="index % 2 === 0"
-            :src="botImage"
+            :src="botData.image"
             alt="botAvatar"
           >
-          <p>{{ index % 2 === 0 ? botName : 'Tu' }}</p>
+          <p>{{ index % 2 === 0 ? botData.name : 'Tu' }}</p>
         </div>
 
         <!-- eslint-disable vue/no-v-html -->
         <div
+          v-show="message !== ''"
           :class="{msg: true, bot: index % 2 === 0, user: index % 2 !== 0}"
           v-html="marked.parse(message)"
         />
@@ -71,6 +73,19 @@
         >
           <span class="loading-dots"><span /><span /><span /></span>
         </div>
+      </div>
+      <div
+        v-if="showFaq && filteredFaqs.length"
+        class="faq-container"
+      >
+        <button
+          v-for="(faq, index) in filteredFaqs"
+          :key="index"
+          class="faq-card"
+          @click="clickFaq(faq, index)"
+        >
+          {{ faq.name }}
+        </button>
       </div>
     </main>
     <div 
@@ -161,7 +176,7 @@ import '@/styles/chatty.scss';
 import http from '@/utils/http';
 import { marked } from 'marked';
 import { useRouter } from 'vue-router';
-import { ref, onMounted, nextTick, watch } from 'vue';
+import { ref, onMounted, nextTick, watch, computed } from 'vue';
 
 const router = useRouter();
 const loading = ref(false);
@@ -173,53 +188,107 @@ const showArrow = ref(false);
 const exportMode = ref(false);
 const userMessage = ref(null);
 const exportSuccess = ref(false);
-const { hostname, vectorStoreId, botMessage, botName, botImage } = defineProps({
+
+const showFaq = ref(true);
+const clickedFaqs = ref(new Set());
+
+const { hostname, botData } = defineProps({
   hostname: {
     type: String,
     required: true
   },
-  vectorStoreId: {
-    type: String,
-    default: null
-  },
-  botMessage: {
-    type: String,
+  botData: {
+    type: Object,
     required: true
-  },
-  botName: {
-    type: String,
-    default: 'Bot'
-  },
-  botImage: {
-    type: String,
-    default: ''
   }
 });
+const messages = ref([botData.message]);
 
-const messages = ref([botMessage]);
+const colorPaletteDefault = {
+  theme_color: '#126EE2',
+  theme_color_hover: '#2C87E8',
+  fab_hover: '#2C87E8',
+  fab_shadow: '#81A4F1',
+  fab_border: '#0C50A7'
+};
 
 const toggleWheel = (mode) => {
   fabWheel.value.style.transform = mode == 'open' ? 'scale(1)' : 'scale(0)';
   fabButton.value.style.transform = mode == 'open' ? 'scale(0)' : 'scale(1)';
 };
 
-const sendMessage = () => {
-  if(!userMessage.value) return;
+const sendMessage = async () => {
+  if (!userMessage.value) return;
 
   loading.value = true;
+  showFaq.value = false;
+
   const messageToSend = userMessage.value;
   userMessage.value = '';
   messages.value.push(messageToSend);
-  http.postRequest('vector-store/chat', {
-    message: messageToSend,
-    vector_store_id: vectorStoreId
-  }, (data) => {
-    loading.value = false;
-    if(data.status == 'ok') {
-      messages.value.push(data.response);
-      threadId.value = data.thread_id;
+
+  if (botData.vectorStoreId) {
+    http.postRequest('vector-store/chat', {
+      message: messageToSend,
+      vector_store_id: botData.vectorStoreId
+    }, (data) => {
+      if(data.status == 'ok') {
+        messages.value.push(data.response);
+        threadId.value = data.thread_id;
+      }
+      loading.value = false;
+      showFaq.value = true;
+    }, 'POST', router, hostname);
+  } else {
+    let botIndex = messages.value.length;
+    messages.value.push('');
+
+    const response = await fetch(`${hostname}stream-chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: messageToSend,
+        bot_id: botData.id,
+        assistant_id: botData.assistantId,
+        thread_id: threadId.value
+      })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+
+    let done = false;
+    let firstContentReceived = false;
+
+    while (!done) {
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+
+      let chunk = decoder.decode(value);
+
+      if (chunk.includes('"thread_id"')) {
+        const jsonEnd = chunk.indexOf('}') + 1;
+        const jsonPart = chunk.slice(0, jsonEnd);
+        threadId.value = JSON.parse(jsonPart).thread_id;
+        chunk = chunk.slice(jsonEnd);
+      }
+
+      if (chunk.trim()) {
+        messages.value[botIndex] += chunk;
+
+        if (!firstContentReceived) {
+          firstContentReceived = true;
+          loading.value = false;
+        }
+      }
+
+      await nextTick();
+      scrollToBottom();
     }
-  }, 'POST', router, hostname);
+
+    loading.value = false;
+    showFaq.value = true;
+  }
 };
 
 const checkScroll = () => {
@@ -244,7 +313,7 @@ const exportChat = async () => {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(new Blob([
     messages.value.map((msg, index) => {
-      return `${index % 2 === 0 ? botName : 'Utente'}: ${msg.replace(/<[^>]+>/g, '').trim()}`;
+      return `${index % 2 === 0 ? botData.name : 'Utente'}: ${msg.replace(/<[^>]+>/g, '').trim()}`;
     }).join('\n')
   ], { type: 'text/plain' }));
   link.download = 'chat_messages.txt';
@@ -257,11 +326,35 @@ const exportChat = async () => {
   }, 2000);
 };
 
+const filteredFaqs = computed(() => {
+  return botData.faq || [];
+});
+
+const colorPalette = computed(() => {
+  return botData.color || colorPaletteDefault;
+});
+
+const clickFaq = (faq, index) => {
+  if (clickedFaqs.value.has(index)) return;
+
+  clickedFaqs.value.add(index);
+  userMessage.value = faq.value;
+  sendMessage();
+};
+
 
 watch(messages, async () => {
   await nextTick();
   checkScroll();
 });
+
+watch(colorPalette, (palette) => {
+  document.documentElement.style.setProperty('--theme-color', palette.theme_color);
+  document.documentElement.style.setProperty('--theme-color-hover', palette.theme_color_hover);
+  document.documentElement.style.setProperty('--fab-hover', palette.fab_hover);
+  document.documentElement.style.setProperty('--fab-shadow', palette.fab_shadow);
+  document.documentElement.style.setProperty('--fab-border', palette.fab_border);
+}, { immediate: true });
 
 onMounted(() => {
   if (fabContent.value) {
