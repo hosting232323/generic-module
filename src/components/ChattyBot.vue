@@ -227,69 +227,79 @@ const sendMessage = async () => {
   userMessage.value = '';
   messages.value.push(messageToSend);
 
+  let url, body;
   if (botData.vectorStoreId) {
-    http.postRequest('vector-store/chat', {
-      message: messageToSend,
-      vector_store_id: botData.vectorStoreId
-    }, (data) => {
-      if(data.status == 'ok') {
-        messages.value.push(data.response);
-        threadId.value = data.thread_id;
-      }
-      loading.value = false;
-      showFaq.value = true;
-    }, 'POST', router, hostname);
+    body = JSON.stringify({ message: messageToSend, vector_store_id: botData.vectorStoreId });
+    url = botData.stream ? `${hostname}vector-store/stream-chat` : `${hostname}vector-store/chat`;
   } else {
-    let botIndex = messages.value.length;
-    messages.value.push('');
+    body = JSON.stringify({ 
+      message: messageToSend, 
+      bot_id: botData.id, 
+      assistant_id: botData.assistantId,
+      thread_id: threadId.value
+    });
+    url = botData.stream ? `${hostname}stream-chat` : `${hostname}chat`;
+  }
 
-    const response = await fetch(`${hostname}stream-chat`, {
+  if (botData.stream) {
+    await streamMessage(url, body, botIndex);
+  } else {
+    const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: messageToSend,
-        bot_id: botData.id,
-        assistant_id: botData.assistantId,
-        thread_id: threadId.value
-      })
+      body
     });
-
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-
-    let done = false;
-    let firstContentReceived = false;
-
-    while (!done) {
-      const { value, done: doneReading } = await reader.read();
-      done = doneReading;
-
-      let chunk = decoder.decode(value);
-
-      if (chunk.includes('"thread_id"')) {
-        const jsonEnd = chunk.indexOf('}') + 1;
-        const jsonPart = chunk.slice(0, jsonEnd);
-        threadId.value = JSON.parse(jsonPart).thread_id;
-        chunk = chunk.slice(jsonEnd);
-      }
-
-      if (chunk.trim()) {
-        messages.value[botIndex] += chunk;
-
-        if (!firstContentReceived) {
-          firstContentReceived = true;
-          loading.value = false;
-        }
-      }
-
-      await nextTick();
-      scrollToBottom();
-    }
-
+    const data = await res.json();
+    messages.value[botIndex] = data.response;
+    if (data.thread_id) threadId.value = data.thread_id;
     loading.value = false;
     showFaq.value = true;
+    scrollToBottom();
   }
 };
+
+const streamMessage = async (url, body, botIndex) => {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: body
+  });
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+
+  let done = false;
+  let firstContentReceived = false;
+
+  while (!done) {
+    const { value, done: doneReading } = await reader.read();
+    done = doneReading;
+
+    let chunk = decoder.decode(value);
+
+    if (chunk.includes('"thread_id"')) {
+      const jsonEnd = chunk.indexOf('}') + 1;
+      const jsonPart = chunk.slice(0, jsonEnd);
+      threadId.value = JSON.parse(jsonPart).thread_id;
+      chunk = chunk.slice(jsonEnd);
+    }
+
+    if (chunk.trim()) {
+      messages.value[botIndex] += chunk;
+
+      if (!firstContentReceived) {
+        firstContentReceived = true;
+        loading.value = false;
+      }
+    }
+
+    await nextTick();
+    scrollToBottom();
+  }
+
+  loading.value = false;
+  showFaq.value = true;
+}
 
 const checkScroll = () => {
   if (!fabContent.value) return;
