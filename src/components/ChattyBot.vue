@@ -229,24 +229,24 @@ const sendMessage = async () => {
 
   let url, body;
   if (botData.vectorStoreId) {
-    body = JSON.stringify({ message: messageToSend, vector_store_id: botData.vectorStoreId });
-    url = botData.stream ? `${hostname}vector-store/stream-chat` : `${hostname}vector-store/chat`;
+    body = { message: messageToSend, vector_store_id: botData.vectorStoreId };
+    url = botData.stream ? `${hostname}vector-store/stream-chat` : `vector-store/chat`;
   } else {
-    body = JSON.stringify({ 
+    body = { 
       message: messageToSend, 
       bot_id: botData.id, 
       assistant_id: botData.assistantId,
       thread_id: threadId.value
-    });
-    url = botData.stream ? `${hostname}stream-chat` : `${hostname}chat`;
+    };
+    url = botData.stream ? `${hostname}stream-chat` : `chat`;
   }
 
   if (botData.stream) {
-    await streamMessage(url, body, botIndex);
+    await streamMessage(url, body);
   } else {
-      http.postRequest(url, {
-        body
-      }, (data) => {
+      http.postRequest(url,
+      body, 
+      (data) => {
       if(data.status == 'ok') {
         messages.value.push(data.response);
         threadId.value = data.thread_id;
@@ -258,11 +258,11 @@ const sendMessage = async () => {
   }
 };
 
-const streamMessage = async (url, body, botIndex) => {
+const streamMessage = async (url, body) => {
   const response = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: body
+    body: JSON.stringify(body)
   });
 
   const reader = response.body.getReader();
@@ -270,6 +270,7 @@ const streamMessage = async (url, body, botIndex) => {
 
   let done = false;
   let firstContentReceived = false;
+  const botIndex = messages.value.push('') - 1;
 
   while (!done) {
     const { value, done: doneReading } = await reader.read();
