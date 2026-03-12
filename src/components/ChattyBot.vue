@@ -230,7 +230,7 @@ const sendMessage = async () => {
   let url, body;
   if (botData.vectorStoreId) {
     body = { message: messageToSend, vector_store_id: botData.vectorStoreId };
-    url = botData.stream ? `${hostname}vector-store/stream-chat` : `vector-store/chat`;
+    url = botData.stream ? `${hostname}vector-store/stream-chat` : 'vector-store/chat';
   } else {
     body = { 
       message: messageToSend, 
@@ -238,22 +238,22 @@ const sendMessage = async () => {
       assistant_id: botData.assistantId,
       thread_id: threadId.value
     };
-    url = botData.stream ? `${hostname}stream-chat` : `chat`;
+    url = botData.stream ? `${hostname}stream-chat` : 'chat';
   }
 
   if (botData.stream) {
     await streamMessage(url, body);
   } else {
-      http.postRequest(url,
+    http.postRequest(url,
       body, 
       (data) => {
-      if(data.status == 'ok') {
-        messages.value.push(data.response);
-        threadId.value = data.thread_id;
-      }
-      loading.value = false;
-      showFaq.value = true;
-    }, 'POST', router, hostname);
+        if(data.status == 'ok') {
+          messages.value.push(data.response);
+          threadId.value = data.thread_id;
+        }
+        loading.value = false;
+        showFaq.value = true;
+      }, 'POST', router, hostname);
     scrollToBottom();
   }
 };
@@ -300,7 +300,7 @@ const streamMessage = async (url, body) => {
 
   loading.value = false;
   showFaq.value = true;
-}
+};
 
 const checkScroll = () => {
   if (!fabContent.value) return;
