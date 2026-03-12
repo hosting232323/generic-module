@@ -244,16 +244,16 @@ const sendMessage = async () => {
   if (botData.stream) {
     await streamMessage(url, body, botIndex);
   } else {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body
-    });
-    const data = await res.json();
-    messages.value[botIndex] = data.response;
-    if (data.thread_id) threadId.value = data.thread_id;
-    loading.value = false;
-    showFaq.value = true;
+      http.postRequest(url, {
+        body
+      }, (data) => {
+      if(data.status == 'ok') {
+        messages.value.push(data.response);
+        threadId.value = data.thread_id;
+      }
+      loading.value = false;
+      showFaq.value = true;
+    }, 'POST', router, hostname);
     scrollToBottom();
   }
 };
