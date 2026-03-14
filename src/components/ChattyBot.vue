@@ -235,7 +235,6 @@ const sendMessage = async () => {
     body = { 
       message: messageToSend, 
       bot_id: botData.id, 
-      assistant_id: botData.assistantId,
       thread_id: threadId.value
     };
     url = botData.stream ? `${hostname}stream-chat` : 'chat';
