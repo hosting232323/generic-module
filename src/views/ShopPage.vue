@@ -33,7 +33,7 @@
                 class="text-h6"
                 style="white-space: normal;"
               >
-                {{ product.name }}
+                {{ getText(product.name) }}
               </v-card-title>
               <v-card-text>
                 <div class="d-flex">
@@ -123,8 +123,7 @@ const groupProductsByCategory = () => {
   }, {});
 
   Object.keys(grouped).forEach((category) => {
-    grouped[category].sort((a, b) => a.name.localeCompare(b.name));
-  });
+    grouped[category].sort((a, b) => getText(a.name).localeCompare(getText(b.name)));});
 
   const sortedGrouped = {};
   Object.keys(grouped)
