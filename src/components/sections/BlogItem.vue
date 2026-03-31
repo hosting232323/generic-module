@@ -84,7 +84,7 @@ const dataStore = useDataStore();
 const { data, demoId } = storeToRefs(dataStore);
 const info = data.value.info;
 
-const post = defineProps({
+const { post } = defineProps({
   post: {
     type: Object,
     required: true

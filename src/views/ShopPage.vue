@@ -33,7 +33,7 @@
                 class="text-h6"
                 style="white-space: normal;"
               >
-                {{ getText(product.name) }}
+                {{ product.name }}
               </v-card-title>
               <v-card-text>
                 <div class="d-flex">
@@ -57,7 +57,7 @@
               <v-card-actions>
                 <v-btn
                   class="text-none"
-                  :to="`/product/${product.id}`"
+                  :to="productLink(product.id)"
                   variant="flat"
                   :color="info.primaryColor"
                 >
@@ -97,7 +97,7 @@ const groupedProducts = ref({});
 const dataStore = useDataStore();
 const shopStore = useShopStore();
 
-const { data } = storeToRefs(dataStore);
+const { data, demoId } = storeToRefs(dataStore);
 const { getText, getLocale } = useLanguageStore();
 const { products, ready } = storeToRefs(shopStore);
 
@@ -123,7 +123,7 @@ const groupProductsByCategory = () => {
   }, {});
 
   Object.keys(grouped).forEach((category) => {
-    grouped[category].sort((a, b) => getText(a.name).localeCompare(getText(b.name)));});
+    grouped[category].sort((a, b) => a.name.localeCompare(b.name));});
 
   const sortedGrouped = {};
   Object.keys(grouped)
@@ -145,6 +145,10 @@ else
   shopStore.initData(data.value.store, function () {
     groupProductsByCategory();
   });
+
+const productLink = (product_id) => {
+  return demoId.value ? `/demo/${demoId.value}/product/${product_id}` : `/product/${product_id}`;
+};
 
 watch([getLocale, products], () => {
   if (ready.value) groupProductsByCategory();

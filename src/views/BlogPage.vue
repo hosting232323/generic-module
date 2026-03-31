@@ -43,13 +43,12 @@
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import BlogItem from '@/components/sections/BlogItem';
 import AppLoading from '@/layouts/AppLoading.vue';
 import { useBlogStore } from '@/stores/blog';
 import { useDataStore } from '@/stores/data';
 
-const displayedPosts = ref();
 const maxItems = 4;
 const itemsToShow = ref(maxItems);
 
@@ -61,9 +60,10 @@ const { data } = storeToRefs(dataStore);
 const info = data.value.info;
 
 
-const displayPosts = () => {
-  displayedPosts.value = posts.value.slice(0, itemsToShow.value);
-};
+const displayedPosts = computed(() => {
+  if (!posts.value) return [];
+  return posts.value.slice(0, itemsToShow.value);
+});
 
 const loadMorePosts = () => {
   itemsToShow.value += 5;
@@ -73,13 +73,9 @@ const removeMorePosts = () => {
   itemsToShow.value = maxItems;
 };
 
-if (ready.value)
-  displayPosts();
-else
-  blogStore.initData(data.value.blog, function () {
-    displayPosts();
-  });
-
+if (!ready.value) {
+  blogStore.initData(data.value.blog, function () {});
+}
 </script>
 
 <style scoped>
