@@ -5,7 +5,7 @@
   >
     <router-link :to="postLink">
       <v-img
-        :src="post.files && post.files[0].preview"
+        :src="post.files && post.files.find(i => i.index == 1).preview"
         width="170px"
         class="featured-image"
       />
@@ -43,7 +43,7 @@
   >
     <router-link :to="postLink">
       <img
-        :src="post.files && post.files[0].preview"
+        :src="post.files && post.files.find(i => i.index == 1).preview"
         class="featured-image"
       >
     </router-link>
