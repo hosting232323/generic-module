@@ -17,6 +17,7 @@ import { ref, computed, onMounted} from 'vue';
 
 import MapViewer from '@/components/sections/MapViewer';
 import BaseText from '@/components/sections/BaseText';
+import IconText from '@/components/sections/IconText';
 import LineDivider from '@/components/sections/LineDivider';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import GallerySection from '@/components/sections/GallerySection';
@@ -39,6 +40,7 @@ const componentMap = {
   map: MapViewer,
   text: BaseText,
   line: LineDivider,
+  iconText: IconText,
   reviews: ReviewsSection,
   gallery: GallerySection,
   services: ServicesSection,
