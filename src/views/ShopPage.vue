@@ -123,7 +123,7 @@ const groupProductsByCategory = () => {
   }, {});
 
   Object.keys(grouped).forEach((category) => {
-    grouped[category].sort((a, b) => a.name.localeCompare(b.name));});
+    grouped[category].sort((a, b) => a.name.localeCompare(b.name))});
 
   const sortedGrouped = {};
   Object.keys(grouped)
