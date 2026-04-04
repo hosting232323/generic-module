@@ -47,5 +47,11 @@
 </template>
 
 <script setup>
-const { content, info } = defineProps(['content', 'info']);
+const { info } = defineProps({
+  info: {
+    type: Object,
+    required: true
+  }
+});
+
 </script>
