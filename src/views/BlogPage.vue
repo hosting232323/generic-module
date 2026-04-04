@@ -49,8 +49,8 @@ import AppLoading from '@/layouts/AppLoading.vue';
 import { useBlogStore } from '@/stores/blog';
 import { useDataStore } from '@/stores/data';
 
-const displayedPosts = ref();
 const maxItems = 4;
+const displayedPosts = ref(null);
 const itemsToShow = ref(maxItems);
 
 const dataStore = useDataStore();
@@ -79,7 +79,6 @@ else
   blogStore.initData(data.value.blog, function () {
     displayPosts();
   });
-
 </script>
 
 <style scoped>
