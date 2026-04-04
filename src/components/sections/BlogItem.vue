@@ -108,8 +108,8 @@ const formatTopics = (topics = []) => {
 const calculateReadingTime = (content, wordsPerMinute = 200) => {
   if (!content) return '0 min'; 
 
-  const wordCount = content.trim().split(/\s+/).length; // Conta le parole
-  const minutes = Math.ceil(wordCount / wordsPerMinute); // Arrotonda per eccesso
+  const wordCount = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
 
   return `${minutes} min di lettura`;
 };
