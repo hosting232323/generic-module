@@ -5,7 +5,7 @@
   >
     <router-link :to="postLink">
       <v-img
-        :src="post.files && post.files[0].preview"
+        :src="post.files && post.files.find(i => i.index == 1).preview"
         width="170px"
         class="featured-image"
       />
@@ -43,7 +43,7 @@
   >
     <router-link :to="postLink">
       <img
-        :src="post.files && post.files[0].preview"
+        :src="post.files && post.files.find(i => i.index == 1).preview"
         class="featured-image"
       >
     </router-link>
@@ -84,7 +84,7 @@ const dataStore = useDataStore();
 const { data, demoId } = storeToRefs(dataStore);
 const info = data.value.info;
 
-const post = defineProps({
+const { post } = defineProps({
   post: {
     type: Object,
     required: true
@@ -108,8 +108,8 @@ const formatTopics = (topics = []) => {
 const calculateReadingTime = (content, wordsPerMinute = 200) => {
   if (!content) return '0 min'; 
 
-  const wordCount = content.trim().split(/\s+/).length; // Conta le parole
-  const minutes = Math.ceil(wordCount / wordsPerMinute); // Arrotonda per eccesso
+  const wordCount = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
 
   return `${minutes} min di lettura`;
 };
