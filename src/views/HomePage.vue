@@ -11,7 +11,7 @@
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { useHead } from '@vueuse/head';
+import { useHead } from '@unhead/vue';
 import { useDataStore } from '@/stores/data';
 import { ref, computed, onMounted} from 'vue';
 
