@@ -24,7 +24,7 @@ export const useBlogStore = defineStore('blog:genericFeStore', {
       }, (res) => this.initDataFromJson(res.posts.reverse(), func));
     },
     initDataFromJson(posts, func) {
-      this.posts = posts.sort((a, b) => a.ordinal - b.ordinal);;
+      this.posts = posts;
       this.ready = true;
       func();
     }
