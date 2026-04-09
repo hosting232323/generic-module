@@ -38,7 +38,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
         ));
     },
     formatData(data, func, shippingCost = 0, pickupInStore = false, freeShippingThreshold = 0) {
-      this.products = data;
+      this.products = data.sort((a, b) => a.ordinal - b.ordinal);
       this.ready = true;
       this.shippingCost = shippingCost;
       this.pickupInStore = pickupInStore;
