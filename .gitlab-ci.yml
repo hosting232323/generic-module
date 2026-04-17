@@ -1,7 +1,5 @@
-lint_frontend:
-  image: node:22
-  script:
-    - npm ci
-    - npx eslint "src/**/*.{js,vue}"
-  tags:
-    - linux
+stages:
+  - lint
+
+include:
+  - local: 'gitlab/lint.yml'
