@@ -2,6 +2,9 @@
   stage: deploy
   script:
     - |
+    - git fetch origin "carpediembisceglie.it"
+    - git checkout "carpediembisceglie.it"
+
       docker build \
         --build-arg VITE_HOSTNAME=$VITE_HOSTNAME \
         --build-arg VITE_FORM_MAIL=$CARPEDIEM_VITE_FORM_MAIL \
