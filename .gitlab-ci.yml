@@ -1,5 +1,7 @@
 stages:
+  - deploy
   - lint
 
 include:
+  - local: 'gitlab/deploy.yml'
   - local: 'gitlab/lint.yml'
