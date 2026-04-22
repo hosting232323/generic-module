@@ -55,11 +55,11 @@ defineProps({
   },
   signinTitle: {
     type: String,
-    required: true
+    default: ''
   },
   changePasswordTitle: {
     type: String,
-    required: true
+    default: ''
   },
   primaryColor: {
     type: String,
