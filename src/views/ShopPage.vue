@@ -83,6 +83,9 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue';
+import { generateSeoHead, seoConfig } from '@/utils/seo';
+
 import AppLoading from '@/layouts/AppLoading';
 import PopUpAlert from '@/components/sections/PopUpAlert';
 
@@ -150,4 +153,12 @@ const productLink = (product_id) => {
 watch([getLocale, products], () => {
   if (ready.value) groupProductsByCategory();
 }, { immediate: true });
+
+useHead(
+  generateSeoHead({
+    title: `Shop - ${seoConfig.brandName}`,
+    description: 'Scopri tutti i prodotti disponibili nel nostro shop online',
+    slug: '/shop'
+  })
+);
 </script>

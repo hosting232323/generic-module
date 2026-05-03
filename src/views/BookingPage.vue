@@ -68,6 +68,9 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue';
+import { generateSeoHead, seoConfig } from '@/utils/seo';
+
 import { ref, computed,onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useEventsStore } from '@/stores/events';
@@ -264,6 +267,14 @@ const isPrevMonthBeforeToday = () => {
 
   return prevMonthDate < new Date(today.getFullYear(), today.getMonth(), 1);
 };
+
+useHead(
+  generateSeoHead({
+    title: `Booking - ${seoConfig.brandName}`,
+    description: `Prenota eventi e appuntamenti con ${seoConfig.brandName}`,
+    slug: '/booking'
+  })
+);
 </script>
 
 <style>

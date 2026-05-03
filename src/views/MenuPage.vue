@@ -93,6 +93,9 @@
 </template>
 
 <script setup>
+import { useHead } from '@unhead/vue';
+import { generateSeoHead, seoConfig } from '@/utils/seo';
+
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
@@ -125,6 +128,14 @@ const openCategory = async (cat) => {
     behavior: 'smooth',
   });
 };
+
+useHead(
+  generateSeoHead({
+    title: `Menu - ${seoConfig.brandName}`,
+    description: 'Scopri il nostro menu con piatti e categorie disponibili',
+    slug: '/menu'
+  })
+);
 </script>
 
 <style scoped>

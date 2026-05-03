@@ -42,12 +42,16 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
-import BlogItem from '@/components/sections/BlogItem';
+import { storeToRefs } from 'pinia';
+import { useHead } from '@unhead/vue';
+
 import AppLoading from '@/layouts/AppLoading.vue';
+import BlogItem from '@/components/sections/BlogItem';
+
 import { useBlogStore } from '@/stores/blog';
 import { useDataStore } from '@/stores/data';
+import { generateSeoHead, seoConfig } from '@/utils/seo';
 
 const maxItems = 4;
 const displayedPosts = ref(null);
@@ -79,6 +83,14 @@ else
   blogStore.initData(data.value.blog, function () {
     displayPosts();
   });
+
+useHead(
+  generateSeoHead({
+    title: `Blog - ${seoConfig.brandName}`,
+    description: `Ultimi articoli e aggiornamenti da ${seoConfig.brandName}`,
+    slug: '/blog'
+  })
+);
 </script>
 
 <style scoped>

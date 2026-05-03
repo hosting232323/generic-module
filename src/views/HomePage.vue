@@ -10,6 +10,7 @@
 </template>
 
 <script setup>
+import { head } from '@/utils/seo';
 import { storeToRefs } from 'pinia';
 import { useHead } from '@unhead/vue';
 import { useDataStore } from '@/stores/data';
@@ -34,6 +35,10 @@ import AdvantagesEcommerce from '@/components/sections/advantages/AdvantagesEcom
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);
+
+const info = data.value.info;
+const addOn = data.value.addOn;
+const preloadedSections = ref([]);
 
 const componentMap = {
   map: MapViewer,
@@ -65,9 +70,6 @@ const getComponent = (type, variant) => {
   return componentMap[type];
 };
 
-const addOn = data.value.addOn;
-const info = data.value.info;
-
 const sections = computed(() => {
   return data.value.components.filter(section => {
     if (section.type === 'blog') {
@@ -76,15 +78,6 @@ const sections = computed(() => {
     return true;
   });
 });
-
-useHead({
-  title: 'FastSite',
-  meta: [
-    { name: 'FastSite', content: 'This is the home page' }
-  ]
-});
-
-const preloadedSections = ref([]);
 
 const extractImages = (obj) => {
   let urls = [];
@@ -136,4 +129,6 @@ onMounted(() => {
     lazyLoadImages();
   }
 });
+
+useHead(head);
 </script>
