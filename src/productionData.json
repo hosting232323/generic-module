@@ -6,6 +6,7 @@
     "Blog"
   ],
   "info": {
+    "homeLink": true,
     "name": "Trattoria Bella Napoli",
     "primaryColor": "#D63447",
     "secondaryColor": "#FFF2E8",
