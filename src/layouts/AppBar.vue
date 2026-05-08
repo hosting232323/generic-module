@@ -167,8 +167,8 @@ const items = computed(() => {
     }));
 
   return [
-    { title: 'Home', type: 'home' },
-    ...anchorItems, 
+    ...(info.homeLink ? [{ title: 'Home', type: 'home' }] : []),
+    ...anchorItems,
     ...menuItems
   ];
 });
