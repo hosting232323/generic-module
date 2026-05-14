@@ -181,7 +181,7 @@ import { ref, onMounted, nextTick, watch, computed } from 'vue';
 const router = useRouter();
 const loading = ref(false);
 const fabWheel = ref(null);
-const threadId = ref(null);
+const sessionId = ref(null);
 const fabButton = ref(null);
 const fabContent = ref(null);
 const showArrow = ref(false);
@@ -227,28 +227,16 @@ const sendMessage = async () => {
   userMessage.value = '';
   messages.value.push(messageToSend);
 
-  let url, body;
-  if (botData.vectorStoreId) {
-    body = { message: messageToSend, vector_store_id: botData.vectorStoreId };
-    url = botData.stream ? `${hostname}vector-store/stream-chat` : 'vector-store/chat';
-  } else {
-    body = { 
-      message: messageToSend, 
-      bot_id: botData.id, 
-      thread_id: threadId.value
-    };
-    url = botData.stream ? `${hostname}stream-chat` : 'chat';
-  }
-
+  const body = { message: messageToSend, bot_id: botData.botId, session_id: sessionId.value };
   if (botData.stream) {
-    await streamMessage(url, body);
+    await streamMessage(`${hostname}chatty/stream-chat`, body);
   } else {
-    http.postRequest(url,
+    http.postRequest('chatty/chat',
       body, 
       (data) => {
         if(data.status == 'ok') {
           messages.value.push(data.response);
-          threadId.value = data.thread_id;
+          sessionId.value = data.session_id;
         }
         loading.value = false;
         showFaq.value = true;
@@ -277,10 +265,10 @@ const streamMessage = async (url, body) => {
 
     let chunk = decoder.decode(value);
 
-    if (chunk.includes('"thread_id"')) {
+    if (chunk.includes('"session_id"')) {
       const jsonEnd = chunk.indexOf('}') + 1;
       const jsonPart = chunk.slice(0, jsonEnd);
-      threadId.value = JSON.parse(jsonPart).thread_id;
+      sessionId.value = JSON.parse(jsonPart).session_id;
       chunk = chunk.slice(jsonEnd);
     }
 
