@@ -13,13 +13,20 @@
       <slot />
     </v-main>
     <AppFooter v-if="!isSpecialPage" />
+    <ChattyBot
+      v-if="data.addOn?.includes('Chatty')"
+      :hostname="http.viteHostname"
+      :bot-data="data.chatty"
+    />
   </v-app>
 </template>
 
 <script setup>
+import http from '@/utils/http';
 import AppBar from '@/layouts/AppBar.vue';
 import AppFooter from '@/layouts/AppFooter.vue';
 import UpArrow from '@/layouts/UpArrow.vue';
+import ChattyBot from '@/components/ChattyBot.vue';
 import SocialBubbles from '@/layouts/SocialBubbles.vue';
 
 import { storeToRefs } from 'pinia';
@@ -58,15 +65,6 @@ watch(ready, (newValue) => {
   if(data.value.info.socialBubbles)
     showBubbles.value = true;
 
-  if (data.value.addOn && data.value.addOn.includes('Chatty')) {
-    const script = document.createElement('script');
-    script.type = 'module';
-    script.src = `https://wooffy.it/chatty-be/chat-file/js?file=inject&user_id=${data.value.info.chattyId}`;
-    document.body.appendChild(script); 
-    script.onload = () => showChatty.value = true;
-    script.onerror = () => showChatty.value = false;
-  }
-  
   if (data.value.store) 
     shopStore.initData(data.value.store, () => {});
 });

@@ -3,8 +3,37 @@
     "Multilingual",
     "Menu",
     "Shop",
-    "Blog"
+    "Blog",
+    "Chatty"
   ],
+  "chatty": {
+    "botId": 4,
+    "message": "Ciao, come posso aiutarti.",
+    "name": "Fastsite",
+    "image": "/logo.png",
+    "faq": [
+      {
+        "name": "Business digitale ⚡",
+        "value": "Come FastSite.it può aiutare a trasformare il mio business?"
+      },
+      {
+        "name": "Assistenza post-lancio 📈",
+        "value": "FastSite.it offre assistenza dopo la realizzazione del sito?"
+      },
+      {
+        "name": "FastSite.it vs CMS 🚀",
+        "value": "Quali vantaggi offre rispetto a WordPress e simili?"
+      }
+    ],
+    "color": {
+      "theme_color": "#d73cbe",
+      "theme_color_hover": "#b832a1",
+      "fab_hover": "#f051d1",
+      "fab_shadow": "#e688cf",
+      "fab_border": "#9e2a83"
+    },
+    "stream": true
+  },
   "info": {
     "homeLink": true,
     "name": "Trattoria Bella Napoli",
