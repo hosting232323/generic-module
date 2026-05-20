@@ -341,6 +341,10 @@ const clickFaq = (faq, index) => {
 };
 
 
+watch(userMessage,  () => {
+  console.log('c');
+});
+
 watch(messages, async () => {
   await nextTick();
   checkScroll();

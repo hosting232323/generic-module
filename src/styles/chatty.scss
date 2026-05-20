@@ -304,6 +304,14 @@
   background-color: #fff;
 }
 
+.fab-send input:focus {
+  color: #000;
+}
+
+.fab-send input:not(:placeholder-shown) {
+  color: #000;
+}
+
 .fab-send button {
   display: flex;
   justify-content: center;
