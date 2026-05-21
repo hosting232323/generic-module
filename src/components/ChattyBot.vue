@@ -12,82 +12,9 @@
     ref="fabWheel"
     class="fab-wheel"
   >
-    <nav class="fab-nav">
-      <v-icon
-        v-if="!exportMode"
-        @click="exportMode = true"
-      >
-        mdi-content-save
-      </v-icon>
-      <v-icon
-        v-if="exportMode"
-        @click="exportMode = false"
-      >
-        mdi-restore
-      </v-icon>
-      <div class="avatar">
-        <img
-          :src="botData.image"
-          alt="botAvatar"
-        >
-        <p>{{ botData.name }}</p>
-      </div> 
-      <div
-        class="close"
-        @click="toggleWheel('close')"
-      >
-        <div class="line" />
-        <div class="line" />
-      </div>
-    </nav>
-    <main
-      v-if="!exportMode"
-      ref="fabContent"
-      class="fab-content"
-    >
-      <div
-        v-for="(message, index) in messages"
-        :key="index"
-        class="fab-message"
-      >
-        <div :class="{sender: true, bot_s: index % 2 === 0, user_s: index % 2 !== 0}">
-          <img
-            v-if="index % 2 === 0"
-            :src="botData.image"
-            alt="botAvatar"
-          >
-          <p>{{ index % 2 === 0 ? botData.name : 'Tu' }}</p>
-        </div>
-
-        <!-- eslint-disable vue/no-v-html -->
-        <div
-          v-show="message !== ''"
-          :class="{msg: true, bot: index % 2 === 0, user: index % 2 !== 0}"
-          v-html="marked.parse(message)"
-        />
-        <!-- eslint-enable vue/no-v-html -->
-
-        <div
-          v-if="loading && index == messages.length - 1"
-          class="msg bot"
-        >
-          <span class="loading-dots"><span /><span /><span /></span>
-        </div>
-      </div>
-      <div
-        v-if="showFaq && filteredFaqs.length"
-        class="faq-container"
-      >
-        <button
-          v-for="(faq, index) in filteredFaqs"
-          :key="index"
-          class="faq-card"
-          @click="clickFaq(faq, index)"
-        >
-          {{ faq.name }}
-        </button>
-      </div>
-    </main>
+    <FabNav @toggle-wheel="toggleWheel"/>
+    <FabContent />
+  
     <div 
       v-if="!exportMode"
       class="fab-send"
@@ -106,50 +33,7 @@
         <v-icon>mdi-send-circle</v-icon>
       </button>
     </div>
-    <div
-      v-else
-      class="export-chat"
-    >
-      <h3 v-if="!exportSuccess">
-        Vuoi esportare la chat?
-      </h3>
-      <div
-        v-if="!exportSuccess"
-        class="content-button"
-      >
-        <button @click="exportChat">
-          Si
-        </button>
-        <button @click="exportMode = false">
-          No
-        </button>
-      </div>
-      <div
-        v-else
-        class="successExport"
-      >
-        <div class="success-animation">
-          <svg
-            class="checkmark"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 52 52"
-          >
-            <circle
-              class="checkmark__circle"
-              cx="26"
-              cy="26"
-              r="25"
-              fill="none"
-            />
-            <path
-              class="checkmark__check"
-              fill="none"
-              d="M14.1 27.2l7.1 7.2 16.7-16.8"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
+
     <footer class="fab-footer">
       <p>
         Powered by
@@ -175,8 +59,15 @@ import '@/styles/chatty.scss';
 
 import http from '@/utils/http';
 import { marked } from 'marked';
+import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
+import { useChattyStore } from '@/stores/chatty';
 import { ref, onMounted, nextTick, watch, computed } from 'vue';
+
+import FabNav from '@/components/chatty/FabNav';
+import FabContent from '@/components/chatty/FabContent';
+
+const chattyStore = useChattyStore();
 
 const router = useRouter();
 const loading = ref(false);
@@ -202,6 +93,9 @@ const { hostname, botData } = defineProps({
     required: true
   }
 });
+
+chattyStore.initData(botData)
+
 const messages = ref([botData.message]);
 
 const colorPaletteDefault = {
@@ -323,10 +217,6 @@ const exportChat = async () => {
     exportMode.value = false;
   }, 2000);
 };
-
-const filteredFaqs = computed(() => {
-  return botData.faq || [];
-});
 
 const colorPalette = computed(() => {
   return botData.color || colorPaletteDefault;
