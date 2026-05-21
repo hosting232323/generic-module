@@ -340,11 +340,6 @@ const clickFaq = (faq, index) => {
   sendMessage();
 };
 
-
-watch(userMessage,  () => {
-  console.log('c');
-});
-
 watch(messages, async () => {
   await nextTick();
   checkScroll();
