@@ -94,9 +94,10 @@ const { hostname, botData } = defineProps({
   }
 });
 
-chattyStore.initData(botData)
+chattyStore.initData(botData, hostname)
 
 const messages = ref([botData.message]);
+console.log(messages.value);
 
 const colorPaletteDefault = {
   theme_color: '#126EE2',
@@ -221,14 +222,6 @@ const exportChat = async () => {
 const colorPalette = computed(() => {
   return botData.color || colorPaletteDefault;
 });
-
-const clickFaq = (faq, index) => {
-  if (clickedFaqs.value.has(index)) return;
-
-  clickedFaqs.value.add(index);
-  userMessage.value = faq.value;
-  sendMessage();
-};
 
 watch(messages, async () => {
   await nextTick();

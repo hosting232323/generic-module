@@ -94,14 +94,28 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { marked } from 'marked';
+import { computed, ref } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 import { useChattyStore } from '@/stores/chatty';
 
 const chattyStore = useChattyStore();
-const { data, exportMode } = storeToRefs(chattyStore);
+const { data, exportMode, messages, userMessage } = storeToRefs(chattyStore);
+
+const showFaq = ref(true);
+const router = useRouter();
+const clickedFaqs = ref(new Set());
 
 const filteredFaqs = computed(() => {
   return data.value.faq || [];
 });
+
+const clickFaq = (faq, index) => {
+  if (clickedFaqs.value.has(index)) return;
+
+  clickedFaqs.value.add(index);
+  userMessage.value = faq.value;
+  chattyStore.sendMessage(router);
+};
 </script>
