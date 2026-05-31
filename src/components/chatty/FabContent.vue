@@ -41,7 +41,7 @@
         v-for="(faq, index) in filteredFaqs"
         :key="index"
         class="faq-card"
-        @click="clickFaq(faq, index)"
+        @click="clickFaq(faq)"
       >
         {{ faq.name }}
       </button>
@@ -117,13 +117,15 @@ const exportSuccess = ref(false);
 const clickedFaqs = ref(new Set());
 
 const filteredFaqs = computed(() => {
-  return data.value.faq || [];
+  return (data.value.faq || []).filter(
+    faq => !clickedFaqs.value.has(faq.value)
+  );
 });
 
-const clickFaq = (faq, index) => {
-  if (clickedFaqs.value.has(index)) return;
+const clickFaq = (faq) => {
+  if (clickedFaqs.value.has(faq.value)) return;
 
-  clickedFaqs.value.add(index);
+  clickedFaqs.value.add(faq.value);
   userMessage.value = faq.value;
   chattyStore.sendMessage(router);
 };
