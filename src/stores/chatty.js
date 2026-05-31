@@ -1,15 +1,15 @@
+import { nextTick } from 'vue';
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
-import productionData from '@/productionData';
-import { useRouter } from 'vue-router';
 
 export const useChattyStore = defineStore('chatty:genericFeStore', {
   state: () => ({
     data: {},
     messages: [],
     loading: false,
-    showFaq: false,
+    showFaq: true,
     hostname: null,
+    sessionId: null,
     userMessage: null,
     exportMode: false,
   }),
@@ -29,22 +29,62 @@ export const useChattyStore = defineStore('chatty:genericFeStore', {
       this.userMessage = '';
       this.messages.push(messageToSend);
 
-      const body = { message: messageToSend, bot_id: this.data.botId, session_id: sessionId.value };
-      if (botData.stream) {
-        await streamMessage(`${this.hostname}chatty/stream-chat`, body);
+      const body = { message: messageToSend, bot_id: this.data.botId, session_id: this.sessionId };
+      if (this.data.stream) {
+        await this.streamMessage(`${this.hostname}chatty/stream-chat`, body);
       } else {
         http.postRequest('chatty/chat',
           body, 
           (data) => {
             if(data.status == 'ok') {
               this.messages.push(data.response);
-              sessionId.value = data.session_id;
+              this.sessionId = data.session_id;
             }
             this.loading = false;
             this.showFaq = true;
           }, 'POST', router, this.hostname);
-        scrollToBottom();
       }
+    },
+    async streamMessage (url, body) {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      let done = false;
+      let firstContentReceived = false;
+      const botIndex = this.messages.push('') - 1;
+
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+
+        let chunk = decoder.decode(value);
+
+        if (chunk.includes('"session_id"')) {
+          const jsonEnd = chunk.indexOf('}') + 1;
+          const jsonPart = chunk.slice(0, jsonEnd);
+          this.sessionId = JSON.parse(jsonPart).session_id;
+          chunk = chunk.slice(jsonEnd);
+        }
+
+        if (chunk.trim()) {
+          this.messages[botIndex] += chunk;
+
+          if (!firstContentReceived) {
+            firstContentReceived = true;
+            this.loading = false;
+          }
+        }
+
+        await nextTick();
+      }
+      this.loading = false;
+      this.showFaq = true;
     }
-}
+  }
 });
