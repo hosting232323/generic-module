@@ -334,34 +334,6 @@ async function submitBooking() {
   
   showPrivacyError.value = false;
   isSubmitting.value = true;
-
-  const booking = await eventsStore.bookEvent({
-    event_id: event.value.id,
-    slot_id: selectedSlot.value.info.id,
-    date: route.query.selectedDate,
-    time: selectedSlot.value.info.start_time,
-    email: bookingForm.value.email,
-    participants: parseInt(bookingForm.value.participants),
-    enrichment: {
-      first_name: bookingForm.value.firstName,
-      last_name: bookingForm.value.lastName,
-      phone: bookingForm.value.phone,
-      notes: bookingForm.value.notes,
-      participant_names: bookingForm.value.participant_names.filter(name => name && name.trim())
-    }
-  });
-
-  if (booking.error)
-    alert(booking.error);
-  else {
-    router.push({
-      name: 'BookingConfirmation',
-      query: {
-        selectedDate: route.query.selectedDate
-      }
-    });
-  }
-  isSubmitting.value = false;
 }
 </script>
 
