@@ -151,13 +151,6 @@ const items = computed(() => {
   let menuItems = [];
   menuItems.push(...buildAddOnLinks(addOn));
 
-  if (addOn?.includes('VirtualTour'))
-    menuItems.push({
-      title: 'Virtual Tour',
-      path: 'https://test-virtual-tour.replit.app/',
-      type: 'externalLink',
-    });
-
   const anchorItems = content
     .filter((section) => section.menu)
     .map((section) => ({

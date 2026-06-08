@@ -1,116 +1,128 @@
-## ⚙️ Info Generali del Sito (`info`)
+# generic-fe — Documentazione generale
 
-La sezione `info` contiene i **metadati principali** del sito, inclusi i colori, il logo, l'identificativo Chatty e le lingue utilizzabili con il multilingua.
+`generic-fe` è un **generatore di siti web basato su JSON**. Configurando un unico file `productionData.json` ottieni un sito completo, responsivo e multilingua senza toccare il codice sorgente.
 
-### 📦 Struttura JSON
+---
+
+## Struttura radice del JSON
+
+Il file di configurazione ha quattro chiavi principali:
+
+```json
+{
+  "addOn": [],
+  "info": {},
+  "components": [],
+  "store": {},
+  "menu": {},
+  "blog": {}
+}
+```
+
+| Chiave       | Tipo    | Descrizione                                              |
+|--------------|---------|----------------------------------------------------------|
+| `addOn`      | `array` | Funzionalità opzionali da attivare                       |
+| `info`       | `object`| Metadati del sito (colori, logo, lingue, ecc.)           |
+| `components` | `array` | Sezioni della homepage in ordine di visualizzazione      |
+| `store`      | `object`| Configurazione e-commerce (richiede add-on `Shop`)       |
+| `menu`       | `object`| Menu ristorante con categorie e allergeni (add-on `Menu`)|
+| `blog`       | `object`| Articoli del blog (add-on `Blog`)                        |
+
+---
+
+## Sezione `info`
+
+Contiene i **metadati principali** del sito.
 
 ```json
 "info": {
-  "name": "FastSite",
-  "primaryColor": "#2F4F4F",
-  "secondaryColor": "#D2B48C",
-  "logo": "https://imgur.com/mNAxeqq.png",
+  "name": "Trattoria Bella Napoli",
+  "primaryColor": "#D63447",
+  "secondaryColor": "#FFF2E8",
+  "logo": "https://example.com/logo.png",
+  "homeLink": true,
+  "backgroundImage": "/restaurant-bg.jpg",
   "chattyId": 10,
+  "locales": ["it", "gb"],
   "socialBubbles": [
-    {
-      "icon": "mdi-whatsapp",
-      "url": "https://whatsapp.com/"
-    },
-    ...
-  ],
-  "locales": [
-    "it", "gb"
+    { "icon": "mdi-whatsapp", "url": "https://wa.me/39..." },
+    { "icon": "mdi-instagram", "url": "https://instagram.com/..." }
   ]
 }
 ```
 
-### ✅ Campi disponibili
+### Campi disponibili
 
-| Chiave           | Tipo     | Obbligatoria | Descrizione                                                           |
-|------------------|----------|--------------|-----------------------------------------------------------------------|
-| `name`           | `string` | ✅           | Nome del sito, usato in intestazioni, email e titolo                  |
-| `primaryColor`   | `string` | ✅           | Colore principale del tema (es. pulsanti, icone, linee)              |
-| `secondaryColor` | `string` | ✅           | Colore secondario del tema (es. sfondi alternativi, accenti)         |
-| `logo`           | `string` | ✅           | URL del logo visualizzato nel sito                                   |
-| `socialBubbles`           | `array` | ❌           | Lista delle fab mostrate in basso a destra con i vari social, prendere l'icon da https://pictogrammers.com/library/mdi/                                  |
-| `chattyId`       | `number` | ❌           | ID utilizzato per l’integrazione con Chatty                          |
-| `locales`       | `array` | ❌           | Lista di lingue utilizzate per il multilingua           |
+| Chiave            | Tipo     | Obbligatorio | Descrizione                                                                  |
+|-------------------|----------|:------------:|------------------------------------------------------------------------------|
+| `name`            | `string` | ✅           | Nome del sito, usato in intestazioni, email e titolo della pagina            |
+| `primaryColor`    | `string` | ✅           | Colore principale del tema in formato hex (pulsanti, icone, linee, mappa)   |
+| `secondaryColor`  | `string` | ✅           | Colore secondario del tema (sfondi alternativi, accenti)                     |
+| `logo`            | `string` | ✅           | URL del logo visualizzato nella AppBar                                       |
+| `homeLink`        | `boolean`| ❌           | Se `true` mostra il link "Home" nella barra di navigazione                   |
+| `backgroundImage` | `string` | ❌           | URL dell'immagine di sfondo della homepage                                   |
+| `chattyId`        | `number` | ❌           | ID del chatbot (obbligatorio se add-on `Chatty` è attivo)                    |
+| `locales`         | `array`  | ❌           | Codici lingua attivi — es. `["it", "gb"]`. Obbligatorio per add-on `Multilingual` |
+| `socialBubbles`   | `array`  | ❌           | Pulsanti FAB in basso a destra con icone social                              |
+
+#### socialBubbles — campi per ogni elemento
+
+| Chiave | Tipo     | Descrizione                                                                       |
+|--------|----------|-----------------------------------------------------------------------------------|
+| `icon` | `string` | Nome icona MDI (vedi [pictogrammers.com](https://pictogrammers.com/library/mdi/)) |
+| `url`  | `string` | URL di destinazione del pulsante                                                  |
 
 ---
 
-Ecco una sezione da aggiungere al README del progetto `generic-fe` per spiegare **le modalità di utilizzo**:
+## Modalità di utilizzo
 
----
+### Come libreria
 
-## 🚀 Utilizzo del progetto `generic-fe`
-
-Il progetto `generic-fe` è pensato per essere **riutilizzabile e configurabile** in più contesti. Può essere integrato come **libreria** oppure usato come base per la **creazione di un sito completo**.
-
-### 📦 Come libreria
-
-È possibile installarlo e utilizzarlo come **libreria front-end** tramite GitHub:
+Installa il pacchetto da GitHub nel progetto che lo consuma:
 
 ```json
 "generic-fe": "github:hosting232323/generic-fe"
 ```
 
-Dopo l’installazione, puoi importare e utilizzare i layout predisposti:
+Importa e usa i layout predisposti:
 
-#### 🔸 `DemoLayout`
+#### `DemoLayout`
 
-Usato principalmente per **modificare e visualizzare siti demo** dinamicamente.
-Passa il JSON di configurazione completo come `props`, seguendo le specifiche dei file di documentazione (es. da `sellerdashboard`).
+Riceve l'intero JSON di configurazione come prop e renderizza il sito in tempo reale. Usato per preview dinamiche (es. da una dashboard).
 
-```ts
+```vue
 <DemoLayout :json="productionData" />
 ```
 
-#### 🔸 `DemoViewLayout`
+#### `DemoViewLayout`
 
-Usato per **visualizzare un sito demo** a partire da un ID salvato sul database.
-Il layout effettuerà il fetch dei dati corrispondenti all’`id`.
+Riceve un `id` numerico, recupera la configurazione dal database e renderizza il sito corrispondente.
 
-```ts
+```vue
 <DemoViewLayout :id="10" />
 ```
 
 ---
 
-### 🌐 Come base per un sito completo
+### Come sito standalone
 
-Puoi anche **creare un branch del progetto** `generic-fe` (es. `fastsitefe`, `demo-coffee`, ecc.) e usarlo per costruire un sito **già completo**, semplicemente configurando il file `productionData.json`.
-
-In questo scenario, tutte le sezioni del sito sono già presenti nel codice, quindi ti basta personalizzare:
-
-* i contenuti (es. testi, immagini)
-* i metadati (`info`)
-* la struttura delle sezioni (`sections`, `header`, `footer`, ecc.)
-
-Questo approccio è ideale per creare rapidamente nuovi siti demo a partire da un template solido.
+Crea un branch del progetto (es. `fastsitefe`, `demo-coffee`) e modifica esclusivamente `src/productionData.json`. Tutte le pagine e i componenti sono già inclusi nel codice sorgente.
 
 ---
 
-### 📘 Esempio di configurazione `productionData`
+## Route disponibili
 
-Vedi la sezione `info` per una struttura JSON d’esempio:
+| Percorso            | Pagina                                 |
+|---------------------|----------------------------------------|
+| `/`                 | Homepage                               |
+| `/shop`             | Catalogo prodotti e-commerce           |
+| `/product/:id`      | Dettaglio prodotto                     |
+| `/blog`             | Lista articoli del blog                |
+| `/blog/:id`         | Articolo singolo                       |
+| `/menu`             | Menu ristorante con filtro allergeni   |
+| `/booking`          | Lista eventi / prenotazioni            |
+| `/booking/:id`      | Dettaglio evento                       |
+| `/payment/success`  | Pagamento completato                   |
+| `/payment/failed`   | Pagamento annullato                    |
 
-```ts
-info: {
-  name: "FastSite",
-  primaryColor: "#2F4F4F",
-  secondaryColor: "#D2B48C",
-  logo: "https://imgur.com/mNAxeqq.png",
-  chattyId: 10,
-  socialBubbles: [
-    { icon: "mdi-whatsapp", url: "https://whatsapp.com/" }
-  ],
-  locales: ["it", "gb"]               
-  ...
-}
-```
-
----
-
-Se vuoi, posso prepararti una bozza dell’intero README con sezione introduttiva, requisiti, modalità di utilizzo e contributi. Fammi sapere!
-
-
+Le route per `/shop`, `/blog`, `/menu`, `/booking` vengono abilitate automaticamente dai rispettivi add-on.

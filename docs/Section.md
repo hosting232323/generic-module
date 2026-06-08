@@ -1,191 +1,322 @@
-## 🟩 Sezione: Vantaggi (Advantages.vue)
+# Sezioni (`components`)
 
-Questa sezione viene utilizzata per mostrare una lista di **vantaggi o punti di forza** dell’azienda o dei suoi servizi, organizzati come card visivamente accattivanti con immagine, titolo e descrizione.
-
-### 📦 Tipo JSON richiesto
+L'array `components` definisce le sezioni della homepage nell'ordine in cui appaiono. Ogni elemento ha questa struttura base:
 
 ```json
 {
-  "content": {
-    "title": "Vantaggi",
-    "advantages": [
-      {
-        "name": "Titolo del vantaggio",
-        "description": "Descrizione dettagliata del vantaggio offerto.",
-        "image": {
-          "desktop": "URL immagine versione desktop",
-          "mobile": "URL immagine versione mobile"
-        }
-      },
-      ...
-    ]
-  },
-  "menu": "Nome della voce nel menu",
-  "type": "advantages"
+  "type": "nome_sezione",
+  "variant": "variante_opzionale",
+  "menu": { "it": "Voce menu", "gb": "Menu item" },
+  "content": {}
 }
 ```
 
-### ✅ Campi disponibili
+| Chiave    | Tipo                    | Descrizione                                                               |
+|-----------|-------------------------|---------------------------------------------------------------------------|
+| `type`    | `string`                | Tipo di sezione (obbligatorio)                                            |
+| `variant` | `string`                | Variante visuale (solo per alcune sezioni)                                |
+| `menu`    | `string` oppure `object`| Voce mostrata nella barra di navigazione. Omettere per nascondere la voce |
+| `content` | `object`                | Dati specifici della sezione                                              |
 
-| Chiave        | Tipo                | Obbligatoria               | Descrizione                                                                      |
-| ------------- | ------------------- | -------------------------- | -------------------------------------------------------------------------------- |
-| `title`       | `string`            | ✅ (solo nel primo oggetto) | Titolo generale della sezione.                                                   |
-| `advantages`  | `array`             | ✅                          | Lista dei vantaggi. Ogni elemento deve contenere `name`, `description`, `image`. |
-| `name`        | `string`            | ✅                          | Titolo specifico di ogni vantaggio.                                              |
-| `description` | `string (HTML)`     | ✅                          | Descrizione del vantaggio, supporta HTML.                                        |
-| `image`       | `string` o `object` | ✅                          | Immagine del vantaggio. Può essere una stringa (URL) o `{ desktop, mobile }`.    |
-| `menu`        | `string`            | ✅                          | Nome della voce nel menu laterale.                                               |
-| `type`        | `string`            | ✅                          | Deve essere `"advantages"`.                                                      |
+> **Multilingua:** tutti i campi testuali accettano sia una stringa semplice `"testo"` che un oggetto con chiavi lingua `{ "it": "testo", "gb": "text" }`. Vedere la sezione [Multilingual](AddOn.md#multilingual) per i dettagli.
 
 ---
 
-## 🟪 Sezione: Sezione Doppia (`DualSection.vue`)
+## `gallery` — Galleria / Carosello
 
-La sezione **DualSection** permette di mostrare **un’immagine affiancata a un blocco di testo**, con titolo, sottotitolo, descrizione e un bottone opzionale. L'immagine può essere mostrata a sinistra o a destra (su desktop) o in alto o in basso (su mobile), in base alla configurazione.
-
-### 📦 Tipo JSON richiesto
+Mostra un carosello di immagini a scorrimento automatico.
 
 ```json
 {
+  "type": "gallery",
+  "menu": { "it": "Galleria", "gb": "Gallery" },
   "content": {
-    "title": "Titolo principale",
-    "subtitle": "Sottotitolo descrittivo",
-    "description": "Descrizione testuale anche con HTML.",
-    "button": "Testo del bottone",
-    "url": "https://link-del-bottone.it",
-    "image": {
-      "desktop": "URL immagine desktop",
-      "mobile": "URL immagine mobile"
-    },
+    "type": "automatic",
+    "images": [
+      "https://example.com/foto1.jpg",
+      { "desktop": "https://example.com/desktop.jpg", "mobile": "https://example.com/mobile.jpg" }
+    ]
+  }
+}
+```
+
+### Campi `content`
+
+| Chiave   | Tipo    | Obbligatorio | Descrizione                                                                      |
+|----------|---------|:------------:|----------------------------------------------------------------------------------|
+| `type`   | `string`| ✅           | Usa `"automatic"` per lo scorrimento automatico                                  |
+| `images` | `array` | ✅           | Lista immagini. Ogni elemento può essere un URL stringa o `{ desktop, mobile }` |
+
+---
+
+## `dualSection` — Sezione Doppia
+
+Affianca un'immagine a un blocco di testo. Orientazione configurabile per desktop e mobile.
+
+```json
+{
+  "type": "dualSection",
+  "menu": { "it": "Chi Siamo", "gb": "About Us" },
+  "content": {
+    "title": { "it": "Chi Siamo", "gb": "About Us" },
+    "subtitle": { "it": "La nostra storia", "gb": "Our story" },
+    "description": { "it": "Testo con <strong>HTML</strong> supportato.", "gb": "Text with <strong>HTML</strong> supported." },
+    "button": { "it": "Scopri di più", "gb": "Learn more" },
+    "url": "/shop",
+    "image": "https://example.com/immagine.jpg",
     "orientationDesktop": "left",
     "orientationMobile": "top"
-  },
-  "menu": "Nome della voce nel menu",
-  "type": "dualSection"
+  }
 }
 ```
 
-### ✅ Campi disponibili
+### Campi `content`
 
-| Chiave               | Tipo                      | Obbligatoria | Descrizione                                                           |
-| -------------------- | ------------------------- | ------------ | --------------------------------------------------------------------- |
-| `title`              | `string`                  | ✅            | Titolo principale della sezione.                                      |
-| `subtitle`           | `string`                  | ❌            | Sottotitolo opzionale.                                                |
-| `description`        | `string (HTML)`           | ✅            | Descrizione testuale, supporta HTML.                                  |
-| `button`             | `string`                  | ❌            | Testo del bottone. Necessita anche del campo `url`.                   |
-| `url`                | `string (URL)`            | ❌            | Link di destinazione del bottone. Necessita anche del campo `button`. |
-| `image`              | `string` o `object`       | ✅            | Immagine da mostrare. Può essere `{ desktop, mobile }`.               |
-| `orientationDesktop` | `string` (`left`/`right`) | ❌            | Posizione dell’immagine su desktop. Default: `"right"`.               |
-| `orientationMobile`  | `string` (`top`/`bottom`) | ❌            | Posizione dell’immagine su mobile. Default: `"bottom"`.               |
-| `menu`               | `string`                  | ✅            | Nome della voce nel menu laterale.                                    |
-| `type`               | `string`                  | ✅            | Deve essere `"dualSection"`.                                          |
+| Chiave               | Tipo                      | Obbligatorio | Descrizione                                                        |
+|----------------------|---------------------------|:------------:|--------------------------------------------------------------------|
+| `title`              | `string` / `object`       | ✅           | Titolo principale della sezione                                    |
+| `subtitle`           | `string` / `object`       | ❌           | Sottotitolo opzionale                                              |
+| `description`        | `string` / `object`       | ✅           | Descrizione testuale, supporta HTML                                |
+| `button`             | `string` / `object`       | ❌           | Testo del pulsante. Richiede anche `url`                           |
+| `url`                | `string`                  | ❌           | Link di destinazione del pulsante. Richiede anche `button`         |
+| `image`              | `string` / `object`       | ✅           | Immagine. Può essere URL stringa o `{ desktop, mobile }`           |
+| `orientationDesktop` | `"left"` / `"right"`      | ❌           | Posizione immagine su desktop. Default: `"right"`                  |
+| `orientationMobile`  | `"top"` / `"bottom"`      | ❌           | Posizione immagine su mobile. Default: `"bottom"`                  |
 
 ---
 
-## 🖼️ Sezione: Galleria/Carosello (`Gallery.vue`)
+## `advantages` — Vantaggi
 
-La sezione **Gallery/Carosello** mostra una **galleria a scorrimento** di immagini tramite carousel. Supporta immagini diverse per desktop e mobile.
-
-### 📦 Tipo JSON richiesto
+Mostra una griglia di card con immagine, titolo e descrizione. Disponibile in quattro varianti grafiche.
 
 ```json
 {
+  "type": "advantages",
+  "variant": "default",
+  "menu": { "it": "Vantaggi", "gb": "Advantages" },
   "content": {
-    "images": [
-      "url_immagine_singola.jpg",
-      "url_immagine_singola.jpg",
-      "url_immagine_singola.jpg"
-    ],
-    "type": "automatic"
-  },
-  "menu": "Nome della voce nel menu",
-  "type": "gallery"
-}
-```
-
-### ✅ Campi disponibili
-
-| Chiave   | Tipo                          | Obbligatoria | Descrizione                                                              |
-| -------- | ----------------------------- | ------------ | ------------------------------------------------------------------------ |
-| `images` | `array` di stringhe o oggetti | ✅            | Lista di immagini, ciascuna può essere `string` o `{ desktop, mobile }`. |
-| `type`   | `string`                      | ✅            | `"gallery"` per scorrimento manuale, `"carusel"` per automatico.         |
-| `menu`   | `string`                      | ✅            | Nome della voce nel menu laterale.                                       |
-
----
-
-## 🛠️ Sezione: Servizi (`Services.vue`)
-
-La sezione **Servizi** mostra un elenco espandibile dei servizi offerti, ciascuno con **titolo e descrizione**. Utilizza `v-expansion-panels` per un'esperienza utente ordinata e interattiva.
-
-### 📦 Tipo JSON richiesto
-
-```json
-{
-  "content": {
-    "title": "Titolo sezione (opzionale)"
-    "services": [
+    "advantages": [
       {
-        "name": "Nome servizio",
-        "description": "Descrizione dettagliata del servizio"
+        "name": { "it": "Ingredienti Freschi", "gb": "Fresh Ingredients" },
+        "description": { "it": "Solo prodotti di alta qualità.", "gb": "Only high-quality products." },
+        "image": "https://example.com/immagine.jpg"
+      }
+    ]
+  }
+}
+```
+
+### Varianti disponibili (`variant`)
+
+| Valore       | Descrizione                            |
+|--------------|----------------------------------------|
+| `"default"`  | Layout classico con card               |
+| `"business"` | Stile corporate                        |
+| `"creative"` | Layout creativo con overlay            |
+| `"ecommerce"`| Ottimizzato per prodotti e-commerce    |
+
+### Campi `content`
+
+| Chiave        | Tipo                | Obbligatorio | Descrizione                                                               |
+|---------------|---------------------|:------------:|---------------------------------------------------------------------------|
+| `advantages`  | `array`             | ✅           | Lista dei vantaggi                                                        |
+
+### Campi di ogni elemento in `advantages`
+
+| Chiave        | Tipo                | Obbligatorio | Descrizione                                                               |
+|---------------|---------------------|:------------:|---------------------------------------------------------------------------|
+| `name`        | `string` / `object` | ✅           | Titolo del vantaggio                                                      |
+| `description` | `string` / `object` | ✅           | Descrizione del vantaggio, supporta HTML                                  |
+| `image`       | `string` / `object` | ✅           | Immagine. Può essere URL stringa o `{ desktop, mobile }`                  |
+
+---
+
+## `text` — Testo libero
+
+Sezione di testo con titolo e descrizione HTML, con allineamento configurabile.
+
+```json
+{
+  "type": "text",
+  "content": {
+    "title": { "it": "Il nostro approccio", "gb": "Our approach" },
+    "description": { "it": "Paragrafo con <em>HTML</em> supportato.", "gb": "Paragraph with <em>HTML</em> support." },
+    "orientationTitle": "center",
+    "orientationDescription": "left"
+  }
+}
+```
+
+### Campi `content`
+
+| Chiave                   | Tipo                                    | Obbligatorio | Descrizione                             |
+|--------------------------|-----------------------------------------|:------------:|-----------------------------------------|
+| `title`                  | `string` / `object`                     | ❌           | Titolo della sezione                    |
+| `description`            | `string` / `object`                     | ❌           | Testo descrittivo, supporta HTML        |
+| `orientationTitle`       | `"left"` / `"center"` / `"right"`      | ❌           | Allineamento titolo. Default: `"left"`  |
+| `orientationDescription` | `"left"` / `"center"` / `"right"`      | ❌           | Allineamento testo. Default: `"left"`   |
+
+---
+
+## `reviews` — Recensioni
+
+Mostra le recensioni dei clienti in un carosello con avatar generato automaticamente e stelle di valutazione.
+
+```json
+{
+  "type": "reviews",
+  "menu": { "it": "Recensioni", "gb": "Reviews" },
+  "content": {
+    "title": { "it": "Cosa dicono di noi", "gb": "What they say about us" },
+    "reviews": [
+      {
+        "name": "Mario Rossi",
+        "description": "Esperienza fantastica, tornerò sicuramente!",
+        "stars": 5
       },
       {
-        "name": "Nome servizio",
-        "description": "Descrizione dettagliata del servizio"
+        "name": "Anna Bianchi",
+        "description": "Ottimo servizio e prodotti di qualità.",
+        "stars": 4
       }
-    ],
-  },
-  "menu": "Nome della voce nel menu",
-  "type": "services"
+    ]
+  }
 }
 ```
 
-### ✅ Campi disponibili
+### Campi `content`
 
-| Chiave        | Tipo     | Obbligatoria | Descrizione                                                     |
-| ------------- | -------- | ------------ | --------------------------------------------------------------- |
-| `title`       | `string` | ❌            | Titolo opzionale della sezione.                                 |
-| `services`    | `array`  | ✅            | Lista dei servizi, ciascun servizio con `name` e `description`. |
-| `name`        | `string` | ✅            | Nome del servizio.                                              |
-| `description` | `string` | ✅            | Descrizione dettagliata del servizio.                           |
-| `menu`        | `string` | ✅            | Nome della voce nel menu laterale.                              |
-| `type`        | `string` | ✅            | Deve essere `"services"`.                                       |
+| Chiave    | Tipo                | Obbligatorio | Descrizione                        |
+|-----------|---------------------|:------------:|------------------------------------|
+| `title`   | `string` / `object` | ❌           | Titolo della sezione               |
+| `reviews` | `array`             | ✅           | Lista delle recensioni             |
+
+### Campi di ogni elemento in `reviews`
+
+| Chiave        | Tipo     | Obbligatorio | Descrizione                              |
+|---------------|----------|:------------:|------------------------------------------|
+| `name`        | `string` | ✅           | Nome del recensore                       |
+| `description` | `string` | ✅           | Testo della recensione                   |
+| `stars`       | `number` | ✅           | Valutazione da `1` a `5`                 |
 
 ---
 
+## `services` — Servizi
 
-## 🗺️ Sezione: Mappa (`Map.vue`)
-
-La sezione **Mappa** mostra una mappa interattiva con un marcatore sulla posizione specificata, utile per far sapere dove si trova l'attività o sede dell’azienda. Utilizza [OpenLayers](https://openlayers.org/) per la gestione della mappa.
-
-### 📦 Tipo JSON richiesto
+Elenco espandibile dei servizi offerti tramite pannelli accordion.
 
 ```json
 {
+  "type": "services",
+  "menu": { "it": "Servizi", "gb": "Services" },
   "content": {
-    "coordinates": [longitudine, latitudine],
-    "zoom": livello_di_zoom
-  },
-  "type": "map"
+    "title": { "it": "I nostri servizi", "gb": "Our services" },
+    "services": [
+      {
+        "name": { "it": "Consulenza", "gb": "Consulting" },
+        "description": { "it": "Descrizione del servizio.", "gb": "Service description." }
+      }
+    ]
+  }
 }
 ```
 
-### ✅ Campi disponibili
+### Campi `content`
 
-| Chiave         | Tipo       | Obbligatoria | Descrizione |
-|----------------|------------|--------------|-------------|
-| `coordinates`  | `array`    | ✅           | Coppia `[longitudine, latitudine]` della posizione da mostrare. |
-| `zoom`         | `number`   | ✅           | Livello di zoom della mappa (es. `9` per zoom provinciale). |
-| `type`         | `string`   | ✅           | Deve essere `"map"` per attivare correttamente il componente. |
+| Chiave     | Tipo                | Obbligatorio | Descrizione                     |
+|------------|---------------------|:------------:|---------------------------------|
+| `title`    | `string` / `object` | ❌           | Titolo opzionale della sezione  |
+| `services` | `array`             | ✅           | Lista dei servizi               |
 
-💡 **Nota:** Il marcatore viene colorato automaticamente in base al `primaryColor` presente in `info.primaryColor`, convertito in un'icona colorata via endpoint backend (`/colorize-image`).
+### Campi di ogni elemento in `services`
+
+| Chiave        | Tipo                | Obbligatorio | Descrizione                           |
+|---------------|---------------------|:------------:|---------------------------------------|
+| `name`        | `string` / `object` | ✅           | Nome del servizio                     |
+| `description` | `string` / `object` | ✅           | Descrizione dettagliata del servizio  |
 
 ---
 
-## ➖ Sezione: Linea Separatrice (`Line.vue`)
+## `contacts` — Contatti
 
-La sezione **Linea** aggiunge un separatore orizzontale (una riga) tra le sezioni del sito per migliorarne la leggibilità e la struttura visiva. Il colore della linea si adatta automaticamente al tema tramite `info.primaryColor`.
+Mostra le informazioni di contatto con icone e link opzionali. Include anche un form di contatto diretto.
 
-### 📦 Tipo JSON richiesto
+```json
+{
+  "type": "contacts",
+  "menu": { "it": "Contatti", "gb": "Contacts" },
+  "content": {
+    "title": { "it": "I nostri contatti", "gb": "Our contacts" },
+    "subtitle": { "it": "Contattaci direttamente", "gb": "Contact us directly" },
+    "contacts": [
+      {
+        "icon": "mdi-phone",
+        "title": "+39 081 123 4567"
+      },
+      {
+        "icon": "mdi-email",
+        "title": "info@example.it"
+      },
+      {
+        "icon": "mdi-instagram",
+        "title": { "it": "Seguici su Instagram", "gb": "Follow us on Instagram" },
+        "url": "https://instagram.com/example"
+      }
+    ]
+  }
+}
+```
+
+### Campi `content`
+
+| Chiave     | Tipo                | Obbligatorio | Descrizione                                  |
+|------------|---------------------|:------------:|----------------------------------------------|
+| `title`    | `string` / `object` | ❌           | Titolo della sezione                         |
+| `subtitle` | `string` / `object` | ❌           | Sottotitolo della sezione                    |
+| `contacts` | `array`             | ❌           | Lista delle voci di contatto                 |
+
+### Campi di ogni elemento in `contacts`
+
+| Chiave  | Tipo                | Obbligatorio | Descrizione                                                                        |
+|---------|---------------------|:------------:|------------------------------------------------------------------------------------|
+| `icon`  | `string`            | ✅           | Icona MDI (es. `mdi-phone`, `mdi-email`, `mdi-whatsapp`)                          |
+| `title` | `string` / `object` | ✅           | Valore del contatto (numero, email, nome social, ecc.)                             |
+| `url`   | `string`            | ❌           | Se presente, rende il contatto cliccabile (es. `tel:+39...`, `mailto:...`, URL)   |
+
+---
+
+## `map` — Mappa interattiva
+
+Mostra una mappa OpenLayers con un marcatore sulla posizione specificata.
+
+```json
+{
+  "type": "map",
+  "content": {
+    "title": { "it": "Dove siamo", "gb": "Find us" },
+    "address": "Via Roma 1, 80100 Napoli NA, Italy",
+    "coordinates": [14.2681, 40.8518],
+    "zoom": 15
+  }
+}
+```
+
+### Campi `content`
+
+| Chiave        | Tipo                | Obbligatorio | Descrizione                                               |
+|---------------|---------------------|:------------:|-----------------------------------------------------------|
+| `title`       | `string` / `object` | ❌           | Titolo mostrato sopra la mappa                            |
+| `address`     | `string`            | ❌           | Indirizzo testuale mostrato sotto la mappa                |
+| `coordinates` | `array`             | ✅           | Coppia `[longitudine, latitudine]` della posizione        |
+| `zoom`        | `number`            | ✅           | Livello di zoom (es. `15` per vista di quartiere, `9` per vista provinciale) |
+
+> **Nota:** il marcatore viene colorato automaticamente con `info.primaryColor`.
+
+---
+
+## `line` — Linea separatrice
+
+Aggiunge un separatore orizzontale tra le sezioni. Nessun campo `content` richiesto.
 
 ```json
 {
@@ -193,80 +324,52 @@ La sezione **Linea** aggiunge un separatore orizzontale (una riga) tra le sezion
 }
 ```
 
-### ✅ Campi disponibili
-
-| Chiave   | Tipo     | Obbligatoria | Descrizione                                 |
-|----------|----------|--------------|---------------------------------------------|
-| `type`   | `string` | ✅           | Deve essere `"line"` per attivare la riga.  |
-
-💡 **Nota:** Il colore della linea è controllato da `info.primaryColor`.
+Il colore della linea segue `info.primaryColor`.
 
 ---
 
-## 📬 Sezione: Contatti (`Contacts.vue`)
+## `blogSummary` — Anteprima Blog
 
-La sezione **Contatti** mostra le informazioni di contatto dell’attività (email, telefono, social, indirizzo ecc.), con icone corrispondenti e link personalizzati dove necessario. Inoltre, include un **form di contatto diretto** che invia una mail al proprietario del sito.
-
-### 📦 Tipo JSON richiesto
+Mostra un carosello con gli ultimi articoli del blog. Richiede che l'add-on `Blog` sia attivo e che la chiave `blog` sia configurata.
 
 ```json
 {
+  "type": "blogSummary",
+  "menu": { "it": "Blog", "gb": "Blog" },
   "content": {
-    "title": "I nostri contatti",
-    "subtitle": "Contattaci direttamente con questo form",
-    "contacts": [
-      {
-        "icon": "mdi-email",
-        "title": "giovanni.colasanto@fastsite.it"
-      },
-      ...
-    ]
-  },
-  "menu": "Contatti",
-  "type": "contacts"
+    "title": { "it": "I nostri ultimi post", "gb": "Our latest posts" }
+  }
 }
 ```
 
-### ✅ Campi disponibili
+### Campi `content`
 
-| Chiave     | Tipo     | Obbligatoria        | Descrizione                                       |
-| ---------- | -------- | ------------------- | ------------------------------------------------- |
-| `title`    | `string` | ❌                   | Titolo della sezione.                             |
-| `subtitle` | `string` | ❌                   | Sottotitolo della sezione.                        |
-| `contacts` | `array`  | ❌                   | Lista dei contatti con `icon` e `title`.          |
-| `icon`     | `string` | ✅ per ogni contatto | Icona corrispondente al contatto (es. mdi-email). |
-| `title`    | `string` | ✅ per ogni contatto | Valore del contatto (email, telefono ecc.).       |
-| `menu`     | `string` | ✅                   | Nome della voce nel menu.                         |
-| `type`     | `string` | ✅                   | Deve essere `"contacts"`.                         |
+| Chiave  | Tipo                | Obbligatorio | Descrizione                                      |
+|---------|---------------------|:------------:|--------------------------------------------------|
+| `title` | `string` / `object` | ❌           | Titolo della sezione (default: "I nostri ultimi post") |
 
-        
+> **Nota:** vengono mostrati i post con `highlight: true` nella chiave `blog.content`. Se nessun post ha `highlight: true`, vengono mostrati gli ultimi 3.
+
 ---
 
-## 📬 Sezione: Indirizzo
+## `brandlist` — Lista Brand
 
-La sezione **Indirizzo** consente agli utenti di inserire il loro nome, cognome, e indirizzo. Può essere utile per moduli di registrazione, checkout, o altre interazioni che richiedono l'inserimento di dati personali. La sezione include anche un campo di autocompletamento per la selezione della regione, provincia, città e indirizzo. Puoi limitare gli indirizzi per Province e Comuni
-
-### 📦 Tipo JSON richiesto
+Mostra un carosello orizzontale scorrevole di loghi brand.
 
 ```json
-"store": {
-  "username": "esempio@dominio.it",
-  "password": "esempio",
-  "addressMode": 1,
-  "province": "Barletta-Andria-Trani",
-  "cities": [
-    "Lanzo Torinese",
-    "Cafasse"
-  ]
+{
+  "type": "brandlist",
+  "content": {
+    "brands": [
+      "https://example.com/logo1.png",
+      "https://example.com/logo2.png"
+    ]
+  }
 }
 ```
 
-### ✅ Campi disponibili
+### Campi `content`
 
-| Chiave        | Tipo     | Obbligatoria | Descrizione                             |
-| ------------- | -------- | ------------ | --------------------------------------- |
-| `username`    | `string` | ✅            | Email dell’utente.                      |
-| `password`    | `string` | ✅            | Password dell’utente.                   |
-| `addressMode` | `number` | ❌            | Modalità di visualizzazione.            |
-| `province`    | `string` | ❌            | Provincia da limitare nell’elenco.      |
-| `cities`      | `array`  | ❌            | Array di città limitate alla provincia. |
+| Chiave   | Tipo    | Obbligatorio | Descrizione                                           |
+|----------|---------|:------------:|-------------------------------------------------------|
+| `brands` | `array` | ✅           | Lista di URL immagine (stringhe) dei loghi da mostrare |

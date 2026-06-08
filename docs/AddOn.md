@@ -1,38 +1,26 @@
-## 🧩 Add-on disponibili (`addOn`)
+# Add-on (`addOn`)
 
-La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali** sul sito.
-
-### 📦 Struttura JSON
+La chiave `addOn` è un array di stringhe che attiva **funzionalità opzionali** del sito. Ogni add-on aggiunge pagine, componenti e logica dedicata.
 
 ```json
-"addOn": [
-  "Chatty",
-  "VirtualTour",
-  "Shop",
-  "Multilingual",
-  "Blog"
-]
+"addOn": ["Chatty", "Shop", "Multilingual", "Blog", "Menu"]
 ```
 
-### 🧠 Add-on supportati
+### Add-on disponibili
 
-| Nome          | Descrizione                                                                 |
-|---------------|-----------------------------------------------------------------------------|
-| `Chatty`      | Aggiunge un assistente virtuale (chatbot) configurato tramite `chattyId`    |
-| `VirtualTour` | Aggiunge una sezione dedicata al tour virtuale del locale o azienda         |
-| `Shop` | Aggiunge una sezione dedicata per l'e-commerce         |
-| `Multilingual` | In base a quanti paesi inseriti in locales aggiunge una bandiera o un menu con tutte le bandiere corrispondenti alle lingue del sito         |
-| `Blog` | Aggiunge una sezione per articoli con immagini, data e preview|
-
-> 📌 **Nota:** Gli add-on vengono caricati solo se presenti nell'array `addOn`.
+| Nome           | Descrizione                                                             |
+|----------------|-------------------------------------------------------------------------|
+| `Chatty`       | Chatbot virtuale configurabile                                          |
+| `Shop`         | E-commerce completo con carrello e pagamento Stripe                     |
+| `Multilingual` | Selettore lingua con bandiere nella AppBar                              |
+| `Blog`         | Sezione blog con articoli, copertina e pagina di dettaglio              |
+| `Menu`         | Menu ristorante per categorie con prezzi e filtro allergeni             |
 
 ---
 
-## 💬 AddOn: Chatty (Chatty.vue)
+## `Chatty`
 
-L'add-on **Chatty** aggiunge un assistente virtuale (chatbot) al sito. È configurabile tramite l'identificativo `chattyId`, fornito nella chiave `info`. Questo chatbot può rispondere a domande, guidare gli utenti e fornire assistenza in tempo reale.
-
-### 📦 Tipo JSON richiesto
+Aggiunge un assistente virtuale (chatbot) al sito. Richiede il campo `chattyId` in `info`.
 
 ```json
 {
@@ -43,165 +31,245 @@ L'add-on **Chatty** aggiunge un assistente virtuale (chatbot) al sito. È config
 }
 ```
 
-### ✅ Campi disponibili
-
-| Chiave     | Tipo     | Obbligatoria | Descrizione                                        |
-| ---------- | -------- | ------------ | -------------------------------------------------- |
-| `chattyId` | `number` | ✅            | ID univoco del chatbot fornito dal sistema esterno |
-
-> 📌 **Nota**: L’add-on Chatty verrà attivato solo se presente nell’array `addOn` e se `chattyId` è correttamente configurato all'interno dell’oggetto `info`.
+| Chiave (in `info`) | Tipo     | Obbligatorio | Descrizione                             |
+|--------------------|----------|:------------:|-----------------------------------------|
+| `chattyId`         | `number` | ✅           | ID univoco del chatbot nel sistema      |
 
 ---
 
-Perfettamente capito ✅
+## `Multilingual`
 
-Ecco la descrizione **completa e coerente** dell’add-on `Multilingual`, nello stesso stile degli altri add-on (`Chatty`, `Shop`, `Blog`):
-
----
-
-## 🌍 Add-on: Multilingual
-
-L’add-on **Multilingual** abilita la **visualizzazione del sito in più lingue**, in base alla configurazione presente nella chiave `locales`. Il sito mostra un menu con **bandiere** corrispondenti alle lingue attive, permettendo all’utente di selezionare la lingua preferita.
-
-### 📦 Tipo JSON richiesto
+Abilita il selettore di lingua nella AppBar con le bandiere corrispondenti ai codici lingua in `info.locales`. Richiede il campo `locales` in `info`.
 
 ```json
 {
+  "info": {
+    "locales": ["it", "gb"]
+  },
   "addOn": ["Multilingual"]
 }
 ```
 
-> 📌 **Nota:** L’add-on Multilingual viene attivato **solo se presente** nell’array `addOn` **e se `locales` è presente dentro `info`**.
+| Chiave (in `info`) | Tipo    | Obbligatorio | Descrizione                                                       |
+|--------------------|---------|:------------:|-------------------------------------------------------------------|
+| `locales`          | `array` | ✅           | Codici lingua da mostrare (es. `"it"`, `"gb"`, `"fr"`, `"es"`)   |
 
----
-#### ✅ Esempio valido:
+- Con **una sola lingua** viene mostrata una singola bandiera.
+- Con **due o più lingue** viene mostrato un menu a tendina con tutte le bandiere.
+- La prima lingua in `locales` è quella predefinita.
+- La scelta dell'utente viene salvata in `localStorage`.
 
-```json
-"info": {
-  "name": "FastSite",
-  "primaryColor": "#2F4F4F",
-  "secondaryColor": "#D2B48C",
-  "logo": "https://imgur.com/mNAxeqq.png",
-  "chattyId": 10,
-  "locales": ["it", "gb"]
-}
-```
+### Come strutturare i testi multilingua
 
-### 🈳 Come strutturare i testi multilingua
-
-Tutti i testi del sito che vanno tradotti (es. `title`, `description`, `label`, ecc.) devono essere **oggetti con chiave della lingua**:
-
-#### Esempio:
+Tutti i campi testuali del JSON accettano un oggetto con chiavi corrispondenti ai codici in `locales`:
 
 ```json
 "title": {
-  "it": "Vantaggi",
-  "gb": "Advantages"
-},
-"description": {
-  "it": "I siti web che progettiamo sono completamente responsive...",
-  "gb": "The websites we design are fully responsive..."
+  "it": "Benvenuti",
+  "gb": "Welcome"
 }
 ```
 
-### 🧠 Comportamento
-
-* Il sistema rileva automaticamente la lingua da `locales[0]` come predefinita.
-* Viene generato un **menu a bandiere** con una voce per ciascuna lingua indicata.
-* Le traduzioni devono essere gestite manualmente per tutti i campi testuali nel JSON (o automaticamente tramite sistema interno se supportato).
-
----
-
-## 📰 Sezione: Blog (Blog.vue)
-
-La sezione **Blog** permette di mostrare un elenco di articoli o aggiornamenti, ciascuno con **immagine, titolo, anteprima del contenuto e data**, organizzati in griglia. È utile per comunicazioni, novità aziendali o contenuti editoriali.
-
-### 📦 Tipo JSON richiesto
+I campi che non vengono tradotti accettano anche una semplice stringa:
 
 ```json
-{
-  "content": [
-    {
-      "title": "Il mio blog",
-      "url": "Scopri di più...",
-      "type": "Static o Dynamic",
-      "articles": [
-        {
-          "title": "Titolo articolo 1",
-          "content": "Descrizione articolo",
-          "cover": "img.png"
-        },
-        ...
-      ]
-    }
-  ],
-  "menu": "Blog",
-  "type": "blog"
-}
+"title": "Testo singola lingua"
 ```
 
-### ✅ Campi disponibili
-
-| Chiave         | Tipo       | Obbligatoria | Descrizione |
-|----------------|------------|--------------|-------------|
-| `title`        | `string`   | ❌           | Titolo della sezione|
-| `url`          | `string`    | ❌          | Testo del collegamento alla pagina dei blog |
-| `type`         | `string`   | ✅           | Può essere o Static o Dynamic, con Static **DEVI** aggiungere i post a mano seguendo articles, con Dynamic fa tutto l'endpoint collegato |
-
 ---
 
-## 🏰 Add-on: VirtualTour
-L’add-on VirtualTour consente di aggiungere un collegamento diretto al tour virtuale del locale o dell’azienda, direttamente all’interno della barra superiore (App Bar) del sito.
+## `Blog`
 
-### 📦 Tipo JSON richiesto
+Abilita la pagina `/blog` con lista articoli e pagina di dettaglio `/blog/:id`. I dati si configurano nella chiave radice `blog`.
 
 ```json
 {
-  "addOn": ["VirtualTour"]
-}
-```
-
-### ✅ Campi disponibili
-
-| Chiave           | Tipo     | Obbligatoria | Descrizione                                                  |
-| ---------------- | -------- | ------------ | ------------------------------------------------------------ |
-| `virtualTour` | `string` | ✅            | URL al tour virtuale |
-
-### 🧠 Comportamento
-
-* Se presente nell’array `addOn` e se `virtualTour` è valorizzato correttamente, il sistema **mostrerà un pulsante nella App Bar** con testo "Tour Virtuale" che apre il link in una nuova scheda.
-* L’ordine e il posizionamento del link è gestito automaticamente.
-
----
-
-## 🛒 Add-on: Shop
-
-L’add-on **Shop** abilita un sistema di e-commerce completo collegato alla piattaforma `generic-be`. I prodotti vengono mostrati **raggruppati per categoria**, con **immagini, prezzo, descrizione e pulsanti per i dettagli e l’aggiunta al carrello**.
-
-### 📦 Tipo JSON richiesto
-
-```json
-{
-  "store": {
-    "username": "bro.users.info@gmail.com",
-    "password": "Ciao1234",
-    "addressMode": 1,
-    "province": "Barletta-Andria-Trani",
-    "cities": [
-      "Bisceglie",
-      "Trani"
+  "addOn": ["Blog"],
+  "blog": {
+    "projectName": "nome-progetto",
+    "content": [
+      {
+        "id": 1,
+        "title": "Titolo articolo",
+        "content": "Testo completo dell'articolo.",
+        "cover": "https://example.com/copertina.jpg",
+        "updated_at": "25/03/2025 12:59",
+        "ordinal": 1,
+        "project_id": 3,
+        "highlight": true,
+        "enrichment": {}
+      }
     ]
-  },
-  "addOn": ["Shop"]
+  }
 }
 ```
 
-### ✅ Campi disponibili
+### Campi della chiave `blog`
 
-| Chiave        | Tipo     | Obbligatoria | Descrizione                                                             |
-| ------------- | -------- | ------------ | ----------------------------------------------------------------------- |
-| `username`    | `string` | ✅            | Credenziali dell'account `generic-be` per ottenere i prodotti           |
-| `password`    | `string` | ✅            | Password dell'account `generic-be`                                      |
-| `addressMode` | `number` | ✅            | Modalità gestione indirizzo: `0 = Nessun indirizzo`, `1 = Obbligatorio` |
-| `province`    | `string` | ❌            | Provincia di riferimento per le consegne o disponibilità prodotti       |
-| `cities`      | `array`  | ❌            | Elenco di città in cui è attivo lo shop (filtraggio opzionale)          |
+| Chiave        | Tipo     | Obbligatorio | Descrizione                                                      |
+|---------------|----------|:------------:|------------------------------------------------------------------|
+| `projectName` | `string` | ❌           | Nome del progetto per il caricamento dinamico da backend         |
+| `content`     | `array`  | ✅           | Lista degli articoli (modalità statica)                          |
+
+### Campi di ogni articolo in `blog.content`
+
+| Chiave       | Tipo      | Obbligatorio | Descrizione                                                            |
+|--------------|-----------|:------------:|------------------------------------------------------------------------|
+| `id`         | `number`  | ✅           | Identificatore univoco dell'articolo                                   |
+| `title`      | `string`  | ✅           | Titolo dell'articolo                                                   |
+| `content`    | `string`  | ✅           | Testo completo dell'articolo                                           |
+| `cover`      | `string`  | ❌           | URL dell'immagine di copertina                                         |
+| `updated_at` | `string`  | ❌           | Data di aggiornamento (formato `"DD/MM/YYYY HH:mm"`)                  |
+| `ordinal`    | `number`  | ❌           | Ordine di visualizzazione                                              |
+| `project_id` | `number`  | ❌           | ID del progetto associato (usato in modalità dinamica)                 |
+| `highlight`  | `boolean` | ❌           | Se `true`, l'articolo viene mostrato nell'anteprima `blogSummary`      |
+| `enrichment` | `object`  | ❌           | Dati arricchiti opzionali                                              |
+
+> **Anteprima nella homepage:** usa la sezione [`blogSummary`](Section.md#blogsummary--anteprima-blog) nell'array `components` per mostrare gli ultimi articoli in homepage.
+
+---
+
+## `Menu`
+
+Abilita la pagina `/menu` con categorie di piatti, descrizioni, prezzi e filtro allergeni. I dati si configurano nella chiave radice `menu`.
+
+```json
+{
+  "addOn": ["Menu"],
+  "menu": {
+    "products": [
+      {
+        "name": { "it": "Antipasti", "gb": "Appetizers" },
+        "icon": "mdi-food",
+        "image": "https://example.com/categoria.png",
+        "items": [
+          {
+            "name": { "it": "Bruschette", "gb": "Bruschetta" },
+            "description": { "it": "Pane tostato con pomodorini.", "gb": "Toasted bread with tomatoes." },
+            "image": "https://example.com/bruschette.png",
+            "price": 6,
+            "allergens": [
+              { "it": "glutine", "gb": "gluten" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Campi della chiave `menu`
+
+| Chiave     | Tipo    | Obbligatorio | Descrizione                          |
+|------------|---------|:------------:|--------------------------------------|
+| `products` | `array` | ✅           | Lista delle categorie del menu       |
+
+### Campi di ogni categoria in `menu.products`
+
+| Chiave  | Tipo                | Obbligatorio | Descrizione                                                        |
+|---------|---------------------|:------------:|--------------------------------------------------------------------|
+| `name`  | `string` / `object` | ✅           | Nome della categoria                                               |
+| `icon`  | `string`            | ❌           | Icona MDI mostrata nella navigazione della categoria               |
+| `image` | `string`            | ❌           | Immagine di copertina della categoria                              |
+| `items` | `array`             | ✅           | Lista dei piatti della categoria                                   |
+
+### Campi di ogni piatto in `items`
+
+| Chiave        | Tipo                | Obbligatorio | Descrizione                                                   |
+|---------------|---------------------|:------------:|---------------------------------------------------------------|
+| `name`        | `string` / `object` | ✅           | Nome del piatto                                               |
+| `description` | `string` / `object` | ❌           | Descrizione del piatto                                        |
+| `image`       | `string`            | ❌           | URL immagine del piatto                                       |
+| `price`       | `number`            | ❌           | Prezzo in euro (es. `6` = €6,00)                              |
+| `allergens`   | `array`             | ❌           | Lista degli allergeni, ogni elemento è `{ "it": "...", "gb": "..." }` |
+
+---
+
+## `Shop`
+
+Abilita l'e-commerce completo con pagine `/shop` e `/product/:id`, carrello, checkout e pagamento Stripe. I dati si configurano nella chiave radice `store`.
+
+```json
+{
+  "addOn": ["Shop"],
+  "store": {
+    "username": "account@example.com",
+    "password": "password",
+    "addressMode": 1,
+    "province": "Napoli",
+    "cities": ["Napoli", "Pozzuoli"],
+    "products": [...],
+    "content": {...}
+  }
+}
+```
+
+### Campi della chiave `store`
+
+| Chiave        | Tipo     | Obbligatorio | Descrizione                                                                |
+|---------------|----------|:------------:|----------------------------------------------------------------------------|
+| `username`    | `string` | ✅           | Credenziali account `generic-be` per autenticarsi e ottenere i prodotti    |
+| `password`    | `string` | ✅           | Password account `generic-be`                                              |
+| `addressMode` | `number` | ❌           | `0` = nessun indirizzo richiesto, `1` = indirizzo di spedizione obbligatorio |
+| `province`    | `string` | ❌           | Limita le opzioni di spedizione a una provincia specifica                  |
+| `cities`      | `array`  | ❌           | Limita le opzioni di spedizione a una lista di comuni                      |
+| `products`    | `array`  | ✅           | Catalogo prodotti (vedi sotto)                                             |
+| `content`     | `object` | ✅           | Etichette UI dello shop (vedi sotto)                                       |
+
+### Campi di ogni prodotto in `store.products`
+
+| Chiave         | Tipo      | Obbligatorio | Descrizione                                                       |
+|----------------|-----------|:------------:|-------------------------------------------------------------------|
+| `id`           | `number`  | ✅           | Identificatore univoco del prodotto                               |
+| `name`         | `string` / `object` | ✅ | Nome del prodotto                                            |
+| `description`  | `string`  | ❌           | Descrizione del prodotto                                          |
+| `price`        | `number`  | ✅           | Prezzo in centesimi di euro (es. `700` = €7,00)                   |
+| `quantity`     | `number`  | ❌           | Quantità disponibile                                              |
+| `highlight`    | `boolean` | ❌           | Se `true`, mette in evidenza il prodotto nella lista              |
+| `images`       | `array`   | ❌           | Lista di URL immagine del prodotto                                |
+| `product_type` | `string`  | ❌           | Categoria del prodotto (usata per raggruppare nella pagina shop)  |
+
+> **Nota sui prezzi:** il campo `price` è in **centesimi di euro**. `700` corrisponde a €7,00.
+
+### Campi di `store.content` (etichette UI multilingua)
+
+Tutte le etichette accettano stringa semplice o oggetto multilingua `{ "it": "...", "gb": "..." }`.
+
+| Chiave            | Descrizione                                    |
+|-------------------|------------------------------------------------|
+| `name`            | Nome del carrello (es. "Carrello" / "Cart")    |
+| `orderSummary`    | Riepilogo ordine                               |
+| `shippingAddress` | Indirizzo di spedizione                        |
+| `amount`          | Quantità                                       |
+| `totalPrice`      | Prezzo totale                                  |
+| `sendOrder`       | Testo pulsante invio ordine                    |
+| `proceedCheckout` | Testo pulsante checkout                        |
+| `goBack`          | Torna indietro                                 |
+| `emptyCart`       | Svuota carrello                                |
+| `price`           | Etichetta prezzo                               |
+| `details`         | Dettagli prodotto                              |
+| `addToCart`       | Aggiungi al carrello                           |
+| `description`     | Descrizione                                    |
+| `category`        | Categoria                                      |
+
+#### Esempio `store.content`
+
+```json
+"content": {
+  "name":            { "it": "Carrello",             "gb": "Cart" },
+  "orderSummary":    { "it": "Riepilogo Ordini",      "gb": "Order Summary" },
+  "shippingAddress": { "it": "Indirizzo di Spedizione","gb": "Shipping Address" },
+  "amount":          { "it": "Quantità",              "gb": "Amount" },
+  "totalPrice":      { "it": "Prezzo Totale",         "gb": "Total Price" },
+  "sendOrder":       { "it": "Invia Ordine",          "gb": "Send Order" },
+  "proceedCheckout": { "it": "Procedi al Checkout",   "gb": "Proceed to Checkout" },
+  "goBack":          { "it": "Torna Indietro",        "gb": "Go back" },
+  "emptyCart":       { "it": "Svuota Carrello",       "gb": "Empty Cart" },
+  "price":           { "it": "Prezzo",                "gb": "Price" },
+  "details":         { "it": "Dettagli",              "gb": "Details" },
+  "addToCart":       { "it": "Aggiungi al carrello",  "gb": "Add to cart" },
+  "description":     { "it": "Descrizione",           "gb": "Description" },
+  "category":        { "it": "Categoria",             "gb": "Category" }
+}
+```
