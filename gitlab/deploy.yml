@@ -7,6 +7,9 @@
       docker build \
         --build-arg VITE_HOSTNAME=$VITE_HOSTNAME \
         --build-arg VITE_FORM_MAIL=$CARPEDIEM_VITE_FORM_MAIL \
+        --build-arg VITE_FORM_MAIL=$CARPEDIEM_VITE_FORM_MAIL \
+        --build-arg VITE_DISABLE_ANALYTICS=$VITE_DISABLE_ANALYTICS \
+        --build-arg VITE_GA_TRACKING_ID=$VITE_GA_TRACKING_ID \
         -t $PJ_NAME:latest .
     
       set -e
@@ -39,6 +42,9 @@ deploy_test:
     CONTAINER_ACTIVE: "${CARPEDIEM_PROJECT_NAME}-test"
     CONTAINER_NEXT: "${CARPEDIEM_PROJECT_NAME}-test-next"
     VITE_HOSTNAME: $VITE_HOSTNAME_GENERIC_BE_TEST
+    VITE_GA_TRACKING_ID: 'G-'
+    VITE_DISABLE_ANALYTICS: ''
+
   before_script:
     - export FIRST_PORT="${CARPEDIEM_PORT_TEST%%-*}"
     - export SECOND_PORT="${CARPEDIEM_PORT_TEST#*-}"
@@ -53,6 +59,8 @@ deploy_prod:
     CONTAINER_ACTIVE: $CARPEDIEM_PROJECT_NAME
     CONTAINER_NEXT: "${CARPEDIEM_PROJECT_NAME}-next"
     VITE_HOSTNAME: $VITE_HOSTNAME_GENERIC_BE_PROD
+    VITE_GA_TRACKING_ID: VITE_GA_TRACKING_ID
+    VITE_DISABLE_ANALYTICS: false
   before_script:
     - export FIRST_PORT="${CARPEDIEM_PORT_PROD%%-*}"
     - export SECOND_PORT="${CARPEDIEM_PORT_PROD#*-}"
