@@ -5,3 +5,56 @@ html {
 .margin_top__default {
   margin-top: 25px;
 }
+
+.klaro .cookie-notice {
+  z-index: 9999 !important;
+  max-width: none !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.klaro .cn-body {
+  padding: 1em 3em !important;
+}
+// Personalizzazione colori pulsanti Klaro
+.klaro .cn-buttons .cm-btn.cm-btn-success,
+.klaro .cm-modal .cm-buttons .cm-btn.cm-btn-success {
+  background-color: #d73cbe !important;
+  border-color: #d73cbe !important;
+  color: white !important;
+}
+
+.klaro .cn-buttons .cm-btn.cm-btn-success:hover,
+.klaro .cm-modal .cm-buttons .cm-btn.cm-btn-success:hover {
+  background-color: #d73cbe !important;
+  border-color: #d73cbe !important;
+}
+
+// Personalizzazione link "Personalizza"
+.klaro .cm-link.cn-learn-more {
+  color: #d73cbe !important;
+  text-decoration: underline !important;
+}
+
+.klaro .cm-link.cn-learn-more:hover {
+  color: #d73cbe !important;
+}
+
+.klaro *:focus {
+  outline: none !important;
+}
+
+.cm-header p span a, .cm-caret a {
+  color: #d73cbe !important;
+}
+
+.klaro .cookie-modal .cm-list-input:checked + .cm-list-label .slider, .klaro .context-notice .cm-list-input:checked + .cm-list-label .slider, .klaro .cookie-notice .cm-list-input:checked + .cm-list-label .slider {
+  background-color: #d73cbe !important;
+}
+
+.klaro .cm-btn-accept-all {
+  background-color: #d73cbe !important;
+}
