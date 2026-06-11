@@ -3,6 +3,7 @@
   script:
     - git fetch origin "carpediembisceglie.it"
     - git checkout "carpediembisceglie.it"
+    - git reset --hard origin/carpediembisceglie.it
     - |
       docker build \
         --build-arg VITE_HOSTNAME=$VITE_HOSTNAME \
