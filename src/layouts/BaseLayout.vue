@@ -13,12 +13,6 @@
       <slot />
     </v-main>
     <AppFooter v-if="!isSpecialPage" />
-    <CookieSettings
-      variant="text"
-      size="small"
-      button-text="Cookie"
-      :show-icon="true"
-    />
   </v-app>
 </template>
 
@@ -27,7 +21,6 @@ import AppBar from '@/layouts/customs/AppBar.vue';
 import AppFooter from '@/layouts/AppFooter.vue';
 import UpArrow from '@/layouts/UpArrow.vue';
 import SocialBubbles from '@/layouts/SocialBubbles.vue';
-import CookieSettings from '@/components/CookieSettings.vue';
 
 import { storeToRefs } from 'pinia';
 import { useRoute } from 'vue-router';

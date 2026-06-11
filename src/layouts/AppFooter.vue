@@ -32,6 +32,12 @@
               <v-icon right>mdi-web</v-icon>
             </a>
           </div>
+          <CookieSettings
+            variant="text"
+            size="small"
+            button-text="Cookie"
+            :show-icon="true"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -39,6 +45,8 @@
 </template>
 
 <script setup>
+import CookieSettings from '@/components/CookieSettings.vue';
+
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
 
