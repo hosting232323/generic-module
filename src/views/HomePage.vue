@@ -21,7 +21,6 @@ import BaseText from '@/components/sections/BaseText';
 import LineDivider from '@/components/sections/LineDivider';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import GallerySection from '@/components/sections/GallerySection';
-import ServicesSection from '@/components/sections/ServicesSection';
 import ContactsSection from '@/components/sections/ContactsSection';
 import BrandList from '@/components/sections/BrandList';
 import ShopSummary from '@/components/sections/ShopSummary';

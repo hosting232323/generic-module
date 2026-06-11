@@ -3,10 +3,10 @@
     <v-btn
       :variant="variant"
       :size="size"
-      @click="openCookieSettings"
       :append-icon="showIcon ? 'mdi-cookie' : undefined"
       :disabled="!isKlaroAvailable"
       class="cookie-settings-btn"
+      @click="openCookieSettings"
     >
       {{ buttonText }}
     </v-btn>
@@ -14,27 +14,26 @@
 </template>
 
 <script setup>
-import { computed, inject } from "vue";
+import { computed, inject } from 'vue';
 
-// Props del componente
-const props = defineProps({
+const { buttonText, variant, size, showIcon } = defineProps({
   buttonText: {
     type: String,
-    default: "Impostazioni Cookie",
+    default: 'Impostazioni Cookie',
   },
   variant: {
     type: String,
-    default: "outlined",
+    default: 'outlined',
     validator: (value) =>
-      ["elevated", "flat", "tonal", "outlined", "text", "plain"].includes(
+      ['elevated', 'flat', 'tonal', 'outlined', 'text', 'plain'].includes(
         value
       ),
   },
   size: {
     type: String,
-    default: "default",
+    default: 'default',
     validator: (value) =>
-      ["x-small", "small", "default", "large", "x-large"].includes(value),
+      ['x-small', 'small', 'default', 'large', 'x-large'].includes(value),
   },
   showIcon: {
     type: Boolean,
@@ -42,40 +41,31 @@ const props = defineProps({
   },
 });
 
-// Emits
-const emit = defineEmits(["before-open", "after-open", "error"]);
-
-// Injection di Klaro
-const klaro = inject("klaro", null);
-
-// Computed properties
+const emit = defineEmits(['before-open', 'after-open', 'error']);
+const klaro = inject('klaro', null);
 const isKlaroAvailable = computed(() => {
-  return typeof window !== "undefined" && (klaro || window.klaro);
+  return typeof window !== 'undefined' && (klaro || window.klaro);
 });
 
-// Metodi
 const openCookieSettings = () => {
   try {
-    emit("before-open");
+    emit('before-open');
 
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       const klaroInstance = klaro || window.klaro;
 
       if (klaroInstance) {
         klaroInstance.show();
-        emit("after-open");
+        emit('after-open');
       } else {
-        console.warn("Klaro is not available");
-        emit("error", "Klaro non è disponibile");
+        emit('error', 'Klaro non è disponibile');
       }
     }
   } catch (error) {
-    console.error("Error opening cookie settings:", error);
-    emit("error", error);
+    emit('error', error);
   }
 };
 
-// Esposizione metodi per uso programmatico
 defineExpose({
   openCookieSettings,
   isKlaroAvailable,

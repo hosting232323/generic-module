@@ -47,7 +47,7 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useDataStore } from '@/stores/data';
-import CookieSettings from "@/components/CookieSettings.vue";
+import CookieSettings from '@/components/CookieSettings.vue';
 
 const dataStore = useDataStore();
 const { data } = storeToRefs(dataStore);

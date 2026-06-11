@@ -44,7 +44,6 @@ deploy_test:
     VITE_HOSTNAME: $VITE_HOSTNAME_GENERIC_BE_TEST
     VITE_GA_TRACKING_ID: 'G-'
     VITE_DISABLE_ANALYTICS: ''
-
   before_script:
     - export FIRST_PORT="${CARPEDIEM_PORT_TEST%%-*}"
     - export SECOND_PORT="${CARPEDIEM_PORT_TEST#*-}"
