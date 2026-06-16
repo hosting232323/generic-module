@@ -1,7 +1,7 @@
 .deploy_template: &deploy_template
   stage: deploy
   tags:
-    - deploy-combusken
+    - combusken-deploy
   script:
     - git fetch origin "carpediembisceglie.it"
     - git checkout "carpediembisceglie.it"
