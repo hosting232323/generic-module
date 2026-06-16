@@ -1,5 +1,6 @@
 # generic-fe — Documentazione generale
 
+
 `generic-fe` è un **generatore di siti web basato su JSON**. Configurando un unico file `productionData.json` ottieni un sito completo, responsivo e multilingua senza toccare il codice sorgente.
 
 ---
