@@ -35,7 +35,7 @@ const { getText } = useLanguageStore();
 const info = data.value.info;
 const store = data.value.store;
 
-const variants = defineProps({
+const { variants } = defineProps({
   variants: { type: Array, required: true }
 });
 
