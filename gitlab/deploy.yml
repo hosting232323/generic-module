@@ -1,5 +1,7 @@
 .deploy_template: &deploy_template
   stage: deploy
+  tags:
+    - deploy-combusken
   script:
     - git fetch origin "carpediembisceglie.it"
     - git checkout "carpediembisceglie.it"
@@ -31,8 +33,6 @@
 
 deploy_test:
   <<: *deploy_template
-  tags:
-    - deploy-zubat
   when: manual
   variables:
     PJ_NAME: "${CARPEDIEM_PROJECT_NAME}-test"
@@ -45,8 +45,6 @@ deploy_test:
 
 deploy_prod:
   <<: *deploy_template
-  tags:
-    - deploy-zubat
   when: manual
   variables:
     PJ_NAME: $CARPEDIEM_PROJECT_NAME
