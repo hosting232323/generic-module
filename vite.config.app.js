@@ -12,6 +12,7 @@ dotenv.config();
 
 
 export default defineConfig({
+  base: '/demo/3/',
   plugins: [
     vue({
       template: { transformAssetUrls }
