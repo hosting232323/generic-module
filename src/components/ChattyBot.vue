@@ -12,185 +12,25 @@
     ref="fabWheel"
     class="fab-wheel"
   >
-    <nav class="fab-nav">
-      <v-icon
-        v-if="!exportMode"
-        @click="exportMode = true"
-      >
-        mdi-content-save
-      </v-icon>
-      <v-icon
-        v-if="exportMode"
-        @click="exportMode = false"
-      >
-        mdi-restore
-      </v-icon>
-      <div class="avatar">
-        <img
-          :src="botData.image"
-          alt="botAvatar"
-        >
-        <p>{{ botData.name }}</p>
-      </div> 
-      <div
-        class="close"
-        @click="toggleWheel('close')"
-      >
-        <div class="line" />
-        <div class="line" />
-      </div>
-    </nav>
-    <main
-      v-if="!exportMode"
-      ref="fabContent"
-      class="fab-content"
-    >
-      <div
-        v-for="(message, index) in messages"
-        :key="index"
-        class="fab-message"
-      >
-        <div :class="{sender: true, bot_s: index % 2 === 0, user_s: index % 2 !== 0}">
-          <img
-            v-if="index % 2 === 0"
-            :src="botData.image"
-            alt="botAvatar"
-          >
-          <p>{{ index % 2 === 0 ? botData.name : 'Tu' }}</p>
-        </div>
-
-        <!-- eslint-disable vue/no-v-html -->
-        <div
-          v-show="message !== ''"
-          :class="{msg: true, bot: index % 2 === 0, user: index % 2 !== 0}"
-          v-html="marked.parse(message)"
-        />
-        <!-- eslint-enable vue/no-v-html -->
-
-        <div
-          v-if="loading && index == messages.length - 1"
-          class="msg bot"
-        >
-          <span class="loading-dots"><span /><span /><span /></span>
-        </div>
-      </div>
-      <div
-        v-if="showFaq && filteredFaqs.length"
-        class="faq-container"
-      >
-        <button
-          v-for="(faq, index) in filteredFaqs"
-          :key="index"
-          class="faq-card"
-          @click="clickFaq(faq, index)"
-        >
-          {{ faq.name }}
-        </button>
-      </div>
-    </main>
-    <div 
-      v-if="!exportMode"
-      class="fab-send"
-    >
-      <input
-        v-model="userMessage"
-        type="text"
-        placeholder="Scrivi qui..."
-        :disabled="loading"
-        @keyup.enter="sendMessage"
-      >
-      <button 
-        :disabled="loading"  
-        @click="sendMessage"
-      >
-        <v-icon>mdi-send-circle</v-icon>
-      </button>
-    </div>
-    <div
-      v-else
-      class="export-chat"
-    >
-      <h3 v-if="!exportSuccess">
-        Vuoi esportare la chat?
-      </h3>
-      <div
-        v-if="!exportSuccess"
-        class="content-button"
-      >
-        <button @click="exportChat">
-          Si
-        </button>
-        <button @click="exportMode = false">
-          No
-        </button>
-      </div>
-      <div
-        v-else
-        class="successExport"
-      >
-        <div class="success-animation">
-          <svg
-            class="checkmark"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 52 52"
-          >
-            <circle
-              class="checkmark__circle"
-              cx="26"
-              cy="26"
-              r="25"
-              fill="none"
-            />
-            <path
-              class="checkmark__check"
-              fill="none"
-              d="M14.1 27.2l7.1 7.2 16.7-16.8"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <footer class="fab-footer">
-      <p>
-        Powered by
-        <a
-          class="link-decoration"
-          target="_blank"
-          href="https://fastsite.it"
-        >FastSite</a>
-      </p>
-    </footer>
-    <div
-      v-show="showArrow"
-      class="arrow-dynamic"
-      @click="scrollToBottom"
-    >
-      <v-icon>mdi-arrow-down</v-icon>
-    </div>
+    <FabNav @toggle-wheel="toggleWheel" />
+    <FabContent />
+    <FabInput />
+    <FabFooter />
   </div>
 </template>
 
 <script setup>
-import '@/styles/chatty.scss';
+import { ref, computed, watch } from 'vue';
+import { useChattyStore } from '@/stores/chatty';
 
-import http from '@/utils/http';
-import { marked } from 'marked';
-import { useRouter } from 'vue-router';
-import { ref, onMounted, nextTick, watch, computed } from 'vue';
+import FabNav from '@/components/chatty/FabNav';
+import FabInput from '@/components/chatty/FabInput';
+import FabFooter from '@/components/chatty/FabFooter';
+import FabContent from '@/components/chatty/FabContent';
 
-const router = useRouter();
-const loading = ref(false);
 const fabWheel = ref(null);
-const sessionId = ref(null);
 const fabButton = ref(null);
-const fabContent = ref(null);
-const showArrow = ref(false);
-const exportMode = ref(false);
-const userMessage = ref(null);
-const exportSuccess = ref(false);
-
-const showFaq = ref(true);
-const clickedFaqs = ref(new Set());
+const chattyStore = useChattyStore();
 
 const { hostname, botData } = defineProps({
   hostname: {
@@ -202,7 +42,8 @@ const { hostname, botData } = defineProps({
     required: true
   }
 });
-const messages = ref([botData.message]);
+
+chattyStore.initData(botData, hostname);
 
 const colorPaletteDefault = {
   theme_color: '#126EE2',
@@ -217,147 +58,147 @@ const toggleWheel = (mode) => {
   fabButton.value.style.transform = mode == 'open' ? 'scale(0)' : 'scale(1)';
 };
 
-const sendMessage = async () => {
-  if (!userMessage.value) return;
-
-  loading.value = true;
-  showFaq.value = false;
-
-  const messageToSend = userMessage.value;
-  userMessage.value = '';
-  messages.value.push(messageToSend);
-
-  const body = { message: messageToSend, bot_id: botData.botId, session_id: sessionId.value };
-  if (botData.stream) {
-    await streamMessage(`${hostname}chatty/stream-chat`, body);
-  } else {
-    http.postRequest('chatty/chat',
-      body, 
-      (data) => {
-        if(data.status == 'ok') {
-          messages.value.push(data.response);
-          sessionId.value = data.session_id;
-        }
-        loading.value = false;
-        showFaq.value = true;
-      }, 'POST', router, hostname);
-    scrollToBottom();
-  }
-};
-
-const streamMessage = async (url, body) => {
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
-
-  const reader = response.body.getReader();
-  const decoder = new TextDecoder();
-
-  let done = false;
-  let firstContentReceived = false;
-  const botIndex = messages.value.push('') - 1;
-
-  while (!done) {
-    const { value, done: doneReading } = await reader.read();
-    done = doneReading;
-
-    let chunk = decoder.decode(value);
-
-    if (chunk.includes('"session_id"')) {
-      const jsonEnd = chunk.indexOf('}') + 1;
-      const jsonPart = chunk.slice(0, jsonEnd);
-      sessionId.value = JSON.parse(jsonPart).session_id;
-      chunk = chunk.slice(jsonEnd);
-    }
-
-    if (chunk.trim()) {
-      messages.value[botIndex] += chunk;
-
-      if (!firstContentReceived) {
-        firstContentReceived = true;
-        loading.value = false;
-      }
-    }
-
-    await nextTick();
-    scrollToBottom();
-  }
-
-  loading.value = false;
-  showFaq.value = true;
-};
-
-const checkScroll = () => {
-  if (!fabContent.value) return;
-
-  const el = fabContent.value;
-  showArrow.value = el.scrollHeight - el.scrollTop - el.clientHeight > 10;
-};
-
-const scrollToBottom = () => {
-  if (!fabContent.value) return;
-
-  fabContent.value.scrollTo({
-    top: fabContent.value.scrollHeight,
-    behavior: 'smooth'
-  });
-  showArrow.value = false;
-};
-
-const exportChat = async () => {
-  exportSuccess.value = false;
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(new Blob([
-    messages.value.map((msg, index) => {
-      return `${index % 2 === 0 ? botData.name : 'Utente'}: ${msg.replace(/<[^>]+>/g, '').trim()}`;
-    }).join('\n')
-  ], { type: 'text/plain' }));
-  link.download = 'chat_messages.txt';
-  link.click();
-
-  exportSuccess.value = true;
-  setTimeout(() => {
-    exportSuccess.value = false;
-    exportMode.value = false;
-  }, 2000);
-};
-
-const filteredFaqs = computed(() => {
-  return botData.faq || [];
-});
-
 const colorPalette = computed(() => {
   return botData.color || colorPaletteDefault;
 });
 
-const clickFaq = (faq, index) => {
-  if (clickedFaqs.value.has(index)) return;
-
-  clickedFaqs.value.add(index);
-  userMessage.value = faq.value;
-  sendMessage();
-};
-
-
-watch(messages, async () => {
-  await nextTick();
-  checkScroll();
-});
-
 watch(colorPalette, (palette) => {
+  document.documentElement.style.setProperty('--dot-color', '#fff');
+  document.documentElement.style.setProperty('--border-color', '#eaeaea');
   document.documentElement.style.setProperty('--theme-color', palette.theme_color);
   document.documentElement.style.setProperty('--theme-color-hover', palette.theme_color_hover);
   document.documentElement.style.setProperty('--fab-hover', palette.fab_hover);
   document.documentElement.style.setProperty('--fab-shadow', palette.fab_shadow);
   document.documentElement.style.setProperty('--fab-border', palette.fab_border);
 }, { immediate: true });
-
-onMounted(() => {
-  if (fabContent.value) {
-    fabContent.value.addEventListener('scroll', checkScroll);
-    checkScroll();
-  }
-});
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.fab {
+  position: fixed;
+  height: 4rem;
+  bottom: 0;
+  right: 0;
+  margin: 30px;
+  width: 4rem;
+
+  background: var(--theme-color);
+  box-shadow: 0px 5px 20px var(--fab-shadow);
+
+  border: 1px solid var(--fab-border);
+  border-radius: 50%;
+  border-bottom-right-radius: 6px;
+  
+  cursor: pointer;
+  z-index: 99;
+
+  transform: scale(1);
+  transform-origin: bottom right;
+  transition: all 0.3s ease;
+  
+}
+
+.fab:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.fab:hover {
+  background: var(--fab-hover);
+  box-shadow: 0px 5px 20px 5px var(--fab-shadow);
+}
+
+.fab-dots {
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  background-color: var(--dot-color);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateX(0%) translateY(-50%) rotate(0deg);
+  opacity: 1;
+  animation: blink 3s ease infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.fab-dots-1 {
+  left: 15px;
+  animation-delay: 0s;
+}
+
+.fab-dots-2 {
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  animation-delay: 0.4s;
+}
+
+.fab-dots-3 {
+  right: 15px;
+  animation-delay: 0.8s;
+}
+
+.fab .fab-dots-2 {
+  transform: translateX(-50%) translateY(-50%) rotate(0deg);
+}
+
+.fab-wheel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 45px;
+  height: calc(100vh - 150px);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  color: white;
+  background-color: #eaeef3;
+  z-index: 9999;
+  transform: scale(0);
+  transform-origin: bottom right;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+  .fab-wheel {
+    height: 85vh;
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .fab {
+    height: 60px;
+    width: 60px;
+    margin: 15px;
+  }
+
+  .fab-dots {
+    height: 6px;
+    width: 6px;
+  }
+
+  .fab-wheel {
+    margin: 0;
+    height: 100%;
+    width: 100vw;
+    border-radius: 0;
+  }
+}
+</style>

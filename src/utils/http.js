@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 
-const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME;
+const viteHostname = import.meta.env.VITE_HOSTNAME;
 
 const postRequest = (endpoint, body, func, method = 'POST', router = undefined, hostname = undefined) => {
-  const finalHostname = hostname || hostnameGenericBackend;
+  const finalHostname = hostname || viteHostname;
   fetch(`${finalHostname}${endpoint}`, {
     method: method,
     headers: createHeader(),
@@ -20,7 +20,7 @@ const postRequest = (endpoint, body, func, method = 'POST', router = undefined, 
 };
 
 const getRequest = (endpoint, params, func, method = 'GET', router = undefined, hostname = undefined) => {
-  const finalHostname = hostname || hostnameGenericBackend;
+  const finalHostname = hostname || viteHostname;
   const url = new URL(`${finalHostname}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
@@ -62,5 +62,6 @@ const sessionHandler = (data, func, router) => {
 
 export default {
   postRequest,
-  getRequest
+  getRequest,
+  viteHostname
 };
