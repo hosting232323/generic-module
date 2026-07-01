@@ -1,5 +1,8 @@
 import '@mdi/font/css/materialdesignicons.css';
 
+// Http Client
+export { createHttpClient } from './utils/http.js';
+
 // Utenti e Login
 export { encryptPassword, decryptPassword } from './utils/encrypt.js';
 export { default as Password } from './components/users/UserPassword.vue';

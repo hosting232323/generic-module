@@ -15,7 +15,7 @@
     <AppFooter v-if="!isSpecialPage" />
     <ChattyBot
       v-if="data.addOn?.includes('Chatty')"
-      :hostname="http.viteHostname"
+      :hostname="http.hostname"
       :bot-data="data.chatty"
     />
   </v-app>
