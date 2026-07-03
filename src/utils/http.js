@@ -7,6 +7,7 @@ const createHttpClient = (config = {}) => {
     hostname: defaultHostname = viteHostname,
     authHeader = 'Token',
     getToken = () => localStorage.getItem('token'),
+    setToken = () => {},
     router = undefined,
     onSessionExpired = () => {
       alert('Sessione scaduta');
@@ -26,10 +27,13 @@ const createHttpClient = (config = {}) => {
   };
 
   const sessionHandler = (data, func, session) => {
-    if (session && data.status == 'session')
-      onSessionExpired();
-    else
+    if (session && data.status == 'session') {
+      onSessionExpired(data);
+    } else {
+      if (data && data.new_token)
+        setToken(data.new_token);
       func(data);
+    }
   };
 
   const postRequest = (endpoint, body, func, method = 'POST', session = true, hostname = undefined) => {
@@ -88,11 +92,67 @@ const createHttpClient = (config = {}) => {
     });
   };
 
+  const downloadRequest = (endpoint, body, method = 'GET', session = true, loading = undefined, hostname = undefined) => {
+    const finalHostname = hostname || defaultHostname;
+    let url, options;
+    if (method == 'GET') {
+      url = new URL(`${finalHostname}${endpoint}`);
+      Object.keys(body).forEach(key => url.searchParams.append(key, body[key]));
+      options = {
+        method: 'GET',
+        headers: createHeader(session)
+      };
+    } else {
+      url = `${finalHostname}${endpoint}`;
+      options = {
+        method: 'POST',
+        headers: createHeader(session),
+        body: JSON.stringify(body)
+      };
+    }
+
+    fetch(url, options)
+      .then(async response => {
+        if (!response.ok)
+          throw new Error(`Server error: ${response.status}`);
+
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          sessionHandler(data, (d) => {
+            if (d.status === 'ko')
+              alert(d.error || 'Errore durante il download');
+          }, session);
+          throw new Error('Server returned JSON instead of a file');
+        }
+
+        return response.blob();
+      }).then(blob => {
+        const objectUrl = URL.createObjectURL(blob);
+        const tab = window.open(objectUrl, '_blank');
+
+        if (!tab) {
+          const a = document.createElement('a');
+          a.href = objectUrl;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+
+        setTimeout(() => URL.revokeObjectURL(objectUrl), 10000);
+      }).catch(error => {
+        console.error('Errore nel download:', error);
+      }).finally(() => {
+        if (loading) loading();
+      });
+  };
+
   return {
     hostname: defaultHostname,
     postRequest,
     getRequest,
-    postRequestFile
+    postRequestFile,
+    downloadRequest
   };
 };
 
