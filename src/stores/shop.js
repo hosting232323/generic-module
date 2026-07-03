@@ -55,7 +55,7 @@ export const useShopStore = defineStore('shop:genericFeStore', {
         if (data.checkout_url)
           window.location.href = data.checkout_url;
         else if (data.status == 'ko')
-          alert(data.message);
+          alert(data.error);
       });
     }
   }
