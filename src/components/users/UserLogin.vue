@@ -178,7 +178,7 @@ const handleCredentialResponse = (response) => {
     if (data.status === 'ok')
       emits('callBack', data);
     else
-      message.value = data.error;
+      message.value = data.message;
   }, 'POST', undefined, props.hostname);
 };
 
@@ -194,7 +194,7 @@ const login = () => {
       if (data.status === 'ok')
         emits('callBack', data);
       else
-        message.value = data.error;
+        message.value = data.message;
     }, 'POST', undefined, props.hostname);
   }
 };

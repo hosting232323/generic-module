@@ -108,7 +108,7 @@ const askChangePassword = () => {
         message.value = data.message;
       } else {
         messageType.value = 'error';
-        message.value = data.error;
+        message.value = data.message;
       }
     }, 'POST', undefined, props.hostname);
   }
