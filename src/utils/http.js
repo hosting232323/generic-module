@@ -45,7 +45,7 @@ const createHttpClient = (config = {}) => {
     }).then(response => {
       if (!response.ok)
         throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-      return response.json();
+        return response.json();
     }).then(data => {
       sessionHandler(data, func, session);
     }).catch(error => {
@@ -121,7 +121,7 @@ const createHttpClient = (config = {}) => {
           const data = await response.json();
           sessionHandler(data, (d) => {
             if (d.status === 'ko')
-              alert(d.error || 'Errore durante il download');
+              alert(d.message || 'Errore durante il download');
           }, session);
           throw new Error('Server returned JSON instead of a file');
         }
