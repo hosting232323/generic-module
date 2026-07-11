@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "vite --config vite.config.app.js",
     "lint": "eslint \"src/**/*.{js,vue}\" --fix",
-    "build:app": "vite build --config vite.config.app.js",
-    "build:module": "vite build --config vite.config.module.js",
+    "build": "vite build --config vite.config.module.js",
     "serve": "node server.js"
   },
   "dependencies": {

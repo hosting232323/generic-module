@@ -42,11 +42,6 @@ const routes = [
         component: () => import('@/views/payment/CancelPage'),
       },
       {
-        path: '/demo/:id',
-        name: 'Demo',
-        component: () => import('@/views/HomePage')
-      },
-      {
         path: '/menu',
         name: 'Menu',
         component: () => import('@/views/MenuPage')
