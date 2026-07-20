@@ -95,13 +95,12 @@ const createHttpClient = (config = {}) => {
     });
   };
 
-  const downloadRequest = (endpoint, method = 'GET', options = {}) => {
+  const downloadRequest = (endpoint, method = 'GET', options = {}, func = null) => {
     const {
       session = true,
       hostname = undefined,
       body = undefined,
-      params = undefined,
-      func = undefined
+      params = undefined
     } = options;
 
     const finalHostname = hostname || defaultHostname;
