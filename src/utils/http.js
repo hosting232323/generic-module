@@ -68,6 +68,52 @@ const createHttpClient = (config = {}) => {
     });
   };
 
+  const isFilePart = (value) =>
+    (typeof File !== 'undefined' && value instanceof File) ||
+    (typeof Blob !== 'undefined' && value instanceof Blob);
+
+  const extractFile = (value) => {
+    if (isFilePart(value))
+      return value;
+    if (value && typeof value === 'object') {
+      if (isFilePart(value.selectedFile))
+        return value.selectedFile;
+      if (isFilePart(value.selectedImage))
+        return value.selectedImage;
+    }
+    return null;
+  };
+
+  const buildUploadFormData = (body) => {
+    const formData = new FormData();
+    const data = {};
+
+    Object.keys(body).forEach(key => {
+      const value = body[key];
+      const file = extractFile(value);
+
+      if (file) {
+        formData.append(key, file);
+      } else if (Array.isArray(value)) {
+        const remaining = [];
+        value.forEach(item => {
+          const itemFile = extractFile(item);
+          if (itemFile)
+            formData.append(itemFile.name || key, itemFile);
+          else
+            remaining.push(item);
+        });
+        if (remaining.length)
+          data[key] = remaining;
+      } else {
+        data[key] = value;
+      }
+    });
+
+    formData.append('data', JSON.stringify(data));
+    return formData;
+  };
+
   const uploadRequest = (endpoint, method = 'POST', options = {}, func = null) => {
     const {
       session = true,
@@ -76,8 +122,7 @@ const createHttpClient = (config = {}) => {
     } = options;
 
     const finalHostname = hostname || defaultHostname;
-    const formData = new FormData();
-    Object.keys(body).forEach(key => formData.append(key, body[key]));
+    const formData = buildUploadFormData(body);
 
     fetch(`${finalHostname}${endpoint}`, {
       method: method,
