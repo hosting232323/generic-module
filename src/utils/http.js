@@ -95,26 +95,35 @@ const createHttpClient = (config = {}) => {
     });
   };
 
-  const downloadRequest = (endpoint, body, method = 'GET', session = true, loading = undefined, hostname = undefined) => {
+  const downloadRequest = (endpoint, method = 'GET', options = {}) => {
+    const {
+      session = true,
+      hostname = undefined,
+      body = undefined,
+      params = undefined,
+      func = undefined
+    } = options;
+
     const finalHostname = hostname || defaultHostname;
-    let url, options;
+    let url, fetchOptions;
     if (method == 'GET') {
       url = new URL(`${finalHostname}${endpoint}`);
-      Object.keys(body).forEach(key => url.searchParams.append(key, body[key]));
-      options = {
+      if (params)
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+      fetchOptions = {
         method: 'GET',
         headers: createHeader(session)
       };
     } else {
       url = `${finalHostname}${endpoint}`;
-      options = {
-        method: 'POST',
+      fetchOptions = {
+        method: method,
         headers: createHeader(session),
         body: JSON.stringify(body)
       };
     }
 
-    fetch(url, options)
+    fetch(url, fetchOptions)
       .then(async response => {
         if (!response.ok)
           throw new Error(`Server error: ${response.status}`);
@@ -146,7 +155,7 @@ const createHttpClient = (config = {}) => {
       }).catch(error => {
         console.error('Errore nel download:', error);
       }).finally(() => {
-        if (loading) loading();
+        if (func) func();
       });
   };
 
