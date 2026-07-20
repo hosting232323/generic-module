@@ -84,45 +84,32 @@ const createHttpClient = (config = {}) => {
     return null;
   };
 
-  const buildUploadFormData = (body) => {
-    const formData = new FormData();
-    const data = {};
-
-    Object.keys(body).forEach(key => {
-      const value = body[key];
+  const appendFile = (formData, key, value) => {
+    if (Array.isArray(value)) {
+      value.forEach(item => {
+        const file = extractFile(item);
+        if (file)
+          formData.append(file.name || key, file);
+      });
+    } else {
       const file = extractFile(value);
-
-      if (file) {
+      if (file)
         formData.append(key, file);
-      } else if (Array.isArray(value)) {
-        const remaining = [];
-        value.forEach(item => {
-          const itemFile = extractFile(item);
-          if (itemFile)
-            formData.append(itemFile.name || key, itemFile);
-          else
-            remaining.push(item);
-        });
-        if (remaining.length)
-          data[key] = remaining;
-      } else {
-        data[key] = value;
-      }
-    });
-
-    formData.append('data', JSON.stringify(data));
-    return formData;
+    }
   };
 
   const uploadRequest = (endpoint, method = 'POST', options = {}, func = null) => {
     const {
       session = true,
       hostname = undefined,
-      body = {}
+      body = {},
+      files = {}
     } = options;
 
     const finalHostname = hostname || defaultHostname;
-    const formData = buildUploadFormData(body);
+    const formData = new FormData();
+    formData.append('data', JSON.stringify(body));
+    Object.keys(files).forEach(key => appendFile(formData, key, files[key]));
 
     fetch(`${finalHostname}${endpoint}`, {
       method: method,
