@@ -68,17 +68,48 @@ const createHttpClient = (config = {}) => {
     });
   };
 
-  const uploadRequest = (endpoint, options = {}, func = null) => {
+  const isFilePart = (value) =>
+    (typeof File !== 'undefined' && value instanceof File) ||
+    (typeof Blob !== 'undefined' && value instanceof Blob);
+
+  const extractFile = (value) => {
+    if (isFilePart(value))
+      return value;
+    if (value && typeof value === 'object') {
+      if (isFilePart(value.selectedFile))
+        return value.selectedFile;
+      if (isFilePart(value.selectedImage))
+        return value.selectedImage;
+    }
+    return null;
+  };
+
+  const appendFile = (formData, key, value) => {
+    if (Array.isArray(value)) {
+      value.forEach(item => {
+        const file = extractFile(item);
+        if (file)
+          formData.append(file.name || key, file);
+      });
+    } else {
+      const file = extractFile(value);
+      if (file)
+        formData.append(key, file);
+    }
+  };
+
+  const uploadRequest = (endpoint, method = 'POST', options = {}, func = null) => {
     const {
       session = true,
       hostname = undefined,
       body = {},
-      method = 'POST'
+      files = {}
     } = options;
 
     const finalHostname = hostname || defaultHostname;
     const formData = new FormData();
-    Object.keys(body).forEach(key => formData.append(key, body[key]));
+    formData.append('data', JSON.stringify(body));
+    Object.keys(files).forEach(key => appendFile(formData, key, files[key]));
 
     fetch(`${finalHostname}${endpoint}`, {
       method: method,
