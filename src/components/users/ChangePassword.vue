@@ -98,8 +98,9 @@ const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
     message.value = '';
     loading.value = true;
-    http.postRequest('user/ask-change-password', {
-      email: mail.value,
+    http.makeRequest('user/ask-change-password', 'POST', {
+      body: { email: mail.value },
+      hostname: props.hostname
     },
     function (data) {
       loading.value = false;
@@ -110,7 +111,7 @@ const askChangePassword = () => {
         messageType.value = 'error';
         message.value = data.message;
       }
-    }, 'POST', undefined, props.hostname);
+    });
   }
 };
 </script>

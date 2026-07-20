@@ -23,12 +23,12 @@ export const useShopStore = defineStore('shop:genericFeStore', {
     },
     initDataByProject(data, func) {
       if(data.stripeProduct)
-        http.getRequest('shop/stripe-product', {
-          project: data.projectName
+        http.makeRequest('shop/stripe-product', 'GET', {
+          params: { project: data.projectName }
         }, (res) => this.formatData(res.data, func));
       else
-        http.getRequest('shop/db-product', {
-          project: data.projectName
+        http.makeRequest('shop/db-product', 'GET', {
+          params: { project: data.projectName }
         }, (res) => this.formatData(
           res.data,
           func,
@@ -46,11 +46,13 @@ export const useShopStore = defineStore('shop:genericFeStore', {
       func();
     },
     placeOrder(storeData, products, pickup = false) {
-      http.postRequest('shop/stripe-session', {
-        project_name: storeData.projectName,
-        products: products,
-        pickup: pickup,
-        from_db: !storeData.stripeProduct
+      http.makeRequest('shop/stripe-session', 'POST', {
+        body: {
+          project_name: storeData.projectName,
+          products: products,
+          pickup: pickup,
+          from_db: !storeData.stripeProduct
+        }
       }, function(data) {
         if (data.checkout_url)
           window.location.href = data.checkout_url;

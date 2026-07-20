@@ -113,13 +113,15 @@ const sendMail = () => {
     !validation.validateInput(name.value, validation.requiredRules) &&
     !validation.validateInput(body.value, validation.requiredRules)
   ) {
-    http.postRequest('send-mail', {
-      email: mail,
-      subject: `Qualcuno ho usato il form del sito ${info.name}`,
-      body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
-        `Nominativo: ${name.value}\n` +
-        `Mail: ${email.value}\n\n` +
-        `Testo:\n${body.value}`
+    http.makeRequest('send-mail', 'POST', {
+      body: {
+        email: mail,
+        subject: `Qualcuno ho usato il form del sito ${info.name}`,
+        body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
+          `Nominativo: ${name.value}\n` +
+          `Mail: ${email.value}\n\n` +
+          `Testo:\n${body.value}`
+      }
     }, function () {
       alert('Mail inviata\nTi ringraziamo per il contatto');
     });
