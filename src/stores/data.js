@@ -15,13 +15,13 @@ export const useDataStore = defineStore('data:genericFeStore', {
     },
     initDataByDemoOrTemplateLayout(hostname, type, id){
       const router = useRouter();
-      http.getRequest(`site/${type}/${id}`, {}, (data) => {
+      http.makeRequest(`site/${type}/${id}`, 'GET', { hostname }, (data) => {
         if(data.status == 'ok') {
           this.demoId = id;
           this.updateData(data.data);
         } else
-          router.push({ name: 'DemoNotFound' }); 
-      }, 'GET', undefined, hostname);
+          router.push({ name: 'DemoNotFound' });
+      });
     },
     initDataByJson(json) {
       this.updateData(json);

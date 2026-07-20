@@ -32,36 +32,32 @@ const createHttpClient = (config = {}) => {
     } else {
       if (data && data.new_token)
         setToken(data.new_token);
-      func(data);
+      if (func)
+        func(data);
     }
   };
 
-  const postRequest = (endpoint, body, func, method = 'POST', session = true, hostname = undefined) => {
-    const finalHostname = hostname || defaultHostname;
-    fetch(`${finalHostname}${endpoint}`, {
-      method: method,
-      headers: createHeader(session),
-      body: JSON.stringify(body)
-    }).then(response => {
-      if (!response.ok)
-        throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
-      return response.json();
-    }).then(data => {
-      sessionHandler(data, func, session);
-    }).catch(error => {
-      console.error('Errore nella richiesta:', error);
-    });
-  };
+  const makeRequest = (endpoint, method = 'GET', options = {}, func = null) => {
+    const {
+      session = true,
+      hostname = undefined,
+      body = undefined,
+      params = undefined
+    } = options;
 
-  const getRequest = (endpoint, params, func, method = 'GET', session = true, hostname = undefined) => {
     const finalHostname = hostname || defaultHostname;
     const url = new URL(`${finalHostname}${endpoint}`);
-    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+    if (params)
+      Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
-    fetch(url, {
+    const fetchOptions = {
       method: method,
       headers: createHeader(session)
-    }).then(response => {
+    };
+    if (body !== undefined)
+      fetchOptions.body = JSON.stringify(body);
+
+    fetch(url, fetchOptions).then(response => {
       if (!response.ok)
         throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
       return response.json();
@@ -72,10 +68,17 @@ const createHttpClient = (config = {}) => {
     });
   };
 
-  const postRequestFile = (endpoint, data, func, method = 'POST', session = true, hostname = undefined) => {
+  const uploadRequest = (endpoint, options = {}, func = null) => {
+    const {
+      session = true,
+      hostname = undefined,
+      body = {},
+      method = 'POST'
+    } = options;
+
     const finalHostname = hostname || defaultHostname;
     const formData = new FormData();
-    Object.keys(data).forEach(key => formData.append(key, data[key]));
+    Object.keys(body).forEach(key => formData.append(key, body[key]));
 
     fetch(`${finalHostname}${endpoint}`, {
       method: method,
@@ -149,9 +152,8 @@ const createHttpClient = (config = {}) => {
 
   return {
     hostname: defaultHostname,
-    postRequest,
-    getRequest,
-    postRequestFile,
+    makeRequest,
+    uploadRequest,
     downloadRequest
   };
 };

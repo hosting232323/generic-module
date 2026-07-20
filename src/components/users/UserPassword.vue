@@ -130,9 +130,12 @@ const changePassword = () => {
     } else {
       message.value = '';
       loading.value = true;
-      http.postRequest('user/change-password', {
-        pass_token: route.params.token,
-        new_password: encryptPassword(pass.value, props.secretKey, props.iv)
+      http.makeRequest('user/change-password', 'POST', {
+        body: {
+          pass_token: route.params.token,
+          new_password: encryptPassword(pass.value, props.secretKey, props.iv)
+        },
+        hostname: props.hostname
       }, function (data) {
         loading.value = false;
         if (data.status === 'ok') {
@@ -142,7 +145,7 @@ const changePassword = () => {
           messageType.value = 'error';
           message.value = data.message;
         }
-      }, 'POST', undefined, props.hostname);
+      });
     }
   }
 };

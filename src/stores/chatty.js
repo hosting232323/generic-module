@@ -33,16 +33,18 @@ export const useChattyStore = defineStore('chatty:genericFeStore', {
       if (this.data.stream) {
         await this.streamMessage(`${this.hostname}chatty/stream-chat`, body);
       } else {
-        http.postRequest('chatty/chat',
-          body, 
-          (data) => {
-            if(data.status == 'ok') {
-              this.messages.push(data.response);
-              this.sessionId = data.session_id;
-            }
-            this.loading = false;
-            this.showFaq = true;
-          }, 'POST', router, this.hostname);
+        http.makeRequest('chatty/chat', 'POST', {
+          body: body,
+          session: !!router,
+          hostname: this.hostname
+        }, (data) => {
+          if(data.status == 'ok') {
+            this.messages.push(data.response);
+            this.sessionId = data.session_id;
+          }
+          this.loading = false;
+          this.showFaq = true;
+        });
       }
     },
     async streamMessage (url, body) {
