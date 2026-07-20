@@ -172,30 +172,34 @@ const handleGoogleLogin = () => {
 };
 
 const handleCredentialResponse = (response) => {
-  http.postRequest('user/google-login', {
-    token: response.credential
+  http.makeRequest('user/google-login', 'POST', {
+    body: { token: response.credential },
+    hostname: props.hostname
   }, (data) => {
     if (data.status === 'ok')
       emits('callBack', data);
     else
       message.value = data.message;
-  }, 'POST', undefined, props.hostname);
+  });
 };
 
 const login = () => {
   if (mail.value && pass.value) {
     message.value = '';
     loginLoading.value = true;
-    http.postRequest('user/login', {
-      email: mail.value,
-      password: encryptPassword(pass.value, props.secretKey, props.iv)
+    http.makeRequest('user/login', 'POST', {
+      body: {
+        email: mail.value,
+        password: encryptPassword(pass.value, props.secretKey, props.iv)
+      },
+      hostname: props.hostname
     }, function (data) {
       loginLoading.value = false;
       if (data.status === 'ok')
         emits('callBack', data);
       else
         message.value = data.message;
-    }, 'POST', undefined, props.hostname);
+    });
   }
 };
 

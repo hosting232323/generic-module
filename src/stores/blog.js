@@ -19,8 +19,8 @@ export const useBlogStore = defineStore('blog:genericFeStore', {
         console.error('No store data found');
     },
     initDataByProject(projectName, func) {
-      http.getRequest('blog/post', {
-        project: projectName
+      http.makeRequest('blog/post', 'GET', {
+        params: { project: projectName }
       }, (res) => this.initDataFromJson(res.posts.reverse(), func));
     },
     initDataFromJson(posts, func) {

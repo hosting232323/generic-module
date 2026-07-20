@@ -110,9 +110,12 @@ const registerUser = () => {
   ) {
     message.value = '';
     loading.value = true;
-    http.postRequest('user/register-user', {
-      name: name.value,
-      email: mail.value,
+    http.makeRequest('user/register-user', 'POST', {
+      body: {
+        name: name.value,
+        email: mail.value,
+      },
+      hostname: props.hostname
     }, function (data) {
       loading.value = false;
       if (data.status === 'ok') {
@@ -122,7 +125,7 @@ const registerUser = () => {
         messageType.value = 'error';
         message.value = data.message;
       }
-    }, 'POST', undefined, props.hostname);
+    });
   }
 };
 </script>
