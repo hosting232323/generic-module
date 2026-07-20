@@ -68,12 +68,11 @@ const createHttpClient = (config = {}) => {
     });
   };
 
-  const uploadRequest = (endpoint, options = {}, func = null) => {
+  const uploadRequest = (endpoint, method = 'POST', options = {}, func = null) => {
     const {
       session = true,
       hostname = undefined,
-      body = {},
-      method = 'POST'
+      body = {}
     } = options;
 
     const finalHostname = hostname || defaultHostname;
