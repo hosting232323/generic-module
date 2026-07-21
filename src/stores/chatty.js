@@ -19,7 +19,7 @@ export const useChattyStore = defineStore('chatty:genericFeStore', {
       this.hostname = hostname;
       this.messages = [data.message];
     },
-    async sendMessage (router) {
+    async sendMessage () {
       if (!this.userMessage) return;
 
       this.loading = true;
