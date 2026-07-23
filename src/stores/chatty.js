@@ -2,7 +2,7 @@ import { nextTick } from 'vue';
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
 
-export const useChattyStore = defineStore('chatty:genericFeStore', {
+export const useChattyStore = defineStore('chatty', {
   state: () => ({
     data: {},
     messages: [],

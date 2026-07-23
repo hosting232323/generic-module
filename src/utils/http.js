@@ -1,10 +1,8 @@
 /* eslint-disable no-console */
 
-const viteHostname = import.meta.env.VITE_HOSTNAME;
-
 const createHttpClient = (config = {}) => {
   const {
-    hostname: defaultHostname = viteHostname,
+    hostname: defaultHostname,
     authHeader = 'Token',
     getToken = () => localStorage.getItem('token'),
     setToken = () => {},

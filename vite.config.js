@@ -11,10 +11,7 @@ export default defineConfig({
       template: { transformAssetUrls }
     }),
     vuetify({
-      autoImport: true,
-      styles: {
-        configFile: 'src/styles/settings.scss'
-      }
+      autoImport: true
     }),
     cssInjectedByJsPlugin()
   ],
@@ -35,9 +32,9 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'vue',
-        'vuetify',
         'vue-router',
-        'pinia'
+        'pinia',
+        /^vuetify/
       ]
     }
   }

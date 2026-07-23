@@ -15,7 +15,7 @@
     "src"
   ],
   "scripts": {
-    "build": "vite build --config vite.config.module.js",
+    "build": "vite build --config vite.config.js",
     "lint": "eslint \"src/**/*.{js,vue}\" --fix"
   },
   "dependencies": {
@@ -35,7 +35,6 @@
     "eslint": "^10.0.2",
     "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.4.0",
-    "sass": "^1.97.3",
     "vite": "^7.3.1",
     "vite-plugin-css-injected-by-js": "^3.5.2",
     "vite-plugin-vuetify": "^2.1.3"
