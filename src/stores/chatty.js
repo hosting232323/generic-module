@@ -2,7 +2,7 @@ import { nextTick } from 'vue';
 import http from '@/utils/http';
 import { defineStore } from 'pinia';
 
-export const useChattyStore = defineStore('chatty:genericFeStore', {
+export const useChattyStore = defineStore('chatty', {
   state: () => ({
     data: {},
     messages: [],
@@ -19,7 +19,7 @@ export const useChattyStore = defineStore('chatty:genericFeStore', {
       this.hostname = hostname;
       this.messages = [data.message];
     },
-    async sendMessage (router) {
+    async sendMessage () {
       if (!this.userMessage) return;
 
       this.loading = true;

@@ -1,13 +1,9 @@
 import vue from '@vitejs/plugin-vue'
-import ViteFonts from 'unplugin-fonts/vite'
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
-import dotenv from 'dotenv'
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
-
-dotenv.config()
 
 export default defineConfig({
   plugins: [
@@ -15,20 +11,7 @@ export default defineConfig({
       template: { transformAssetUrls }
     }),
     vuetify({
-      autoImport: true,
-      styles: {
-        configFile: 'src/styles/settings.scss'
-      }
-    }),
-    ViteFonts({
-      google: {
-        families: [
-          {
-            name: 'Roboto',
-            styles: 'wght@100;300;400;500;700;900'
-          }
-        ]
-      }
+      autoImport: true
     }),
     cssInjectedByJsPlugin()
   ],
@@ -37,9 +20,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
     extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue']
-  },
-  server: {
-    port: 3000
   },
   build: {
     outDir: 'dist',
@@ -52,20 +32,10 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'vue',
-        'vuetify',
         'vue-router',
         'pinia',
-        'pinia-plugin-persistedstate'
-      ],
-      output: {
-        globals: {
-          vue: 'Vue',
-          vuetify: 'Vuetify',
-          'vue-router': 'VueRouter',
-          pinia: 'Pinia',
-          'pinia-plugin-persistedstate': 'PiniaPluginPersistedState'
-        }
-      }
+        /^vuetify/
+      ]
     }
   }
 })
