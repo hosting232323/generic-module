@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 
+import fileUtils from './files.js';
+
 const createHttpClient = (config = {}) => {
   const {
     hostname: defaultHostname,
@@ -7,6 +9,8 @@ const createHttpClient = (config = {}) => {
     getToken = () => localStorage.getItem('token'),
     setToken = () => {},
     router = undefined,
+    allowedExtensions = fileUtils.defaultExtensions,
+    onError = (message) => alert(message),
     onSessionExpired = () => {
       alert('Sessione scaduta');
       if (router) router.push('/');
@@ -82,18 +86,15 @@ const createHttpClient = (config = {}) => {
     return null;
   };
 
-  const appendFile = (formData, key, value) => {
+  const collectFiles = (key, value) => {
     if (Array.isArray(value)) {
-      value.forEach(item => {
-        const file = extractFile(item);
-        if (file)
-          formData.append(file.name || key, file);
-      });
-    } else {
-      const file = extractFile(value);
-      if (file)
-        formData.append(key, file);
+      return value
+        .map(item => extractFile(item))
+        .filter(file => file)
+        .map(file => ({ name: file.name || key, file }));
     }
+    const file = extractFile(value);
+    return file ? [{ name: key, file }] : [];
   };
 
   const uploadRequest = (endpoint, method = 'POST', options = {}, func = null) => {
@@ -101,13 +102,23 @@ const createHttpClient = (config = {}) => {
       session = true,
       hostname = undefined,
       body = {},
-      files = {}
+      files = {},
+      extensions = allowedExtensions
     } = options;
 
     const finalHostname = hostname || defaultHostname;
+    const entries = Object.keys(files).flatMap(key => collectFiles(key, files[key]));
+
+    const fileError = fileUtils.validateFiles(entries.map(entry => entry.file), extensions);
+    if (fileError) {
+      onError(fileError);
+      if (func) func({ status: 'ko', message: fileError });
+      return;
+    }
+
     const formData = new FormData();
     formData.append('data', JSON.stringify(body));
-    Object.keys(files).forEach(key => appendFile(formData, key, files[key]));
+    entries.forEach(entry => formData.append(entry.name, entry.file));
 
     fetch(`${finalHostname}${endpoint}`, {
       method: method,
@@ -161,7 +172,7 @@ const createHttpClient = (config = {}) => {
           const data = await response.json();
           sessionHandler(data, (d) => {
             if (d.status === 'ko')
-              alert(d.message || 'Errore durante il download');
+              onError(d.message || 'Errore durante il download');
           }, session);
           throw new Error('Server returned JSON instead of a file');
         }
