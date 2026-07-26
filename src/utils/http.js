@@ -10,6 +10,8 @@ const createHttpClient = (config = {}) => {
     setToken = () => {},
     router = undefined,
     allowedExtensions = fileUtils.defaultExtensions,
+    refreshEndpoint = undefined,
+    credentials = refreshEndpoint ? 'include' : 'same-origin',
     onError = (message) => alert(message),
     onSessionExpired = () => {
       alert('Sessione scaduta');
@@ -26,6 +28,45 @@ const createHttpClient = (config = {}) => {
     if (session)
       headers[authHeader] = getToken();
     return headers;
+  };
+
+  // Access token scaduto -> il backend risponde 401. Proviamo a rinnovarlo una
+  // volta col refresh token (cookie HttpOnly, viaggia con credentials), e in
+  // caso di successo la richiesta originale viene ripetuta. Attivo solo quando
+  // e' configurato refreshEndpoint: senza, il comportamento resta invariato.
+  let refreshing = null;
+
+  const refreshAccessToken = () => {
+    if (!refreshing) {
+      refreshing = fetch(`${defaultHostname}${refreshEndpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials
+      }).then(response => response.ok ? response.json() : null)
+        .then(data => {
+          if (data && data.status === 'ok' && data.access_token) {
+            setToken(data.access_token);
+            return true;
+          }
+          return false;
+        }).catch(() => false)
+        .finally(() => { refreshing = null; });
+    }
+    return refreshing;
+  };
+
+  const executeFetch = (url, fetchOptions, session) => {
+    return fetch(url, { ...fetchOptions, credentials }).then(response => {
+      if (session && response.status === 401 && refreshEndpoint) {
+        return refreshAccessToken().then(renewed => {
+          if (!renewed)
+            return response;
+          const retryHeaders = { ...fetchOptions.headers, [authHeader]: getToken() };
+          return fetch(url, { ...fetchOptions, headers: retryHeaders, credentials });
+        });
+      }
+      return response;
+    });
   };
 
   const sessionHandler = (data, func, session) => {
@@ -59,12 +100,17 @@ const createHttpClient = (config = {}) => {
     if (body !== undefined)
       fetchOptions.body = JSON.stringify(body);
 
-    fetch(url, fetchOptions).then(response => {
+    executeFetch(url, fetchOptions, session).then(response => {
+      if (session && response.status === 401) {
+        onSessionExpired({ status: 'session', message: 'Sessione scaduta' });
+        return null;
+      }
       if (!response.ok)
         throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
       return response.json();
     }).then(data => {
-      sessionHandler(data, func, session);
+      if (data)
+        sessionHandler(data, func, session);
     }).catch(error => {
       console.error('Errore nella richiesta:', error);
     });
@@ -120,16 +166,21 @@ const createHttpClient = (config = {}) => {
     formData.append('data', JSON.stringify(body));
     entries.forEach(entry => formData.append(entry.name, entry.file));
 
-    fetch(`${finalHostname}${endpoint}`, {
+    executeFetch(`${finalHostname}${endpoint}`, {
       method: method,
       headers: createHeader(session, true),
       body: formData
-    }).then(response => {
+    }, session).then(response => {
+      if (session && response.status === 401) {
+        onSessionExpired({ status: 'session', message: 'Sessione scaduta' });
+        return null;
+      }
       if (!response.ok)
         throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
       return response.json();
     }).then(data => {
-      sessionHandler(data, func, session);
+      if (data)
+        sessionHandler(data, func, session);
     }).catch(error => {
       console.error('Errore nella richiesta:', error);
     });
@@ -162,8 +213,12 @@ const createHttpClient = (config = {}) => {
       };
     }
 
-    fetch(url, fetchOptions)
+    executeFetch(url, fetchOptions, session)
       .then(async response => {
+        if (session && response.status === 401) {
+          onSessionExpired({ status: 'session', message: 'Sessione scaduta' });
+          throw new Error('Sessione scaduta');
+        }
         if (!response.ok)
           throw new Error(`Server error: ${response.status}`);
 

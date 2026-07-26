@@ -109,7 +109,6 @@
 
 import http from '@/utils/http';
 import { ref, onMounted, computed } from 'vue';
-import { encryptPassword } from '@/utils/encrypt';
 
 const props = defineProps({
   logo: {
@@ -131,14 +130,6 @@ const props = defineProps({
   signUp: {
     type: Boolean,
     default: true
-  },
-  secretKey: {
-    type: String,
-    required: true
-  },
-  iv: {
-    type: String,
-    required: true
   },
   hostname: {
     type: String,
@@ -190,7 +181,7 @@ const login = () => {
     http.makeRequest('user/login', 'POST', {
       body: {
         email: mail.value,
-        password: encryptPassword(pass.value, props.secretKey, props.iv)
+        password: pass.value
       },
       hostname: props.hostname
     }, function (data) {
