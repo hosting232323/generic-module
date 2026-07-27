@@ -216,15 +216,15 @@ onMounted(() => {
   flex-direction: column;
 }
 
-.fab-message .msg.bot ol {
+.fab-message .msg.bot :deep(ol) {
   padding-left: 30px;
 }
 
-.fab-message .msg.bot ul {
+.fab-message .msg.bot :deep(ul) {
   padding-left: 30px;
 }
 
-.fab-message .msg.bot img {
+.fab-message .msg.bot :deep(img) {
   height: 500px;
 }
 
