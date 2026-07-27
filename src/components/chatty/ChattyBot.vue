@@ -32,7 +32,7 @@ const fabWheel = ref(null);
 const fabButton = ref(null);
 const chattyStore = useChattyStore();
 
-const { hostname, botData } = defineProps({
+const { hostname, botData, http } = defineProps({
   hostname: {
     type: String,
     required: true
@@ -40,10 +40,14 @@ const { hostname, botData } = defineProps({
   botData: {
     type: Object,
     required: true
+  },
+  http: {
+    type: Object,
+    default: undefined
   }
 });
 
-chattyStore.initData(botData, hostname);
+chattyStore.initData(botData, hostname, http);
 
 const colorPaletteDefault = {
   theme_color: '#126EE2',
