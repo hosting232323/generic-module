@@ -5951,7 +5951,7 @@ const Ze = un("chatty", {
       const n = { message: a, bot_id: this.data.botId, session_id: this.sessionId };
       this.data.stream ? await this.streamMessage(`${this.hostname}chatty/stream-chat`, n) : vr.makeRequest("chatty/chat", "POST", {
         body: n,
-        session: !1,
+        session: this.data.session == !0,
         hostname: this.hostname
       }, (t) => {
         t.status == "ok" && (this.messages.push(t.response), this.sessionId = t.session_id), this.loading = !1, this.showFaq = !0;
