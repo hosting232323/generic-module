@@ -38,7 +38,7 @@ export const useChattyStore = defineStore('chatty', {
       } else {
         http.makeRequest('chatty/chat', 'POST', {
           body: body,
-          session: false,
+          session: this.data.session == true,
           hostname: this.hostname
         }, (data) => {
           if(data.status == 'ok') {
