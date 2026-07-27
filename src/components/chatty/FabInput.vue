@@ -8,11 +8,11 @@
       type="text"
       placeholder="Scrivi qui..."
       :disabled="loading"
-      @keyup.enter="chattyStore.sendMessage(router)"
+      @keyup.enter="chattyStore.sendMessage()"
     >
     <button
       v-if="!loading"
-      @click="chattyStore.sendMessage(router)"
+      @click="chattyStore.sendMessage()"
     >
       <v-icon>mdi-send-circle</v-icon>
     </button>
@@ -27,10 +27,8 @@
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { useRouter } from 'vue-router';
 import { useChattyStore } from '@/stores/chatty';
 
-const router = useRouter();
 const chattyStore = useChattyStore();
 const { exportMode, userMessage, loading } = storeToRefs(chattyStore);
 </script>

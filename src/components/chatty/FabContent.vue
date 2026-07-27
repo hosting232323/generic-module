@@ -101,14 +101,12 @@
 <script setup>
 import { marked } from 'marked';
 import { storeToRefs } from 'pinia';
-import { useRouter } from 'vue-router';
 import { useChattyStore } from '@/stores/chatty';
 import { computed, ref, nextTick, watch, onMounted } from 'vue';
 
 const chattyStore = useChattyStore();
 const { data, exportMode, messages, userMessage, loading, showFaq } = storeToRefs(chattyStore);
 
-const router = useRouter();
 const showArrow = ref(false);
 const fabContent = ref(null);
 const exportSuccess = ref(false);
@@ -125,7 +123,7 @@ const clickFaq = (faq) => {
 
   clickedFaqs.value.add(faq.value);
   userMessage.value = faq.value;
-  chattyStore.sendMessage(router);
+  chattyStore.sendMessage();
 };
 
 const checkScroll = () => {

@@ -1,6 +1,8 @@
 import { nextTick } from 'vue';
-import http from '@/utils/http';
 import { defineStore } from 'pinia';
+import defaultHttp from '@/utils/http';
+
+let http = defaultHttp;
 
 export const useChattyStore = defineStore('chatty', {
   state: () => ({
@@ -14,10 +16,11 @@ export const useChattyStore = defineStore('chatty', {
     exportMode: false,
   }),
   actions: {
-    initData(data, hostname) {
+    initData(data, hostname, httpClient = undefined) {
       this.data = data;
       this.hostname = hostname;
       this.messages = [data.message];
+      if (httpClient) http = httpClient;
     },
     async sendMessage () {
       if (!this.userMessage) return;
