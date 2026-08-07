@@ -1,33 +1,23 @@
 <template>
-  <v-combobox
+  <v-autocomplete
     v-model="localValue"
+    v-model:search="searchQuery"
     :label="label"
     :class="customClass"
-    :items="suggestions"
     :rules="rules"
+    :items="suggestions"
+    :custom-filter="customFilter"
     no-filter
     clearable
     hide-no-data
-    :hide-details="hasDistanceCheck ? (showCustomError ? false : 'true') : false"
-    :append-inner-icon="isCameback ? (showOtherLocation ? 'mdi-minus' : 'mdi-plus') : ''"
     @update:search="onSearch"
     @update:model-value="onSelect"
     @blur="onBlur"
-    @click:append-inner="toggleOtherLocation"
   />
-  <div
-    v-if="showCustomError"
-    class="error-message"
-  >
-    <span
-      v-for="msg in customErrors"
-      :key="msg"
-    >{{ msg }}</span>
-  </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, watch } from 'vue';
 
 const props = defineProps({
   modelValue: {
@@ -48,52 +38,37 @@ const props = defineProps({
   },
   formatted: {
     type: Boolean,
-    default: false
-  },
-  origin: {
-    type: Object,
-    default: null
-  },
-  maxDistanceKm: {
-    type: Number,
-    default: null
-  },
-  distanceErrorMessage: {
-    type: String,
-    default: ''
-  },
-  isCameback: {
-    type: Boolean,
-    default: false
-  },
-  showOtherLocation: {
-    type: Boolean,
-    default: false
+    default: true
   }
 });
 
 const emit = defineEmits([
   'update:modelValue',
-  'update:isValid',
   'addressComponents',
-  'update:showOtherLocation'
+  'valid',
+  'update:isValid',
+  'update:is-valid'
 ]);
 
 const NOMINATIM_URL = 'https://nominatim.fastsite.it';
 
-// Nel combobox mostriamo solo l'indirizzo leggibile; quando c'e' il controllo
-// distanza la coppia di coordinate viaggia nel valore emesso al parent col
-// suffisso ' - LatLng lat, lng', che il backend (calcolatore_distanza) parsa.
-const stripLatLng = (value) => (value ? value.split(' - LatLng')[0] : value);
-
-const hasDistanceCheck = props.origin && props.maxDistanceKm != null;
-
-const localValue = ref(stripLatLng(props.modelValue));
+const localValue = ref(props.modelValue);
+const searchQuery = ref(props.modelValue || '');
 const suggestions = ref([]);
 const results = new Map();
-const isDistanceValid = ref(true);
-const touched = ref(false);
 let debounceId = null;
+
+const customFilter = () => true;
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    if (newVal !== localValue.value) {
+      localValue.value = newVal;
+      searchQuery.value = newVal || '';
+    }
+  }
+);
 
 const extractHouseNumber = (query, road, town) => {
   if (!query) return '';
@@ -102,7 +77,7 @@ const extractHouseNumber = (query, road, town) => {
     if (part)
       rest = rest.replace(new RegExp(part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), ' ');
   });
-  rest = rest.replace(/\b\d{5}\b/g, ' ');
+  rest = rest.replace(/\b\d{5}\b/g, ' '); // scarta il CAP
   const match = rest.match(/\b\d{1,4}(?:\s?(?:bis|ter))?(?:\s?[/-]?\s?[a-z])?\b/i);
   return match ? match[0].replace(/\s+/g, '').toUpperCase() : '';
 };
@@ -136,15 +111,7 @@ const formatAddress = (address, query) => {
     .join(', ');
 };
 
-const buildLabel = (item, query) =>
-  props.formatted ? formatAddress(item.address || {}, query) : item.display_name;
-
 const onSearch = (query) => {
-  emit('update:modelValue', query);
-  if (hasDistanceCheck) {
-    isDistanceValid.value = false;
-    emit('update:isValid', false);
-  }
   clearTimeout(debounceId);
   if (!query || query.length < 3) {
     suggestions.value = [];
@@ -152,14 +119,13 @@ const onSearch = (query) => {
   }
   debounceId = setTimeout(async () => {
     try {
-      const res = await fetch(
-        `${NOMINATIM_URL}/search?format=json&addressdetails=1&countrycodes=it&limit=5&q=${encodeURIComponent(query)}`
-      );
+      const url = `${NOMINATIM_URL}/search?format=json&addressdetails=1&countrycodes=it&limit=5&q=${encodeURIComponent(query)}`;
+      const res = await fetch(url);
       const data = await res.json();
       results.clear();
       const labels = [];
       data.forEach((item) => {
-        const label = buildLabel(item, query);
+        const label = formatAddress(item.address || {}, query);
         if (!label || results.has(label)) return;
         results.set(label, item);
         labels.push(label);
@@ -172,75 +138,27 @@ const onSearch = (query) => {
 };
 
 const onSelect = (value) => {
-  const item = results.get(value);
-  if (hasDistanceCheck) {
-    if (!item) {
-      isDistanceValid.value = false;
-      emit('update:isValid', false);
-      emit('update:modelValue', value);
-      return;
-    }
-    const lat = parseFloat(item.lat);
-    const lng = parseFloat(item.lon);
-    const withinDistance = isWithinDistance(lat, lng);
-    localValue.value = value;
-    isDistanceValid.value = withinDistance;
-    emit('update:isValid', withinDistance);
-    emit('update:modelValue', `${value} - LatLng ${lat}, ${lng}`);
-    return;
-  }
+  if (!value) return;
+  localValue.value = value;
   emit('update:modelValue', value);
-  emit('update:isValid', Boolean(item));
+  const item = results.get(value);
+  const isValid = Boolean(item);
+  emit('valid', isValid);
+  emit('update:isValid', isValid);
+  emit('update:is-valid', isValid);
   if (item)
     emit('addressComponents', { address: value, cap: item.address?.postcode || '' });
 };
 
-const toggleOtherLocation = () => {
-  emit('update:showOtherLocation', !props.showOtherLocation);
-};
-
 const onBlur = () => {
-  touched.value = true;
-};
-
-const customErrors = computed(() => {
-  const errors = [];
-  if (!isDistanceValid.value && props.distanceErrorMessage)
-    errors.push(props.distanceErrorMessage);
-  props.rules.forEach((rule) => {
-    const result = rule(localValue.value);
-    if (result !== true) errors.push(result);
-  });
-  return errors;
-});
-
-const showCustomError = computed(
-  () => hasDistanceCheck && touched.value && customErrors.value.length > 0
-);
-
-const isWithinDistance = (lat2, lon2) => {
-  const R = 6371;
-  const dLat = ((lat2 - props.origin.lat) * Math.PI) / 180;
-  const dLon = ((lon2 - props.origin.lng) * Math.PI) / 180;
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos((props.origin.lat * Math.PI) / 180) *
-    Math.cos((lat2 * Math.PI) / 180) *
-    Math.sin(dLon / 2) *
-    Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c < props.maxDistanceKm;
+  const current = searchQuery.value || localValue.value;
+  if (current && current !== props.modelValue) {
+    emit('update:modelValue', current);
+    const item = results.get(current);
+    const isValid = Boolean(item);
+    emit('valid', isValid);
+    emit('update:isValid', isValid);
+    emit('update:is-valid', isValid);
+  }
 };
 </script>
-
-<style scoped>
-.error-message {
-  color: #B00020;
-  font-size: 12px;
-  padding: 6px 16px;
-  margin-bottom: -20px;
-  display: block;
-  white-space: normal;
-  word-wrap: break-word;
-}
-</style>
