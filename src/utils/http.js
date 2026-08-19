@@ -11,8 +11,11 @@ const createHttpClient = (config = {}) => {
     router = undefined,
     allowedExtensions = fileUtils.defaultExtensions,
     refreshEndpoint = undefined,
+    logoutEndpoint = undefined,
     credentials = refreshEndpoint ? 'include' : 'same-origin',
     onError = (message) => alert(message),
+    // Quando la sessione cade, il client revoca lato server (se logoutEndpoint
+    // e' configurato) e azzera il token prima di chiamare questo hook.
     onSessionExpired = () => {
       alert('Sessione scaduta');
       if (router) router.push('/');
@@ -36,6 +39,12 @@ const createHttpClient = (config = {}) => {
   // e' configurato refreshEndpoint: senza, il comportamento resta invariato.
   let refreshing = null;
 
+  // Il refresh vale solo per il backend che possiede la sessione. Una chiamata
+  // diretta a un altro host che risponde 401 non c'entra col nostro cookie:
+  // rinnovare per quella significherebbe ruotare il token per il motivo
+  // sbagliato.
+  const ownsTheSession = (url) => String(url).startsWith(defaultHostname);
+
   const refreshAccessToken = () => {
     if (!refreshing) {
       refreshing = fetch(`${defaultHostname}${refreshEndpoint}`, {
@@ -55,12 +64,32 @@ const createHttpClient = (config = {}) => {
     return refreshing;
   };
 
+  // Il client considera chiusa la sessione: se sappiamo dove, diciamolo anche al
+  // server, altrimenti il refresh token resta valido e utilizzabile.
+  const revokeSession = () => {
+    if (!logoutEndpoint)
+      return Promise.resolve();
+    return fetch(`${defaultHostname}${logoutEndpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials
+    }).catch(() => {});
+  };
+
+  const expireSession = (data) => {
+    revokeSession();
+    setToken('');
+    onSessionExpired(data);
+  };
+
   const executeFetch = (url, fetchOptions, session) => {
     return fetch(url, { ...fetchOptions, credentials }).then(response => {
-      if (session && response.status === 401 && refreshEndpoint) {
+      if (session && response.status === 401 && refreshEndpoint && ownsTheSession(url)) {
         return refreshAccessToken().then(renewed => {
           if (!renewed)
             return response;
+          // Il body si rimanda com'e': una stringa JSON e' riusabile, e anche un
+          // FormData puo' essere inviato piu' volte (non e' uno stream consumato).
           const retryHeaders = { ...fetchOptions.headers, [authHeader]: getToken() };
           return fetch(url, { ...fetchOptions, headers: retryHeaders, credentials });
         });
@@ -71,7 +100,7 @@ const createHttpClient = (config = {}) => {
 
   const sessionHandler = (data, func, session) => {
     if (session && data.status == 'session') {
-      onSessionExpired(data);
+      expireSession(data);
     } else {
       if (data && data.new_token)
         setToken(data.new_token);
@@ -102,7 +131,7 @@ const createHttpClient = (config = {}) => {
 
     executeFetch(url, fetchOptions, session).then(response => {
       if (session && response.status === 401) {
-        onSessionExpired({ status: 'session', message: 'Sessione scaduta' });
+        expireSession({ status: 'session', message: 'Sessione scaduta' });
         return null;
       }
       if (!response.ok)
@@ -172,7 +201,7 @@ const createHttpClient = (config = {}) => {
       body: formData
     }, session).then(response => {
       if (session && response.status === 401) {
-        onSessionExpired({ status: 'session', message: 'Sessione scaduta' });
+        expireSession({ status: 'session', message: 'Sessione scaduta' });
         return null;
       }
       if (!response.ok)
@@ -216,7 +245,7 @@ const createHttpClient = (config = {}) => {
     executeFetch(url, fetchOptions, session)
       .then(async response => {
         if (session && response.status === 401) {
-          onSessionExpired({ status: 'session', message: 'Sessione scaduta' });
+          expireSession({ status: 'session', message: 'Sessione scaduta' });
           throw new Error('Sessione scaduta');
         }
         if (!response.ok)
