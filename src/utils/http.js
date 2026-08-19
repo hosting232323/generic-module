@@ -82,8 +82,8 @@ const createHttpClient = (config = {}) => {
     onSessionExpired(data);
   };
 
-  const executeFetch = (url, fetchOptions, session) => {
-    return fetch(url, { ...fetchOptions, credentials }).then(response => {
+  const executeFetch = (url, fetchOptions, session, requestCredentials = credentials) => {
+    return fetch(url, { ...fetchOptions, credentials: requestCredentials }).then(response => {
       if (session && response.status === 401 && refreshEndpoint && ownsTheSession(url)) {
         return refreshAccessToken().then(renewed => {
           if (!renewed)
@@ -91,7 +91,7 @@ const createHttpClient = (config = {}) => {
           // Il body si rimanda com'e': una stringa JSON e' riusabile, e anche un
           // FormData puo' essere inviato piu' volte (non e' uno stream consumato).
           const retryHeaders = { ...fetchOptions.headers, [authHeader]: getToken() };
-          return fetch(url, { ...fetchOptions, headers: retryHeaders, credentials });
+          return fetch(url, { ...fetchOptions, headers: retryHeaders, credentials: requestCredentials });
         });
       }
       return response;
@@ -114,7 +114,8 @@ const createHttpClient = (config = {}) => {
       session = true,
       hostname = undefined,
       body = undefined,
-      params = undefined
+      params = undefined,
+      credentials: requestCredentials = undefined
     } = options;
 
     const finalHostname = hostname || defaultHostname;
@@ -129,7 +130,7 @@ const createHttpClient = (config = {}) => {
     if (body !== undefined)
       fetchOptions.body = JSON.stringify(body);
 
-    executeFetch(url, fetchOptions, session).then(response => {
+    executeFetch(url, fetchOptions, session, requestCredentials || credentials).then(response => {
       if (session && response.status === 401) {
         expireSession({ status: 'session', message: 'Sessione scaduta' });
         return null;
@@ -178,7 +179,8 @@ const createHttpClient = (config = {}) => {
       hostname = undefined,
       body = {},
       files = {},
-      extensions = allowedExtensions
+      extensions = allowedExtensions,
+      credentials: requestCredentials = undefined
     } = options;
 
     const finalHostname = hostname || defaultHostname;
@@ -199,7 +201,7 @@ const createHttpClient = (config = {}) => {
       method: method,
       headers: createHeader(session, true),
       body: formData
-    }, session).then(response => {
+    }, session, requestCredentials || credentials).then(response => {
       if (session && response.status === 401) {
         expireSession({ status: 'session', message: 'Sessione scaduta' });
         return null;
