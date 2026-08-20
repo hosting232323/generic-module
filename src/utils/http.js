@@ -67,6 +67,8 @@ const createHttpClient = (config = {}) => {
       sessionHandler(data, func, session);
     }).catch(error => {
       console.error('Errore nella richiesta:', error);
+      onError(error.message);
+      if (func) func({ status: 'ko', message: error.message });
     });
   };
 
@@ -132,6 +134,8 @@ const createHttpClient = (config = {}) => {
       sessionHandler(data, func, session);
     }).catch(error => {
       console.error('Errore nella richiesta:', error);
+      onError(error.message);
+      if (func) func({ status: 'ko', message: error.message });
     });
   };
 
