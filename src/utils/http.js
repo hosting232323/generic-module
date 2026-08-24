@@ -47,9 +47,13 @@ const createHttpClient = (config = {}) => {
 
   const refreshAccessToken = () => {
     if (!refreshing) {
+      const accessToken = getToken();
       refreshing = fetch(`${defaultHostname}${refreshEndpoint}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(accessToken ? { [authHeader]: accessToken } : {})
+        },
         credentials
       }).then(response => response.ok ? response.json() : null)
         .then(data => {
@@ -85,7 +89,12 @@ const createHttpClient = (config = {}) => {
   const executeFetch = (url, fetchOptions, session, requestCredentials = credentials) => {
     return fetch(url, { ...fetchOptions, credentials: requestCredentials }).then(response => {
       if (session && response.status === 401 && refreshEndpoint && ownsTheSession(url)) {
-        return refreshAccessToken().then(renewed => {
+        const requestToken = fetchOptions.headers?.[authHeader];
+        const currentToken = getToken();
+        const renewal = currentToken && currentToken !== requestToken
+          ? Promise.resolve(true)
+          : refreshAccessToken();
+        return renewal.then(renewed => {
           if (!renewed)
             return response;
           // Il body si rimanda com'e': una stringa JSON e' riusabile, e anche un
