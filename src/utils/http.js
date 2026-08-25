@@ -10,7 +10,12 @@ const createHttpClient = (config = {}) => {
     setToken = () => {},
     router = undefined,
     allowedExtensions = fileUtils.defaultExtensions,
+    refreshEndpoint = undefined,
+    logoutEndpoint = undefined,
+    credentials = refreshEndpoint ? 'include' : 'same-origin',
     onError = (message) => alert(message),
+    // Quando la sessione cade, il client revoca lato server (se logoutEndpoint
+    // e' configurato) e azzera il token prima di chiamare questo hook.
     onSessionExpired = () => {
       alert('Sessione scaduta');
       if (router) router.push('/');
@@ -28,9 +33,83 @@ const createHttpClient = (config = {}) => {
     return headers;
   };
 
+  // Access token scaduto -> il backend risponde 401. Proviamo a rinnovarlo una
+  // volta col refresh token (cookie HttpOnly, viaggia con credentials), e in
+  // caso di successo la richiesta originale viene ripetuta. Attivo solo quando
+  // e' configurato refreshEndpoint: senza, il comportamento resta invariato.
+  let refreshing = null;
+
+  // Il refresh vale solo per il backend che possiede la sessione. Una chiamata
+  // diretta a un altro host che risponde 401 non c'entra col nostro cookie:
+  // rinnovare per quella significherebbe ruotare il token per il motivo
+  // sbagliato.
+  const ownsTheSession = (url) => String(url).startsWith(defaultHostname);
+
+  const refreshAccessToken = () => {
+    if (!refreshing) {
+      const accessToken = getToken();
+      refreshing = fetch(`${defaultHostname}${refreshEndpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(accessToken ? { [authHeader]: accessToken } : {})
+        },
+        credentials
+      }).then(response => response.ok ? response.json() : null)
+        .then(data => {
+          if (data && data.status === 'ok' && data.access_token) {
+            setToken(data.access_token);
+            return true;
+          }
+          return false;
+        }).catch(() => false)
+        .finally(() => { refreshing = null; });
+    }
+    return refreshing;
+  };
+
+  // Il client considera chiusa la sessione: se sappiamo dove, diciamolo anche al
+  // server, altrimenti il refresh token resta valido e utilizzabile.
+  const revokeSession = () => {
+    if (!logoutEndpoint)
+      return Promise.resolve();
+    return fetch(`${defaultHostname}${logoutEndpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials
+    }).catch(() => {});
+  };
+
+  const expireSession = (data) => {
+    revokeSession();
+    setToken('');
+    onSessionExpired(data);
+  };
+
+  const executeFetch = (url, fetchOptions, session, requestCredentials = credentials) => {
+    return fetch(url, { ...fetchOptions, credentials: requestCredentials }).then(response => {
+      if (session && response.status === 401 && refreshEndpoint && ownsTheSession(url)) {
+        const requestToken = fetchOptions.headers?.[authHeader];
+        const currentToken = getToken();
+        const renewal = currentToken && currentToken !== requestToken
+          ? Promise.resolve(true)
+          : refreshAccessToken();
+        return renewal.then(renewed => {
+          if (!renewed)
+            return response;
+          // Il body si rimanda com'e': una stringa JSON e' riusabile, e anche un
+          // FormData puo' essere inviato piu' volte (non e' uno stream consumato).
+          const retryHeaders = { ...fetchOptions.headers, [authHeader]: getToken() };
+          return fetch(url, { ...fetchOptions, headers: retryHeaders, credentials: requestCredentials });
+        });
+      }
+      return response;
+    });
+  };
+
   const sessionHandler = (data, func, session) => {
     if (session && data.status == 'session') {
-      onSessionExpired(data);
+      expireSession(data);
     } else {
       if (data && data.new_token)
         setToken(data.new_token);
@@ -44,7 +123,8 @@ const createHttpClient = (config = {}) => {
       session = true,
       hostname = undefined,
       body = undefined,
-      params = undefined
+      params = undefined,
+      credentials: requestCredentials = undefined
     } = options;
 
     const finalHostname = hostname || defaultHostname;
@@ -59,12 +139,17 @@ const createHttpClient = (config = {}) => {
     if (body !== undefined)
       fetchOptions.body = JSON.stringify(body);
 
-    fetch(url, fetchOptions).then(response => {
+    executeFetch(url, fetchOptions, session, requestCredentials || credentials).then(response => {
+      if (session && response.status === 401) {
+        expireSession({ status: 'session', message: 'Sessione scaduta' });
+        return null;
+      }
       if (!response.ok)
         throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
       return response.json();
     }).then(data => {
-      sessionHandler(data, func, session);
+      if (data)
+        sessionHandler(data, func, session);
     }).catch(error => {
       console.error('Errore nella richiesta:', error);
     });
@@ -103,7 +188,8 @@ const createHttpClient = (config = {}) => {
       hostname = undefined,
       body = {},
       files = {},
-      extensions = allowedExtensions
+      extensions = allowedExtensions,
+      credentials: requestCredentials = undefined
     } = options;
 
     const finalHostname = hostname || defaultHostname;
@@ -120,16 +206,21 @@ const createHttpClient = (config = {}) => {
     formData.append('data', JSON.stringify(body));
     entries.forEach(entry => formData.append(entry.name, entry.file));
 
-    fetch(`${finalHostname}${endpoint}`, {
+    executeFetch(`${finalHostname}${endpoint}`, {
       method: method,
       headers: createHeader(session, true),
       body: formData
-    }).then(response => {
+    }, session, requestCredentials || credentials).then(response => {
+      if (session && response.status === 401) {
+        expireSession({ status: 'session', message: 'Sessione scaduta' });
+        return null;
+      }
       if (!response.ok)
         throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
       return response.json();
     }).then(data => {
-      sessionHandler(data, func, session);
+      if (data)
+        sessionHandler(data, func, session);
     }).catch(error => {
       console.error('Errore nella richiesta:', error);
     });
@@ -162,8 +253,12 @@ const createHttpClient = (config = {}) => {
       };
     }
 
-    fetch(url, fetchOptions)
+    executeFetch(url, fetchOptions, session)
       .then(async response => {
+        if (session && response.status === 401) {
+          expireSession({ status: 'session', message: 'Sessione scaduta' });
+          throw new Error('Sessione scaduta');
+        }
         if (!response.ok)
           throw new Error(`Server error: ${response.status}`);
 

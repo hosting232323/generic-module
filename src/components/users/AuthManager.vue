@@ -7,8 +7,6 @@
       :primary-color="primaryColor"
       :secondary-color="secondaryColor"
       :sign-up="signUp"
-      :secret-key="secretKey"
-      :iv="iv"
       :hostname="hostname"
       :google-client-id="googleClientId"
       @change-status="changeStatus"
@@ -29,8 +27,6 @@
       :title="changePasswordTitle"
       :primary-color="primaryColor"
       :secondary-color="secondaryColor"
-      :secret-key="secretKey"
-      :iv="iv"
       :hostname="hostname"
       @change-status="changeStatus"
     />
@@ -72,14 +68,6 @@ defineProps({
   signUp: {
     type: Boolean,
     default: true
-  },
-  secretKey: {
-    type: String,
-    required: true
-  },
-  iv: {
-    type: String,
-    required: true
   },
   hostname: {
     type: String,
