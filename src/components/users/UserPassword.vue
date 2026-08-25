@@ -74,7 +74,6 @@ import { ref } from 'vue';
 import http from '@/utils/http';
 import validation from '@/utils/validation';
 import { useRouter, useRoute } from 'vue-router';
-import { encryptPassword } from '@/utils/encrypt';
 
 const props = defineProps({
   logo: {
@@ -94,14 +93,6 @@ const props = defineProps({
     default: ''
   },
   loginLink: {
-    type: String,
-    required: true
-  },
-  secretKey: {
-    type: String,
-    required: true
-  },
-  iv: {
     type: String,
     required: true
   },
@@ -133,7 +124,7 @@ const changePassword = () => {
       http.makeRequest('user/change-password', 'POST', {
         body: {
           pass_token: route.params.token,
-          new_password: encryptPassword(pass.value, props.secretKey, props.iv)
+          new_password: pass.value
         },
         hostname: props.hostname
       }, function (data) {

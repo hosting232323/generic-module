@@ -109,7 +109,6 @@
 
 import http from '@/utils/http';
 import { ref, onMounted, computed } from 'vue';
-import { encryptPassword } from '@/utils/encrypt';
 
 const props = defineProps({
   logo: {
@@ -131,14 +130,6 @@ const props = defineProps({
   signUp: {
     type: Boolean,
     default: true
-  },
-  secretKey: {
-    type: String,
-    required: true
-  },
-  iv: {
-    type: String,
-    required: true
   },
   hostname: {
     type: String,
@@ -174,7 +165,8 @@ const handleGoogleLogin = () => {
 const handleCredentialResponse = (response) => {
   http.makeRequest('user/google-login', 'POST', {
     body: { token: response.credential },
-    hostname: props.hostname
+    hostname: props.hostname,
+    credentials: 'include'
   }, (data) => {
     if (data.status === 'ok')
       emits('callBack', data);
@@ -190,9 +182,15 @@ const login = () => {
     http.makeRequest('user/login', 'POST', {
       body: {
         email: mail.value,
-        password: encryptPassword(pass.value, props.secretKey, props.iv)
+        password: pass.value
       },
-      hostname: props.hostname
+      hostname: props.hostname,
+      // Il login e' l'unica richiesta che riceve il cookie di refresh, e qui si
+      // usa il client singleton, che non conosce refreshEndpoint e quindi
+      // resterebbe su 'same-origin': in sviluppo e negli e2e, con frontend e
+      // backend su porte diverse, il browser scarterebbe il Set-Cookie e ogni
+      // refresh successivo fallirebbe.
+      credentials: 'include'
     }, function (data) {
       loginLoading.value = false;
       if (data.status === 'ok')
