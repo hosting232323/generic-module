@@ -13,6 +13,8 @@ default:
 
 stages:
   - housekeeping
+  - test
 
 include:
   - local: 'gitlab/housekeeping.yml'
+  - local: 'gitlab/test.yml'
