@@ -1,18 +1,14 @@
 <template>
-  <v-autocomplete
+  <v-text-field
+    ref="fieldRef"
     v-model="localValue"
-    v-model:search="searchQuery"
     :label="label"
     :class="customClass"
     :rules="rules"
-    :items="suggestions"
-    :custom-filter="customFilter"
     :append-inner-icon="isCameback ? (showOtherLocation ? 'mdi-minus' : 'mdi-plus') : ''"
-    no-filter
+    autocomplete="off"
     clearable
-    hide-no-data
-    @update:search="onSearch"
-    @update:model-value="onSelect"
+    @update:model-value="onInput"
     @blur="onBlur"
     @click:append-inner="toggleOtherLocation"
   />
@@ -28,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
 import { loadGoogleMaps } from '@/utils/googleMaps';
 
 const props = defineProps({
@@ -89,24 +85,23 @@ const emit = defineEmits([
 ]);
 
 const COUNTRY = 'it';
-const BLUR_COMMIT_MS = 250;
+const PLACE_FIELDS = ['geometry', 'formatted_address', 'name', 'address_components'];
+// Scegliendo dal menu di Google il blur arriva prima di place_changed: si
+// aspetta la selezione invece di bocciare subito il testo digitato.
+const BLUR_COMMIT_MS = 300;
 
 const stripLatLng = (value) => (value ? value.split(' - LatLng')[0] : value);
 const hasDistanceCheck = computed(() => props.origin && props.maxDistanceKm != null);
 
+const fieldRef = ref(null);
 const localValue = ref(stripLatLng(props.modelValue));
-const searchQuery = ref(stripLatLng(props.modelValue) || '');
-const suggestions = ref([]);
-const predictions = new Map();
-const detailsCache = new Map();
 const isDistanceValid = ref(true);
 const touched = ref(false);
-let debounceId = null;
-let sessionToken = null;
-let services = null;
-let blurCommitId = null;
 
-const customFilter = () => true;
+let widget = null;
+let geocoder = null;
+let hasPlace = Boolean(props.modelValue);
+let blurCommitId = null;
 
 watch(
   () => props.modelValue,
@@ -114,7 +109,7 @@ watch(
     const stripped = stripLatLng(newVal);
     if (stripped !== localValue.value) {
       localValue.value = stripped;
-      searchQuery.value = stripped || '';
+      hasPlace = Boolean(stripped);
     }
   }
 );
@@ -152,77 +147,51 @@ const showCustomError = computed(
   () => hasDistanceCheck.value && (!isDistanceValid.value || (touched.value && customErrors.value.length > 0))
 );
 
-const getServices = async () => {
-  if (services) return services;
-  await loadGoogleMaps(props.apiKey);
-  const maps = window.google.maps;
-  services = {
-    autocomplete: new maps.places.AutocompleteService(),
-    details: new maps.places.PlacesService(document.createElement('div')),
-    geocoder: new maps.Geocoder(),
-    status: maps.places.PlacesServiceStatus,
-    newSessionToken: () => new maps.places.AutocompleteSessionToken()
-  };
-  return services;
+const emitValidity = (isValid) => {
+  emit('valid', isValid);
+  emit('update:isValid', isValid);
+  emit('update:is-valid', isValid);
 };
 
-// Un solo session token per l'intera digitazione: si chiude sul dettaglio del
-// posto scelto, cosi' le predizioni non vengono fatturate una per battuta.
-const getSessionToken = async () => {
-  const { newSessionToken } = await getServices();
-  if (!sessionToken) sessionToken = newSessionToken();
-  return sessionToken;
+const getComponent = (place, type, short = false) => {
+  const found = (place.address_components || []).find((item) => item.types.includes(type));
+  if (!found) return '';
+  return short ? found.short_name : found.long_name;
 };
 
-const fetchPredictions = async (input) => {
-  const { autocomplete, status } = await getServices();
-  const sessionTokenValue = await getSessionToken();
-  return new Promise((resolve) => {
-    autocomplete.getPlacePredictions(
-      {
-        input,
-        sessionToken: sessionTokenValue,
-        componentRestrictions: { country: COUNTRY }
-      },
-      (results, requestStatus) =>
-        resolve(requestStatus === status.OK && results ? results : [])
-    );
-  });
-};
+const normalize = (value) => value.replace(/[\s,]+/g, ' ').trim().toLowerCase();
 
-const fetchDetails = async (prediction) => {
-  if (detailsCache.has(prediction.place_id)) return detailsCache.get(prediction.place_id);
+// Ricostruisce "Via Roma, 12, Bari, BA" leggendo i singoli componenti invece
+// di ciclare sull'array: Google lo restituisce con il civico prima della via.
+const buildLabel = (place) => {
+  if (!props.formatted) return place.formatted_address || place.name || '';
 
-  const { details, status } = await getServices();
-  const sessionTokenValue = await getSessionToken();
-  const place = await new Promise((resolve) => {
-    details.getDetails(
-      {
-        placeId: prediction.place_id,
-        sessionToken: sessionTokenValue,
-        fields: ['geometry', 'address_components', 'formatted_address', 'name']
-      },
-      (result, requestStatus) => resolve(requestStatus === status.OK ? result : null)
-    );
-  });
+  const road = getComponent(place, 'route');
+  const street = [road, getComponent(place, 'street_number')].filter(Boolean).join(', ');
+  const town =
+    getComponent(place, 'locality') ||
+    getComponent(place, 'administrative_area_level_3') ||
+    getComponent(place, 'postal_town');
+  const province = getComponent(place, 'administrative_area_level_2', true);
 
-  sessionToken = null;
-  if (place) detailsCache.set(prediction.place_id, place);
-  return place;
+  // Il nome serve solo per i punti di interesse: per una via ripeterebbe la via
+  // stessa, che e' il difetto che aveva il vecchio componente.
+  const name = place.name && normalize(place.name) !== normalize(street) ? place.name : '';
+
+  return [name, street, town, province].filter(Boolean).join(', ') || place.formatted_address || '';
 };
 
 const findPostalCode = (components) =>
   (components || []).find((component) => component.types.includes('postal_code'));
 
 const getPostalCode = async (place) => {
-  const component = findPostalCode(place?.address_components);
+  const component = findPostalCode(place.address_components);
   if (component) return component.long_name;
-  if (!place?.geometry?.location) return '';
+  if (!place.geometry?.location || !geocoder) return '';
 
-  const { geocoder } = await getServices();
   const results = await new Promise((resolve) => {
-    geocoder.geocode({ location: place.geometry.location }, (res, requestStatus) =>
-      resolve(requestStatus === 'OK' && res ? res : [])
+    geocoder.geocode({ location: place.geometry.location }, (res, status) =>
+      resolve(status === 'OK' && res ? res : [])
     );
   });
 
@@ -233,108 +202,61 @@ const getPostalCode = async (place) => {
   return '';
 };
 
-// I termini della predizione sono gia' spezzati da Google
-// ("Via Roma", "12", "Bari", "BA", "Italia"): basta togliere il paese.
-const buildLabel = (prediction) => {
-  if (!props.formatted) return prediction.description;
-  const terms = (prediction.terms || []).map((term) => term.value);
-  const parts = /^itali/i.test(terms[terms.length - 1] || '') ? terms.slice(0, -1) : terms;
-  return parts.join(', ') || prediction.description;
-};
-
-const onSearch = (query) => {
-  clearTimeout(debounceId);
-  if (!query || query.length < 3) {
-    suggestions.value = [];
-    return;
-  }
-  debounceId = setTimeout(async () => {
-    try {
-      const results = await fetchPredictions(query);
-      predictions.clear();
-      const labels = [];
-      results.forEach((prediction) => {
-        const label = buildLabel(prediction);
-        if (!label || predictions.has(label)) return;
-        predictions.set(label, prediction);
-        labels.push(label);
-      });
-      suggestions.value = labels;
-    } catch {
-      suggestions.value = [];
-    }
-  }, 400);
-};
-
-const emitValidity = (isValid) => {
-  emit('valid', isValid);
-  emit('update:isValid', isValid);
-  emit('update:is-valid', isValid);
-};
-
-const onSelect = async (value) => {
+const onPlaceChanged = async () => {
   clearTimeout(blurCommitId);
   touched.value = true;
-  if (!value) {
-    localValue.value = '';
+
+  const place = widget.getPlace();
+  const location = place?.geometry?.location;
+
+  if (!location) {
+    hasPlace = false;
     isDistanceValid.value = true;
-    sessionToken = null;
-    emit('update:modelValue', '');
     emitValidity(false);
     return;
   }
-  const cleanValue = stripLatLng(value);
-  localValue.value = cleanValue;
-  searchQuery.value = cleanValue;
 
-  const prediction = predictions.get(cleanValue) || predictions.get(value);
-  const place = prediction ? await fetchDetails(prediction) : null;
-  const location = place?.geometry?.location;
+  const label = buildLabel(place);
+  hasPlace = true;
+  localValue.value = label;
+
+  const lat = location.lat();
+  const lng = location.lng();
 
   if (hasDistanceCheck.value) {
-    if (!location) {
-      isDistanceValid.value = false;
-      emitValidity(false);
-      emit('update:modelValue', cleanValue);
-      return;
-    }
-    const lat = location.lat();
-    const lng = location.lng();
     const withinDistance = isWithinDistance(lat, lng);
     isDistanceValid.value = withinDistance;
     emitValidity(withinDistance);
-
-    const emittedValue = withinDistance
-      ? `${cleanValue} - LatLng ${lat}, ${lng}`
-      : cleanValue;
-    emit('update:modelValue', emittedValue);
-    if (withinDistance) {
-      emit('addressComponents', { address: cleanValue, cap: await getPostalCode(place) });
-    }
-    return;
+    emit('update:modelValue', withinDistance ? `${label} - LatLng ${lat}, ${lng}` : label);
+    if (!withinDistance) return;
+  } else {
+    isDistanceValid.value = true;
+    emitValidity(true);
+    emit('update:modelValue', label);
   }
 
-  const isValid = Boolean(place);
-  isDistanceValid.value = true;
-  emitValidity(isValid);
-  emit('update:modelValue', cleanValue);
-  if (place) {
-    emit('addressComponents', { address: cleanValue, cap: await getPostalCode(place) });
-  }
+  emit('addressComponents', { address: label, cap: await getPostalCode(place) });
 };
 
-// Il click su un suggerimento sfoca l'input prima che Vuetify emetta la
-// selezione: committare subito il testo digitato chiuderebbe il menu e
-// farebbe perdere la scelta. Si concede una finestra, e onSelect annulla
-// il commit non appena la selezione arriva.
+const onInput = (value) => {
+  if (!hasPlace) return;
+  // Il testo e' stato modificato a mano dopo una scelta valida: torna in dubbio
+  // finche' non si ripesca un posto dal menu.
+  hasPlace = false;
+  isDistanceValid.value = true;
+  emitValidity(false);
+  emit('update:modelValue', value || '');
+};
+
 const onBlur = () => {
   touched.value = true;
   clearTimeout(blurCommitId);
   blurCommitId = setTimeout(() => {
-    const current = searchQuery.value || localValue.value;
-    if (current && current !== stripLatLng(props.modelValue)) {
-      onSelect(current);
-    }
+    if (hasPlace) return;
+    const current = localValue.value;
+    if (!current) return;
+    emitValidity(false);
+    emit('update:modelValue', current);
   }, BLUR_COMMIT_MS);
 };
 
@@ -343,6 +265,29 @@ const toggleOtherLocation = () => {
   emit('update:showOtherLocation', nextVal);
   emit('update:show-other-location', nextVal);
 };
+
+onMounted(async () => {
+  try {
+    await loadGoogleMaps(props.apiKey);
+  } catch {
+    return;
+  }
+
+  const input = fieldRef.value?.$el.querySelector('input');
+  if (!input) return;
+
+  geocoder = new window.google.maps.Geocoder();
+  widget = new window.google.maps.places.Autocomplete(input, {
+    fields: PLACE_FIELDS,
+    componentRestrictions: { country: COUNTRY }
+  });
+  widget.addListener('place_changed', onPlaceChanged);
+});
+
+onBeforeUnmount(() => {
+  clearTimeout(blurCommitId);
+  if (widget) window.google?.maps?.event?.clearInstanceListeners(widget);
+});
 </script>
 
 <style scoped>
