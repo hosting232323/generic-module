@@ -1,18 +1,14 @@
 <template>
-  <v-autocomplete
+  <v-text-field
+    ref="fieldRef"
     v-model="localValue"
-    v-model:search="searchQuery"
     :label="label"
     :class="customClass"
     :rules="rules"
-    :items="suggestions"
-    :custom-filter="customFilter"
     :append-inner-icon="isCameback ? (showOtherLocation ? 'mdi-minus' : 'mdi-plus') : ''"
-    no-filter
+    autocomplete="off"
     clearable
-    hide-no-data
-    @update:search="onSearch"
-    @update:model-value="onSelect"
+    @update:model-value="onInput"
     @blur="onBlur"
     @click:append-inner="toggleOtherLocation"
   />
@@ -28,7 +24,8 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue';
+import { loadGoogleMaps } from '@/utils/googleMaps';
 
 const props = defineProps({
   modelValue: {
@@ -38,6 +35,10 @@ const props = defineProps({
   label: {
     type: String,
     required: true
+  },
+  apiKey: {
+    type: String,
+    default: ''
   },
   rules: {
     type: Array,
@@ -83,20 +84,24 @@ const emit = defineEmits([
   'update:show-other-location'
 ]);
 
-const NOMINATIM_URL = 'https://nominatim.fastsite.it';
+const COUNTRY = 'it';
+const PLACE_FIELDS = ['geometry', 'formatted_address', 'name', 'address_components'];
+// Scegliendo dal menu di Google il blur arriva prima di place_changed: si
+// aspetta la selezione invece di bocciare subito il testo digitato.
+const BLUR_COMMIT_MS = 300;
 
 const stripLatLng = (value) => (value ? value.split(' - LatLng')[0] : value);
 const hasDistanceCheck = computed(() => props.origin && props.maxDistanceKm != null);
 
+const fieldRef = ref(null);
 const localValue = ref(stripLatLng(props.modelValue));
-const searchQuery = ref(stripLatLng(props.modelValue) || '');
-const suggestions = ref([]);
-const results = new Map();
 const isDistanceValid = ref(true);
 const touched = ref(false);
-let debounceId = null;
 
-const customFilter = () => true;
+let widget = null;
+let geocoder = null;
+let hasPlace = Boolean(props.modelValue);
+let blurCommitId = null;
 
 watch(
   () => props.modelValue,
@@ -104,7 +109,7 @@ watch(
     const stripped = stripLatLng(newVal);
     if (stripped !== localValue.value) {
       localValue.value = stripped;
-      searchQuery.value = stripped || '';
+      hasPlace = Boolean(stripped);
     }
   }
 );
@@ -142,135 +147,117 @@ const showCustomError = computed(
   () => hasDistanceCheck.value && (!isDistanceValid.value || (touched.value && customErrors.value.length > 0))
 );
 
-const extractHouseNumber = (query, road, town) => {
-  if (!query) return '';
-  let rest = ` ${query} `;
-  [road, town].forEach((part) => {
-    if (part)
-      rest = rest.replace(new RegExp(part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), ' ');
-  });
-  rest = rest.replace(/\b\d{5}\b/g, ' '); // scarta il CAP
-  const match = rest.match(/\b\d{1,4}(?:\s?(?:bis|ter))?(?:\s?[/-]?\s?[a-z])?\b/i);
-  return match ? match[0].replace(/\s+/g, '').toUpperCase() : '';
-};
-
-const formatAddress = (address, query) => {
-  const road =
-    address.road ||
-    address.pedestrian ||
-    address.footway ||
-    address.path ||
-    address.cycleway ||
-    '';
-  const town =
-    address.city ||
-    address.town ||
-    address.village ||
-    address.hamlet ||
-    address.municipality ||
-    '';
-  const houseNumber = address.house_number || extractHouseNumber(query, road, town);
-  const street = [road, houseNumber].filter(Boolean).join(' ');
-  const seen = new Set();
-  return [street, town]
-    .filter((part) => {
-      if (!part) return false;
-      const key = part.toLowerCase();
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
-    .join(', ');
-};
-
-const buildLabel = (item, query) =>
-  props.formatted ? formatAddress(item.address || {}, query) : item.display_name;
-
-const onSearch = (query) => {
-  clearTimeout(debounceId);
-  if (!query || query.length < 3) {
-    suggestions.value = [];
-    return;
-  }
-  debounceId = setTimeout(async () => {
-    try {
-      const url = `${NOMINATIM_URL}/search?format=json&addressdetails=1&countrycodes=it&limit=5&q=${encodeURIComponent(query)}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      results.clear();
-      const labels = [];
-      data.forEach((item) => {
-        const label = buildLabel(item, query);
-        if (!label || results.has(label)) return;
-        results.set(label, item);
-        labels.push(label);
-      });
-      suggestions.value = labels;
-    } catch {
-      suggestions.value = [];
-    }
-  }, 400);
-};
-
 const emitValidity = (isValid) => {
   emit('valid', isValid);
   emit('update:isValid', isValid);
   emit('update:is-valid', isValid);
 };
 
-const onSelect = (value) => {
+const getComponent = (place, type, short = false) => {
+  const found = (place.address_components || []).find((item) => item.types.includes(type));
+  if (!found) return '';
+  return short ? found.short_name : found.long_name;
+};
+
+const normalize = (value) => value.replace(/[\s,]+/g, ' ').trim().toLowerCase();
+
+// Ricostruisce "Via Roma, 12, Bari, BA" leggendo i singoli componenti invece
+// di ciclare sull'array: Google lo restituisce con il civico prima della via.
+const buildLabel = (place) => {
+  if (!props.formatted) return place.formatted_address || place.name || '';
+
+  const road = getComponent(place, 'route');
+  const street = [road, getComponent(place, 'street_number')].filter(Boolean).join(', ');
+  const town =
+    getComponent(place, 'locality') ||
+    getComponent(place, 'administrative_area_level_3') ||
+    getComponent(place, 'postal_town');
+  const province = getComponent(place, 'administrative_area_level_2', true);
+
+  // Il nome serve solo per i punti di interesse: per una via ripeterebbe la via
+  // stessa, che e' il difetto che aveva il vecchio componente.
+  const name = place.name && normalize(place.name) !== normalize(street) ? place.name : '';
+
+  return [name, street, town, province].filter(Boolean).join(', ') || place.formatted_address || '';
+};
+
+const findPostalCode = (components) =>
+  (components || []).find((component) => component.types.includes('postal_code'));
+
+const getPostalCode = async (place) => {
+  const component = findPostalCode(place.address_components);
+  if (component) return component.long_name;
+  if (!place.geometry?.location || !geocoder) return '';
+
+  const results = await new Promise((resolve) => {
+    geocoder.geocode({ location: place.geometry.location }, (res, status) =>
+      resolve(status === 'OK' && res ? res : [])
+    );
+  });
+
+  for (const result of results) {
+    const found = findPostalCode(result.address_components);
+    if (found) return found.long_name;
+  }
+  return '';
+};
+
+const onPlaceChanged = async () => {
+  clearTimeout(blurCommitId);
   touched.value = true;
-  if (!value) {
-    localValue.value = '';
+
+  const place = widget.getPlace();
+  const location = place?.geometry?.location;
+
+  if (!location) {
+    hasPlace = false;
     isDistanceValid.value = true;
-    emit('update:modelValue', '');
     emitValidity(false);
     return;
   }
-  const cleanValue = stripLatLng(value);
-  localValue.value = cleanValue;
-  searchQuery.value = cleanValue;
 
-  const item = results.get(cleanValue) || results.get(value);
+  const label = buildLabel(place);
+  hasPlace = true;
+  localValue.value = label;
+
+  const lat = location.lat();
+  const lng = location.lng();
 
   if (hasDistanceCheck.value) {
-    if (!item) {
-      isDistanceValid.value = false;
-      emitValidity(false);
-      emit('update:modelValue', cleanValue);
-      return;
-    }
-    const lat = parseFloat(item.lat);
-    const lng = parseFloat(item.lon);
     const withinDistance = isWithinDistance(lat, lng);
     isDistanceValid.value = withinDistance;
     emitValidity(withinDistance);
-
-    const emittedValue = withinDistance
-      ? `${cleanValue} - LatLng ${lat}, ${lng}`
-      : cleanValue;
-    emit('update:modelValue', emittedValue);
-    if (withinDistance) {
-      emit('addressComponents', { address: cleanValue, cap: item.address?.postcode || '' });
-    }
-    return;
+    emit('update:modelValue', withinDistance ? `${label} - LatLng ${lat}, ${lng}` : label);
+    if (!withinDistance) return;
+  } else {
+    isDistanceValid.value = true;
+    emitValidity(true);
+    emit('update:modelValue', label);
   }
 
-  const isValid = Boolean(item);
+  emit('addressComponents', { address: label, cap: await getPostalCode(place) });
+};
+
+const onInput = (value) => {
+  if (!hasPlace) return;
+  // Il testo e' stato modificato a mano dopo una scelta valida: torna in dubbio
+  // finche' non si ripesca un posto dal menu.
+  hasPlace = false;
   isDistanceValid.value = true;
-  emitValidity(isValid);
-  emit('update:modelValue', cleanValue);
-  if (item) {
-    emit('addressComponents', { address: cleanValue, cap: item.address?.postcode || '' });
-  }
+  emitValidity(false);
+  emit('update:modelValue', value || '');
 };
 
 const onBlur = () => {
   touched.value = true;
-  const current = searchQuery.value || localValue.value;
-  if (current && current !== props.modelValue) {
-    onSelect(current);
-  }
+  clearTimeout(blurCommitId);
+  blurCommitId = setTimeout(() => {
+    if (hasPlace) return;
+    const current = localValue.value;
+    if (!current) return;
+    emitValidity(false);
+    emit('update:modelValue', current);
+  }, BLUR_COMMIT_MS);
 };
 
 const toggleOtherLocation = () => {
@@ -278,6 +265,29 @@ const toggleOtherLocation = () => {
   emit('update:showOtherLocation', nextVal);
   emit('update:show-other-location', nextVal);
 };
+
+onMounted(async () => {
+  try {
+    await loadGoogleMaps(props.apiKey);
+  } catch {
+    return;
+  }
+
+  const input = fieldRef.value?.$el.querySelector('input');
+  if (!input) return;
+
+  geocoder = new window.google.maps.Geocoder();
+  widget = new window.google.maps.places.Autocomplete(input, {
+    fields: PLACE_FIELDS,
+    componentRestrictions: { country: COUNTRY }
+  });
+  widget.addListener('place_changed', onPlaceChanged);
+});
+
+onBeforeUnmount(() => {
+  clearTimeout(blurCommitId);
+  if (widget) window.google?.maps?.event?.clearInstanceListeners(widget);
+});
 </script>
 
 <style scoped>
