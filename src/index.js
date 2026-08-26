@@ -14,5 +14,5 @@ export { default as AuthManager } from './components/users/AuthManager.vue';
 // Add On: Chatty
 export { default as ChattyBot } from './components/chatty/ChattyBot.vue';
 
-// Autocompletamento Indirizzi (Nominatim)
+// Autocompletamento Indirizzi (Google Places)
 export { default as AddressAutocomplete } from './components/AddressAutocomplete.vue';

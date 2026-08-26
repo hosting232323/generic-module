@@ -29,6 +29,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue';
+import { loadGoogleMaps } from '@/utils/googleMaps';
 
 const props = defineProps({
   modelValue: {
@@ -38,6 +39,10 @@ const props = defineProps({
   label: {
     type: String,
     required: true
+  },
+  apiKey: {
+    type: String,
+    default: ''
   },
   rules: {
     type: Array,
@@ -83,7 +88,8 @@ const emit = defineEmits([
   'update:show-other-location'
 ]);
 
-const NOMINATIM_URL = 'https://nominatim.fastsite.it';
+const COUNTRY = 'it';
+const BLUR_COMMIT_MS = 250;
 
 const stripLatLng = (value) => (value ? value.split(' - LatLng')[0] : value);
 const hasDistanceCheck = computed(() => props.origin && props.maxDistanceKm != null);
@@ -91,10 +97,14 @@ const hasDistanceCheck = computed(() => props.origin && props.maxDistanceKm != n
 const localValue = ref(stripLatLng(props.modelValue));
 const searchQuery = ref(stripLatLng(props.modelValue) || '');
 const suggestions = ref([]);
-const results = new Map();
+const predictions = new Map();
+const detailsCache = new Map();
 const isDistanceValid = ref(true);
 const touched = ref(false);
 let debounceId = null;
+let sessionToken = null;
+let services = null;
+let blurCommitId = null;
 
 const customFilter = () => true;
 
@@ -142,49 +152,95 @@ const showCustomError = computed(
   () => hasDistanceCheck.value && (!isDistanceValid.value || (touched.value && customErrors.value.length > 0))
 );
 
-const extractHouseNumber = (query, road, town) => {
-  if (!query) return '';
-  let rest = ` ${query} `;
-  [road, town].forEach((part) => {
-    if (part)
-      rest = rest.replace(new RegExp(part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), ' ');
+const getServices = async () => {
+  if (services) return services;
+  await loadGoogleMaps(props.apiKey);
+  const maps = window.google.maps;
+  services = {
+    autocomplete: new maps.places.AutocompleteService(),
+    details: new maps.places.PlacesService(document.createElement('div')),
+    geocoder: new maps.Geocoder(),
+    status: maps.places.PlacesServiceStatus,
+    newSessionToken: () => new maps.places.AutocompleteSessionToken()
+  };
+  return services;
+};
+
+// Un solo session token per l'intera digitazione: si chiude sul dettaglio del
+// posto scelto, cosi' le predizioni non vengono fatturate una per battuta.
+const getSessionToken = async () => {
+  const { newSessionToken } = await getServices();
+  if (!sessionToken) sessionToken = newSessionToken();
+  return sessionToken;
+};
+
+const fetchPredictions = async (input) => {
+  const { autocomplete, status } = await getServices();
+  const sessionTokenValue = await getSessionToken();
+  return new Promise((resolve) => {
+    autocomplete.getPlacePredictions(
+      {
+        input,
+        sessionToken: sessionTokenValue,
+        componentRestrictions: { country: COUNTRY }
+      },
+      (results, requestStatus) =>
+        resolve(requestStatus === status.OK && results ? results : [])
+    );
   });
-  rest = rest.replace(/\b\d{5}\b/g, ' '); // scarta il CAP
-  const match = rest.match(/\b\d{1,4}(?:\s?(?:bis|ter))?(?:\s?[/-]?\s?[a-z])?\b/i);
-  return match ? match[0].replace(/\s+/g, '').toUpperCase() : '';
 };
 
-const formatAddress = (address, query) => {
-  const road =
-    address.road ||
-    address.pedestrian ||
-    address.footway ||
-    address.path ||
-    address.cycleway ||
-    '';
-  const town =
-    address.city ||
-    address.town ||
-    address.village ||
-    address.hamlet ||
-    address.municipality ||
-    '';
-  const houseNumber = address.house_number || extractHouseNumber(query, road, town);
-  const street = [road, houseNumber].filter(Boolean).join(' ');
-  const seen = new Set();
-  return [street, town]
-    .filter((part) => {
-      if (!part) return false;
-      const key = part.toLowerCase();
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
-    .join(', ');
+const fetchDetails = async (prediction) => {
+  if (detailsCache.has(prediction.place_id)) return detailsCache.get(prediction.place_id);
+
+  const { details, status } = await getServices();
+  const sessionTokenValue = await getSessionToken();
+  const place = await new Promise((resolve) => {
+    details.getDetails(
+      {
+        placeId: prediction.place_id,
+        sessionToken: sessionTokenValue,
+        fields: ['geometry', 'address_components', 'formatted_address', 'name']
+      },
+      (result, requestStatus) => resolve(requestStatus === status.OK ? result : null)
+    );
+  });
+
+  sessionToken = null;
+  if (place) detailsCache.set(prediction.place_id, place);
+  return place;
 };
 
-const buildLabel = (item, query) =>
-  props.formatted ? formatAddress(item.address || {}, query) : item.display_name;
+const findPostalCode = (components) =>
+  (components || []).find((component) => component.types.includes('postal_code'));
+
+const getPostalCode = async (place) => {
+  const component = findPostalCode(place?.address_components);
+  if (component) return component.long_name;
+  if (!place?.geometry?.location) return '';
+
+  const { geocoder } = await getServices();
+  const results = await new Promise((resolve) => {
+    geocoder.geocode({ location: place.geometry.location }, (res, requestStatus) =>
+      resolve(requestStatus === 'OK' && res ? res : [])
+    );
+  });
+
+  for (const result of results) {
+    const found = findPostalCode(result.address_components);
+    if (found) return found.long_name;
+  }
+  return '';
+};
+
+// I termini della predizione sono gia' spezzati da Google
+// ("Via Roma", "12", "Bari", "BA", "Italia"): basta togliere il paese.
+const buildLabel = (prediction) => {
+  if (!props.formatted) return prediction.description;
+  const terms = (prediction.terms || []).map((term) => term.value);
+  const parts = /^itali/i.test(terms[terms.length - 1] || '') ? terms.slice(0, -1) : terms;
+  return parts.join(', ') || prediction.description;
+};
 
 const onSearch = (query) => {
   clearTimeout(debounceId);
@@ -194,15 +250,13 @@ const onSearch = (query) => {
   }
   debounceId = setTimeout(async () => {
     try {
-      const url = `${NOMINATIM_URL}/search?format=json&addressdetails=1&countrycodes=it&limit=5&q=${encodeURIComponent(query)}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      results.clear();
+      const results = await fetchPredictions(query);
+      predictions.clear();
       const labels = [];
-      data.forEach((item) => {
-        const label = buildLabel(item, query);
-        if (!label || results.has(label)) return;
-        results.set(label, item);
+      results.forEach((prediction) => {
+        const label = buildLabel(prediction);
+        if (!label || predictions.has(label)) return;
+        predictions.set(label, prediction);
         labels.push(label);
       });
       suggestions.value = labels;
@@ -218,11 +272,13 @@ const emitValidity = (isValid) => {
   emit('update:is-valid', isValid);
 };
 
-const onSelect = (value) => {
+const onSelect = async (value) => {
+  clearTimeout(blurCommitId);
   touched.value = true;
   if (!value) {
     localValue.value = '';
     isDistanceValid.value = true;
+    sessionToken = null;
     emit('update:modelValue', '');
     emitValidity(false);
     return;
@@ -231,17 +287,19 @@ const onSelect = (value) => {
   localValue.value = cleanValue;
   searchQuery.value = cleanValue;
 
-  const item = results.get(cleanValue) || results.get(value);
+  const prediction = predictions.get(cleanValue) || predictions.get(value);
+  const place = prediction ? await fetchDetails(prediction) : null;
+  const location = place?.geometry?.location;
 
   if (hasDistanceCheck.value) {
-    if (!item) {
+    if (!location) {
       isDistanceValid.value = false;
       emitValidity(false);
       emit('update:modelValue', cleanValue);
       return;
     }
-    const lat = parseFloat(item.lat);
-    const lng = parseFloat(item.lon);
+    const lat = location.lat();
+    const lng = location.lng();
     const withinDistance = isWithinDistance(lat, lng);
     isDistanceValid.value = withinDistance;
     emitValidity(withinDistance);
@@ -251,26 +309,33 @@ const onSelect = (value) => {
       : cleanValue;
     emit('update:modelValue', emittedValue);
     if (withinDistance) {
-      emit('addressComponents', { address: cleanValue, cap: item.address?.postcode || '' });
+      emit('addressComponents', { address: cleanValue, cap: await getPostalCode(place) });
     }
     return;
   }
 
-  const isValid = Boolean(item);
+  const isValid = Boolean(place);
   isDistanceValid.value = true;
   emitValidity(isValid);
   emit('update:modelValue', cleanValue);
-  if (item) {
-    emit('addressComponents', { address: cleanValue, cap: item.address?.postcode || '' });
+  if (place) {
+    emit('addressComponents', { address: cleanValue, cap: await getPostalCode(place) });
   }
 };
 
+// Il click su un suggerimento sfoca l'input prima che Vuetify emetta la
+// selezione: committare subito il testo digitato chiuderebbe il menu e
+// farebbe perdere la scelta. Si concede una finestra, e onSelect annulla
+// il commit non appena la selezione arriva.
 const onBlur = () => {
   touched.value = true;
-  const current = searchQuery.value || localValue.value;
-  if (current && current !== props.modelValue) {
-    onSelect(current);
-  }
+  clearTimeout(blurCommitId);
+  blurCommitId = setTimeout(() => {
+    const current = searchQuery.value || localValue.value;
+    if (current && current !== stripLatLng(props.modelValue)) {
+      onSelect(current);
+    }
+  }, BLUR_COMMIT_MS);
 };
 
 const toggleOtherLocation = () => {
