@@ -61,49 +61,6 @@ const translations = {
   }
 };
 
-function enableGoogleAnalytics(instance) {
-  const trackingId = instance.getTrackingId();
-
-  if (window.gtag && typeof window.gtag === 'function') {
-    instance.updateConsent({ analytics_storage: 'granted', ad_storage: 'granted' });
-    return;
-  }
-
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
-  document.head.appendChild(script);
-
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () {
-    window.dataLayer.push(arguments);
-  };
-  window.gtag('js', new Date());
-
-  const waitForGtag = () => {
-    if (typeof window.gtag !== 'function') {
-      setTimeout(waitForGtag, 100);
-      return;
-    }
-
-    window.gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      functionality_storage: 'denied',
-      personalization_storage: 'denied',
-      security_storage: 'granted'
-    });
-    window.gtag('config', trackingId, {
-      anonymize_ip: true,
-      cookie_flags: 'SameSite=None;Secure',
-      cookie_domain: 'auto',
-      session_timeout: 1800
-    });
-    instance.updateConsent({ analytics_storage: 'granted', ad_storage: 'granted' });
-  };
-  waitForGtag();
-}
-
 function buildKlaroConfig(instance, privacyPolicy) {
   return {
     version: 1,
@@ -115,18 +72,31 @@ function buildKlaroConfig(instance, privacyPolicy) {
         title: 'Google Analytics',
         purposes: ['analytics'],
         required: false,
-        optOut: true,
+        // Niente optOut: true. Con optOut Klaro tratta il servizio come gia' pre-approvato e
+        // scatena callback(true) da solo al primo setup, prima di qualsiasi scelta dell'utente:
+        // esattamente il consenso-fantasma che questo banner deve evitare.
         onlyOnce: true,
         default: false,
+        // Pattern generico invece di interpolare l'id nel nome del cookie: al momento del setup
+        // del banner il tracking id puo' non essere ancora risolto (arriva da generic-be via
+        // rete), quindi un pattern costruito sull'id sarebbe congelato a '_gtag_GA_' e non
+        // beccherebbe mai il cookie GA4 reale in fase di opt-out.
         cookies: [
           /^_ga/,
           /^_gid/,
           /^_gat/,
-          `_gtag_GA_${instance.getTrackingId()?.replace('G-', '') || ''}`
+          /^_gtag_GA_/
         ],
         callback(consent) {
           if (consent) {
-            enableGoogleAnalytics(instance);
+            // Delega interamente il caricamento/consenso all'istanza analytics: e' l'unica fonte
+            // che conosce lo stato reale del tracking id e dello script gtag. Reimplementarlo qui
+            // in parallelo e' la causa della race che poteva lasciare il tracciamento rotto per
+            // tutta la sessione (due init concorrenti in corsa sullo stesso script).
+            instance.initializeGoogleAnalytics();
+            instance.afterInitialization(() => {
+              instance.updateConsent({ analytics_storage: 'granted', ad_storage: 'granted' });
+            });
           } else if (typeof window.gtag === 'function') {
             instance.updateConsent({ analytics_storage: 'denied', ad_storage: 'denied' });
           }

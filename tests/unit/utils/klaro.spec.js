@@ -6,7 +6,9 @@ vi.mock('klaro/dist/klaro-no-css', () => ({ setup: vi.fn() }));
 
 const fakeInstance = (trackingId = null) => ({
   getTrackingId: vi.fn(() => trackingId),
-  updateConsent: vi.fn()
+  updateConsent: vi.fn(),
+  initializeGoogleAnalytics: vi.fn(),
+  afterInitialization: vi.fn(callback => Promise.resolve().then(callback))
 });
 
 beforeEach(async () => {
@@ -43,42 +45,45 @@ describe('createKlaroPlugin', () => {
     expect(window.klaroConfig.privacyPolicy).toBe(perLocale);
   });
 
-  it('registra un unico servizio googleAnalytics con i pattern di cookie attesi', () => {
+  it('registra un unico servizio googleAnalytics con pattern di cookie generici per qualunque id GA4', () => {
     createKlaroPlugin(fakeInstance('G-ABC123'))();
 
     const [service] = window.klaroConfig.services;
     expect(window.klaroConfig.services).toHaveLength(1);
     expect(service.name).toBe('googleAnalytics');
-    expect(service.cookies).toContain('_gtag_GA_ABC123');
+    expect(service.cookies.some(pattern => pattern instanceof RegExp && pattern.test('_gtag_GA_ABC123'))).toBe(true);
   });
 
-  it('senza tracking id ancora risolto il pattern di cookie resta vuoto invece di rompersi', () => {
+  it('il pattern dei cookie GA4 funziona anche prima che il tracking id sia risolto', () => {
     createKlaroPlugin(fakeInstance(null))();
 
     const [service] = window.klaroConfig.services;
-    expect(service.cookies).toContain('_gtag_GA_');
+    expect(service.cookies.some(pattern => pattern instanceof RegExp && pattern.test('_gtag_GA_XYZ789'))).toBe(true);
   });
 
-  it('accettando il consenso, se gtag manca lo carica e configura da se\' il consenso', () => {
+  it('il servizio non e\' opt-out: klaro non deve poterlo attivare da solo senza scelta dell\'utente', () => {
+    const instance = fakeInstance('G-ABC123');
+    createKlaroPlugin(instance)();
+
+    const [service] = window.klaroConfig.services;
+    expect(service.optOut).not.toBe(true);
+    expect(instance.initializeGoogleAnalytics).not.toHaveBeenCalled();
+    expect(instance.updateConsent).not.toHaveBeenCalled();
+  });
+
+  it('accettando il consenso, delega il caricamento all\'istanza e concede il consenso a inizializzazione conclusa', async () => {
     const instance = fakeInstance('G-ABC123');
     createKlaroPlugin(instance)();
 
     const [service] = window.klaroConfig.services;
     service.callback(true);
 
-    expect(document.querySelector('script[src*="googletagmanager.com"]')).not.toBeNull();
-    expect(instance.updateConsent).toHaveBeenCalledWith({ analytics_storage: 'granted', ad_storage: 'granted' });
-  });
+    expect(instance.initializeGoogleAnalytics).toHaveBeenCalledTimes(1);
+    expect(instance.updateConsent).not.toHaveBeenCalled();
 
-  it('accettando il consenso con gtag gia\' presente, aggiorna subito senza ricaricare lo script', () => {
-    window.gtag = vi.fn();
-    const instance = fakeInstance('G-ABC123');
-    createKlaroPlugin(instance)();
+    await Promise.resolve();
+    await Promise.resolve();
 
-    const [service] = window.klaroConfig.services;
-    service.callback(true);
-
-    expect(document.querySelector('script[src*="googletagmanager.com"]')).toBeNull();
     expect(instance.updateConsent).toHaveBeenCalledWith({ analytics_storage: 'granted', ad_storage: 'granted' });
   });
 

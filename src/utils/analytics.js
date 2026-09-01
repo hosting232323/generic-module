@@ -138,8 +138,13 @@ export function createAnalytics(config = {}) {
     setTimeout(configureGA, 1000);
   }
 
+  // Idempotente: puo' essere chiamata sia dal plugin Vue all'avvio sia dal banner Klaro
+  // alla decisione dell'utente senza rifare la resolveTrackingId() e senza ricreare la
+  // promise che afterInitialization() sta gia' osservando altrove.
   function initializeGoogleAnalytics() {
-    initialization = runInitialization();
+    if (!initialization) {
+      initialization = runInitialization();
+    }
     return initialization;
   }
 
