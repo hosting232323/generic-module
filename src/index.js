@@ -16,3 +16,10 @@ export { default as ChattyBot } from './components/chatty/ChattyBot.vue';
 
 // Autocompletamento Indirizzi (Google Places)
 export { default as AddressAutocomplete } from './components/AddressAutocomplete.vue';
+
+// Analytics: tracciamento GA4 con Measurement ID risolto a runtime da generic-be
+export { createAnalytics, createAnalyticsPlugin } from './utils/analytics.js';
+
+// Cookie banner (Klaro) agganciato al consenso di Google Analytics
+export { createKlaroPlugin } from './utils/klaro.js';
+export { default as CookieSettings } from './components/CookieSettings.vue';
