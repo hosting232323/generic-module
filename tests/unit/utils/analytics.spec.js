@@ -319,4 +319,119 @@ describe('createAnalyticsPlugin', () => {
     expect(app.provide).toHaveBeenCalledWith('analytics', instance.analytics);
     expect(fetch).toHaveBeenCalledTimes(1);
   });
+
+  it('in SSR (senza window) non inizializza nulla e non espone $analytics', () => {
+    const instance = createAnalytics({ genericHostname: 'https://api.example', projectName: 'sito.it' });
+    const plugin = createAnalyticsPlugin(instance);
+    const app = { config: { globalProperties: {} }, provide: vi.fn() };
+
+    try {
+      vi.stubGlobal('window', undefined);
+      plugin(app);
+      expect(app.provide).not.toHaveBeenCalled();
+      expect(app.config.globalProperties.$analytics).toBeUndefined();
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+describe('resolveTrackingId - casi limite', () => {
+  it('non raddoppia lo slash quando l\'hostname finisce gia\' con /', async () => {
+    global.fetch = vi.fn(async (url) => {
+      expect(String(url)).toBe('https://api.example/analytics/tracking?project=sito.it');
+      return trackingResponse('G-ABC123');
+    });
+
+    const instance = createAnalytics({ genericHostname: 'https://api.example/', projectName: 'sito.it' });
+    await instance.resolveTrackingId();
+
+    expect(instance.getTrackingId()).toBe('G-ABC123');
+  });
+
+  it('una risposta ok ma senza measurement_id lascia il tracking id a null', async () => {
+    global.fetch = vi.fn(async () => ({ json: async () => ({ status: 'ok', data: {} }) }));
+
+    const instance = createAnalytics({ genericHostname: 'https://api.example', projectName: 'sito.it' });
+
+    expect(await instance.resolveTrackingId()).toBeNull();
+  });
+
+  it('senza window il progetto di default e\' vuoto', async () => {
+    global.fetch = vi.fn(async (url) => {
+      expect(String(url)).toMatch(/[?&]project=$/);
+      return trackingResponse('G-ABC123');
+    });
+
+    try {
+      vi.stubGlobal('window', undefined);
+      const instance = createAnalytics({ genericHostname: 'https://api.example' });
+      await instance.resolveTrackingId();
+
+      expect(fetch).toHaveBeenCalledTimes(1);
+      expect(instance.getTrackingId()).toBe('G-ABC123');
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+describe('configureGA quando lo script gtag e\' gia\' in pagina', () => {
+  it('non reinietta lo script e ritenta finche\' gtag non e\' pronto', async () => {
+    vi.useFakeTimers();
+    const existing = document.createElement('script');
+    existing.src = 'https://www.googletagmanager.com/gtag/js?id=G-PREESISTENTE';
+    document.head.appendChild(existing);
+
+    global.fetch = vi.fn(async () => trackingResponse('G-ABC123'));
+
+    const instance = createAnalytics({ genericHostname: 'https://api.example', projectName: 'sito.it' });
+    const init = instance.initializeGoogleAnalytics();
+
+    await vi.advanceTimersByTimeAsync(1000);
+    await init;
+
+    // loadGoogleAnalytics ha trovato lo script gia' presente ed e' uscito senza
+    // creare window.gtag: configureGA e' finita nel ramo di retry.
+    expect(window.gtag).toBeUndefined();
+    expect(document.querySelectorAll('script[src*="googletagmanager.com"]')).toHaveLength(1);
+
+    window.gtag = function () {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(arguments);
+    };
+    await vi.advanceTimersByTimeAsync(100);
+
+    const calls = window.dataLayer.map(args => Array.from(args));
+    expect(calls).toContainEqual(['consent', 'default', expect.objectContaining({ analytics_storage: 'denied' })]);
+    expect(calls).toContainEqual(['config', 'G-ABC123', expect.objectContaining({ anonymize_ip: true })]);
+
+    vi.useRealTimers();
+  });
+});
+
+describe('setUserProperty / setAnalyticsEnabled', () => {
+  it('setUserProperty non tocca gtag quando il tracciamento e\' disabilitato', () => {
+    window.gtag = vi.fn();
+    const instance = createAnalytics({ projectName: 'sito.it' });
+
+    instance.analytics.setUserProperty('plan', 'pro');
+
+    expect(window.gtag).not.toHaveBeenCalled();
+  });
+
+  it('setAnalyticsEnabled senza gtag in pagina non fa nulla', () => {
+    const instance = createAnalytics({ projectName: 'sito.it' });
+
+    expect(() => instance.analytics.setAnalyticsEnabled(true)).not.toThrow();
+  });
+
+  it('setAnalyticsEnabled(true) concede analytics_storage', () => {
+    window.gtag = vi.fn();
+    const instance = createAnalytics({ projectName: 'sito.it' });
+
+    instance.analytics.setAnalyticsEnabled(true);
+
+    expect(window.gtag).toHaveBeenCalledWith('consent', 'update', { analytics_storage: 'granted' });
+  });
 });

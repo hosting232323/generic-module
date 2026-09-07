@@ -107,4 +107,24 @@ describe('createKlaroPlugin', () => {
 
     expect(instance.updateConsent).not.toHaveBeenCalled();
   });
+
+  it('la callback globale della config e\' un no-op innocuo', () => {
+    createKlaroPlugin(fakeInstance())();
+
+    expect(typeof window.klaroConfig.callback).toBe('function');
+    expect(() => window.klaroConfig.callback()).not.toThrow();
+  });
+
+  it('in SSR (senza window) l\'install e\' un no-op e non chiama klaro.setup', async () => {
+    const klaro = await import('klaro/dist/klaro-no-css');
+
+    try {
+      vi.stubGlobal('window', undefined);
+      createKlaroPlugin(fakeInstance())();
+    } finally {
+      vi.unstubAllGlobals();
+    }
+
+    expect(klaro.setup).not.toHaveBeenCalled();
+  });
 });
