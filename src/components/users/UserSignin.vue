@@ -72,6 +72,7 @@
 import { ref } from 'vue';
 import http from '@/utils/http';
 import validation from '@/utils/validation';
+import { registerUser as registerUserRequest } from '@/utils/auth';
 
 const props = defineProps({
   logo: {
@@ -110,7 +111,7 @@ const registerUser = () => {
   ) {
     message.value = '';
     loading.value = true;
-    http.makeRequest('user/register-user', 'POST', {
+    registerUserRequest(http, {
       body: {
         name: name.value,
         email: mail.value,
