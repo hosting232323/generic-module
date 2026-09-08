@@ -13,7 +13,11 @@ export default defineConfig({
     vuetify({
       autoImport: true
     }),
-    cssInjectedByJsPlugin()
+    // Le funzioni pure (entry generic-module-utils) non hanno CSS proprio: lo
+    // stile va iniettato solo nel bundle completo con i componenti Vuetify.
+    cssInjectedByJsPlugin({
+      jsAssetsFilterFunction: (chunk) => chunk.fileName === 'generic-module.es.js'
+    })
   ],
   resolve: {
     alias: {
@@ -24,9 +28,12 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     lib: {
-      entry: fileURLToPath(new URL('./src/index.js', import.meta.url)),
+      entry: {
+        'generic-module': fileURLToPath(new URL('./src/index.js', import.meta.url)),
+        'generic-module-utils': fileURLToPath(new URL('./src/utils-entry.js', import.meta.url))
+      },
       name: 'generic-module',
-      fileName: (format) => `generic-module.${format}.js`,
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
       formats: ['es']
     },
     rollupOptions: {

@@ -8,6 +8,10 @@
     ".": {
       "import": "./dist/generic-module.es.js",
       "default": "./dist/generic-module.es.js"
+    },
+    "./utils": {
+      "import": "./dist/generic-module-utils.es.js",
+      "default": "./dist/generic-module-utils.es.js"
     }
   },
   "files": [
@@ -31,6 +35,11 @@
     "vue": "^3.5.0",
     "vue-router": "^5.0.0",
     "vuetify": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "pinia": { "optional": true },
+    "vue-router": { "optional": true },
+    "vuetify": { "optional": true }
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

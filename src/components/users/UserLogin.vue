@@ -15,7 +15,7 @@
         {{ title }}
       </v-card-title>
       <v-card-text>
-        <v-form @submit.prevent="login">
+        <v-form @submit.prevent="submitLogin">
           <v-text-field
             v-model="mail"
             label="Email"
@@ -105,10 +105,9 @@
 </template>
 
 <script setup>
-/* global google */
-
 import http from '@/utils/http';
-import { ref, onMounted, computed } from 'vue';
+import { login, googleLogin } from '@/utils/auth';
+import { ref, computed } from 'vue';
 
 const props = defineProps({
   logo: {
@@ -152,22 +151,12 @@ const showGoogleLogin = computed(() => !!props.googleClientId);
 
 const handleGoogleLogin = () => {
   googleLoading.value = true;
-  google.accounts.id.initialize({
-    client_id: props.googleClientId,
-    callback: (response) => {
-      handleCredentialResponse(response);
-      googleLoading.value = false;
-    }
-  });
-  google.accounts.id.prompt();
-};
-
-const handleCredentialResponse = (response) => {
-  http.makeRequest('user/google-login', 'POST', {
-    body: { token: response.credential },
+  googleLogin(http, {
+    googleClientId: props.googleClientId,
     hostname: props.hostname,
     credentials: 'include'
   }, (data) => {
+    googleLoading.value = false;
     if (data.status === 'ok')
       emits('callBack', data);
     else
@@ -175,11 +164,11 @@ const handleCredentialResponse = (response) => {
   });
 };
 
-const login = () => {
+const submitLogin = () => {
   if (mail.value && pass.value) {
     message.value = '';
     loginLoading.value = true;
-    http.makeRequest('user/login', 'POST', {
+    login(http, {
       body: {
         email: mail.value,
         password: pass.value
@@ -200,14 +189,6 @@ const login = () => {
     });
   }
 };
-
-onMounted(() => {
-  const script = document.createElement('script');
-  script.src = 'https://accounts.google.com/gsi/client';
-  script.async = true;
-  script.defer = true;
-  document.body.appendChild(script);
-});
 </script>
 
 <style scoped>

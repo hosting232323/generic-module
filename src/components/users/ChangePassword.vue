@@ -64,6 +64,7 @@
 import { ref } from 'vue';
 import http from '@/utils/http';
 import validation from '@/utils/validation';
+import { askChangePassword as askChangePasswordRequest } from '@/utils/auth';
 
 const props = defineProps({
   logo: {
@@ -98,7 +99,7 @@ const askChangePassword = () => {
   if (!validation.validateInput(mail.value, validation.emailRules)) {
     message.value = '';
     loading.value = true;
-    http.makeRequest('user/ask-change-password', 'POST', {
+    askChangePasswordRequest(http, {
       body: { email: mail.value },
       hostname: props.hostname
     },

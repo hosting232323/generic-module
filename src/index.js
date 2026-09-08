@@ -11,6 +11,9 @@ export { default as fileUtils } from './utils/files.js';
 export { default as Password } from './components/users/UserPassword.vue';
 export { default as AuthManager } from './components/users/AuthManager.vue';
 
+// Utenti e Login: funzioni pure (senza UI), per chi vuole una grafica custom
+export { login, registerUser, askChangePassword, googleLogin } from './utils/auth.js';
+
 // Add On: Chatty
 export { default as ChattyBot } from './components/chatty/ChattyBot.vue';
 
