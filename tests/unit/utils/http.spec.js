@@ -182,6 +182,54 @@ describe('makeRequest - refresh del token scaduto', () => {
 
     await vi.waitFor(() => expect(router.push).toHaveBeenCalledWith('/'));
   });
+
+  it('con piu\' richieste in volo scadute insieme, chiude la sessione una volta sola', async () => {
+    let token = 'expired-token';
+    const calls = [];
+    global.fetch = vi.fn(async (url) => {
+      calls.push(String(url));
+      if (String(url).endsWith('/logout'))
+        return response(200, { status: 'ok' });
+      return response(401, { status: 'session' });
+    });
+
+    const onSessionExpired = vi.fn();
+    const client = createHttpClient({
+      hostname: 'https://api.example',
+      logoutEndpoint: '/logout',
+      getToken: () => token,
+      setToken: value => { token = value; },
+      onSessionExpired
+    });
+    client.makeRequest('/resource-a', 'GET', {}, vi.fn());
+    client.makeRequest('/resource-b', 'GET', {}, vi.fn());
+    client.makeRequest('/resource-c', 'GET', {}, vi.fn());
+
+    await vi.waitFor(() => expect(onSessionExpired).toHaveBeenCalledOnce());
+    await new Promise(resolve => setTimeout(resolve, 0));
+
+    expect(calls.filter(url => url.endsWith('/logout'))).toHaveLength(1);
+  });
+
+  it('dopo un nuovo login la scadenza successiva richiude di nuovo la sessione', async () => {
+    let token = 'expired-token';
+    global.fetch = vi.fn(async () => response(401, { status: 'session' }));
+    const onSessionExpired = vi.fn();
+    const client = createHttpClient({
+      hostname: 'https://api.example',
+      getToken: () => token,
+      setToken: value => { token = value; },
+      onSessionExpired
+    });
+
+    client.makeRequest('/resource', 'GET', {}, vi.fn());
+    await vi.waitFor(() => expect(onSessionExpired).toHaveBeenCalledOnce());
+
+    token = 'fresh-token-after-login';
+    client.makeRequest('/resource', 'GET', {}, vi.fn());
+
+    await vi.waitFor(() => expect(onSessionExpired).toHaveBeenCalledTimes(2));
+  });
 });
 
 describe('makeRequest - richieste normali', () => {

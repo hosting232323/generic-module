@@ -39,6 +39,14 @@ const createHttpClient = (config = {}) => {
   // e' configurato refreshEndpoint: senza, il comportamento resta invariato.
   let refreshing = null;
 
+  // Quando il token scade di solito ci sono piu' richieste in volo insieme
+  // (es. una vista che carica piu' endpoint in parallelo): senza questa guardia
+  // ognuna richiamerebbe expireSession per conto suo, moltiplicando alert e
+  // revoke. Si riarma da sola alla prossima richiesta con sessione fatta con
+  // un token valido, qualunque sia il modo in cui e' stato impostato
+  // (setToken del client o assegnazione diretta dello store lato app).
+  let sessionExpired = false;
+
   // Il refresh vale solo per il backend che possiede la sessione. Una chiamata
   // diretta a un altro host che risponde 401 non c'entra col nostro cookie:
   // rinnovare per quella significherebbe ruotare il token per il motivo
@@ -81,12 +89,17 @@ const createHttpClient = (config = {}) => {
   };
 
   const expireSession = (data) => {
+    if (sessionExpired)
+      return;
+    sessionExpired = true;
     revokeSession();
     setToken('');
     onSessionExpired(data);
   };
 
   const executeFetch = (url, fetchOptions, session, requestCredentials = credentials) => {
+    if (session && getToken())
+      sessionExpired = false;
     return fetch(url, { ...fetchOptions, credentials: requestCredentials }).then(response => {
       if (session && response.status === 401 && refreshEndpoint && ownsTheSession(url)) {
         const requestToken = fetchOptions.headers?.[authHeader];
