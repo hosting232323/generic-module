@@ -81,11 +81,16 @@ const emit = defineEmits([
   'update:isValid',
   'update:is-valid',
   'update:showOtherLocation',
-  'update:show-other-location'
+  'update:show-other-location',
+  'coordinates'
 ]);
 
 const COUNTRY = 'it';
-const PLACE_FIELDS = ['geometry', 'formatted_address', 'name', 'address_components'];
+const PLACE_FIELDS = ['geometry', 'formatted_address', 'name', 'address_components', 'types'];
+// Solo per questi il nome del posto va nella label: per un indirizzo Google
+// restituisce come nome la via scritta come l'ha digitata l'utente ("Vle
+// Japigia, 12"), che finirebbe ripetuta davanti a quella vera.
+const NAMED_PLACE_TYPES = ['establishment', 'point_of_interest'];
 // Scegliendo dal menu di Google il blur arriva prima di place_changed: si
 // aspetta la selezione invece di bocciare subito il testo digitato.
 const BLUR_COMMIT_MS = 300;
@@ -176,7 +181,8 @@ const buildLabel = (place) => {
 
   // Il nome serve solo per i punti di interesse: per una via ripeterebbe la via
   // stessa, che e' il difetto che aveva il vecchio componente.
-  const name = place.name && normalize(place.name) !== normalize(street) ? place.name : '';
+  const isNamedPlace = (place.types || []).some((type) => NAMED_PLACE_TYPES.includes(type));
+  const name = isNamedPlace && place.name && normalize(place.name) !== normalize(street) ? place.name : '';
 
   return [name, street, town, province].filter(Boolean).join(', ') || place.formatted_address || '';
 };
@@ -213,6 +219,7 @@ const onPlaceChanged = async () => {
     hasPlace = false;
     isDistanceValid.value = true;
     emitValidity(false);
+    emit('coordinates', null);
     return;
   }
 
@@ -222,6 +229,10 @@ const onPlaceChanged = async () => {
 
   const lat = location.lat();
   const lng = location.lng();
+  // La posizione esatta del posto scelto: chi la salva non deve piu'
+  // geocodificare l'indirizzo con un altro servizio, che la via magari la
+  // chiama in un altro modo.
+  emit('coordinates', { lat, lng });
 
   if (hasDistanceCheck.value) {
     const withinDistance = isWithinDistance(lat, lng);
@@ -245,6 +256,7 @@ const onInput = (value) => {
   hasPlace = false;
   isDistanceValid.value = true;
   emitValidity(false);
+  emit('coordinates', null);
   emit('update:modelValue', value || '');
 };
 
