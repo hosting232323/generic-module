@@ -9,6 +9,8 @@
       :sign-up="signUp"
       :hostname="hostname"
       :google-client-id="googleClientId"
+      :identifier-label="identifierLabel"
+      :identifier-type="identifierType"
       @change-status="changeStatus"
       @call-back="emits('callBack', $event)"
     />
@@ -76,6 +78,14 @@ defineProps({
   googleClientId: {
     type: String,
     default: ''
+  },
+  identifierLabel: {
+    type: String,
+    default: 'Email'
+  },
+  identifierType: {
+    type: String,
+    default: 'email'
   }
 });
 

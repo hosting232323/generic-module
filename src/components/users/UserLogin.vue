@@ -18,9 +18,9 @@
         <v-form @submit.prevent="submitLogin">
           <v-text-field
             v-model="mail"
-            label="Email"
-            type="email"
-            prepend-icon="mdi-email"
+            :label="identifierLabel"
+            :type="identifierType"
+            :prepend-icon="identifierType == 'email' ? 'mdi-email' : 'mdi-account'"
             outlined
             class="mb-2"
           />
@@ -137,6 +137,15 @@ const props = defineProps({
   googleClientId: {
     type: String,
     default: ''
+  },
+  // Chi accede con un nome utente invece che con una mail lo dichiara qui.
+  identifierLabel: {
+    type: String,
+    default: 'Email'
+  },
+  identifierType: {
+    type: String,
+    default: 'email'
   }
 });
 
